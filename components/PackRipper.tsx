@@ -19,6 +19,7 @@ import { addXP, XP_REWARDS } from "@/lib/xp";
 import { checkAchievements } from "@/lib/achievements";
 import TradingCard from "./TradingCard";
 import ShareButton from "./ShareButton";
+import { ViralNudge } from "./ViralTeasers";
 
 const CONDITION_LABEL: Record<Condition, string> = {
   mint: "Mint",
@@ -304,6 +305,7 @@ export default function PackRipper({
                 <p className="font-mono text-sm text-emerald-400">
                   ✓ Saved to your binder
                 </p>
+                <ViralNudge />
                 <div className="flex flex-wrap items-center justify-center gap-3">
                   <ShareButton
                     label="Share pull"

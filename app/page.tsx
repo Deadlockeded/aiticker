@@ -1,6 +1,7 @@
 import Link from "next/link";
 import CardGrid from "@/components/CardGrid";
 import TrendingStrip from "@/components/TrendingStrip";
+import { HomeTeasers } from "@/components/ViralTeasers";
 import { getAllCards, getRank } from "@/lib/cards";
 import {
   formatMove,
@@ -73,6 +74,7 @@ export default function Home() {
         </dl>
       </header>
 
+      <HomeTeasers />
       <TrendingStrip cards={cards} />
       <CardGrid cards={cards} ranks={ranks} />
     </main>

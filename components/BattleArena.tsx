@@ -21,6 +21,7 @@ import { checkAchievements } from "@/lib/achievements";
 import TradingCard from "./TradingCard";
 import CardArt from "./CardArt";
 import ShareButton from "./ShareButton";
+import { ViralNudge } from "./ViralTeasers";
 
 type Phase = "pick" | "fight" | "done";
 
@@ -243,6 +244,7 @@ export default function BattleArena({
                 >
                   Change card
                 </button>
+                <ViralNudge />
                 <ShareButton
                   label="Share result"
                   text={
