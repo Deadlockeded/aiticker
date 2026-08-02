@@ -1,5 +1,6 @@
 import type { Rarity } from "@/lib/types";
 import type { MarketCard } from "@/lib/cards";
+import { formatMove, formatTicks, getCurrentPrice, getDailyMove } from "@/lib/market";
 import CardArt from "./CardArt";
 
 /**
@@ -94,6 +95,8 @@ export default function TradingCard({
 }) {
   const r = RARITY[card.rarity];
   const hero = size === "hero";
+  const price = getCurrentPrice(card);
+  const move = getDailyMove(card);
 
   return (
     <div
@@ -125,6 +128,20 @@ export default function TradingCard({
               }`}
             >
               #{rank}
+            </span>
+            <span
+              className={`mt-1.5 font-mono font-semibold text-white/80 ${
+                hero ? "text-sm" : "text-[9px]"
+              }`}
+            >
+              {formatTicks(price)}
+            </span>
+            <span
+              className={`font-mono ${move >= 0 ? "text-emerald-400" : "text-red-400"} ${
+                hero ? "text-xs" : "text-[8px]"
+              }`}
+            >
+              {formatMove(move)}
             </span>
           </div>
           <span
