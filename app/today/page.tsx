@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import TodayView from "@/components/TodayView";
 import { getAllCards, getRank } from "@/lib/cards";
 
-export const metadata: Metadata = { title: "Today · AI Index" };
+export const metadata: Metadata = { title: "Today · AI Ticker" };
 
 export default function TodayPage() {
   const cards = getAllCards();

@@ -162,7 +162,7 @@ export async function GET(
               color: "rgba(255,255,255,0.5)",
             }}
           >
-            AI INDEX · #{card.serial}/{card.editionSize} · prices simulated
+            AI TICKER · #{card.serial}/{card.editionSize} · prices simulated
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Leaderboard from "@/components/Leaderboard";
 import { getAllCards } from "@/lib/cards";
 
-export const metadata: Metadata = { title: "Leaderboard · AI Index" };
+export const metadata: Metadata = { title: "Leaderboard · AI Ticker" };
 
 export default function LeaderboardPage() {
   return (

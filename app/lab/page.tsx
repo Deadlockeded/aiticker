@@ -11,7 +11,7 @@ export async function generateMetadata({
   searchParams: Search;
 }): Promise<Metadata> {
   const { ids, name } = await searchParams;
-  if (!ids) return { title: "Draft your lab · AI Index" };
+  if (!ids) return { title: "Draft your lab · AI Ticker" };
 
   const cards = getAllCards();
   const members = ids
@@ -20,7 +20,7 @@ export async function generateMetadata({
     .filter(Boolean) as ReturnType<typeof getAllCards>;
   const { teamRating } = scoreLab(members);
   const labName = name || "My Lab";
-  const title = `${labName} · team ${teamRating} · AI Index`;
+  const title = `${labName} · team ${teamRating} · AI Ticker`;
   const og = `/api/og/lab?ids=${ids}&name=${encodeURIComponent(labName)}`;
   return {
     title,

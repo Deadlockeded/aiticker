@@ -25,7 +25,7 @@ export default function Home() {
             Series 1
           </p>
           <h1 className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-            The AI Index
+            AI Ticker
           </h1>
           <p className="mt-3 text-[15px] leading-relaxed text-white/55">
             Collect the people building the future. {cards.length} cards,

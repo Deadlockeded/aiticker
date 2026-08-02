@@ -4,7 +4,7 @@ import TradeIn from "@/components/TradeIn";
 import AchievementWall from "@/components/AchievementWall";
 import { getAllCards, getRank } from "@/lib/cards";
 
-export const metadata: Metadata = { title: "Binder · AI Index" };
+export const metadata: Metadata = { title: "Binder · AI Ticker" };
 
 export default function BinderPage() {
   const cards = getAllCards();

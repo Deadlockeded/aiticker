@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import TierBoard from "@/components/TierBoard";
 import { getAllCards } from "@/lib/cards";
 
-const title = "Tier list maker · AI Index";
+const title = "Tier list maker · AI Ticker";
 const description = "Rank the labs, the founders, or the full chaos. Export and start arguments.";
 
 export const metadata: Metadata = {

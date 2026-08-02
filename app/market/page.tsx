@@ -3,7 +3,7 @@ import MarketTable, { MoverCard } from "@/components/MarketTable";
 import { getAllCards, getRank } from "@/lib/cards";
 import { getMovers } from "@/lib/market";
 
-export const metadata: Metadata = { title: "Market · AI Index" };
+export const metadata: Metadata = { title: "Market · AI Ticker" };
 
 export default function MarketPage() {
   const cards = getAllCards();

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import PackRipper from "@/components/PackRipper";
 import { getAllCards, getRank } from "@/lib/cards";
 
-export const metadata: Metadata = { title: "Packs · AI Index" };
+export const metadata: Metadata = { title: "Packs · AI Ticker" };
 
 export default function PacksPage() {
   const cards = getAllCards();

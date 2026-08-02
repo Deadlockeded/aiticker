@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://aiticker.xyz"),
-  title: "AI Index",
+  title: "AI Ticker",
   description:
     "Collectible trading cards for the companies and engineers shaping AI.",
 };

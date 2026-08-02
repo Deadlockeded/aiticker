@@ -96,7 +96,7 @@ function PackGraphic({
             </div>
           </div>
           <span className="bg-gradient-to-r from-cyan-300 via-white to-fuchsia-300 bg-clip-text text-2xl font-black uppercase tracking-tight text-transparent">
-            AI Index
+            AI Ticker
           </span>
           <span className="font-mono text-[10px] uppercase tracking-[0.35em] text-white/50">
             Series 1 · 3 cards
@@ -311,7 +311,7 @@ export default function PackRipper({
                     label="Share pull"
                     text={`I just pulled ${pulls
                       .map((c) => `${c.name} (${c.rarity.toUpperCase()})`)
-                      .join(", ")} on AI Index 🃏`}
+                      .join(", ")} on AI Ticker 🃏`}
                     url={typeof window !== "undefined" ? `${window.location.origin}/packs` : "/packs"}
                   />
                   {packsLeft > 0 && (

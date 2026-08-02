@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import GuessGame from "@/components/GuessGame";
 import { getAllCards, getRank } from "@/lib/cards";
 
-const title = "Tickerdle · AI Index";
+const title = "Tickerdle · AI Ticker";
 const description = "Guess the AI figure of the day in 6 tries. New puzzle at midnight UTC.";
 
 export const metadata: Metadata = {

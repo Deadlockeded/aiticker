@@ -24,8 +24,8 @@ export async function generateMetadata({
   params: Promise<{ id: string }>;
 }) {
   const card = getCard((await params).id);
-  if (!card) return { title: "AI Index" };
-  const title = `${card.name} · AI Index`;
+  if (!card) return { title: "AI Ticker" };
+  const title = `${card.name} · AI Ticker`;
   const description = `${card.rarity.toUpperCase()} · rating ${card.rating} · ${card.tagline}`;
   const ogImage = `/api/og/${card.id}`;
   return {

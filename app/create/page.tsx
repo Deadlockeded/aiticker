@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import CreateCardStudio from "@/components/CreateCardStudio";
 
-const title = "Make your own card · AI Index";
+const title = "Make your own card · AI Ticker";
 const description =
   "Get rated by The Algorithm and mint yourself into the Community Series. Your photo never leaves your device.";
 

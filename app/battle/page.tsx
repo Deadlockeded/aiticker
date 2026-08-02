@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import BattleArena from "@/components/BattleArena";
 import { getAllCards, getRank } from "@/lib/cards";
 
-export const metadata: Metadata = { title: "Battle · AI Index" };
+export const metadata: Metadata = { title: "Battle · AI Ticker" };
 
 export default function BattlePage() {
   const cards = getAllCards();

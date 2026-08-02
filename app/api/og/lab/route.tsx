@@ -32,7 +32,7 @@ export async function GET(req: Request) {
         }}
       >
         <div style={{ display: "flex", fontSize: 26, letterSpacing: 8, color: "#67e8f9", textTransform: "uppercase" }}>
-          AI Index · Drafted Lab
+          AI Ticker · Drafted Lab
         </div>
         <div style={{ display: "flex", fontSize: 68, fontWeight: 800, marginTop: 10 }}>
           {name}
