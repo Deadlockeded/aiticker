@@ -19,9 +19,10 @@ export const PACKS_PER_DAY = 3;
 export const CARDS_PER_PACK = 3;
 
 /** Notify same-tab subscribers (the storage event only fires cross-tab). */
-function notify() {
+export function notifyStore() {
   window.dispatchEvent(new Event(STORE_EVENT));
 }
+const notify = notifyStore;
 
 /** Subscribe/snapshot pair for useSyncExternalStore. */
 export function subscribeStore(cb: () => void): () => void {

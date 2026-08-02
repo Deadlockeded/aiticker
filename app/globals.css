@@ -216,6 +216,46 @@ body {
   }
 }
 
+/* ---- Battle mode ---- */
+
+@keyframes hit-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-7px) rotate(-1.5deg);
+  }
+  40% {
+    transform: translateX(6px) rotate(1deg);
+  }
+  60% {
+    transform: translateX(-4px);
+  }
+  80% {
+    transform: translateX(3px);
+  }
+}
+
+.hit-shake {
+  animation: hit-shake 0.45s ease-out;
+}
+
+@keyframes winner-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0);
+  }
+  50% {
+    box-shadow: 0 0 32px -4px rgba(52, 211, 153, 0.6);
+  }
+}
+
+.winner-pulse {
+  animation: winner-pulse 1s ease-in-out 2;
+  border-radius: 12px;
+}
+
 .confetti-piece {
   position: fixed;
   top: 0;
