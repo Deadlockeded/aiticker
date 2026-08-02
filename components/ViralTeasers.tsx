@@ -45,12 +45,26 @@ export function HomeTeasers() {
         className="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.03] p-4 transition-colors hover:border-cyan-400/40"
       >
         <div>
-          <p className="font-semibold text-white">Make your own card</p>
+          <p className="font-semibold text-white">Get rated</p>
           <p className="mt-0.5 text-xs text-white/45">
-            Face The Algorithm. Join the Community Series.
+            The Algorithm scores your public footprint.
           </p>
         </div>
         <span className="text-2xl">🪪</span>
+      </Link>
+      <Link
+        href="/vs?b=card:andrej-karpathy"
+        className="flex items-center justify-between rounded-xl border border-amber-400/25 bg-amber-400/[0.04] p-4 transition-colors hover:border-amber-400/50 sm:col-span-2"
+      >
+        <div>
+          <p className="font-semibold text-white">
+            Think you can beat the index?
+          </p>
+          <p className="mt-0.5 text-xs text-white/45">
+            Your GitHub vs Karpathy&apos;s card. Best of four stats. ⚡
+          </p>
+        </div>
+        <span className="text-2xl">⚡</span>
       </Link>
     </section>
   );

@@ -10,19 +10,20 @@ const PRIMARY = [
   { href: "/market", label: "Market" },
   { href: "/packs", label: "Packs" },
   { href: "/create", label: "Create" },
+  { href: "/vs", label: "Versus" },
   { href: "/guess", label: "Guess" },
-  { href: "/battle", label: "Battle" },
   { href: "/binder", label: "Binder" },
 ];
 
 const MORE = [
+  { href: "/battle", label: "Battle" },
   { href: "/lab", label: "Lab" },
   { href: "/today", label: "Today" },
   { href: "/tiers", label: "Tiers" },
   { href: "/leaderboard", label: "Ranks" },
 ];
 
-const MOBILE_TABS = ["/", "/packs", "/create", "/guess", "/binder"];
+const MOBILE_TABS = ["/", "/packs", "/create", "/vs", "/binder"];
 
 function isActive(href: string, pathname: string): boolean {
   return href === "/"
