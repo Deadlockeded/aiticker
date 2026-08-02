@@ -84,6 +84,7 @@ export default function TradingCard({
   size = "grid",
   community = false,
   communityStats,
+  stamp,
 }: {
   card: MarketCard;
   rank: number;
@@ -91,6 +92,8 @@ export default function TradingCard({
   /** Community Series (make-your-own) framing: ∞ serial, no market row. */
   community?: boolean;
   communityStats?: { label: string; value: number }[];
+  /** Rubber-stamp certification overlay (community cards). */
+  stamp?: string;
 }) {
   const r = RARITY[card.rarity];
   const hero = size === "hero";
@@ -177,6 +180,16 @@ export default function TradingCard({
           </>
         )}
         <HotBadge cardId={card.id} />
+
+        {stamp && (
+          <span
+            className={`pointer-events-none absolute left-1/2 top-[62%] z-10 -translate-x-1/2 rotate-[-12deg] whitespace-nowrap rounded border-double border-red-500/75 px-2 py-0.5 font-mono font-black uppercase tracking-widest text-red-400 opacity-90 mix-blend-screen [border-width:4px] [text-shadow:0_0_2px_rgba(239,68,68,0.6),1px_1px_0_rgba(0,0,0,0.4)] ${
+              hero ? "text-xs" : "text-[8px]"
+            }`}
+          >
+            {stamp}
+          </span>
+        )}
 
         {/* engineer photos need a bottom scrim for the info block edge */}
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-black/50 to-transparent" />

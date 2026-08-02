@@ -34,6 +34,8 @@ export interface CommunityCard {
   handle?: string;
   /** The Algorithm's Verdict (scored mode) — printed on the card. */
   verdict?: string;
+  /** Absurd certification stamp (see lib/lines.ts STAMPS). */
+  stamp?: string;
 }
 
 function nameHash(name: string): number {

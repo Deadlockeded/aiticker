@@ -22,6 +22,7 @@ import {
   type CommunitySliders,
 } from "@/lib/create";
 import { getScoredProfile, ScoreError, type ScoredProfile } from "@/lib/score";
+import { pickStamp } from "@/lib/lines";
 import ShareButton from "./ShareButton";
 import TradingCard from "./TradingCard";
 
@@ -180,6 +181,23 @@ async function exportPng(card: CommunityCard): Promise<void> {
   ctx.fillStyle = accent;
   ctx.fillText(label, artX + artW - lw - 39, artY + 54);
 
+  // certification stamp — must survive export
+  if (card.stamp) {
+    ctx.save();
+    ctx.translate(W / 2, artY + artH * 0.66);
+    ctx.rotate((-12 * Math.PI) / 180);
+    ctx.font = "900 34px ui-monospace, monospace";
+    const sw = ctx.measureText(card.stamp).width;
+    ctx.strokeStyle = "rgba(239,68,68,0.8)";
+    ctx.lineWidth = 5;
+    ctx.strokeRect(-sw / 2 - 18, -34, sw + 36, 58);
+    ctx.fillStyle = "rgba(248,113,113,0.92)";
+    ctx.textAlign = "center";
+    ctx.fillText(card.stamp, 0, 8);
+    ctx.restore();
+    ctx.textAlign = "left";
+  }
+
   // name / handle / title
   let y = artY + artH + 78;
   ctx.fillStyle = "#fff";
@@ -332,6 +350,7 @@ export default function CreateCardStudio() {
         scored: true,
         handle: profile.handle,
         verdict: profile.verdict,
+        stamp: pickStamp({ stats: profile.stats, scored: true }),
       };
       saveCommunityCard(card);
       setLastProfile(profile);
@@ -360,6 +379,7 @@ export default function CreateCardStudio() {
       rarity: rollCommunityRarity(),
       createdAt: new Date().toISOString(),
       scored: false,
+      stamp: pickStamp({ stats: sliders, scored: false }),
     });
     setRerollsLeft(getRerollsLeft());
     setEditing(false);
@@ -368,7 +388,12 @@ export default function CreateCardStudio() {
   const reroll = () => {
     if (!saved || getRerollsLeft() <= 0) return;
     setRerollsLeft(consumeReroll());
-    saveCommunityCard({ ...saved, rarity: rollCommunityRarity() });
+    // rarity AND stamp re-roll on the same 3/day budget — hunt responsibly
+    saveCommunityCard({
+      ...saved,
+      rarity: rollCommunityRarity(),
+      stamp: pickStamp({ stats: saved.sliders, scored: saved.scored ?? false }),
+    });
   };
 
   // ---------------- result view ----------------
@@ -388,6 +413,7 @@ export default function CreateCardStudio() {
               label: s.label,
               value: saved.sliders[s.key],
             }))}
+            stamp={saved.stamp}
           />
         </div>
         <div className="flex flex-col gap-4">
@@ -401,6 +427,11 @@ export default function CreateCardStudio() {
               <span className="tnum">{saved.rating}</span> OVR ·{" "}
               <span className="capitalize">{saved.rarity}</span>
             </h2>
+            {saved.stamp && (
+              <p className="mt-2 inline-block rotate-[-3deg] rounded border-2 border-red-500/60 px-2 py-0.5 font-mono text-[11px] font-black uppercase tracking-widest text-red-400">
+                {saved.stamp}
+              </p>
+            )}
             {saved.verdict && (
               <p className="mt-2 text-base italic text-white/70">
                 “{saved.verdict}”
