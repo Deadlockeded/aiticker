@@ -31,12 +31,16 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col pb-14 md:pb-0">
         <Nav />
         <Toaster />
         {children}
         <footer className="space-y-1.5 px-4 py-6 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white/25">
-          <p>Prices are simulated. Series 1 · aiticker.xyz</p>
+          <p>
+            aiticker is a fan-made collectible game. Simulated stats, no real
+            money, no trading.
+          </p>
+          <p>Series 1 · aiticker.xyz</p>
           <p>
             Portraits via{" "}
             <a

@@ -27,4 +27,12 @@ Data flow: `data/cards.json` (seed) → `lib/cards.ts` enriches each card at mod
 - `app/api/og/[id]/route.tsx` — edge route rendering 1200×630 share images via `next/og`. Satori's default font lacks the ₮ glyph — spell out "TICKS" there.
 - Pages: `/` grid (+ hero CTA), `/market` (movers + sortable table), `/cards/[id]` (SSG detail + SVG price chart), `/packs`, `/binder`, `/leaderboard` (fake rivals + real binder value).
 
-Tailwind v4 note: there is no tailwind.config — theme tokens are declared in `app/globals.css` via `@theme inline`.
+Fun layer (game features — a game, not a market; never add buy/sell/invest language or real-money anything):
+
+- Card kinds now include `moment` and `rivalry` (custom art frames in TradingCard; RivalryArt is the tap-to-flip client piece). `scripts/seed.ts` regenerates the base roster; moments/rivalries were appended by one-off scripts.
+- `lib/daily.ts` — ALL date-driven picks (daily card, prediction, hot cards) hash the UTC day. Date-dependent UI must render client-side only (post-mount / `useSyncExternalStore` with a null server snapshot) because pages are SSG'd; never bake a date into server HTML.
+- `lib/xp.ts`, `lib/achievements.ts`, `lib/battle.ts`, `lib/lab.ts` — all state is localStorage keyed `ai-index:*:v1`, synced across components via the shared store event in `lib/binder.ts` (`notifyStore`/`subscribeStore`). New localStorage features must use that pattern — the repo's lint config rejects setState-in-effect hydration reads.
+- Pack pulls roll a per-copy condition (`rollCondition` in lib/binder.ts); binder entries without `conditions` predate grading and read as Played.
+- `/battle`, `/lab`, `/today` pages; `/api/og/lab` renders shareable lineups.
+
+Tailwind v4 note: there is no tailwind.config — theme tokens are declared in `app/globals.css` via `@theme inline`. Design language: near-black neutrals, single cyan accent, sentence-case headers, `tnum` class for tabular numerals — keep new UI inside this system.

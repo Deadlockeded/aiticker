@@ -1,5 +1,6 @@
 import Link from "next/link";
 import CardGrid from "@/components/CardGrid";
+import TrendingStrip from "@/components/TrendingStrip";
 import { getAllCards, getRank } from "@/lib/cards";
 import {
   formatMove,
@@ -29,7 +30,7 @@ export default function Home() {
             Collect the people building the future. {cards.length} cards,
             simulated prices, free daily packs.
           </p>
-          <div className="mt-5 flex items-center gap-3">
+          <div className="mt-5 flex flex-wrap items-center gap-3">
             <Link
               href="/packs"
               className="rounded-lg bg-cyan-400 px-5 py-2.5 text-sm font-semibold text-black transition-colors hover:bg-cyan-300"
@@ -37,10 +38,16 @@ export default function Home() {
               Rip a pack
             </Link>
             <Link
-              href="/market"
+              href="/battle"
               className="rounded-lg border border-white/15 px-5 py-2.5 text-sm font-semibold text-white/80 transition-colors hover:bg-white/5"
             >
-              Browse market
+              ⚔️ Battle now
+            </Link>
+            <Link
+              href="/today"
+              className="rounded-lg border border-white/15 px-5 py-2.5 text-sm font-semibold text-white/80 transition-colors hover:bg-white/5"
+            >
+              Card of the day
             </Link>
           </div>
         </div>
@@ -66,6 +73,7 @@ export default function Home() {
         </dl>
       </header>
 
+      <TrendingStrip cards={cards} />
       <CardGrid cards={cards} ranks={ranks} />
     </main>
   );
