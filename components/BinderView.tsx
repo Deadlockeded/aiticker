@@ -5,7 +5,6 @@ import Link from "next/link";
 import type { MarketCard } from "@/lib/cards";
 import type { Rarity } from "@/lib/types";
 import {
-  conditionsOf,
   getBinderSnapshot,
   parseBinder,
   subscribeStore,
@@ -151,40 +150,14 @@ export default function BinderView({
         {cards.map((card) => {
           const entry = binder[card.id];
           if (!entry) return <Silhouette key={card.id} card={card} />;
-          const conditions = conditionsOf(entry);
           return (
             <Link key={card.id} href={`/cards/${card.id}`} className="relative">
               <TradingCard card={card} rank={ranks[card.id]} />
-              {conditions.mint > 0 && (
-                <span
-                  className="pointer-events-none absolute right-0 top-0 z-10 h-8 w-8 overflow-hidden rounded-tr-xl"
-                  title={`${conditions.mint} Mint`}
-                >
-                  <span className="absolute -right-4 -top-4 h-8 w-8 rotate-45 bg-gradient-to-b from-amber-200 to-amber-500 shadow-[0_0_10px_rgba(251,191,36,0.6)]" />
-                </span>
-              )}
               {entry.copies > 1 && (
                 <span className="absolute -left-1.5 -top-1.5 z-10 rounded-full border border-white/20 bg-zinc-950 px-2 py-0.5 font-mono text-xs font-bold text-white shadow-lg">
                   ×{entry.copies}
                 </span>
               )}
-              <span className="absolute inset-x-2 bottom-1.5 z-10 flex justify-center gap-1 font-mono text-[8px] uppercase tracking-wider">
-                {conditions.mint > 0 && (
-                  <span className="rounded bg-amber-400/20 px-1 text-amber-300">
-                    M×{conditions.mint}
-                  </span>
-                )}
-                {conditions.nearMint > 0 && (
-                  <span className="rounded bg-white/10 px-1 text-white/70">
-                    NM×{conditions.nearMint}
-                  </span>
-                )}
-                {conditions.played > 0 && (
-                  <span className="rounded bg-white/5 px-1 text-white/40">
-                    P×{conditions.played}
-                  </span>
-                )}
-              </span>
             </Link>
           );
         })}

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { COMMUNITY_STATS, computeCommunityRating, toMarketCard } from "@/lib/create";
+import { computeCommunityRating, toMarketCard } from "@/lib/create";
 import { getScoredProfile, ScoreError, type ScoredProfile } from "@/lib/score";
 import { compatibility, shipIcon, shipVerdict } from "@/lib/shipmeter";
 import ShareButton from "./ShareButton";

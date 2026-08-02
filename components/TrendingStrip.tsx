@@ -47,7 +47,7 @@ export default function TrendingStrip({ cards }: { cards: MarketCard[] }) {
           </Link>
         ))}
         <span className="ml-auto hidden font-mono text-[10px] text-white/30 sm:block">
-          rotates daily · same for everyone
+          +3 in Arena today · rotates daily
         </span>
       </div>
     </section>

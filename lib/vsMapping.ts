@@ -112,6 +112,42 @@ export function resolveVs(a: VsSide, b: VsSide, chaos = false): VsResult {
   return { rounds, aWins, bWins, winner };
 }
 
+/**
+ * Arena resolution: best-of-3 rounds over 3 of the 4 axes, chosen
+ * deterministically from the pairing hash (same matchup, same axes — the
+ * result is argue-about-able). `chaos` (random-opponent mode only) adds
+ * seeded upsets on top.
+ */
+export function resolveArena(a: VsSide, b: VsSide, chaos = false): VsResult {
+  const pairSeed = hash(`${a.label}|${b.label}`);
+  const axes = [...AXES]
+    .map((axis, i) => ({ axis, sort: hash(`${pairSeed}:${i}`) }))
+    .sort((x, y) => x.sort - y.sort)
+    .slice(0, 3)
+    .map((x) => x.axis);
+  const rand = mulberry32(
+    hash(`${a.label}|${b.label}|${new Date().toISOString().slice(0, 10)}`),
+  );
+  const rounds: VsRound[] = axes.map(({ key, label }) => {
+    const av = a.stats[key];
+    const bv = b.stats[key];
+    let winner: "a" | "b" | "tie" = av === bv ? "tie" : av > bv ? "a" : "b";
+    let upset = false;
+    if (chaos && winner !== "tie" && rand() < 0.18) {
+      winner = winner === "a" ? "b" : "a";
+      upset = true;
+    }
+    return { key, label, a: av, b: bv, winner, upset };
+  });
+  const aWins = rounds.filter((r) => r.winner === "a").length;
+  const bWins = rounds.filter((r) => r.winner === "b").length;
+  const winner =
+    aWins !== bWins ? (aWins > bWins ? "a" : "b")
+    : a.rating !== b.rating ? (a.rating > b.rating ? "a" : "b")
+    : "tie";
+  return { rounds, aWins, bWins, winner };
+}
+
 /** One-line auto-commentary from the stat gaps. */
 export function commentary(result: VsResult, winnerLabel: string): string {
   const side: "a" | "b" = result.winner === "a" ? "a" : "b";

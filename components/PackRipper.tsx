@@ -11,21 +11,13 @@ import {
   msUntilReset,
   packsLeftFrom,
   PACKS_PER_DAY,
-  rollCondition,
   subscribeStore,
-  type Condition,
 } from "@/lib/binder";
 import { addXP, XP_REWARDS } from "@/lib/xp";
 import { checkAchievements } from "@/lib/achievements";
 import TradingCard from "./TradingCard";
 import ShareButton from "./ShareButton";
 import { ViralNudge } from "./ViralTeasers";
-
-const CONDITION_LABEL: Record<Condition, string> = {
-  mint: "Mint",
-  nearMint: "Near Mint",
-  played: "Played",
-};
 
 type Phase = "idle" | "ripping" | "reveal";
 
@@ -141,7 +133,6 @@ export default function PackRipper({
   const [phase, setPhase] = useState<Phase>("idle");
   const [tearing, setTearing] = useState(false);
   const [pulls, setPulls] = useState<MarketCard[]>([]);
-  const [conditions, setConditions] = useState<Condition[]>([]);
   const [flipped, setFlipped] = useState<boolean[]>([]);
   const [shimmering, setShimmering] = useState<number | null>(null);
   const [glowKey, setGlowKey] = useState(0);
@@ -183,14 +174,9 @@ export default function PackRipper({
     if (left === null) return;
 
     const pulled = pullPack(cards);
-    const graded = pulled.map(() => rollCondition());
     setPulls(pulled);
-    setConditions(graded);
     setFlipped(pulled.map(() => false));
-    addPulls(
-      pulled.map((c) => c.id),
-      graded,
-    );
+    addPulls(pulled.map((c) => c.id));
     addXP(XP_REWARDS.packPull);
     checkAchievements(cards);
 
@@ -272,24 +258,6 @@ export default function PackRipper({
                   <CardBack />
                   <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)]">
                     <TradingCard card={card} rank={ranks[card.id]} />
-                    {conditions[i] === "mint" && (
-                      <span className="pointer-events-none absolute right-0 top-0 z-10 h-8 w-8 overflow-hidden rounded-tr-xl">
-                        <span className="absolute -right-4 -top-4 h-8 w-8 rotate-45 bg-gradient-to-b from-amber-200 to-amber-500 shadow-[0_0_10px_rgba(251,191,36,0.7)]" />
-                      </span>
-                    )}
-                    {flipped[i] && (
-                      <span
-                        className={`absolute inset-x-0 -bottom-3 z-10 mx-auto w-fit rounded-full border px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider backdrop-blur ${
-                          conditions[i] === "mint"
-                            ? "border-amber-400/50 bg-amber-400/15 text-amber-300"
-                            : conditions[i] === "nearMint"
-                              ? "border-white/20 bg-black/60 text-white/80"
-                              : "border-white/10 bg-black/60 text-white/40"
-                        }`}
-                      >
-                        {CONDITION_LABEL[conditions[i]]}
-                      </span>
-                    )}
                     {shimmering === i && (
                       <div className="foil-sweep pointer-events-none absolute inset-0 overflow-hidden rounded-xl" />
                     )}

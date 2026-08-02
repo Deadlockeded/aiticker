@@ -192,7 +192,7 @@ export default function RoastView() {
             />
           </div>
           <p className="mt-4 text-center font-mono text-[11px] text-white/40">
-            <Link href="/vs" className="text-cyan-300 hover:underline">
+            <Link href="/arena" className="text-cyan-300 hover:underline">
               Avenge yourself →
             </Link>{" "}
             ·{" "}

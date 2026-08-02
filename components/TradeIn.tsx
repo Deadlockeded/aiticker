@@ -7,7 +7,6 @@ import {
   burnCopies,
   getBinderSnapshot,
   parseBinder,
-  rollCondition,
   subscribeStore,
 } from "@/lib/binder";
 import { pullRarePlus } from "@/lib/packs";
@@ -58,7 +57,7 @@ export default function TradeIn({
   const burn = () => {
     const prize = pullRarePlus(cards);
     burnCopies(selected);
-    addPulls([prize.id], [rollCondition()]);
+    addPulls([prize.id]);
     checkAchievements(cards);
     setReward(prize);
     setFlipped(false);

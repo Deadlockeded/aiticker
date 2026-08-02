@@ -88,42 +88,6 @@ export const ROAST_LINES: { when: (f: RoastFacts) => boolean; line: (f: RoastFac
   { when: () => true, line: () => `The READMEs promise a roadmap. The roadmap promises nothing.` },
 ];
 
-// ---------------------------------------------------------------- Horoscopes
-
-/** {name} is replaced with the card's name. ~30 lines, date-hash picked. */
-export const HOROSCOPES: string[] = [
-  "{name}'s card is in retrograde. Avoid refactors.",
-  "Mercury favors {name}. Ship the thing.",
-  "{name}'s card should not check the market today. (It will.)",
-  "A benchmark will flatter {name} today. Do not trust it.",
-  "{name} enters its training-run era. Loss curves look promising.",
-  "The GPUs align for {name}. Spend accordingly.",
-  "{name} should touch grass; the card can hold the position.",
-  "An old fork returns to {name}'s life. Let it go.",
-  "{name}'s vibes are bullish. The fundamentals are vibes.",
-  "Today {name} learns something from a junior engineer. Growth.",
-  "{name} should decline all meetings. The card concurs.",
-  "A mysterious CUDA error follows {name}. It was the driver all along.",
-  "{name}'s card whispers: the demo will work this time. It's lying.",
-  "Venus enters {name}'s context window. Romance or RAG, unclear.",
-  "{name} will be quoted out of context today. Screenshot everything.",
-  "The Algorithm smiles on {name}. It knows something.",
-  "{name} should ship before Mercury hears about it.",
-  "A rival's launch rattles {name}'s card. Breathe. Fork nothing.",
-  "{name}'s lucky number is the learning rate. Don't touch it.",
-  "Today's standup will test {name}. Cameras off is self-care.",
-  "{name} is one hotkey away from greatness or disaster. Same key.",
-  "The stars suggest {name} write docs today. The stars are optimists.",
-  "{name}'s card senses a pivot forming. Hide the roadmap.",
-  "An intern's question will haunt {name} beautifully today.",
-  "{name} should not reply to that thread. The card has spoken.",
-  "Compute credits flow toward {name}. Spend them on something weird.",
-  "{name}'s aura today: 4090 with a slight coil whine.",
-  "A rejected paper finds new life in {name}'s orbit. Resubmit.",
-  "{name} will win an argument nobody witnessed. Count it.",
-  "Saturn audits {name}'s dependencies today. Pin your versions.",
-];
-
 // ---------------------------------------------------------------- Stamps
 
 export interface StampCtx {

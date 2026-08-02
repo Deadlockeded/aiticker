@@ -47,13 +47,14 @@ export function HomeTeasers() {
         <div>
           <p className="font-semibold text-white">Get rated</p>
           <p className="mt-0.5 text-xs text-white/45">
-            The Algorithm scores your public footprint.
+            The Algorithm scores your public footprint.{" "}
+            <span className="text-cyan-300">Get roasted →</span>
           </p>
         </div>
         <span className="text-2xl">🪪</span>
       </Link>
       <Link
-        href="/vs?b=card:andrej-karpathy"
+        href="/arena?vs=andrej-karpathy"
         className="flex items-center justify-between rounded-xl border border-amber-400/25 bg-amber-400/[0.04] p-4 transition-colors hover:border-amber-400/50 sm:col-span-2"
       >
         <div>
@@ -61,7 +62,7 @@ export function HomeTeasers() {
             Think you can beat the index?
           </p>
           <p className="mt-0.5 text-xs text-white/45">
-            Your GitHub vs Karpathy&apos;s card. Best of four stats. ⚡
+            Fight Karpathy&apos;s card with one of yours. Best of three. ⚔️
           </p>
         </div>
         <span className="text-2xl">⚡</span>

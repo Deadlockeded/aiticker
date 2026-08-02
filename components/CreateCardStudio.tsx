@@ -465,7 +465,7 @@ export default function CreateCardStudio() {
             </button>
             <ShareButton label="Copy share text" text={shareText(saved)} url="" className="text-sm" />
             <Link
-              href="/vs"
+              href="/arena"
               className="rounded-lg border border-cyan-400/40 px-5 py-2.5 text-sm font-semibold text-cyan-300 transition-colors hover:bg-cyan-400/10"
             >
               Challenge someone →

@@ -1,6 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      { source: "/battle", destination: "/arena", permanent: true },
+      { source: "/vs", destination: "/arena", permanent: true },
+      { source: "/lab", destination: "/", permanent: true },
+      { source: "/today", destination: "/", permanent: true },
+    ];
+  },
   images: {
     remotePatterns: [
       // Engineer portraits (freely licensed, via Wikimedia Commons)

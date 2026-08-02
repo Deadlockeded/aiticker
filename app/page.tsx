@@ -28,8 +28,8 @@ export default function Home() {
             AI Ticker
           </h1>
           <p className="mt-3 text-[15px] leading-relaxed text-white/55">
-            Collect the people building the future. {cards.length} cards,
-            simulated prices, free daily packs.
+            Rip packs. Build your binder. Fight the index. {cards.length}{" "}
+            cards priced by real public signals.
           </p>
           <div className="mt-5 flex flex-wrap items-center gap-3">
             <Link
@@ -39,16 +39,10 @@ export default function Home() {
               Rip a pack
             </Link>
             <Link
-              href="/battle"
+              href="/create"
               className="rounded-lg border border-white/15 px-5 py-2.5 text-sm font-semibold text-white/80 transition-colors hover:bg-white/5"
             >
-              ⚔️ Battle now
-            </Link>
-            <Link
-              href="/today"
-              className="rounded-lg border border-white/15 px-5 py-2.5 text-sm font-semibold text-white/80 transition-colors hover:bg-white/5"
-            >
-              Card of the day
+              Get rated
             </Link>
           </div>
         </div>
