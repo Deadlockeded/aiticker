@@ -5659,5 +5659,149 @@
     "priceHistory": [],
     "flavorText": "Jensen reunited the band. Every member had already gone solo.",
     "momentDate": "Mar 2024"
+  },
+  {
+    "id": "musk-vs-altman",
+    "name": "Musk vs Altman",
+    "type": "rivalry",
+    "avatar": "⚡",
+    "image": null,
+    "tagline": "Co-founders to courtroom",
+    "rarity": "legendary",
+    "serial": "008",
+    "editionSize": 10,
+    "series": 1,
+    "metrics": {
+      "heat": 98,
+      "history": 90,
+      "pettiness": 97,
+      "stakes": 88
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 99,
+      "influence": 90,
+      "momentum": 92
+    },
+    "priceHistory": [],
+    "flavorText": "Started a lab together to save humanity. Now suing each other over who is saving it wrong.",
+    "sides": [
+      {
+        "name": "Musk",
+        "avatar": "EM"
+      },
+      {
+        "name": "Altman",
+        "avatar": "SA"
+      }
+    ]
+  },
+  {
+    "id": "google-vs-openai",
+    "name": "Google vs OpenAI",
+    "type": "rivalry",
+    "avatar": "⚡",
+    "image": null,
+    "tagline": "The empire vs the startup that read its paper",
+    "rarity": "legendary",
+    "serial": "010",
+    "editionSize": 10,
+    "series": 1,
+    "metrics": {
+      "heat": 90,
+      "history": 85,
+      "pettiness": 70,
+      "stakes": 99
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 90,
+      "influence": 99,
+      "momentum": 99
+    },
+    "priceHistory": [],
+    "flavorText": "Google wrote the transformer paper. OpenAI turned the thank-you note into a product.",
+    "sides": [
+      {
+        "name": "Google",
+        "avatar": "G"
+      },
+      {
+        "name": "OpenAI",
+        "avatar": "OA"
+      }
+    ]
+  },
+  {
+    "id": "lecun-vs-doomers",
+    "name": "LeCun vs Doomers",
+    "type": "rivalry",
+    "avatar": "⚡",
+    "image": null,
+    "tagline": "Every quote-tweet's favorite arena",
+    "rarity": "epic",
+    "serial": "020",
+    "editionSize": 25,
+    "series": 1,
+    "metrics": {
+      "heat": 85,
+      "history": 70,
+      "pettiness": 90,
+      "stakes": 60
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 83,
+      "influence": 91,
+      "momentum": 90
+    },
+    "priceHistory": [],
+    "flavorText": "Ask him about P(doom) and he will hand you P(you're wrong).",
+    "sides": [
+      {
+        "name": "LeCun",
+        "avatar": "YL"
+      },
+      {
+        "name": "Doomers",
+        "avatar": "☠️"
+      }
+    ]
+  },
+  {
+    "id": "open-vs-closed",
+    "name": "Open vs Closed",
+    "type": "rivalry",
+    "avatar": "⚡",
+    "image": null,
+    "tagline": "Weights want to be free. Or safe. Pick a side.",
+    "rarity": "epic",
+    "serial": "011",
+    "editionSize": 25,
+    "series": 1,
+    "metrics": {
+      "heat": 88,
+      "history": 80,
+      "pettiness": 75,
+      "stakes": 95
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 99,
+      "influence": 87,
+      "momentum": 85
+    },
+    "priceHistory": [],
+    "flavorText": "The only war where one side publishes its ammunition.",
+    "sides": [
+      {
+        "name": "Open",
+        "avatar": "🔓"
+      },
+      {
+        "name": "Closed",
+        "avatar": "🔒"
+      }
+    ]
   }
 ]

@@ -2,6 +2,7 @@ import type { Rarity } from "@/lib/types";
 import type { MarketCard } from "@/lib/cards";
 import { formatMove, formatTicks, getCurrentPrice, getDailyMove } from "@/lib/market";
 import CardArt from "./CardArt";
+import RivalryArt from "./RivalryArt";
 
 /**
  * All rarity-driven styling lives here. The design is marketplace-tile
@@ -118,6 +119,8 @@ export default function TradingCard({
               {card.momentDate}
             </span>
           </div>
+        ) : card.type === "rivalry" && card.sides ? (
+          <RivalryArt sides={card.sides} hero={hero} />
         ) : (
           <CardArt card={card} hero={hero} shape="tile" />
         )}
