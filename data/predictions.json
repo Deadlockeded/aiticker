@@ -1,0 +1,17 @@
+[
+  { "id": "next-ship", "question": "Which lab ships a frontier model next?", "options": ["OpenAI", "Anthropic", "Google DeepMind", "A lab nobody's watching"] },
+  { "id": "open-weights", "question": "Next open-weights release that tops the charts comes from…", "options": ["Meta", "DeepSeek", "Qwen", "Mistral"] },
+  { "id": "agi-vibes", "question": "This week's AGI discourse will be mostly about…", "options": ["Benchmarks", "Safety drama", "Compute costs", "Someone's tweet"] },
+  { "id": "gpu-news", "question": "The next big GPU headline is…", "options": ["A record cluster", "Export controls", "A new chip rival", "Shortage panic"] },
+  { "id": "talent-move", "question": "The next shock talent move lands at…", "options": ["Meta", "OpenAI", "A brand-new lab", "Academia, somehow"] },
+  { "id": "agents", "question": "Agents this quarter will…", "options": ["Actually ship", "Stay in demos", "Break something big", "Get rebranded"] },
+  { "id": "robot-video", "question": "The next viral robot video features…", "options": ["A humanoid", "A robot dog", "A kitchen fail", "CGI accusations"] },
+  { "id": "valuation", "question": "Next eye-watering valuation belongs to…", "options": ["A coding startup", "A voice startup", "A robotics startup", "Whatever Ilya's doing"] },
+  { "id": "regulation", "question": "The next AI regulation headline comes from…", "options": ["The EU", "Washington", "Beijing", "A state you didn't expect"] },
+  { "id": "benchmark", "question": "The next benchmark controversy will be about…", "options": ["Contamination", "Cherry-picking", "A leaked test set", "Vibes vs evals"] },
+  { "id": "acquisition", "question": "The next big AI acqui-hire target is…", "options": ["A coding tool", "A search startup", "A voice lab", "Your favorite repo"] },
+  { "id": "context", "question": "Context windows this year will…", "options": ["Hit 100M tokens", "Stop mattering", "Get expensive", "Stay a demo number"] },
+  { "id": "video-model", "question": "Best video model by year end ships from…", "options": ["OpenAI", "Google", "A Chinese lab", "A startup"] },
+  { "id": "doom-meter", "question": "P(doom) discourse next week trends…", "options": ["Up", "Down", "Sideways", "Muted by a product launch"] },
+  { "id": "ipo", "question": "First big AI IPO of the cycle is…", "options": ["A chip company", "A model lab", "An infra company", "Delayed again"] }
+]
