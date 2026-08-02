@@ -58,6 +58,11 @@ export interface Card {
   /** One-line flavor text under the name. */
   tagline: string;
   rarity: Rarity;
+  /** Zero-padded print number within the edition, e.g. "004". */
+  serial: string;
+  /** Total prints in this edition (from EDITION_SIZES by rarity). */
+  editionSize: number;
+  series: number;
   /** Raw metrics feeding the rating engine — shape depends on `type`. */
   metrics: CompanyMetrics | EngineerMetrics;
   stats: CardStats;

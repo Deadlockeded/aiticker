@@ -202,11 +202,11 @@ export default function TradingCard({
 
         {/* footer */}
         <div
-          className={`relative flex items-center justify-center border-t border-white/10 bg-black/40 font-mono uppercase tracking-[0.35em] text-white/30 ${
+          className={`relative flex items-center justify-center border-t border-white/10 bg-black/40 font-mono tracking-[0.2em] text-white/40 ${
             hero ? "py-2.5 text-[10px]" : "py-1.5 text-[7px]"
           }`}
         >
-          AI Index · Series 1
+          #{card.serial}/{card.editionSize} · Series {card.series}
         </div>
       </div>
     </div>

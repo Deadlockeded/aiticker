@@ -7,6 +7,9 @@
     "image": "https://www.google.com/s2/favicons?domain=openai.com&sz=128",
     "tagline": "Frontier lab behind GPT and ChatGPT",
     "rarity": "mythic",
+    "serial": "005",
+    "editionSize": 5,
+    "series": 1,
     "metrics": {
       "valuation": 300,
       "funding": 60,
@@ -29,6 +32,9 @@
     "image": "https://www.google.com/s2/favicons?domain=anthropic.com&sz=128",
     "tagline": "Safety-focused lab behind Claude",
     "rarity": "legendary",
+    "serial": "006",
+    "editionSize": 10,
+    "series": 1,
     "metrics": {
       "valuation": 183,
       "funding": 30,
@@ -51,6 +57,9 @@
     "image": "https://www.google.com/s2/favicons?domain=deepmind.google&sz=128",
     "tagline": "AlphaGo, AlphaFold and Gemini",
     "rarity": "epic",
+    "serial": "015",
+    "editionSize": 25,
+    "series": 1,
     "metrics": {
       "valuation": 250,
       "funding": 15,
@@ -73,6 +82,9 @@
     "image": "https://www.google.com/s2/favicons?domain=nvidia.com&sz=128",
     "tagline": "The silicon every model trains on",
     "rarity": "legendary",
+    "serial": "005",
+    "editionSize": 10,
+    "series": 1,
     "metrics": {
       "valuation": 4000,
       "funding": 4,
@@ -95,6 +107,9 @@
     "image": "https://www.google.com/s2/favicons?domain=ai.meta.com&sz=128",
     "tagline": "Open-weights at planetary scale with Llama",
     "rarity": "rare",
+    "serial": "026",
+    "editionSize": 100,
+    "series": 1,
     "metrics": {
       "valuation": 1500,
       "funding": 5,
@@ -117,6 +132,9 @@
     "image": "https://www.google.com/s2/favicons?domain=x.ai&sz=128",
     "tagline": "Grok and gigawatt-scale training runs",
     "rarity": "rare",
+    "serial": "026",
+    "editionSize": 100,
+    "series": 1,
     "metrics": {
       "valuation": 75,
       "funding": 12,
@@ -139,6 +157,9 @@
     "image": "https://www.google.com/s2/favicons?domain=mistral.ai&sz=128",
     "tagline": "Europe's open-weights frontier lab",
     "rarity": "common",
+    "serial": "480",
+    "editionSize": 500,
+    "series": 1,
     "metrics": {
       "valuation": 12,
       "funding": 2,
@@ -161,6 +182,9 @@
     "image": "https://www.google.com/s2/favicons?domain=huggingface.co&sz=128",
     "tagline": "The home of open-source AI",
     "rarity": "common",
+    "serial": "143",
+    "editionSize": 500,
+    "series": 1,
     "metrics": {
       "valuation": 4.5,
       "funding": 0.4,
@@ -183,6 +207,9 @@
     "image": "https://www.google.com/s2/favicons?domain=perplexity.ai&sz=128",
     "tagline": "Answer engine rethinking search",
     "rarity": "common",
+    "serial": "480",
+    "editionSize": 500,
+    "series": 1,
     "metrics": {
       "valuation": 18,
       "funding": 1,
@@ -205,6 +232,9 @@
     "image": "https://www.google.com/s2/favicons?domain=cohere.com&sz=128",
     "tagline": "Enterprise-first language models",
     "rarity": "common",
+    "serial": "046",
+    "editionSize": 500,
+    "series": 1,
     "metrics": {
       "valuation": 6.8,
       "funding": 1,
@@ -227,6 +257,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Ilya_Sutskever_and_Sam_Altman_in_TAU_%28cropped%29.jpg/330px-Ilya_Sutskever_and_Sam_Altman_in_TAU_%28cropped%29.jpg",
     "tagline": "Deep learning pioneer, co-founder of SSI",
     "rarity": "mythic",
+    "serial": "002",
+    "editionSize": 5,
+    "series": 1,
     "metrics": {
       "citations": 650000,
       "followers": 700000,
@@ -249,6 +282,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Geoffrey_Hinton_in_2026.jpg/330px-Geoffrey_Hinton_in_2026.jpg",
     "tagline": "Godfather of deep learning, Nobel laureate",
     "rarity": "mythic",
+    "serial": "001",
+    "editionSize": 5,
+    "series": 1,
     "metrics": {
       "citations": 920000,
       "followers": 900000,
@@ -271,6 +307,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Demis_Hassabis%2C_2024_Nobel_Prize_Laureate_in_Chemistry_7_%28cropped%29.jpg/330px-Demis_Hassabis%2C_2024_Nobel_Prize_Laureate_in_Chemistry_7_%28cropped%29.jpg",
     "tagline": "DeepMind founder, Nobel laureate",
     "rarity": "legendary",
+    "serial": "007",
+    "editionSize": 10,
+    "series": 1,
     "metrics": {
       "citations": 180000,
       "followers": 600000,
@@ -293,6 +332,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Andrej_Karpathy%2C_OpenAI.png/330px-Andrej_Karpathy%2C_OpenAI.png",
     "tagline": "Teacher of a generation of AI builders",
     "rarity": "epic",
+    "serial": "019",
+    "editionSize": 25,
+    "series": 1,
     "metrics": {
       "citations": 120000,
       "followers": 1300000,
@@ -315,6 +357,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Laura_Chaubard_%26_Yann_Le_Cun_-_2024_%2853814052697%29_%28cropped%29.jpg/330px-Laura_Chaubard_%26_Yann_Le_Cun_-_2024_%2853814052697%29_%28cropped%29.jpg",
     "tagline": "ConvNet inventor, Turing Award winner",
     "rarity": "legendary",
+    "serial": "006",
+    "editionSize": 10,
+    "series": 1,
     "metrics": {
       "citations": 450000,
       "followers": 1100000,
@@ -337,6 +382,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Fei-Fei_Li_at_AI_for_Good_2017.jpg/330px-Fei-Fei_Li_at_AI_for_Good_2017.jpg",
     "tagline": "ImageNet creator, spatial intelligence pioneer",
     "rarity": "epic",
+    "serial": "022",
+    "editionSize": 25,
+    "series": 1,
     "metrics": {
       "citations": 200000,
       "followers": 500000,
@@ -359,6 +407,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Andrew_Ng_at_TechCrunch_Disrupt_SF_2017.jpg/330px-Andrew_Ng_at_TechCrunch_Disrupt_SF_2017.jpg",
     "tagline": "Coursera co-founder, AI educator at scale",
     "rarity": "epic",
+    "serial": "015",
+    "editionSize": 25,
+    "series": 1,
     "metrics": {
       "citations": 180000,
       "followers": 900000,
@@ -381,6 +432,9 @@
     "image": null,
     "tagline": "RLHF architect, PPO author",
     "rarity": "rare",
+    "serial": "027",
+    "editionSize": 100,
+    "series": 1,
     "metrics": {
       "citations": 140000,
       "followers": 150000,
@@ -403,6 +457,9 @@
     "image": null,
     "tagline": "Transformer co-author, Character.AI founder",
     "rarity": "rare",
+    "serial": "018",
+    "editionSize": 100,
+    "series": 1,
     "metrics": {
       "citations": 250000,
       "followers": 80000,
@@ -425,6 +482,9 @@
     "image": null,
     "tagline": "Interpretability's founding voice",
     "rarity": "rare",
+    "serial": "054",
+    "editionSize": 100,
+    "series": 1,
     "metrics": {
       "citations": 40000,
       "followers": 250000,
