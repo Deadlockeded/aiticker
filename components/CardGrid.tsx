@@ -43,6 +43,8 @@ export default function CardGrid({
   const [sort, setSort] = useState<Sort>("rating-desc");
   const [query, setQuery] = useState("");
   const router = useRouter();
+  // null = responsive default (deck < md, grid ≥ md) rendered via CSS so
+  // the server paints the right view — no post-hydration swap, no LCP hit.
   const [view, setView] = useState<"deck" | "grid" | null>(null);
   const isMobile = useSyncExternalStore(
     () => () => {},
@@ -138,60 +140,69 @@ export default function CardGrid({
         </div>
       </div>
 
-      {visible.length > 0 && effectiveView === "deck" ? (
-        <div className="mx-auto max-w-[300px] py-4">
-          <DeckStack
-            items={visible}
-            keyOf={(c) => c.id}
-            onTap={(c) => {
-              if (consumePeekGuard()) return; // a peek-hold is not a tap
-              router.push(`/cards/${c.id}`);
-            }}
-            renderCard={(c) =>
-              owned.has(c.id) ? (
-                <TradingCard card={c} rank={ranks[c.id]} />
-              ) : c.id === spotlightId ? (
-                <div className="relative">
-                  <SpotlightChip />
-                  <TradingCard card={c} rank={ranks[c.id]} />
-                </div>
-              ) : (
-                <div className="aspect-[1/1.42]">
-                  <PeekableBack card={c} rank={ranks[c.id]} />
-                </div>
-              )
-            }
-          />
-        </div>
-      ) : visible.length === 0 ? (
+      {visible.length === 0 ? (
         <p className="py-24 text-center text-sm text-[#9AA0AC]">
           No cards match “{query}”.
         </p>
       ) : (
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
-          {visible.map((card) => (
-            <Link
-              key={card.id}
-              href={`/cards/${card.id}`}
-              onClick={(e) => {
-                if (consumePeekGuard()) e.preventDefault();
+        <>
+          <div
+            className={`mx-auto max-w-[300px] py-4 ${
+              view === null ? "md:hidden" : view === "deck" ? "" : "hidden"
+            }`}
+          >
+            <DeckStack
+              items={visible}
+              keyOf={(c) => c.id}
+              onTap={(c) => {
+                if (consumePeekGuard()) return; // a peek-hold is not a tap
+                router.push(`/cards/${c.id}`);
               }}
-            >
-              {owned.has(card.id) ? (
-                <TradingCard card={card} rank={ranks[card.id]} />
-              ) : card.id === spotlightId ? (
-                <div className="relative">
-                  <SpotlightChip />
+              renderCard={(c) =>
+                owned.has(c.id) ? (
+                  <TradingCard card={c} rank={ranks[c.id]} />
+                ) : c.id === spotlightId ? (
+                  <div className="relative">
+                    <SpotlightChip />
+                    <TradingCard card={c} rank={ranks[c.id]} />
+                  </div>
+                ) : (
+                  <div className="aspect-[1/1.42]">
+                    <PeekableBack card={c} rank={ranks[c.id]} />
+                  </div>
+                )
+              }
+            />
+          </div>
+          <div
+            className={`grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 ${
+              view === null ? "hidden md:grid" : view === "grid" ? "grid" : "hidden"
+            }`}
+          >
+            {visible.map((card) => (
+              <Link
+                key={card.id}
+                href={`/cards/${card.id}`}
+                onClick={(e) => {
+                  if (consumePeekGuard()) e.preventDefault();
+                }}
+              >
+                {owned.has(card.id) ? (
                   <TradingCard card={card} rank={ranks[card.id]} />
-                </div>
-              ) : (
-                <div className="aspect-[1/1.42]">
-                  <PeekableBack card={card} rank={ranks[card.id]} />
-                </div>
-              )}
-            </Link>
-          ))}
-        </div>
+                ) : card.id === spotlightId ? (
+                  <div className="relative">
+                    <SpotlightChip />
+                    <TradingCard card={card} rank={ranks[card.id]} />
+                  </div>
+                ) : (
+                  <div className="aspect-[1/1.42]">
+                    <PeekableBack card={card} rank={ranks[card.id]} />
+                  </div>
+                )}
+              </Link>
+            ))}
+          </div>
+        </>
       )}
     </div>
   );

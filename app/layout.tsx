@@ -44,6 +44,9 @@ export default function RootLayout({
       className={`${lora.variable} ${oswald.variable} ${archivo.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col pb-14 md:pb-0">
+        {/* card art hosts — shave DNS+TLS off the first image fetch */}
+        <link rel="preconnect" href="https://upload.wikimedia.org" />
+        <link rel="preconnect" href="https://www.google.com" />
         <Nav />
         <StorageBoot />
         <Toaster />

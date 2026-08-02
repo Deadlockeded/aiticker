@@ -22,7 +22,19 @@ export default function CoverStar({
     () => getCoverStar(cards),
     () => null,
   );
-  if (!star) return null;
+  // Zero-CLS skeleton: same frame + same card footprint while the
+  // month-hash pick resolves client-side.
+  if (!star) {
+    return (
+      <div className="paper-card paper-in p-4">
+        <p className="border-b-2 border-[#1E2430] pb-2 text-center font-mono text-[11px] font-semibold uppercase tracking-[0.3em] text-[#C23B2E]">
+          ★ Featured card ★
+        </p>
+        <div className="mt-3 aspect-[1/1.42] w-full rounded-[3px] border-2 border-[#1E2430]/20" />
+        <div className="mt-3 h-[22px]" />
+      </div>
+    );
+  }
   const price = getCurrentPrice(star);
 
   return (

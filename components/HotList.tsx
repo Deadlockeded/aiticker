@@ -18,7 +18,13 @@ function MetaWatch({ cards }: { cards: MarketCard[] }) {
     () => metaWatchLine(cards),
     () => "",
   );
-  if (!line) return null;
+  // reserve the row pre-hydration — a late-appearing line is layout shift
+  if (!line)
+    return (
+      <p className="invisible border-t border-dotted border-[#9AA0AC] px-3 py-2 text-[12px] italic">
+        &nbsp;
+      </p>
+    );
   return (
     <p className="border-t border-dotted border-[#9AA0AC] px-3 py-2 text-[12px] italic text-[#5A6070]">
       <span className="mr-1.5 font-mono text-[10px] font-semibold not-italic uppercase tracking-[0.25em] text-[#C23B2E]">

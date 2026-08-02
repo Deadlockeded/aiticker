@@ -86,7 +86,8 @@ test("gallery deck: mobile default, next advances the stack", async ({ page }) =
   await page.goto("/");
   const next = page.getByLabel("Next card").last();
   await expect(next).toBeVisible();
-  const progress = page.locator("span.tnum", { hasText: "/" }).last();
+  // "1 / 75" (spaced) — not serial numbers like "#522/1000" in the hidden grid
+  const progress = page.locator("span.tnum", { hasText: /\d+ \/ \d+/ }).last();
   const before = await progress.textContent();
   await next.click();
   await expect(progress).not.toHaveText(before ?? "");

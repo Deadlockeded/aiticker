@@ -3,6 +3,7 @@ import BinderCoach from "@/components/BinderCoach";
 import BinderPages from "@/components/BinderPages";
 import TradeIn from "@/components/TradeIn";
 import PacksLeftChip from "@/components/PacksLeftChip";
+import SessionlessNotice from "@/components/SessionlessNotice";
 import { getAllCards, getRank } from "@/lib/cards";
 
 export const metadata: Metadata = { title: "Binder · AI Ticker" };
@@ -16,6 +17,7 @@ export default async function BinderPage({ searchParams }: { searchParams: Searc
 
   return (
     <main className="mx-auto w-full max-w-5xl flex-1 px-3 py-6 sm:px-6">
+      <SessionlessNotice />
       <BinderCoach />
       <BinderPages
         cards={cards}

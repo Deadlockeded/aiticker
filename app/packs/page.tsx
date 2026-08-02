@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PackRipper from "@/components/PackRipper";
+import SessionlessNotice from "@/components/SessionlessNotice";
 import { getAllCards, getRank } from "@/lib/cards";
 
 export const metadata: Metadata = { title: "Packs · AI Ticker" };
@@ -18,6 +19,7 @@ export default function PacksPage() {
           Three cards per pack. Commons are common. Mythics are not.
         </p>
       </header>
+      <SessionlessNotice />
       <PackRipper cards={cards} ranks={ranks} />
       <p className="mt-8 text-center font-mono text-[10px] uppercase tracking-widest text-[#9AA0AC]">
         Per-card odds · artifacts 35% · commons 35.2% · rare 22% · epic 6.5%
