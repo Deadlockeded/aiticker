@@ -26,6 +26,31 @@ export interface PricePoint {
   /** ISO 8601 timestamp */
   timestamp: string;
   price: number;
+  /** Pre-pipeline backfill points; rendered faded in charts. */
+  simulated?: boolean;
+}
+
+/**
+ * Daily-fetched public signals (see scripts/sources/). All optional — any
+ * source may fail on any day, and the pipeline keeps the last known value.
+ */
+export interface CardSignals {
+  /** Wikipedia pageviews, trailing 7 days. */
+  attention7d?: number;
+  /** % change vs the prior 7 days. */
+  attentionDelta?: number;
+  /** OpenAlex. */
+  citations?: number;
+  hIndex?: number;
+  works?: number;
+  /** GitHub: top-10 repo stars + account followers. */
+  stars?: number;
+  ghFollowers?: number;
+  /** Hugging Face Hub. */
+  hfDownloads30d?: number;
+  hfLikes?: number;
+  /** Hacker News stories mentioning the card, trailing 7 days. */
+  hnMentions7d?: number;
 }
 
 /** Raw company metrics the rating engine normalizes. Valuation/funding in $B. */
@@ -108,6 +133,14 @@ export interface Card {
   momentDate?: string;
   /** Rivalries only: the two half-faces. */
   sides?: [RivalrySide, RivalrySide];
+  /** Data-pipeline source ids (see PIPELINE.md). All optional. */
+  wikipediaSlug?: string;
+  openalexId?: string;
+  githubOrg?: string;
+  githubUser?: string;
+  hfOrg?: string;
+  /** Latest fetched public signals; merged daily by scripts/update-market.ts. */
+  signals?: CardSignals;
   /** Empty until the price mechanic ships. */
   priceHistory: PricePoint[];
 }

@@ -24,7 +24,10 @@
     },
     "priceHistory": [],
     "flavorText": "Started as a nonprofit. The rest is a governance case study.",
-    "dailyBlurb": "Every product cycle still orbits them: each launch resets the industry's roadmap and X's timeline in the same hour."
+    "dailyBlurb": "Every product cycle still orbits them: each launch resets the industry's roadmap and X's timeline in the same hour.",
+    "wikipediaSlug": "OpenAI",
+    "githubOrg": "openai",
+    "hfOrg": "openai"
   },
   {
     "id": "anthropic",
@@ -51,7 +54,9 @@
     },
     "priceHistory": [],
     "flavorText": "Founded by people who left OpenAI to worry more professionally.",
-    "dailyBlurb": "The safety lab that keeps accidentally shipping the developers' favorite model. Claude's enterprise run is the quiet story of the year."
+    "dailyBlurb": "The safety lab that keeps accidentally shipping the developers' favorite model. Claude's enterprise run is the quiet story of the year.",
+    "wikipediaSlug": "Anthropic",
+    "githubOrg": "anthropics"
   },
   {
     "id": "google-deepmind",
@@ -78,7 +83,10 @@
     },
     "priceHistory": [],
     "flavorText": "Solved protein folding, still can't ship a consistent product name.",
-    "dailyBlurb": "The deepest bench in AI research. When they focus on one thing — protein folding, weather models, math olympiads — records fall."
+    "dailyBlurb": "The deepest bench in AI research. When they focus on one thing — protein folding, weather models, math olympiads — records fall.",
+    "wikipediaSlug": "Google_DeepMind",
+    "githubOrg": "google-deepmind",
+    "hfOrg": "google"
   },
   {
     "id": "nvidia",
@@ -105,7 +113,10 @@
     },
     "priceHistory": [],
     "flavorText": "Sells shovels. Owns the gold rush anyway.",
-    "dailyBlurb": "Still the tollbooth on every training run that matters. Watch the export-control headlines to know their mood."
+    "dailyBlurb": "Still the tollbooth on every training run that matters. Watch the export-control headlines to know their mood.",
+    "wikipediaSlug": "Nvidia",
+    "githubOrg": "NVIDIA",
+    "hfOrg": "nvidia"
   },
   {
     "id": "meta-ai",
@@ -131,7 +142,10 @@
       "momentum": 82
     },
     "priceHistory": [],
-    "flavorText": "Spends billions training models, gives them away to ruin everyone's margins."
+    "flavorText": "Spends billions training models, gives them away to ruin everyone's margins.",
+    "wikipediaSlug": "Meta_AI",
+    "githubOrg": "facebookresearch",
+    "hfOrg": "meta-llama"
   },
   {
     "id": "xai",
@@ -158,7 +172,9 @@
     },
     "priceHistory": [],
     "flavorText": "Built a gigawatt datacenter faster than most companies build a landing page.",
-    "dailyBlurb": "The fastest datacenter buildout in history, wired to the world's loudest distribution channel."
+    "dailyBlurb": "The fastest datacenter buildout in history, wired to the world's loudest distribution channel.",
+    "wikipediaSlug": "SpaceXAI",
+    "githubOrg": "xai-org"
   },
   {
     "id": "mistral",
@@ -185,7 +201,10 @@
     },
     "priceHistory": [],
     "flavorText": "Seven-page memo, four billion euros. Europe's entire AI strategy in a hoodie.",
-    "dailyBlurb": "Europe's one real seat at the frontier table, balanced between open weights and sovereign-AI contracts."
+    "dailyBlurb": "Europe's one real seat at the frontier table, balanced between open weights and sovereign-AI contracts.",
+    "wikipediaSlug": "Mistral_AI",
+    "githubOrg": "mistralai",
+    "hfOrg": "mistralai"
   },
   {
     "id": "hugging-face",
@@ -212,7 +231,10 @@
     },
     "priceHistory": [],
     "flavorText": "The only place where 'download a stranger's weights' is a business model.",
-    "dailyBlurb": "The GitHub of models — every open-weights release lands here first, and their download charts are the field's pulse."
+    "dailyBlurb": "The GitHub of models — every open-weights release lands here first, and their download charts are the field's pulse.",
+    "wikipediaSlug": "Hugging_Face",
+    "githubOrg": "huggingface",
+    "hfOrg": "HuggingFaceH4"
   },
   {
     "id": "perplexity",
@@ -239,7 +261,8 @@
     },
     "priceHistory": [],
     "flavorText": "Answers your question, then asks for your default search engine.",
-    "dailyBlurb": "The first real dent in the search monopoly in twenty years — and every browser deal makes it bigger."
+    "dailyBlurb": "The first real dent in the search monopoly in twenty years — and every browser deal makes it bigger.",
+    "wikipediaSlug": "Perplexity_AI"
   },
   {
     "id": "cohere",
@@ -265,7 +288,10 @@
       "momentum": 72
     },
     "priceHistory": [],
-    "flavorText": "Serving enterprise clients you've heard of with models you haven't."
+    "flavorText": "Serving enterprise clients you've heard of with models you haven't.",
+    "wikipediaSlug": "Cohere",
+    "githubOrg": "cohere-ai",
+    "hfOrg": "CohereLabs"
   },
   {
     "id": "ilya-sutskever",
@@ -314,7 +340,9 @@
         "years": "2024–"
       }
     ],
-    "dailyBlurb": "Runs the most secretive lab in AI with the largest per-employee war chest ever assembled. Nobody knows what's inside."
+    "dailyBlurb": "Runs the most secretive lab in AI with the largest per-employee war chest ever assembled. Nobody knows what's inside.",
+    "openalexId": "A5006446297",
+    "wikipediaSlug": "Ilya_Sutskever"
   },
   {
     "id": "geoffrey-hinton",
@@ -358,7 +386,9 @@
         "years": "2023–"
       }
     ],
-    "dailyBlurb": "The godfather who quit to warn about his own life's work. When Hinton speaks about risk, hearing rooms fill."
+    "dailyBlurb": "The godfather who quit to warn about his own life's work. When Hinton speaks about risk, hearing rooms fill.",
+    "openalexId": "A5108093963",
+    "wikipediaSlug": "Geoffrey_Hinton"
   },
   {
     "id": "demis-hassabis",
@@ -402,7 +432,9 @@
         "years": "2021–"
       }
     ],
-    "dailyBlurb": "A Nobel Prize later, still treats AGI like a chess endgame — patient, positional, inevitable."
+    "dailyBlurb": "A Nobel Prize later, still treats AGI like a chess endgame — patient, positional, inevitable.",
+    "openalexId": "A5005349213",
+    "wikipediaSlug": "Demis_Hassabis"
   },
   {
     "id": "andrej-karpathy",
@@ -452,7 +484,10 @@
       }
     ],
     "dailyBlurb": "The field's favorite teacher. One video from him moves more people into AI than a semester of courses.",
-    "variant": "freeAgent"
+    "variant": "freeAgent",
+    "openalexId": "A5009290031",
+    "wikipediaSlug": "Andrej_Karpathy",
+    "githubUser": "karpathy"
   },
   {
     "id": "yann-lecun",
@@ -496,7 +531,9 @@
         "years": "2013–"
       }
     ],
-    "dailyBlurb": "The frontier's in-house contrarian: insists LLMs are a dead end while his lab open-sources the evidence either way."
+    "dailyBlurb": "The frontier's in-house contrarian: insists LLMs are a dead end while his lab open-sources the evidence either way.",
+    "openalexId": "A5001226970",
+    "wikipediaSlug": "Yann_LeCun"
   },
   {
     "id": "fei-fei-li",
@@ -522,7 +559,9 @@
       "momentum": 80
     },
     "priceHistory": [],
-    "flavorText": "Labeled the internet so machines could finally see it."
+    "flavorText": "Labeled the internet so machines could finally see it.",
+    "openalexId": "A5100450462",
+    "wikipediaSlug": "Fei-Fei_Li"
   },
   {
     "id": "andrew-ng",
@@ -548,7 +587,9 @@
       "momentum": 77
     },
     "priceHistory": [],
-    "flavorText": "Has personally onboarded more people into AI than any university."
+    "flavorText": "Has personally onboarded more people into AI than any university.",
+    "openalexId": "A5112456378",
+    "wikipediaSlug": "Andrew_Ng"
   },
   {
     "id": "john-schulman",
@@ -592,7 +633,9 @@
         "years": "2024–"
       }
     ],
-    "variant": "freeAgent"
+    "variant": "freeAgent",
+    "openalexId": "A5009037058",
+    "wikipediaSlug": "John_Schulman"
   },
   {
     "id": "noam-shazeer",
@@ -635,7 +678,9 @@
         "role": "Gemini co-lead",
         "years": "2024–"
       }
-    ]
+    ],
+    "openalexId": "A5021878400",
+    "wikipediaSlug": "Noam_Shazeer"
   },
   {
     "id": "chris-olah",
@@ -661,7 +706,9 @@
       "momentum": 82
     },
     "priceHistory": [],
-    "flavorText": "Opens the black box, finds another black box, publishes beautifully anyway."
+    "flavorText": "Opens the black box, finds another black box, publishes beautifully anyway.",
+    "openalexId": "A5039751155",
+    "wikipediaSlug": "Chris_Olah"
   },
   {
     "id": "microsoft-ai",
@@ -687,7 +734,10 @@
       "momentum": 64
     },
     "priceHistory": [],
-    "flavorText": "Enterprise pilots: dozens. Case studies: pending legal review."
+    "flavorText": "Enterprise pilots: dozens. Case studies: pending legal review.",
+    "wikipediaSlug": "Microsoft",
+    "githubOrg": "microsoft",
+    "hfOrg": "microsoft"
   },
   {
     "id": "apple-intelligence",
@@ -713,7 +763,8 @@
       "momentum": 84
     },
     "priceHistory": [],
-    "flavorText": "Their API status page is the industry's heartbeat monitor."
+    "flavorText": "Their API status page is the industry's heartbeat monitor.",
+    "wikipediaSlug": "Apple_Intelligence"
   },
   {
     "id": "amazon-ai",
@@ -739,7 +790,8 @@
       "momentum": 86
     },
     "priceHistory": [],
-    "flavorText": "Went viral once. The servers remember."
+    "flavorText": "Went viral once. The servers remember.",
+    "wikipediaSlug": "Amazon_Web_Services"
   },
   {
     "id": "ibm-watsonx",
@@ -765,7 +817,9 @@
       "momentum": 78
     },
     "priceHistory": [],
-    "flavorText": "Product-market fit found; profitability still in stealth."
+    "flavorText": "Product-market fit found; profitability still in stealth.",
+    "wikipediaSlug": "IBM_Watsonx",
+    "hfOrg": "ibm-granite"
   },
   {
     "id": "tesla-ai",
@@ -791,7 +845,8 @@
       "momentum": 76
     },
     "priceHistory": [],
-    "flavorText": "Their Discord knows the roadmap before the board does."
+    "flavorText": "Their Discord knows the roadmap before the board does.",
+    "wikipediaSlug": "Tesla,_Inc."
   },
   {
     "id": "scale-ai",
@@ -817,7 +872,9 @@
       "momentum": 46
     },
     "priceHistory": [],
-    "flavorText": "The pick-and-shovel play that got acquired by the gold mine."
+    "flavorText": "The pick-and-shovel play that got acquired by the gold mine.",
+    "wikipediaSlug": "Scale_AI",
+    "githubOrg": "scaleapi"
   },
   {
     "id": "databricks",
@@ -843,7 +900,9 @@
       "momentum": 70
     },
     "priceHistory": [],
-    "flavorText": "Buys a startup a quarter to stay one acquisition ahead of Snowflake."
+    "flavorText": "Buys a startup a quarter to stay one acquisition ahead of Snowflake.",
+    "wikipediaSlug": "Databricks",
+    "githubOrg": "databricks"
   },
   {
     "id": "palantir",
@@ -869,7 +928,8 @@
       "momentum": 67
     },
     "priceHistory": [],
-    "flavorText": "The pivot to agents was always the plan. Always."
+    "flavorText": "The pivot to agents was always the plan. Always.",
+    "wikipediaSlug": "Palantir"
   },
   {
     "id": "amd",
@@ -895,7 +955,8 @@
       "momentum": 82
     },
     "priceHistory": [],
-    "flavorText": "Every benchmark chart mysteriously ends where their model wins."
+    "flavorText": "Every benchmark chart mysteriously ends where their model wins.",
+    "wikipediaSlug": "AMD"
   },
   {
     "id": "intel",
@@ -921,7 +982,8 @@
       "momentum": 76
     },
     "priceHistory": [],
-    "flavorText": "Half the team is ex-FAANG. The other half is ex-them."
+    "flavorText": "Half the team is ex-FAANG. The other half is ex-them.",
+    "wikipediaSlug": "Intel"
   },
   {
     "id": "tsmc",
@@ -947,7 +1009,8 @@
       "momentum": 66
     },
     "priceHistory": [],
-    "flavorText": "Neutral ground in every AI war. The Switzerland of silicon."
+    "flavorText": "Neutral ground in every AI war. The Switzerland of silicon.",
+    "wikipediaSlug": "TSMC"
   },
   {
     "id": "broadcom",
@@ -973,7 +1036,8 @@
       "momentum": 69
     },
     "priceHistory": [],
-    "flavorText": "Enterprise pilots: dozens. Case studies: pending legal review."
+    "flavorText": "Enterprise pilots: dozens. Case studies: pending legal review.",
+    "wikipediaSlug": "Broadcom"
   },
   {
     "id": "qualcomm",
@@ -999,7 +1063,8 @@
       "momentum": 67
     },
     "priceHistory": [],
-    "flavorText": "Shipping fast, breaking things, apologizing in changelog haiku."
+    "flavorText": "Shipping fast, breaking things, apologizing in changelog haiku.",
+    "wikipediaSlug": "Qualcomm"
   },
   {
     "id": "arm",
@@ -1025,7 +1090,8 @@
       "momentum": 74
     },
     "priceHistory": [],
-    "flavorText": "Product-market fit found; profitability still in stealth."
+    "flavorText": "Product-market fit found; profitability still in stealth.",
+    "wikipediaSlug": "Arm_Holdings"
   },
   {
     "id": "groq",
@@ -1051,7 +1117,9 @@
       "momentum": 51
     },
     "priceHistory": [],
-    "flavorText": "Says 'tokens per second' the way others say 'good morning'."
+    "flavorText": "Says 'tokens per second' the way others say 'good morning'.",
+    "wikipediaSlug": "Groq",
+    "githubOrg": "groq"
   },
   {
     "id": "cerebras",
@@ -1077,7 +1145,8 @@
       "momentum": 63
     },
     "priceHistory": [],
-    "flavorText": "Why buy a chip when you can buy the whole wafer?"
+    "flavorText": "Why buy a chip when you can buy the whole wafer?",
+    "wikipediaSlug": "Cerebras_Systems"
   },
   {
     "id": "sambanova",
@@ -1129,7 +1198,9 @@
       "momentum": 52
     },
     "priceHistory": [],
-    "flavorText": "The pivot to agents was always the plan. Always."
+    "flavorText": "The pivot to agents was always the plan. Always.",
+    "wikipediaSlug": "List_of_unicorn_startup_companies",
+    "githubOrg": "tenstorrent"
   },
   {
     "id": "etched",
@@ -1181,7 +1252,8 @@
       "momentum": 56
     },
     "priceHistory": [],
-    "flavorText": "Every benchmark chart mysteriously ends where their model wins."
+    "flavorText": "Every benchmark chart mysteriously ends where their model wins.",
+    "githubOrg": "togethercomputer"
   },
   {
     "id": "fireworks-ai",
@@ -1207,7 +1279,9 @@
       "momentum": 40
     },
     "priceHistory": [],
-    "flavorText": "Somehow both undervalued and overvalued, depending on the thread."
+    "flavorText": "Somehow both undervalued and overvalued, depending on the thread.",
+    "wikipediaSlug": "Fireworks_AI",
+    "githubOrg": "fw-ai"
   },
   {
     "id": "modal",
@@ -1233,7 +1307,8 @@
       "momentum": 48
     },
     "priceHistory": [],
-    "flavorText": "Twelve competitors, one moat: shipping while others tweet."
+    "flavorText": "Twelve competitors, one moat: shipping while others tweet.",
+    "githubOrg": "modal-labs"
   },
   {
     "id": "replicate",
@@ -1259,7 +1334,8 @@
       "momentum": 45
     },
     "priceHistory": [],
-    "flavorText": "Investors call it a platform. Users call it that one feature."
+    "flavorText": "Investors call it a platform. Users call it that one feature.",
+    "githubOrg": "replicate"
   },
   {
     "id": "lambda-labs",
@@ -1311,7 +1387,8 @@
       "momentum": 76
     },
     "priceHistory": [],
-    "flavorText": "Was mining Ethereum. Pivoted to mining NVIDIA allocations."
+    "flavorText": "Was mining Ethereum. Pivoted to mining NVIDIA allocations.",
+    "wikipediaSlug": "CoreWeave"
   },
   {
     "id": "nebius",
@@ -1337,7 +1414,8 @@
       "momentum": 49
     },
     "priceHistory": [],
-    "flavorText": "Product-market fit found; profitability still in stealth."
+    "flavorText": "Product-market fit found; profitability still in stealth.",
+    "wikipediaSlug": "Nebius_Group"
   },
   {
     "id": "weights-biases",
@@ -1389,7 +1467,9 @@
       "momentum": 65
     },
     "priceHistory": [],
-    "flavorText": "Enterprise pilots: dozens. Case studies: pending legal review."
+    "flavorText": "Enterprise pilots: dozens. Case studies: pending legal review.",
+    "wikipediaSlug": "LangChain",
+    "githubOrg": "langchain-ai"
   },
   {
     "id": "llamaindex",
@@ -1415,7 +1495,9 @@
       "momentum": 45
     },
     "priceHistory": [],
-    "flavorText": "Signed a compute deal larger than their last valuation."
+    "flavorText": "Signed a compute deal larger than their last valuation.",
+    "wikipediaSlug": "LlamaIndex",
+    "githubOrg": "run-llama"
   },
   {
     "id": "pinecone",
@@ -1441,7 +1523,8 @@
       "momentum": 50
     },
     "priceHistory": [],
-    "flavorText": "Went viral once. The servers remember."
+    "flavorText": "Went viral once. The servers remember.",
+    "githubOrg": "pinecone-io"
   },
   {
     "id": "weaviate",
@@ -1467,7 +1550,8 @@
       "momentum": 67
     },
     "priceHistory": [],
-    "flavorText": "The launch video was cinematic. The waitlist is geological."
+    "flavorText": "The launch video was cinematic. The waitlist is geological.",
+    "githubOrg": "weaviate"
   },
   {
     "id": "elevenlabs",
@@ -1494,7 +1578,9 @@
     },
     "priceHistory": [],
     "flavorText": "Your favorite podcast voice might be them.",
-    "dailyBlurb": "The voice layer of the internet. Every audiobook, dub and agent demo you've heard lately probably rents their larynx."
+    "dailyBlurb": "The voice layer of the internet. Every audiobook, dub and agent demo you've heard lately probably rents their larynx.",
+    "wikipediaSlug": "ElevenLabs",
+    "githubOrg": "elevenlabs"
   },
   {
     "id": "runway",
@@ -1520,7 +1606,8 @@
       "momentum": 60
     },
     "priceHistory": [],
-    "flavorText": "Hollywood pretends not to use them."
+    "flavorText": "Hollywood pretends not to use them.",
+    "wikipediaSlug": "Runway_(company)"
   },
   {
     "id": "pika",
@@ -1546,7 +1633,8 @@
       "momentum": 56
     },
     "priceHistory": [],
-    "flavorText": "Shipping fast, breaking things, apologizing in changelog haiku."
+    "flavorText": "Shipping fast, breaking things, apologizing in changelog haiku.",
+    "wikipediaSlug": "Pika"
   },
   {
     "id": "luma-ai",
@@ -1572,7 +1660,8 @@
       "momentum": 67
     },
     "priceHistory": [],
-    "flavorText": "Half the team is ex-FAANG. The other half is ex-them."
+    "flavorText": "Half the team is ex-FAANG. The other half is ex-them.",
+    "wikipediaSlug": "Dream_Machine_(text-to-video_model)"
   },
   {
     "id": "midjourney",
@@ -1599,7 +1688,8 @@
     },
     "priceHistory": [],
     "flavorText": "No investors, no sales team, no problem.",
-    "dailyBlurb": "Zero investors, nine figures of revenue, and half the internet's fantasy art. The bootstrapped anomaly."
+    "dailyBlurb": "Zero investors, nine figures of revenue, and half the internet's fantasy art. The bootstrapped anomaly.",
+    "wikipediaSlug": "Midjourney"
   },
   {
     "id": "stability-ai",
@@ -1625,7 +1715,10 @@
       "momentum": 57
     },
     "priceHistory": [],
-    "flavorText": "The pivot to agents was always the plan. Always."
+    "flavorText": "The pivot to agents was always the plan. Always.",
+    "wikipediaSlug": "Stability_AI",
+    "githubOrg": "Stability-AI",
+    "hfOrg": "stabilityai"
   },
   {
     "id": "black-forest-labs",
@@ -1651,7 +1744,10 @@
       "momentum": 58
     },
     "priceHistory": [],
-    "flavorText": "Their API status page is the industry's heartbeat monitor."
+    "flavorText": "Their API status page is the industry's heartbeat monitor.",
+    "wikipediaSlug": "Flux_(text-to-image_model)",
+    "githubOrg": "black-forest-labs",
+    "hfOrg": "black-forest-labs"
   },
   {
     "id": "ideogram",
@@ -1677,7 +1773,8 @@
       "momentum": 54
     },
     "priceHistory": [],
-    "flavorText": "Enterprise pilots: dozens. Case studies: pending legal review."
+    "flavorText": "Enterprise pilots: dozens. Case studies: pending legal review.",
+    "wikipediaSlug": "Ideogram"
   },
   {
     "id": "suno",
@@ -1703,7 +1800,8 @@
       "momentum": 65
     },
     "priceHistory": [],
-    "flavorText": "Your uncle's band is furious. Your playlist isn't."
+    "flavorText": "Your uncle's band is furious. Your playlist isn't.",
+    "wikipediaSlug": "Suno_(platform)"
   },
   {
     "id": "character-ai",
@@ -1729,7 +1827,8 @@
       "momentum": 70
     },
     "priceHistory": [],
-    "flavorText": "A billion conversations, most of them 'hi'."
+    "flavorText": "A billion conversations, most of them 'hi'.",
+    "wikipediaSlug": "Character.ai"
   },
   {
     "id": "inflection-ai",
@@ -1755,7 +1854,8 @@
       "momentum": 54
     },
     "priceHistory": [],
-    "flavorText": "Every benchmark chart mysteriously ends where their model wins."
+    "flavorText": "Every benchmark chart mysteriously ends where their model wins.",
+    "wikipediaSlug": "Inflection_AI"
   },
   {
     "id": "cognition",
@@ -1781,7 +1881,8 @@
       "momentum": 55
     },
     "priceHistory": [],
-    "flavorText": "Product-market fit found; profitability still in stealth."
+    "flavorText": "Product-market fit found; profitability still in stealth.",
+    "wikipediaSlug": "Cognition_AI"
   },
   {
     "id": "cursor",
@@ -1808,7 +1909,8 @@
     },
     "priceHistory": [],
     "flavorText": "Your IDE now finishes your thoughts. Fastest ARR curve in software history.",
-    "dailyBlurb": "The fastest-growing developer tool ever built. The 'AI writes the code' future is already their present."
+    "dailyBlurb": "The fastest-growing developer tool ever built. The 'AI writes the code' future is already their present.",
+    "wikipediaSlug": "Cursor_(company)"
   },
   {
     "id": "poolside",
@@ -1886,7 +1988,9 @@
       "momentum": 61
     },
     "priceHistory": [],
-    "flavorText": "Twelve competitors, one moat: shipping while others tweet."
+    "flavorText": "Twelve competitors, one moat: shipping while others tweet.",
+    "wikipediaSlug": "Sourcegraph",
+    "githubOrg": "sourcegraph"
   },
   {
     "id": "replit",
@@ -1912,7 +2016,9 @@
       "momentum": 40
     },
     "priceHistory": [],
-    "flavorText": "Their demo day clip did numbers. The product ships 'next quarter'."
+    "flavorText": "Their demo day clip did numbers. The product ships 'next quarter'.",
+    "wikipediaSlug": "Replit",
+    "githubOrg": "replit"
   },
   {
     "id": "lovable",
@@ -1990,7 +2096,8 @@
       "momentum": 57
     },
     "priceHistory": [],
-    "flavorText": "Every benchmark chart mysteriously ends where their model wins."
+    "flavorText": "Every benchmark chart mysteriously ends where their model wins.",
+    "wikipediaSlug": "Gleaning"
   },
   {
     "id": "sierra",
@@ -2068,7 +2175,8 @@
       "momentum": 46
     },
     "priceHistory": [],
-    "flavorText": "Went viral once. The servers remember."
+    "flavorText": "Went viral once. The servers remember.",
+    "wikipediaSlug": "HeyGen"
   },
   {
     "id": "deepgram",
@@ -2147,7 +2255,8 @@
     },
     "priceHistory": [],
     "flavorText": "Raising billions to fold your laundry. Eventually.",
-    "dailyBlurb": "Humanoids moved from demo reels to factory pilots. Their next raise prices in your future coworker."
+    "dailyBlurb": "Humanoids moved from demo reels to factory pilots. Their next raise prices in your future coworker.",
+    "wikipediaSlug": "Figure_AI"
   },
   {
     "id": "1x",
@@ -2199,7 +2308,8 @@
       "momentum": 59
     },
     "priceHistory": [],
-    "flavorText": "Their API status page is the industry's heartbeat monitor."
+    "flavorText": "Their API status page is the industry's heartbeat monitor.",
+    "wikipediaSlug": "Agility_Robotics"
   },
   {
     "id": "boston-dynamics",
@@ -2225,7 +2335,8 @@
       "momentum": 42
     },
     "priceHistory": [],
-    "flavorText": "Twenty years of viral videos, one commercial product. Worth it."
+    "flavorText": "Twenty years of viral videos, one commercial product. Worth it.",
+    "wikipediaSlug": "Boston_Dynamics"
   },
   {
     "id": "physical-intelligence",
@@ -2278,7 +2389,8 @@
     },
     "priceHistory": [],
     "flavorText": "Your grandma's favorite robot chauffeur.",
-    "dailyBlurb": "Quietly became the only company driving millions of fully driverless miles a month while everyone argued about it."
+    "dailyBlurb": "Quietly became the only company driving millions of fully driverless miles a month while everyone argued about it.",
+    "wikipediaSlug": "Waymo"
   },
   {
     "id": "wayve",
@@ -2304,7 +2416,8 @@
       "momentum": 63
     },
     "priceHistory": [],
-    "flavorText": "Raised a mega-round to compete with a company that raised two."
+    "flavorText": "Raised a mega-round to compete with a company that raised two.",
+    "wikipediaSlug": "Wayve"
   },
   {
     "id": "aurora",
@@ -2330,7 +2443,8 @@
       "momentum": 68
     },
     "priceHistory": [],
-    "flavorText": "Every benchmark chart mysteriously ends where their model wins."
+    "flavorText": "Every benchmark chart mysteriously ends where their model wins.",
+    "wikipediaSlug": "Aurora"
   },
   {
     "id": "applied-intuition",
@@ -2356,7 +2470,8 @@
       "momentum": 55
     },
     "priceHistory": [],
-    "flavorText": "The launch video was cinematic. The waitlist is geological."
+    "flavorText": "The launch video was cinematic. The waitlist is geological.",
+    "wikipediaSlug": "Qasar_Younis"
   },
   {
     "id": "deepl",
@@ -2382,7 +2497,8 @@
       "momentum": 56
     },
     "priceHistory": [],
-    "flavorText": "Enterprise pilots: dozens. Case studies: pending legal review."
+    "flavorText": "Enterprise pilots: dozens. Case studies: pending legal review.",
+    "wikipediaSlug": "DeepL_Translator"
   },
   {
     "id": "writer",
@@ -2408,7 +2524,8 @@
       "momentum": 54
     },
     "priceHistory": [],
-    "flavorText": "Their API status page is the industry's heartbeat monitor."
+    "flavorText": "Their API status page is the industry's heartbeat monitor.",
+    "wikipediaSlug": "Writer"
   },
   {
     "id": "abridge",
@@ -2434,7 +2551,8 @@
       "momentum": 55
     },
     "priceHistory": [],
-    "flavorText": "Enterprise pilots: dozens. Case studies: pending legal review."
+    "flavorText": "Enterprise pilots: dozens. Case studies: pending legal review.",
+    "wikipediaSlug": "Abridge"
   },
   {
     "id": "isomorphic-labs",
@@ -2460,7 +2578,8 @@
       "momentum": 66
     },
     "priceHistory": [],
-    "flavorText": "The pivot to agents was always the plan. Always."
+    "flavorText": "The pivot to agents was always the plan. Always.",
+    "wikipediaSlug": "Isomorphic_Labs"
   },
   {
     "id": "recursion",
@@ -2538,7 +2657,10 @@
       "momentum": 63
     },
     "priceHistory": [],
-    "flavorText": "Half the team is ex-FAANG. The other half is ex-them."
+    "flavorText": "Half the team is ex-FAANG. The other half is ex-them.",
+    "wikipediaSlug": "AI21_Labs",
+    "githubOrg": "AI21Labs",
+    "hfOrg": "ai21labs"
   },
   {
     "id": "aleph-alpha",
@@ -2564,7 +2686,8 @@
       "momentum": 53
     },
     "priceHistory": [],
-    "flavorText": "The margins are negative but the vibes are gross positive."
+    "flavorText": "The margins are negative but the vibes are gross positive.",
+    "wikipediaSlug": "Aleph_Alpha"
   },
   {
     "id": "deepseek",
@@ -2591,7 +2714,10 @@
     },
     "priceHistory": [],
     "flavorText": "Shipped o1-class reasoning for the price of a nice dinner.",
-    "dailyBlurb": "Proof that frontier AI doesn't require frontier budgets. Every efficiency paper since has been chasing their cost curve."
+    "dailyBlurb": "Proof that frontier AI doesn't require frontier budgets. Every efficiency paper since has been chasing their cost curve.",
+    "wikipediaSlug": "DeepSeek",
+    "githubOrg": "deepseek-ai",
+    "hfOrg": "deepseek-ai"
   },
   {
     "id": "zhipu-ai",
@@ -2617,7 +2743,10 @@
       "momentum": 77
     },
     "priceHistory": [],
-    "flavorText": "Shipping fast, breaking things, apologizing in changelog haiku."
+    "flavorText": "Shipping fast, breaking things, apologizing in changelog haiku.",
+    "wikipediaSlug": "Z.ai",
+    "githubOrg": "THUDM",
+    "hfOrg": "THUDM"
   },
   {
     "id": "moonshot-ai",
@@ -2643,7 +2772,10 @@
       "momentum": 68
     },
     "priceHistory": [],
-    "flavorText": "Burns GPUs by day, burns cash by night. The roadmap says 'trust us'."
+    "flavorText": "Burns GPUs by day, burns cash by night. The roadmap says 'trust us'.",
+    "wikipediaSlug": "Moonshot_AI",
+    "githubOrg": "MoonshotAI",
+    "hfOrg": "moonshotai"
   },
   {
     "id": "minimax",
@@ -2669,7 +2801,9 @@
       "momentum": 57
     },
     "priceHistory": [],
-    "flavorText": "Investors call it a platform. Users call it that one feature."
+    "flavorText": "Investors call it a platform. Users call it that one feature.",
+    "wikipediaSlug": "MiniMax_Group",
+    "hfOrg": "MiniMaxAI"
   },
   {
     "id": "01-ai",
@@ -2695,7 +2829,10 @@
       "momentum": 68
     },
     "priceHistory": [],
-    "flavorText": "Signed a compute deal larger than their last valuation."
+    "flavorText": "Signed a compute deal larger than their last valuation.",
+    "wikipediaSlug": "01.AI",
+    "githubOrg": "01-ai",
+    "hfOrg": "01-ai"
   },
   {
     "id": "baidu-ernie",
@@ -2721,7 +2858,8 @@
       "momentum": 67
     },
     "priceHistory": [],
-    "flavorText": "Shipping fast, breaking things, apologizing in changelog haiku."
+    "flavorText": "Shipping fast, breaking things, apologizing in changelog haiku.",
+    "wikipediaSlug": "Ernie_Bot"
   },
   {
     "id": "qwen",
@@ -2747,7 +2885,10 @@
       "momentum": 78
     },
     "priceHistory": [],
-    "flavorText": "The open-weights leaderboard's permanent resident."
+    "flavorText": "The open-weights leaderboard's permanent resident.",
+    "wikipediaSlug": "Qwen",
+    "githubOrg": "QwenLM",
+    "hfOrg": "Qwen"
   },
   {
     "id": "bytedance-seed",
@@ -2773,7 +2914,9 @@
       "momentum": 64
     },
     "priceHistory": [],
-    "flavorText": "Twelve competitors, one moat: shipping while others tweet."
+    "flavorText": "Twelve competitors, one moat: shipping while others tweet.",
+    "wikipediaSlug": "ByteDance",
+    "hfOrg": "ByteDance-Seed"
   },
   {
     "id": "tencent-hunyuan",
@@ -2799,7 +2942,9 @@
       "momentum": 62
     },
     "priceHistory": [],
-    "flavorText": "Shipping fast, breaking things, apologizing in changelog haiku."
+    "flavorText": "Shipping fast, breaking things, apologizing in changelog haiku.",
+    "wikipediaSlug": "Tencent",
+    "hfOrg": "tencent"
   },
   {
     "id": "sensetime",
@@ -2825,7 +2970,8 @@
       "momentum": 72
     },
     "priceHistory": [],
-    "flavorText": "Investors call it a platform. Users call it that one feature."
+    "flavorText": "Investors call it a platform. Users call it that one feature.",
+    "wikipediaSlug": "SenseTime"
   },
   {
     "id": "sakana-ai",
@@ -2851,7 +2997,10 @@
       "momentum": 44
     },
     "priceHistory": [],
-    "flavorText": "Their API status page is the industry's heartbeat monitor."
+    "flavorText": "Their API status page is the industry's heartbeat monitor.",
+    "wikipediaSlug": "Sakana_AI",
+    "githubOrg": "SakanaAI",
+    "hfOrg": "SakanaAI"
   },
   {
     "id": "reka",
@@ -2877,7 +3026,8 @@
       "momentum": 48
     },
     "priceHistory": [],
-    "flavorText": "Product-market fit found; profitability still in stealth."
+    "flavorText": "Product-market fit found; profitability still in stealth.",
+    "hfOrg": "RekaAI"
   },
   {
     "id": "liquid-ai",
@@ -2903,7 +3053,8 @@
       "momentum": 46
     },
     "priceHistory": [],
-    "flavorText": "Somehow both undervalued and overvalued, depending on the thread."
+    "flavorText": "Somehow both undervalued and overvalued, depending on the thread.",
+    "hfOrg": "LiquidAI"
   },
   {
     "id": "world-labs",
@@ -2956,7 +3107,8 @@
     },
     "priceHistory": [],
     "flavorText": "Thirty-two billion dollars, zero products, one goal. Respect.",
-    "dailyBlurb": "The purest bet in AI: tens of billions, zero products, one promise. Either historic or a cautionary tale."
+    "dailyBlurb": "The purest bet in AI: tens of billions, zero products, one promise. Either historic or a cautionary tale.",
+    "wikipediaSlug": "Safe_Superintelligence_Inc."
   },
   {
     "id": "thinking-machines",
@@ -2982,7 +3134,8 @@
       "momentum": 54
     },
     "priceHistory": [],
-    "flavorText": "The most expensive 'stealth mode' in history."
+    "flavorText": "The most expensive 'stealth mode' in history.",
+    "wikipediaSlug": "Thinking_Machines_Lab"
   },
   {
     "id": "kyutai",
@@ -3008,7 +3161,10 @@
       "momentum": 61
     },
     "priceHistory": [],
-    "flavorText": "Every benchmark chart mysteriously ends where their model wins."
+    "flavorText": "Every benchmark chart mysteriously ends where their model wins.",
+    "wikipediaSlug": "Kyūtai",
+    "githubOrg": "kyutai-labs",
+    "hfOrg": "kyutai"
   },
   {
     "id": "yoshua-bengio",
@@ -3035,7 +3191,9 @@
     },
     "priceHistory": [],
     "flavorText": "Most-cited living scientist. Uses the citations to ask you to slow down.",
-    "dailyBlurb": "The most-cited scientist alive now spends his citations on AI-safety policy. Governments actually call back."
+    "dailyBlurb": "The most-cited scientist alive now spends his citations on AI-safety policy. Governments actually call back.",
+    "openalexId": "A5086198262",
+    "wikipediaSlug": "Yoshua_Bengio"
   },
   {
     "id": "sam-altman",
@@ -3079,7 +3237,9 @@
         "years": "2019–"
       }
     ],
-    "dailyBlurb": "The industry's chief fundraiser and lightning rod — chips, energy, and AGI timelines all route through his calendar."
+    "dailyBlurb": "The industry's chief fundraiser and lightning rod — chips, energy, and AGI timelines all route through his calendar.",
+    "openalexId": "A5113523936",
+    "wikipediaSlug": "Sam_Altman"
   },
   {
     "id": "dario-amodei",
@@ -3123,7 +3283,9 @@
         "years": "2021–"
       }
     ],
-    "dailyBlurb": "Writes essays about machines of loving grace, then signs compute deals the size of small nations."
+    "dailyBlurb": "Writes essays about machines of loving grace, then signs compute deals the size of small nations.",
+    "openalexId": "A5066197394",
+    "wikipediaSlug": "Dario_Amodei"
   },
   {
     "id": "daniela-amodei",
@@ -3149,7 +3311,8 @@
       "momentum": 68
     },
     "priceHistory": [],
-    "flavorText": "The citation graph bends around them."
+    "flavorText": "The citation graph bends around them.",
+    "wikipediaSlug": "Daniela_Amodei"
   },
   {
     "id": "greg-brockman",
@@ -3175,7 +3338,9 @@
       "momentum": 94
     },
     "priceHistory": [],
-    "flavorText": "Codes through the night, tweets through the board crisis."
+    "flavorText": "Codes through the night, tweets through the board crisis.",
+    "wikipediaSlug": "Greg_Brockman",
+    "githubUser": "gdb"
   },
   {
     "id": "mira-murati",
@@ -3219,7 +3384,8 @@
         "years": "2024–"
       }
     ],
-    "dailyBlurb": "Two billion dollars raised on a blank page. The bet is entirely on her judgment."
+    "dailyBlurb": "Two billion dollars raised on a blank page. The bet is entirely on her judgment.",
+    "wikipediaSlug": "Mira_Murati"
   },
   {
     "id": "jakub-pachocki",
@@ -3245,7 +3411,9 @@
       "momentum": 77
     },
     "priceHistory": [],
-    "flavorText": "Benchmarks fear their ablation studies."
+    "flavorText": "Benchmarks fear their ablation studies.",
+    "openalexId": "A5011053473",
+    "wikipediaSlug": "Jakub_Pachocki"
   },
   {
     "id": "wojciech-zaremba",
@@ -3271,7 +3439,10 @@
       "momentum": 67
     },
     "priceHistory": [],
-    "flavorText": "Benchmarks fear their ablation studies."
+    "flavorText": "Benchmarks fear their ablation studies.",
+    "openalexId": "A5076651586",
+    "wikipediaSlug": "Wojciech_Zaremba",
+    "githubUser": "wojzaremba"
   },
   {
     "id": "jan-leike",
@@ -3297,7 +3468,9 @@
       "momentum": 84
     },
     "priceHistory": [],
-    "flavorText": "Keynotes conferences, still answers GitHub issues at 2am."
+    "flavorText": "Keynotes conferences, still answers GitHub issues at 2am.",
+    "openalexId": "A5090592321",
+    "wikipediaSlug": "Jan_Leike"
   },
   {
     "id": "jared-kaplan",
@@ -3323,7 +3496,9 @@
       "momentum": 90
     },
     "priceHistory": [],
-    "flavorText": "Reviews papers by day, ships repos by night, sleeps at NeurIPS."
+    "flavorText": "Reviews papers by day, ships repos by night, sleeps at NeurIPS.",
+    "openalexId": "A5053213601",
+    "wikipediaSlug": "Jared_Kaplan"
   },
   {
     "id": "tom-brown",
@@ -3349,7 +3524,8 @@
       "momentum": 93
     },
     "priceHistory": [],
-    "flavorText": "The advisor every startup lists and no startup can reach."
+    "flavorText": "The advisor every startup lists and no startup can reach.",
+    "openalexId": "A5074565235"
   },
   {
     "id": "jack-clark",
@@ -3375,7 +3551,8 @@
       "momentum": 64
     },
     "priceHistory": [],
-    "flavorText": "Wrote the textbook chapter, then made it obsolete."
+    "flavorText": "Wrote the textbook chapter, then made it obsolete.",
+    "openalexId": "A5012713248"
   },
   {
     "id": "mark-chen",
@@ -3401,7 +3578,8 @@
       "momentum": 82
     },
     "priceHistory": [],
-    "flavorText": "Their lab alumni page reads like a cap table."
+    "flavorText": "Their lab alumni page reads like a cap table.",
+    "openalexId": "A5030935953"
   },
   {
     "id": "alec-radford",
@@ -3427,7 +3605,9 @@
       "momentum": 95
     },
     "priceHistory": [],
-    "flavorText": "No public talks, no drama. Just GPT, CLIP and Whisper."
+    "flavorText": "No public talks, no drama. Just GPT, CLIP and Whisper.",
+    "openalexId": "A5051250767",
+    "wikipediaSlug": "Alec_Radford"
   },
   {
     "id": "aditya-ramesh",
@@ -3453,7 +3633,8 @@
       "momentum": 62
     },
     "priceHistory": [],
-    "flavorText": "Turned down three labs this year. Taking meetings anyway."
+    "flavorText": "Turned down three labs this year. Taking meetings anyway.",
+    "openalexId": "A5101696375"
   },
   {
     "id": "tim-brooks",
@@ -3479,7 +3660,8 @@
       "momentum": 68
     },
     "priceHistory": [],
-    "flavorText": "Benchmarks fear their ablation studies."
+    "flavorText": "Benchmarks fear their ablation studies.",
+    "openalexId": "A5024115924"
   },
   {
     "id": "bill-peebles",
@@ -3557,7 +3739,8 @@
       "momentum": 74
     },
     "priceHistory": [],
-    "flavorText": "Everyone claims they discovered them first."
+    "flavorText": "Everyone claims they discovered them first.",
+    "openalexId": "A5006744201"
   },
   {
     "id": "lilian-weng",
@@ -3583,7 +3766,9 @@
       "momentum": 89
     },
     "priceHistory": [],
-    "flavorText": "Reviews papers by day, ships repos by night, sleeps at NeurIPS."
+    "flavorText": "Reviews papers by day, ships repos by night, sleeps at NeurIPS.",
+    "openalexId": "A5103810699",
+    "githubUser": "lilianweng"
   },
   {
     "id": "barret-zoph",
@@ -3609,7 +3794,8 @@
       "momentum": 77
     },
     "priceHistory": [],
-    "flavorText": "Their h-index has an h-index."
+    "flavorText": "Their h-index has an h-index.",
+    "openalexId": "A5026064427"
   },
   {
     "id": "ashish-vaswani",
@@ -3635,7 +3821,9 @@
       "momentum": 68
     },
     "priceHistory": [],
-    "flavorText": "Has strong opinions about your training run. All of them correct."
+    "flavorText": "Has strong opinions about your training run. All of them correct.",
+    "openalexId": "A5103024730",
+    "wikipediaSlug": "Ashish_Vaswani"
   },
   {
     "id": "jakob-uszkoreit",
@@ -3661,7 +3849,8 @@
       "momentum": 73
     },
     "priceHistory": [],
-    "flavorText": "Left a comfortable job to make computers slightly less wrong."
+    "flavorText": "Left a comfortable job to make computers slightly less wrong.",
+    "openalexId": "A5022416424"
   },
   {
     "id": "llion-jones",
@@ -3687,7 +3876,8 @@
       "momentum": 91
     },
     "priceHistory": [],
-    "flavorText": "Their lab alumni page reads like a cap table."
+    "flavorText": "Their lab alumni page reads like a cap table.",
+    "openalexId": "A5023448834"
   },
   {
     "id": "illia-polosukhin",
@@ -3713,7 +3903,8 @@
       "momentum": 76
     },
     "priceHistory": [],
-    "flavorText": "Benchmarks fear their ablation studies."
+    "flavorText": "Benchmarks fear their ablation studies.",
+    "wikipediaSlug": "NEAR_(blockchain_platform)"
   },
   {
     "id": "aidan-gomez",
@@ -3739,7 +3930,9 @@
       "momentum": 91
     },
     "priceHistory": [],
-    "flavorText": "Their lab alumni page reads like a cap table."
+    "flavorText": "Their lab alumni page reads like a cap table.",
+    "openalexId": "A5079288315",
+    "wikipediaSlug": "Aidan_Gomez"
   },
   {
     "id": "lukasz-kaiser",
@@ -3765,7 +3958,8 @@
       "momentum": 74
     },
     "priceHistory": [],
-    "flavorText": "Quietly wrote the paper your favorite model is built on."
+    "flavorText": "Quietly wrote the paper your favorite model is built on.",
+    "openalexId": "A5031789995"
   },
   {
     "id": "niki-parmar",
@@ -3791,7 +3985,8 @@
       "momentum": 93
     },
     "priceHistory": [],
-    "flavorText": "Benchmarks fear their ablation studies."
+    "flavorText": "Benchmarks fear their ablation studies.",
+    "openalexId": "A5005777963"
   },
   {
     "id": "juergen-schmidhuber",
@@ -3817,7 +4012,9 @@
       "momentum": 95
     },
     "priceHistory": [],
-    "flavorText": "You didn't invent it. He did. In the nineties. He has receipts."
+    "flavorText": "You didn't invent it. He did. In the nineties. He has receipts.",
+    "openalexId": "A5071172037",
+    "wikipediaSlug": "Jürgen_Schmidhuber"
   },
   {
     "id": "sepp-hochreiter",
@@ -3843,7 +4040,9 @@
       "momentum": 97
     },
     "priceHistory": [],
-    "flavorText": "Their side project has more stars than your company."
+    "flavorText": "Their side project has more stars than your company.",
+    "openalexId": "A5053148274",
+    "wikipediaSlug": "Sepp_Hochreiter"
   },
   {
     "id": "ian-goodfellow",
@@ -3886,7 +4085,9 @@
         "role": "Research Scientist",
         "years": "2022–"
       }
-    ]
+    ],
+    "openalexId": "A5004271128",
+    "wikipediaSlug": "Ian_Goodfellow"
   },
   {
     "id": "david-silver",
@@ -3912,7 +4113,9 @@
       "momentum": 95
     },
     "priceHistory": [],
-    "flavorText": "Speaks softly and carries a large cluster."
+    "flavorText": "Speaks softly and carries a large cluster.",
+    "openalexId": "A5091771290",
+    "wikipediaSlug": "David_Silver_(computer_scientist)"
   },
   {
     "id": "oriol-vinyals",
@@ -3938,7 +4141,9 @@
       "momentum": 67
     },
     "priceHistory": [],
-    "flavorText": "Benchmarks fear their ablation studies."
+    "flavorText": "Benchmarks fear their ablation studies.",
+    "openalexId": "A5003562101",
+    "wikipediaSlug": "Oriol_Vinyals"
   },
   {
     "id": "koray-kavukcuoglu",
@@ -3964,7 +4169,8 @@
       "momentum": 85
     },
     "priceHistory": [],
-    "flavorText": "Turned down three labs this year. Taking meetings anyway."
+    "flavorText": "Turned down three labs this year. Taking meetings anyway.",
+    "openalexId": "A5090341705"
   },
   {
     "id": "shane-legg",
@@ -3990,7 +4196,9 @@
       "momentum": 79
     },
     "priceHistory": [],
-    "flavorText": "The advisor every startup lists and no startup can reach."
+    "flavorText": "The advisor every startup lists and no startup can reach.",
+    "openalexId": "A5008987732",
+    "wikipediaSlug": "Shane_Legg"
   },
   {
     "id": "mustafa-suleyman",
@@ -4016,7 +4224,9 @@
       "momentum": 67
     },
     "priceHistory": [],
-    "flavorText": "Reviews papers by day, ships repos by night, sleeps at NeurIPS."
+    "flavorText": "Reviews papers by day, ships repos by night, sleeps at NeurIPS.",
+    "openalexId": "A5001712647",
+    "wikipediaSlug": "Mustafa_Suleyman"
   },
   {
     "id": "jeff-dean",
@@ -4060,7 +4270,9 @@
         "years": "2018–"
       }
     ],
-    "dailyBlurb": "Google's living infrastructure legend — the systems he built two decades ago still carry today's models."
+    "dailyBlurb": "Google's living infrastructure legend — the systems he built two decades ago still carry today's models.",
+    "openalexId": "A5011889606",
+    "wikipediaSlug": "Jeff_Dean"
   },
   {
     "id": "quoc-le",
@@ -4086,7 +4298,9 @@
       "momentum": 72
     },
     "priceHistory": [],
-    "flavorText": "Their intern project became a product line."
+    "flavorText": "Their intern project became a product line.",
+    "openalexId": "A5088551093",
+    "wikipediaSlug": "Quoc_V._Le"
   },
   {
     "id": "kaiming-he",
@@ -4113,7 +4327,9 @@
     },
     "priceHistory": [],
     "flavorText": "ResNet has more citations than most universities.",
-    "dailyBlurb": "ResNet made deep networks trainable. A decade later, his papers are still load-bearing walls."
+    "dailyBlurb": "ResNet made deep networks trainable. A decade later, his papers are still load-bearing walls.",
+    "openalexId": "A5100700361",
+    "wikipediaSlug": "Kaiming_He"
   },
   {
     "id": "ross-girshick",
@@ -4139,7 +4355,8 @@
       "momentum": 81
     },
     "priceHistory": [],
-    "flavorText": "Their side project has more stars than your company."
+    "flavorText": "Their side project has more stars than your company.",
+    "openalexId": "A5049246408"
   },
   {
     "id": "alex-krizhevsky",
@@ -4165,7 +4382,9 @@
       "momentum": 65
     },
     "priceHistory": [],
-    "flavorText": "Turned down three labs this year. Taking meetings anyway."
+    "flavorText": "Turned down three labs this year. Taking meetings anyway.",
+    "openalexId": "A5031152245",
+    "wikipediaSlug": "Alex_Krizhevsky"
   },
   {
     "id": "francois-chollet",
@@ -4191,7 +4410,10 @@
       "momentum": 90
     },
     "priceHistory": [],
-    "flavorText": "Made Keras, then made a benchmark your AGI still can't pass."
+    "flavorText": "Made Keras, then made a benchmark your AGI still can't pass.",
+    "openalexId": "A5024393893",
+    "wikipediaSlug": "François_Chollet",
+    "githubUser": "fchollet"
   },
   {
     "id": "soumith-chintala",
@@ -4217,7 +4439,9 @@
       "momentum": 70
     },
     "priceHistory": [],
-    "flavorText": "Left a comfortable job to make computers slightly less wrong."
+    "flavorText": "Left a comfortable job to make computers slightly less wrong.",
+    "openalexId": "A5002078510",
+    "githubUser": "soumith"
   },
   {
     "id": "tri-dao",
@@ -4243,7 +4467,10 @@
       "momentum": 91
     },
     "priceHistory": [],
-    "flavorText": "Made attention fast enough to be worth paying."
+    "flavorText": "Made attention fast enough to be worth paying.",
+    "openalexId": "A5091734792",
+    "wikipediaSlug": "Mamba_(deep_learning_architecture)",
+    "githubUser": "tridao"
   },
   {
     "id": "albert-gu",
@@ -4269,7 +4496,8 @@
       "momentum": 92
     },
     "priceHistory": [],
-    "flavorText": "Their 'quick thread' on scaling is required reading now."
+    "flavorText": "Their 'quick thread' on scaling is required reading now.",
+    "openalexId": "A5025386668"
   },
   {
     "id": "percy-liang",
@@ -4295,7 +4523,9 @@
       "momentum": 80
     },
     "priceHistory": [],
-    "flavorText": "Left a comfortable job to make computers slightly less wrong."
+    "flavorText": "Left a comfortable job to make computers slightly less wrong.",
+    "openalexId": "A5025255782",
+    "wikipediaSlug": "Percy_Liang"
   },
   {
     "id": "christopher-re",
@@ -4321,7 +4551,9 @@
       "momentum": 84
     },
     "priceHistory": [],
-    "flavorText": "Speaks softly and carries a large cluster."
+    "flavorText": "Speaks softly and carries a large cluster.",
+    "openalexId": "A5103852640",
+    "wikipediaSlug": "Christopher_Ré"
   },
   {
     "id": "christopher-manning",
@@ -4347,7 +4579,9 @@
       "momentum": 82
     },
     "priceHistory": [],
-    "flavorText": "Their 'quick thread' on scaling is required reading now."
+    "flavorText": "Their 'quick thread' on scaling is required reading now.",
+    "openalexId": "A5046006076",
+    "wikipediaSlug": "Christopher_D._Manning"
   },
   {
     "id": "sebastian-thrun",
@@ -4373,7 +4607,9 @@
       "momentum": 88
     },
     "priceHistory": [],
-    "flavorText": "Put cars on roads without drivers before it was a category."
+    "flavorText": "Put cars on roads without drivers before it was a category.",
+    "openalexId": "A5066710774",
+    "wikipediaSlug": "Sebastian_Thrun"
   },
   {
     "id": "daphne-koller",
@@ -4399,7 +4635,9 @@
       "momentum": 67
     },
     "priceHistory": [],
-    "flavorText": "The rare engineer whose demos work live."
+    "flavorText": "The rare engineer whose demos work live.",
+    "openalexId": "A5051658526",
+    "wikipediaSlug": "Daphne_Koller"
   },
   {
     "id": "pieter-abbeel",
@@ -4425,7 +4663,9 @@
       "momentum": 68
     },
     "priceHistory": [],
-    "flavorText": "Their h-index has an h-index."
+    "flavorText": "Their h-index has an h-index.",
+    "openalexId": "A5049349154",
+    "wikipediaSlug": "Pieter_Abbeel"
   },
   {
     "id": "sergey-levine",
@@ -4451,7 +4691,9 @@
       "momentum": 70
     },
     "priceHistory": [],
-    "flavorText": "Keynotes conferences, still answers GitHub issues at 2am."
+    "flavorText": "Keynotes conferences, still answers GitHub issues at 2am.",
+    "openalexId": "A5026322200",
+    "wikipediaSlug": "Sergey_Levine"
   },
   {
     "id": "chelsea-finn",
@@ -4477,7 +4719,9 @@
       "momentum": 94
     },
     "priceHistory": [],
-    "flavorText": "Left a comfortable job to make computers slightly less wrong."
+    "flavorText": "Left a comfortable job to make computers slightly less wrong.",
+    "openalexId": "A5005431772",
+    "wikipediaSlug": "Chelsea_Finn"
   },
   {
     "id": "richard-sutton",
@@ -4504,7 +4748,9 @@
     },
     "priceHistory": [],
     "flavorText": "Wrote The Bitter Lesson. The industry keeps learning it the bitter way.",
-    "dailyBlurb": "The Bitter Lesson's author, still betting on scale and search while everyone rediscovers his point."
+    "dailyBlurb": "The Bitter Lesson's author, still betting on scale and search while everyone rediscovers his point.",
+    "openalexId": "A5004923102",
+    "wikipediaSlug": "Richard_S._Sutton"
   },
   {
     "id": "stuart-russell",
@@ -4530,7 +4776,9 @@
       "momentum": 71
     },
     "priceHistory": [],
-    "flavorText": "Turned down three labs this year. Taking meetings anyway."
+    "flavorText": "Turned down three labs this year. Taking meetings anyway.",
+    "openalexId": "A5054034179",
+    "wikipediaSlug": "Stuart_J._Russell"
   },
   {
     "id": "peter-norvig",
@@ -4556,7 +4804,9 @@
       "momentum": 79
     },
     "priceHistory": [],
-    "flavorText": "Their lab alumni page reads like a cap table."
+    "flavorText": "Their lab alumni page reads like a cap table.",
+    "openalexId": "A5080389385",
+    "wikipediaSlug": "Peter_Norvig"
   },
   {
     "id": "gary-marcus",
@@ -4582,7 +4832,9 @@
       "momentum": 93
     },
     "priceHistory": [],
-    "flavorText": "Every model release is personally addressed to him."
+    "flavorText": "Every model release is personally addressed to him.",
+    "openalexId": "A5110126701",
+    "wikipediaSlug": "Gary_Marcus"
   },
   {
     "id": "timnit-gebru",
@@ -4608,7 +4860,9 @@
       "momentum": 77
     },
     "priceHistory": [],
-    "flavorText": "Has strong opinions about your training run. All of them correct."
+    "flavorText": "Has strong opinions about your training run. All of them correct.",
+    "openalexId": "A5089275971",
+    "wikipediaSlug": "Timnit_Gebru"
   },
   {
     "id": "emily-bender",
@@ -4634,7 +4888,9 @@
       "momentum": 75
     },
     "priceHistory": [],
-    "flavorText": "Turned down three labs this year. Taking meetings anyway."
+    "flavorText": "Turned down three labs this year. Taking meetings anyway.",
+    "openalexId": "A5023750515",
+    "wikipediaSlug": "Emily_M._Bender"
   },
   {
     "id": "yejin-choi",
@@ -4660,7 +4916,9 @@
       "momentum": 77
     },
     "priceHistory": [],
-    "flavorText": "Their h-index has an h-index."
+    "flavorText": "Their h-index has an h-index.",
+    "openalexId": "A5102992157",
+    "wikipediaSlug": "Yejin_Choi"
   },
   {
     "id": "ali-farhadi",
@@ -4686,7 +4944,9 @@
       "momentum": 67
     },
     "priceHistory": [],
-    "flavorText": "Speaks softly and carries a large cluster."
+    "flavorText": "Speaks softly and carries a large cluster.",
+    "openalexId": "A5101576595",
+    "wikipediaSlug": "Ali_Farhadi"
   },
   {
     "id": "jim-fan",
@@ -4712,7 +4972,8 @@
       "momentum": 76
     },
     "priceHistory": [],
-    "flavorText": "Makes robots look easy and threads look effortless."
+    "flavorText": "Makes robots look easy and threads look effortless.",
+    "openalexId": "A5054905472"
   },
   {
     "id": "anima-anandkumar",
@@ -4738,7 +4999,9 @@
       "momentum": 95
     },
     "priceHistory": [],
-    "flavorText": "The rare engineer whose demos work live."
+    "flavorText": "The rare engineer whose demos work live.",
+    "openalexId": "A5014498545",
+    "wikipediaSlug": "Anima_Anandkumar"
   },
   {
     "id": "jitendra-malik",
@@ -4764,7 +5027,9 @@
       "momentum": 83
     },
     "priceHistory": [],
-    "flavorText": "Everyone claims they discovered them first."
+    "flavorText": "Everyone claims they discovered them first.",
+    "openalexId": "A5001594573",
+    "wikipediaSlug": "Jitendra_Malik"
   },
   {
     "id": "alexei-efros",
@@ -4790,7 +5055,9 @@
       "momentum": 94
     },
     "priceHistory": [],
-    "flavorText": "The citation graph bends around them."
+    "flavorText": "The citation graph bends around them.",
+    "openalexId": "A5077436220",
+    "wikipediaSlug": "Alexei_A._Efros"
   },
   {
     "id": "john-carmack",
@@ -4816,7 +5083,8 @@
       "momentum": 92
     },
     "priceHistory": [],
-    "flavorText": "Optimized Doom, now optimizing AGI. Same energy."
+    "flavorText": "Optimized Doom, now optimizing AGI. Same energy.",
+    "wikipediaSlug": "John_Carmack"
   },
   {
     "id": "george-hotz",
@@ -4842,7 +5110,9 @@
       "momentum": 65
     },
     "priceHistory": [],
-    "flavorText": "Jailbroke the iPhone at 17. Now jailbreaking the GPU monopoly."
+    "flavorText": "Jailbroke the iPhone at 17. Now jailbreaking the GPU monopoly.",
+    "wikipediaSlug": "George_Hotz",
+    "githubUser": "geohot"
   },
   {
     "id": "chris-lattner",
@@ -4868,7 +5138,10 @@
       "momentum": 90
     },
     "priceHistory": [],
-    "flavorText": "Their intern project became a product line."
+    "flavorText": "Their intern project became a product line.",
+    "openalexId": "A5064241063",
+    "wikipediaSlug": "Chris_Lattner",
+    "githubUser": "lattner"
   },
   {
     "id": "jeremy-howard",
@@ -4894,7 +5167,10 @@
       "momentum": 93
     },
     "priceHistory": [],
-    "flavorText": "Keynotes conferences, still answers GitHub issues at 2am."
+    "flavorText": "Keynotes conferences, still answers GitHub issues at 2am.",
+    "openalexId": "A5007075789",
+    "wikipediaSlug": "Jeremy_Howard_(entrepreneur)",
+    "githubUser": "jph00"
   },
   {
     "id": "sara-hooker",
@@ -4920,7 +5196,9 @@
       "momentum": 85
     },
     "priceHistory": [],
-    "flavorText": "Told you the hardware was the lottery. Bought different tickets."
+    "flavorText": "Told you the hardware was the lottery. Bought different tickets.",
+    "openalexId": "A5078850040",
+    "wikipediaSlug": "Sara_Hooker"
   },
   {
     "id": "rodney-brooks",
@@ -4946,7 +5224,9 @@
       "momentum": 87
     },
     "priceHistory": [],
-    "flavorText": "Their h-index has an h-index."
+    "flavorText": "Their h-index has an h-index.",
+    "openalexId": "A5113436962",
+    "wikipediaSlug": "Rodney_Brooks"
   },
   {
     "id": "david-ha",
@@ -4972,7 +5252,8 @@
       "momentum": 75
     },
     "priceHistory": [],
-    "flavorText": "Keynotes conferences, still answers GitHub issues at 2am."
+    "flavorText": "Keynotes conferences, still answers GitHub issues at 2am.",
+    "githubUser": "hardmaru"
   },
   {
     "id": "kenneth-stanley",
@@ -4998,7 +5279,9 @@
       "momentum": 65
     },
     "priceHistory": [],
-    "flavorText": "Their lab alumni page reads like a cap table."
+    "flavorText": "Their lab alumni page reads like a cap table.",
+    "openalexId": "A5029264794",
+    "wikipediaSlug": "Kenneth_Stanley"
   },
   {
     "id": "volodymyr-mnih",
@@ -5024,7 +5307,8 @@
       "momentum": 65
     },
     "priceHistory": [],
-    "flavorText": "The rare engineer whose demos work live."
+    "flavorText": "The rare engineer whose demos work live.",
+    "openalexId": "A5008904142"
   },
   {
     "id": "alex-graves",
@@ -5050,7 +5334,9 @@
       "momentum": 73
     },
     "priceHistory": [],
-    "flavorText": "Speaks softly and carries a large cluster."
+    "flavorText": "Speaks softly and carries a large cluster.",
+    "openalexId": "A5043473089",
+    "wikipediaSlug": "Alex_Graves_(computer_scientist)"
   },
   {
     "id": "arthur-mensch",
@@ -5077,7 +5363,9 @@
     },
     "priceHistory": [],
     "flavorText": "Left DeepMind with a slide deck, came back with a country's GDP.",
-    "dailyBlurb": "Europe's frontier-lab founder, fluent in both attention mechanisms and Brussels."
+    "dailyBlurb": "Europe's frontier-lab founder, fluent in both attention mechanisms and Brussels.",
+    "openalexId": "A5110691380",
+    "wikipediaSlug": "Arthur_Mensch"
   },
   {
     "id": "guillaume-lample",
@@ -5103,7 +5391,8 @@
       "momentum": 93
     },
     "priceHistory": [],
-    "flavorText": "Quietly wrote the paper your favorite model is built on."
+    "flavorText": "Quietly wrote the paper your favorite model is built on.",
+    "openalexId": "A5054371148"
   },
   {
     "id": "clem-delangue",
@@ -5129,7 +5418,8 @@
       "momentum": 60
     },
     "priceHistory": [],
-    "flavorText": "Open-source's most relentless hype man. The emoji is load-bearing."
+    "flavorText": "Open-source's most relentless hype man. The emoji is load-bearing.",
+    "wikipediaSlug": "Hugging_Face"
   },
   {
     "id": "thomas-wolf",
@@ -5155,7 +5445,8 @@
       "momentum": 94
     },
     "priceHistory": [],
-    "flavorText": "The rare engineer whose demos work live."
+    "flavorText": "The rare engineer whose demos work live.",
+    "openalexId": "A5078865608"
   },
   {
     "id": "aravind-srinivas",
@@ -5181,7 +5472,9 @@
       "momentum": 77
     },
     "priceHistory": [],
-    "flavorText": "Will personally reply to your complaint about citations."
+    "flavorText": "Will personally reply to your complaint about citations.",
+    "openalexId": "A5112594303",
+    "wikipediaSlug": "Perplexity_AI"
   },
   {
     "id": "alexandr-wang",
@@ -5207,7 +5500,8 @@
       "momentum": 63
     },
     "priceHistory": [],
-    "flavorText": "Labeled data until Meta labeled him 'superintelligence chief'."
+    "flavorText": "Labeled data until Meta labeled him 'superintelligence chief'.",
+    "wikipediaSlug": "Alexandr_Wang"
   },
   {
     "id": "liang-wenfeng",
@@ -5234,7 +5528,9 @@
     },
     "priceHistory": [],
     "flavorText": "Ran a quant fund, got bored, wiped a trillion off NASDAQ with a side project.",
-    "dailyBlurb": "The quant who made frontier AI a commodity. Every pricing page in the industry is a response to him."
+    "dailyBlurb": "The quant who made frontier AI a commodity. Every pricing page in the industry is a response to him.",
+    "openalexId": "A5009435651",
+    "wikipediaSlug": "Liang_Wenfeng"
   },
   {
     "id": "kai-fu-lee",
@@ -5260,7 +5556,9 @@
       "momentum": 76
     },
     "priceHistory": [],
-    "flavorText": "Wrote the book on AI superpowers. Literally."
+    "flavorText": "Wrote the book on AI superpowers. Literally.",
+    "openalexId": "A5064910846",
+    "wikipediaSlug": "Kai-Fu_Lee"
   },
   {
     "id": "lex-fridman",
@@ -5286,7 +5584,9 @@
       "momentum": 90
     },
     "priceHistory": [],
-    "flavorText": "Asks the same question to everyone: love. Somehow gets 4 hours out of it."
+    "flavorText": "Asks the same question to everyone: love. Somehow gets 4 hours out of it.",
+    "openalexId": "A5109009001",
+    "wikipediaSlug": "Lex_Fridman"
   },
   {
     "id": "paul-christiano",
@@ -5312,7 +5612,9 @@
       "momentum": 67
     },
     "priceHistory": [],
-    "flavorText": "Their h-index has an h-index."
+    "flavorText": "Their h-index has an h-index.",
+    "openalexId": "A5109502066",
+    "wikipediaSlug": "Paul_Christiano"
   },
   {
     "id": "joelle-pineau",
@@ -5338,7 +5640,9 @@
       "momentum": 78
     },
     "priceHistory": [],
-    "flavorText": "Everyone claims they discovered them first."
+    "flavorText": "Everyone claims they discovered them first.",
+    "openalexId": "A5080591144",
+    "wikipediaSlug": "Joëlle_Pineau"
   },
   {
     "id": "colin-raffel",
@@ -5364,7 +5668,8 @@
       "momentum": 78
     },
     "priceHistory": [],
-    "flavorText": "Speaks softly and carries a large cluster."
+    "flavorText": "Speaks softly and carries a large cluster.",
+    "openalexId": "A5045077843"
   },
   {
     "id": "yi-tay",
@@ -5390,7 +5695,8 @@
       "momentum": 92
     },
     "priceHistory": [],
-    "flavorText": "Their 'quick thread' on scaling is required reading now."
+    "flavorText": "Their 'quick thread' on scaling is required reading now.",
+    "openalexId": "A5103069680"
   },
   {
     "id": "eliezer-yudkowsky",
@@ -5416,7 +5722,8 @@
       "momentum": 67
     },
     "priceHistory": [],
-    "flavorText": "Has been warning you since before your lab existed."
+    "flavorText": "Has been warning you since before your lab existed.",
+    "wikipediaSlug": "Eliezer_Yudkowsky"
   },
   {
     "id": "jeff-clune",
@@ -5442,7 +5749,9 @@
       "momentum": 87
     },
     "priceHistory": [],
-    "flavorText": "The citation graph bends around them."
+    "flavorText": "The citation graph bends around them.",
+    "openalexId": "A5112191507",
+    "wikipediaSlug": "Jeff_Clune"
   },
   {
     "id": "attention-is-all-you-need",
