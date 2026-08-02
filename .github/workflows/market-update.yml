@@ -1,0 +1,43 @@
+name: Market update
+
+on:
+  schedule:
+    - cron: "0 2 * * *" # daily 02:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Update market data
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx tsx scripts/update-market.ts
+
+      - name: Commit & push if changed
+        run: |
+          git config user.name "aiticker-bot"
+          git config user.email "actions@github.com"
+          if git diff --quiet data/; then
+            echo "No data changes — skipping commit."
+          else
+            git add data/
+            git commit -m "market: daily update $(date -u +%F)"
+            git push
+          fi
