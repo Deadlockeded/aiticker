@@ -2,10 +2,32 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useSyncExternalStore } from "react";
 import DeckStack from "./DeckStack";
 import TradingCard from "./TradingCard";
 import type { MarketCard } from "@/lib/cards";
 import { formatMove, formatTicks, getCurrentPrice, getDailyMove, getMovers } from "@/lib/market";
+import { metaWatchLine } from "@/lib/meta";
+
+const subscribeNever = () => () => {};
+
+/** META WATCH — today's loudest category and its best card. Date-derived → client-only. */
+function MetaWatch({ cards }: { cards: MarketCard[] }) {
+  const line = useSyncExternalStore(
+    subscribeNever,
+    () => metaWatchLine(cards),
+    () => "",
+  );
+  if (!line) return null;
+  return (
+    <p className="border-t border-dotted border-[#9AA0AC] px-3 py-2 text-[12px] italic text-[#5A6070]">
+      <span className="mr-1.5 font-mono text-[10px] font-semibold not-italic uppercase tracking-[0.25em] text-[#C23B2E]">
+        Meta watch
+      </span>
+      {line}
+    </p>
+  );
+}
 
 /** THE HOT LIST — red-bordered movers box, print-guide style. */
 function MobileDeck({ rows }: { rows: MarketCard[] }) {
@@ -56,6 +78,7 @@ export default function HotList({ cards }: { cards: MarketCard[] }) {
           );
         })}
       </ul>
+      <MetaWatch cards={cards} />
     </div>
   );
 }

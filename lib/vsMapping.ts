@@ -1,5 +1,6 @@
 import type { MarketCard } from "./cards";
 import type { CommunitySliders } from "./create";
+import type { MetaCategory, MetaKey } from "./meta";
 
 /**
  * Versus-mode axis mapping. Community cards and Series 1 cards live on
@@ -50,12 +51,16 @@ export interface VsSide {
   company: boolean;
   rating: number;
   stats: CommunitySliders;
+  /** Fixed per-side values for every meta category (see lib/meta.ts). */
+  meta?: Record<MetaKey, number>;
   cardId?: string;
 }
 
 export interface VsRound {
-  key: keyof CommunitySliders;
+  key: string;
   label: string;
+  /** The Editor's category definition — flashed once in the round intro. */
+  definition?: string;
   a: number;
   b: number;
   winner: "a" | "b" | "tie";
@@ -122,25 +127,49 @@ export function resolveVs(a: VsSide, b: VsSide, chaos = false): VsResult {
 }
 
 /**
- * Arena resolution: best-of-3 rounds over 3 of the 4 axes, chosen
- * deterministically from the pairing hash (same matchup, same axes — the
- * result is argue-about-able). `chaos` (random-opponent mode only) adds
- * seeded upsets on top.
+ * Arena resolution: best-of-3 rounds. With `activeMeta` (today's 4 IN THE
+ * META categories) and both sides carrying meta values, the 3 round
+ * categories are chosen deterministically from the pairing hash out of the
+ * active 4 — same two cards, same day, same result; different day, different
+ * meta, possibly different result. That's the point. Without meta (legacy),
+ * falls back to the fixed 4 axes. `chaos` adds seeded upsets on top.
  */
-export function resolveArena(a: VsSide, b: VsSide, chaos = false): VsResult {
+export function resolveArena(
+  a: VsSide,
+  b: VsSide,
+  chaos = false,
+  activeMeta?: MetaCategory[],
+): VsResult {
   const pairSeed = hash(`${a.label}|${b.label}`);
-  const axes = [...AXES]
-    .map((axis, i) => ({ axis, sort: hash(`${pairSeed}:${i}`) }))
-    .sort((x, y) => x.sort - y.sort)
-    .slice(0, 3)
-    .map((x) => x.axis);
+  const useMeta = !!(activeMeta && activeMeta.length >= 3 && a.meta && b.meta);
+  const axes: { key: string; label: string; definition?: string; av: number; bv: number }[] =
+    useMeta
+      ? [...activeMeta!]
+          .map((cat, i) => ({ cat, sort: hash(`${pairSeed}:meta:${i}`) }))
+          .sort((x, y) => x.sort - y.sort)
+          .slice(0, 3)
+          .map(({ cat }) => ({
+            key: cat.key,
+            label: cat.name,
+            definition: cat.definition,
+            av: a.meta![cat.key],
+            bv: b.meta![cat.key],
+          }))
+      : [...AXES]
+          .map((axis, i) => ({ axis, sort: hash(`${pairSeed}:${i}`) }))
+          .sort((x, y) => x.sort - y.sort)
+          .slice(0, 3)
+          .map(({ axis }) => ({
+            key: axis.key,
+            label: axis.label,
+            av: a.stats[axis.key],
+            bv: b.stats[axis.key],
+          }));
   const rand = mulberry32(
     hash(`${a.label}|${b.label}|${new Date().toISOString().slice(0, 10)}`),
   );
   const agiInvolved = a.cardId === "agi" || b.cardId === "agi";
-  const rounds: VsRound[] = axes.map(({ key, label }) => {
-    const av = a.stats[key];
-    const bv = b.stats[key];
+  const rounds: VsRound[] = axes.map(({ key, label, definition, av, bv }) => {
     // AGI is unknowable: every round is a seeded coin flip
     let winner: "a" | "b" | "tie" = agiInvolved
       ? rand() < 0.5 ? "a" : "b"
@@ -150,7 +179,7 @@ export function resolveArena(a: VsSide, b: VsSide, chaos = false): VsResult {
       winner = winner === "a" ? "b" : "a";
       upset = true;
     }
-    return { key, label, a: av, b: bv, winner, upset };
+    return { key, label, definition, a: av, b: bv, winner, upset };
   });
   const aWins = rounds.filter((r) => r.winner === "a").length;
   const bWins = rounds.filter((r) => r.winner === "b").length;
@@ -159,6 +188,19 @@ export function resolveArena(a: VsSide, b: VsSide, chaos = false): VsResult {
     : a.rating !== b.rating ? (a.rating > b.rating ? "a" : "b")
     : "tie";
   return { rounds, aWins, bWins, winner };
+}
+
+/**
+ * The decisive category of a result — the winner's biggest-gap round.
+ * Used in share text ("Lost on SHITPOSTING, which honestly tracks").
+ */
+export function decisiveCategory(result: VsResult): string | null {
+  if (result.winner === "tie") return null;
+  const side = result.winner;
+  const won = result.rounds.filter((r) => r.winner === side);
+  if (won.length === 0) return null;
+  const big = [...won].sort((x, y) => Math.abs(y.a - y.b) - Math.abs(x.a - x.b))[0];
+  return big.label;
 }
 
 /** One-line auto-commentary from the stat gaps. */

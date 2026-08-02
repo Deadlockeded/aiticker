@@ -22,10 +22,12 @@ import { dayHash, getHotCards, getRandomQuip, HOT_BOOST } from "@/lib/daily";
 import {
   cardVsStats,
   commentary,
+  decisiveCategory,
   resolveArena,
   type VsResult,
   type VsSide,
 } from "@/lib/vsMapping";
+import { cardMetaValues, getDailyMeta, profileMetaValues, type MetaKey } from "@/lib/meta";
 import CardArt from "./CardArt";
 import DeckStack from "./DeckStack";
 import EditorCaption from "./EditorCaption";
@@ -227,6 +229,10 @@ export default function Arena({
     const hot = hotIds.has(card.id);
     const base = cardVsStats(card);
     const boost = (v: number) => Math.min(99, v + (hot ? HOT_BOOST : 0));
+    // Hot Streak's +3 rides on whatever categories are active today.
+    const meta = Object.fromEntries(
+      Object.entries(cardMetaValues(card)).map(([k, v]) => [k, boost(v)]),
+    ) as Record<MetaKey, number>;
     return {
       card,
       hot,
@@ -242,6 +248,7 @@ export default function Arena({
           galaxyBrain: boost(base.galaxyBrain),
           gpuHoarding: boost(base.gpuHoarding),
         },
+        meta,
         cardId: card.id,
       },
     };
@@ -259,6 +266,7 @@ export default function Arena({
     setFoeLoading(ref);
     try {
       const { profile } = await getScoredProfile(ref.replace(/^@/, ""));
+      const rating = computeCommunityRating(profile.handle, profile.stats);
       setFoe({
         hot: false,
         side: {
@@ -266,8 +274,9 @@ export default function Arena({
           label: `@${profile.handle}`,
           avatar: profile.avatarUrl,
           company: false,
-          rating: computeCommunityRating(profile.handle, profile.stats),
+          rating,
           stats: profile.stats,
+          meta: profileMetaValues(profile.handle, profile.stats, rating),
         },
       });
     } catch (err) {
@@ -296,7 +305,7 @@ export default function Arena({
     const activeFoe = foeOverride ?? foe;
     if (!me || !activeFoe) return;
     if (foeOverride) setFoe(foeOverride);
-    const res = resolveArena(me.side, activeFoe.side, chaos);
+    const res = resolveArena(me.side, activeFoe.side, chaos, getDailyMeta());
     setEntranceQuips([
       me.card ? getRandomQuip(me.card) : null,
       activeFoe.card ? getRandomQuip(activeFoe.card) : null,
@@ -563,7 +572,12 @@ export default function Arena({
               <div key={i} className="rounded-xl border border-[#1E2430]/30 bg-[#FDFBF6] p-3">
                 <div className="mb-1.5 flex items-center justify-between font-mono text-[10px] uppercase tracking-widest text-[#9AA0AC]">
                   <span>
-                    Round {i + 1} · {round.label}
+                    Round {i + 1}: {round.label}
+                    {round.definition && i === decided.length - 1 && phase === "fight" && (
+                      <span className="deal-in ml-1.5 normal-case italic tracking-normal text-[#5A6070]">
+                        — {round.definition.toLowerCase().replace(/\.$/, "")}
+                      </span>
+                    )}
                   </span>
                   {round.upset && <span className="text-amber-400">upset!</span>}
                 </div>
@@ -632,11 +646,12 @@ export default function Arena({
                 </button>
                 <ShareButton
                   label="Copy result"
-                  text={
-                    result.winner === "a"
-                      ? `My ${me.side.label} card just beat ${foe.side.label} ${result.aWins}-${result.bWins} in the aiticker arena. aiticker.xyz/arena`
-                      : `My ${me.side.label} card got cooked ${result.bWins}-${result.aWins} by ${foe.side.label}. Demanding a rematch. aiticker.xyz/arena`
-                  }
+                  text={(() => {
+                    const cat = decisiveCategory(result)?.toUpperCase();
+                    return result.winner === "a"
+                      ? `My ${me.side.label} card just beat ${foe.side.label} ${result.aWins}-${result.bWins} in the aiticker arena.${cat ? ` Sealed it on ${cat}.` : ""} aiticker.xyz/arena`
+                      : `${foe.side.label} took my ${me.side.label} card ${result.bWins}-${result.aWins}.${cat ? ` Lost on ${cat}, which honestly tracks.` : ""} aiticker.xyz/arena`;
+                  })()}
                   url=""
                   className="text-sm"
                 />

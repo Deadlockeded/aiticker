@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Arena from "@/components/Arena";
+import MetaStrip from "@/components/MetaStrip";
 import { getAllCards, getRank } from "@/lib/cards";
 
 type Search = Promise<{ me?: string; vs?: string }>;
@@ -39,10 +40,11 @@ export default async function ArenaPage({ searchParams }: { searchParams: Search
       <header className="mb-6 text-center">
         <h1 className="text-3xl font-bold tracking-tight text-[#1E2430]">Arena</h1>
         <p className="mt-1 text-sm text-[#5A6070]">
-          Fight with your cards. Best of three stat clashes — upsets only in
-          chaos mode.
+          Fight with your cards. 3 rounds drawn from today&apos;s meta — best
+          stats win.
         </p>
       </header>
+      <MetaStrip />
       <Arena cards={cards} ranks={ranks} initialMe={me} initialVs={vs} />
     </main>
   );

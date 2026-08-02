@@ -3,6 +3,7 @@ import PriceChart from "@/components/PriceChart";
 import ShareButton from "@/components/ShareButton";
 import CardReveal from "@/components/CardReveal";
 import StatBlock from "@/components/StatBlock";
+import TodayForm from "@/components/TodayForm";
 import Link from "next/link";
 import SwipeNav from "@/components/SwipeNav";
 import { getAllCards, getCard, getRank } from "@/lib/cards";
@@ -146,6 +147,8 @@ export default async function CardPage({
           </div>
 
           <StatBlock card={card} allCards={ranked} />
+
+          <TodayForm card={card} />
 
           <SignalsPanel card={card} />
 
