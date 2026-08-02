@@ -3,6 +3,20 @@ import type { Rarity } from "./types";
 import { PULL_ODDS } from "./editions";
 import { CARDS_PER_PACK } from "./binder";
 
+/**
+ * Category odds per card slot. Artifacts fatten the common pool (~35%)
+ * so legendary people feel mythic; AGI is the 0.1% secret. People/company
+ * rarity odds are compressed into the remaining probability.
+ */
+export const CATEGORY_ODDS = {
+  agi: 0.001,
+  artifact: 0.35,
+  common: 0.352,
+  rare: 0.22,
+  epic: 0.065,
+  legendary: 0.012,
+} as const;
+
 const TIERS: Rarity[] = ["mythic", "legendary", "epic", "rare", "common"];
 
 function rollRarity(roll: number): Rarity {
@@ -22,13 +36,25 @@ function rollRarity(roll: number): Rarity {
 export function pullPack(cards: MarketCard[]): MarketCard[] {
   const byRarity = new Map<Rarity, MarketCard[]>();
   for (const card of cards) {
+    if (card.type === "artifact") continue; // artifacts have their own bucket
     byRarity.set(card.rarity, [...(byRarity.get(card.rarity) ?? []), card]);
   }
 
+  const artifacts = cards.filter((c) => c.type === "artifact" && c.id !== "agi");
+  const agi = cards.find((c) => c.id === "agi");
+
   const pulls: MarketCard[] = [];
   for (let i = 0; i < CARDS_PER_PACK; i++) {
+    const roll = Math.random();
+    if (agi && roll < CATEGORY_ODDS.agi) {
+      pulls.push(agi);
+      continue;
+    }
+    if (artifacts.length && roll < CATEGORY_ODDS.agi + CATEGORY_ODDS.artifact) {
+      pulls.push(artifacts[Math.floor(Math.random() * artifacts.length)]);
+      continue;
+    }
     let rarity = rollRarity(Math.random());
-    // guard: if a tier has no cards, step down until one does
     while (!byRarity.get(rarity)?.length) {
       rarity = TIERS[Math.min(TIERS.indexOf(rarity) + 1, TIERS.length - 1)];
     }
@@ -39,7 +65,8 @@ export function pullPack(cards: MarketCard[]): MarketCard[] {
 }
 
 /** Trade-in reward: one guaranteed rare-or-better, odds renormalized. */
-export function pullRarePlus(cards: MarketCard[]): MarketCard {
+export function pullRarePlus(allCards: MarketCard[]): MarketCard {
+  const cards = allCards.filter((c) => c.type !== "artifact");
   const tiers: Rarity[] = ["rare", "epic", "legendary", "mythic"];
   const total = tiers.reduce((s, t) => s + PULL_ODDS[t], 0);
   let roll = Math.random() * total;

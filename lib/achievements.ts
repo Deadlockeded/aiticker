@@ -31,6 +31,25 @@ export function parseUnlocked(raw: string): string[] {
 
 const DOOMERS = ["geoffrey-hinton", "yoshua-bengio", "stuart-russell", "eliezer-yudkowsky"];
 
+/** Hidden trophy: beating anything WITH an artifact. One per artifact. */
+export function unlockArtifactWin(card: { id: string; name: string }): void {
+  const id = `artifact-win-${card.id}`;
+  const unlocked = parseUnlocked(getUnlockedSnapshot());
+  if (unlocked.includes(id)) return;
+  localStorage.setItem(KEY, JSON.stringify([...unlocked, id]));
+  notifyStore();
+  addXP(XP_REWARDS.achievement);
+  window.dispatchEvent(
+    new CustomEvent(TOAST_EVENT, {
+      detail: {
+        emoji: "◆",
+        title: "Hidden trophy",
+        body: `Defeated a legend with ${card.name}. +${XP_REWARDS.achievement} XP`,
+      },
+    }),
+  );
+}
+
 /**
  * Evaluate every badge against current localStorage state and unlock the new
  * ones (toast + XP each). Call after pulls and Arena fights.

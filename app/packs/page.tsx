@@ -19,6 +19,10 @@ export default function PacksPage() {
         </p>
       </header>
       <PackRipper cards={cards} ranks={ranks} />
+      <p className="mt-8 text-center font-mono text-[10px] uppercase tracking-widest text-white/30">
+        Per-card odds · artifacts 35% · commons 35.2% · rare 22% · epic 6.5%
+        · legendary 1.2% · ??? 0.1%
+      </p>
     </main>
   );
 }

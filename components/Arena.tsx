@@ -14,7 +14,7 @@ import {
   recordBattle,
 } from "@/lib/battle";
 import { addXP, XP_REWARDS } from "@/lib/xp";
-import { checkAchievements } from "@/lib/achievements";
+import { checkAchievements, unlockArtifactWin } from "@/lib/achievements";
 import { computeCommunityRating, toMarketCard } from "@/lib/create";
 import { getScoredProfile, ScoreError } from "@/lib/score";
 import { getHotCards, getRandomQuip, HOT_BOOST } from "@/lib/daily";
@@ -278,6 +278,9 @@ export default function Arena({
         const won = res.winner === "a";
         recordBattle(won, won && foe.side.rating >= me.side.rating + 10);
         addXP(won ? XP_REWARDS.battleWin : XP_REWARDS.battleLoss);
+        if (won && me.card?.type === "artifact") {
+          unlockArtifactWin(me.card);
+        }
         checkAchievements(cards);
         setPhase("done");
       }, 600 + res.rounds.length * 1200 + 400),
@@ -311,7 +314,7 @@ export default function Arena({
   }
 
   const pickerMatches = pickerQuery.trim()
-    ? cards.filter((c) => c.name.toLowerCase().includes(pickerQuery.trim().toLowerCase())).slice(0, 6)
+    ? cards.filter((c) => c.id !== "agi" && c.name.toLowerCase().includes(pickerQuery.trim().toLowerCase())).slice(0, 6)
     : [];
   const decided = result ? result.rounds.slice(0, shownRounds) : [];
   const lastRound = decided[decided.length - 1];

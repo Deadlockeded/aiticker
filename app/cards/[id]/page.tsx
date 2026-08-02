@@ -9,7 +9,9 @@ import { getAllCards, getCard, getRank } from "@/lib/cards";
 import type { MarketCard } from "@/lib/cards";
 import { PULL_ODDS } from "@/lib/editions";
 import { formatMove, formatTicks, getChange, getCurrentPrice } from "@/lib/market";
+import { CATEGORY_ODDS } from "@/lib/packs";
 import type {
+  ArtifactMetrics,
   CompanyMetrics,
   EngineerMetrics,
   MomentMetrics,
@@ -73,6 +75,18 @@ function metricRows(card: MarketCard): [string, string][] {
       ["Chaos", `${m.chaos}/100`],
       ["Memeability", `${m.memeability}/100`],
       ["Legacy", `${m.legacy}/100`],
+    ];
+  }
+  if (card.type === "artifact") {
+    if (card.id === "agi") {
+      return [["Uselessness", "?"], ["Ubiquity", "?"], ["Lore", "?"], ["Vibes", "?"]];
+    }
+    const m = card.metrics as ArtifactMetrics;
+    return [
+      ["Uselessness", `${m.uselessness}/100`],
+      ["Ubiquity", `${m.ubiquity}/100`],
+      ["Lore", `${m.lore}/100`],
+      ["Vibes", `${m.vibes}/100`],
     ];
   }
   const m = card.metrics as RivalryMetrics;
@@ -160,7 +174,12 @@ export default async function CardPage({
   if (!card) notFound();
   const rank = getRank(card.id);
   const price = getCurrentPrice(card);
-  const odds = PULL_ODDS[card.rarity];
+  const odds =
+    card.id === "agi"
+      ? CATEGORY_ODDS.agi
+      : card.type === "artifact"
+        ? CATEGORY_ODDS.artifact / 25
+        : PULL_ODDS[card.rarity];
   const ranked = getAllCards();
   const idx = ranked.findIndex((c) => c.id === card.id);
   const prevId = idx > 0 ? ranked[idx - 1].id : null;
@@ -199,7 +218,7 @@ export default async function CardPage({
             <div className="flex flex-col items-end gap-3">
               <div className="text-right">
                 <span className="block font-mono text-3xl font-bold text-white">
-                  {formatTicks(price)}
+                  {card.id === "agi" ? "—" : formatTicks(price)}
                 </span>
                 <span className="block font-mono text-xs text-white/40">
                   index value
@@ -216,7 +235,13 @@ export default async function CardPage({
             <h2 className="mb-3 font-mono text-xs uppercase tracking-[0.3em] text-white/40">
               Price history
             </h2>
-            <PriceChart history={card.priceHistory} />
+            {card.id === "agi" ? (
+              <p className="py-16 text-center font-mono text-sm text-white/40">
+                unpriced
+              </p>
+            ) : (
+              <PriceChart history={card.priceHistory} />
+            )}
             <div className="mt-4 grid grid-cols-3 gap-3">
               <ChangeStat label="24h" pct={getChange(card, 1)} />
               <ChangeStat label="7d" pct={getChange(card, 7)} />

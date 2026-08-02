@@ -54,6 +54,12 @@ export default function AchievementWall() {
           );
         })}
       </div>
+      {[...unlocked].filter((id) => id.startsWith("artifact-win-")).length > 0 && (
+        <p className="mt-3 font-mono text-[11px] text-white/40">
+          ◆ {[...unlocked].filter((id) => id.startsWith("artifact-win-")).length}{" "}
+          hidden artifact trophies earned
+        </p>
+      )}
     </section>
   );
 }

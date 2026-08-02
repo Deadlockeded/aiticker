@@ -6,6 +6,7 @@ import type { MarketCard } from "@/lib/cards";
 import { pullPack } from "@/lib/packs";
 import {
   addPulls,
+  getBinder,
   consumePack,
   getAllowanceSnapshot,
   msUntilReset,
@@ -135,6 +136,8 @@ export default function PackRipper({
   const [tearing, setTearing] = useState(false);
   const [pulls, setPulls] = useState<MarketCard[]>([]);
   const [flipQuips, setFlipQuips] = useState<(string | null)[]>([]);
+  const [preOwned, setPreOwned] = useState<Set<string>>(new Set());
+  const [agiFlash, setAgiFlash] = useState(false);
   const [flipped, setFlipped] = useState<boolean[]>([]);
   const [shimmering, setShimmering] = useState<number | null>(null);
   const [glowKey, setGlowKey] = useState(0);
@@ -176,6 +179,7 @@ export default function PackRipper({
     if (left === null) return;
 
     const pulled = pullPack(cards);
+    setPreOwned(new Set(Object.keys(getBinder())));
     setPulls(pulled);
     setFlipped(pulled.map(() => false));
     setFlipQuips(pulled.map(() => null));
@@ -196,6 +200,12 @@ export default function PackRipper({
     const quip = getRandomQuip(pulls[i]);
     setFlipQuips((q) => q.map((v, j) => (j === i ? quip : v)));
 
+    if (pulls[i].id === "agi") {
+      // the secret mythic: screen goes white, no confetti, silence.
+      setAgiFlash(true);
+      setTimeout(() => setAgiFlash(false), 900);
+      return;
+    }
     const rarity = pulls[i].rarity;
     if (rarity !== "common") {
       setGlowKey((k) => k + 1);
@@ -219,6 +229,9 @@ export default function PackRipper({
         />
       )}
       {confetti && <Confetti key={confetti.key} pieces={confetti.pieces} />}
+      {agiFlash && (
+        <div className="pointer-events-none fixed inset-0 z-50 bg-white transition-opacity duration-700" style={{ animation: "glow-flash 0.9s ease-out forwards" }} />
+      )}
 
       <p className="mb-8 text-center font-mono text-xs uppercase tracking-[0.3em] text-white/40">
         {mounted
@@ -271,9 +284,19 @@ export default function PackRipper({
                   </div>
                 </div>
               </button>
-              {flipped[i] && flipQuips[i] && (
+              {flipped[i] && card.id === "agi" && (
+                <p className="mt-2 text-center font-mono text-[12px] text-white/70">
+                  well.
+                </p>
+              )}
+              {flipped[i] && card.id !== "agi" && flipQuips[i] && (
                 <p className="deal-in mt-2 text-center text-[11px] italic leading-snug text-white/50">
                   “{flipQuips[i]}”
+                </p>
+              )}
+              {flipped[i] && card.type === "artifact" && card.id !== "agi" && preOwned.has(card.id) && (
+                <p className="mt-1 text-center font-mono text-[10px] text-white/35">
+                  another one.
                 </p>
               )}
               </div>

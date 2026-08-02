@@ -43,12 +43,14 @@ const DAY_MS = 86_400_000;
 /** 30 days of prices ending today. Start price = rating × 10. */
 export function seedPriceHistory(card: Card, rating: number): PricePoint[] {
   const rand = mulberry32(hashId(card.id));
-  const drift = ((rating - 75) / 99) * 0.006; // better cards trend up
-  const vol = VOLATILITY[card.rarity];
+  // artifacts are penny stocks: flat ~₮12 with a dead-looking wobble
+  const artifact = card.type === "artifact";
+  const drift = artifact ? 0 : ((rating - 75) / 99) * 0.006;
+  const vol = artifact ? 0.02 : VOLATILITY[card.rarity];
 
   const today = Math.floor(Date.now() / DAY_MS) * DAY_MS;
   const points: PricePoint[] = [];
-  let price = rating * 10;
+  let price = artifact ? 12 : rating * 10;
   for (let i = 0; i < MARKET_DAYS; i++) {
     price *= 1 + drift + (rand() - 0.5) * 2 * vol;
     points.push({

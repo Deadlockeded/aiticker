@@ -46,6 +46,7 @@ function visitSnapshot(): number {
 const subscribeNever = () => () => {};
 
 function rarityLabel(cards: MarketCard[]): string {
+  if (cards.length && cards.every((c) => c.type === "artifact")) return "artifacts";
   const set = [...new Set(cards.map((c) => c.rarity))];
   return set.length === 1 ? set[0] : `${set[0]} → ${set[set.length - 1]}`;
 }
@@ -67,13 +68,19 @@ export default function BinderPages({
     [raw],
   );
 
-  // fixed slot order: rarity desc, then rating desc — collectors memorize slots
+  // fixed slot order: rarity desc then rating desc; artifacts get their own
+  // final pages so the trophy pages stay pure. AGI is hidden until owned.
   const ordered = useMemo(() => {
     const rank = (r: Rarity) => RARITY_ORDER.indexOf(r);
-    return [...cards].sort(
-      (a, b) => rank(a.rarity) - rank(b.rarity) || b.rating - a.rating,
-    );
+    const index = cards
+      .filter((c) => c.type !== "artifact")
+      .sort((a, b) => rank(a.rarity) - rank(b.rarity) || b.rating - a.rating);
+    const artifacts = cards
+      .filter((c) => c.type === "artifact" && c.id !== "agi")
+      .sort((a, b) => b.rating - a.rating);
+    return [...index, ...artifacts];
   }, [cards]);
+  const agiCard = useMemo(() => cards.find((c) => c.id === "agi"), [cards]);
   const pages = useMemo(() => {
     const out: MarketCard[][] = [];
     for (let i = 0; i < ordered.length; i += 9) out.push(ordered.slice(i, i + 9));
@@ -131,7 +138,11 @@ export default function BinderPages({
     );
   }
 
-  const ownedCount = ordered.filter((c) => binder[c.id]).length;
+  const indexCards = ordered.filter((c) => c.type !== "artifact");
+  const artifactCards = ordered.filter((c) => c.type === "artifact");
+  const ownedCount = indexCards.filter((c) => binder[c.id]).length;
+  const ownedArtifacts = artifactCards.filter((c) => binder[c.id]).length;
+  const agiOwned = !!(agiCard && binder[agiCard.id]);
   const value = ordered.reduce(
     (s, c) => s + (binder[c.id]?.copies ?? 0) * getCurrentPrice(c),
     0,
@@ -182,12 +193,15 @@ export default function BinderPages({
             <circle cx="18" cy="18" r="14" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="4" />
             <circle
               cx="18" cy="18" r="14" fill="none" stroke="#22d3ee" strokeWidth="4"
-              strokeDasharray={`${(ownedCount / ordered.length) * ring} ${ring}`}
+              strokeDasharray={`${(ownedCount / indexCards.length) * ring} ${ring}`}
               strokeLinecap="round"
             />
           </svg>
           <span className="tnum font-mono text-sm text-white">
-            {ownedCount}/{ordered.length}
+            {ownedCount}/{indexCards.length}
+            <span className="ml-1 text-[10px] text-white/40">
+              +{ownedArtifacts}/{artifactCards.length}◆
+            </span>
           </span>
         </button>
         <span className="tnum font-mono text-sm text-white/70">{formatTicks(Math.round(value))}</span>
@@ -323,6 +337,23 @@ export default function BinderPages({
                     );
                   })}
                 </div>
+                {pi === pages.length - 1 && agiOwned && agiCard && (
+                  <div className="mt-2.5 flex justify-center">
+                    <button
+                      onClick={() => setOpen(agiCard)}
+                      className="pocket relative w-1/3 rounded-lg bg-black/40 p-1"
+                    >
+                      <div className="pocket-card mythic-border relative aspect-[1/1.4] overflow-hidden rounded-md p-[1.5px]">
+                        <div className="flex h-full w-full flex-col items-center justify-center rounded-[5px] bg-[#0b0b0d]">
+                          <span className="text-2xl text-white/80">∞</span>
+                          <span className="mt-1 font-mono text-[8px] text-white/40">
+                            slot ∞
+                          </span>
+                        </div>
+                      </div>
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
           ))}

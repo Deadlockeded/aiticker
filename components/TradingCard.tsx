@@ -101,13 +101,17 @@ export default function TradingCard({
   const price = getCurrentPrice(card);
   const move = getDailyMove(card);
   const mythic = card.rarity === "mythic";
+  const artifact = card.type === "artifact";
+  const agi = card.id === "agi";
 
   const body = (
     <div
-      className={`group flex h-full flex-col overflow-hidden bg-[#131316] transition duration-200 ${
-        mythic
-          ? "rounded-[11px]"
-          : `rounded-xl border ${r.border}`
+      className={`group flex h-full flex-col overflow-hidden transition duration-200 ${
+        artifact && !agi
+          ? "rounded-xl border-4 border-double border-stone-500/40 bg-[#17150f]"
+          : mythic
+            ? "rounded-[11px] bg-[#131316]"
+            : `rounded-xl border bg-[#131316] ${r.border}`
       } ${hero ? "" : "hover:-translate-y-1 hover:bg-[#18181c]"}`}
     >
       {/* art */}
@@ -116,7 +120,7 @@ export default function TradingCard({
           r.foilSweep || card.type === "moment" ? "foil-sweep" : ""
         }`}
       >
-        {r.holoWash && <div className="holo-wash absolute inset-0 opacity-50" />}
+        {r.holoWash && !agi && <div className="holo-wash absolute inset-0 opacity-50" />}
         {card.type === "moment" ? (
           /* cinematic frame: letterboxed wide crop + date stamp */
           <div className="absolute inset-0 flex flex-col justify-center bg-black/30">
@@ -133,6 +137,16 @@ export default function TradingCard({
           </div>
         ) : card.type === "rivalry" && card.sides ? (
           <RivalryArt sides={card.sides} hero={hero} />
+        ) : artifact ? (
+          <div
+            className={`absolute inset-0 flex items-center justify-center ${agi ? "bg-[#0b0b0d]" : "bg-[radial-gradient(110%_100%_at_50%_0%,#26221a_0%,#141210_70%)]"}`}
+          >
+            <svg
+              viewBox="0 0 48 48"
+              className={hero ? "h-36 w-36" : "h-20 w-20"}
+              dangerouslySetInnerHTML={{ __html: card.icon ?? "" }}
+            />
+          </div>
         ) : (
           <CardArt card={card} hero={hero} shape="tile" />
         )}
@@ -148,7 +162,7 @@ export default function TradingCard({
               hero ? "text-3xl" : "text-lg"
             }`}
           >
-            {card.rating}
+            {agi ? "?" : card.rating}
           </span>
           <span
             className={`font-mono uppercase text-white/50 ${hero ? "text-xs" : "text-[8px]"}`}
@@ -206,7 +220,7 @@ export default function TradingCard({
           }`}
         >
           <span className={`uppercase tracking-wider ${community ? "text-cyan-400/80" : ""}`}>
-            {community ? "community" : card.type}
+            {community ? "community" : artifact ? "artifact" : card.type}
           </span>
           <span className="tnum">
             {community
@@ -257,7 +271,7 @@ export default function TradingCard({
                   />
                 </div>
                 <span className="tnum w-6 text-right font-mono text-xs text-white/70">
-                  {card.stats[key]}
+                  {agi ? "?" : card.stats[key]}
                 </span>
               </div>
             ))}
@@ -276,14 +290,14 @@ export default function TradingCard({
                 hero ? "text-lg" : "text-xs"
               }`}
             >
-              {formatTicks(price)}
+              {agi ? "unpriced" : formatTicks(price)}
             </span>
             <span
               className={`tnum font-mono ${move >= 0 ? "text-emerald-400" : "text-red-400"} ${
                 hero ? "text-sm" : "text-[10px]"
               }`}
             >
-              {formatMove(move)}
+              {agi ? "" : formatMove(move)}
             </span>
           </div>
         )}

@@ -12,9 +12,9 @@ import {
 } from "@/lib/market";
 
 export default function Home() {
-  const cards = getAllCards();
+  const cards = getAllCards(); // grid filters agi itself; stats include index only
   const ranks = Object.fromEntries(cards.map((c) => [c.id, getRank(c.id)]));
-  const marketCap = cards.reduce((sum, c) => sum + getCurrentPrice(c), 0);
+  const marketCap = cards.filter((c) => c.id !== "agi").reduce((sum, c) => sum + getCurrentPrice(c), 0);
   const topMover = getMovers(cards).gainers[0];
 
   return (

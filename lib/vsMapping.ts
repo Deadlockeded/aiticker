@@ -6,21 +6,30 @@ import type { CommunitySliders } from "./create";
  * different scales, so both sides are projected onto the same four axes.
  * Tunable table — each entry documents its reasoning.
  */
+const ARTIFACT_CEIL = 0.45;
+
+function artifactAxis(card: MarketCard, key: "vibes" | "ubiquity" | "lore" | "uselessness"): number {
+  const m = card.metrics as unknown as Record<string, number>;
+  return Math.round((m[key] ?? 0) * ARTIFACT_CEIL);
+}
+
 export const VS_MAPPING: Record<
   keyof CommunitySliders,
   (card: MarketCard) => number
 > = {
   // momentum is the closest Series 1 analog to "actively shipping"
-  shipping: (c) => c.stats.momentum,
+  shipping: (c) => (c.type === "artifact" ? artifactAxis(c, "vibes") : c.stats.momentum),
   // influence ≈ clout by construction
-  yapping: (c) => c.stats.influence,
+  yapping: (c) => (c.type === "artifact" ? artifactAxis(c, "ubiquity") : c.stats.influence),
   // innovation ≈ galaxy brain
-  galaxyBrain: (c) => c.stats.innovation,
+  galaxyBrain: (c) => (c.type === "artifact" ? artifactAxis(c, "lore") : c.stats.innovation),
   // companies literally hoard GPUs; people get a rating-derived proxy
   gpuHoarding: (c) =>
-    c.type === "company"
-      ? Math.min(99, c.rating + 4)
-      : Math.max(25, c.rating - 10),
+    c.type === "artifact"
+      ? artifactAxis(c, "uselessness")
+      : c.type === "company"
+        ? Math.min(99, c.rating + 4)
+        : Math.max(25, c.rating - 10),
 };
 
 export function cardVsStats(card: MarketCard): CommunitySliders {
@@ -128,12 +137,16 @@ export function resolveArena(a: VsSide, b: VsSide, chaos = false): VsResult {
   const rand = mulberry32(
     hash(`${a.label}|${b.label}|${new Date().toISOString().slice(0, 10)}`),
   );
+  const agiInvolved = a.cardId === "agi" || b.cardId === "agi";
   const rounds: VsRound[] = axes.map(({ key, label }) => {
     const av = a.stats[key];
     const bv = b.stats[key];
-    let winner: "a" | "b" | "tie" = av === bv ? "tie" : av > bv ? "a" : "b";
+    // AGI is unknowable: every round is a seeded coin flip
+    let winner: "a" | "b" | "tie" = agiInvolved
+      ? rand() < 0.5 ? "a" : "b"
+      : av === bv ? "tie" : av > bv ? "a" : "b";
     let upset = false;
-    if (chaos && winner !== "tie" && rand() < 0.18) {
+    if (!agiInvolved && chaos && winner !== "tie" && rand() < 0.18) {
       winner = winner === "a" ? "b" : "a";
       upset = true;
     }

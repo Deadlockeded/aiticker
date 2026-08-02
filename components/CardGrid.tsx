@@ -14,6 +14,7 @@ const FILTERS: { value: Filter; label: string }[] = [
   { value: "all", label: "All" },
   { value: "company", label: "Companies" },
   { value: "engineer", label: "Engineers" },
+  { value: "artifact", label: "Artifacts" },
 ];
 
 export default function CardGrid({
@@ -31,6 +32,7 @@ export default function CardGrid({
     const q = query.trim().toLowerCase();
     const filtered = cards.filter(
       (c) =>
+        c.id !== "agi" && // the secret mythic stays hidden until pulled
         (filter === "all" || c.type === filter) &&
         (q === "" ||
           c.name.toLowerCase().includes(q) ||

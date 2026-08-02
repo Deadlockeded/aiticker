@@ -8,7 +8,7 @@ import PullToRefresh from "@/components/PullToRefresh";
 export const metadata: Metadata = { title: "Market · AI Ticker" };
 
 export default function MarketPage() {
-  const cards = getAllCards();
+  const cards = getAllCards().filter((c) => c.id !== "agi"); // unpriced, unlisted
   const ranks = Object.fromEntries(cards.map((c) => [c.id, getRank(c.id)]));
   const { gainers, losers } = getMovers(cards);
 
