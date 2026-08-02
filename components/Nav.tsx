@@ -6,7 +6,7 @@ import LevelPill from "./LevelPill";
 
 const LINKS = [
   { href: "/", label: "Cards" },
-  { href: "/market", label: "Guide" },
+  { href: "/market", label: "Market" },
   { href: "/packs", label: "Packs" },
   { href: "/arena", label: "Arena" },
   { href: "/binder", label: "Binder" },

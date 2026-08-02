@@ -220,10 +220,7 @@ export default function BinderPages({
         </button>
         <span className="tnum font-mono text-sm text-[#5A6070]">{formatTicks(Math.round(value))}</span>
         {peekTotal > 0 && (
-          <span
-            className="tnum shrink-0 font-mono text-[10px] uppercase tracking-widest text-[#9AA0AC]"
-            title="We're not judging. We're counting."
-          >
+          <span className="tnum shrink-0 font-mono text-[10px] uppercase tracking-widest text-[#9AA0AC]">
             Peeked: {peekTotal}
           </span>
         )}

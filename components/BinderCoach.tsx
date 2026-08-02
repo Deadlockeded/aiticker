@@ -43,7 +43,7 @@ export default function BinderCoach() {
             href="/howto"
             className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#C23B2E] underline hover:text-[#A32F24]"
           >
-            See the full rules →
+            How it works →
           </Link>
         </p>
       </div>

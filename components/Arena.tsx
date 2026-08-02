@@ -343,10 +343,7 @@ export default function Arena({
     return (
       <div className="flex flex-col items-center gap-5 py-24 text-center">
         <p className="text-5xl">⚔️</p>
-        <p className="text-[#5A6070]">
-          You fight with cards from your binder — rip your free daily packs
-          first.
-        </p>
+        <p className="text-[#5A6070]">No cards yet. Rip a pack first.</p>
         <Link
           href="/packs"
           className="rounded-lg bg-[#C23B2E] px-6 py-2.5 text-sm font-semibold text-[#FDFBF6] transition-colors hover:bg-[#A32F24]"
@@ -489,7 +486,7 @@ export default function Arena({
                     </button>
                     {passes >= 10 && (
                       <p className="mt-2 font-mono text-[10px] uppercase tracking-widest text-[#9AA0AC]">
-                        The index is starting to take this personally. — The Editor
+                        The index is starting to take this personally.
                       </p>
                     )}
                   </div>

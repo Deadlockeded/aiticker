@@ -20,9 +20,9 @@ export default function Home() {
           <Link href="/packs" className="coupon block p-4 text-center paper-in">
             <NewCollectorTag />
             <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.25em] text-[#1E2430]">
-              ✂ Subscribe: 3 free packs daily,
+              ✂ 3 free packs daily,
               <br />
-              delivered to your binder
+              straight to your binder
             </p>
             <span className="mt-2 inline-block bg-[#C23B2E] px-4 py-2 font-mono text-xs font-semibold uppercase tracking-widest text-[#FDFBF6] hover:bg-[#A32F24]">
               Rip a pack →

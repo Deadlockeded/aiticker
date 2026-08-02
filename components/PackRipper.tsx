@@ -302,12 +302,12 @@ export default function PackRipper({
             {phase === "ripping"
               ? "ripping…"
               : packsLeft === 0 && mounted
-                ? `Next issue of free packs in ${resetIn}. — The Editor`
+                ? `Next free packs in ${resetIn}.`
                 : "tap the pack to rip it"}
           </p>
           {tutorial && phase === "idle" && packsLeft > 0 && (
             <EditorCaption className="mt-4" ttl={30000}>
-              Rule one: tap the pack. There is no rule two.
+              Tap the pack.
             </EditorCaption>
           )}
         </div>

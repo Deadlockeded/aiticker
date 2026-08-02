@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "How to Collect · AI Ticker",
-  description: "The full rules, illustrated. There are not many.",
+  title: "How it works · AI Ticker",
+  description: "The full rules. There are not many.",
 };
 
 const INK = "#1E2430";
@@ -95,9 +95,9 @@ const PANELS: { n: string; title: string; copy: React.ReactNode; art: React.Reac
     art: <ArtRip />,
     copy: (
       <>
-        3 free packs daily. Tap the pack. Odds are printed on the{" "}
+        3 free packs daily. Odds posted on the{" "}
         <Link href="/packs" className="underline decoration-[#C23B2E] underline-offset-2">
-          shop wall
+          packs page
         </Link>
         .
       </>
@@ -109,8 +109,8 @@ const PANELS: { n: string; title: string; copy: React.ReactNode; art: React.Reac
     art: <ArtBinder />,
     copy: (
       <>
-        Pulls live in your <Link href="/binder" className="underline decoration-[#C23B2E] underline-offset-2">binder</Link>.
-        50 index cards + 25 artifacts. The artifacts are… look, they&apos;re part of it.
+        Pulls land in your <Link href="/binder" className="underline decoration-[#C23B2E] underline-offset-2">binder</Link>.
+        50 index cards + 25 artifacts. Yes, the artifacts count.
       </>
     ),
   },
@@ -121,7 +121,7 @@ const PANELS: { n: string; title: string; copy: React.ReactNode; art: React.Reac
     copy: (
       <>
         Take any card to the <Link href="/arena" className="underline decoration-[#C23B2E] underline-offset-2">Arena</Link>.
-        3 rounds, best stats win. Today&apos;s meta changes daily.
+        3 rounds, best stats win. The meta rotates daily.
       </>
     ),
   },
@@ -131,7 +131,7 @@ const PANELS: { n: string; title: string; copy: React.ReactNode; art: React.Reac
     art: <ArtTrade />,
     copy: (
       <>
-        Sell dupes to The House at book value, in the{" "}
+        Sell dupes at book value, in the{" "}
         <Link href="/binder" className="underline decoration-[#C23B2E] underline-offset-2">binder</Link>.
         Ticks are fake. The feelings are real.
       </>
@@ -146,7 +146,7 @@ const PANELS: { n: string; title: string; copy: React.ReactNode; art: React.Reac
         <Link href="/create" className="underline decoration-[#C23B2E] underline-offset-2">
           &ldquo;Roast me&rdquo;
         </Link>{" "}
-        turns your GitHub into a prospect card. The scout is not gentle.
+        turns your GitHub into a prospect card. It is not gentle.
       </>
     ),
   },
@@ -163,11 +163,9 @@ export default function HowToPage() {
     <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-10 sm:px-8">
       <header className="mb-8 border-b-[3px] border-[#1E2430] pb-4 text-center">
         <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-[#C23B2E]">
-          The complete rules · there are not many
+          The full rules · there are not many
         </p>
-        <h1 className="mt-1 text-3xl text-[#1E2430] sm:text-4xl">
-          How to collect, illustrated
-        </h1>
+        <h1 className="mt-1 text-3xl text-[#1E2430] sm:text-4xl">How it works</h1>
       </header>
 
       <div className="grid gap-4 sm:grid-cols-2">
@@ -190,9 +188,6 @@ export default function HowToPage() {
         </span>
       </Link>
 
-      <p className="mt-6 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-[#9AA0AC]">
-        Disputes may be addressed to The Editor, who is not listening. — mgmt
-      </p>
     </main>
   );
 }

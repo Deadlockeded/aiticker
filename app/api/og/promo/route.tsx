@@ -9,9 +9,9 @@ const PAGES: Record<string, { title: string; sub: string; emoji: string }> = {
     emoji: "🪪",
   },
   about: {
-    title: "From the Editor's Desk",
-    sub: "The internet's leading* price guide for AI trading cards. (*Only.)",
-    emoji: "📰",
+    title: "About aiticker",
+    sub: "Trading cards for the AI industry. Real data. Fake money.",
+    emoji: "📇",
   },
   roast: {
     title: "Roast my repos",

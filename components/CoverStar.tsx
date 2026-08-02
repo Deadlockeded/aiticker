@@ -9,7 +9,7 @@ import TradingCard from "./TradingCard";
 
 const subscribeNever = () => () => {};
 
-/** ★ COVER STAR OF THE MONTH — client-only (month-hash pick). */
+/** ★ FEATURED CARD — month-hash pick, client-only. Frame visual unchanged. */
 export default function CoverStar({
   cards,
   ranks,
@@ -28,7 +28,7 @@ export default function CoverStar({
   return (
     <div className="paper-card paper-in p-4">
       <p className="border-b-2 border-[#1E2430] pb-2 text-center font-mono text-[11px] font-semibold uppercase tracking-[0.3em] text-[#C23B2E]">
-        ★ Cover star of the month ★
+        ★ Featured card ★
       </p>
       <Link href={`/cards/${star.id}`} className="mt-3 block">
         <TradingCard card={star} rank={ranks[star.id]} />
