@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { SUPPORT_EMAIL } from "@/lib/site";
 
 const title = "From the Editor's Desk — aiticker";
 
@@ -113,11 +112,7 @@ export default function AboutPage() {
           </p>
           <p>
             § All quips refer to public personas with affection. If you are on
-            a card and would like yours changed,{" "}
-            <a href={`mailto:${SUPPORT_EMAIL}`} className="text-[#C23B2E] underline">
-              write to us
-            </a>{" "}
-            — being on a card and complaining about the card is, however,
+            a card and would like yours changed, write to us — being on a card and complaining about the card is, however,
             extremely card behavior.
           </p>
           <p>§ The Wrapper card is autobiographical.</p>
@@ -125,13 +120,9 @@ export default function AboutPage() {
 
         <h2 className={H}>Contact</h2>
         <p className={`mt-3 ${P}`}>
-          Corrections, complaints, and legendary pull screenshots:{" "}
-          <a href={`mailto:${SUPPORT_EMAIL}`} className="text-[#C23B2E] underline">
-            {SUPPORT_EMAIL}
-          </a>
-          . Complaints about your rating specifically may be directed to The
-          Algorithm, and then to the void, which maintains a faster response
-          time.
+          Corrections may be shouted into the void. The void maintains our
+          complaints department. Legendary pull screenshots may be posted
+          anywhere; we will find them.
         </p>
 
         <p className={`mt-6 ${P}`}>

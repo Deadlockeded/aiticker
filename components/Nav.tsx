@@ -51,7 +51,7 @@ export default function Nav() {
             href="/create"
             className="shrink-0 bg-[#C23B2E] px-3.5 py-1.5 font-mono text-[13px] font-semibold uppercase tracking-widest text-[#FDFBF6] transition-colors hover:bg-[#A32F24]"
           >
-            Rate yourself
+            Roast me
           </Link>
         </div>
       </nav>

@@ -12,6 +12,7 @@ import {
 } from "@/lib/binder";
 import { formatMove, formatTicks, getCurrentPrice, getDailyMove } from "@/lib/market";
 import CardArt from "./CardArt";
+import CardBackFace from "./CardBackFace";
 import TradingCard from "./TradingCard";
 import DailyQuip from "./DailyQuip";
 import Sparkline from "./Sparkline";
@@ -308,12 +309,11 @@ export default function BinderPages({
                           key={card.id}
                           className={`pocket flex aspect-[1/1.4] flex-col items-center justify-center rounded-lg bg-black/30 transition-opacity ${dim ? "opacity-25" : ""}`}
                         >
-                          <span className="text-xl text-[#1E2430]/20">?</span>
-                          <span className="mt-1 truncate px-1 font-mono text-[8px] uppercase text-[#9AA0AC]">
+                          <div className="h-full w-full p-1">
+                            <CardBackFace card={card} size="thumb" />
+                          </div>
+                          <span className="absolute inset-x-0 bottom-0.5 truncate px-1 text-center font-mono text-[7px] uppercase text-[#5A6070]">
                             {card.name}
-                          </span>
-                          <span className="font-mono text-[7px] text-[#9AA0AC]/70">
-                            slot {pi * 9 + si + 1}
                           </span>
                         </div>
                       );

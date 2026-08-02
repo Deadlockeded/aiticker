@@ -1,11 +1,13 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import type { CardType } from "@/lib/types";
 import type { MarketCard } from "@/lib/cards";
 import { getCurrentPrice, getDailyMove } from "@/lib/market";
 import TradingCard from "./TradingCard";
+import CardBackFace from "./CardBackFace";
+import { getBinderSnapshot, parseBinder, subscribeStore } from "@/lib/binder";
 
 type Filter = "all" | CardType;
 type Sort = "rating-desc" | "rating-asc" | "price-desc" | "move-desc" | "name";
@@ -27,6 +29,11 @@ export default function CardGrid({
   const [filter, setFilter] = useState<Filter>("all");
   const [sort, setSort] = useState<Sort>("rating-desc");
   const [query, setQuery] = useState("");
+  const binderRaw = useSyncExternalStore(subscribeStore, getBinderSnapshot, () => null);
+  const owned = useMemo(
+    () => new Set(binderRaw ? Object.keys(parseBinder(binderRaw)) : []),
+    [binderRaw],
+  );
 
   const visible = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -104,7 +111,13 @@ export default function CardGrid({
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
           {visible.map((card) => (
             <Link key={card.id} href={`/cards/${card.id}`}>
-              <TradingCard card={card} rank={ranks[card.id]} />
+              {owned.has(card.id) ? (
+                <TradingCard card={card} rank={ranks[card.id]} />
+              ) : (
+                <div className="aspect-[1/1.42]">
+                  <CardBackFace card={card} />
+                </div>
+              )}
             </Link>
           ))}
         </div>

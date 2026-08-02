@@ -320,6 +320,11 @@ export default function PackRipper({
                   well.
                 </p>
               )}
+              {flipped[i] && !preOwned.has(card.id) && (
+                <span className="pointer-events-none absolute left-1/2 top-[38%] z-20 -translate-x-1/2 rotate-[-14deg] border-[3px] border-[#1E2430] bg-[#FDFBF6]/85 px-2 py-0.5 font-mono text-[11px] font-black uppercase tracking-[0.25em] text-[#1E2430]">
+                  First pull
+                </span>
+              )}
               {flipped[i] && card.id !== "agi" && flipQuips[i] && (
                 <p className="deal-in mt-2 text-center text-[11px] italic leading-snug text-[#5A6070]">
                   “{flipQuips[i]}”

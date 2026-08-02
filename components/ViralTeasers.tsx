@@ -15,7 +15,7 @@ export function HomeTeasers() {
           <p className="font-semibold text-[#1E2430]">Get rated</p>
           <p className="mt-0.5 text-xs text-[#9AA0AC]">
             The Algorithm scores your public footprint.{" "}
-            <span className="text-[#C23B2E]">Get roasted →</span>
+            <span className="text-[#C23B2E]">Roast included. →</span>
           </p>
         </div>
         <span className="text-2xl">🪪</span>
@@ -39,7 +39,7 @@ export function HomeTeasers() {
 }
 
 const NUDGES = [
-  { href: "/roast", label: "Get your repos roasted →" },
+  { href: "/create", label: "Get scouted & roasted →" },
   { href: "/create", label: "Make your own card →" },
 ];
 

@@ -21,7 +21,8 @@ import {
   type CommunityCard,
   type CommunitySliders,
 } from "@/lib/create";
-import { getScoredProfile, ScoreError, type ScoredProfile } from "@/lib/score";
+import { getRoastFacts, getScoredProfile, ScoreError, type ScoredProfile } from "@/lib/score";
+import { ROAST_LINES } from "@/lib/lines";
 import { pickStamp } from "@/lib/lines";
 import ShareButton from "./ShareButton";
 import { canShareFiles, canvasBlob, sharePng, type ShareOutcome } from "@/lib/share";
@@ -119,7 +120,7 @@ function wrapText(ctx: CanvasRenderingContext2D, text: string, maxWidth: number)
 }
 
 /** Hand-drawn 1080×1350 card PNG. No html2canvas — pure 2D canvas. */
-async function exportPng(card: CommunityCard) {
+async function exportPng(card: CommunityCard, roasts?: string[] | null) {
   const W = 1080;
   const H = 1350;
   const canvas = document.createElement("canvas");
@@ -270,6 +271,21 @@ async function exportPng(card: CommunityCard) {
     y += 52;
   }
 
+  // SCOUT'S ROAST — the shareable part
+  if (roasts && roasts.length) {
+    y += 18;
+    ctx.fillStyle = "#f5f1e6";
+    ctx.fillRect(artX, y - 26, artW, 34 + roasts.length * 34);
+    ctx.fillStyle = "#1c1917";
+    ctx.font = "700 22px ui-monospace, monospace";
+    ctx.fillText("SCOUT'S ROAST", artX + 12, y);
+    ctx.font = "400 20px ui-monospace, monospace";
+    for (const line of roasts) {
+      y += 32;
+      ctx.fillText(`— ${line.slice(0, 78)}`, artX + 12, y);
+    }
+  }
+
   ctx.fillStyle = "rgba(255,255,255,0.45)";
   ctx.font = "600 26px ui-monospace, monospace";
   ctx.fillText("#???/∞ · COMMUNITY SERIES", artX + 6, H - M - 44);
@@ -327,6 +343,7 @@ export default function CreateCardStudio() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [lastProfile, setLastProfile] = useState<ScoredProfile | null>(null);
+  const [roasts, setRoasts] = useState<string[] | null>(null);
   const [wasCached, setWasCached] = useState(false);
   // manual form
   const [name, setName] = useState("");
@@ -368,6 +385,12 @@ export default function CreateCardStudio() {
         stamp: pickStamp({ stats: profile.stats, scored: true }),
       };
       saveCommunityCard(card);
+      try {
+        const { facts } = await getRoastFacts(profile.handle);
+        setRoasts(ROAST_LINES.filter((r) => r.when(facts)).slice(0, 3).map((r) => r.line(facts)));
+      } catch {
+        setRoasts(null); // report still ships without the roast
+      }
       setLastProfile(profile);
       setWasCached(cached);
       setRerollsLeft(getRerollsLeft());
@@ -473,7 +496,7 @@ export default function CreateCardStudio() {
           </div>
           <div className="flex flex-wrap gap-3">
             <button
-              onClick={async () => setShareMode(await exportPng(saved))}
+              onClick={async () => setShareMode(await exportPng(saved, roasts))}
               className="rounded-lg bg-[#C23B2E] px-5 py-2.5 text-sm font-semibold text-[#FDFBF6] transition-colors hover:bg-[#A32F24]"
             >
               Share card
@@ -529,6 +552,24 @@ export default function CreateCardStudio() {
             scoring runs in your browser.
           </p>
 
+          {saved.scored && roasts && roasts.length > 0 && (
+            <div className="rotate-[-0.8deg] bg-[#f5f1e6] p-4 font-mono text-[13px] text-stone-900 paper-shadow">
+              <p className="border-b-2 border-dotted border-stone-400 pb-1 text-center text-sm font-semibold tracking-[0.3em]">
+                SCOUT&apos;S ROAST
+              </p>
+              <ul className="mt-2 space-y-2">
+                {roasts.map((line, i) => (
+                  <li key={i}>
+                    <span className="font-semibold">ITEM {i + 1}</span> — {line}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-2 text-center text-[10px] text-stone-500">
+                clipped from the field notes · aiticker.xyz
+              </p>
+            </div>
+          )}
+
           {saved.scored && saved.handle && (
             <div className="coupon p-4">
               <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.25em] text-[#1E2430]">
@@ -538,12 +579,6 @@ export default function CreateCardStudio() {
                 Enter a second handle — the Ship Meter runs the numbers.
               </p>
               <ShipMeterInline handle={saved.handle} />
-              <p className="mt-2 font-mono text-[11px] text-[#9AA0AC]">
-                Or take the other treatment:{" "}
-                <Link href="/roast" className="text-[#C23B2E] hover:underline">
-                  get your repos roasted →
-                </Link>
-              </p>
             </div>
           )}
         </div>

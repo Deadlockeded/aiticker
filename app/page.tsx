@@ -34,7 +34,7 @@ export default function Home() {
               href="/create"
               className="font-mono text-[12px] font-semibold uppercase tracking-[0.25em] text-[#C23B2E] hover:underline"
             >
-              Get rated by The Algorithm — free reader appraisal →
+              Get scouted. Get roasted. It&apos;s the same department. →
             </Link>
           </div>
         </div>

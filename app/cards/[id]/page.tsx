@@ -1,8 +1,7 @@
 import { notFound } from "next/navigation";
-import TradingCard from "@/components/TradingCard";
 import PriceChart from "@/components/PriceChart";
 import ShareButton from "@/components/ShareButton";
-import DailyQuip from "@/components/DailyQuip";
+import CardReveal from "@/components/CardReveal";
 import StatBlock from "@/components/StatBlock";
 import Link from "next/link";
 import SwipeNav from "@/components/SwipeNav";
@@ -116,13 +115,12 @@ export default async function CardPage({
       </Link>
 
       <div className="mt-6 grid gap-8 md:grid-cols-[minmax(0,340px)_1fr]">
-        {/* THE CARD — single source for name, role, flavor, price */}
+        {/* THE CARD — single source; facedown until pulled, quip included in reveal */}
         <div className="mx-auto w-full max-w-[340px]">
-          <TradingCard card={card} rank={rank} size="hero" />
+          <CardReveal card={card} rank={rank} />
         </div>
 
         <div className="flex flex-col gap-4">
-          <DailyQuip card={card} />
 
           {/* price chart + book values */}
           <div className="paper-card p-4 sm:p-5">
