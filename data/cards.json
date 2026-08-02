@@ -1,0 +1,442 @@
+[
+  {
+    "id": "openai",
+    "name": "OpenAI",
+    "type": "company",
+    "avatar": "OA",
+    "image": "https://www.google.com/s2/favicons?domain=openai.com&sz=128",
+    "tagline": "Frontier lab behind GPT and ChatGPT",
+    "rarity": "mythic",
+    "metrics": {
+      "valuation": 300,
+      "funding": 60,
+      "headcount": 3000,
+      "modelCount": 12
+    },
+    "stats": {
+      "rating": 97,
+      "innovation": 96,
+      "influence": 98,
+      "momentum": 93
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "anthropic",
+    "name": "Anthropic",
+    "type": "company",
+    "avatar": "AN",
+    "image": "https://www.google.com/s2/favicons?domain=anthropic.com&sz=128",
+    "tagline": "Safety-focused lab behind Claude",
+    "rarity": "legendary",
+    "metrics": {
+      "valuation": 183,
+      "funding": 30,
+      "headcount": 2000,
+      "modelCount": 10
+    },
+    "stats": {
+      "rating": 95,
+      "innovation": 95,
+      "influence": 92,
+      "momentum": 96
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "google-deepmind",
+    "name": "Google DeepMind",
+    "type": "company",
+    "avatar": "GD",
+    "image": "https://www.google.com/s2/favicons?domain=deepmind.google&sz=128",
+    "tagline": "AlphaGo, AlphaFold and Gemini",
+    "rarity": "epic",
+    "metrics": {
+      "valuation": 250,
+      "funding": 15,
+      "headcount": 2500,
+      "modelCount": 12
+    },
+    "stats": {
+      "rating": 94,
+      "innovation": 96,
+      "influence": 93,
+      "momentum": 88
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "nvidia",
+    "name": "NVIDIA",
+    "type": "company",
+    "avatar": "NV",
+    "image": "https://www.google.com/s2/favicons?domain=nvidia.com&sz=128",
+    "tagline": "The silicon every model trains on",
+    "rarity": "legendary",
+    "metrics": {
+      "valuation": 4000,
+      "funding": 4,
+      "headcount": 30000,
+      "modelCount": 6
+    },
+    "stats": {
+      "rating": 94,
+      "innovation": 90,
+      "influence": 97,
+      "momentum": 92
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "meta-ai",
+    "name": "Meta AI",
+    "type": "company",
+    "avatar": "ME",
+    "image": "https://www.google.com/s2/favicons?domain=ai.meta.com&sz=128",
+    "tagline": "Open-weights at planetary scale with Llama",
+    "rarity": "rare",
+    "metrics": {
+      "valuation": 1500,
+      "funding": 5,
+      "headcount": 1000,
+      "modelCount": 8
+    },
+    "stats": {
+      "rating": 89,
+      "innovation": 87,
+      "influence": 91,
+      "momentum": 82
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "xai",
+    "name": "xAI",
+    "type": "company",
+    "avatar": "XA",
+    "image": "https://www.google.com/s2/favicons?domain=x.ai&sz=128",
+    "tagline": "Grok and gigawatt-scale training runs",
+    "rarity": "rare",
+    "metrics": {
+      "valuation": 75,
+      "funding": 12,
+      "headcount": 1200,
+      "modelCount": 4
+    },
+    "stats": {
+      "rating": 86,
+      "innovation": 84,
+      "influence": 85,
+      "momentum": 90
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "mistral",
+    "name": "Mistral AI",
+    "type": "company",
+    "avatar": "MI",
+    "image": "https://www.google.com/s2/favicons?domain=mistral.ai&sz=128",
+    "tagline": "Europe's open-weights frontier lab",
+    "rarity": "common",
+    "metrics": {
+      "valuation": 12,
+      "funding": 2,
+      "headcount": 350,
+      "modelCount": 7
+    },
+    "stats": {
+      "rating": 83,
+      "innovation": 85,
+      "influence": 78,
+      "momentum": 81
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "hugging-face",
+    "name": "Hugging Face",
+    "type": "company",
+    "avatar": "HF",
+    "image": "https://www.google.com/s2/favicons?domain=huggingface.co&sz=128",
+    "tagline": "The home of open-source AI",
+    "rarity": "common",
+    "metrics": {
+      "valuation": 4.5,
+      "funding": 0.4,
+      "headcount": 300,
+      "modelCount": 3
+    },
+    "stats": {
+      "rating": 82,
+      "innovation": 80,
+      "influence": 88,
+      "momentum": 78
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "perplexity",
+    "name": "Perplexity",
+    "type": "company",
+    "avatar": "PX",
+    "image": "https://www.google.com/s2/favicons?domain=perplexity.ai&sz=128",
+    "tagline": "Answer engine rethinking search",
+    "rarity": "common",
+    "metrics": {
+      "valuation": 18,
+      "funding": 1,
+      "headcount": 800,
+      "modelCount": 3
+    },
+    "stats": {
+      "rating": 80,
+      "innovation": 79,
+      "influence": 74,
+      "momentum": 88
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "cohere",
+    "name": "Cohere",
+    "type": "company",
+    "avatar": "CO",
+    "image": "https://www.google.com/s2/favicons?domain=cohere.com&sz=128",
+    "tagline": "Enterprise-first language models",
+    "rarity": "common",
+    "metrics": {
+      "valuation": 6.8,
+      "funding": 1,
+      "headcount": 400,
+      "modelCount": 5
+    },
+    "stats": {
+      "rating": 76,
+      "innovation": 75,
+      "influence": 71,
+      "momentum": 72
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "ilya-sutskever",
+    "name": "Ilya Sutskever",
+    "type": "engineer",
+    "avatar": "IS",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Ilya_Sutskever_and_Sam_Altman_in_TAU_%28cropped%29.jpg/330px-Ilya_Sutskever_and_Sam_Altman_in_TAU_%28cropped%29.jpg",
+    "tagline": "Deep learning pioneer, co-founder of SSI",
+    "rarity": "mythic",
+    "metrics": {
+      "citations": 650000,
+      "followers": 700000,
+      "impactScore": 96,
+      "yearsInField": 15
+    },
+    "stats": {
+      "rating": 96,
+      "innovation": 98,
+      "influence": 94,
+      "momentum": 89
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "geoffrey-hinton",
+    "name": "Geoffrey Hinton",
+    "type": "engineer",
+    "avatar": "GH",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Geoffrey_Hinton_in_2026.jpg/330px-Geoffrey_Hinton_in_2026.jpg",
+    "tagline": "Godfather of deep learning, Nobel laureate",
+    "rarity": "mythic",
+    "metrics": {
+      "citations": 920000,
+      "followers": 900000,
+      "impactScore": 98,
+      "yearsInField": 45
+    },
+    "stats": {
+      "rating": 95,
+      "innovation": 97,
+      "influence": 96,
+      "momentum": 78
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "demis-hassabis",
+    "name": "Demis Hassabis",
+    "type": "engineer",
+    "avatar": "DH",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Demis_Hassabis%2C_2024_Nobel_Prize_Laureate_in_Chemistry_7_%28cropped%29.jpg/330px-Demis_Hassabis%2C_2024_Nobel_Prize_Laureate_in_Chemistry_7_%28cropped%29.jpg",
+    "tagline": "DeepMind founder, Nobel laureate",
+    "rarity": "legendary",
+    "metrics": {
+      "citations": 180000,
+      "followers": 600000,
+      "impactScore": 95,
+      "yearsInField": 30
+    },
+    "stats": {
+      "rating": 94,
+      "innovation": 95,
+      "influence": 93,
+      "momentum": 87
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "andrej-karpathy",
+    "name": "Andrej Karpathy",
+    "type": "engineer",
+    "avatar": "AK",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Andrej_Karpathy%2C_OpenAI.png/330px-Andrej_Karpathy%2C_OpenAI.png",
+    "tagline": "Teacher of a generation of AI builders",
+    "rarity": "epic",
+    "metrics": {
+      "citations": 120000,
+      "followers": 1300000,
+      "impactScore": 90,
+      "yearsInField": 15
+    },
+    "stats": {
+      "rating": 92,
+      "innovation": 90,
+      "influence": 95,
+      "momentum": 91
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "yann-lecun",
+    "name": "Yann LeCun",
+    "type": "engineer",
+    "avatar": "YL",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Laura_Chaubard_%26_Yann_Le_Cun_-_2024_%2853814052697%29_%28cropped%29.jpg/330px-Laura_Chaubard_%26_Yann_Le_Cun_-_2024_%2853814052697%29_%28cropped%29.jpg",
+    "tagline": "ConvNet inventor, Turing Award winner",
+    "rarity": "legendary",
+    "metrics": {
+      "citations": 450000,
+      "followers": 1100000,
+      "impactScore": 94,
+      "yearsInField": 40
+    },
+    "stats": {
+      "rating": 91,
+      "innovation": 94,
+      "influence": 92,
+      "momentum": 76
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "fei-fei-li",
+    "name": "Fei-Fei Li",
+    "type": "engineer",
+    "avatar": "FL",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Fei-Fei_Li_at_AI_for_Good_2017.jpg/330px-Fei-Fei_Li_at_AI_for_Good_2017.jpg",
+    "tagline": "ImageNet creator, spatial intelligence pioneer",
+    "rarity": "epic",
+    "metrics": {
+      "citations": 200000,
+      "followers": 500000,
+      "impactScore": 88,
+      "yearsInField": 25
+    },
+    "stats": {
+      "rating": 89,
+      "innovation": 91,
+      "influence": 90,
+      "momentum": 80
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "andrew-ng",
+    "name": "Andrew Ng",
+    "type": "engineer",
+    "avatar": "NG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Andrew_Ng_at_TechCrunch_Disrupt_SF_2017.jpg/330px-Andrew_Ng_at_TechCrunch_Disrupt_SF_2017.jpg",
+    "tagline": "Coursera co-founder, AI educator at scale",
+    "rarity": "epic",
+    "metrics": {
+      "citations": 180000,
+      "followers": 900000,
+      "impactScore": 80,
+      "yearsInField": 28
+    },
+    "stats": {
+      "rating": 87,
+      "innovation": 84,
+      "influence": 93,
+      "momentum": 77
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "john-schulman",
+    "name": "John Schulman",
+    "type": "engineer",
+    "avatar": "JS",
+    "image": null,
+    "tagline": "RLHF architect, PPO author",
+    "rarity": "rare",
+    "metrics": {
+      "citations": 140000,
+      "followers": 150000,
+      "impactScore": 86,
+      "yearsInField": 12
+    },
+    "stats": {
+      "rating": 86,
+      "innovation": 92,
+      "influence": 80,
+      "momentum": 79
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "noam-shazeer",
+    "name": "Noam Shazeer",
+    "type": "engineer",
+    "avatar": "NS",
+    "image": null,
+    "tagline": "Transformer co-author, Character.AI founder",
+    "rarity": "rare",
+    "metrics": {
+      "citations": 250000,
+      "followers": 80000,
+      "impactScore": 84,
+      "yearsInField": 25
+    },
+    "stats": {
+      "rating": 85,
+      "innovation": 93,
+      "influence": 78,
+      "momentum": 74
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "chris-olah",
+    "name": "Chris Olah",
+    "type": "engineer",
+    "avatar": "CL",
+    "image": null,
+    "tagline": "Interpretability's founding voice",
+    "rarity": "rare",
+    "metrics": {
+      "citations": 40000,
+      "followers": 250000,
+      "impactScore": 82,
+      "yearsInField": 12
+    },
+    "stats": {
+      "rating": 84,
+      "innovation": 90,
+      "influence": 76,
+      "momentum": 82
+    },
+    "priceHistory": []
+  }
+]
