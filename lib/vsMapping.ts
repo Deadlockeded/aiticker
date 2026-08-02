@@ -1,6 +1,7 @@
 import type { MarketCard } from "./cards";
 import type { CommunitySliders } from "./create";
 import type { MetaCategory, MetaKey } from "./meta";
+import { fnvHash as hash, mulberry32 } from "./rng";
 
 /**
  * Versus-mode axis mapping. Community cards and Series 1 cards live on
@@ -80,51 +81,6 @@ const AXES: { key: keyof CommunitySliders; label: string }[] = [
   { key: "galaxyBrain", label: "Galaxy brain" },
   { key: "gpuHoarding", label: "GPU hoarding" },
 ];
-
-function hash(s: string): number {
-  let h = 2166136261;
-  for (let i = 0; i < s.length; i++) h = Math.imul(h ^ s.charCodeAt(i), 16777619);
-  return h >>> 0;
-}
-
-function mulberry32(seed: number): () => number {
-  let a = seed;
-  return () => {
-    a |= 0;
-    a = (a + 0x6d2b79f5) | 0;
-    let t = Math.imul(a ^ (a >>> 15), 1 | a);
-    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-}
-
-/**
- * Best of 4 stats, total-rating tiebreak. Direct comparisons are fully
- * deterministic (argue-about-able). `chaos` (Quick Match only) adds a
- * seeded upset roll per round — seeded by both labels, so even chaos is
- * reproducible for the same pairing on the same day.
- */
-export function resolveVs(a: VsSide, b: VsSide, chaos = false): VsResult {
-  const rand = mulberry32(hash(`${a.label}|${b.label}|${new Date().toISOString().slice(0, 10)}`));
-  const rounds: VsRound[] = AXES.map(({ key, label }) => {
-    const av = a.stats[key];
-    const bv = b.stats[key];
-    let winner: "a" | "b" | "tie" = av === bv ? "tie" : av > bv ? "a" : "b";
-    let upset = false;
-    if (chaos && winner !== "tie" && rand() < 0.15) {
-      winner = winner === "a" ? "b" : "a";
-      upset = true;
-    }
-    return { key, label, a: av, b: bv, winner, upset };
-  });
-  const aWins = rounds.filter((r) => r.winner === "a").length;
-  const bWins = rounds.filter((r) => r.winner === "b").length;
-  const winner =
-    aWins !== bWins ? (aWins > bWins ? "a" : "b")
-    : a.rating !== b.rating ? (a.rating > b.rating ? "a" : "b")
-    : "tie";
-  return { rounds, aWins, bWins, winner };
-}
 
 /**
  * Arena resolution: best-of-3 rounds. With `activeMeta` (today's 4 IN THE

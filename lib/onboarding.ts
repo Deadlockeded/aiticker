@@ -5,7 +5,7 @@
  * decide what to show at mount and stamp immediately.
  */
 
-const KEY = "ai-index:onboarding:v1";
+import { KEYS, readJSON, writeJSON } from "./storage";
 
 export interface OnboardingState {
   /** Captions 1–2 (pack tear + first flip) shown. */
@@ -19,19 +19,11 @@ export interface OnboardingState {
 }
 
 export function readOnboarding(): OnboardingState {
-  try {
-    return JSON.parse(localStorage.getItem(KEY) ?? "{}") as OnboardingState;
-  } catch {
-    return {};
-  }
+  return readJSON<OnboardingState>(KEYS.onboarding, {});
 }
 
 export function stampOnboarding(flag: keyof OnboardingState) {
-  try {
-    localStorage.setItem(KEY, JSON.stringify({ ...readOnboarding(), [flag]: true }));
-  } catch {
-    // storage unavailable (private webview) — captions just repeat, harmless
-  }
+  writeJSON(KEYS.onboarding, { ...readOnboarding(), [flag]: true });
 }
 
 /**

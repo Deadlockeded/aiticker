@@ -1,12 +1,11 @@
 import { notifyStore } from "./binder";
+import { KEYS, readRaw, writeRaw } from "./storage";
 
 /**
  * Collector XP + levels. localStorage only, client-side only.
  * XP sources: pack pulls, battles, daily votes, achievements. No purchases
  * exist anywhere — titles are for flexing, not spending.
  */
-
-const XP_KEY = "ai-index:xp:v1";
 
 export const XP_PER_LEVEL = 250;
 
@@ -32,7 +31,7 @@ export const XP_REWARDS = {
 } as const;
 
 export function getXPSnapshot(): string {
-  return localStorage.getItem(XP_KEY) ?? "0";
+  return readRaw(KEYS.xp) ?? "0";
 }
 
 export function getXP(): number {
@@ -42,7 +41,7 @@ export function getXP(): number {
 
 export function addXP(amount: number): number {
   const next = getXP() + amount;
-  localStorage.setItem(XP_KEY, String(next));
+  writeRaw(KEYS.xp, String(next));
   notifyStore();
   return next;
 }

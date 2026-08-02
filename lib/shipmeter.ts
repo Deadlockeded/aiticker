@@ -1,5 +1,6 @@
 import type { CommunitySliders } from "./create";
 import { SHIPMETER_LINES, type ShipMeterCtx } from "./lines";
+import { fnvHash as hash } from "./rng";
 
 /**
  * Cofounder compatibility. Deterministic and order-independent: the pair is
@@ -10,12 +11,6 @@ import { SHIPMETER_LINES, type ShipMeterCtx } from "./lines";
 
 const hi = (v: number) => v >= 65;
 const lo = (v: number) => v <= 45;
-
-function hash(s: string): number {
-  let h = 2166136261;
-  for (let i = 0; i < s.length; i++) h = Math.imul(h ^ s.charCodeAt(i), 16777619);
-  return h >>> 0;
-}
 
 export function compatibility(
   aHandle: string,

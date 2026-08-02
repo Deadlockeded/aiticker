@@ -1,4 +1,5 @@
 import { notifyStore } from "./binder";
+import { KEYS, readRaw, writeRaw } from "./storage";
 
 /**
  * Pokémon-not-poker. Best-of-3 stat clashes with a small upset factor so
@@ -7,8 +8,6 @@ import { notifyStore } from "./binder";
  */
 
 // ---- streaks ----
-
-const STREAK_KEY = "ai-index:battle:v1";
 
 export interface BattleRecord {
   current: number;
@@ -20,7 +19,7 @@ export interface BattleRecord {
 }
 
 export function getBattleRecordSnapshot(): string {
-  return localStorage.getItem(STREAK_KEY) ?? '{"current":0,"best":0,"wins":0,"losses":0}';
+  return readRaw(KEYS.battle) ?? '{"current":0,"best":0,"wins":0,"losses":0}';
 }
 
 export function parseBattleRecord(raw: string): BattleRecord {
@@ -42,7 +41,7 @@ export function recordBattle(won: boolean, giantSlain = false): BattleRecord {
         giantSlain: rec.giantSlain || giantSlain,
       }
     : { ...rec, current: 0, losses: rec.losses + 1 };
-  localStorage.setItem(STREAK_KEY, JSON.stringify(next));
+  writeRaw(KEYS.battle, JSON.stringify(next));
   notifyStore();
   return next;
 }

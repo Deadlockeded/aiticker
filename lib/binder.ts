@@ -1,3 +1,5 @@
+import { KEYS, readRaw, writeRaw } from "./storage";
+
 /**
  * localStorage-backed collection ("binder") + daily pack allowance.
  * Client-only — every function here must be called post-mount.
@@ -11,9 +13,6 @@ export interface BinderEntry {
 
 export type Binder = Record<string, BinderEntry>;
 
-const BINDER_KEY = "ai-index:binder:v1";
-const PACKS_KEY = "ai-index:packs:v1";
-const PEEK_KEY = "ai-index:peeked:v1";
 const STORE_EVENT = "ai-index:store";
 
 export const PACKS_PER_DAY = 3;
@@ -36,11 +35,11 @@ export function subscribeStore(cb: () => void): () => void {
 }
 
 export function getBinderSnapshot(): string {
-  return localStorage.getItem(BINDER_KEY) ?? "{}";
+  return readRaw(KEYS.binder) ?? "{}";
 }
 
 export function getAllowanceSnapshot(): string {
-  return localStorage.getItem(PACKS_KEY) ?? "null";
+  return readRaw(KEYS.packs) ?? "null";
 }
 
 export function parseBinder(raw: string): Binder {
@@ -66,7 +65,7 @@ export function addPulls(ids: string[]): Binder {
       lastPulledAt: now,
     };
   }
-  localStorage.setItem(BINDER_KEY, JSON.stringify(binder));
+  writeRaw(KEYS.binder, JSON.stringify(binder));
   clearPeeked(ids); // pulling clears the PEEKED stamp (its own notify)
   notify();
   return binder;
@@ -83,7 +82,7 @@ export interface PeekState {
 }
 
 export function getPeekSnapshot(): string {
-  return localStorage.getItem(PEEK_KEY) ?? '{"ids":[],"total":0}';
+  return readRaw(KEYS.peeked) ?? '{"ids":[],"total":0}';
 }
 
 export function parsePeek(raw: string): PeekState {
@@ -98,8 +97,8 @@ export function parsePeek(raw: string): PeekState {
 export function markPeeked(id: string) {
   const p = parsePeek(getPeekSnapshot());
   if (p.ids.includes(id)) return;
-  localStorage.setItem(
-    PEEK_KEY,
+  writeRaw(
+    KEYS.peeked,
     JSON.stringify({ ids: [...p.ids, id], total: p.total + 1 }),
   );
   notify();
@@ -109,7 +108,7 @@ function clearPeeked(ids: string[]) {
   const p = parsePeek(getPeekSnapshot());
   const next = p.ids.filter((id) => !ids.includes(id));
   if (next.length === p.ids.length) return;
-  localStorage.setItem(PEEK_KEY, JSON.stringify({ ids: next, total: p.total }));
+  writeRaw(KEYS.peeked, JSON.stringify({ ids: next, total: p.total }));
 }
 
 // A peek-hold shouldn't count as the tap/click that follows it — surfaces
@@ -134,7 +133,7 @@ export function burnCopies(counts: Record<string, number>): Binder {
     if (copies === 0) delete binder[id];
     else binder[id] = { ...entry, copies };
   }
-  localStorage.setItem(BINDER_KEY, JSON.stringify(binder));
+  writeRaw(KEYS.binder, JSON.stringify(binder));
   notify();
   return binder;
 }
@@ -168,7 +167,7 @@ export function consumePack(): number | null {
   const allowance = parseAllowance(getAllowanceSnapshot());
   if (allowance.used >= PACKS_PER_DAY) return null;
   const next = { date: allowance.date, used: allowance.used + 1 };
-  localStorage.setItem(PACKS_KEY, JSON.stringify(next));
+  writeRaw(KEYS.packs, JSON.stringify(next));
   notify();
   return PACKS_PER_DAY - next.used;
 }

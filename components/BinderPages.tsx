@@ -13,6 +13,7 @@ import {
   type Binder,
 } from "@/lib/binder";
 import { formatMove, formatTicks, getCurrentPrice, getDailyMove } from "@/lib/market";
+import { KEYS, readRaw, writeRaw } from "@/lib/storage";
 import CardArt from "./CardArt";
 import PeekableBack from "./PeekableBack";
 import TradingCard from "./TradingCard";
@@ -30,19 +31,14 @@ const RARITY_RING: Record<Rarity, string> = {
 };
 
 type Chip = "all" | "missing" | "dupes";
-const LAST_VISIT_KEY = "ai-index:binder-visit:v1";
 
 // Capture the previous visit timestamp exactly once per mount session and
 // stamp the new one — getSnapshot stays stable afterwards (store-safe).
 let capturedVisit: number | null = null;
 function visitSnapshot(): number {
   if (capturedVisit === null) {
-    try {
-      capturedVisit = parseInt(localStorage.getItem(LAST_VISIT_KEY) ?? "0", 10) || 0;
-      localStorage.setItem(LAST_VISIT_KEY, String(Date.now()));
-    } catch {
-      capturedVisit = 0;
-    }
+    capturedVisit = parseInt(readRaw(KEYS.binderVisit) ?? "0", 10) || 0;
+    writeRaw(KEYS.binderVisit, String(Date.now()));
   }
   return capturedVisit;
 }

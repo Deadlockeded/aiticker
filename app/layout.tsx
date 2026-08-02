@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Archivo_Black, Lora, Oswald } from "next/font/google";
 import Nav from "@/components/Nav";
+import StorageBoot from "@/components/StorageBoot";
 import Toaster from "@/components/Toaster";
 import marketMeta from "@/data/market-meta.json";
 import "./globals.css";
@@ -44,6 +45,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col pb-14 md:pb-0">
         <Nav />
+        <StorageBoot />
         <Toaster />
         {children}
         <footer className="space-y-1.5 px-4 py-6 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-[#9AA0AC]">

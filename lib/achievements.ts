@@ -3,6 +3,7 @@ import type { MarketCard } from "./cards";
 import { getBinder, notifyStore } from "./binder";
 import { getBattleRecordSnapshot, parseBattleRecord } from "./battle";
 import { addXP, getXP, XP_REWARDS } from "./xp";
+import { KEYS, readRaw, writeRaw } from "./storage";
 
 export interface Achievement {
   id: string;
@@ -13,11 +14,10 @@ export interface Achievement {
 
 export const ACHIEVEMENTS = achievements as Achievement[];
 
-const KEY = "ai-index:achievements:v1";
 export const TOAST_EVENT = "ai-index:toast";
 
 export function getUnlockedSnapshot(): string {
-  return localStorage.getItem(KEY) ?? "[]";
+  return readRaw(KEYS.achievements) ?? "[]";
 }
 
 export function parseUnlocked(raw: string): string[] {
@@ -36,7 +36,7 @@ export function unlockArtifactWin(card: { id: string; name: string }): void {
   const id = `artifact-win-${card.id}`;
   const unlocked = parseUnlocked(getUnlockedSnapshot());
   if (unlocked.includes(id)) return;
-  localStorage.setItem(KEY, JSON.stringify([...unlocked, id]));
+  writeRaw(KEYS.achievements, JSON.stringify([...unlocked, id]));
   notifyStore();
   addXP(XP_REWARDS.achievement);
   window.dispatchEvent(
@@ -78,8 +78,8 @@ export function checkAchievements(cards: MarketCard[]): Achievement[] {
   );
   if (fresh.length === 0) return [];
 
-  localStorage.setItem(
-    KEY,
+  writeRaw(
+    KEYS.achievements,
     JSON.stringify([...unlocked, ...fresh.map((a) => a.id)]),
   );
   notifyStore();

@@ -1,6 +1,7 @@
 import type { Rarity } from "./types";
 import type { MarketCard } from "./cards";
 import { notifyStore } from "./binder";
+import { KEYS, readRaw, removeRaw, writeRaw } from "./storage";
 
 /**
  * Make-your-own-card. Everything client-side: the photo is a data URL that
@@ -94,7 +95,6 @@ export const RARITY_EMOJI: Record<Rarity, string> = {
 
 // ---- re-roll allowance (3/day) ----
 
-const REROLL_KEY = "ai-index:reroll:v1";
 export const REROLLS_PER_DAY = 3;
 
 function todayKey(): string {
@@ -103,7 +103,7 @@ function todayKey(): string {
 
 export function getRerollsLeft(): number {
   try {
-    const raw = JSON.parse(localStorage.getItem(REROLL_KEY) ?? "null") as {
+    const raw = JSON.parse(readRaw(KEYS.reroll) ?? "null") as {
       date: string;
       used: number;
     } | null;
@@ -119,8 +119,8 @@ export function getRerollsLeft(): number {
 export function consumeReroll(): number {
   const left = getRerollsLeft();
   if (left <= 0) return 0;
-  localStorage.setItem(
-    REROLL_KEY,
+  writeRaw(
+    KEYS.reroll,
     JSON.stringify({ date: todayKey(), used: REROLLS_PER_DAY - left + 1 }),
   );
   notifyStore();
@@ -129,10 +129,8 @@ export function consumeReroll(): number {
 
 // ---- saved card ----
 
-const CARD_KEY = "ai-index:community-card:v1";
-
 export function getSavedCommunityCardSnapshot(): string {
-  return localStorage.getItem(CARD_KEY) ?? "null";
+  return readRaw(KEYS.communityCard) ?? "null";
 }
 
 export function parseCommunityCard(raw: string): CommunityCard | null {
@@ -144,12 +142,12 @@ export function parseCommunityCard(raw: string): CommunityCard | null {
 }
 
 export function saveCommunityCard(card: CommunityCard): void {
-  localStorage.setItem(CARD_KEY, JSON.stringify(card));
+  writeRaw(KEYS.communityCard, JSON.stringify(card));
   notifyStore();
 }
 
 export function clearCommunityCard(): void {
-  localStorage.removeItem(CARD_KEY);
+  removeRaw(KEYS.communityCard);
   notifyStore();
 }
 
