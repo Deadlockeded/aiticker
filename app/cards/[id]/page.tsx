@@ -1,22 +1,14 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import TradingCard from "@/components/TradingCard";
 import PriceChart from "@/components/PriceChart";
 import ShareButton from "@/components/ShareButton";
 import DailyQuip from "@/components/DailyQuip";
+import StatBlock from "@/components/StatBlock";
+import Link from "next/link";
 import SwipeNav from "@/components/SwipeNav";
 import { getAllCards, getCard, getRank } from "@/lib/cards";
 import type { MarketCard } from "@/lib/cards";
-import { PULL_ODDS } from "@/lib/editions";
-import { formatMove, formatTicks, getChange, getCurrentPrice } from "@/lib/market";
-import { CATEGORY_ODDS } from "@/lib/packs";
-import type {
-  ArtifactMetrics,
-  CompanyMetrics,
-  EngineerMetrics,
-  MomentMetrics,
-  RivalryMetrics,
-} from "@/lib/types";
+import { formatTicks, getCurrentPrice } from "@/lib/market";
 
 export function generateStaticParams() {
   return getAllCards().map((card) => ({ id: card.id }));
@@ -47,72 +39,6 @@ export async function generateMetadata({
       images: [ogImage],
     },
   };
-}
-
-function metricRows(card: MarketCard): [string, string][] {
-  if (card.type === "company") {
-    const m = card.metrics as CompanyMetrics;
-    return [
-      ["Valuation", `$${m.valuation.toLocaleString()}B`],
-      ["Funding raised", `$${m.funding.toLocaleString()}B`],
-      ["Headcount", m.headcount.toLocaleString()],
-      ["Models shipped", String(m.modelCount)],
-    ];
-  }
-  if (card.type === "engineer") {
-    const m = card.metrics as EngineerMetrics;
-    return [
-      ["Citations", `${Math.round(m.citations / 1000)}K`],
-      ["Followers", `${Math.round(m.followers / 1000)}K`],
-      ["Impact score", `${m.impactScore}/100`],
-      ["Years in field", String(m.yearsInField)],
-    ];
-  }
-  if (card.type === "moment") {
-    const m = card.metrics as MomentMetrics;
-    return [
-      ["Impact", `${m.impact}/100`],
-      ["Chaos", `${m.chaos}/100`],
-      ["Memeability", `${m.memeability}/100`],
-      ["Legacy", `${m.legacy}/100`],
-    ];
-  }
-  if (card.type === "artifact") {
-    if (card.id === "agi") {
-      return [["Uselessness", "?"], ["Ubiquity", "?"], ["Lore", "?"], ["Vibes", "?"]];
-    }
-    const m = card.metrics as ArtifactMetrics;
-    return [
-      ["Uselessness", `${m.uselessness}/100`],
-      ["Ubiquity", `${m.ubiquity}/100`],
-      ["Lore", `${m.lore}/100`],
-      ["Vibes", `${m.vibes}/100`],
-    ];
-  }
-  const m = card.metrics as RivalryMetrics;
-  return [
-    ["Heat", `${m.heat}/100`],
-    ["History", `${m.history}/100`],
-    ["Pettiness", `${m.pettiness}/100`],
-    ["Stakes", `${m.stakes}/100`],
-  ];
-}
-
-function ChangeStat({ label, pct }: { label: string; pct: number }) {
-  return (
-    <div className="rounded-xl border border-[#1E2430]/30 bg-[#1E2430]/5 px-4 py-3 text-center">
-      <span className="block font-mono text-[10px] uppercase tracking-[0.25em] text-[#9AA0AC]">
-        {label}
-      </span>
-      <span
-        className={`mt-1 block font-mono text-sm font-semibold ${
-          pct >= 0 ? "text-[#1F7A3D]" : "text-[#C23B2E]"
-        }`}
-      >
-        {formatMove(pct)}
-      </span>
-    </div>
-  );
 }
 
 const SIGNAL_LABELS: [keyof NonNullable<MarketCard["signals"]>, string, string][] = [
@@ -174,159 +100,72 @@ export default async function CardPage({
   if (!card) notFound();
   const rank = getRank(card.id);
   const price = getCurrentPrice(card);
-  const odds =
-    card.id === "agi"
-      ? CATEGORY_ODDS.agi
-      : card.type === "artifact"
-        ? CATEGORY_ODDS.artifact / 25
-        : PULL_ODDS[card.rarity];
   const ranked = getAllCards();
   const idx = ranked.findIndex((c) => c.id === card.id);
   const prevId = idx > 0 ? ranked[idx - 1].id : null;
   const nextId = idx < ranked.length - 1 ? ranked[idx + 1].id : null;
 
   return (
-    <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-10 sm:px-8">
+    <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-8 sm:px-8">
       <SwipeNav prevId={prevId} nextId={nextId} />
       <Link
         href="/"
-        className="font-mono text-sm text-[#5A6070] transition-colors hover:text-[#1E2430]"
+        className="font-mono text-sm uppercase tracking-widest text-[#5A6070] transition-colors hover:text-[#1E2430]"
       >
-        ← Back to the index
+        ← Back to the checklist
       </Link>
 
-      <div className="mt-8 grid gap-10 md:grid-cols-[minmax(0,340px)_1fr]">
-        {/* big card */}
+      <div className="mt-6 grid gap-8 md:grid-cols-[minmax(0,340px)_1fr]">
+        {/* THE CARD — single source for name, role, flavor, price */}
         <div className="mx-auto w-full max-w-[340px]">
           <TradingCard card={card} rank={rank} size="hero" />
         </div>
 
-        <div className="flex flex-col gap-6">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <p className="font-mono text-xs uppercase tracking-[0.35em] text-[#9AA0AC]">
-                {card.type} · Rank #{rank}
-              </p>
-              <h1 className="mt-2 text-3xl font-bold tracking-tight text-[#1E2430] sm:text-4xl">
-                {card.name}
-              </h1>
-              <p className="mt-2 text-[#5A6070]">{card.tagline}</p>
-              <p className="mt-3 max-w-md text-sm italic text-[#9AA0AC]">
-                “{card.flavorText}”
-              </p>
-            </div>
-            <div className="flex flex-col items-end gap-3">
-              <div className="text-right">
-                <span className="block font-mono text-3xl font-bold text-[#1E2430]">
-                  {card.id === "agi" ? "—" : formatTicks(price)}
-                </span>
-                <span className="block font-mono text-xs text-[#9AA0AC]">
-                  index value
-                </span>
-              </div>
-              <ShareButton className="text-xs" />
-            </div>
-          </div>
-
+        <div className="flex flex-col gap-4">
           <DailyQuip card={card} />
 
-          {/* 30-day chart */}
-          <div className="rounded-2xl border border-[#1E2430]/30 bg-[#1E2430]/5 p-4 sm:p-6">
-            <h2 className="mb-3 font-mono text-xs uppercase tracking-[0.3em] text-[#9AA0AC]">
-              Price history
-            </h2>
-            {card.id === "agi" ? (
-              <p className="py-16 text-center font-mono text-sm text-[#9AA0AC]">
-                unpriced
-              </p>
-            ) : (
-              <PriceChart history={card.priceHistory} />
-            )}
-            <div className="mt-4 grid grid-cols-3 gap-3">
-              <ChangeStat label="24h" pct={getChange(card, 1)} />
-              <ChangeStat label="7d" pct={getChange(card, 7)} />
-              <ChangeStat label="30d" pct={getChange(card, 29)} />
+          {/* price chart + book values */}
+          <div className="paper-card p-4 sm:p-5">
+            <div className="flex items-baseline justify-between border-b-2 border-[#1E2430] pb-1">
+              <h2 className="font-mono text-xs font-semibold uppercase tracking-[0.3em] text-[#1E2430]">
+                Price history
+              </h2>
+              <span className="tnum font-mono text-xs text-[#5A6070]">
+                {card.id === "agi"
+                  ? "unpriced"
+                  : `Book: ${formatTicks(Math.round(price * 0.95))}–${formatTicks(Math.round(price * 1.08))}`}
+              </span>
+            </div>
+            <div className="mt-3">
+              {card.id === "agi" ? (
+                <p className="py-16 text-center font-mono text-sm text-[#9AA0AC]">
+                  unpriced
+                </p>
+              ) : (
+                <PriceChart history={card.priceHistory} />
+              )}
             </div>
           </div>
 
-          {card.career && (
-            <div className="rounded-2xl border border-[#1E2430]/30 bg-[#1E2430]/5 p-6">
-              <h2 className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-[#9AA0AC]">
-                Career
-              </h2>
-              <ol className="relative space-y-4 border-l border-[#1E2430]/40 pl-4">
-                {card.career.map((stop) => (
-                  <li key={`${stop.org}-${stop.years}`} className="relative">
-                    <span className="absolute -left-[21.5px] top-1.5 h-2 w-2 rounded-full bg-[#C23B2E]/70" />
-                    <p className="text-sm font-semibold text-[#1E2430]">
-                      {stop.org}
-                    </p>
-                    <p className="text-xs text-[#5A6070]">
-                      {stop.role} ·{" "}
-                      <span className="font-mono">{stop.years}</span>
-                    </p>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          )}
+          <StatBlock card={card} allCards={ranked} />
 
           <SignalsPanel card={card} />
 
-          <div className="grid gap-6 sm:grid-cols-2">
-            {/* raw metrics */}
-            <div className="rounded-2xl border border-[#1E2430]/30 bg-[#1E2430]/5 p-6">
-              <h2 className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-[#9AA0AC]">
-                Metrics
-              </h2>
-              <dl className="space-y-3">
-                {metricRows(card).map(([label, value]) => (
-                  <div key={label} className="flex items-center justify-between">
-                    <dt className="text-sm text-[#5A6070]">{label}</dt>
-                    <dd className="font-mono text-sm text-[#1E2430]">{value}</dd>
-                  </div>
-                ))}
-                <div className="flex items-center justify-between border-t border-[#1E2430]/30 pt-3">
-                  <dt className="text-sm text-[#5A6070]">Overall rating</dt>
-                  <dd className="font-mono text-sm font-bold text-[#1E2430]">
-                    {card.rating}
-                  </dd>
-                </div>
-              </dl>
-            </div>
-
-            {/* edition + odds */}
-            <div className="rounded-2xl border border-[#1E2430]/30 bg-[#1E2430]/5 p-6">
-              <h2 className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-[#9AA0AC]">
-                Edition
-              </h2>
-              <dl className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <dt className="text-sm text-[#5A6070]">Print</dt>
-                  <dd className="font-mono text-sm text-[#1E2430]">
-                    #{card.serial}/{card.editionSize}
-                  </dd>
-                </div>
-                <div className="flex items-center justify-between">
-                  <dt className="text-sm text-[#5A6070]">Series</dt>
-                  <dd className="font-mono text-sm text-[#1E2430]">
-                    {card.series}
-                  </dd>
-                </div>
-                <div className="flex items-center justify-between">
-                  <dt className="text-sm text-[#5A6070]">Rarity</dt>
-                  <dd className="font-mono text-sm capitalize text-[#1E2430]">
-                    {card.rarity}
-                  </dd>
-                </div>
-                <div className="flex items-center justify-between border-t border-[#1E2430]/30 pt-3">
-                  <dt className="text-sm text-[#5A6070]">Pull odds</dt>
-                  <dd className="font-mono text-sm text-[#1E2430]">
-                    {(odds * 100).toFixed(odds < 0.01 ? 1 : 0)}% per card
-                  </dd>
-                </div>
-              </dl>
-            </div>
+          {/* actions */}
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href={`/arena?vs=${card.id}`}
+              className="bg-[#C23B2E] px-5 py-2.5 font-mono text-sm font-semibold uppercase tracking-widest text-[#FDFBF6] transition-colors hover:bg-[#A32F24]"
+            >
+              Fight this card
+            </Link>
+            <Link
+              href={`/arena?me=${card.id}`}
+              className="border-2 border-[#1E2430] px-5 py-2.5 font-mono text-sm font-semibold uppercase tracking-widest text-[#1E2430] transition-colors hover:bg-[#1E2430]/5"
+            >
+              Use in Arena
+            </Link>
+            <ShareButton className="text-sm" />
           </div>
         </div>
       </div>

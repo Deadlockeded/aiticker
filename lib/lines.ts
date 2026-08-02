@@ -88,6 +88,44 @@ export const ROAST_LINES: { when: (f: RoastFacts) => boolean; line: (f: RoastFac
   { when: () => true, line: () => `The READMEs promise a roadmap. The roadmap promises nothing.` },
 ];
 
+// ---------------------------------------------------------------- Stats
+
+/** Tier words for any 0–100 stat. */
+export function statTier(v: number): { word: string; hot: boolean } {
+  if (v >= 95) return { word: "MYTHIC", hot: true };
+  if (v >= 85) return { word: "ELITE", hot: true };
+  if (v >= 70) return { word: "STRONG", hot: false };
+  if (v >= 50) return { word: "SOLID", hot: false };
+  if (v >= 30) return { word: "MID", hot: false };
+  return { word: "ROUGH", hot: false };
+}
+
+/** One-line stat definitions, Editor's voice. Keyed by stat key. */
+export const STAT_DEFS: Record<string, string> = {
+  innovation: "INNOVATION — how much new they actually make, versus how much they announce. We check.",
+  influence: "INFLUENCE — when they talk, who reschedules meetings. Measured in rescheduled meetings.",
+  momentum: "MOMENTUM — how fast the world is talking about them right now. Yes, we can measure that.",
+  shipping: "SHIPPING — commits that exist versus commits that were promised. The gap is a personality.",
+  yapping: "CLOUT — followers, stars, reach. The megaphone, not the message.",
+  galaxyBrain: "GALAXY BRAIN — range, depth, citations. The whiteboard energy, quantified.",
+  gpuHoarding: "GPU HOARDING — proximity to serious compute. Some people simply run warmer.",
+  uselessness: "USELESSNESS — contributes nothing, means everything. The collector's paradox.",
+  ubiquity: "UBIQUITY — you cannot escape it. Neither can we. That's the score.",
+  lore: "LORE — how much history is packed inside. Museums wish.",
+  vibes: "VIBES — unquantifiable. We quantified it anyway. You're welcome.",
+};
+
+/** Percentile adjectives for the "More X than n% of the index" line. */
+export const STAT_ADJECTIVES: Record<string, string> = {
+  innovation: "innovative",
+  influence: "influential",
+  momentum: "unstoppable",
+  uselessness: "useless",
+  ubiquity: "inescapable",
+  lore: "storied",
+  vibes: "vibey",
+};
+
 // ---------------------------------------------------------------- Stamps
 
 export interface StampCtx {

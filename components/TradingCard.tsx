@@ -4,6 +4,7 @@ import { formatMove, formatTicks, getCurrentPrice, getDailyMove } from "@/lib/ma
 import CardArt from "./CardArt";
 import RivalryArt from "./RivalryArt";
 import HotBadge from "./HotBadge";
+import { statTier } from "@/lib/lines";
 import TiltFoil from "./TiltFoil";
 
 /**
@@ -74,9 +75,9 @@ const RARITY: Record<
 };
 
 const STAT_ROWS = [
-  { key: "innovation", label: "INN" },
-  { key: "influence", label: "INF" },
-  { key: "momentum", label: "MOM" },
+  { key: "innovation", label: "INNOVATION" },
+  { key: "influence", label: "INFLUENCE" },
+  { key: "momentum", label: "MOMENTUM" },
 ] as const;
 
 export default function TradingCard({
@@ -261,7 +262,7 @@ export default function TradingCard({
           <div className="mt-1 space-y-2 border-t border-[#1E2430]/30 pt-3">
             {STAT_ROWS.map(({ key, label }) => (
               <div key={key} className="flex items-center gap-2">
-                <span className={`w-8 font-mono text-xs ${r.accentText}`}>
+                <span className={`w-24 font-mono text-[10px] tracking-wider ${r.accentText}`}>
                   {label}
                 </span>
                 <div className="h-1 flex-1 overflow-hidden rounded-full bg-[#1E2430]/10">
@@ -273,6 +274,17 @@ export default function TradingCard({
                 <span className="tnum w-6 text-right font-mono text-xs text-[#5A6070]">
                   {agi ? "?" : card.stats[key]}
                 </span>
+                {!agi && (
+                  <span
+                    className={`border px-1 font-mono text-[8px] font-semibold ${
+                      statTier(card.stats[key]).hot
+                        ? "border-[#C23B2E] bg-[#C23B2E] text-[#FDFBF6]"
+                        : "border-[#1E2430]/60 text-[#1E2430]"
+                    }`}
+                  >
+                    {statTier(card.stats[key]).word}
+                  </span>
+                )}
               </div>
             ))}
           </div>
