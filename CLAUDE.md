@@ -12,6 +12,10 @@ Uses **pnpm** (see pnpm-lock.yaml — don't use npm/yarn).
 
 There is no test runner configured.
 
+## Data pipeline
+
+The market is real: a GitHub Actions cron (`.github/workflows/market-update.yml`) runs `scripts/update-market.ts` daily — free public APIs → signals → ratings → a price point appended per card → committed JSON → Vercel redeploy. See PIPELINE.md for sources, failure model, tuning constants, and how to add a card. `pnpm market:dry` previews a full run into `data/preview/`. Never zero a stat on fetch failure; manual metrics (valuation, funding, …) are hand-edited only.
+
 ## Architecture
 
 Next.js App Router app (Next 16, React 19, TypeScript strict, Tailwind CSS v4) — a collectible trading-card index of AI companies and AI engineers with a fully simulated market. Ship-fast constraints are deliberate: **no auth, no database, no external APIs, no chart/animation libraries** — static JSON + localStorage + deterministic simulation, deployable to Vercel as-is.
