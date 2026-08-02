@@ -51,6 +51,10 @@ export default function RootLayout({
             <a href="/about" className="underline hover:text-[#1E2430]">
               About
             </a>{" "}
+            ·{" "}
+            <a href="/howto" className="underline hover:text-[#1E2430]">
+              How to collect
+            </a>{" "}
             · a fan-made collectible game · est. tuesday
           </p>
           <p>

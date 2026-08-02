@@ -16,6 +16,7 @@ import {
 import { addXP, XP_REWARDS } from "@/lib/xp";
 import { checkAchievements, unlockArtifactWin } from "@/lib/achievements";
 import { computeCommunityRating, toMarketCard } from "@/lib/create";
+import { readOnboarding, stampOnboarding } from "@/lib/onboarding";
 import { getScoredProfile, ScoreError } from "@/lib/score";
 import { dayHash, getHotCards, getRandomQuip, HOT_BOOST } from "@/lib/daily";
 import {
@@ -27,6 +28,7 @@ import {
 } from "@/lib/vsMapping";
 import CardArt from "./CardArt";
 import DeckStack from "./DeckStack";
+import EditorCaption from "./EditorCaption";
 import TradingCard from "./TradingCard";
 import ShareButton from "./ShareButton";
 import { canShareFiles, canvasBlob, sharePng, type ShareOutcome } from "@/lib/share";
@@ -185,6 +187,17 @@ export default function Arena({
   const [shownRounds, setShownRounds] = useState(0);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
   const autoRan = useRef(false);
+  const [arenaTips, setArenaTips] = useState(false);
+
+  // First arena visit with cards in hand: exactly 2 captions, then never again.
+  useEffect(() => {
+    if (!owned || owned.length === 0 || readOnboarding().arena) return;
+    const kickoff = setTimeout(() => {
+      stampOnboarding("arena");
+      setArenaTips(true);
+    }, 0);
+    return () => clearTimeout(kickoff);
+  }, [owned]);
 
   const getDeterministicQuip = (c: MarketCard): string =>
     c.quips?.[dayHash(`line-quip:${c.id}`) % (c.quips?.length || 1)] ?? c.flavorText;
@@ -356,6 +369,11 @@ export default function Arena({
 
       {phase === "setup" && (
         <>
+          {arenaTips && !me && (
+            <EditorCaption className="mb-4" ttl={10000}>
+              Pick your fighter from your binder.
+            </EditorCaption>
+          )}
           <div className="grid gap-4 md:grid-cols-2">
             {/* fighter */}
             <div className="rounded-xl border border-[#1E2430]/30 bg-[#FDFBF6] p-3">
@@ -436,6 +454,11 @@ export default function Arena({
               <p className="mb-3 border-b-2 border-[#1E2430] pb-1 text-center font-mono text-[11px] font-semibold uppercase tracking-[0.3em] text-[#C23B2E]">
                 The Challenger Line
               </p>
+              {arenaTips && (
+                <EditorCaption className="mb-3" ttl={10000}>
+                  Swipe past cowards. Tap FIGHT on victims.
+                </EditorCaption>
+              )}
               <DeckStack
                 items={challengers}
                 keyOf={(c) => c.id}

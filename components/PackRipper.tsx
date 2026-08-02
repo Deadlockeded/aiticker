@@ -17,8 +17,19 @@ import {
 import { addXP, XP_REWARDS } from "@/lib/xp";
 import { getRandomQuip } from "@/lib/daily";
 import { checkAchievements } from "@/lib/achievements";
+import { readOnboarding, stampOnboarding } from "@/lib/onboarding";
 import TradingCard from "./TradingCard";
 import DeckStack from "./DeckStack";
+import EditorCaption from "./EditorCaption";
+
+// Capture-once: is this a first-run visitor? Stays true for the whole
+// session (so the flip caption still fires after rip() stamps the flag).
+let firstRun: boolean | null = null;
+function firstRunSnapshot(): boolean {
+  if (firstRun === null) firstRun = !readOnboarding().pack;
+  return firstRun;
+}
+const subscribeNever = () => () => {};
 
 type Phase = "idle" | "ripping" | "reveal";
 
@@ -147,6 +158,8 @@ export default function PackRipper({
     pieces: ConfettiPiece[];
   } | null>(null);
   const [resetIn, setResetIn] = useState("");
+  const [flipCaption, setFlipCaption] = useState(false);
+  const tutorial = useSyncExternalStore(subscribeNever, firstRunSnapshot, () => false);
 
   // Allowance is derived from the localStorage store; null server snapshot
   // means "not hydrated yet". consumePack() notifies, so this stays fresh.
@@ -178,6 +191,7 @@ export default function PackRipper({
   const rip = () => {
     const left = consumePack();
     if (left === null) return;
+    stampOnboarding("pack");
 
     const pulled = pullPack(cards);
     setPreOwned(new Set(Object.keys(getBinder())));
@@ -220,6 +234,7 @@ export default function PackRipper({
   const flip = (i: number) => {
     if (flipped[i]) return;
     if (navigator.vibrate) navigator.vibrate(10);
+    if (tutorial && !flipped.some(Boolean)) setFlipCaption(true);
     setFlipped((f) => f.map((v, j) => (j === i ? true : v)));
     const quip = getRandomQuip(pulls[i]);
     setFlipQuips((q) => q.map((v, j) => (j === i ? quip : v)));
@@ -285,11 +300,23 @@ export default function PackRipper({
                 ? `Next issue of free packs in ${resetIn}. — The Editor`
                 : "tap the pack to rip it"}
           </p>
+          {tutorial && phase === "idle" && packsLeft > 0 && (
+            <EditorCaption className="mt-4" ttl={30000}>
+              Rule one: tap the pack. There is no rule two.
+            </EditorCaption>
+          )}
         </div>
       )}
 
       {phase === "reveal" && (
         <div onClick={skipToBinder} role="button" aria-label="Skip to binder">
+          {flipCaption && (
+            <div onClick={(e) => e.stopPropagation()} className="mb-4">
+              <EditorCaption>
+                That&apos;s yours now. It lives in your binder.
+              </EditorCaption>
+            </div>
+          )}
           <div className="mx-auto max-w-[290px]">
             <DeckStack
               items={pulls.map((card, i) => ({ card, i }))}

@@ -3,6 +3,7 @@ import CardGrid from "@/components/CardGrid";
 import CoverStar from "@/components/CoverStar";
 import HotList from "@/components/HotList";
 import Masthead from "@/components/Masthead";
+import NewCollectorTag from "@/components/NewCollectorTag";
 import { getAllCards, getRank } from "@/lib/cards";
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
         <div className="space-y-4">
           <CoverStar cards={cards} ranks={ranks} />
           <Link href="/packs" className="coupon block p-4 text-center paper-in">
+            <NewCollectorTag />
             <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.25em] text-[#1E2430]">
               ✂ Subscribe: 3 free packs daily,
               <br />

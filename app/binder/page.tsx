@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import BinderCoach from "@/components/BinderCoach";
 import BinderPages from "@/components/BinderPages";
 import TradeIn from "@/components/TradeIn";
 import PacksLeftChip from "@/components/PacksLeftChip";
@@ -15,6 +16,7 @@ export default async function BinderPage({ searchParams }: { searchParams: Searc
 
   return (
     <main className="mx-auto w-full max-w-5xl flex-1 px-3 py-6 sm:px-6">
+      <BinderCoach />
       <BinderPages
         cards={cards}
         ranks={ranks}
