@@ -17,7 +17,7 @@ import { addXP, XP_REWARDS } from "@/lib/xp";
 import { checkAchievements, unlockArtifactWin } from "@/lib/achievements";
 import { computeCommunityRating, toMarketCard } from "@/lib/create";
 import { getScoredProfile, ScoreError } from "@/lib/score";
-import { getHotCards, getRandomQuip, HOT_BOOST } from "@/lib/daily";
+import { dayHash, getHotCards, getRandomQuip, HOT_BOOST } from "@/lib/daily";
 import {
   cardVsStats,
   commentary,
@@ -26,6 +26,7 @@ import {
   type VsSide,
 } from "@/lib/vsMapping";
 import CardArt from "./CardArt";
+import DeckStack from "./DeckStack";
 import TradingCard from "./TradingCard";
 import ShareButton from "./ShareButton";
 import { canShareFiles, canvasBlob, sharePng, type ShareOutcome } from "@/lib/share";
@@ -176,7 +177,7 @@ export default function Arena({
   const [foeError, setFoeError] = useState<string | null>(null);
   const [chaos, setChaos] = useState(false);
   const [handleInput, setHandleInput] = useState("");
-  const [pickerQuery, setPickerQuery] = useState("");
+  const [passes, setPasses] = useState(0);
   const [phase, setPhase] = useState<Phase>("setup");
   const [result, setResult] = useState<VsResult | null>(null);
   const [entranceQuips, setEntranceQuips] = useState<(string | null)[]>([null, null]);
@@ -184,6 +185,25 @@ export default function Arena({
   const [shownRounds, setShownRounds] = useState(0);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
   const autoRan = useRef(false);
+
+  const getDeterministicQuip = (c: MarketCard): string =>
+    c.quips?.[dayHash(`line-quip:${c.id}`) % (c.quips?.length || 1)] ?? c.flavorText;
+
+  const challengers = useMemo(() => {
+    if (!me) return [];
+    const myR = me.side.rating;
+    return cards
+      .filter((c) => c.id !== "agi" && c.id !== me.side.cardId)
+      .map((c) => ({
+        c,
+        w:
+          Math.abs(c.rating - myR) +
+          ((dayHash(`line:${c.id}:${me.side.cardId}`) % 100) / 100) * 22 -
+          (c.rarity === "legendary" || c.rarity === "epic" ? 9 : 0), // bait
+      }))
+      .sort((a, b) => a.w - b.w)
+      .map((x) => x.c);
+  }, [cards, me]);
 
   const hotIds = useMemo(
     () => new Set(getHotCards(cards).map((c) => c.id)),
@@ -259,12 +279,14 @@ export default function Arena({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const fight = () => {
-    if (!me || !foe) return;
-    const res = resolveArena(me.side, foe.side, chaos);
+  const fight = (foeOverride?: Fighter) => {
+    const activeFoe = foeOverride ?? foe;
+    if (!me || !activeFoe) return;
+    if (foeOverride) setFoe(foeOverride);
+    const res = resolveArena(me.side, activeFoe.side, chaos);
     setEntranceQuips([
       me.card ? getRandomQuip(me.card) : null,
-      foe.card ? getRandomQuip(foe.card) : null,
+      activeFoe.card ? getRandomQuip(activeFoe.card) : null,
     ]);
     setResult(res);
     setShownRounds(0);
@@ -276,7 +298,7 @@ export default function Arena({
     timers.current.push(
       setTimeout(() => {
         const won = res.winner === "a";
-        recordBattle(won, won && foe.side.rating >= me.side.rating + 10);
+        recordBattle(won, won && activeFoe.side.rating >= me.side.rating + 10);
         addXP(won ? XP_REWARDS.battleWin : XP_REWARDS.battleLoss);
         if (won && me.card?.type === "artifact") {
           unlockArtifactWin(me.card);
@@ -313,9 +335,6 @@ export default function Arena({
     );
   }
 
-  const pickerMatches = pickerQuery.trim()
-    ? cards.filter((c) => c.id !== "agi" && c.name.toLowerCase().includes(pickerQuery.trim().toLowerCase())).slice(0, 6)
-    : [];
   const decided = result ? result.rounds.slice(0, shownRounds) : [];
   const lastRound = decided[decided.length - 1];
   const winnerLabel = result
@@ -380,38 +399,7 @@ export default function Arena({
               <p className="mb-2 font-mono text-[10px] uppercase tracking-widest text-[#9AA0AC]">
                 Opponent · index card, GitHub handle, or chaos
               </p>
-              <div className="relative">
-                <input
-                  value={pickerQuery}
-                  onChange={(e) => setPickerQuery(e.target.value)}
-                  placeholder="Search Series 1 cards…"
-                  className="w-full rounded-lg border border-[#1E2430]/30 bg-[#1E2430]/5 px-3 py-2 text-sm text-[#1E2430] placeholder-[#9AA0AC] outline-none focus:border-[#C23B2E]/70"
-                />
-                {pickerMatches.length > 0 && (
-                  <ul className="absolute inset-x-0 top-full z-20 mt-1 overflow-hidden rounded-xl border border-[#1E2430]/40 bg-[#FDFBF6] py-1 shadow-xl max-md:fixed max-md:inset-x-0 max-md:bottom-0 max-md:top-auto max-md:z-50 max-md:max-h-[55vh] max-md:overflow-y-auto max-md:rounded-b-none max-md:rounded-t-2xl max-md:border-t max-md:pb-[env(safe-area-inset-bottom)]">
-                    {pickerMatches.map((card) => (
-                      <li key={card.id}>
-                        <button
-                          onClick={() => {
-                            loadFoe(`card:${card.id}`);
-                            setPickerQuery("");
-                          }}
-                          className="flex w-full items-center gap-2 px-3 py-1.5 text-left text-sm text-[#5A6070] hover:bg-[#1E2430]/5"
-                        >
-                          <span className="h-6 w-6 shrink-0">
-                            <CardArt card={card} />
-                          </span>
-                          <span className="truncate">{card.name}</span>
-                          <span className="tnum ml-auto font-mono text-[10px] text-[#9AA0AC]">
-                            {card.rating}
-                          </span>
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-              <div className="mt-2 flex gap-2">
+              <div className="mt-1 flex gap-2">
                 <input
                   value={handleInput}
                   onChange={(e) => setHandleInput(e.target.value)}
@@ -424,16 +412,6 @@ export default function Arena({
                   className="rounded-lg border border-[#1E2430]/40 px-3 py-2 text-sm text-[#5A6070] hover:bg-[#1E2430]/5"
                 >
                   Score
-                </button>
-                <button
-                  onClick={() => {
-                    const pool = cards.filter((c) => c.rarity === "epic" || c.rarity === "legendary");
-                    loadFoe(`card:${pool[Math.floor(Math.random() * pool.length)].id}`, true);
-                  }}
-                  className="shrink-0 rounded-lg border border-amber-400/40 px-3 py-2 font-mono text-[11px] text-amber-300 hover:bg-amber-400/10"
-                  title="Chaos mode: seeded upsets enabled"
-                >
-                  🎲
                 </button>
               </div>
               {foeLoading && (
@@ -453,9 +431,47 @@ export default function Arena({
               )}
             </div>
           </div>
+          {me && !foe && challengers.length > 0 && (
+            <div className="mx-auto mt-6 max-w-[280px]">
+              <p className="mb-3 border-b-2 border-[#1E2430] pb-1 text-center font-mono text-[11px] font-semibold uppercase tracking-[0.3em] text-[#C23B2E]">
+                The Challenger Line
+              </p>
+              <DeckStack
+                items={challengers}
+                keyOf={(c) => c.id}
+                leftStamp="Passed"
+                onPass={() => setPasses((p) => p + 1)}
+                onSwipeRight={(c) => fight(cardFighter(c))}
+                onTap={(c) => fight(cardFighter(c))}
+                renderCard={(c) => <TradingCard card={c} rank={0} />}
+                footerFor={(c) => (
+                  <div className="text-center">
+                    <p className="text-[13px] italic text-[#5A6070]">
+                      “{getDeterministicQuip(c)}”
+                    </p>
+                    <button
+                      onClick={() => fight(cardFighter(c))}
+                      className="mt-2 bg-[#C23B2E] px-6 py-2 font-mono text-xs font-semibold uppercase tracking-widest text-[#FDFBF6] hover:bg-[#A32F24]"
+                    >
+                      Fight →
+                    </button>
+                    {passes >= 10 && (
+                      <p className="mt-2 font-mono text-[10px] uppercase tracking-widest text-[#9AA0AC]">
+                        The index is starting to take this personally. — The Editor
+                      </p>
+                    )}
+                  </div>
+                )}
+              />
+              <p className="mt-2 text-center font-mono text-[10px] text-[#9AA0AC]">
+                swipe left to pass · right (or tap) to fight
+              </p>
+            </div>
+          )}
+
           <div className="mt-5 text-center">
             <button
-              onClick={fight}
+              onClick={() => fight()}
               disabled={!me || !foe}
               className="rounded-lg bg-[#C23B2E] px-10 py-3 text-base font-semibold text-[#FDFBF6] transition-colors hover:bg-[#A32F24] disabled:cursor-not-allowed disabled:opacity-40"
             >
@@ -571,7 +587,7 @@ export default function Arena({
               )}
               <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
                 <button
-                  onClick={fight}
+                  onClick={() => fight()}
                   className="rounded-lg bg-[#C23B2E] px-6 py-2.5 text-sm font-semibold text-[#FDFBF6] transition-colors hover:bg-[#A32F24]"
                 >
                   Rematch

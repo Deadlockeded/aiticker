@@ -207,7 +207,7 @@ export default function TradingCard({
           >
             {card.name}
           </h3>
-          {!community && (
+          {!community && rank > 0 && (
             <span
               className={`tnum shrink-0 font-mono text-[#9AA0AC] ${hero ? "text-sm" : "text-[10px]"}`}
             >

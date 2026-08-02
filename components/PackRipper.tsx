@@ -18,6 +18,7 @@ import { addXP, XP_REWARDS } from "@/lib/xp";
 import { getRandomQuip } from "@/lib/daily";
 import { checkAchievements } from "@/lib/achievements";
 import TradingCard from "./TradingCard";
+import DeckStack from "./DeckStack";
 
 type Phase = "idle" | "ripping" | "reveal";
 
@@ -289,16 +290,15 @@ export default function PackRipper({
 
       {phase === "reveal" && (
         <div onClick={skipToBinder} role="button" aria-label="Skip to binder">
-          <div className="mx-auto grid max-w-xs grid-cols-1 gap-6 sm:max-w-3xl sm:grid-cols-3">
-            {pulls.map((card, i) => (
-              <div key={`${card.id}-${i}`} className="flex flex-col">
-              <button
-                onClick={() => flip(i)}
-                className="deal-in relative aspect-[1/1.42] w-full [perspective:1200px]"
-                style={{
-                  animationDelay: `${i * 0.12}s`,
-                  "--deal-tilt": `${(i - 1) * 6}deg`,
-                } as React.CSSProperties}
+          <div className="mx-auto max-w-[290px]">
+            <DeckStack
+              items={pulls.map((card, i) => ({ card, i }))}
+              keyOf={({ card, i }) => `${card.id}-${i}`}
+              onTap={({ i }) => flip(i)}
+              renderCard={({ card, i }) => (
+              <div className="flex flex-col" onClick={(e) => { e.stopPropagation(); flip(i); }}>
+              <div
+                className="relative aspect-[1/1.42] w-full [perspective:1200px]"
               >
                 <div
                   className="relative h-full w-full transition-transform duration-500 [transform-style:preserve-3d]"
@@ -314,7 +314,7 @@ export default function PackRipper({
                     )}
                   </div>
                 </div>
-              </button>
+              </div>
               {flipped[i] && card.id === "agi" && (
                 <p className="mt-2 text-center font-mono text-[12px] text-[#5A6070]">
                   well.
@@ -336,7 +336,8 @@ export default function PackRipper({
                 </p>
               )}
               </div>
-            ))}
+              )}
+            />
           </div>
           <p className="mt-8 text-center font-mono text-[10px] uppercase tracking-[0.3em] text-[#9AA0AC]">
             {allFlipped ? "off to the binder…" : "tap anywhere to skip →"}

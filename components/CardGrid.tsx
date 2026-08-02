@@ -7,6 +7,8 @@ import type { MarketCard } from "@/lib/cards";
 import { getCurrentPrice, getDailyMove } from "@/lib/market";
 import TradingCard from "./TradingCard";
 import CardBackFace from "./CardBackFace";
+import DeckStack from "./DeckStack";
+import { useRouter } from "next/navigation";
 import { getBinderSnapshot, parseBinder, subscribeStore } from "@/lib/binder";
 
 type Filter = "all" | CardType;
@@ -29,6 +31,14 @@ export default function CardGrid({
   const [filter, setFilter] = useState<Filter>("all");
   const [sort, setSort] = useState<Sort>("rating-desc");
   const [query, setQuery] = useState("");
+  const router = useRouter();
+  const [view, setView] = useState<"deck" | "grid" | null>(null);
+  const isMobile = useSyncExternalStore(
+    () => () => {},
+    () => window.innerWidth < 768,
+    () => false,
+  );
+  const effectiveView = view ?? (isMobile ? "deck" : "grid");
   const binderRaw = useSyncExternalStore(subscribeStore, getBinderSnapshot, () => null);
   const owned = useMemo(
     () => new Set(binderRaw ? Object.keys(parseBinder(binderRaw)) : []),
@@ -100,10 +110,35 @@ export default function CardGrid({
             <option value="move-desc" className="bg-zinc-900">24h movers</option>
             <option value="name" className="bg-zinc-900">Name A–Z</option>
           </select>
+
+          <button
+            onClick={() => setView(effectiveView === "deck" ? "grid" : "deck")}
+            title={effectiveView === "deck" ? "Grid view" : "Deck view"}
+            className="rounded-lg border border-[#1E2430]/30 bg-[#1E2430]/5 px-2.5 py-1.5 text-[13px] text-[#1E2430]"
+          >
+            {effectiveView === "deck" ? "▦" : "🂠"}
+          </button>
         </div>
       </div>
 
-      {visible.length === 0 ? (
+      {visible.length > 0 && effectiveView === "deck" ? (
+        <div className="mx-auto max-w-[300px] py-4">
+          <DeckStack
+            items={visible}
+            keyOf={(c) => c.id}
+            onTap={(c) => router.push(`/cards/${c.id}`)}
+            renderCard={(c) =>
+              owned.has(c.id) ? (
+                <TradingCard card={c} rank={ranks[c.id]} />
+              ) : (
+                <div className="aspect-[1/1.42]">
+                  <CardBackFace card={c} />
+                </div>
+              )
+            }
+          />
+        </div>
+      ) : visible.length === 0 ? (
         <p className="py-24 text-center text-sm text-[#9AA0AC]">
           No cards match “{query}”.
         </p>

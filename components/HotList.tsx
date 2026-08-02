@@ -1,8 +1,27 @@
+"use client";
+
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import DeckStack from "./DeckStack";
+import TradingCard from "./TradingCard";
 import type { MarketCard } from "@/lib/cards";
 import { formatMove, formatTicks, getCurrentPrice, getDailyMove, getMovers } from "@/lib/market";
 
 /** THE HOT LIST — red-bordered movers box, print-guide style. */
+function MobileDeck({ rows }: { rows: MarketCard[] }) {
+  const router = useRouter();
+  return (
+    <div className="mx-auto max-w-[240px] p-3 md:hidden">
+      <DeckStack
+        items={rows}
+        keyOf={(c) => c.id}
+        onTap={(c) => router.push(`/cards/${c.id}`)}
+        renderCard={(c) => <TradingCard card={c} rank={0} />}
+      />
+    </div>
+  );
+}
+
 export default function HotList({ cards }: { cards: MarketCard[] }) {
   const { gainers, losers } = getMovers(cards.filter((c) => c.id !== "agi"));
   const rows = [...gainers.slice(0, 4), ...losers.slice(0, 2)];
@@ -12,7 +31,9 @@ export default function HotList({ cards }: { cards: MarketCard[] }) {
       <p className="bg-[#C23B2E] px-3 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.3em] text-[#FDFBF6]">
         🔥 The Hot List
       </p>
-      <ul>
+      {/* mobile: swipeable mini-deck */}
+      <MobileDeck rows={rows} />
+      <ul className="hidden md:block">
         {rows.map((card) => {
           const move = getDailyMove(card);
           return (
