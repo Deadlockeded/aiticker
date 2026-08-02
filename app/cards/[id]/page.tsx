@@ -4,6 +4,7 @@ import TradingCard from "@/components/TradingCard";
 import PriceChart from "@/components/PriceChart";
 import ShareButton from "@/components/ShareButton";
 import DailyQuip from "@/components/DailyQuip";
+import SwipeNav from "@/components/SwipeNav";
 import { getAllCards, getCard, getRank } from "@/lib/cards";
 import type { MarketCard } from "@/lib/cards";
 import { PULL_ODDS } from "@/lib/editions";
@@ -160,9 +161,14 @@ export default async function CardPage({
   const rank = getRank(card.id);
   const price = getCurrentPrice(card);
   const odds = PULL_ODDS[card.rarity];
+  const ranked = getAllCards();
+  const idx = ranked.findIndex((c) => c.id === card.id);
+  const prevId = idx > 0 ? ranked[idx - 1].id : null;
+  const nextId = idx < ranked.length - 1 ? ranked[idx + 1].id : null;
 
   return (
     <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-10 sm:px-8">
+      <SwipeNav prevId={prevId} nextId={nextId} />
       <Link
         href="/"
         className="font-mono text-sm text-white/50 transition-colors hover:text-white"

@@ -203,6 +203,7 @@ export default function PackRipper({
       setTimeout(() => setShimmering((s) => (s === i ? null : s)), 1600);
     }
     if (rarity === "legendary" || rarity === "mythic") {
+      if (navigator.vibrate) navigator.vibrate([30, 50, 30]);
       setConfetti((c) => ({ key: (c?.key ?? 0) + 1, pieces: makeConfetti() }));
     }
   };

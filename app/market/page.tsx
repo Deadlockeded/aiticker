@@ -3,6 +3,7 @@ import MarketTable, { MoverCard } from "@/components/MarketTable";
 import { getAllCards, getRank } from "@/lib/cards";
 import { getMovers } from "@/lib/market";
 import marketMeta from "@/data/market-meta.json";
+import PullToRefresh from "@/components/PullToRefresh";
 
 export const metadata: Metadata = { title: "Market · AI Ticker" };
 
@@ -13,6 +14,7 @@ export default function MarketPage() {
 
   return (
     <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-10 sm:px-8">
+      <PullToRefresh lastUpdated={marketMeta.lastUpdated} />
       <header className="mb-8">
         <h1 className="text-2xl font-bold tracking-tight text-white">Market</h1>
         <p className="mt-1 text-sm text-white/50">

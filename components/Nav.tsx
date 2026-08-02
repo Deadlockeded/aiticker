@@ -20,7 +20,8 @@ const MORE = [
   { href: "/leaderboard", label: "Ranks" },
 ];
 
-const MOBILE_TABS = ["/", "/packs", "/arena", "/create", "/binder"];
+const MOBILE_TABS = ["/", "/market", "/packs", "/arena", "/create"];
+const MOBILE_LABELS: Record<string, string> = { "/create": "Rated" };
 
 function isActive(href: string, pathname: string): boolean {
   return href === "/"
@@ -43,7 +44,7 @@ export default function Nav() {
 
   const linkClass = (href: string, compact = false) =>
     `shrink-0 rounded-lg font-medium transition-colors ${
-      compact ? "px-2 py-1.5 text-[12px]" : "px-3 py-1.5 text-[13px]"
+      compact ? "px-2.5 py-3 text-[12px]" : "px-3 py-1.5 text-[13px]"
     } ${
       isActive(href, pathname)
         ? "bg-white/10 text-white"
@@ -122,21 +123,22 @@ export default function Nav() {
       </nav>
 
       {/* mobile bottom tab bar */}
-      <nav className="fixed inset-x-0 bottom-0 z-30 border-t border-white/10 bg-[#0a0a0b]/92 backdrop-blur-md md:hidden">
+      <nav className="fixed inset-x-0 bottom-0 z-30 border-t border-white/10 bg-[#0a0a0b]/92 pb-[env(safe-area-inset-bottom)] backdrop-blur-md md:hidden">
         <div className="grid grid-cols-5">
-          {[...PRIMARY, ...MORE]
-            .filter((l) => MOBILE_TABS.includes(l.href))
-            .map(({ href, label }) => (
+          {MOBILE_TABS.map((href) => {
+            const link = [...PRIMARY, ...MORE].find((l) => l.href === href)!;
+            return (
               <Link
                 key={href}
                 href={href}
-                className={`py-3 text-center text-[11px] font-medium ${
+                className={`min-h-11 py-3 text-center text-[11px] font-medium ${
                   isActive(href, pathname) ? "text-cyan-300" : "text-white/45"
                 }`}
               >
-                {label}
+                {MOBILE_LABELS[href] ?? link.label}
               </Link>
-            ))}
+            );
+          })}
         </div>
       </nav>
     </>

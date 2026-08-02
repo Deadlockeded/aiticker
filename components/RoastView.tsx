@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ROAST_LINES, type RoastFacts } from "@/lib/lines";
 import { getRoastFacts, ScoreError } from "@/lib/score";
 import ShareButton from "./ShareButton";
+import { canShareFiles, canvasBlob, sharePng, type ShareOutcome } from "@/lib/share";
 
 /** First 3 matching lines by specificity (array order); fallbacks guarantee 3. */
 export function pickRoasts(facts: RoastFacts): string[] {
@@ -80,18 +81,9 @@ async function exportPng(facts: RoastFacts, roasts: string[]) {
   ctx.font = "700 30px ui-monospace, monospace";
   ctx.fillText("THANK YOU, SHIP AGAIN SOON", W / 2, y + 80);
 
-  await new Promise<void>((resolve) => {
-    canvas.toBlob((blob) => {
-      if (blob) {
-        const link = document.createElement("a");
-        link.href = URL.createObjectURL(blob);
-        link.download = `roast-${facts.handle}.png`;
-        link.click();
-        URL.revokeObjectURL(link.href);
-      }
-      resolve();
-    }, "image/png");
-  });
+  const blob = await canvasBlob(canvas);
+  if (!blob) return "cancelled" as const;
+  return sharePng(blob, { filename: `roast-${facts.handle}.png`, text: `The Algorithm roasted @${facts.handle}. Get yours.`, url: "https://aiticker.vercel.app/roast" });
 }
 
 export default function RoastView() {
@@ -99,6 +91,7 @@ export default function RoastView() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<{ facts: RoastFacts; roasts: string[] } | null>(null);
+  const [shareMode, setShareMode] = useState<ShareOutcome | null>(null);
 
   const roast = async () => {
     const h = handle.trim().replace(/^@/, "");
@@ -179,10 +172,10 @@ export default function RoastView() {
 
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
             <button
-              onClick={() => exportPng(result.facts, result.roasts)}
+              onClick={async () => setShareMode(await exportPng(result.facts, result.roasts))}
               className="rounded-lg bg-cyan-400 px-5 py-2.5 text-sm font-semibold text-black transition-colors hover:bg-cyan-300"
             >
-              Download receipt (PNG)
+              Share receipt
             </button>
             <ShareButton
               label="Copy roast"
@@ -191,6 +184,12 @@ export default function RoastView() {
               className="text-sm"
             />
           </div>
+          {shareMode === "downloaded" && !canShareFiles() && (
+            <p className="mt-2 text-center font-mono text-[11px] text-amber-300/80">
+              In-app browser blocked native share — downloaded instead.{" "}
+              <a href="" target="_blank" className="underline">open in browser ↗</a>
+            </p>
+          )}
           <p className="mt-4 text-center font-mono text-[11px] text-white/40">
             <Link href="/arena" className="text-cyan-300 hover:underline">
               Avenge yourself →

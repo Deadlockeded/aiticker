@@ -4,6 +4,7 @@ import { formatMove, formatTicks, getCurrentPrice, getDailyMove } from "@/lib/ma
 import CardArt from "./CardArt";
 import RivalryArt from "./RivalryArt";
 import HotBadge from "./HotBadge";
+import TiltFoil from "./TiltFoil";
 
 /**
  * All rarity-driven styling lives here. The design is marketplace-tile
@@ -165,6 +166,7 @@ export default function TradingCard({
           {r.label}
         </span>
         <HotBadge cardId={card.id} />
+        {hero && card.rarity !== "common" && <TiltFoil />}
 
         {stamp && (
           <span

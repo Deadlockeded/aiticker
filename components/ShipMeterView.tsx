@@ -6,6 +6,7 @@ import { computeCommunityRating, toMarketCard } from "@/lib/create";
 import { getScoredProfile, ScoreError, type ScoredProfile } from "@/lib/score";
 import { compatibility, shipIcon, shipVerdict } from "@/lib/shipmeter";
 import ShareButton from "./ShareButton";
+import { canShareFiles, canvasBlob, sharePng, type ShareOutcome } from "@/lib/share";
 import TradingCard from "./TradingCard";
 
 async function exportPng(a: ScoredProfile, b: ScoredProfile, pct: number, verdict: string) {
@@ -84,18 +85,9 @@ async function exportPng(a: ScoredProfile, b: ScoredProfile, pct: number, verdic
   ctx.font = "600 28px ui-monospace, monospace";
   ctx.fillText("aiticker.xyz/shipmeter", W / 2, H - 70);
 
-  await new Promise<void>((resolve) => {
-    canvas.toBlob((blob) => {
-      if (blob) {
-        const link = document.createElement("a");
-        link.href = URL.createObjectURL(blob);
-        link.download = `shipmeter-${a.handle}-${b.handle}.png`;
-        link.click();
-        URL.revokeObjectURL(link.href);
-      }
-      resolve();
-    }, "image/png");
-  });
+  const blob = await canvasBlob(canvas);
+  if (!blob) return "cancelled" as const;
+  return sharePng(blob, { filename: `shipmeter-${a.handle}-${b.handle}.png`, text: `@${a.handle} × @${b.handle}: ${pct}% compatible.`, url: "https://aiticker.vercel.app/shipmeter" });
 }
 
 function profileCard(profile: ScoredProfile) {
@@ -125,6 +117,7 @@ export default function ShipMeterView({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [pair, setPair] = useState<{ a: ScoredProfile; b: ScoredProfile; cached: boolean } | null>(null);
+  const [shareMode, setShareMode] = useState<ShareOutcome | null>(null);
   const autoRan = useRef(false);
 
   const run = async (ha: string, hb: string) => {
@@ -213,10 +206,10 @@ export default function ShipMeterView({
 
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
             <button
-              onClick={() => exportPng(pair.a, pair.b, pct, verdict)}
+              onClick={async () => setShareMode(await exportPng(pair.a, pair.b, pct, verdict))}
               className="rounded-lg bg-cyan-400 px-5 py-2.5 text-sm font-semibold text-black transition-colors hover:bg-cyan-300"
             >
-              Download (PNG)
+              Share (PNG)
             </button>
             <ShareButton
               label="Copy share text"
@@ -234,6 +227,12 @@ export default function ShipMeterView({
               className="text-sm"
             />
           </div>
+          {shareMode === "downloaded" && !canShareFiles() && (
+            <p className="mt-2 font-mono text-[11px] text-amber-300/80">
+              In-app browser blocked native share — downloaded instead.{" "}
+              <a href="" target="_blank" className="underline">open in browser ↗</a>
+            </p>
+          )}
           <p className="mt-4 font-mono text-[11px] text-white/35">
             Deterministic — same pair, same number, either order. Now{" "}
             <Link href="/roast" className="text-cyan-300 hover:underline">

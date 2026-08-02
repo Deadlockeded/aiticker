@@ -24,6 +24,7 @@ import {
 import { getScoredProfile, ScoreError, type ScoredProfile } from "@/lib/score";
 import { pickStamp } from "@/lib/lines";
 import ShareButton from "./ShareButton";
+import { canShareFiles, canvasBlob, sharePng, type ShareOutcome } from "@/lib/share";
 import TradingCard from "./TradingCard";
 
 const RARITY_COLORS: Record<Rarity, [string, string]> = {
@@ -96,7 +97,7 @@ function wrapText(ctx: CanvasRenderingContext2D, text: string, maxWidth: number)
 }
 
 /** Hand-drawn 1080×1350 card PNG. No html2canvas — pure 2D canvas. */
-async function exportPng(card: CommunityCard): Promise<void> {
+async function exportPng(card: CommunityCard) {
   const W = 1080;
   const H = 1350;
   const canvas = document.createElement("canvas");
@@ -255,18 +256,9 @@ async function exportPng(card: CommunityCard): Promise<void> {
   ctx.fillText("aiticker.xyz", W - M - 34, H - M - 44);
   ctx.textAlign = "left";
 
-  await new Promise<void>((resolve) => {
-    canvas.toBlob((blob) => {
-      if (blob) {
-        const a = document.createElement("a");
-        a.href = URL.createObjectURL(blob);
-        a.download = `aiticker-${card.name.trim().toLowerCase().replace(/\s+/g, "-")}.png`;
-        a.click();
-        URL.revokeObjectURL(a.href);
-      }
-      resolve();
-    }, "image/png");
-  });
+  const blob = await canvasBlob(canvas);
+  if (!blob) return "cancelled" as const;
+  return sharePng(blob, { filename: `aiticker-${card.name.trim().toLowerCase().replace(/\s+/g, "-")}.png`, text: `The Algorithm rated me ${card.rating}. ${card.rarity.toUpperCase()} tier.`, url: "https://aiticker.vercel.app/create" });
 }
 
 const DEFAULT_SLIDERS: CommunitySliders = {
@@ -320,6 +312,7 @@ export default function CreateCardStudio() {
   const [photo, setPhoto] = useState<string | null>(null);
   const [sliders, setSliders] = useState<CommunitySliders>(DEFAULT_SLIDERS);
   const [rerollsLeft, setRerollsLeft] = useState<number | null>(null);
+  const [shareMode, setShareMode] = useState<ShareOutcome | null>(null);
 
   if (savedRaw === null) {
     return (
@@ -458,10 +451,10 @@ export default function CreateCardStudio() {
           </div>
           <div className="flex flex-wrap gap-3">
             <button
-              onClick={() => exportPng(saved)}
+              onClick={async () => setShareMode(await exportPng(saved))}
               className="rounded-lg bg-cyan-400 px-5 py-2.5 text-sm font-semibold text-black transition-colors hover:bg-cyan-300"
             >
-              Download card (PNG)
+              Share card
             </button>
             <ShareButton label="Copy share text" text={shareText(saved)} url="" className="text-sm" />
             <Link
@@ -500,6 +493,15 @@ export default function CreateCardStudio() {
               Delete
             </button>
           </div>
+          {shareMode === "downloaded" && !canShareFiles() && (
+            <p className="font-mono text-[11px] text-amber-300/80">
+              This in-app browser blocks native sharing — image downloaded +
+              text copied instead.{" "}
+              <a href="" target="_blank" className="underline">
+                open in browser ↗
+              </a>
+            </p>
+          )}
           <p className="font-mono text-[11px] text-white/35">
             We only read public data. Nothing is stored or sent anywhere —
             scoring runs in your browser.

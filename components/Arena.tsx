@@ -28,6 +28,7 @@ import {
 import CardArt from "./CardArt";
 import TradingCard from "./TradingCard";
 import ShareButton from "./ShareButton";
+import { canShareFiles, canvasBlob, sharePng, type ShareOutcome } from "@/lib/share";
 import { ViralNudge } from "./ViralTeasers";
 
 type Phase = "setup" | "fight" | "done";
@@ -141,18 +142,9 @@ async function exportArenaPng(a: VsSide, b: VsSide, result: VsResult) {
   ctx.font = "600 28px ui-monospace, monospace";
   ctx.fillText("aiticker.xyz/arena", W / 2, H - 26);
 
-  await new Promise<void>((resolve) => {
-    canvas.toBlob((blob) => {
-      if (blob) {
-        const link = document.createElement("a");
-        link.href = URL.createObjectURL(blob);
-        link.download = "aiticker-arena.png";
-        link.click();
-        URL.revokeObjectURL(link.href);
-      }
-      resolve();
-    }, "image/png");
-  });
+  const blob = await canvasBlob(canvas);
+  if (!blob) return "cancelled" as const;
+  return sharePng(blob, { filename: "aiticker-arena.png", text: `Arena result ${result.aWins}–${result.bWins}. Run yours.`, url: "https://aiticker.vercel.app/arena" });
 }
 
 export default function Arena({
@@ -188,6 +180,7 @@ export default function Arena({
   const [phase, setPhase] = useState<Phase>("setup");
   const [result, setResult] = useState<VsResult | null>(null);
   const [entranceQuips, setEntranceQuips] = useState<(string | null)[]>([null, null]);
+  const [shareMode, setShareMode] = useState<ShareOutcome | null>(null);
   const [shownRounds, setShownRounds] = useState(0);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
   const autoRan = useRef(false);
@@ -392,7 +385,7 @@ export default function Arena({
                   className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-white placeholder-white/25 outline-none focus:border-cyan-400/50"
                 />
                 {pickerMatches.length > 0 && (
-                  <ul className="absolute inset-x-0 top-full z-20 mt-1 overflow-hidden rounded-xl border border-white/15 bg-[#131316] py-1 shadow-xl">
+                  <ul className="absolute inset-x-0 top-full z-20 mt-1 overflow-hidden rounded-xl border border-white/15 bg-[#131316] py-1 shadow-xl max-md:fixed max-md:inset-x-0 max-md:bottom-0 max-md:top-auto max-md:z-50 max-md:max-h-[55vh] max-md:overflow-y-auto max-md:rounded-b-none max-md:rounded-t-2xl max-md:border-t max-md:pb-[env(safe-area-inset-bottom)]">
                     {pickerMatches.map((card) => (
                       <li key={card.id}>
                         <button
@@ -590,10 +583,10 @@ export default function Arena({
                   New opponent
                 </button>
                 <button
-                  onClick={() => exportArenaPng(me.side, foe.side, result)}
+                  onClick={async () => setShareMode(await exportArenaPng(me.side, foe.side, result))}
                   className="rounded-lg border border-white/15 px-6 py-2.5 text-sm font-semibold text-white/80 transition-colors hover:bg-white/5"
                 >
-                  Download (PNG)
+                  Share result
                 </button>
                 <ShareButton
                   label="Copy result"
@@ -617,6 +610,12 @@ export default function Arena({
                   />
                 )}
               </div>
+              {shareMode === "downloaded" && !canShareFiles() && (
+                <p className="mt-2 font-mono text-[11px] text-amber-300/80">
+                  In-app browser blocked native share — downloaded instead.{" "}
+                  <a href="" target="_blank" className="underline">open in browser ↗</a>
+                </p>
+              )}
               <div className="mt-3">
                 <ViralNudge />
               </div>
