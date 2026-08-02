@@ -74,6 +74,7 @@ export default function PeekableBack({
 
   return (
     <div
+      data-testid="peekable"
       className="relative h-full w-full [perspective:1200px]"
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}
