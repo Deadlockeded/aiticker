@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import TradingCard from "@/components/TradingCard";
 import PriceChart from "@/components/PriceChart";
+import ShareButton from "@/components/ShareButton";
 import { getAllCards, getCard, getRank } from "@/lib/cards";
 import type { MarketCard } from "@/lib/cards";
 import { PULL_ODDS } from "@/lib/editions";
@@ -18,7 +19,25 @@ export async function generateMetadata({
   params: Promise<{ id: string }>;
 }) {
   const card = getCard((await params).id);
-  return { title: card ? `${card.name} · AI Index` : "AI Index" };
+  if (!card) return { title: "AI Index" };
+  const title = `${card.name} · AI Index`;
+  const description = `${card.rarity.toUpperCase()} · rating ${card.rating} · ${card.tagline}`;
+  const ogImage = `/api/og/${card.id}`;
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [{ url: ogImage, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image" as const,
+      title,
+      description,
+      images: [ogImage],
+    },
+  };
 }
 
 function metricRows(card: MarketCard): [string, string][] {
@@ -94,13 +113,16 @@ export default async function CardPage({
               </h1>
               <p className="mt-2 text-white/60">{card.tagline}</p>
             </div>
-            <div className="text-right">
-              <span className="block font-mono text-3xl font-bold text-white">
-                {formatTicks(price)}
-              </span>
-              <span className="block font-mono text-xs text-white/40">
-                simulated price
-              </span>
+            <div className="flex flex-col items-end gap-3">
+              <div className="text-right">
+                <span className="block font-mono text-3xl font-bold text-white">
+                  {formatTicks(price)}
+                </span>
+                <span className="block font-mono text-xs text-white/40">
+                  simulated price
+                </span>
+              </div>
+              <ShareButton className="text-xs" />
             </div>
           </div>
 

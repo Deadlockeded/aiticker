@@ -12,6 +12,7 @@ import {
   PACKS_PER_DAY,
 } from "@/lib/binder";
 import TradingCard from "./TradingCard";
+import ShareButton from "./ShareButton";
 
 type Phase = "idle" | "ripping" | "reveal";
 
@@ -261,6 +262,13 @@ export default function PackRipper({
                   ✓ Saved to your binder
                 </p>
                 <div className="flex flex-wrap items-center justify-center gap-3">
+                  <ShareButton
+                    label="Share pull"
+                    text={`I just pulled ${pulls
+                      .map((c) => `${c.name} (${c.rarity.toUpperCase()})`)
+                      .join(", ")} on AI Index 🃏`}
+                    url={typeof window !== "undefined" ? `${window.location.origin}/packs` : "/packs"}
+                  />
                   {packsLeft > 0 && (
                     <button
                       onClick={rip}
