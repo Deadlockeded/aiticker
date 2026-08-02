@@ -11,7 +11,7 @@ import { notifyStore } from "./binder";
 
 export const COMMUNITY_STATS = [
   { key: "shipping", label: "Shipping" },
-  { key: "yapping", label: "Yapping" },
+  { key: "yapping", label: "Clout" }, // key predates the label — stored cards keep it
   { key: "galaxyBrain", label: "Galaxy brain" },
   { key: "gpuHoarding", label: "GPU hoarding" },
 ] as const;
@@ -22,12 +22,18 @@ export type CommunitySliders = Record<CommunityStatKey, number>;
 export interface CommunityCard {
   name: string;
   title: string;
-  /** Downscaled data URL, stored locally only. */
+  /** Manual mode: downscaled data URL (local only). Scored mode: GitHub avatar URL. */
   photo: string | null;
   sliders: CommunitySliders;
   rating: number;
   rarity: Rarity;
   createdAt: string;
+  /** true = stats derived from public footprint; false/absent = manual sliders. */
+  scored?: boolean;
+  /** GitHub handle (scored mode). */
+  handle?: string;
+  /** The Algorithm's Verdict (scored mode) — printed on the card. */
+  verdict?: string;
 }
 
 function nameHash(name: string): number {
@@ -161,7 +167,9 @@ export function toMarketCard(card: CommunityCard): MarketCard {
     type: "engineer",
     avatar: initialsOf(card.name),
     image: card.photo,
-    tagline: card.title || "Community collector",
+    tagline: card.handle
+      ? `@${card.handle}${card.title ? ` · ${card.title}` : ""}`
+      : card.title || "Community collector",
     rarity: card.rarity,
     serial: "???",
     editionSize: 0,
@@ -177,11 +185,12 @@ export function toMarketCard(card: CommunityCard): MarketCard {
       { timestamp: "", price },
       { timestamp: "", price },
     ],
-    flavorText: "Certified by The Algorithm. Results final.",
+    flavorText: card.verdict ?? "Certified by The Algorithm. Results final.",
     rating: card.rating,
   };
 }
 
 export function shareText(card: CommunityCard): string {
-  return `The Algorithm rated me ${card.rating}. ${RARITY_EMOJI[card.rarity]} ${card.rarity.toUpperCase()} tier. Make yours → aiticker.xyz/create`;
+  const verdict = card.verdict ? ` Verdict: “${card.verdict}”` : "";
+  return `The Algorithm rated me ${card.rating}. ${RARITY_EMOJI[card.rarity]} ${card.rarity.toUpperCase()} tier.${verdict} Make yours → aiticker.xyz/create`;
 }

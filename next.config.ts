@@ -8,6 +8,8 @@ const nextConfig: NextConfig = {
       // Company logos via Google's favicon service (redirects to gstatic)
       { protocol: "https", hostname: "www.google.com" },
       { protocol: "https", hostname: "*.gstatic.com" },
+      // GitHub avatars for Get Rated / Versus community cards
+      { protocol: "https", hostname: "avatars.githubusercontent.com" },
     ],
   },
 };
