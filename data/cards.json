@@ -30,10 +30,10 @@
     "signals": {
       "attention7d": 43093,
       "attentionDelta": 0.9,
-      "stars": 497578,
+      "stars": 497581,
       "hfDownloads30d": 76373132,
       "hfLikes": 29746,
-      "hnMentions7d": 130
+      "hnMentions7d": 129
     },
     "priceHistory": [
       {
@@ -187,7 +187,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 946.11
       }
     ]
@@ -222,7 +222,7 @@
     "signals": {
       "attention7d": 56158,
       "attentionDelta": 29.3,
-      "stars": 533172,
+      "stars": 533176,
       "hnMentions7d": 79
     },
     "priceHistory": [
@@ -377,8 +377,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 1042.53
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 1008.55
       }
     ]
   },
@@ -415,7 +415,7 @@
       "attentionDelta": 15.4,
       "stars": 74600,
       "hfDownloads30d": 141120388,
-      "hfLikes": 29430,
+      "hfLikes": 29431,
       "hnMentions7d": 6
     },
     "priceHistory": [
@@ -570,7 +570,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 830.92
       }
     ]
@@ -606,7 +606,7 @@
     "signals": {
       "attention7d": 46973,
       "attentionDelta": 23.6,
-      "stars": 97635,
+      "stars": 97637,
       "hfDownloads30d": 52023117,
       "hfLikes": 13702,
       "hnMentions7d": 58
@@ -763,8 +763,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 889.83
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 874.85
       }
     ]
   },
@@ -798,7 +798,7 @@
     "signals": {
       "attention7d": 2948,
       "attentionDelta": -7.7,
-      "stars": 157463,
+      "stars": 157464,
       "hfDownloads30d": 37108293,
       "hfLikes": 59834,
       "hnMentions7d": 4
@@ -955,7 +955,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 752.81
       }
     ]
@@ -990,7 +990,7 @@
     "signals": {
       "attention7d": 8651,
       "attentionDelta": 13.4,
-      "stars": 108688,
+      "stars": 108689,
       "hnMentions7d": 10
     },
     "priceHistory": [
@@ -1145,8 +1145,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 673.14
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 660.58
       }
     ]
   },
@@ -1338,8 +1338,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 923.85
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 886.57
       }
     ]
   },
@@ -1374,10 +1374,10 @@
     "signals": {
       "attention7d": 23625,
       "attentionDelta": -42.7,
-      "stars": 391513,
+      "stars": 391514,
       "hfDownloads30d": 300486,
       "hfLikes": 4103,
-      "hnMentions7d": 34
+      "hnMentions7d": 33
     },
     "priceHistory": [
       {
@@ -1531,8 +1531,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 769
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 701.91
       }
     ]
   },
@@ -1719,8 +1719,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 829.12
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 794.59
       }
     ]
   },
@@ -1756,7 +1756,7 @@
       "attentionDelta": 17.9,
       "stars": 5573,
       "hfDownloads30d": 1474761,
-      "hfLikes": 10700,
+      "hfLikes": 10701,
       "hnMentions7d": 0
     },
     "priceHistory": [
@@ -1911,8 +1911,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 1008.5
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 967.05
       }
     ]
   },
@@ -2125,8 +2125,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 989.69
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 1004.69
       }
     ]
   },
@@ -2334,8 +2334,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 961.81
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 1006.81
       }
     ]
   },
@@ -2543,8 +2543,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 827.54
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 854.47
       }
     ]
   },
@@ -2605,8 +2605,8 @@
       "citations": 59376,
       "hIndex": 21,
       "works": 26,
-      "stars": 388612,
-      "ghFollowers": 214183,
+      "stars": 388618,
+      "ghFollowers": 214186,
       "hnMentions7d": 0
     },
     "priceHistory": [
@@ -2761,8 +2761,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 841.82
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 885.21
       }
     ]
   },
@@ -2970,8 +2970,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 1061.78
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 1096.23
       }
     ]
   },
@@ -3161,8 +3161,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 973.12
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 1005.74
       }
     ]
   },
@@ -3352,8 +3352,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 909.01
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 923.84
       }
     ]
   },
@@ -3561,8 +3561,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 940.65
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 972.61
       }
     ]
   },
@@ -3769,8 +3769,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 787.9
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 815.25
       }
     ]
   },
@@ -3960,8 +3960,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 801.67
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 829.48
       }
     ]
   },
@@ -3995,7 +3995,7 @@
     "signals": {
       "attention7d": 41299,
       "attentionDelta": -17.2,
-      "stars": 281115,
+      "stars": 288800,
       "hfDownloads30d": 41551143,
       "hfLikes": 27496,
       "hnMentions7d": 4
@@ -4152,8 +4152,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 1199.52
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 1178.19
       }
     ]
   },
@@ -4339,7 +4339,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 825.38
       }
     ]
@@ -4526,7 +4526,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 896.21
       }
     ]
@@ -4716,7 +4716,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 596.27
       }
     ]
@@ -4903,7 +4903,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 1019.5
       }
     ]
@@ -5092,8 +5092,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 689.47
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 647.96
       }
     ]
   },
@@ -5281,7 +5281,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 812.62
       }
     ]
@@ -5468,7 +5468,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 735.29
       }
     ]
@@ -5655,8 +5655,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 876.4
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 859.88
       }
     ]
   },
@@ -5842,8 +5842,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 866.08
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 849.4
       }
     ]
   },
@@ -6029,8 +6029,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 676.67
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 663.78
       }
     ]
   },
@@ -6216,7 +6216,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 804.33
       }
     ]
@@ -6403,8 +6403,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 961.91
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 943.41
       }
     ]
   },
@@ -6590,8 +6590,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 661.19
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 634.78
       }
     ]
   },
@@ -6779,8 +6779,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 823.97
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 787.67
       }
     ]
   },
@@ -6966,8 +6966,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 867.24
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 848.2
       }
     ]
   },
@@ -7150,8 +7150,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 624.71
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 639.47
       }
     ]
   },
@@ -7339,8 +7339,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 754.14
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 719.98
       }
     ]
   },
@@ -7523,8 +7523,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 598.91
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 614.01
       }
     ]
   },
@@ -7709,8 +7709,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 598.39
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 584.69
       }
     ]
   },
@@ -7898,8 +7898,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 562.67
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 552.03
       }
     ]
   },
@@ -8084,8 +8084,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 919.42
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 896.62
       }
     ]
   },
@@ -8270,8 +8270,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 596.65
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 581.61
       }
     ]
   },
@@ -8454,8 +8454,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 499.06
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 487.27
       }
     ]
   },
@@ -8641,8 +8641,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 752.82
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 737.83
       }
     ]
   },
@@ -8828,8 +8828,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 623.26
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 609.67
       }
     ]
   },
@@ -9012,8 +9012,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 449.88
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 461.22
       }
     ]
   },
@@ -9046,7 +9046,7 @@
     "signals": {
       "attention7d": 2028,
       "attentionDelta": 9,
-      "stars": 277211,
+      "stars": 277213,
       "hnMentions7d": 0
     },
     "priceHistory": [
@@ -9201,8 +9201,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 725.68
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 675.39
       }
     ]
   },
@@ -9235,7 +9235,7 @@
     "signals": {
       "attention7d": 101,
       "attentionDelta": 2,
-      "stars": 79462,
+      "stars": 79463,
       "hnMentions7d": 0
     },
     "priceHistory": [
@@ -9390,8 +9390,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 566.22
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 525.51
       }
     ]
   },
@@ -9576,8 +9576,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 718.3
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 700.49
       }
     ]
   },
@@ -9762,8 +9762,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 543.88
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 530.4
       }
     ]
   },
@@ -9952,8 +9952,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 644.91
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 617.39
       }
     ]
   },
@@ -10139,8 +10139,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 694.11
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 664.66
       }
     ]
   },
@@ -10326,8 +10326,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 941.53
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 876.84
       }
     ]
   },
@@ -10513,8 +10513,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 691.2
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 658.93
       }
     ]
   },
@@ -10701,8 +10701,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 623.88
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 610.38
       }
     ]
   },
@@ -10893,8 +10893,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 727.58
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 681.29
       }
     ]
   },
@@ -11085,8 +11085,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 843.08
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 788.95
       }
     ]
   },
@@ -11272,8 +11272,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 659.48
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 643.99
       }
     ]
   },
@@ -11303,8 +11303,8 @@
     "flavorText": "Your uncle's band is furious. Your playlist isn't.",
     "wikipediaSlug": "Suno_(platform)",
     "signals": {
-      "attention7d": 3602,
-      "attentionDelta": 7.8,
+      "attention7d": 3510,
+      "attentionDelta": 20.8,
       "hnMentions7d": 3
     },
     "priceHistory": [
@@ -11459,8 +11459,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 813.13
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 784.41
       }
     ]
   },
@@ -11646,8 +11646,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 474.91
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 463.86
       }
     ]
   },
@@ -11833,8 +11833,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 529.79
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 517.88
       }
     ]
   },
@@ -12020,8 +12020,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 848.79
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 811.81
       }
     ]
   },
@@ -12208,8 +12208,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 504.83
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 483.26
       }
     ]
   },
@@ -12392,8 +12392,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 678.62
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 662.59
       }
     ]
   },
@@ -12576,8 +12576,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 579.56
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 565.65
       }
     ]
   },
@@ -12765,8 +12765,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 645.19
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 615.63
       }
     ]
   },
@@ -12954,8 +12954,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 803.21
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 748.96
       }
     ]
   },
@@ -13138,7 +13138,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 642.81
       }
     ]
@@ -13322,7 +13322,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 618.82
       }
     ]
@@ -13509,8 +13509,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 631.71
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 617.2
       }
     ]
   },
@@ -13693,7 +13693,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 676.63
       }
     ]
@@ -13877,7 +13877,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 442.35
       }
     ]
@@ -14064,8 +14064,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 718.08
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 680.27
       }
     ]
   },
@@ -14248,8 +14248,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 724.16
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 742.42
       }
     ]
   },
@@ -14432,7 +14432,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 577.86
       }
     ]
@@ -14620,8 +14620,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 1026.78
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 984.41
       }
     ]
   },
@@ -14804,7 +14804,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 554.51
       }
     ]
@@ -14991,8 +14991,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 713.44
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 696.83
       }
     ]
   },
@@ -15178,8 +15178,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 656.94
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 642.01
       }
     ]
   },
@@ -15362,7 +15362,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 560.43
       }
     ]
@@ -15550,8 +15550,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 688.72
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 675.3
       }
     ]
   },
@@ -15737,8 +15737,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 634.26
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 619.72
       }
     ]
   },
@@ -15924,8 +15924,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 588.36
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 575.68
       }
     ]
   },
@@ -16111,7 +16111,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 518.4
       }
     ]
@@ -16298,8 +16298,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 675.6
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 659.95
       }
     ]
   },
@@ -16485,8 +16485,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 653.87
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 624.66
       }
     ]
   },
@@ -16672,7 +16672,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 716.51
       }
     ]
@@ -16859,8 +16859,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 789.36
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 755.72
       }
     ]
   },
@@ -17043,8 +17043,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 694.17
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 678.51
       }
     ]
   },
@@ -17227,7 +17227,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 608.96
       }
     ]
@@ -17419,8 +17419,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 534.59
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 511.07
       }
     ]
   },
@@ -17606,8 +17606,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 619.47
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 604.97
       }
     ]
   },
@@ -17642,9 +17642,9 @@
     "signals": {
       "attention7d": 13532,
       "attentionDelta": -6.2,
-      "stars": 340892,
+      "stars": 340896,
       "hfDownloads30d": 34000858,
-      "hfLikes": 62487,
+      "hfLikes": 62489,
       "hnMentions7d": 27
     },
     "priceHistory": [
@@ -17799,8 +17799,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 832.24
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 783.69
       }
     ]
   },
@@ -17991,7 +17991,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 690.05
       }
     ]
@@ -18026,9 +18026,9 @@
     "signals": {
       "attention7d": 15957,
       "attentionDelta": -56.5,
-      "stars": 53599,
+      "stars": 53602,
       "hfDownloads30d": 4534893,
-      "hfLikes": 23619,
+      "hfLikes": 23620,
       "hnMentions7d": 4
     },
     "priceHistory": [
@@ -18183,8 +18183,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 888.68
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 831.08
       }
     ]
   },
@@ -18373,8 +18373,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 638.43
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 611.78
       }
     ]
   },
@@ -18565,8 +18565,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 653.73
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 624.67
       }
     ]
   },
@@ -18752,8 +18752,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 676.76
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 690.45
       }
     ]
   },
@@ -18944,7 +18944,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 722.76
       }
     ]
@@ -19134,7 +19134,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 643.24
       }
     ]
@@ -19324,7 +19324,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 940.61
       }
     ]
@@ -19511,8 +19511,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 379.37
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 387.64
       }
     ]
   },
@@ -19703,8 +19703,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 612.74
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 571.09
       }
     ]
   },
@@ -19890,8 +19890,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 901.18
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 879.55
       }
     ]
   },
@@ -20077,8 +20077,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 489.14
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 477.76
       }
     ]
   },
@@ -20261,7 +20261,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 486.03
       }
     ]
@@ -20449,8 +20449,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 596.42
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 585.58
       }
     ]
   },
@@ -20636,8 +20636,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 697.77
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 667.8
       }
     ]
   },
@@ -20828,8 +20828,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 726.37
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 674.26
       }
     ]
   },
@@ -21020,8 +21020,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 880.28
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 922.72
       }
     ]
   },
@@ -21229,8 +21229,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 978.68
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 994.98
       }
     ]
   },
@@ -21438,8 +21438,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 979.98
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 995.67
       }
     ]
   },
@@ -21625,7 +21625,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 1095.4
       }
     ]
@@ -21815,8 +21815,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 742.09
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 769.26
       }
     ]
   },
@@ -22020,8 +22020,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 651.67
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 663.58
       }
     ]
   },
@@ -22211,8 +22211,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 885.38
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 915.62
       }
     ]
   },
@@ -22405,8 +22405,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 721.04
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 746.11
       }
     ]
   },
@@ -22596,8 +22596,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 1142.97
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 1161.3
       }
     ]
   },
@@ -22787,8 +22787,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 614.19
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 635.13
       }
     ]
   },
@@ -22975,8 +22975,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 1092.68
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 1131.24
       }
     ]
   },
@@ -23163,8 +23163,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 928.55
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 962.11
       }
     ]
   },
@@ -23351,8 +23351,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 893.71
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 909.57
       }
     ]
   },
@@ -23542,8 +23542,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 931.99
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 962.4
       }
     ]
   },
@@ -23730,8 +23730,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 740.52
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 767.29
       }
     ]
   },
@@ -23918,8 +23918,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 627.85
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 639.13
       }
     ]
   },
@@ -24102,8 +24102,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 922.61
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 939.18
       }
     ]
   },
@@ -24286,8 +24286,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 1024.69
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 1042.67
       }
     ]
   },
@@ -24474,8 +24474,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 876.5
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 907.8
       }
     ]
   },
@@ -24665,8 +24665,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 727.87
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 740.79
       }
     ]
   },
@@ -24853,8 +24853,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 739.75
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 766.49
       }
     ]
   },
@@ -25044,8 +25044,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 817.68
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 861.12
       }
     ]
   },
@@ -25232,8 +25232,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 952.17
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 985.78
       }
     ]
   },
@@ -25420,8 +25420,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 793.62
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 821.96
       }
     ]
   },
@@ -25607,8 +25607,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 759.23
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 786.31
       }
     ]
   },
@@ -25798,8 +25798,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 902.89
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 951.45
       }
     ]
   },
@@ -25986,8 +25986,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 914.1
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 946.36
       }
     ]
   },
@@ -26174,8 +26174,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 784.44
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 812.46
       }
     ]
   },
@@ -26365,8 +26365,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 883.39
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 945.14
       }
     ]
   },
@@ -26556,8 +26556,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 679.21
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 714.65
       }
     ]
   },
@@ -26764,8 +26764,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 857.76
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 902.38
       }
     ]
   },
@@ -26955,8 +26955,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 996.92
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 1030.79
       }
     ]
   },
@@ -27146,8 +27146,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 880.86
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 910.43
       }
     ]
   },
@@ -27334,8 +27334,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 933.14
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 949.32
       }
     ]
   },
@@ -27525,8 +27525,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 909.63
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 940.72
       }
     ]
   },
@@ -27716,8 +27716,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 921.23
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 953.31
       }
     ]
   },
@@ -27925,8 +27925,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 955.65
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 1003.89
       }
     ]
   },
@@ -28116,8 +28116,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 816.22
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 845.61
       }
     ]
   },
@@ -28308,8 +28308,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 862.37
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 891.4
       }
     ]
   },
@@ -28496,8 +28496,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 581.81
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 602.11
       }
     ]
   },
@@ -28687,8 +28687,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 1137.13
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 1155.36
       }
     ]
   },
@@ -28881,8 +28881,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 777.2
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 818.07
       }
     ]
   },
@@ -29072,8 +29072,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 864.45
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 894.96
       }
     ]
   },
@@ -29266,8 +29266,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 841.76
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 888.4
       }
     ]
   },
@@ -29454,8 +29454,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 768.54
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 796.66
       }
     ]
   },
@@ -29645,8 +29645,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 857.02
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 886.57
       }
     ]
   },
@@ -29836,8 +29836,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 948.21
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 998.51
       }
     ]
   },
@@ -30027,8 +30027,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 870.23
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 915.36
       }
     ]
   },
@@ -30218,8 +30218,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 1161.45
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 1179.54
       }
     ]
   },
@@ -30409,8 +30409,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 707.84
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 731.11
       }
     ]
   },
@@ -30600,8 +30600,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 944.87
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 959.94
       }
     ]
   },
@@ -30791,8 +30791,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 1026.41
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 1061.51
       }
     ]
   },
@@ -30982,8 +30982,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 795.31
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 822.75
       }
     ]
   },
@@ -31174,8 +31174,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 806.3
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 860.84
       }
     ]
   },
@@ -31365,8 +31365,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 771.56
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 811.63
       }
     ]
   },
@@ -31556,8 +31556,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 996.09
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 1063.09
       }
     ]
   },
@@ -31747,8 +31747,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 746.91
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 773.13
       }
     ]
   },
@@ -31938,8 +31938,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 772.86
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 800.57
       }
     ]
   },
@@ -31970,8 +31970,8 @@
     "wikipediaSlug": "Emily_M._Bender",
     "openalexId": "A5023750515",
     "signals": {
-      "attention7d": 517,
-      "attentionDelta": -18.2,
+      "attention7d": 359,
+      "attentionDelta": 0,
       "citations": 11537,
       "hIndex": 30,
       "works": 156,
@@ -32129,8 +32129,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 974.45
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 1024.7
       }
     ]
   },
@@ -32320,8 +32320,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 1066.78
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 1083.95
       }
     ]
   },
@@ -32511,8 +32511,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 856.71
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 902.49
       }
     ]
   },
@@ -32699,8 +32699,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 684.4
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 696.69
       }
     ]
   },
@@ -32890,8 +32890,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 810.49
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 839.64
       }
     ]
   },
@@ -33081,8 +33081,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 906.03
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 950.45
       }
     ]
   },
@@ -33272,8 +33272,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 697.46
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 734.24
       }
     ]
   },
@@ -33459,8 +33459,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 850.02
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 865.33
       }
     ]
   },
@@ -33649,8 +33649,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 916.21
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 933.38
       }
     ]
   },
@@ -33688,7 +33688,7 @@
       "hIndex": 16,
       "works": 30,
       "stars": 0,
-      "ghFollowers": 11807,
+      "ghFollowers": 11808,
       "hnMentions7d": 0
     },
     "priceHistory": [
@@ -33843,8 +33843,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 888.62
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 952.7
       }
     ]
   },
@@ -34037,8 +34037,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 812.51
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 856.45
       }
     ]
   },
@@ -34228,8 +34228,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 745.67
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 772.87
       }
     ]
   },
@@ -34419,8 +34419,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 987.95
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 1036.9
       }
     ]
   },
@@ -34606,8 +34606,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 1073.21
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 1092.26
       }
     ]
   },
@@ -34797,8 +34797,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 1078.42
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 1137.86
       }
     ]
   },
@@ -34985,8 +34985,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 831.72
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 861.07
       }
     ]
   },
@@ -35176,8 +35176,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 606.16
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 627.14
       }
     ]
   },
@@ -35368,8 +35368,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 1156.9
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 1222.35
       }
     ]
   },
@@ -35556,8 +35556,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 720.79
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 746.53
       }
     ]
   },
@@ -35743,8 +35743,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 877.04
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 893.76
       }
     ]
   },
@@ -35931,8 +35931,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 960.68
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 994.99
       }
     ]
   },
@@ -36122,8 +36122,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 757.55
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 785.25
       }
     ]
   },
@@ -36309,7 +36309,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 932.73
       }
     ]
@@ -36501,8 +36501,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 1013.33
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 1032.3
       }
     ]
   },
@@ -36692,8 +36692,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 861.75
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 907.43
       }
     ]
   },
@@ -36883,8 +36883,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 694.5
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 719.41
       }
     ]
   },
@@ -37074,8 +37074,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 632.54
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 653.95
       }
     ]
   },
@@ -37265,8 +37265,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 1093.57
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 1131.78
       }
     ]
   },
@@ -37453,8 +37453,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 545.64
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 565.36
       }
     ]
   },
@@ -37641,8 +37641,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 812.43
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 841.8
       }
     ]
   },
@@ -37828,8 +37828,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 670.1
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 682.11
       }
     ]
   },
@@ -38019,8 +38019,8 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
-        "price": 877.16
+        "timestamp": "2026-08-02T18:10:55.344Z",
+        "price": 906.89
       }
     ]
   },
@@ -38201,7 +38201,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 1006.78
       }
     ]
@@ -38383,7 +38383,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 1012.12
       }
     ]
@@ -38565,7 +38565,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 907.55
       }
     ]
@@ -38747,7 +38747,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 838.31
       }
     ]
@@ -38929,7 +38929,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 955.49
       }
     ]
@@ -39111,7 +39111,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 717.5
       }
     ]
@@ -39293,7 +39293,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 569.95
       }
     ]
@@ -39475,7 +39475,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 870.38
       }
     ]
@@ -39666,7 +39666,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 1046.98
       }
     ]
@@ -39857,7 +39857,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 962.17
       }
     ]
@@ -40048,7 +40048,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 766.87
       }
     ]
@@ -40239,7 +40239,7 @@
         "simulated": true
       },
       {
-        "timestamp": "2026-08-02T17:56:05.738Z",
+        "timestamp": "2026-08-02T18:10:55.344Z",
         "price": 937.64
       }
     ]
