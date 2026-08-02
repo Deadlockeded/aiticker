@@ -166,7 +166,7 @@ export default async function CardPage({
             >
               Use in Arena
             </Link>
-            <ShareButton className="text-sm" />
+            <ShareButton label="Reveal this card to someone" withRevealRef className="text-sm" />
           </div>
         </div>
       </div>

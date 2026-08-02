@@ -6,10 +6,21 @@ import type { CardType } from "@/lib/types";
 import type { MarketCard } from "@/lib/cards";
 import { getCurrentPrice, getDailyMove } from "@/lib/market";
 import TradingCard from "./TradingCard";
-import CardBackFace from "./CardBackFace";
 import DeckStack from "./DeckStack";
+import PeekableBack from "./PeekableBack";
 import { useRouter } from "next/navigation";
-import { getBinderSnapshot, parseBinder, subscribeStore } from "@/lib/binder";
+import { consumePeekGuard, getBinderSnapshot, parseBinder, subscribeStore } from "@/lib/binder";
+import { getSpotlightCard } from "@/lib/daily";
+
+const subscribeNever = () => () => {};
+
+function SpotlightChip() {
+  return (
+    <span className="pointer-events-none absolute left-1.5 top-1.5 z-10 rotate-[-4deg] bg-[#C23B2E] px-1.5 py-0.5 font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-[#FDFBF6]">
+      Spotlight
+    </span>
+  );
+}
 
 type Filter = "all" | CardType;
 type Sort = "rating-desc" | "rating-asc" | "price-desc" | "move-desc" | "name";
@@ -43,6 +54,12 @@ export default function CardGrid({
   const owned = useMemo(
     () => new Set(binderRaw ? Object.keys(parseBinder(binderRaw)) : []),
     [binderRaw],
+  );
+  // Weekly spotlight: face-up for everyone (date-derived → client-only)
+  const spotlightId = useSyncExternalStore(
+    subscribeNever,
+    () => getSpotlightCard(cards)?.id ?? "",
+    () => "",
   );
 
   const visible = useMemo(() => {
@@ -126,13 +143,21 @@ export default function CardGrid({
           <DeckStack
             items={visible}
             keyOf={(c) => c.id}
-            onTap={(c) => router.push(`/cards/${c.id}`)}
+            onTap={(c) => {
+              if (consumePeekGuard()) return; // a peek-hold is not a tap
+              router.push(`/cards/${c.id}`);
+            }}
             renderCard={(c) =>
               owned.has(c.id) ? (
                 <TradingCard card={c} rank={ranks[c.id]} />
+              ) : c.id === spotlightId ? (
+                <div className="relative">
+                  <SpotlightChip />
+                  <TradingCard card={c} rank={ranks[c.id]} />
+                </div>
               ) : (
                 <div className="aspect-[1/1.42]">
-                  <CardBackFace card={c} />
+                  <PeekableBack card={c} rank={ranks[c.id]} />
                 </div>
               )
             }
@@ -145,12 +170,23 @@ export default function CardGrid({
       ) : (
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
           {visible.map((card) => (
-            <Link key={card.id} href={`/cards/${card.id}`}>
+            <Link
+              key={card.id}
+              href={`/cards/${card.id}`}
+              onClick={(e) => {
+                if (consumePeekGuard()) e.preventDefault();
+              }}
+            >
               {owned.has(card.id) ? (
                 <TradingCard card={card} rank={ranks[card.id]} />
+              ) : card.id === spotlightId ? (
+                <div className="relative">
+                  <SpotlightChip />
+                  <TradingCard card={card} rank={ranks[card.id]} />
+                </div>
               ) : (
                 <div className="aspect-[1/1.42]">
-                  <CardBackFace card={card} />
+                  <PeekableBack card={card} rank={ranks[card.id]} />
                 </div>
               )}
             </Link>

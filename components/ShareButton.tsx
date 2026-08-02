@@ -10,19 +10,27 @@ export default function ShareButton({
   label = "Share",
   text,
   url,
+  withRevealRef = false,
   className = "",
 }: {
   label?: string;
   /** Optional message; the URL is appended (or the current page URL). */
   text?: string;
   url?: string;
+  /** Tag the shared URL with ?ref=share — recipients see the card face-up. */
+  withRevealRef?: boolean;
   className?: string;
 }) {
   const [copied, setCopied] = useState(false);
 
   const share = async () => {
     // url === "" means "text only" (the text already carries its own link)
-    const link = url === undefined ? window.location.href : url;
+    let link = url === undefined ? window.location.href : url;
+    if (withRevealRef && link) {
+      const u = new URL(link, window.location.origin);
+      u.searchParams.set("ref", "share");
+      link = u.toString();
+    }
     const payload = text ? (link ? `${text}\n${link}` : text) : link;
     try {
       if (navigator.share) {
