@@ -7,7 +7,12 @@ import { getAllCards, getCard, getRank } from "@/lib/cards";
 import type { MarketCard } from "@/lib/cards";
 import { PULL_ODDS } from "@/lib/editions";
 import { formatMove, formatTicks, getChange, getCurrentPrice } from "@/lib/market";
-import type { CompanyMetrics, EngineerMetrics } from "@/lib/types";
+import type {
+  CompanyMetrics,
+  EngineerMetrics,
+  MomentMetrics,
+  RivalryMetrics,
+} from "@/lib/types";
 
 export function generateStaticParams() {
   return getAllCards().map((card) => ({ id: card.id }));
@@ -50,12 +55,30 @@ function metricRows(card: MarketCard): [string, string][] {
       ["Models shipped", String(m.modelCount)],
     ];
   }
-  const m = card.metrics as EngineerMetrics;
+  if (card.type === "engineer") {
+    const m = card.metrics as EngineerMetrics;
+    return [
+      ["Citations", `${Math.round(m.citations / 1000)}K`],
+      ["Followers", `${Math.round(m.followers / 1000)}K`],
+      ["Impact score", `${m.impactScore}/100`],
+      ["Years in field", String(m.yearsInField)],
+    ];
+  }
+  if (card.type === "moment") {
+    const m = card.metrics as MomentMetrics;
+    return [
+      ["Impact", `${m.impact}/100`],
+      ["Chaos", `${m.chaos}/100`],
+      ["Memeability", `${m.memeability}/100`],
+      ["Legacy", `${m.legacy}/100`],
+    ];
+  }
+  const m = card.metrics as RivalryMetrics;
   return [
-    ["Citations", `${Math.round(m.citations / 1000)}K`],
-    ["Followers", `${Math.round(m.followers / 1000)}K`],
-    ["Impact score", `${m.impactScore}/100`],
-    ["Years in field", String(m.yearsInField)],
+    ["Heat", `${m.heat}/100`],
+    ["History", `${m.history}/100`],
+    ["Pettiness", `${m.pettiness}/100`],
+    ["Stakes", `${m.stakes}/100`],
   ];
 }
 

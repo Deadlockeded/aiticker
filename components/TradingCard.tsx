@@ -100,11 +100,27 @@ export default function TradingCard({
       {/* art */}
       <div
         className={`relative aspect-square overflow-hidden ${r.artBg} ${
-          r.foilSweep ? "foil-sweep" : ""
+          r.foilSweep || card.type === "moment" ? "foil-sweep" : ""
         }`}
       >
         {r.holoWash && <div className="holo-wash absolute inset-0 opacity-50" />}
-        <CardArt card={card} hero={hero} shape="tile" />
+        {card.type === "moment" ? (
+          /* cinematic frame: letterboxed wide crop + date stamp */
+          <div className="absolute inset-0 flex flex-col justify-center bg-black/30">
+            <div className="flex aspect-video items-center justify-center border-y border-white/15 bg-gradient-to-b from-black/60 via-transparent to-black/60">
+              <span className={hero ? "text-7xl" : "text-4xl"}>{card.avatar}</span>
+            </div>
+            <span
+              className={`absolute bottom-2 left-2 rounded bg-black/60 px-1.5 py-0.5 font-mono uppercase tracking-wider text-white/70 ${
+                hero ? "text-[11px]" : "text-[8px]"
+              }`}
+            >
+              {card.momentDate}
+            </span>
+          </div>
+        ) : (
+          <CardArt card={card} hero={hero} shape="tile" />
+        )}
 
         {/* rating chip */}
         <div

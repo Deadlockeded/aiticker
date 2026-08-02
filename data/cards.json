@@ -5443,5 +5443,221 @@
     },
     "priceHistory": [],
     "flavorText": "The citation graph bends around them."
+  },
+  {
+    "id": "attention-is-all-you-need",
+    "name": "Attention Is All You Need",
+    "type": "moment",
+    "avatar": "📄",
+    "image": null,
+    "tagline": "Eight authors casually end an era",
+    "rarity": "legendary",
+    "serial": "002",
+    "editionSize": 10,
+    "series": 1,
+    "metrics": {
+      "impact": 98,
+      "chaos": 20,
+      "memeability": 70,
+      "legacy": 99
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 83,
+      "influence": 87,
+      "momentum": 84
+    },
+    "priceHistory": [],
+    "flavorText": "The most understated title in science. Everything you're holding descends from it.",
+    "momentDate": "Jun 2017"
+  },
+  {
+    "id": "alphago-move-37",
+    "name": "AlphaGo Move 37",
+    "type": "moment",
+    "avatar": "⚫",
+    "image": null,
+    "tagline": "The move no human would play",
+    "rarity": "legendary",
+    "serial": "003",
+    "editionSize": 10,
+    "series": 1,
+    "metrics": {
+      "impact": 92,
+      "chaos": 45,
+      "memeability": 75,
+      "legacy": 95
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 92,
+      "influence": 91,
+      "momentum": 83
+    },
+    "priceHistory": [],
+    "flavorText": "Lee Sedol left the room. The room never recovered.",
+    "momentDate": "Mar 2016"
+  },
+  {
+    "id": "the-board-weekend",
+    "name": "The Board Weekend",
+    "type": "moment",
+    "avatar": "🪑",
+    "image": null,
+    "tagline": "Five days, three CEOs, one heart-emoji mutiny",
+    "rarity": "epic",
+    "serial": "009",
+    "editionSize": 25,
+    "series": 1,
+    "metrics": {
+      "impact": 85,
+      "chaos": 99,
+      "memeability": 96,
+      "legacy": 80
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 99,
+      "influence": 98,
+      "momentum": 87
+    },
+    "priceHistory": [],
+    "flavorText": "Fired Friday, reinstated Tuesday. The board 'lost confidence'; everyone else lost sleep.",
+    "momentDate": "Nov 2023"
+  },
+  {
+    "id": "deepseek-monday",
+    "name": "DeepSeek Monday",
+    "type": "moment",
+    "avatar": "📉",
+    "image": null,
+    "tagline": "The $600B single-stock faceplant",
+    "rarity": "epic",
+    "serial": "002",
+    "editionSize": 25,
+    "series": 1,
+    "metrics": {
+      "impact": 90,
+      "chaos": 88,
+      "memeability": 85,
+      "legacy": 82
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 95,
+      "influence": 99,
+      "momentum": 99
+    },
+    "priceHistory": [],
+    "flavorText": "A hedge fund's side project made NASDAQ read a Chinese lab's paper.",
+    "momentDate": "Jan 2025"
+  },
+  {
+    "id": "the-7t-ask",
+    "name": "The $7T Ask",
+    "type": "moment",
+    "avatar": "💰",
+    "image": null,
+    "tagline": "Sam asks for more money than exists",
+    "rarity": "epic",
+    "serial": "012",
+    "editionSize": 25,
+    "series": 1,
+    "metrics": {
+      "impact": 70,
+      "chaos": 75,
+      "memeability": 92,
+      "legacy": 65
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 87,
+      "influence": 81,
+      "momentum": 86
+    },
+    "priceHistory": [],
+    "flavorText": "Not a typo. Roughly the GDP of Japan plus Germany, for chips.",
+    "momentDate": "Feb 2024"
+  },
+  {
+    "id": "ghibli-day",
+    "name": "Ghibli Day",
+    "type": "moment",
+    "avatar": "🎨",
+    "image": null,
+    "tagline": "The internet becomes a Miyazaki film",
+    "rarity": "rare",
+    "serial": "098",
+    "editionSize": 100,
+    "series": 1,
+    "metrics": {
+      "impact": 60,
+      "chaos": 70,
+      "memeability": 99,
+      "legacy": 55
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 86,
+      "influence": 82,
+      "momentum": 87
+    },
+    "priceHistory": [],
+    "flavorText": "GPUs melted. Miyazaki was not consulted.",
+    "momentDate": "Mar 2025"
+  },
+  {
+    "id": "the-pause-letter",
+    "name": "The Pause Letter",
+    "type": "moment",
+    "avatar": "✋",
+    "image": null,
+    "tagline": "1,000 signatures, zero pauses",
+    "rarity": "rare",
+    "serial": "091",
+    "editionSize": 100,
+    "series": 1,
+    "metrics": {
+      "impact": 65,
+      "chaos": 60,
+      "memeability": 80,
+      "legacy": 60
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 88,
+      "influence": 84,
+      "momentum": 79
+    },
+    "priceHistory": [],
+    "flavorText": "Six months to stop, signed by several people building faster.",
+    "momentDate": "Mar 2023"
+  },
+  {
+    "id": "transformer-eight-reunion",
+    "name": "The Transformer Eight",
+    "type": "moment",
+    "avatar": "🎤",
+    "image": null,
+    "tagline": "All eight authors, one stage, zero still at Google",
+    "rarity": "epic",
+    "serial": "010",
+    "editionSize": 25,
+    "series": 1,
+    "metrics": {
+      "impact": 55,
+      "chaos": 30,
+      "memeability": 70,
+      "legacy": 75
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 74,
+      "influence": 76,
+      "momentum": 83
+    },
+    "priceHistory": [],
+    "flavorText": "Jensen reunited the band. Every member had already gone solo.",
+    "momentDate": "Mar 2024"
   }
 ]

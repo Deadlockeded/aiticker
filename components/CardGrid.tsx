@@ -14,6 +14,8 @@ const FILTERS: { value: Filter; label: string }[] = [
   { value: "all", label: "All" },
   { value: "company", label: "Companies" },
   { value: "engineer", label: "Engineers" },
+  { value: "moment", label: "Moments" },
+  { value: "rivalry", label: "Rivalries" },
 ];
 
 export default function CardGrid({
