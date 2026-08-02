@@ -48,11 +48,10 @@ export default function RootLayout({
         {children}
         <footer className="space-y-1.5 px-4 py-6 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-[#9AA0AC]">
           <p>
-            aiticker is a fan-made collectible game. Index values computed from
-            public signals. Not financial anything. ·{" "}
             <a href="/about" className="underline hover:text-[#1E2430]">
-              From the Editor&apos;s Desk
-            </a>
+              About
+            </a>{" "}
+            · a fan-made collectible game · est. tuesday
           </p>
           <p>
             {marketMeta.lastUpdated

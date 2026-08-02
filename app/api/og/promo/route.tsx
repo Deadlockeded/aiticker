@@ -8,6 +8,11 @@ const PAGES: Record<string, { title: string; sub: string; emoji: string }> = {
     sub: "Get rated by The Algorithm. Rarity is luck.",
     emoji: "🪪",
   },
+  about: {
+    title: "From the Editor's Desk",
+    sub: "The internet's leading* price guide for AI trading cards. (*Only.)",
+    emoji: "📰",
+  },
   roast: {
     title: "Roast my repos",
     sub: "Three personalized roasts. Affectionate dunks only.",
