@@ -26,7 +26,7 @@ const RARITY_RING: Record<Rarity, string> = {
   mythic: "ring-cyan-300/60",
 };
 
-type Chip = "all" | "owned" | "missing" | "dupes";
+type Chip = "all" | "missing" | "dupes";
 const LAST_VISIT_KEY = "ai-index:binder-visit:v1";
 
 // Capture the previous visit timestamp exactly once per mount session and
@@ -45,10 +45,10 @@ function visitSnapshot(): number {
 }
 const subscribeNever = () => () => {};
 
-function rarityLabel(cards: MarketCard[]): string {
-  if (cards.length && cards.every((c) => c.type === "artifact")) return "artifacts";
-  const set = [...new Set(cards.map((c) => c.rarity))];
-  return set.length === 1 ? set[0] : `${set[0]} → ${set[set.length - 1]}`;
+function pageLabel(pageIndex: number, chaseStart: number, artifactStart: number, chaseCount: number): string {
+  if (pageIndex >= artifactStart) return "artifacts";
+  if (pageIndex >= chaseStart) return `still chasing — ${chaseCount}`;
+  return "the collection";
 }
 
 export default function BinderPages({
@@ -68,18 +68,30 @@ export default function BinderPages({
     [raw],
   );
 
-  // fixed slot order: rarity desc then rating desc; artifacts get their own
-  // final pages so the trophy pages stay pure. AGI is hidden until owned.
-  const ordered = useMemo(() => {
+  // COLLECTED FIRST: owned index cards packed densely (rarity desc, rating
+  // desc), then the chase list as empty pockets, then artifacts (owned, then
+  // missing). AGI stays hidden until owned.
+  const { ordered, chaseStart, artifactStart, chaseCount } = useMemo(() => {
     const rank = (r: Rarity) => RARITY_ORDER.indexOf(r);
-    const index = cards
-      .filter((c) => c.type !== "artifact")
-      .sort((a, b) => rank(a.rarity) - rank(b.rarity) || b.rating - a.rating);
-    const artifacts = cards
-      .filter((c) => c.type === "artifact" && c.id !== "agi")
-      .sort((a, b) => b.rating - a.rating);
-    return [...index, ...artifacts];
-  }, [cards]);
+    const bySlot = (a: MarketCard, b: MarketCard) =>
+      rank(a.rarity) - rank(b.rarity) || b.rating - a.rating;
+    const own = (c: MarketCard) => !!binder?.[c.id];
+    const index = cards.filter((c) => c.type !== "artifact");
+    const artifacts = cards.filter((c) => c.type === "artifact" && c.id !== "agi");
+    const ownedIndex = index.filter(own).sort(bySlot);
+    const missingIndex = index.filter((c) => !own(c)).sort(bySlot);
+    const ownedArt = artifacts.filter(own).sort(bySlot);
+    const missingArt = artifacts.filter((c) => !own(c)).sort(bySlot);
+    const all = [...ownedIndex, ...missingIndex, ...ownedArt, ...missingArt];
+    return {
+      ordered: all,
+      chaseStart: Math.floor(ownedIndex.length / 9) + (ownedIndex.length % 9 ? 1 : 0),
+      artifactStart:
+        Math.floor((ownedIndex.length + missingIndex.length) / 9) +
+        ((ownedIndex.length + missingIndex.length) % 9 ? 1 : 0),
+      chaseCount: missingIndex.length,
+    };
+  }, [cards, binder]);
   const agiCard = useMemo(() => cards.find((c) => c.id === "agi"), [cards]);
   const pages = useMemo(() => {
     const out: MarketCard[][] = [];
@@ -153,8 +165,6 @@ export default function BinderPages({
     const entry = binder[card.id];
     if (query && !card.name.toLowerCase().includes(query.toLowerCase())) return false;
     switch (chip) {
-      case "owned":
-        return !!entry;
       case "missing":
         return !entry;
       case "dupes":
@@ -177,7 +187,6 @@ export default function BinderPages({
   };
 
   const perView = typeof window !== "undefined" && window.innerWidth >= 768 ? 2 : 1;
-  const currentPageCards = pages[Math.min(page, pages.length - 1)] ?? [];
   const ring = 2 * Math.PI * 14;
 
   return (
@@ -206,7 +215,7 @@ export default function BinderPages({
         </button>
         <span className="tnum font-mono text-sm text-[#5A6070]">{formatTicks(Math.round(value))}</span>
         <span className="ml-auto font-mono text-[10px] uppercase tracking-widest text-[#9AA0AC]">
-          {rarityLabel(currentPageCards)}
+          {pageLabel(Math.min(page, pages.length - 1), chaseStart, artifactStart, chaseCount)}
         </span>
         <button
           onClick={() => setTrophies(true)}
@@ -233,7 +242,7 @@ export default function BinderPages({
 
       {/* filter chips — dim in place, never re-sort */}
       <div className="mb-3 flex items-center gap-1.5 overflow-x-auto">
-        {(["all", "owned", "missing", "dupes"] as Chip[]).map((c) => (
+        {(["all", "missing", "dupes"] as Chip[]).map((c) => (
           <button
             key={c}
             onClick={() => setChip(c)}
@@ -274,7 +283,12 @@ export default function BinderPages({
         >
           {pages.map((pageCards, pi) => (
             <div key={pi} className="w-full shrink-0 snap-start px-1 md:w-1/2">
-              <div className="binder-texture rounded-2xl border border-[#1E2430]/30 p-3">
+              <div className="binder-texture rounded-2xl p-3">
+                {pi === chaseStart && chaseCount > 0 && (
+                  <p className="mb-2 border-b-2 border-[#1E2430] pb-1 text-center font-mono text-[10px] font-semibold uppercase tracking-[0.3em] text-[#C23B2E]">
+                    Still chasing — {chaseCount} cards
+                  </p>
+                )}
                 <div className="grid grid-cols-3 gap-2.5">
                   {Array.from({ length: 9 }, (_, si) => {
                     const card = pageCards[si];
@@ -295,7 +309,10 @@ export default function BinderPages({
                           className={`pocket flex aspect-[1/1.4] flex-col items-center justify-center rounded-lg bg-black/30 transition-opacity ${dim ? "opacity-25" : ""}`}
                         >
                           <span className="text-xl text-[#1E2430]/20">?</span>
-                          <span className="mt-1 font-mono text-[8px] text-[#9AA0AC]">
+                          <span className="mt-1 truncate px-1 font-mono text-[8px] uppercase text-[#9AA0AC]">
+                            {card.name}
+                          </span>
+                          <span className="font-mono text-[7px] text-[#9AA0AC]/70">
                             slot {pi * 9 + si + 1}
                           </span>
                         </div>
