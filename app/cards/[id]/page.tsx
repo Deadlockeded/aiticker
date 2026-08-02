@@ -108,7 +108,7 @@ export default async function CardPage({
               <p className="font-mono text-xs uppercase tracking-[0.35em] text-white/40">
                 {card.type} · Rank #{rank}
               </p>
-              <h1 className="mt-2 text-4xl font-black uppercase tracking-tight text-white">
+              <h1 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
                 {card.name}
               </h1>
               <p className="mt-2 text-white/60">{card.tagline}</p>

@@ -1,37 +1,69 @@
 import Link from "next/link";
 import CardGrid from "@/components/CardGrid";
 import { getAllCards, getRank } from "@/lib/cards";
+import {
+  formatMove,
+  formatTicks,
+  getCurrentPrice,
+  getDailyMove,
+  getMovers,
+} from "@/lib/market";
 
 export default function Home() {
   const cards = getAllCards();
   const ranks = Object.fromEntries(cards.map((c) => [c.id, getRank(c.id)]));
+  const marketCap = cards.reduce((sum, c) => sum + getCurrentPrice(c), 0);
+  const topMover = getMovers(cards).gainers[0];
 
   return (
-    <main className="mx-auto w-full max-w-7xl flex-1 px-4 py-10 sm:px-8">
-      <header className="mb-12 text-center">
-        <p className="font-mono text-xs uppercase tracking-[0.4em] text-white/40">
-          Series 1 · {cards.length} cards
-        </p>
-        <h1 className="mt-3 bg-gradient-to-r from-cyan-300 via-white to-fuchsia-300 bg-clip-text text-5xl font-black uppercase tracking-tight text-transparent sm:text-7xl">
-          The AI Index
-        </h1>
-        <p className="mx-auto mt-4 max-w-md text-lg text-white/60">
-          Collect the people building the future.
-        </p>
-        <div className="mt-7 flex items-center justify-center gap-4">
-          <Link
-            href="/packs"
-            className="rounded-full bg-gradient-to-r from-cyan-400 via-indigo-400 to-fuchsia-400 px-8 py-3.5 font-black uppercase tracking-wide text-slate-950 shadow-[0_0_40px_-8px_rgba(99,102,241,0.9)] transition-transform hover:scale-105"
-          >
-            Rip a Pack
-          </Link>
-          <Link
-            href="/market"
-            className="rounded-full border border-white/20 px-8 py-3.5 font-semibold uppercase tracking-wide text-white/80 transition-colors hover:bg-white/10"
-          >
-            Market
-          </Link>
+    <main className="mx-auto w-full max-w-7xl flex-1 px-3 py-8 sm:px-6">
+      <header className="mb-8 flex flex-wrap items-end justify-between gap-6">
+        <div className="max-w-xl">
+          <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-cyan-400/80">
+            Series 1
+          </p>
+          <h1 className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            The AI Index
+          </h1>
+          <p className="mt-3 text-[15px] leading-relaxed text-white/55">
+            Collect the people building the future. {cards.length} cards,
+            simulated prices, free daily packs.
+          </p>
+          <div className="mt-5 flex items-center gap-3">
+            <Link
+              href="/packs"
+              className="rounded-lg bg-cyan-400 px-5 py-2.5 text-sm font-semibold text-black transition-colors hover:bg-cyan-300"
+            >
+              Rip a pack
+            </Link>
+            <Link
+              href="/market"
+              className="rounded-lg border border-white/15 px-5 py-2.5 text-sm font-semibold text-white/80 transition-colors hover:bg-white/5"
+            >
+              Browse market
+            </Link>
+          </div>
         </div>
+
+        <dl className="flex gap-3">
+          {[
+            ["Cards", String(cards.length)],
+            ["Market cap", formatTicks(Math.round(marketCap / 1000)) + "k"],
+            ["Top mover 24h", `${topMover.name.split(" ")[0]} ${formatMove(getDailyMove(topMover))}`],
+          ].map(([label, value]) => (
+            <div
+              key={label}
+              className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3"
+            >
+              <dt className="font-mono text-[10px] uppercase tracking-wider text-white/40">
+                {label}
+              </dt>
+              <dd className="tnum mt-1 font-mono text-sm font-semibold text-white">
+                {value}
+              </dd>
+            </div>
+          ))}
+        </dl>
       </header>
 
       <CardGrid cards={cards} ranks={ranks} />

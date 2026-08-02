@@ -4,18 +4,20 @@ import { formatMove, formatTicks, getCurrentPrice, getDailyMove } from "@/lib/ma
 import CardArt from "./CardArt";
 
 /**
- * All rarity-driven styling lives here: border treatment, panel gradient,
- * accent colors, and which foil overlays are active for a tier.
+ * All rarity-driven styling lives here. The design is marketplace-tile
+ * first: full-bleed square art, restrained chrome, rarity expressed through
+ * the art backdrop, a label tint, and (legendary+) a quiet foil.
  */
 const RARITY: Record<
   Rarity,
   {
     label: string;
-    border: string;
-    panel: string;
+    /** Backdrop behind the art tile. */
+    artBg: string;
+    /** Text tint for the rarity label. */
     accentText: string;
-    statBar: string;
-    emblemRing: string;
+    /** Card border (mythic uses the animated conic wrapper instead). */
+    border: string;
     glow: string;
     foilSweep: boolean;
     holoWash: boolean;
@@ -23,56 +25,46 @@ const RARITY: Record<
 > = {
   common: {
     label: "Common",
-    border: "bg-gradient-to-b from-zinc-500 via-zinc-700 to-zinc-800",
-    panel: "bg-gradient-to-b from-zinc-800/90 via-zinc-900 to-zinc-950",
-    accentText: "text-zinc-300",
-    statBar: "bg-zinc-400",
-    emblemRing: "bg-gradient-to-br from-zinc-400 to-zinc-600",
+    artBg: "bg-[radial-gradient(120%_100%_at_50%_0%,#27272a_0%,#161618_70%)]",
+    accentText: "text-zinc-400",
+    border: "border-white/10",
     glow: "",
     foilSweep: false,
     holoWash: false,
   },
   rare: {
     label: "Rare",
-    border: "bg-gradient-to-b from-sky-400 via-blue-600 to-blue-900",
-    panel: "bg-gradient-to-b from-sky-950/90 via-slate-900 to-slate-950",
-    accentText: "text-sky-300",
-    statBar: "bg-sky-400",
-    emblemRing: "bg-gradient-to-br from-sky-300 to-blue-600",
-    glow: "shadow-[0_0_24px_-6px_rgba(56,189,248,0.45)]",
+    artBg: "bg-[radial-gradient(120%_100%_at_50%_0%,#0c4a6e_0%,#111318_72%)]",
+    accentText: "text-sky-400",
+    border: "border-sky-400/25",
+    glow: "",
     foilSweep: false,
     holoWash: false,
   },
   epic: {
     label: "Epic",
-    border: "bg-gradient-to-b from-fuchsia-400 via-purple-600 to-purple-950",
-    panel: "bg-gradient-to-b from-purple-950/90 via-slate-900 to-slate-950",
-    accentText: "text-fuchsia-300",
-    statBar: "bg-fuchsia-400",
-    emblemRing: "bg-gradient-to-br from-fuchsia-300 to-purple-600",
-    glow: "shadow-[0_0_28px_-6px_rgba(217,70,239,0.5)]",
+    artBg: "bg-[radial-gradient(120%_100%_at_50%_0%,#581c87_0%,#131117_72%)]",
+    accentText: "text-fuchsia-400",
+    border: "border-fuchsia-400/25",
+    glow: "",
     foilSweep: false,
     holoWash: false,
   },
   legendary: {
     label: "Legendary",
-    border: "bg-gradient-to-b from-amber-200 via-amber-500 to-yellow-800",
-    panel: "bg-gradient-to-b from-amber-950/80 via-stone-900 to-stone-950",
-    accentText: "text-amber-300",
-    statBar: "bg-amber-400",
-    emblemRing: "bg-gradient-to-br from-amber-200 to-amber-600",
-    glow: "shadow-[0_0_32px_-6px_rgba(251,191,36,0.55)]",
+    artBg: "bg-[radial-gradient(120%_100%_at_50%_0%,#78350f_0%,#141210_72%)]",
+    accentText: "text-amber-400",
+    border: "border-amber-400/40",
+    glow: "shadow-[0_0_28px_-8px_rgba(251,191,36,0.35)]",
     foilSweep: true,
     holoWash: false,
   },
   mythic: {
     label: "Mythic",
-    border: "mythic-border",
-    panel: "bg-gradient-to-b from-indigo-950/90 via-slate-900 to-slate-950",
+    artBg: "bg-[radial-gradient(120%_100%_at_50%_0%,#1e1b4b_0%,#101018_72%)]",
     accentText: "text-cyan-300",
-    statBar: "bg-gradient-to-r from-cyan-400 via-fuchsia-400 to-amber-300",
-    emblemRing: "mythic-border",
-    glow: "shadow-[0_0_36px_-4px_rgba(56,189,248,0.5)]",
+    border: "border-transparent",
+    glow: "shadow-[0_0_32px_-6px_rgba(56,189,248,0.35)]",
     foilSweep: true,
     holoWash: true,
   },
@@ -97,135 +89,137 @@ export default function TradingCard({
   const hero = size === "hero";
   const price = getCurrentPrice(card);
   const move = getDailyMove(card);
+  const mythic = card.rarity === "mythic";
 
-  return (
+  const body = (
     <div
-      className={`group relative aspect-[5/7] w-full select-none rounded-2xl p-[3px] transition-transform duration-300 ${r.border} ${r.glow} ${
-        hero ? "" : "hover:-translate-y-1.5 hover:scale-[1.02]"
-      }`}
+      className={`group flex h-full flex-col overflow-hidden bg-[#131316] transition duration-200 ${
+        mythic ? "rounded-[11px]" : `rounded-xl border ${r.border}`
+      } ${hero ? "" : "hover:-translate-y-1 hover:bg-[#18181c]"}`}
     >
+      {/* art */}
       <div
-        className={`relative flex h-full w-full flex-col overflow-hidden rounded-[13px] ${r.panel} ${
+        className={`relative aspect-square overflow-hidden ${r.artBg} ${
           r.foilSweep ? "foil-sweep" : ""
         }`}
       >
-        {r.holoWash && <div className="holo-wash absolute inset-0 opacity-70" />}
+        {r.holoWash && <div className="holo-wash absolute inset-0 opacity-50" />}
+        <CardArt card={card} hero={hero} shape="tile" />
 
-        {/* subtle texture */}
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.08),transparent_55%)]" />
-
-        {/* header: rank badge + rarity */}
-        <div className={`relative flex items-start justify-between ${hero ? "p-5" : "p-3"}`}>
-          <div className="flex flex-col items-center leading-none">
-            <span
-              className={`font-mono font-bold tracking-tight ${hero ? "text-5xl" : "text-2xl"}`}
-            >
-              {card.rating}
-            </span>
-            <span
-              className={`mt-1 rounded-full bg-white/10 px-1.5 py-0.5 font-mono text-white/70 ${
-                hero ? "text-xs" : "text-[9px]"
-              }`}
-            >
-              #{rank}
-            </span>
-            <span
-              className={`mt-1.5 font-mono font-semibold text-white/80 ${
-                hero ? "text-sm" : "text-[9px]"
-              }`}
-            >
-              {formatTicks(price)}
-            </span>
-            <span
-              className={`font-mono ${move >= 0 ? "text-emerald-400" : "text-red-400"} ${
-                hero ? "text-xs" : "text-[8px]"
-              }`}
-            >
-              {formatMove(move)}
-            </span>
-          </div>
+        {/* rating chip */}
+        <div
+          className={`absolute left-2 top-2 flex items-baseline gap-1 rounded-lg bg-black/60 backdrop-blur-sm ${
+            hero ? "px-3 py-1.5" : "px-2 py-1"
+          }`}
+        >
           <span
-            className={`rounded-full border border-white/15 bg-black/30 font-semibold uppercase tracking-[0.18em] ${r.accentText} ${
-              hero ? "px-3 py-1 text-xs" : "px-2 py-0.5 text-[8px]"
+            className={`tnum font-mono font-bold leading-none text-white ${
+              hero ? "text-3xl" : "text-lg"
             }`}
           >
-            {r.label}
+            {card.rating}
+          </span>
+          <span
+            className={`font-mono uppercase text-white/50 ${hero ? "text-xs" : "text-[8px]"}`}
+          >
+            ovr
           </span>
         </div>
 
-        {/* emblem */}
-        <div className="relative flex flex-1 flex-col items-center justify-center gap-1">
-          <div
-            className={`rounded-full p-[3px] ${r.emblemRing} ${hero ? "h-32 w-32" : "h-16 w-16 sm:h-20 sm:w-20"}`}
-          >
-            <CardArt card={card} hero={hero} />
-          </div>
-          <span
-            className={`mt-2 font-mono uppercase tracking-[0.3em] text-white/40 ${
-              hero ? "text-xs" : "text-[8px]"
-            }`}
-          >
-            {card.type}
-          </span>
-        </div>
+        {/* rarity pill */}
+        <span
+          className={`absolute right-2 top-2 rounded-md bg-black/60 font-mono uppercase tracking-wider backdrop-blur-sm ${r.accentText} ${
+            hero ? "px-2.5 py-1 text-[11px]" : "px-1.5 py-0.5 text-[8px]"
+          }`}
+        >
+          {r.label}
+        </span>
 
-        {/* name + tagline */}
-        <div className={`relative text-center ${hero ? "px-6 pb-4" : "px-3 pb-2"}`}>
+        {/* engineer photos need a bottom scrim for the info block edge */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-black/50 to-transparent" />
+      </div>
+
+      {/* info */}
+      <div className={`flex flex-1 flex-col ${hero ? "gap-2 p-5" : "gap-1.5 p-3"}`}>
+        <div className="flex items-center justify-between gap-2">
           <h3
-            className={`font-bold uppercase tracking-wide text-white ${
-              hero ? "text-2xl" : "text-xs sm:text-sm"
+            className={`truncate font-semibold text-white ${
+              hero ? "text-xl" : "text-sm"
             }`}
           >
             {card.name}
           </h3>
-          <p
-            className={`mt-0.5 text-white/50 ${hero ? "text-sm" : "hidden text-[9px] leading-tight sm:block"}`}
+          <span
+            className={`tnum shrink-0 font-mono text-white/40 ${hero ? "text-sm" : "text-[10px]"}`}
           >
-            {card.tagline}
-          </p>
+            #{rank}
+          </span>
         </div>
-
-        {/* stat lines */}
         <div
-          className={`relative border-t border-white/10 bg-black/30 ${
-            hero ? "space-y-2.5 px-6 py-5" : "space-y-1.5 px-3 py-2.5"
+          className={`flex items-center justify-between font-mono text-white/40 ${
+            hero ? "text-xs" : "text-[9px]"
           }`}
         >
-          {STAT_ROWS.map(({ key, label }) => (
-            <div key={key} className="flex items-center gap-2">
-              <span
-                className={`w-7 font-mono font-semibold ${r.accentText} ${
-                  hero ? "text-xs" : "text-[8px]"
-                }`}
-              >
-                {label}
-              </span>
-              <div className="h-1 flex-1 overflow-hidden rounded-full bg-white/10">
-                <div
-                  className={`h-full rounded-full ${r.statBar}`}
-                  style={{ width: `${card.stats[key]}%` }}
-                />
+          <span className="uppercase tracking-wider">{card.type}</span>
+          <span className="tnum">
+            #{card.serial}/{card.editionSize} · S{card.series}
+          </span>
+        </div>
+
+        {hero && <p className="text-sm text-white/55">{card.tagline}</p>}
+
+        {hero && (
+          <div className="mt-1 space-y-2 border-t border-white/10 pt-3">
+            {STAT_ROWS.map(({ key, label }) => (
+              <div key={key} className="flex items-center gap-2">
+                <span className={`w-8 font-mono text-xs ${r.accentText}`}>
+                  {label}
+                </span>
+                <div className="h-1 flex-1 overflow-hidden rounded-full bg-white/10">
+                  <div
+                    className="h-full rounded-full bg-white/60"
+                    style={{ width: `${card.stats[key]}%` }}
+                  />
+                </div>
+                <span className="tnum w-6 text-right font-mono text-xs text-white/70">
+                  {card.stats[key]}
+                </span>
               </div>
-              <span
-                className={`w-6 text-right font-mono text-white/80 ${
-                  hero ? "text-xs" : "text-[9px]"
-                }`}
-              >
-                {card.stats[key]}
-              </span>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
 
-        {/* footer */}
+        {/* price row */}
         <div
-          className={`relative flex items-center justify-center border-t border-white/10 bg-black/40 font-mono tracking-[0.2em] text-white/40 ${
-            hero ? "py-2.5 text-[10px]" : "py-1.5 text-[7px]"
+          className={`mt-auto flex items-center justify-between border-t border-white/10 ${
+            hero ? "pt-3" : "pt-2"
           }`}
         >
-          #{card.serial}/{card.editionSize} · Series {card.series}
+          <span
+            className={`tnum font-mono font-semibold text-white ${
+              hero ? "text-lg" : "text-xs"
+            }`}
+          >
+            {formatTicks(price)}
+          </span>
+          <span
+            className={`tnum font-mono ${move >= 0 ? "text-emerald-400" : "text-red-400"} ${
+              hero ? "text-sm" : "text-[10px]"
+            }`}
+          >
+            {formatMove(move)}
+          </span>
         </div>
       </div>
     </div>
   );
+
+  if (mythic) {
+    return (
+      <div className={`mythic-border h-full rounded-xl p-[1.5px] ${r.glow}`}>
+        {body}
+      </div>
+    );
+  }
+  return <div className={`h-full ${r.glow}`}>{body}</div>;
 }

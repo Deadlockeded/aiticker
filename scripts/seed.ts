@@ -311,7 +311,7 @@ async function build() {
   );
 
   const engineerRows = ENGINEERS.filter(([id]) => !existingIds.has(id));
-  const newEngineers = [];
+  const newEngineers: Record<string, unknown>[] = [];
   let found = 0;
   for (let i = 0; i < engineerRows.length; i += 8) {
     const batch = engineerRows.slice(i, i + 8);

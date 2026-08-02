@@ -24,8 +24,8 @@ const RARITY_BAR: Record<Rarity, string> = {
 
 function Silhouette({ card }: { card: MarketCard }) {
   return (
-    <div className="relative flex aspect-[5/7] w-full flex-col items-center justify-center rounded-2xl border-2 border-dashed border-white/10 bg-white/[0.03]">
-      <span className="text-4xl font-black text-white/15">?</span>
+    <div className="relative flex aspect-[1/1.42] w-full flex-col items-center justify-center rounded-xl border border-dashed border-white/10 bg-white/[0.02]">
+      <span className="text-4xl font-bold text-white/15">?</span>
       <span className="mt-2 px-3 text-center font-mono text-[9px] uppercase tracking-[0.2em] text-white/25">
         {card.rarity}
       </span>
@@ -73,7 +73,7 @@ export default function BinderView({
         </div>
         <Link
           href="/packs"
-          className="rounded-full bg-gradient-to-r from-cyan-400 via-indigo-400 to-fuchsia-400 px-8 py-3 font-black uppercase tracking-wide text-slate-950 transition-transform hover:scale-105"
+          className="rounded-lg bg-cyan-400 px-6 py-2.5 text-sm font-semibold text-black transition-colors hover:bg-cyan-300"
         >
           Rip a Pack
         </Link>
@@ -146,7 +146,7 @@ export default function BinderView({
       </div>
 
       {/* collection grid — unowned cards stay as silhouettes for completion pressure */}
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 lg:grid-cols-4 xl:grid-cols-5">
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
         {cards.map((card) => {
           const entry = binder[card.id];
           if (!entry) return <Silhouette key={card.id} card={card} />;

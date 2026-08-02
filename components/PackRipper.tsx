@@ -98,7 +98,7 @@ function PackGraphic({
 
 function CardBack() {
   return (
-    <div className="absolute inset-0 overflow-hidden rounded-2xl border-2 border-white/20 bg-gradient-to-b from-slate-900 via-indigo-950 to-slate-950 [backface-visibility:hidden]">
+    <div className="absolute inset-0 overflow-hidden rounded-xl border border-white/20 bg-gradient-to-b from-slate-900 via-indigo-950 to-slate-950 [backface-visibility:hidden]">
       <div
         className="absolute inset-0 opacity-30"
         style={{
@@ -223,7 +223,7 @@ export default function PackRipper({
             <button
               onClick={rip}
               disabled={!mounted || phase === "ripping" || packsLeft === 0}
-              className="rounded-full bg-gradient-to-r from-cyan-400 via-indigo-400 to-fuchsia-400 px-10 py-3.5 text-lg font-black uppercase tracking-wide text-slate-950 shadow-[0_0_40px_-8px_rgba(99,102,241,0.9)] transition-transform hover:scale-105 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100"
+              className="rounded-lg bg-cyan-400 px-8 py-3 text-base font-semibold text-black transition-colors hover:bg-cyan-300 disabled:cursor-not-allowed disabled:opacity-40"
             >
               {phase === "ripping" ? "Ripping…" : "Rip a Pack"}
             </button>
@@ -238,7 +238,7 @@ export default function PackRipper({
               <button
                 key={`${card.id}-${i}`}
                 onClick={() => flip(i)}
-                className="deal-in relative aspect-[5/7] w-full [perspective:1200px]"
+                className="deal-in relative aspect-[1/1.42] w-full [perspective:1200px]"
                 style={{
                   animationDelay: `${i * 0.12}s`,
                   "--deal-tilt": `${(i - 1) * 6}deg`,
@@ -279,14 +279,14 @@ export default function PackRipper({
                   {packsLeft > 0 && (
                     <button
                       onClick={rip}
-                      className="rounded-full bg-gradient-to-r from-cyan-400 via-indigo-400 to-fuchsia-400 px-8 py-3 font-black uppercase tracking-wide text-slate-950 transition-transform hover:scale-105"
+                      className="rounded-lg bg-cyan-400 px-6 py-2.5 text-sm font-semibold text-black transition-colors hover:bg-cyan-300"
                     >
                       Rip another
                     </button>
                   )}
                   <Link
                     href="/binder"
-                    className="rounded-full border border-white/20 px-8 py-3 font-semibold uppercase tracking-wide text-white/80 transition-colors hover:bg-white/10"
+                    className="rounded-lg border border-white/15 px-6 py-2.5 text-sm font-semibold text-white/80 transition-colors hover:bg-white/5"
                   >
                     View binder
                   </Link>
