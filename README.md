@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# aiticker
 
-## Getting Started
+Trading cards for the AI industry. Real data. Fake money.
 
-First, run the development server:
+A live index of AI companies, engineers, and beloved useless artifacts (The
+GPU, The Em Dash, The Waitlist) in collectible-card form. Rip free packs,
+fill a binder, fight in the arena over a daily-rotating meta
+(SHITPOSTING · AURA · LORE · …), and get your own GitHub scouted and
+roasted. Prices are computed nightly from genuinely public signals —
+Wikipedia attention, citations, GitHub, Hugging Face, Hacker News. No
+accounts, no database, no real money in or out, ever.
+
+Live: **https://aiticker.vercel.app** (aiticker.xyz)
+
+## Stack
+
+- Next.js 16 (App Router) · React 19 · TypeScript strict · Tailwind CSS v4
+- No auth, no database: static JSON + localStorage + deterministic seeded
+  randomness. "Git is the database" — the nightly pipeline commits data.
+- Playwright smoke suite (mobile viewport), GitHub Actions for data + e2e.
+
+## Commands
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm dev          # dev server on :3000
+pnpm build        # production build (also the fastest full type-check)
+pnpm lint         # ESLint
+pnpm test:e2e     # Playwright smoke suite (pnpm build first)
+pnpm market:dry   # preview a full data-pipeline run into data/preview/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deploy
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Vercel, zero config. `vercel deploy --prod` from a linked checkout, or
+connect the GitHub repo in the Vercel dashboard for auto-deploys (the
+nightly `market-update` workflow commits fresh data — connecting git means
+prices redeploy themselves).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Docs
 
-## Learn More
+- `CLAUDE.md` — project map (routes, libs, design tokens, house rules)
+- `PIPELINE.md` — the nightly data pipeline
+- `STORAGE.md` — every browser-storage key
+- `TESTING.md` — smoke-suite coverage
+- `DESIGN.md` — the Price Guide visual identity
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Fan-made. Not affiliated with anyone on the index. The Wrapper card is
+autobiographical.

@@ -4,38 +4,111 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Commands
 
-Uses **pnpm** (see pnpm-lock.yaml — don't use npm/yarn).
+Uses **pnpm** (don't use npm/yarn).
 
-- `pnpm dev` — start dev server at http://localhost:3000
+- `pnpm dev` — dev server at :3000
 - `pnpm build` — production build (also the fastest full type-check)
-- `pnpm lint` — ESLint (flat config, eslint-config-next)
+- `pnpm lint` — ESLint (flat config; react-hooks rules reject setState-in-effect and ref-reads-in-render — see patterns below)
+- `pnpm test:e2e` — Playwright smoke suite (17 tests, mobile viewport, runs against `pnpm build`; see TESTING.md). Single test: `npx playwright test tests/smoke.spec.ts:NN`
+- `pnpm market:dry` — preview a data-pipeline run into `data/preview/`
 
-There is no test runner configured.
+## Product in one paragraph
 
-## Data pipeline
+A collectible trading-card index of the AI industry: 50 flagship cards +
+25 joke "artifact" commons + 1 secret AGI mythic (`data/cards.json`). Free
+daily packs → localStorage binder → arena fights over a daily-rotating
+meta → viral toys (Get Rated/roast at `/create`, ship meter). Prices are
+real: a nightly GitHub Action fetches public signals and commits them.
+Hard rules: **no auth, no database, no paid services, no real money or
+wagering anywhere** — and quips/roasts target public personas' work only,
+never appearance/family/health/identity.
 
-The market is real: a GitHub Actions cron (`.github/workflows/market-update.yml`) runs `scripts/update-market.ts` daily — free public APIs → signals → ratings → a price point appended per card → committed JSON → Vercel redeploy. See PIPELINE.md for sources, failure model, tuning constants, and how to add a card. `pnpm market:dry` previews a full run into `data/preview/`. Never zero a stat on fetch failure; manual metrics (valuation, funding, …) are hand-edited only.
+## THE MAGAZINE RULE (Phase 0, 2026-08-03)
 
-## Architecture
+The 90s price-guide magazine identity is **visual-only**. Tokens, fonts,
+paper-card/coupon/stamp motifs stay. Copy is modern and plain: no
+"— The Editor" attributions, no ISSUE Nº, no in-universe bits in
+functional UI (tutorials, empty states, errors, countdowns, tooltips).
+Card quips, flavor text, roast/verdict lines, and stamp names (PEEKED,
+SIGHT UNSEEN, FIRST PULL, SPOTLIGHT, REVEALED BY A COLLECTOR) are the
+humor layer and stay. Register examples: "Next free packs in 14h." ·
+"No cards yet. Rip a pack first." · "Something broke. Refresh usually
+fixes it."
 
-Next.js App Router app (Next 16, React 19, TypeScript strict, Tailwind CSS v4) — a collectible trading-card index of AI companies and AI engineers with a fully simulated market. Ship-fast constraints are deliberate: **no auth, no database, no external APIs, no chart/animation libraries** — static JSON + localStorage + deterministic simulation, deployable to Vercel as-is.
+## Design tokens (DESIGN.md)
 
-Data flow: `data/cards.json` (seed) → `lib/cards.ts` enriches each card at module load into a `MarketCard` (computed `rating` from `lib/rating.ts`, 30-day `priceHistory` from `lib/market.ts`). Pages import from `lib/cards.ts`, never the JSON directly.
+Cream `#F2EDE3` bg · paper `#FDFBF6` · ink `#1E2430` · secondary
+`#5A6070` · muted `#9AA0AC` · accent red `#C23B2E` (hover `#A32F24`) ·
+green `#1F7A3D`. Fonts via next/font vars: Archivo Black
+(`--font-display`), Oswald (mapped over `--font-geist-mono` — every
+`font-mono` class renders Oswald), Lora (over `--font-geist-sans`).
+Tailwind v4: no config file — tokens in `app/globals.css` `@theme`.
+Motifs: `.paper-card`/`.paper-shadow` (5px offset ink), `.coupon`
+(dashed), rotated ink stamps.
 
-- `lib/rating.ts` — FIFA-style 0–99 rating from raw `card.metrics`. All tuning lives in the exported `RATING_CONFIG` (weights, log/linear curves per metric, floor/ceil). Runtime overwrites the legacy `stats.rating`; `MarketCard.rating` is the source of truth.
-- `lib/market.ts` — deterministic simulation: mulberry32 PRNG seeded from the card id, so server and client always generate identical prices (hydration-safe). Prices depend only on the PRNG, never on dates; timestamps are only ever rendered client-side (tooltips). Keep it that way.
-- `lib/binder.ts` / `lib/packs.ts` — localStorage collection + daily pack allowance (3/day, local-midnight reset) and odds-weighted pulls (`PULL_ODDS` in `lib/editions.ts`). Client-only: call post-mount. Pack pulls are true-random on purpose (click handlers only).
-- `data/cards.json` — static seed. Card `image` URLs are royalty-free remotes (Wikimedia Commons portraits, Google favicon service for logos; allowed hosts in next.config.ts); `image: null` falls back to the monogram via `components/CardArt.tsx`.
-- `components/TradingCard.tsx` — the hero visual. All rarity-based styling (foil/gradient/shine per tier) is driven by the `RARITY` config map in this file; add new tiers there, not with ad-hoc classes. Keyframes (foil, pack rip, confetti) live in `app/globals.css`.
-- `components/PackRipper.tsx` — pack-opening state machine (idle → ripping → reveal) with CSS-only ritual animations.
-- `app/api/og/[id]/route.tsx` — edge route rendering 1200×630 share images via `next/og`. Satori's default font lacks the ₮ glyph — spell out "TICKS" there.
-- Pages: `/` grid (+ hero CTA), `/market` (movers + sortable table), `/cards/[id]` (SSG detail + SVG price chart), `/packs`, `/binder`, `/leaderboard` (fake rivals + real binder value).
+## Data flow
 
-Fun layer (game features — a game, not a market; never add buy/sell/invest language or real-money anything):
+`data/cards.json` → `lib/cards.ts` enriches at module load into
+`MarketCard` (rating from `lib/rating.ts`, price-history fallback from
+`lib/market.ts`). Pages import from `lib/cards.ts`, never the JSON.
+Nightly: `.github/workflows/market-update.yml` → `scripts/update-market.ts`
+→ 5 keyless sources → signals → rating recompute → price append (±10%
+clamp) → git commit. See PIPELINE.md. Never zero a stat on fetch failure.
 
-- Card kinds now include `moment` and `rivalry` (custom art frames in TradingCard; RivalryArt is the tap-to-flip client piece). `scripts/seed.ts` regenerates the base roster; moments/rivalries were appended by one-off scripts.
-- `lib/daily.ts` — ALL date-driven picks (daily card, prediction, hot cards) hash the UTC day. Date-dependent UI must render client-side only (post-mount / `useSyncExternalStore` with a null server snapshot) because pages are SSG'd; never bake a date into server HTML.
-- `lib/xp.ts`, `lib/achievements.ts`, `lib/battle.ts`, `lib/lab.ts` — all state is localStorage keyed `ai-index:*:v1`, synced across components via the shared store event in `lib/binder.ts` (`notifyStore`/`subscribeStore`). New localStorage features must use that pattern — the repo's lint config rejects setState-in-effect hydration reads.
-- `/arena` (Battle+Versus merged: binder fighter vs index card or scored GitHub handle; /battle and /vs redirect there). Lab/Today/grading/Free-Agent were removed in the 2026-08-03 identity restructure; moments/rivalries are shelved in `data/series2/` (see SERIES2.md). Viral toys: `/create` (Get Rated + stamps), `/roast`, `/shipmeter` — all client-side fetches of public APIs, all joke copy in `lib/lines.ts`.
+## lib/ map
 
-Tailwind v4 note: there is no tailwind.config — theme tokens are declared in `app/globals.css` via `@theme inline`. Design language: near-black neutrals, single cyan accent, sentence-case headers, `tnum` class for tabular numerals — keep new UI inside this system.
+- `rng.ts` — THE seeded-randomness toolkit (fnvHash + mulberry32). Never copy these into feature libs.
+- `storage.ts` — THE localStorage gateway: `KEYS` registry, try/catch accessors, versioned migration. Every new persistent key goes here + STORAGE.md.
+- `binder.ts` — collection, pack allowance, THE PEEK state, and the shared store bus (`notifyStore`/`subscribeStore`).
+- `meta.ts` — the Daily Meta: 10 fight categories with documented formulas; 4 active per UTC day; per-card ±8 seed wobble (values fixed, not random).
+- `vsMapping.ts` — arena resolution: 3 rounds drawn from today's active 4 (pairing-hash pick), AGI coin-flips, chaos upsets, `decisiveCategory` for share text.
+- `daily.ts` — all date-hash picks: hot cards (+3 boost), weekly SPOTLIGHT (`getSpotlightCard`, never legendary/mythic), featured card, quips of the day.
+- `market.ts` — prices (committed history wins; deterministic simulation as pre-pipeline fallback), `formatTicks` (₮).
+- `packs.ts`/`editions.ts` — odds (`CATEGORY_ODDS`: agi 0.1%, artifacts 35%…), serials.
+- `score.ts` — client-side GitHub/HF/HN scoring for Get Rated (sessionStorage cache), `getRoastFacts`. NO LinkedIn, ever.
+- `lines.ts` — ALL joke copy: roast lines, verdicts, stamps, stat tiers/definitions.
+- `share.ts` — Web Share API w/ files + download fallback, `brandFonts()` for canvas exports.
+- `onboarding.ts` — first-run caption flags (~6 one-liners, each shown once).
+- `create.ts`, `xp.ts`, `achievements.ts`, `battle.ts`, `shipmeter.ts` — prospect cards, XP, trophies, arena record, ship meter.
+
+## Mystery / reveal rules
+
+Unpulled cards render facedown (`CardBackFace`) in gallery + detail +
+binder chase pockets. Exemptions: Market table, Featured Card, arena
+opponents, the weekly SPOTLIGHT card, and any detail page opened with a
+`?ref=` param (share links append it — "sharing is the leak", stamp:
+REVEALED BY A COLLECTOR). Press-and-hold 600ms = THE PEEK
+(`PeekableBack`): flips while held, permanently stamps PEEKED until
+pulled; peek-holds set a guard (`consumePeekGuard`) so release isn't a
+tap. First pulls of never-peeked cards get SIGHT UNSEEN. Pack reveal
+beats live in `PackRipper` (one-tap flow, auto-binder).
+
+## House patterns (the lint config enforces these)
+
+- Date/localStorage/media reads: `useSyncExternalStore` with a null/false
+  server snapshot — never setState-in-effect hydration reads. Same-tab
+  sync via the store bus in `binder.ts`. SSG pages must never bake in a
+  date-derived pick (hydration mismatch + stale cache).
+- `getSnapshot` must return stable/cached values (see `getDailyMeta`'s
+  per-day cache; capture-once module snapshots in BinderPages/onboarding).
+- Deferred setState in effects: `setTimeout(…, 0)`.
+- localStorage keys keep the legacy `ai-index:` prefix (user data
+  predates the aiticker rename). All access via `lib/storage.ts`.
+- Canvas share exports: await `brandFonts()`, use design tokens,
+  watermark `aiticker.xyz`, slice long strings; OG routes are 1200×630
+  and satori's default font has no ₮/emoji (spell out TICKS, use
+  monograms).
+- Card art: remote royalty-free (Wikimedia portraits, Google favicon
+  service); allowed hosts in next.config.ts; `image: null` → monogram.
+
+## Routes
+
+`/` (masthead + featured + hot list + gallery deck/grid) · `/market`
+(price table, SPOTLIGHT chip) · `/cards/[id]` (SSG detail: CardReveal
+gate, chart, stats, TODAY'S FORM, signals) · `/packs` · `/binder`
+(9-pocket pages, trade-in, PEEKED counter) · `/arena` (meta strip,
+CHALLENGER LINE swipe deck, fights) · `/create` (Get Rated + SCOUT'S
+ROAST; manual mode) · `/shipmeter` · `/howto` · `/about` · OG routes
+under `/api/og/*`. Redirects from all removed features live in
+next.config.ts. Shelved Series 2 (moments/rivalries) in `data/series2/`;
+benched cards in `data/bench/`.
