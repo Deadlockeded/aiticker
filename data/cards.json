@@ -6,9 +6,9 @@
     "avatar": "OA",
     "image": "https://www.google.com/s2/favicons?domain=openai.com&sz=128",
     "tagline": "Frontier lab behind GPT and ChatGPT",
-    "rarity": "mythic",
-    "serial": "005",
-    "editionSize": 5,
+    "rarity": "legendary",
+    "serial": "010",
+    "editionSize": 10,
     "series": 1,
     "metrics": {
       "valuation": 300,
@@ -31,9 +31,9 @@
     "avatar": "AN",
     "image": "https://www.google.com/s2/favicons?domain=anthropic.com&sz=128",
     "tagline": "Safety-focused lab behind Claude",
-    "rarity": "legendary",
-    "serial": "006",
-    "editionSize": 10,
+    "rarity": "rare",
+    "serial": "036",
+    "editionSize": 100,
     "series": 1,
     "metrics": {
       "valuation": 183,
@@ -56,9 +56,9 @@
     "avatar": "GD",
     "image": "https://www.google.com/s2/favicons?domain=deepmind.google&sz=128",
     "tagline": "AlphaGo, AlphaFold and Gemini",
-    "rarity": "epic",
-    "serial": "015",
-    "editionSize": 25,
+    "rarity": "rare",
+    "serial": "040",
+    "editionSize": 100,
     "series": 1,
     "metrics": {
       "valuation": 250,
@@ -81,9 +81,9 @@
     "avatar": "NV",
     "image": "https://www.google.com/s2/favicons?domain=nvidia.com&sz=128",
     "tagline": "The silicon every model trains on",
-    "rarity": "legendary",
-    "serial": "005",
-    "editionSize": 10,
+    "rarity": "common",
+    "serial": "435",
+    "editionSize": 500,
     "series": 1,
     "metrics": {
       "valuation": 4000,
@@ -106,9 +106,9 @@
     "avatar": "ME",
     "image": "https://www.google.com/s2/favicons?domain=ai.meta.com&sz=128",
     "tagline": "Open-weights at planetary scale with Llama",
-    "rarity": "rare",
-    "serial": "026",
-    "editionSize": 100,
+    "rarity": "common",
+    "serial": "426",
+    "editionSize": 500,
     "series": 1,
     "metrics": {
       "valuation": 1500,
@@ -131,9 +131,9 @@
     "avatar": "XA",
     "image": "https://www.google.com/s2/favicons?domain=x.ai&sz=128",
     "tagline": "Grok and gigawatt-scale training runs",
-    "rarity": "rare",
-    "serial": "026",
-    "editionSize": 100,
+    "rarity": "common",
+    "serial": "226",
+    "editionSize": 500,
     "series": 1,
     "metrics": {
       "valuation": 75,
@@ -356,9 +356,9 @@
     "avatar": "YL",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Laura_Chaubard_%26_Yann_Le_Cun_-_2024_%2853814052697%29_%28cropped%29.jpg/330px-Laura_Chaubard_%26_Yann_Le_Cun_-_2024_%2853814052697%29_%28cropped%29.jpg",
     "tagline": "ConvNet inventor, Turing Award winner",
-    "rarity": "legendary",
-    "serial": "006",
-    "editionSize": 10,
+    "rarity": "mythic",
+    "serial": "001",
+    "editionSize": 5,
     "series": 1,
     "metrics": {
       "citations": 450000,
@@ -381,9 +381,9 @@
     "avatar": "FL",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Fei-Fei_Li_at_AI_for_Good_2017.jpg/330px-Fei-Fei_Li_at_AI_for_Good_2017.jpg",
     "tagline": "ImageNet creator, spatial intelligence pioneer",
-    "rarity": "epic",
-    "serial": "022",
-    "editionSize": 25,
+    "rarity": "legendary",
+    "serial": "007",
+    "editionSize": 10,
     "series": 1,
     "metrics": {
       "citations": 200000,
@@ -456,9 +456,9 @@
     "avatar": "NS",
     "image": null,
     "tagline": "Transformer co-author, Character.AI founder",
-    "rarity": "rare",
+    "rarity": "epic",
     "serial": "018",
-    "editionSize": 100,
+    "editionSize": 25,
     "series": 1,
     "metrics": {
       "citations": 250000,
@@ -496,6 +496,4506 @@
       "innovation": 90,
       "influence": 76,
       "momentum": 82
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "microsoft-ai",
+    "name": "Microsoft AI",
+    "type": "company",
+    "avatar": "MA",
+    "image": "https://www.google.com/s2/favicons?domain=microsoft.com&sz=128",
+    "tagline": "Copilot everywhere, plus the OpenAI alliance",
+    "rarity": "common",
+    "serial": "417",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 3200,
+      "funding": 1,
+      "headcount": 8000,
+      "modelCount": 8
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 76,
+      "influence": 69,
+      "momentum": 64
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "apple-intelligence",
+    "name": "Apple Intelligence",
+    "type": "company",
+    "avatar": "AI",
+    "image": "https://www.google.com/s2/favicons?domain=apple.com&sz=128",
+    "tagline": "On-device AI for two billion devices",
+    "rarity": "common",
+    "serial": "274",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 3400,
+      "funding": 0.5,
+      "headcount": 3000,
+      "modelCount": 4
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 83,
+      "influence": 81,
+      "momentum": 84
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "amazon-ai",
+    "name": "Amazon AI",
+    "type": "company",
+    "avatar": "AA",
+    "image": "https://www.google.com/s2/favicons?domain=amazon.com&sz=128",
+    "tagline": "Bedrock, Nova and the AWS machine",
+    "rarity": "common",
+    "serial": "279",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 2300,
+      "funding": 1,
+      "headcount": 10000,
+      "modelCount": 6
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 80,
+      "influence": 76,
+      "momentum": 86
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "ibm-watsonx",
+    "name": "IBM watsonx",
+    "type": "company",
+    "avatar": "IW",
+    "image": "https://www.google.com/s2/favicons?domain=ibm.com&sz=128",
+    "tagline": "Enterprise AI since Deep Blue",
+    "rarity": "common",
+    "serial": "317",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 250,
+      "funding": 2,
+      "headcount": 3500,
+      "modelCount": 5
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 82,
+      "influence": 76,
+      "momentum": 78
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "tesla-ai",
+    "name": "Tesla AI",
+    "type": "company",
+    "avatar": "TA",
+    "image": "https://www.google.com/s2/favicons?domain=tesla.com&sz=128",
+    "tagline": "FSD and Optimus, trained on the fleet",
+    "rarity": "common",
+    "serial": "010",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 1100,
+      "funding": 1,
+      "headcount": 2000,
+      "modelCount": 3
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 74,
+      "influence": 73,
+      "momentum": 76
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "scale-ai",
+    "name": "Scale AI",
+    "type": "company",
+    "avatar": "SA",
+    "image": "https://www.google.com/s2/favicons?domain=scale.com&sz=128",
+    "tagline": "The data engine behind frontier runs",
+    "rarity": "common",
+    "serial": "391",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 25,
+      "funding": 1.6,
+      "headcount": 900,
+      "modelCount": 1
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 53,
+      "influence": 52,
+      "momentum": 46
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "databricks",
+    "name": "Databricks",
+    "type": "company",
+    "avatar": "DA",
+    "image": "https://www.google.com/s2/favicons?domain=databricks.com&sz=128",
+    "tagline": "The lakehouse, now with DBRX",
+    "rarity": "common",
+    "serial": "232",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 100,
+      "funding": 14,
+      "headcount": 7000,
+      "modelCount": 3
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 55,
+      "influence": 58,
+      "momentum": 70
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "palantir",
+    "name": "Palantir",
+    "type": "company",
+    "avatar": "PA",
+    "image": "https://www.google.com/s2/favicons?domain=palantir.com&sz=128",
+    "tagline": "Ontologies meet LLMs in AIP",
+    "rarity": "common",
+    "serial": "333",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 280,
+      "funding": 3,
+      "headcount": 3900,
+      "modelCount": 2
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 63,
+      "influence": 62,
+      "momentum": 67
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "amd",
+    "name": "AMD",
+    "type": "company",
+    "avatar": "AM",
+    "image": "https://www.google.com/s2/favicons?domain=amd.com&sz=128",
+    "tagline": "MI-series silicon chasing the crown",
+    "rarity": "common",
+    "serial": "498",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 340,
+      "funding": 6,
+      "headcount": 26000,
+      "modelCount": 1
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 86,
+      "influence": 73,
+      "momentum": 82
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "intel",
+    "name": "Intel",
+    "type": "company",
+    "avatar": "IN",
+    "image": "https://www.google.com/s2/favicons?domain=intel.com&sz=128",
+    "tagline": "Gaudi and the x86 counterattack",
+    "rarity": "common",
+    "serial": "316",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 130,
+      "funding": 8,
+      "headcount": 100000,
+      "modelCount": 1
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 79,
+      "influence": 70,
+      "momentum": 76
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "tsmc",
+    "name": "TSMC",
+    "type": "company",
+    "avatar": "TS",
+    "image": "https://www.google.com/s2/favicons?domain=tsmc.com&sz=128",
+    "tagline": "Every frontier chip is born here",
+    "rarity": "common",
+    "serial": "429",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 1100,
+      "funding": 2,
+      "headcount": 77000,
+      "modelCount": 0
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 61,
+      "influence": 66,
+      "momentum": 66
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "broadcom",
+    "name": "Broadcom",
+    "type": "company",
+    "avatar": "BR",
+    "image": "https://www.google.com/s2/favicons?domain=broadcom.com&sz=128",
+    "tagline": "Custom TPUs and AI networking",
+    "rarity": "common",
+    "serial": "241",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 800,
+      "funding": 3,
+      "headcount": 37000,
+      "modelCount": 0
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 79,
+      "influence": 75,
+      "momentum": 69
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "qualcomm",
+    "name": "Qualcomm",
+    "type": "company",
+    "avatar": "QU",
+    "image": "https://www.google.com/s2/favicons?domain=qualcomm.com&sz=128",
+    "tagline": "On-device AI in every pocket",
+    "rarity": "common",
+    "serial": "071",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 190,
+      "funding": 2,
+      "headcount": 50000,
+      "modelCount": 1
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 53,
+      "influence": 62,
+      "momentum": 67
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "arm",
+    "name": "Arm",
+    "type": "company",
+    "avatar": "AR",
+    "image": "https://www.google.com/s2/favicons?domain=arm.com&sz=128",
+    "tagline": "The architecture under everything",
+    "rarity": "common",
+    "serial": "258",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 160,
+      "funding": 1,
+      "headcount": 8000,
+      "modelCount": 0
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 66,
+      "influence": 68,
+      "momentum": 74
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "groq",
+    "name": "Groq",
+    "type": "company",
+    "avatar": "GR",
+    "image": "https://www.google.com/s2/favicons?domain=groq.com&sz=128",
+    "tagline": "LPUs serving tokens at ludicrous speed",
+    "rarity": "common",
+    "serial": "105",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 6,
+      "funding": 1.7,
+      "headcount": 300,
+      "modelCount": 0
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 54,
+      "influence": 46,
+      "momentum": 51
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "cerebras",
+    "name": "Cerebras",
+    "type": "company",
+    "avatar": "CE",
+    "image": "https://www.google.com/s2/favicons?domain=cerebras.ai&sz=128",
+    "tagline": "Wafer-scale chips for giant models",
+    "rarity": "common",
+    "serial": "333",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 8,
+      "funding": 1.5,
+      "headcount": 400,
+      "modelCount": 2
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 69,
+      "influence": 74,
+      "momentum": 63
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "sambanova",
+    "name": "SambaNova",
+    "type": "company",
+    "avatar": "SA",
+    "image": "https://www.google.com/s2/favicons?domain=sambanova.ai&sz=128",
+    "tagline": "Dataflow silicon for enterprise AI",
+    "rarity": "common",
+    "serial": "344",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 5,
+      "funding": 1.1,
+      "headcount": 500,
+      "modelCount": 1
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 68,
+      "influence": 57,
+      "momentum": 64
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "tenstorrent",
+    "name": "Tenstorrent",
+    "type": "company",
+    "avatar": "TE",
+    "image": "https://www.google.com/s2/favicons?domain=tenstorrent.com&sz=128",
+    "tagline": "Jim Keller's open AI silicon",
+    "rarity": "common",
+    "serial": "362",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 2.6,
+      "funding": 0.8,
+      "headcount": 600,
+      "modelCount": 0
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 50,
+      "influence": 45,
+      "momentum": 52
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "etched",
+    "name": "Etched",
+    "type": "company",
+    "avatar": "ET",
+    "image": "https://www.google.com/s2/favicons?domain=etched.com&sz=128",
+    "tagline": "Transformer-only ASICs, all-in bet",
+    "rarity": "common",
+    "serial": "251",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 1.5,
+      "funding": 0.6,
+      "headcount": 100,
+      "modelCount": 0
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 53,
+      "influence": 60,
+      "momentum": 65
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "together-ai",
+    "name": "Together AI",
+    "type": "company",
+    "avatar": "TA",
+    "image": "https://www.google.com/s2/favicons?domain=together.ai&sz=128",
+    "tagline": "The open-model cloud",
+    "rarity": "common",
+    "serial": "189",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 3.3,
+      "funding": 0.5,
+      "headcount": 200,
+      "modelCount": 2
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 51,
+      "influence": 50,
+      "momentum": 56
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "fireworks-ai",
+    "name": "Fireworks AI",
+    "type": "company",
+    "avatar": "FA",
+    "image": "https://www.google.com/s2/favicons?domain=fireworks.ai&sz=128",
+    "tagline": "Blazing inference for open models",
+    "rarity": "common",
+    "serial": "155",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 0.55,
+      "funding": 0.08,
+      "headcount": 100,
+      "modelCount": 1
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 40,
+      "influence": 48,
+      "momentum": 40
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "modal",
+    "name": "Modal",
+    "type": "company",
+    "avatar": "MO",
+    "image": "https://www.google.com/s2/favicons?domain=modal.com&sz=128",
+    "tagline": "Serverless GPUs developers love",
+    "rarity": "common",
+    "serial": "367",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 0.7,
+      "funding": 0.09,
+      "headcount": 60,
+      "modelCount": 0
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 42,
+      "influence": 42,
+      "momentum": 48
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "replicate",
+    "name": "Replicate",
+    "type": "company",
+    "avatar": "RE",
+    "image": "https://www.google.com/s2/favicons?domain=replicate.com&sz=128",
+    "tagline": "Any model, one API call",
+    "rarity": "common",
+    "serial": "009",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 0.35,
+      "funding": 0.04,
+      "headcount": 50,
+      "modelCount": 0
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 47,
+      "influence": 40,
+      "momentum": 45
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "lambda-labs",
+    "name": "Lambda",
+    "type": "company",
+    "avatar": "LA",
+    "image": "https://www.google.com/s2/favicons?domain=lambdalabs.com&sz=128",
+    "tagline": "GPU cloud for deep learning",
+    "rarity": "common",
+    "serial": "026",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 2.5,
+      "funding": 0.9,
+      "headcount": 350,
+      "modelCount": 0
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 46,
+      "influence": 50,
+      "momentum": 40
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "coreweave",
+    "name": "CoreWeave",
+    "type": "company",
+    "avatar": "CO",
+    "image": "https://www.google.com/s2/favicons?domain=coreweave.com&sz=128",
+    "tagline": "The GPU hyperscaler",
+    "rarity": "common",
+    "serial": "169",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 35,
+      "funding": 12,
+      "headcount": 900,
+      "modelCount": 0
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 65,
+      "influence": 67,
+      "momentum": 76
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "nebius",
+    "name": "Nebius",
+    "type": "company",
+    "avatar": "NE",
+    "image": "https://www.google.com/s2/favicons?domain=nebius.com&sz=128",
+    "tagline": "AI cloud carved out of Yandex",
+    "rarity": "common",
+    "serial": "034",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 25,
+      "funding": 0.7,
+      "headcount": 1300,
+      "modelCount": 0
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 53,
+      "influence": 58,
+      "momentum": 49
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "weights-biases",
+    "name": "Weights & Biases",
+    "type": "company",
+    "avatar": "W&",
+    "image": "https://www.google.com/s2/favicons?domain=wandb.ai&sz=128",
+    "tagline": "Experiment tracking for every lab",
+    "rarity": "common",
+    "serial": "285",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 1.7,
+      "funding": 0.25,
+      "headcount": 300,
+      "modelCount": 0
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 65,
+      "influence": 69,
+      "momentum": 69
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "langchain",
+    "name": "LangChain",
+    "type": "company",
+    "avatar": "LA",
+    "image": "https://www.google.com/s2/favicons?domain=langchain.com&sz=128",
+    "tagline": "The agent-framework standard-bearer",
+    "rarity": "common",
+    "serial": "431",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 1.1,
+      "funding": 0.26,
+      "headcount": 100,
+      "modelCount": 0
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 57,
+      "influence": 58,
+      "momentum": 65
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "llamaindex",
+    "name": "LlamaIndex",
+    "type": "company",
+    "avatar": "LL",
+    "image": "https://www.google.com/s2/favicons?domain=llamaindex.ai&sz=128",
+    "tagline": "RAG plumbing for enterprise data",
+    "rarity": "common",
+    "serial": "467",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 0.2,
+      "funding": 0.05,
+      "headcount": 40,
+      "modelCount": 0
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 40,
+      "influence": 46,
+      "momentum": 45
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "pinecone",
+    "name": "Pinecone",
+    "type": "company",
+    "avatar": "PI",
+    "image": "https://www.google.com/s2/favicons?domain=pinecone.io&sz=128",
+    "tagline": "Managed vector search at scale",
+    "rarity": "common",
+    "serial": "289",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 0.75,
+      "funding": 0.14,
+      "headcount": 200,
+      "modelCount": 0
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 47,
+      "influence": 49,
+      "momentum": 50
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "weaviate",
+    "name": "Weaviate",
+    "type": "company",
+    "avatar": "WE",
+    "image": "https://www.google.com/s2/favicons?domain=weaviate.io&sz=128",
+    "tagline": "Open-source vector database",
+    "rarity": "common",
+    "serial": "216",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 0.6,
+      "funding": 0.07,
+      "headcount": 150,
+      "modelCount": 0
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 66,
+      "influence": 52,
+      "momentum": 67
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "elevenlabs",
+    "name": "ElevenLabs",
+    "type": "company",
+    "avatar": "EL",
+    "image": "https://www.google.com/s2/favicons?domain=elevenlabs.io&sz=128",
+    "tagline": "Voices indistinguishable from human",
+    "rarity": "common",
+    "serial": "141",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 6.6,
+      "funding": 0.9,
+      "headcount": 400,
+      "modelCount": 3
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 50,
+      "influence": 54,
+      "momentum": 53
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "runway",
+    "name": "Runway",
+    "type": "company",
+    "avatar": "RU",
+    "image": "https://www.google.com/s2/favicons?domain=runwayml.com&sz=128",
+    "tagline": "Hollywood-grade generative video",
+    "rarity": "common",
+    "serial": "466",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 4,
+      "funding": 0.8,
+      "headcount": 300,
+      "modelCount": 4
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 68,
+      "influence": 67,
+      "momentum": 60
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "pika",
+    "name": "Pika",
+    "type": "company",
+    "avatar": "PI",
+    "image": "https://www.google.com/s2/favicons?domain=pika.art&sz=128",
+    "tagline": "Playful text-to-video",
+    "rarity": "common",
+    "serial": "391",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 0.7,
+      "funding": 0.14,
+      "headcount": 40,
+      "modelCount": 2
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 60,
+      "influence": 66,
+      "momentum": 56
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "luma-ai",
+    "name": "Luma AI",
+    "type": "company",
+    "avatar": "LA",
+    "image": "https://www.google.com/s2/favicons?domain=lumalabs.ai&sz=128",
+    "tagline": "Dream Machine and 3D worlds",
+    "rarity": "common",
+    "serial": "114",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 1,
+      "funding": 0.17,
+      "headcount": 80,
+      "modelCount": 2
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 56,
+      "influence": 55,
+      "momentum": 67
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "midjourney",
+    "name": "Midjourney",
+    "type": "company",
+    "avatar": "MI",
+    "image": "https://www.google.com/s2/favicons?domain=midjourney.com&sz=128",
+    "tagline": "The artists' model, bootstrapped",
+    "rarity": "common",
+    "serial": "352",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 10,
+      "funding": 0.01,
+      "headcount": 100,
+      "modelCount": 6
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 76,
+      "influence": 75,
+      "momentum": 62
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "stability-ai",
+    "name": "Stability AI",
+    "type": "company",
+    "avatar": "SA",
+    "image": "https://www.google.com/s2/favicons?domain=stability.ai&sz=128",
+    "tagline": "Stable Diffusion's chaotic parent",
+    "rarity": "common",
+    "serial": "450",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 1,
+      "funding": 0.3,
+      "headcount": 150,
+      "modelCount": 8
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 46,
+      "influence": 49,
+      "momentum": 57
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "black-forest-labs",
+    "name": "Black Forest Labs",
+    "type": "company",
+    "avatar": "BF",
+    "image": "https://www.google.com/s2/favicons?domain=blackforestlabs.ai&sz=128",
+    "tagline": "FLUX — SD's creators strike back",
+    "rarity": "common",
+    "serial": "222",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 4,
+      "funding": 0.3,
+      "headcount": 60,
+      "modelCount": 3
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 60,
+      "influence": 63,
+      "momentum": 58
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "ideogram",
+    "name": "Ideogram",
+    "type": "company",
+    "avatar": "ID",
+    "image": "https://www.google.com/s2/favicons?domain=ideogram.ai&sz=128",
+    "tagline": "Text rendering, finally solved",
+    "rarity": "common",
+    "serial": "324",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 1,
+      "funding": 0.2,
+      "headcount": 50,
+      "modelCount": 3
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 49,
+      "influence": 45,
+      "momentum": 54
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "suno",
+    "name": "Suno",
+    "type": "company",
+    "avatar": "SU",
+    "image": "https://www.google.com/s2/favicons?domain=suno.com&sz=128",
+    "tagline": "Radio-ready songs from a prompt",
+    "rarity": "common",
+    "serial": "139",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 2.5,
+      "funding": 0.13,
+      "headcount": 60,
+      "modelCount": 3
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 57,
+      "influence": 55,
+      "momentum": 65
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "character-ai",
+    "name": "Character.AI",
+    "type": "company",
+    "avatar": "CH",
+    "image": "https://www.google.com/s2/favicons?domain=character.ai&sz=128",
+    "tagline": "A billion chats with fictional friends",
+    "rarity": "common",
+    "serial": "206",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 2.5,
+      "funding": 0.19,
+      "headcount": 150,
+      "modelCount": 2
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 70,
+      "influence": 60,
+      "momentum": 70
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "inflection-ai",
+    "name": "Inflection AI",
+    "type": "company",
+    "avatar": "IA",
+    "image": "https://www.google.com/s2/favicons?domain=inflection.ai&sz=128",
+    "tagline": "Pi and the great acqui-hire",
+    "rarity": "common",
+    "serial": "364",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 4,
+      "funding": 1.5,
+      "headcount": 100,
+      "modelCount": 2
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 43,
+      "influence": 45,
+      "momentum": 54
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "cognition",
+    "name": "Cognition",
+    "type": "company",
+    "avatar": "CO",
+    "image": "https://www.google.com/s2/favicons?domain=cognition.ai&sz=128",
+    "tagline": "Devin, the AI software engineer",
+    "rarity": "common",
+    "serial": "060",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 10,
+      "funding": 0.9,
+      "headcount": 300,
+      "modelCount": 2
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 53,
+      "influence": 54,
+      "momentum": 55
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "cursor",
+    "name": "Cursor",
+    "type": "company",
+    "avatar": "CU",
+    "image": "https://www.google.com/s2/favicons?domain=cursor.com&sz=128",
+    "tagline": "The AI-native code editor",
+    "rarity": "common",
+    "serial": "292",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 29,
+      "funding": 1,
+      "headcount": 150,
+      "modelCount": 1
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 51,
+      "influence": 56,
+      "momentum": 56
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "poolside",
+    "name": "Poolside",
+    "type": "company",
+    "avatar": "PO",
+    "image": "https://www.google.com/s2/favicons?domain=poolside.ai&sz=128",
+    "tagline": "Frontier models for software",
+    "rarity": "common",
+    "serial": "273",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 3,
+      "funding": 0.6,
+      "headcount": 100,
+      "modelCount": 1
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 56,
+      "influence": 60,
+      "momentum": 62
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "magic-dev",
+    "name": "Magic",
+    "type": "company",
+    "avatar": "MA",
+    "image": "https://www.google.com/s2/favicons?domain=magic.dev&sz=128",
+    "tagline": "100M-token context for code",
+    "rarity": "common",
+    "serial": "407",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 1.6,
+      "funding": 0.5,
+      "headcount": 50,
+      "modelCount": 1
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 50,
+      "influence": 43,
+      "momentum": 43
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "sourcegraph",
+    "name": "Sourcegraph",
+    "type": "company",
+    "avatar": "SO",
+    "image": "https://www.google.com/s2/favicons?domain=sourcegraph.com&sz=128",
+    "tagline": "Cody and code intelligence",
+    "rarity": "common",
+    "serial": "401",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 2.6,
+      "funding": 0.22,
+      "headcount": 200,
+      "modelCount": 1
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 55,
+      "influence": 57,
+      "momentum": 61
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "replit",
+    "name": "Replit",
+    "type": "company",
+    "avatar": "RE",
+    "image": "https://www.google.com/s2/favicons?domain=replit.com&sz=128",
+    "tagline": "Agentic coding for everyone",
+    "rarity": "common",
+    "serial": "454",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 3,
+      "funding": 0.23,
+      "headcount": 300,
+      "modelCount": 1
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 51,
+      "influence": 54,
+      "momentum": 40
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "lovable",
+    "name": "Lovable",
+    "type": "company",
+    "avatar": "LO",
+    "image": "https://www.google.com/s2/favicons?domain=lovable.dev&sz=128",
+    "tagline": "Vibe-coding at record ARR",
+    "rarity": "common",
+    "serial": "107",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 1.8,
+      "funding": 0.23,
+      "headcount": 100,
+      "modelCount": 0
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 52,
+      "influence": 60,
+      "momentum": 60
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "harvey",
+    "name": "Harvey",
+    "type": "company",
+    "avatar": "HA",
+    "image": "https://www.google.com/s2/favicons?domain=harvey.ai&sz=128",
+    "tagline": "The AI associate for elite law",
+    "rarity": "common",
+    "serial": "237",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 5,
+      "funding": 0.8,
+      "headcount": 400,
+      "modelCount": 1
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 58,
+      "influence": 64,
+      "momentum": 57
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "glean",
+    "name": "Glean",
+    "type": "company",
+    "avatar": "GL",
+    "image": "https://www.google.com/s2/favicons?domain=glean.com&sz=128",
+    "tagline": "Enterprise search that works",
+    "rarity": "common",
+    "serial": "075",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 7.2,
+      "funding": 0.6,
+      "headcount": 800,
+      "modelCount": 1
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 57,
+      "influence": 62,
+      "momentum": 57
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "sierra",
+    "name": "Sierra",
+    "type": "company",
+    "avatar": "SI",
+    "image": "https://www.google.com/s2/favicons?domain=sierra.ai&sz=128",
+    "tagline": "Bret Taylor's customer agents",
+    "rarity": "common",
+    "serial": "268",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 10,
+      "funding": 0.6,
+      "headcount": 300,
+      "modelCount": 1
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 69,
+      "influence": 73,
+      "momentum": 60
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "synthesia",
+    "name": "Synthesia",
+    "type": "company",
+    "avatar": "SY",
+    "image": "https://www.google.com/s2/favicons?domain=synthesia.io&sz=128",
+    "tagline": "AI avatars for corporate video",
+    "rarity": "common",
+    "serial": "044",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 2.1,
+      "funding": 0.33,
+      "headcount": 400,
+      "modelCount": 2
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 59,
+      "influence": 60,
+      "momentum": 58
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "heygen",
+    "name": "HeyGen",
+    "type": "company",
+    "avatar": "HE",
+    "image": "https://www.google.com/s2/favicons?domain=heygen.com&sz=128",
+    "tagline": "Avatar video gone viral",
+    "rarity": "common",
+    "serial": "430",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 0.5,
+      "funding": 0.07,
+      "headcount": 100,
+      "modelCount": 2
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 40,
+      "influence": 44,
+      "momentum": 46
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "deepgram",
+    "name": "Deepgram",
+    "type": "company",
+    "avatar": "DE",
+    "image": "https://www.google.com/s2/favicons?domain=deepgram.com&sz=128",
+    "tagline": "Speech APIs for builders",
+    "rarity": "common",
+    "serial": "201",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 0.4,
+      "funding": 0.09,
+      "headcount": 150,
+      "modelCount": 2
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 40,
+      "influence": 43,
+      "momentum": 49
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "cartesia",
+    "name": "Cartesia",
+    "type": "company",
+    "avatar": "CA",
+    "image": "https://www.google.com/s2/favicons?domain=cartesia.ai&sz=128",
+    "tagline": "Real-time voice on state-space models",
+    "rarity": "common",
+    "serial": "394",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 0.6,
+      "funding": 0.09,
+      "headcount": 50,
+      "modelCount": 2
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 65,
+      "influence": 58,
+      "momentum": 60
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "figure",
+    "name": "Figure",
+    "type": "company",
+    "avatar": "FI",
+    "image": "https://www.google.com/s2/favicons?domain=figure.ai&sz=128",
+    "tagline": "Humanoids for the labor market",
+    "rarity": "common",
+    "serial": "466",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 39,
+      "funding": 1.5,
+      "headcount": 300,
+      "modelCount": 2
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 63,
+      "influence": 61,
+      "momentum": 63
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "1x",
+    "name": "1X",
+    "type": "company",
+    "avatar": "1X",
+    "image": "https://www.google.com/s2/favicons?domain=1x.tech&sz=128",
+    "tagline": "Home humanoids with gentle hands",
+    "rarity": "common",
+    "serial": "277",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 1.3,
+      "funding": 0.13,
+      "headcount": 200,
+      "modelCount": 1
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 56,
+      "influence": 65,
+      "momentum": 68
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "agility-robotics",
+    "name": "Agility Robotics",
+    "type": "company",
+    "avatar": "AR",
+    "image": "https://www.google.com/s2/favicons?domain=agilityrobotics.com&sz=128",
+    "tagline": "Digit clocks warehouse shifts",
+    "rarity": "common",
+    "serial": "175",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 1.8,
+      "funding": 0.32,
+      "headcount": 300,
+      "modelCount": 1
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 66,
+      "influence": 65,
+      "momentum": 59
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "boston-dynamics",
+    "name": "Boston Dynamics",
+    "type": "company",
+    "avatar": "BD",
+    "image": "https://www.google.com/s2/favicons?domain=bostondynamics.com&sz=128",
+    "tagline": "Three decades of robot parkour",
+    "rarity": "common",
+    "serial": "270",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 4,
+      "funding": 0.5,
+      "headcount": 800,
+      "modelCount": 1
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 50,
+      "influence": 47,
+      "momentum": 42
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "physical-intelligence",
+    "name": "Physical Intelligence",
+    "type": "company",
+    "avatar": "PI",
+    "image": "https://www.google.com/s2/favicons?domain=physicalintelligence.company&sz=128",
+    "tagline": "π0: general robot brains",
+    "rarity": "common",
+    "serial": "193",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 2.4,
+      "funding": 0.47,
+      "headcount": 100,
+      "modelCount": 1
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 69,
+      "influence": 54,
+      "momentum": 56
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "waymo",
+    "name": "Waymo",
+    "type": "company",
+    "avatar": "WA",
+    "image": "https://www.google.com/s2/favicons?domain=waymo.com&sz=128",
+    "tagline": "Driverless miles in the millions",
+    "rarity": "common",
+    "serial": "201",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 45,
+      "funding": 11,
+      "headcount": 2500,
+      "modelCount": 2
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 52,
+      "influence": 59,
+      "momentum": 64
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "wayve",
+    "name": "Wayve",
+    "type": "company",
+    "avatar": "WA",
+    "image": "https://www.google.com/s2/favicons?domain=wayve.ai&sz=128",
+    "tagline": "End-to-end driving, London-born",
+    "rarity": "common",
+    "serial": "022",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 3,
+      "funding": 1.3,
+      "headcount": 500,
+      "modelCount": 1
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 68,
+      "influence": 59,
+      "momentum": 63
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "aurora",
+    "name": "Aurora",
+    "type": "company",
+    "avatar": "AU",
+    "image": "https://www.google.com/s2/favicons?domain=aurora.tech&sz=128",
+    "tagline": "Autonomous trucking corridors",
+    "rarity": "common",
+    "serial": "346",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 7,
+      "funding": 3,
+      "headcount": 1700,
+      "modelCount": 1
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 60,
+      "influence": 60,
+      "momentum": 68
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "applied-intuition",
+    "name": "Applied Intuition",
+    "type": "company",
+    "avatar": "AI",
+    "image": "https://www.google.com/s2/favicons?domain=appliedintuition.com&sz=128",
+    "tagline": "Simulation for every AV program",
+    "rarity": "common",
+    "serial": "231",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 15,
+      "funding": 1.1,
+      "headcount": 900,
+      "modelCount": 0
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 58,
+      "influence": 45,
+      "momentum": 55
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "deepl",
+    "name": "DeepL",
+    "type": "company",
+    "avatar": "DE",
+    "image": "https://www.google.com/s2/favicons?domain=deepl.com&sz=128",
+    "tagline": "Translation that beats the giants",
+    "rarity": "common",
+    "serial": "454",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 2,
+      "funding": 0.42,
+      "headcount": 900,
+      "modelCount": 2
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 70,
+      "influence": 56,
+      "momentum": 56
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "writer",
+    "name": "Writer",
+    "type": "company",
+    "avatar": "WR",
+    "image": "https://www.google.com/s2/favicons?domain=writer.com&sz=128",
+    "tagline": "Full-stack enterprise genAI",
+    "rarity": "common",
+    "serial": "107",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 1.9,
+      "funding": 0.33,
+      "headcount": 300,
+      "modelCount": 3
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 50,
+      "influence": 55,
+      "momentum": 54
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "abridge",
+    "name": "Abridge",
+    "type": "company",
+    "avatar": "AB",
+    "image": "https://www.google.com/s2/favicons?domain=abridge.com&sz=128",
+    "tagline": "Ambient clinical notes doctors trust",
+    "rarity": "common",
+    "serial": "490",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 2.8,
+      "funding": 0.46,
+      "headcount": 300,
+      "modelCount": 1
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 69,
+      "influence": 61,
+      "momentum": 55
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "isomorphic-labs",
+    "name": "Isomorphic Labs",
+    "type": "company",
+    "avatar": "IL",
+    "image": "https://www.google.com/s2/favicons?domain=isomorphiclabs.com&sz=128",
+    "tagline": "AlphaFold spun into drug design",
+    "rarity": "common",
+    "serial": "460",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 3,
+      "funding": 0.6,
+      "headcount": 300,
+      "modelCount": 2
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 57,
+      "influence": 69,
+      "momentum": 66
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "recursion",
+    "name": "Recursion",
+    "type": "company",
+    "avatar": "RE",
+    "image": "https://www.google.com/s2/favicons?domain=recursion.com&sz=128",
+    "tagline": "Industrialized drug discovery",
+    "rarity": "common",
+    "serial": "228",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 2.5,
+      "funding": 1.5,
+      "headcount": 800,
+      "modelCount": 2
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 67,
+      "influence": 73,
+      "momentum": 60
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "evolutionaryscale",
+    "name": "EvolutionaryScale",
+    "type": "company",
+    "avatar": "EV",
+    "image": "https://www.google.com/s2/favicons?domain=evolutionaryscale.ai&sz=128",
+    "tagline": "ESM3 and programmable biology",
+    "rarity": "common",
+    "serial": "383",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 0.7,
+      "funding": 0.14,
+      "headcount": 40,
+      "modelCount": 2
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 40,
+      "influence": 41,
+      "momentum": 45
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "ai21-labs",
+    "name": "AI21 Labs",
+    "type": "company",
+    "avatar": "AL",
+    "image": "https://www.google.com/s2/favicons?domain=ai21.com&sz=128",
+    "tagline": "Jamba and Israeli NLP roots",
+    "rarity": "common",
+    "serial": "174",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 1.4,
+      "funding": 0.6,
+      "headcount": 300,
+      "modelCount": 4
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 72,
+      "influence": 61,
+      "momentum": 63
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "aleph-alpha",
+    "name": "Aleph Alpha",
+    "type": "company",
+    "avatar": "AA",
+    "image": "https://www.google.com/s2/favicons?domain=aleph-alpha.com&sz=128",
+    "tagline": "Sovereign AI for Europe",
+    "rarity": "common",
+    "serial": "331",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 0.5,
+      "funding": 0.53,
+      "headcount": 300,
+      "modelCount": 3
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 48,
+      "influence": 40,
+      "momentum": 53
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "deepseek",
+    "name": "DeepSeek",
+    "type": "company",
+    "avatar": "DE",
+    "image": "https://www.google.com/s2/favicons?domain=deepseek.com&sz=128",
+    "tagline": "Frontier weights at a tenth the cost",
+    "rarity": "common",
+    "serial": "056",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 10,
+      "funding": 1,
+      "headcount": 200,
+      "modelCount": 9
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 79,
+      "influence": 69,
+      "momentum": 76
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "zhipu-ai",
+    "name": "Zhipu AI",
+    "type": "company",
+    "avatar": "ZA",
+    "image": "https://www.google.com/s2/favicons?domain=zhipuai.cn&sz=128",
+    "tagline": "GLM and China's model vanguard",
+    "rarity": "common",
+    "serial": "291",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 5.5,
+      "funding": 2.5,
+      "headcount": 800,
+      "modelCount": 8
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 81,
+      "influence": 75,
+      "momentum": 77
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "moonshot-ai",
+    "name": "Moonshot AI",
+    "type": "company",
+    "avatar": "MA",
+    "image": "https://www.google.com/s2/favicons?domain=moonshot.cn&sz=128",
+    "tagline": "Kimi and million-token contexts",
+    "rarity": "common",
+    "serial": "390",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 3.3,
+      "funding": 1.3,
+      "headcount": 400,
+      "modelCount": 5
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 66,
+      "influence": 76,
+      "momentum": 68
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "minimax",
+    "name": "MiniMax",
+    "type": "company",
+    "avatar": "MI",
+    "image": "https://www.google.com/s2/favicons?domain=minimax.io&sz=128",
+    "tagline": "Hailuo video and companions",
+    "rarity": "common",
+    "serial": "013",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 4,
+      "funding": 1.2,
+      "headcount": 600,
+      "modelCount": 6
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 58,
+      "influence": 51,
+      "momentum": 57
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "01-ai",
+    "name": "01.AI",
+    "type": "company",
+    "avatar": "01",
+    "image": "https://www.google.com/s2/favicons?domain=01.ai&sz=128",
+    "tagline": "Kai-Fu Lee's Yi models",
+    "rarity": "common",
+    "serial": "152",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 1,
+      "funding": 0.3,
+      "headcount": 200,
+      "modelCount": 5
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 69,
+      "influence": 69,
+      "momentum": 68
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "baidu-ernie",
+    "name": "Baidu ERNIE",
+    "type": "company",
+    "avatar": "BE",
+    "image": "https://www.google.com/s2/favicons?domain=baidu.com&sz=128",
+    "tagline": "China's search giant gone genAI",
+    "rarity": "common",
+    "serial": "073",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 30,
+      "funding": 2,
+      "headcount": 5000,
+      "modelCount": 6
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 72,
+      "influence": 67,
+      "momentum": 67
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "qwen",
+    "name": "Alibaba Qwen",
+    "type": "company",
+    "avatar": "AQ",
+    "image": "https://www.google.com/s2/favicons?domain=qwen.ai&sz=128",
+    "tagline": "Open weights the world fine-tunes",
+    "rarity": "common",
+    "serial": "439",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 60,
+      "funding": 2,
+      "headcount": 1000,
+      "modelCount": 12
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 78,
+      "influence": 73,
+      "momentum": 78
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "bytedance-seed",
+    "name": "ByteDance Seed",
+    "type": "company",
+    "avatar": "BS",
+    "image": "https://www.google.com/s2/favicons?domain=bytedance.com&sz=128",
+    "tagline": "Doubao on the TikTok compute machine",
+    "rarity": "common",
+    "serial": "029",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 300,
+      "funding": 3,
+      "headcount": 3000,
+      "modelCount": 8
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 64,
+      "influence": 62,
+      "momentum": 64
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "tencent-hunyuan",
+    "name": "Tencent Hunyuan",
+    "type": "company",
+    "avatar": "TH",
+    "image": "https://www.google.com/s2/favicons?domain=tencent.com&sz=128",
+    "tagline": "Hunyuan across WeChat's universe",
+    "rarity": "common",
+    "serial": "138",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 480,
+      "funding": 2,
+      "headcount": 2000,
+      "modelCount": 6
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 61,
+      "influence": 55,
+      "momentum": 62
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "sensetime",
+    "name": "SenseTime",
+    "type": "company",
+    "avatar": "SE",
+    "image": "https://www.google.com/s2/favicons?domain=sensetime.com&sz=128",
+    "tagline": "Computer vision at city scale",
+    "rarity": "common",
+    "serial": "493",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 5,
+      "funding": 5.2,
+      "headcount": 4000,
+      "modelCount": 4
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 75,
+      "influence": 77,
+      "momentum": 72
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "sakana-ai",
+    "name": "Sakana AI",
+    "type": "company",
+    "avatar": "SA",
+    "image": "https://www.google.com/s2/favicons?domain=sakana.ai&sz=128",
+    "tagline": "Nature-inspired models from Tokyo",
+    "rarity": "common",
+    "serial": "146",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 1.5,
+      "funding": 0.24,
+      "headcount": 40,
+      "modelCount": 3
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 44,
+      "influence": 44,
+      "momentum": 44
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "reka",
+    "name": "Reka",
+    "type": "company",
+    "avatar": "RE",
+    "image": "https://www.google.com/s2/favicons?domain=reka.ai&sz=128",
+    "tagline": "Multimodal models, tiny team",
+    "rarity": "common",
+    "serial": "497",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 1,
+      "funding": 0.11,
+      "headcount": 40,
+      "modelCount": 3
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 43,
+      "influence": 41,
+      "momentum": 48
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "liquid-ai",
+    "name": "Liquid AI",
+    "type": "company",
+    "avatar": "LA",
+    "image": "https://www.google.com/s2/favicons?domain=liquid.ai&sz=128",
+    "tagline": "Foundation models beyond transformers",
+    "rarity": "common",
+    "serial": "027",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 2.3,
+      "funding": 0.25,
+      "headcount": 60,
+      "modelCount": 3
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 55,
+      "influence": 54,
+      "momentum": 46
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "world-labs",
+    "name": "World Labs",
+    "type": "company",
+    "avatar": "WL",
+    "image": "https://www.google.com/s2/favicons?domain=worldlabs.ai&sz=128",
+    "tagline": "Fei-Fei Li's spatial intelligence",
+    "rarity": "common",
+    "serial": "467",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 1.25,
+      "funding": 0.23,
+      "headcount": 50,
+      "modelCount": 1
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 43,
+      "influence": 42,
+      "momentum": 41
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "safe-superintelligence",
+    "name": "Safe Superintelligence",
+    "type": "company",
+    "avatar": "SS",
+    "image": "https://www.google.com/s2/favicons?domain=ssi.inc&sz=128",
+    "tagline": "One goal, zero products",
+    "rarity": "common",
+    "serial": "294",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 32,
+      "funding": 3,
+      "headcount": 50,
+      "modelCount": 0
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 68,
+      "influence": 71,
+      "momentum": 61
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "thinking-machines",
+    "name": "Thinking Machines Lab",
+    "type": "company",
+    "avatar": "TM",
+    "image": "https://www.google.com/s2/favicons?domain=thinkingmachines.ai&sz=128",
+    "tagline": "Murati's frontier lab",
+    "rarity": "common",
+    "serial": "159",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 12,
+      "funding": 2,
+      "headcount": 60,
+      "modelCount": 1
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 53,
+      "influence": 45,
+      "momentum": 54
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "kyutai",
+    "name": "Kyutai",
+    "type": "company",
+    "avatar": "KY",
+    "image": "https://www.google.com/s2/favicons?domain=kyutai.org&sz=128",
+    "tagline": "Open-science voice AI from Paris",
+    "rarity": "common",
+    "serial": "295",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "valuation": 0.3,
+      "funding": 0.33,
+      "headcount": 30,
+      "modelCount": 2
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 53,
+      "influence": 61,
+      "momentum": 61
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "yoshua-bengio",
+    "name": "Yoshua Bengio",
+    "type": "engineer",
+    "avatar": "YB",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/ICLR_2025_-_Yoshua_Bengio_02.jpg/330px-ICLR_2025_-_Yoshua_Bengio_02.jpg",
+    "tagline": "Deep learning's conscience, most-cited alive",
+    "rarity": "mythic",
+    "serial": "005",
+    "editionSize": 5,
+    "series": 1,
+    "metrics": {
+      "citations": 1000000,
+      "followers": 500000,
+      "impactScore": 97,
+      "yearsInField": 38
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 84,
+      "influence": 81,
+      "momentum": 73
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "sam-altman",
+    "name": "Sam Altman",
+    "type": "engineer",
+    "avatar": "SA",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Meeting_with_Masayoshi_Son_and_Sam_Altman_%28February_3%2C_2025%29_%283x4_cropped_on_Altman%29.jpg/330px-Meeting_with_Masayoshi_Son_and_Sam_Altman_%28February_3%2C_2025%29_%283x4_cropped_on_Altman%29.jpg",
+    "tagline": "OpenAI's ringmaster",
+    "rarity": "rare",
+    "serial": "071",
+    "editionSize": 100,
+    "series": 1,
+    "metrics": {
+      "citations": 5000,
+      "followers": 3500000,
+      "impactScore": 95,
+      "yearsInField": 12
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 93,
+      "influence": 82,
+      "momentum": 83
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "dario-amodei",
+    "name": "Dario Amodei",
+    "type": "engineer",
+    "avatar": "DA",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Dario_Amodei_at_TechCrunch_Disrupt_2023_01_%28cropped%29.jpg/330px-Dario_Amodei_at_TechCrunch_Disrupt_2023_01_%28cropped%29.jpg",
+    "tagline": "Scaling-laws prophet, Anthropic CEO",
+    "rarity": "epic",
+    "serial": "006",
+    "editionSize": 25,
+    "series": 1,
+    "metrics": {
+      "citations": 90000,
+      "followers": 500000,
+      "impactScore": 94,
+      "yearsInField": 15
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 67,
+      "influence": 70,
+      "momentum": 79
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "daniela-amodei",
+    "name": "Daniela Amodei",
+    "type": "engineer",
+    "avatar": "DA",
+    "image": null,
+    "tagline": "Anthropic's president and co-founder",
+    "rarity": "common",
+    "serial": "224",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 2000,
+      "followers": 150000,
+      "impactScore": 85,
+      "yearsInField": 12
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 68,
+      "influence": 69,
+      "momentum": 68
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "greg-brockman",
+    "name": "Greg Brockman",
+    "type": "engineer",
+    "avatar": "GB",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Disrupt_SF_TechCrunch_Disrupt_San_Francisco_2019_-_Day_2_%2848838200316%29_%28cropped%29.jpg/330px-Disrupt_SF_TechCrunch_Disrupt_San_Francisco_2019_-_Day_2_%2848838200316%29_%28cropped%29.jpg",
+    "tagline": "OpenAI co-founder, always shipping",
+    "rarity": "rare",
+    "serial": "087",
+    "editionSize": 100,
+    "series": 1,
+    "metrics": {
+      "citations": 30000,
+      "followers": 1200000,
+      "impactScore": 88,
+      "yearsInField": 12
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 93,
+      "influence": 83,
+      "momentum": 94
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "mira-murati",
+    "name": "Mira Murati",
+    "type": "engineer",
+    "avatar": "MM",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Guests_at_the_2026_Met_Gala_274_%28Mira_Murati%29.jpg/330px-Guests_at_the_2026_Met_Gala_274_%28Mira_Murati%29.jpg",
+    "tagline": "Ex-OpenAI CTO, Thinking Machines founder",
+    "rarity": "common",
+    "serial": "086",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 3000,
+      "followers": 800000,
+      "impactScore": 88,
+      "yearsInField": 12
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 76,
+      "influence": 68,
+      "momentum": 73
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "jakub-pachocki",
+    "name": "Jakub Pachocki",
+    "type": "engineer",
+    "avatar": "JP",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Jakub_Pachocki_in_2012_%28cropped%29.jpg/330px-Jakub_Pachocki_in_2012_%28cropped%29.jpg",
+    "tagline": "OpenAI's chief scientist",
+    "rarity": "common",
+    "serial": "412",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 40000,
+      "followers": 100000,
+      "impactScore": 90,
+      "yearsInField": 10
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 71,
+      "influence": 67,
+      "momentum": 77
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "wojciech-zaremba",
+    "name": "Wojciech Zaremba",
+    "type": "engineer",
+    "avatar": "WZ",
+    "image": null,
+    "tagline": "OpenAI co-founder, robotics to reasoning",
+    "rarity": "rare",
+    "serial": "055",
+    "editionSize": 100,
+    "series": 1,
+    "metrics": {
+      "citations": 90000,
+      "followers": 300000,
+      "impactScore": 85,
+      "yearsInField": 12
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 67,
+      "influence": 65,
+      "momentum": 67
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "jan-leike",
+    "name": "Jan Leike",
+    "type": "engineer",
+    "avatar": "JL",
+    "image": null,
+    "tagline": "Alignment lead who walked",
+    "rarity": "rare",
+    "serial": "062",
+    "editionSize": 100,
+    "series": 1,
+    "metrics": {
+      "citations": 60000,
+      "followers": 250000,
+      "impactScore": 86,
+      "yearsInField": 12
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 96,
+      "influence": 90,
+      "momentum": 84
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "jared-kaplan",
+    "name": "Jared Kaplan",
+    "type": "engineer",
+    "avatar": "JK",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Jared_Kaplan_%28cropped%29.jpg/330px-Jared_Kaplan_%28cropped%29.jpg",
+    "tagline": "Scaling laws co-author, Anthropic",
+    "rarity": "rare",
+    "serial": "090",
+    "editionSize": 100,
+    "series": 1,
+    "metrics": {
+      "citations": 60000,
+      "followers": 80000,
+      "impactScore": 88,
+      "yearsInField": 15
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 92,
+      "influence": 86,
+      "momentum": 90
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "tom-brown",
+    "name": "Tom Brown",
+    "type": "engineer",
+    "avatar": "TB",
+    "image": null,
+    "tagline": "GPT-3 lead author",
+    "rarity": "rare",
+    "serial": "091",
+    "editionSize": 100,
+    "series": 1,
+    "metrics": {
+      "citations": 120000,
+      "followers": 60000,
+      "impactScore": 87,
+      "yearsInField": 10
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 83,
+      "influence": 80,
+      "momentum": 93
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "jack-clark",
+    "name": "Jack Clark",
+    "type": "engineer",
+    "avatar": "JC",
+    "image": null,
+    "tagline": "Import AI author, policy voice",
+    "rarity": "common",
+    "serial": "367",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 20000,
+      "followers": 200000,
+      "impactScore": 82,
+      "yearsInField": 10
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 75,
+      "influence": 77,
+      "momentum": 64
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "mark-chen",
+    "name": "Mark Chen",
+    "type": "engineer",
+    "avatar": "MC",
+    "image": null,
+    "tagline": "OpenAI chief research officer",
+    "rarity": "common",
+    "serial": "408",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 50000,
+      "followers": 100000,
+      "impactScore": 86,
+      "yearsInField": 8
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 81,
+      "influence": 90,
+      "momentum": 82
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "alec-radford",
+    "name": "Alec Radford",
+    "type": "engineer",
+    "avatar": "AR",
+    "image": null,
+    "tagline": "GPT, CLIP and Whisper architect",
+    "rarity": "epic",
+    "serial": "006",
+    "editionSize": 25,
+    "series": 1,
+    "metrics": {
+      "citations": 250000,
+      "followers": 100000,
+      "impactScore": 94,
+      "yearsInField": 10
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 95,
+      "influence": 86,
+      "momentum": 95
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "aditya-ramesh",
+    "name": "Aditya Ramesh",
+    "type": "engineer",
+    "avatar": "AR",
+    "image": null,
+    "tagline": "DALL·E creator",
+    "rarity": "common",
+    "serial": "427",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 60000,
+      "followers": 80000,
+      "impactScore": 84,
+      "yearsInField": 8
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 75,
+      "influence": 72,
+      "momentum": 62
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "tim-brooks",
+    "name": "Tim Brooks",
+    "type": "engineer",
+    "avatar": "TB",
+    "image": null,
+    "tagline": "Sora co-lead, now world models",
+    "rarity": "common",
+    "serial": "153",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 30000,
+      "followers": 80000,
+      "impactScore": 82,
+      "yearsInField": 8
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 66,
+      "influence": 72,
+      "momentum": 68
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "bill-peebles",
+    "name": "Bill Peebles",
+    "type": "engineer",
+    "avatar": "BP",
+    "image": null,
+    "tagline": "Sora co-lead, DiT author",
+    "rarity": "common",
+    "serial": "362",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 40000,
+      "followers": 90000,
+      "impactScore": 83,
+      "yearsInField": 6
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 70,
+      "influence": 63,
+      "momentum": 69
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "jason-wei",
+    "name": "Jason Wei",
+    "type": "engineer",
+    "avatar": "JW",
+    "image": null,
+    "tagline": "Chain-of-thought author",
+    "rarity": "common",
+    "serial": "299",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 80000,
+      "followers": 200000,
+      "impactScore": 85,
+      "yearsInField": 6
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 65,
+      "influence": 71,
+      "momentum": 71
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "noam-brown",
+    "name": "Noam Brown",
+    "type": "engineer",
+    "avatar": "NB",
+    "image": null,
+    "tagline": "Poker, Diplomacy, reasoning models",
+    "rarity": "common",
+    "serial": "290",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 30000,
+      "followers": 150000,
+      "impactScore": 87,
+      "yearsInField": 10
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 77,
+      "influence": 68,
+      "momentum": 74
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "lilian-weng",
+    "name": "Lilian Weng",
+    "type": "engineer",
+    "avatar": "LW",
+    "image": null,
+    "tagline": "The blog every ML engineer reads",
+    "rarity": "common",
+    "serial": "299",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 20000,
+      "followers": 300000,
+      "impactScore": 83,
+      "yearsInField": 10
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 92,
+      "influence": 88,
+      "momentum": 89
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "barret-zoph",
+    "name": "Barret Zoph",
+    "type": "engineer",
+    "avatar": "BZ",
+    "image": null,
+    "tagline": "NAS and frontier post-training",
+    "rarity": "common",
+    "serial": "260",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 60000,
+      "followers": 60000,
+      "impactScore": 80,
+      "yearsInField": 10
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 77,
+      "influence": 76,
+      "momentum": 77
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "ashish-vaswani",
+    "name": "Ashish Vaswani",
+    "type": "engineer",
+    "avatar": "AV",
+    "image": null,
+    "tagline": "Attention Is All You Need, first author",
+    "rarity": "epic",
+    "serial": "014",
+    "editionSize": 25,
+    "series": 1,
+    "metrics": {
+      "citations": 180000,
+      "followers": 50000,
+      "impactScore": 92,
+      "yearsInField": 12
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 74,
+      "influence": 66,
+      "momentum": 68
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "jakob-uszkoreit",
+    "name": "Jakob Uszkoreit",
+    "type": "engineer",
+    "avatar": "JU",
+    "image": null,
+    "tagline": "Transformer co-author, now programming biology",
+    "rarity": "rare",
+    "serial": "014",
+    "editionSize": 100,
+    "series": 1,
+    "metrics": {
+      "citations": 150000,
+      "followers": 30000,
+      "impactScore": 85,
+      "yearsInField": 15
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 68,
+      "influence": 69,
+      "momentum": 73
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "llion-jones",
+    "name": "Llion Jones",
+    "type": "engineer",
+    "avatar": "LJ",
+    "image": null,
+    "tagline": "Transformer co-author, Sakana co-founder",
+    "rarity": "common",
+    "serial": "432",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 140000,
+      "followers": 40000,
+      "impactScore": 84,
+      "yearsInField": 12
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 85,
+      "influence": 92,
+      "momentum": 91
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "illia-polosukhin",
+    "name": "Illia Polosukhin",
+    "type": "engineer",
+    "avatar": "IP",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Near_Protocol_Logo.png/330px-Near_Protocol_Logo.png",
+    "tagline": "Transformer co-author turned NEAR founder",
+    "rarity": "rare",
+    "serial": "062",
+    "editionSize": 100,
+    "series": 1,
+    "metrics": {
+      "citations": 130000,
+      "followers": 300000,
+      "impactScore": 80,
+      "yearsInField": 12
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 64,
+      "influence": 73,
+      "momentum": 76
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "aidan-gomez",
+    "name": "Aidan Gomez",
+    "type": "engineer",
+    "avatar": "AG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Aidan_Gomez_at_%22ALL_IN%22_2025_06.jpg/330px-Aidan_Gomez_at_%22ALL_IN%22_2025_06.jpg",
+    "tagline": "Transformer co-author, Cohere CEO",
+    "rarity": "rare",
+    "serial": "026",
+    "editionSize": 100,
+    "series": 1,
+    "metrics": {
+      "citations": 140000,
+      "followers": 150000,
+      "impactScore": 85,
+      "yearsInField": 10
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 91,
+      "influence": 82,
+      "momentum": 91
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "lukasz-kaiser",
+    "name": "Łukasz Kaiser",
+    "type": "engineer",
+    "avatar": "ŁK",
+    "image": null,
+    "tagline": "Transformer co-author, reasoning pioneer",
+    "rarity": "rare",
+    "serial": "058",
+    "editionSize": 100,
+    "series": 1,
+    "metrics": {
+      "citations": 150000,
+      "followers": 40000,
+      "impactScore": 84,
+      "yearsInField": 15
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 67,
+      "influence": 67,
+      "momentum": 74
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "niki-parmar",
+    "name": "Niki Parmar",
+    "type": "engineer",
+    "avatar": "NP",
+    "image": null,
+    "tagline": "Transformer co-author, Essential AI",
+    "rarity": "common",
+    "serial": "143",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 140000,
+      "followers": 30000,
+      "impactScore": 82,
+      "yearsInField": 10
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 84,
+      "influence": 92,
+      "momentum": 93
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "juergen-schmidhuber",
+    "name": "Jürgen Schmidhuber",
+    "type": "engineer",
+    "avatar": "JS",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/J%C3%BCrgen_Schmidhuber%2C_2017_%28cropped%29.jpg/330px-J%C3%BCrgen_Schmidhuber%2C_2017_%28cropped%29.jpg",
+    "tagline": "LSTM godfather, credit-assignment warrior",
+    "rarity": "mythic",
+    "serial": "005",
+    "editionSize": 5,
+    "series": 1,
+    "metrics": {
+      "citations": 250000,
+      "followers": 150000,
+      "impactScore": 90,
+      "yearsInField": 40
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 91,
+      "influence": 98,
+      "momentum": 95
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "sepp-hochreiter",
+    "name": "Sepp Hochreiter",
+    "type": "engineer",
+    "avatar": "SH",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Sepp_Hochreiter_-_Buch_Wien_2025.JPG/330px-Sepp_Hochreiter_-_Buch_Wien_2025.JPG",
+    "tagline": "LSTM inventor, xLSTM comeback",
+    "rarity": "epic",
+    "serial": "014",
+    "editionSize": 25,
+    "series": 1,
+    "metrics": {
+      "citations": 200000,
+      "followers": 50000,
+      "impactScore": 85,
+      "yearsInField": 30
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 89,
+      "influence": 87,
+      "momentum": 97
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "ian-goodfellow",
+    "name": "Ian Goodfellow",
+    "type": "engineer",
+    "avatar": "IG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Ian_Goodfellow.jpg/330px-Ian_Goodfellow.jpg",
+    "tagline": "GAN inventor",
+    "rarity": "epic",
+    "serial": "011",
+    "editionSize": 25,
+    "series": 1,
+    "metrics": {
+      "citations": 500000,
+      "followers": 300000,
+      "impactScore": 92,
+      "yearsInField": 14
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 96,
+      "influence": 86,
+      "momentum": 98
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "david-silver",
+    "name": "David Silver",
+    "type": "engineer",
+    "avatar": "DS",
+    "image": null,
+    "tagline": "AlphaGo's mastermind",
+    "rarity": "epic",
+    "serial": "006",
+    "editionSize": 25,
+    "series": 1,
+    "metrics": {
+      "citations": 200000,
+      "followers": 60000,
+      "impactScore": 92,
+      "yearsInField": 20
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 97,
+      "influence": 93,
+      "momentum": 95
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "oriol-vinyals",
+    "name": "Oriol Vinyals",
+    "type": "engineer",
+    "avatar": "OV",
+    "image": null,
+    "tagline": "Gemini co-lead, seq2seq pioneer",
+    "rarity": "epic",
+    "serial": "001",
+    "editionSize": 25,
+    "series": 1,
+    "metrics": {
+      "citations": 250000,
+      "followers": 200000,
+      "impactScore": 90,
+      "yearsInField": 15
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 77,
+      "influence": 77,
+      "momentum": 67
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "koray-kavukcuoglu",
+    "name": "Koray Kavukcuoglu",
+    "type": "engineer",
+    "avatar": "KK",
+    "image": null,
+    "tagline": "DeepMind's CTO",
+    "rarity": "rare",
+    "serial": "036",
+    "editionSize": 100,
+    "series": 1,
+    "metrics": {
+      "citations": 150000,
+      "followers": 30000,
+      "impactScore": 85,
+      "yearsInField": 18
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 83,
+      "influence": 88,
+      "momentum": 85
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "shane-legg",
+    "name": "Shane Legg",
+    "type": "engineer",
+    "avatar": "SL",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Shane_Legg.jpg",
+    "tagline": "Coined AGI, DeepMind co-founder",
+    "rarity": "rare",
+    "serial": "091",
+    "editionSize": 100,
+    "series": 1,
+    "metrics": {
+      "citations": 40000,
+      "followers": 60000,
+      "impactScore": 87,
+      "yearsInField": 20
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 70,
+      "influence": 70,
+      "momentum": 79
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "mustafa-suleyman",
+    "name": "Mustafa Suleyman",
+    "type": "engineer",
+    "avatar": "MS",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Mustafa_Suleyman_photo_%28cropped%29.jpg/330px-Mustafa_Suleyman_photo_%28cropped%29.jpg",
+    "tagline": "DeepMind → Inflection → Microsoft AI CEO",
+    "rarity": "common",
+    "serial": "380",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 10000,
+      "followers": 400000,
+      "impactScore": 86,
+      "yearsInField": 15
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 66,
+      "influence": 68,
+      "momentum": 67
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "jeff-dean",
+    "name": "Jeff Dean",
+    "type": "engineer",
+    "avatar": "JD",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Jeff_Dean_in_2025_x.jpg/330px-Jeff_Dean_in_2025_x.jpg",
+    "tagline": "Google's chief scientist, systems legend",
+    "rarity": "legendary",
+    "serial": "010",
+    "editionSize": 10,
+    "series": 1,
+    "metrics": {
+      "citations": 350000,
+      "followers": 900000,
+      "impactScore": 94,
+      "yearsInField": 25
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 99,
+      "influence": 89,
+      "momentum": 85
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "quoc-le",
+    "name": "Quoc Le",
+    "type": "engineer",
+    "avatar": "QL",
+    "image": null,
+    "tagline": "AutoML and seq2seq at Google Brain",
+    "rarity": "rare",
+    "serial": "092",
+    "editionSize": 100,
+    "series": 1,
+    "metrics": {
+      "citations": 250000,
+      "followers": 100000,
+      "impactScore": 87,
+      "yearsInField": 15
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 69,
+      "influence": 70,
+      "momentum": 72
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "kaiming-he",
+    "name": "Kaiming He",
+    "type": "engineer",
+    "avatar": "KH",
+    "image": null,
+    "tagline": "ResNet — most-cited paper of the decade",
+    "rarity": "epic",
+    "serial": "007",
+    "editionSize": 25,
+    "series": 1,
+    "metrics": {
+      "citations": 700000,
+      "followers": 100000,
+      "impactScore": 93,
+      "yearsInField": 14
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 70,
+      "influence": 71,
+      "momentum": 71
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "ross-girshick",
+    "name": "Ross Girshick",
+    "type": "engineer",
+    "avatar": "RG",
+    "image": null,
+    "tagline": "The R-CNN detection lineage",
+    "rarity": "rare",
+    "serial": "070",
+    "editionSize": 100,
+    "series": 1,
+    "metrics": {
+      "citations": 400000,
+      "followers": 30000,
+      "impactScore": 86,
+      "yearsInField": 14
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 67,
+      "influence": 72,
+      "momentum": 81
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "alex-krizhevsky",
+    "name": "Alex Krizhevsky",
+    "type": "engineer",
+    "avatar": "AK",
+    "image": null,
+    "tagline": "AlexNet — the big bang",
+    "rarity": "rare",
+    "serial": "011",
+    "editionSize": 100,
+    "series": 1,
+    "metrics": {
+      "citations": 250000,
+      "followers": 10000,
+      "impactScore": 90,
+      "yearsInField": 14
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 76,
+      "influence": 70,
+      "momentum": 65
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "francois-chollet",
+    "name": "François Chollet",
+    "type": "engineer",
+    "avatar": "FC",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Fchollet.jpg/330px-Fchollet.jpg",
+    "tagline": "Keras creator, ARC prize",
+    "rarity": "rare",
+    "serial": "037",
+    "editionSize": 100,
+    "series": 1,
+    "metrics": {
+      "citations": 100000,
+      "followers": 500000,
+      "impactScore": 86,
+      "yearsInField": 12
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 94,
+      "influence": 85,
+      "momentum": 90
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "soumith-chintala",
+    "name": "Soumith Chintala",
+    "type": "engineer",
+    "avatar": "SC",
+    "image": null,
+    "tagline": "PyTorch co-creator",
+    "rarity": "rare",
+    "serial": "096",
+    "editionSize": 100,
+    "series": 1,
+    "metrics": {
+      "citations": 80000,
+      "followers": 300000,
+      "impactScore": 87,
+      "yearsInField": 12
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 77,
+      "influence": 78,
+      "momentum": 70
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "tri-dao",
+    "name": "Tri Dao",
+    "type": "engineer",
+    "avatar": "TD",
+    "image": null,
+    "tagline": "FlashAttention and Mamba",
+    "rarity": "common",
+    "serial": "448",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 30000,
+      "followers": 150000,
+      "impactScore": 88,
+      "yearsInField": 7
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 86,
+      "influence": 93,
+      "momentum": 91
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "albert-gu",
+    "name": "Albert Gu",
+    "type": "engineer",
+    "avatar": "AG",
+    "image": null,
+    "tagline": "State-space models, Mamba co-author",
+    "rarity": "common",
+    "serial": "231",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 25000,
+      "followers": 80000,
+      "impactScore": 84,
+      "yearsInField": 7
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 91,
+      "influence": 78,
+      "momentum": 92
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "percy-liang",
+    "name": "Percy Liang",
+    "type": "engineer",
+    "avatar": "PL",
+    "image": null,
+    "tagline": "HELM and foundation-model rigor",
+    "rarity": "rare",
+    "serial": "065",
+    "editionSize": 100,
+    "series": 1,
+    "metrics": {
+      "citations": 120000,
+      "followers": 150000,
+      "impactScore": 85,
+      "yearsInField": 18
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 70,
+      "influence": 77,
+      "momentum": 80
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "christopher-re",
+    "name": "Christopher Ré",
+    "type": "engineer",
+    "avatar": "CR",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/160906-N-PO203-244_%2829394494722%29.jpg/330px-160906-N-PO203-244_%2829394494722%29.jpg",
+    "tagline": "Data-centric AI, Together co-founder",
+    "rarity": "rare",
+    "serial": "009",
+    "editionSize": 100,
+    "series": 1,
+    "metrics": {
+      "citations": 80000,
+      "followers": 60000,
+      "impactScore": 83,
+      "yearsInField": 18
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 94,
+      "influence": 88,
+      "momentum": 84
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "christopher-manning",
+    "name": "Christopher Manning",
+    "type": "engineer",
+    "avatar": "CM",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/SD_2025_-_Christopher_Manning_04_%28cropped%29.jpg/330px-SD_2025_-_Christopher_Manning_04_%28cropped%29.jpg",
+    "tagline": "NLP's textbook author",
+    "rarity": "legendary",
+    "serial": "008",
+    "editionSize": 10,
+    "series": 1,
+    "metrics": {
+      "citations": 250000,
+      "followers": 200000,
+      "impactScore": 87,
+      "yearsInField": 30
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 70,
+      "influence": 84,
+      "momentum": 82
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "sebastian-thrun",
+    "name": "Sebastian Thrun",
+    "type": "engineer",
+    "avatar": "ST",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Sebastian_Thrun_by_Christopher_Michel_-_6.jpg/330px-Sebastian_Thrun_by_Christopher_Michel_-_6.jpg",
+    "tagline": "Self-driving pioneer, Udacity founder",
+    "rarity": "epic",
+    "serial": "001",
+    "editionSize": 25,
+    "series": 1,
+    "metrics": {
+      "citations": 180000,
+      "followers": 200000,
+      "impactScore": 85,
+      "yearsInField": 30
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 92,
+      "influence": 90,
+      "momentum": 88
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "daphne-koller",
+    "name": "Daphne Koller",
+    "type": "engineer",
+    "avatar": "DK",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Daphne_Koller_2019.jpg/330px-Daphne_Koller_2019.jpg",
+    "tagline": "Insitro founder, PGM queen",
+    "rarity": "epic",
+    "serial": "023",
+    "editionSize": 25,
+    "series": 1,
+    "metrics": {
+      "citations": 150000,
+      "followers": 100000,
+      "impactScore": 84,
+      "yearsInField": 30
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 72,
+      "influence": 67,
+      "momentum": 67
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "pieter-abbeel",
+    "name": "Pieter Abbeel",
+    "type": "engineer",
+    "avatar": "PA",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Pieter_Abbeel_pictured_at_CovariantHQ_in_November_2017.jpg/330px-Pieter_Abbeel_pictured_at_CovariantHQ_in_November_2017.jpg",
+    "tagline": "Robot learning professor-founder",
+    "rarity": "epic",
+    "serial": "021",
+    "editionSize": 25,
+    "series": 1,
+    "metrics": {
+      "citations": 200000,
+      "followers": 200000,
+      "impactScore": 87,
+      "yearsInField": 20
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 73,
+      "influence": 81,
+      "momentum": 68
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "sergey-levine",
+    "name": "Sergey Levine",
+    "type": "engineer",
+    "avatar": "SL",
+    "image": null,
+    "tagline": "RL for robots at scale",
+    "rarity": "rare",
+    "serial": "097",
+    "editionSize": 100,
+    "series": 1,
+    "metrics": {
+      "citations": 180000,
+      "followers": 100000,
+      "impactScore": 86,
+      "yearsInField": 15
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 70,
+      "influence": 66,
+      "momentum": 70
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "chelsea-finn",
+    "name": "Chelsea Finn",
+    "type": "engineer",
+    "avatar": "CF",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Chelsea_Finn_and_Vestri_the_robot%2C_UC_Berkeley.jpg/330px-Chelsea_Finn_and_Vestri_the_robot%2C_UC_Berkeley.jpg",
+    "tagline": "Meta-learning, Physical Intelligence",
+    "rarity": "common",
+    "serial": "113",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 100000,
+      "followers": 100000,
+      "impactScore": 85,
+      "yearsInField": 10
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 92,
+      "influence": 79,
+      "momentum": 94
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "richard-sutton",
+    "name": "Richard Sutton",
+    "type": "engineer",
+    "avatar": "RS",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/SD_2025_-_Richard_Sutton_01_%28cropped%29.jpg/330px-SD_2025_-_Richard_Sutton_01_%28cropped%29.jpg",
+    "tagline": "RL's founder, The Bitter Lesson",
+    "rarity": "mythic",
+    "serial": "003",
+    "editionSize": 5,
+    "series": 1,
+    "metrics": {
+      "citations": 200000,
+      "followers": 150000,
+      "impactScore": 93,
+      "yearsInField": 45
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 89,
+      "influence": 95,
+      "momentum": 91
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "stuart-russell",
+    "name": "Stuart Russell",
+    "type": "engineer",
+    "avatar": "SR",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Stuart_Russell_01.jpg/330px-Stuart_Russell_01.jpg",
+    "tagline": "AIMA co-author, safety advocate",
+    "rarity": "legendary",
+    "serial": "010",
+    "editionSize": 10,
+    "series": 1,
+    "metrics": {
+      "citations": 150000,
+      "followers": 100000,
+      "impactScore": 86,
+      "yearsInField": 40
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 83,
+      "influence": 76,
+      "momentum": 71
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "peter-norvig",
+    "name": "Peter Norvig",
+    "type": "engineer",
+    "avatar": "PN",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Peter_Norvig_in_2019_%28cropped%29.jpg/330px-Peter_Norvig_in_2019_%28cropped%29.jpg",
+    "tagline": "AIMA co-author, Google research legend",
+    "rarity": "legendary",
+    "serial": "006",
+    "editionSize": 10,
+    "series": 1,
+    "metrics": {
+      "citations": 120000,
+      "followers": 300000,
+      "impactScore": 84,
+      "yearsInField": 40
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 69,
+      "influence": 85,
+      "momentum": 79
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "gary-marcus",
+    "name": "Gary Marcus",
+    "type": "engineer",
+    "avatar": "GM",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Gary_Marcus_at_Web_Summit_2022.jpeg/330px-Gary_Marcus_at_Web_Summit_2022.jpeg",
+    "tagline": "AI's loudest skeptic",
+    "rarity": "rare",
+    "serial": "043",
+    "editionSize": 100,
+    "series": 1,
+    "metrics": {
+      "citations": 30000,
+      "followers": 300000,
+      "impactScore": 72,
+      "yearsInField": 30
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 90,
+      "influence": 93,
+      "momentum": 93
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "timnit-gebru",
+    "name": "Timnit Gebru",
+    "type": "engineer",
+    "avatar": "TG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Timnit_Gebru_crop.jpg/330px-Timnit_Gebru_crop.jpg",
+    "tagline": "DAIR founder, accountability researcher",
+    "rarity": "common",
+    "serial": "007",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 50000,
+      "followers": 400000,
+      "impactScore": 80,
+      "yearsInField": 12
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 74,
+      "influence": 70,
+      "momentum": 77
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "emily-bender",
+    "name": "Emily Bender",
+    "type": "engineer",
+    "avatar": "EB",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Emily_M_Bender_CHM_Mountain_View_March_2025.jpg/330px-Emily_M_Bender_CHM_Mountain_View_March_2025.jpg",
+    "tagline": "Stochastic parrots co-author",
+    "rarity": "common",
+    "serial": "157",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 40000,
+      "followers": 100000,
+      "impactScore": 75,
+      "yearsInField": 25
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 77,
+      "influence": 78,
+      "momentum": 75
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "yejin-choi",
+    "name": "Yejin Choi",
+    "type": "engineer",
+    "avatar": "YC",
+    "image": null,
+    "tagline": "Commonsense reasoning, MacArthur genius",
+    "rarity": "rare",
+    "serial": "065",
+    "editionSize": 100,
+    "series": 1,
+    "metrics": {
+      "citations": 80000,
+      "followers": 80000,
+      "impactScore": 84,
+      "yearsInField": 20
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 68,
+      "influence": 70,
+      "momentum": 77
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "ali-farhadi",
+    "name": "Ali Farhadi",
+    "type": "engineer",
+    "avatar": "AF",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/TechCrunch_Disrupt_2024_D3_Advantages_of_Open_AI-4_%2854104459972%29.jpg/330px-TechCrunch_Disrupt_2024_D3_Advantages_of_Open_AI-4_%2854104459972%29.jpg",
+    "tagline": "AI2 CEO, YOLO co-creator",
+    "rarity": "rare",
+    "serial": "056",
+    "editionSize": 100,
+    "series": 1,
+    "metrics": {
+      "citations": 150000,
+      "followers": 30000,
+      "impactScore": 80,
+      "yearsInField": 18
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 78,
+      "influence": 68,
+      "momentum": 67
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "jim-fan",
+    "name": "Jim Fan",
+    "type": "engineer",
+    "avatar": "JF",
+    "image": null,
+    "tagline": "NVIDIA's embodied-AI evangelist",
+    "rarity": "common",
+    "serial": "116",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 20000,
+      "followers": 400000,
+      "impactScore": 80,
+      "yearsInField": 8
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 70,
+      "influence": 67,
+      "momentum": 76
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "anima-anandkumar",
+    "name": "Anima Anandkumar",
+    "type": "engineer",
+    "avatar": "AA",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Anima_Anandkumar_speaking_at_AAAS_2026.jpg/330px-Anima_Anandkumar_speaking_at_AAAS_2026.jpg",
+    "tagline": "Tensor methods and AI for science",
+    "rarity": "common",
+    "serial": "267",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 60000,
+      "followers": 200000,
+      "impactScore": 80,
+      "yearsInField": 15
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 84,
+      "influence": 80,
+      "momentum": 95
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "jitendra-malik",
+    "name": "Jitendra Malik",
+    "type": "engineer",
+    "avatar": "JM",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/180906-N-PO203-0045_%2843874899564%29.jpg/330px-180906-N-PO203-0045_%2843874899564%29.jpg",
+    "tagline": "Vision's professor of professors",
+    "rarity": "legendary",
+    "serial": "002",
+    "editionSize": 10,
+    "series": 1,
+    "metrics": {
+      "citations": 350000,
+      "followers": 30000,
+      "impactScore": 87,
+      "yearsInField": 40
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 75,
+      "influence": 76,
+      "momentum": 83
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "alexei-efros",
+    "name": "Alexei Efros",
+    "type": "engineer",
+    "avatar": "AE",
+    "image": null,
+    "tagline": "Self-supervised vision pioneer",
+    "rarity": "rare",
+    "serial": "024",
+    "editionSize": 100,
+    "series": 1,
+    "metrics": {
+      "citations": 150000,
+      "followers": 20000,
+      "impactScore": 82,
+      "yearsInField": 25
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 89,
+      "influence": 88,
+      "momentum": 94
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "john-carmack",
+    "name": "John Carmack",
+    "type": "engineer",
+    "avatar": "JC",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/John_Carmack_2025.jpg/330px-John_Carmack_2025.jpg",
+    "tagline": "Doom legend gone AGI",
+    "rarity": "common",
+    "serial": "364",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 5000,
+      "followers": 1300000,
+      "impactScore": 82,
+      "yearsInField": 12
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 88,
+      "influence": 78,
+      "momentum": 92
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "george-hotz",
+    "name": "George Hotz",
+    "type": "engineer",
+    "avatar": "GH",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/George_Hotz_at_TechCrunch_Disrupt.jpg/330px-George_Hotz_at_TechCrunch_Disrupt.jpg",
+    "tagline": "comma.ai and tinygrad",
+    "rarity": "common",
+    "serial": "201",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 2000,
+      "followers": 800000,
+      "impactScore": 75,
+      "yearsInField": 10
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 62,
+      "influence": 71,
+      "momentum": 65
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "chris-lattner",
+    "name": "Chris Lattner",
+    "type": "engineer",
+    "avatar": "CL",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Chris_Lattner_at_FOSDEM_2011_%28colorized%29.jpg/330px-Chris_Lattner_at_FOSDEM_2011_%28colorized%29.jpg",
+    "tagline": "LLVM to Mojo — compilers for AI",
+    "rarity": "rare",
+    "serial": "002",
+    "editionSize": 100,
+    "series": 1,
+    "metrics": {
+      "citations": 30000,
+      "followers": 250000,
+      "impactScore": 82,
+      "yearsInField": 20
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 96,
+      "influence": 93,
+      "momentum": 90
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "jeremy-howard",
+    "name": "Jeremy Howard",
+    "type": "engineer",
+    "avatar": "JH",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Jeremy_Howard.jpg/330px-Jeremy_Howard.jpg",
+    "tagline": "fast.ai, deep learning for everyone",
+    "rarity": "common",
+    "serial": "298",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 40000,
+      "followers": 300000,
+      "impactScore": 82,
+      "yearsInField": 15
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 93,
+      "influence": 93,
+      "momentum": 93
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "sara-hooker",
+    "name": "Sara Hooker",
+    "type": "engineer",
+    "avatar": "SH",
+    "image": null,
+    "tagline": "Cohere Labs, the hardware lottery",
+    "rarity": "common",
+    "serial": "016",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 15000,
+      "followers": 100000,
+      "impactScore": 78,
+      "yearsInField": 10
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 85,
+      "influence": 84,
+      "momentum": 85
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "rodney-brooks",
+    "name": "Rodney Brooks",
+    "type": "engineer",
+    "avatar": "RB",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Rodney_Brooks_in_2021.jpg/330px-Rodney_Brooks_in_2021.jpg",
+    "tagline": "Roomba, subsumption, robot realism",
+    "rarity": "epic",
+    "serial": "010",
+    "editionSize": 25,
+    "series": 1,
+    "metrics": {
+      "citations": 100000,
+      "followers": 100000,
+      "impactScore": 80,
+      "yearsInField": 45
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 98,
+      "influence": 99,
+      "momentum": 87
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "david-ha",
+    "name": "David Ha",
+    "type": "engineer",
+    "avatar": "DH",
+    "image": null,
+    "tagline": "World models, Sakana co-founder",
+    "rarity": "common",
+    "serial": "304",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 30000,
+      "followers": 200000,
+      "impactScore": 81,
+      "yearsInField": 10
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 72,
+      "influence": 77,
+      "momentum": 75
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "kenneth-stanley",
+    "name": "Kenneth Stanley",
+    "type": "engineer",
+    "avatar": "KS",
+    "image": null,
+    "tagline": "Open-endedness and NEAT",
+    "rarity": "common",
+    "serial": "116",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 40000,
+      "followers": 100000,
+      "impactScore": 78,
+      "yearsInField": 20
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 68,
+      "influence": 64,
+      "momentum": 65
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "volodymyr-mnih",
+    "name": "Volodymyr Mnih",
+    "type": "engineer",
+    "avatar": "VM",
+    "image": null,
+    "tagline": "DQN first author",
+    "rarity": "rare",
+    "serial": "030",
+    "editionSize": 100,
+    "series": 1,
+    "metrics": {
+      "citations": 150000,
+      "followers": 20000,
+      "impactScore": 84,
+      "yearsInField": 15
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 71,
+      "influence": 64,
+      "momentum": 65
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "alex-graves",
+    "name": "Alex Graves",
+    "type": "engineer",
+    "avatar": "AG",
+    "image": null,
+    "tagline": "CTC and neural Turing machines",
+    "rarity": "common",
+    "serial": "051",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 150000,
+      "followers": 10000,
+      "impactScore": 83,
+      "yearsInField": 18
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 70,
+      "influence": 76,
+      "momentum": 73
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "arthur-mensch",
+    "name": "Arthur Mensch",
+    "type": "engineer",
+    "avatar": "AM",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Arthur_Mensch.png/330px-Arthur_Mensch.png",
+    "tagline": "Mistral CEO, Europe's hope",
+    "rarity": "common",
+    "serial": "315",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 30000,
+      "followers": 150000,
+      "impactScore": 87,
+      "yearsInField": 10
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 94,
+      "influence": 93,
+      "momentum": 94
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "guillaume-lample",
+    "name": "Guillaume Lample",
+    "type": "engineer",
+    "avatar": "GL",
+    "image": null,
+    "tagline": "Llama lead, Mistral chief scientist",
+    "rarity": "common",
+    "serial": "123",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 60000,
+      "followers": 80000,
+      "impactScore": 85,
+      "yearsInField": 9
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 82,
+      "influence": 87,
+      "momentum": 93
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "clem-delangue",
+    "name": "Clément Delangue",
+    "type": "engineer",
+    "avatar": "CD",
+    "image": null,
+    "tagline": "Hugging Face CEO, open-source cheerleader",
+    "rarity": "common",
+    "serial": "435",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 1000,
+      "followers": 400000,
+      "impactScore": 85,
+      "yearsInField": 12
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 66,
+      "influence": 60,
+      "momentum": 60
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "thomas-wolf",
+    "name": "Thomas Wolf",
+    "type": "engineer",
+    "avatar": "TW",
+    "image": null,
+    "tagline": "Transformers library architect",
+    "rarity": "common",
+    "serial": "145",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 50000,
+      "followers": 300000,
+      "impactScore": 84,
+      "yearsInField": 10
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 87,
+      "influence": 81,
+      "momentum": 94
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "aravind-srinivas",
+    "name": "Aravind Srinivas",
+    "type": "engineer",
+    "avatar": "AS",
+    "image": null,
+    "tagline": "Perplexity CEO",
+    "rarity": "common",
+    "serial": "405",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 10000,
+      "followers": 500000,
+      "impactScore": 82,
+      "yearsInField": 8
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 81,
+      "influence": 81,
+      "momentum": 77
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "alexandr-wang",
+    "name": "Alexandr Wang",
+    "type": "engineer",
+    "avatar": "AW",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Alexandr_Wang%2C_Chief_A.I._Officer%2C_Meta.jpg/330px-Alexandr_Wang%2C_Chief_A.I._Officer%2C_Meta.jpg",
+    "tagline": "Scale founder, Meta superintelligence",
+    "rarity": "common",
+    "serial": "453",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 1000,
+      "followers": 400000,
+      "impactScore": 86,
+      "yearsInField": 10
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 71,
+      "influence": 60,
+      "momentum": 63
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "liang-wenfeng",
+    "name": "Liang Wenfeng",
+    "type": "engineer",
+    "avatar": "LW",
+    "image": null,
+    "tagline": "DeepSeek founder, quant turned frontier",
+    "rarity": "common",
+    "serial": "364",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 1000,
+      "followers": 100000,
+      "impactScore": 90,
+      "yearsInField": 10
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 64,
+      "influence": 65,
+      "momentum": 72
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "kai-fu-lee",
+    "name": "Kai-Fu Lee",
+    "type": "engineer",
+    "avatar": "KL",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/2007GoogleTaiwanPressConference_KaifuLee.jpg/330px-2007GoogleTaiwanPressConference_KaifuLee.jpg",
+    "tagline": "Sinovation, AI Superpowers author",
+    "rarity": "epic",
+    "serial": "011",
+    "editionSize": 25,
+    "series": 1,
+    "metrics": {
+      "citations": 30000,
+      "followers": 1000000,
+      "impactScore": 80,
+      "yearsInField": 35
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 79,
+      "influence": 74,
+      "momentum": 76
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "lex-fridman",
+    "name": "Lex Fridman",
+    "type": "engineer",
+    "avatar": "LF",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Lex_Fridman_teaching_at_MIT_in_2018.png/330px-Lex_Fridman_teaching_at_MIT_in_2018.png",
+    "tagline": "MIT researcher, mega-podcast",
+    "rarity": "common",
+    "serial": "381",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 5000,
+      "followers": 4000000,
+      "impactScore": 72,
+      "yearsInField": 12
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 86,
+      "influence": 92,
+      "momentum": 90
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "paul-christiano",
+    "name": "Paul Christiano",
+    "type": "engineer",
+    "avatar": "PC",
+    "image": null,
+    "tagline": "RLHF originator, safety institute head",
+    "rarity": "common",
+    "serial": "227",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 20000,
+      "followers": 100000,
+      "impactScore": 84,
+      "yearsInField": 12
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 69,
+      "influence": 71,
+      "momentum": 67
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "joelle-pineau",
+    "name": "Joelle Pineau",
+    "type": "engineer",
+    "avatar": "JP",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Jo%C3%ABlle_Pineau_at_All_In_2025_03.jpg/330px-Jo%C3%ABlle_Pineau_at_All_In_2025_03.jpg",
+    "tagline": "A decade running Meta FAIR",
+    "rarity": "common",
+    "serial": "284",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 40000,
+      "followers": 60000,
+      "impactScore": 79,
+      "yearsInField": 20
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 68,
+      "influence": 79,
+      "momentum": 78
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "colin-raffel",
+    "name": "Colin Raffel",
+    "type": "engineer",
+    "avatar": "CR",
+    "image": null,
+    "tagline": "T5 author, open-models advocate",
+    "rarity": "common",
+    "serial": "018",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 60000,
+      "followers": 80000,
+      "impactScore": 78,
+      "yearsInField": 10
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 86,
+      "influence": 92,
+      "momentum": 78
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "yi-tay",
+    "name": "Yi Tay",
+    "type": "engineer",
+    "avatar": "YT",
+    "image": null,
+    "tagline": "PaLM, UL2, Reka co-founder",
+    "rarity": "common",
+    "serial": "105",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 50000,
+      "followers": 100000,
+      "impactScore": 79,
+      "yearsInField": 8
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 90,
+      "influence": 92,
+      "momentum": 92
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "eliezer-yudkowsky",
+    "name": "Eliezer Yudkowsky",
+    "type": "engineer",
+    "avatar": "EY",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Eliezer_Yudkowsky%2C_Stanford_2006_%28square_crop%29.jpg/330px-Eliezer_Yudkowsky%2C_Stanford_2006_%28square_crop%29.jpg",
+    "tagline": "Doom's most dedicated messenger",
+    "rarity": "common",
+    "serial": "129",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 5000,
+      "followers": 400000,
+      "impactScore": 74,
+      "yearsInField": 20
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 64,
+      "influence": 73,
+      "momentum": 67
+    },
+    "priceHistory": []
+  },
+  {
+    "id": "jeff-clune",
+    "name": "Jeff Clune",
+    "type": "engineer",
+    "avatar": "JC",
+    "image": null,
+    "tagline": "AI-generating algorithms",
+    "rarity": "common",
+    "serial": "175",
+    "editionSize": 500,
+    "series": 1,
+    "metrics": {
+      "citations": 40000,
+      "followers": 80000,
+      "impactScore": 79,
+      "yearsInField": 15
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 86,
+      "influence": 88,
+      "momentum": 87
     },
     "priceHistory": []
   }
