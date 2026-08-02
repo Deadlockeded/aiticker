@@ -239,6 +239,65 @@ export function pickVerdict(raw: RawFootprint, stats: CommunitySliders): string 
 
 // ---------------------------------------------------------------- pipeline
 
+// ---------------------------------------------------------------- roast facts
+
+import type { RoastFacts } from "./lines";
+
+const ROAST_CACHE_PREFIX = "aiticker:roast:";
+const BIO_CLICHES = ["visionary", "building", "stealth"];
+const TEST_NAME = /(^|[-_])(test|testing|untitled|new-repo|demo|playground|tmp|temp)([-_]|$)?/i;
+
+/** Extract roastable facts from a public GitHub profile. Session-cached. */
+export async function getRoastFacts(handle: string): Promise<{ facts: RoastFacts; cached: boolean }> {
+  const key = `${ROAST_CACHE_PREFIX}${handle.toLowerCase()}`;
+  try {
+    const hit = sessionStorage.getItem(key);
+    if (hit) return { facts: JSON.parse(hit) as RoastFacts, cached: true };
+  } catch {
+    // fetch fresh
+  }
+  const user = await ghFetch<GhUser & { bio: string | null }>(
+    `/users/${encodeURIComponent(handle)}`,
+  );
+  const repos = await ghFetch<GhRepo[]>(
+    `/users/${encodeURIComponent(handle)}/repos?per_page=100&sort=pushed`,
+  );
+  const own = repos.filter((r) => !r.fork);
+  const yearAgo = Date.now() - 365 * 86_400_000;
+  const lastPush = repos
+    .map((r) => (r.pushed_at ? Date.parse(r.pushed_at) : 0))
+    .reduce((a, b) => Math.max(a, b), 0);
+  const langCounts = new Map<string, number>();
+  for (const repo of own) {
+    if (repo.language) langCounts.set(repo.language, (langCounts.get(repo.language) ?? 0) + 1);
+  }
+  const topLang = [...langCounts.entries()].sort((a, b) => b[1] - a[1])[0];
+  const bio = (user.bio ?? "").toLowerCase();
+
+  const facts: RoastFacts = {
+    handle: user.login,
+    repoCount: user.public_repos,
+    testRepoCount: repos.filter((r) => TEST_NAME.test(r.name)).length,
+    portfolioCount: repos.filter((r) => /portfolio|personal-site|my-site/i.test(r.name)).length,
+    forkRatio: repos.length ? repos.filter((r) => r.fork).length / repos.length : 0,
+    totalStars: repos.reduce((s, r) => s + r.stargazers_count, 0),
+    maxStars: repos.reduce((s, r) => Math.max(s, r.stargazers_count), 0),
+    daysSinceLastPush: lastPush ? (Date.now() - lastPush) / 86_400_000 : 9_999,
+    abandonedRepos: own.filter((r) => r.pushed_at && Date.parse(r.pushed_at) < yearAgo).length,
+    topLanguage: topLang?.[0] ?? null,
+    topLanguageShare: topLang && own.length ? topLang[1] / own.length : 0,
+    emptyDescriptions: own.filter((r) => !r.description).length,
+    bioCliches: BIO_CLICHES.filter((word) => bio.includes(word)),
+    accountYears: (Date.now() - Date.parse(user.created_at)) / (365 * 86_400_000),
+  };
+  try {
+    sessionStorage.setItem(key, JSON.stringify(facts));
+  } catch {
+    // best-effort
+  }
+  return { facts, cached: false };
+}
+
 const CACHE_PREFIX = "aiticker:profile:";
 
 /**
