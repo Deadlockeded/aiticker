@@ -21,7 +21,10 @@ export default function DailyQuip({ card }: { card: MarketCard }) {
 
   const copy = async () => {
     try {
-      await navigator.clipboard.writeText(`“${quip}” — ${card.name}, aiticker.xyz`);
+      // ?ref= so the quoted card opens face-up for whoever follows the link
+      await navigator.clipboard.writeText(
+        `“${quip}” — ${card.name}, aiticker.xyz/cards/${card.id}?ref=quote`,
+      );
       setCopied(true);
       setTimeout(() => setCopied(false), 1600);
     } catch {

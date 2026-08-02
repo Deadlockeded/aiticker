@@ -6,7 +6,7 @@ import { computeCommunityRating, toMarketCard } from "@/lib/create";
 import { getScoredProfile, ScoreError, type ScoredProfile } from "@/lib/score";
 import { compatibility, shipIcon, shipVerdict } from "@/lib/shipmeter";
 import ShareButton from "./ShareButton";
-import { canShareFiles, canvasBlob, sharePng, type ShareOutcome } from "@/lib/share";
+import { brandFonts, canShareFiles, canvasBlob, sharePng, type ShareOutcome } from "@/lib/share";
 import TradingCard from "./TradingCard";
 
 async function exportPng(a: ScoredProfile, b: ScoredProfile, pct: number, verdict: string) {
@@ -16,6 +16,7 @@ async function exportPng(a: ScoredProfile, b: ScoredProfile, pct: number, verdic
   canvas.width = W;
   canvas.height = H;
   const ctx = canvas.getContext("2d")!;
+  const fonts = await brandFonts();
   const bg = ctx.createLinearGradient(0, 0, W, H);
   bg.addColorStop(0, pct >= 70 ? "#7f1d1d" : pct >= 45 ? "#713f12" : "#1e1b4b");
   bg.addColorStop(0.6, "#0a0a0b");
@@ -48,7 +49,7 @@ async function exportPng(a: ScoredProfile, b: ScoredProfile, pct: number, verdic
     ctx.arc(x, 360, 150, 0, Math.PI * 2);
     ctx.stroke();
     ctx.fillStyle = "#fff";
-    ctx.font = "700 44px system-ui, sans-serif";
+    ctx.font = `700 44px ${fonts.body}`;
     ctx.textAlign = "center";
     ctx.fillText(`@${handle}`.slice(0, 18), x, 590);
   };
@@ -56,18 +57,18 @@ async function exportPng(a: ScoredProfile, b: ScoredProfile, pct: number, verdic
   face(imgB, W - 280, b.handle);
 
   ctx.textAlign = "center";
-  ctx.font = "120px system-ui, sans-serif";
+  ctx.font = `120px ${fonts.body}`;
   ctx.fillText(shipIcon(pct), W / 2, 400);
 
   ctx.fillStyle = "#fff";
-  ctx.font = "900 190px system-ui, sans-serif";
+  ctx.font = `900 190px ${fonts.body}`;
   ctx.fillText(`${pct}%`, W / 2, 840);
   ctx.fillStyle = "rgba(255,255,255,0.5)";
-  ctx.font = "600 34px ui-monospace, monospace";
+  ctx.font = `600 34px ${fonts.mono}`;
   ctx.fillText("COFOUNDER COMPATIBILITY", W / 2, 900);
 
   ctx.fillStyle = "#67e8f9";
-  ctx.font = "italic 600 40px system-ui, sans-serif";
+  ctx.font = `italic 600 40px ${fonts.body}`;
   const words = verdict.split(" ");
   let line = "";
   let y = 1000;
@@ -82,7 +83,7 @@ async function exportPng(a: ScoredProfile, b: ScoredProfile, pct: number, verdic
   if (line) ctx.fillText(line, W / 2, y);
 
   ctx.fillStyle = "rgba(255,255,255,0.45)";
-  ctx.font = "600 28px ui-monospace, monospace";
+  ctx.font = `600 28px ${fonts.mono}`;
   ctx.fillText("aiticker.xyz/shipmeter", W / 2, H - 70);
 
   const blob = await canvasBlob(canvas);

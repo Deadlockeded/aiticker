@@ -33,7 +33,7 @@ import DeckStack from "./DeckStack";
 import EditorCaption from "./EditorCaption";
 import TradingCard from "./TradingCard";
 import ShareButton from "./ShareButton";
-import { canShareFiles, canvasBlob, sharePng, type ShareOutcome } from "@/lib/share";
+import { brandFonts, canShareFiles, canvasBlob, sharePng, type ShareOutcome } from "@/lib/share";
 import { ViralNudge } from "./ViralTeasers";
 
 type Phase = "setup" | "fight" | "done";
@@ -51,7 +51,15 @@ async function exportArenaPng(a: VsSide, b: VsSide, result: VsResult) {
   canvas.width = W;
   canvas.height = H;
   const ctx = canvas.getContext("2d")!;
-  ctx.fillStyle = "#0a0a0b";
+  const fonts = await brandFonts();
+  // Price Guide tokens: cream stock, ink, accent red, win green
+  const INK = "#1E2430";
+  const CREAM = "#F2EDE3";
+  const PAPER = "#FDFBF6";
+  const RED = "#C23B2E";
+  const GREEN = "#1F7A3D";
+  const SECONDARY = "#5A6070";
+  ctx.fillStyle = CREAM;
   ctx.fillRect(0, 0, W, H);
 
   const load = (src: string | null) =>
@@ -67,74 +75,77 @@ async function exportArenaPng(a: VsSide, b: VsSide, result: VsResult) {
   const [imgA, imgB] = await Promise.all([load(a.avatar), load(b.avatar)]);
 
   const panel = (x: number, side: VsSide, img: HTMLImageElement | null, won: boolean) => {
-    ctx.fillStyle = "#131316";
-    ctx.strokeStyle = won ? "#34d399" : "rgba(255,255,255,0.15)";
-    ctx.lineWidth = won ? 5 : 2;
-    ctx.beginPath();
-    ctx.roundRect(x, 100, 420, 500, 24);
-    ctx.fill();
-    ctx.stroke();
+    // paper card with the 5px offset ink shadow
+    ctx.fillStyle = INK;
+    ctx.fillRect(x + 6, 106, 420, 500);
+    ctx.fillStyle = PAPER;
+    ctx.strokeStyle = won ? GREEN : INK;
+    ctx.lineWidth = won ? 6 : 3;
+    ctx.fillRect(x, 100, 420, 500);
+    ctx.strokeRect(x, 100, 420, 500);
     ctx.save();
     ctx.beginPath();
     ctx.arc(x + 210, 270, 115, 0, Math.PI * 2);
     ctx.clip();
+    ctx.fillStyle = side.company ? "#ffffff" : CREAM;
+    ctx.fillRect(x + 95, 155, 230, 230);
     if (img) {
-      ctx.fillStyle = side.company ? "#fff" : "#18181b";
-      ctx.fillRect(x + 95, 155, 230, 230);
       if (side.company) ctx.drawImage(img, x + 145, 205, 130, 130);
       else ctx.drawImage(img, x + 95, 155, 230, 230);
     } else {
-      ctx.fillStyle = "#27272a";
-      ctx.fillRect(x + 95, 155, 230, 230);
-      ctx.fillStyle = "rgba(255,255,255,0.6)";
-      ctx.font = "700 76px ui-monospace, monospace";
+      ctx.fillStyle = SECONDARY;
+      ctx.font = `700 76px ${fonts.mono}`;
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
       ctx.fillText(side.label.replace("@", "").slice(0, 2).toUpperCase(), x + 210, 270);
     }
     ctx.restore();
-    ctx.fillStyle = "#fff";
-    ctx.font = "700 38px system-ui, sans-serif";
+    ctx.strokeStyle = INK;
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.arc(x + 210, 270, 115, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.fillStyle = INK;
+    ctx.font = `400 44px ${fonts.display}`;
     ctx.textAlign = "center";
     ctx.textBaseline = "alphabetic";
-    ctx.fillText(side.label.slice(0, 20), x + 210, 460);
-    ctx.fillStyle = "#67e8f9";
-    ctx.font = "800 50px system-ui, sans-serif";
-    ctx.fillText(String(side.rating), x + 210, 535);
+    ctx.fillText(side.label.slice(0, 18).toUpperCase(), x + 210, 465);
+    ctx.fillStyle = won ? GREEN : SECONDARY;
+    ctx.font = `600 50px ${fonts.mono}`;
+    ctx.fillText(String(side.rating), x + 210, 540);
     ctx.textAlign = "left";
   };
   panel(80, a, imgA, result.winner === "a");
   panel(W - 80 - 420, b, imgB, result.winner === "b");
 
   ctx.textAlign = "center";
-  ctx.fillStyle = "#fbbf24";
-  ctx.font = "900 110px system-ui, sans-serif";
+  ctx.font = "110px serif";
   ctx.fillText("⚔️", W / 2, 300);
-  ctx.fillStyle = "#fff";
-  ctx.font = "900 68px system-ui, sans-serif";
-  ctx.fillText(`${result.aWins}–${result.bWins}`, W / 2, 400);
+  ctx.fillStyle = INK;
+  ctx.font = `400 76px ${fonts.display}`;
+  ctx.fillText(`${result.aWins}–${result.bWins}`, W / 2, 410);
 
   let y = 690;
-  ctx.font = "600 24px ui-monospace, monospace";
+  ctx.font = `600 24px ${fonts.mono}`;
   for (const round of result.rounds) {
-    ctx.fillStyle = "rgba(255,255,255,0.5)";
+    ctx.fillStyle = SECONDARY;
     ctx.textAlign = "center";
     ctx.fillText(round.label.toUpperCase(), W / 2, y - 12);
     const mid = W / 2;
     const span = 540;
-    ctx.fillStyle = "rgba(255,255,255,0.1)";
+    ctx.fillStyle = "rgba(30,36,48,0.12)";
     ctx.beginPath();
     ctx.roundRect(mid - span, y, span * 2, 16, 8);
     ctx.fill();
-    ctx.fillStyle = round.winner === "a" ? "#34d399" : "rgba(255,255,255,0.45)";
+    ctx.fillStyle = round.winner === "a" ? GREEN : "rgba(30,36,48,0.35)";
     ctx.beginPath();
     ctx.roundRect(mid - (span * round.a) / 100, y, (span * round.a) / 100, 16, 8);
     ctx.fill();
-    ctx.fillStyle = round.winner === "b" ? "#34d399" : "rgba(255,255,255,0.45)";
+    ctx.fillStyle = round.winner === "b" ? GREEN : "rgba(30,36,48,0.35)";
     ctx.beginPath();
     ctx.roundRect(mid, y, (span * round.b) / 100, 16, 8);
     ctx.fill();
-    ctx.fillStyle = "#fff";
+    ctx.fillStyle = INK;
     ctx.textAlign = "right";
     ctx.fillText(String(round.a), mid - span - 14, y + 14);
     ctx.textAlign = "left";
@@ -143,8 +154,8 @@ async function exportArenaPng(a: VsSide, b: VsSide, result: VsResult) {
   }
 
   ctx.textAlign = "center";
-  ctx.fillStyle = "#67e8f9";
-  ctx.font = "600 28px ui-monospace, monospace";
+  ctx.fillStyle = RED;
+  ctx.font = `600 28px ${fonts.mono}`;
   ctx.fillText("aiticker.xyz/arena", W / 2, H - 26);
 
   const blob = await canvasBlob(canvas);

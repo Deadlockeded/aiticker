@@ -55,3 +55,29 @@ export async function sharePng(
 export function canvasBlob(canvas: HTMLCanvasElement): Promise<Blob | null> {
   return new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
 }
+
+/**
+ * The brand font families (next/font hashed names, read from the CSS vars)
+ * for canvas exports, awaited so nothing draws with a fallback face.
+ * display = Archivo Black · mono = Oswald · body = Lora.
+ */
+export async function brandFonts(): Promise<{
+  display: string;
+  mono: string;
+  body: string;
+}> {
+  const css = getComputedStyle(document.documentElement);
+  const pick = (name: string, fallback: string) =>
+    css.getPropertyValue(name).trim() || fallback;
+  const fonts = {
+    display: pick("--font-display", "system-ui"),
+    mono: pick("--font-geist-mono", "ui-monospace"),
+    body: pick("--font-geist-sans", "system-ui"),
+  };
+  try {
+    await document.fonts.ready;
+  } catch {
+    // no Font Loading API (old webview) — fallback faces still render
+  }
+  return fonts;
+}

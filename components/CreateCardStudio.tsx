@@ -25,7 +25,7 @@ import { getRoastFacts, getScoredProfile, ScoreError, type ScoredProfile } from 
 import { ROAST_LINES } from "@/lib/lines";
 import { pickStamp } from "@/lib/lines";
 import ShareButton from "./ShareButton";
-import { canShareFiles, canvasBlob, sharePng, type ShareOutcome } from "@/lib/share";
+import { brandFonts, canShareFiles, canvasBlob, sharePng, type ShareOutcome } from "@/lib/share";
 
 /** Inline Ship Meter launcher: second handle -> deep link with both prefilled. */
 function ShipMeterInline({ handle }: { handle: string }) {
@@ -123,6 +123,7 @@ function wrapText(ctx: CanvasRenderingContext2D, text: string, maxWidth: number)
 async function exportPng(card: CommunityCard, roasts?: string[] | null) {
   const W = 1080;
   const H = 1350;
+  const fonts = await brandFonts();
   const canvas = document.createElement("canvas");
   canvas.width = W;
   canvas.height = H;
@@ -167,7 +168,7 @@ async function exportPng(card: CommunityCard, roasts?: string[] | null) {
     ctx.drawImage(img, artX + (artW - dw) / 2, artY + (artH - dh) / 2, dw, dh);
   } else {
     ctx.fillStyle = "rgba(255,255,255,0.22)";
-    ctx.font = "700 240px ui-monospace, monospace";
+    ctx.font = `700 240px ${fonts.mono}`;
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillText(initialsOf(card.name), W / 2, artY + artH / 2);
@@ -187,15 +188,15 @@ async function exportPng(card: CommunityCard, roasts?: string[] | null) {
   ctx.roundRect(artX + 16, artY + 16, 190, 96, 18);
   ctx.fill();
   ctx.fillStyle = "#fff";
-  ctx.font = "800 72px system-ui, sans-serif";
+  ctx.font = `800 72px ${fonts.body}`;
   ctx.textAlign = "left";
   ctx.textBaseline = "alphabetic";
   ctx.fillText(String(card.rating), artX + 34, artY + 88);
   ctx.fillStyle = "rgba(255,255,255,0.55)";
-  ctx.font = "600 26px ui-monospace, monospace";
+  ctx.font = `600 26px ${fonts.mono}`;
   ctx.fillText("OVR", artX + 130, artY + 88);
 
-  ctx.font = "700 26px ui-monospace, monospace";
+  ctx.font = `700 26px ${fonts.mono}`;
   const label = card.rarity.toUpperCase();
   const lw = ctx.measureText(label).width;
   ctx.fillStyle = "rgba(0,0,0,0.66)";
@@ -210,7 +211,7 @@ async function exportPng(card: CommunityCard, roasts?: string[] | null) {
     ctx.save();
     ctx.translate(W / 2, artY + artH * 0.66);
     ctx.rotate((-12 * Math.PI) / 180);
-    ctx.font = "900 34px ui-monospace, monospace";
+    ctx.font = `900 34px ${fonts.mono}`;
     const sw = ctx.measureText(card.stamp).width;
     ctx.strokeStyle = "rgba(239,68,68,0.8)";
     ctx.lineWidth = 5;
@@ -225,11 +226,11 @@ async function exportPng(card: CommunityCard, roasts?: string[] | null) {
   // name / handle / title
   let y = artY + artH + 78;
   ctx.fillStyle = "#fff";
-  ctx.font = "700 58px system-ui, sans-serif";
+  ctx.font = `700 58px ${fonts.body}`;
   ctx.fillText(card.name.slice(0, 24), artX + 6, y);
   y += 44;
   ctx.fillStyle = "rgba(255,255,255,0.55)";
-  ctx.font = "400 32px system-ui, sans-serif";
+  ctx.font = `400 32px ${fonts.body}`;
   const subtitle = card.handle
     ? `@${card.handle}${card.title ? ` · ${card.title.slice(0, 30)}` : ""}`
     : card.title.slice(0, 42) || "Community collector";
@@ -239,7 +240,7 @@ async function exportPng(card: CommunityCard, roasts?: string[] | null) {
   if (card.verdict) {
     y += 50;
     ctx.fillStyle = accent;
-    ctx.font = "italic 600 30px system-ui, sans-serif";
+    ctx.font = `italic 600 30px ${fonts.body}`;
     for (const line of wrapText(ctx, `“${card.verdict}”`, artW - 12).slice(0, 2)) {
       ctx.fillText(line, artX + 6, y);
       y += 38;
@@ -249,7 +250,7 @@ async function exportPng(card: CommunityCard, roasts?: string[] | null) {
 
   // stat bars
   y += 54;
-  ctx.font = "600 25px ui-monospace, monospace";
+  ctx.font = `600 25px ${fonts.mono}`;
   for (const stat of COMMUNITY_STATS) {
     const value = card.sliders[stat.key];
     ctx.fillStyle = accent;
@@ -277,9 +278,9 @@ async function exportPng(card: CommunityCard, roasts?: string[] | null) {
     ctx.fillStyle = "#f5f1e6";
     ctx.fillRect(artX, y - 26, artW, 34 + roasts.length * 34);
     ctx.fillStyle = "#1c1917";
-    ctx.font = "700 22px ui-monospace, monospace";
+    ctx.font = `700 22px ${fonts.mono}`;
     ctx.fillText("SCOUT'S ROAST", artX + 12, y);
-    ctx.font = "400 20px ui-monospace, monospace";
+    ctx.font = `400 20px ${fonts.mono}`;
     for (const line of roasts) {
       y += 32;
       ctx.fillText(`— ${line.slice(0, 78)}`, artX + 12, y);
@@ -287,7 +288,7 @@ async function exportPng(card: CommunityCard, roasts?: string[] | null) {
   }
 
   ctx.fillStyle = "rgba(255,255,255,0.45)";
-  ctx.font = "600 26px ui-monospace, monospace";
+  ctx.font = `600 26px ${fonts.mono}`;
   ctx.fillText("#???/∞ · COMMUNITY SERIES", artX + 6, H - M - 44);
   ctx.textAlign = "right";
   ctx.fillStyle = accent;

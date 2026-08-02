@@ -55,7 +55,7 @@ export async function GET(
             height: 280,
             borderRadius: 999,
             border: `8px solid ${accent}`,
-            background: card.type === "company" ? "#ffffff" : "#0f172a",
+            background: card.type === "company" ? "#ffffff" : card.image ? "#0f172a" : "#FDFBF6",
             overflow: "hidden",
           }}
         >
@@ -73,8 +73,9 @@ export async function GET(
               }}
             />
           ) : (
-            <div style={{ display: "flex", fontSize: 110, fontWeight: 800 }}>
-              {card.avatar}
+            // satori's default font has no emoji/dingbats — monogram from the name
+            <div style={{ display: "flex", fontSize: 110, fontWeight: 800, color: "#1E2430" }}>
+              {(card.name.replace(/[^a-zA-Z ]/g, "").trim().split(/\s+/).slice(0, 2).map((w) => w[0]).join("") || "AT").toUpperCase()}
             </div>
           )}
         </div>
@@ -102,7 +103,8 @@ export async function GET(
           <div
             style={{
               display: "flex",
-              fontSize: 76,
+              // long names ("Ignore Previous Instructions") must not clip
+              fontSize: card.name.length > 18 ? 54 : 76,
               fontWeight: 800,
               marginTop: 8,
               textTransform: "uppercase",

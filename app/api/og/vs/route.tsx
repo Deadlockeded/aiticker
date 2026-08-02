@@ -4,8 +4,8 @@ export const runtime = "edge";
 
 export async function GET(req: Request) {
   const url = new URL(req.url);
-  const a = (url.searchParams.get("a") ?? "You").slice(0, 24);
-  const b = (url.searchParams.get("b") ?? "The Index").slice(0, 24);
+  const a = (url.searchParams.get("a") ?? "You").slice(0, 30);
+  const b = (url.searchParams.get("b") ?? "The Index").slice(0, 30);
   const ship = url.searchParams.get("mode") === "ship";
   const glyph = ship ? "❤️‍🔥" : "⚡";
   const word = ship ? "×" : "VS";
@@ -37,7 +37,7 @@ export async function GET(req: Request) {
           }}
         >
           <div style={{ display: "flex", fontSize: 110 }}>{glyph}</div>
-          <div style={{ display: "flex", fontSize: 54, fontWeight: 900, color: "#fbbf24", letterSpacing: 8 }}>
+          <div style={{ display: "flex", fontSize: 54, fontWeight: 900, color: "#C23B2E", letterSpacing: 8 }}>
             {word}
           </div>
         </div>
