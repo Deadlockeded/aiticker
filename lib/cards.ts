@@ -9,11 +9,16 @@ export type MarketCard = Card & { rating: number };
 const cards: MarketCard[] = (seed as Card[]).map((card) => {
   const rating = computeRating(card);
   // Legacy stats.rating is overwritten so nothing displays a stale number.
+  // Pipeline-committed price history wins; the simulated generator is only
+  // the fallback before the first market-update run (marked as such).
   return {
     ...card,
     rating,
     stats: { ...card.stats, rating },
-    priceHistory: seedPriceHistory(card, rating),
+    priceHistory:
+      card.priceHistory.length > 0
+        ? card.priceHistory
+        : seedPriceHistory(card, rating).map((p) => ({ ...p, simulated: true })),
   };
 });
 

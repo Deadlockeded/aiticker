@@ -54,6 +54,23 @@ export const RATING_CONFIG: {
   },
 };
 
+/**
+ * Live-signal weights (pipeline data, applied only when a card has the
+ * signal). Attention/buzz are meaningful but bounded; stars/downloads are
+ * slow-moving foundation stats. Weights renormalize against whatever
+ * metrics+signals a card actually has, so signal-less cards are unchanged.
+ */
+export const SIGNAL_CONFIG: Partial<
+  Record<string, { weight: number; curve: Curve | "delta" }>
+> = {
+  attention7d: { weight: 0.06, curve: "log" },
+  attentionDelta: { weight: 0.05, curve: "delta" },
+  hnMentions7d: { weight: 0.04, curve: "log" },
+  stars: { weight: 0.05, curve: "log" },
+  hfDownloads30d: { weight: 0.05, curve: "log" },
+  hIndex: { weight: 0.03, curve: "linear" },
+};
+
 function normalize(value: number, max: number, curve: Curve): number {
   if (max <= 0) return 0;
   const n =
@@ -61,25 +78,61 @@ function normalize(value: number, max: number, curve: Curve): number {
   return Math.min(1, n) * 100;
 }
 
-const maxes: Record<string, number> = {};
-for (const card of seed as Card[]) {
-  for (const [key, value] of Object.entries(card.metrics)) {
-    const scoped = `${card.type}.${key}`;
-    maxes[scoped] = Math.max(maxes[scoped] ?? 0, value);
+function computeMaxes(cards: Card[]): Record<string, number> {
+  const maxes: Record<string, number> = {};
+  for (const card of cards) {
+    for (const [key, value] of Object.entries(card.metrics)) {
+      const scoped = `${card.type}.${key}`;
+      maxes[scoped] = Math.max(maxes[scoped] ?? 0, value);
+    }
+    for (const [key, value] of Object.entries(card.signals ?? {})) {
+      if (typeof value !== "number") continue;
+      const scoped = `signal.${key}`;
+      maxes[scoped] = Math.max(maxes[scoped] ?? 0, value);
+    }
   }
+  return maxes;
 }
 
-export function computeRating(card: Card): number {
-  const config = RATING_CONFIG[card.type] as MetricConfig<string>;
-  const metrics = card.metrics as unknown as Record<string, number>;
+/**
+ * Build a rating function whose normalization maxes come from `cards`.
+ * The update pipeline uses this with freshly-fetched signals; the frontend
+ * default context below uses the committed seed, so both agree.
+ */
+export function buildRatingContext(cards: Card[]) {
+  const maxes = computeMaxes(cards);
 
-  let weighted = 0;
-  for (const [key, { weight, curve }] of Object.entries(config)) {
-    const value = metrics[key as keyof typeof metrics];
-    weighted += weight * normalize(value, maxes[`${card.type}.${key}`], curve);
+  function computeRating(card: Card): number {
+    const config = RATING_CONFIG[card.type] as MetricConfig<string>;
+    const metrics = card.metrics as unknown as Record<string, number>;
+
+    let weighted = 0;
+    let weightSum = 0;
+    for (const [key, { weight, curve }] of Object.entries(config)) {
+      weighted += weight * normalize(metrics[key], maxes[`${card.type}.${key}`], curve);
+      weightSum += weight;
+    }
+    for (const [key, cfg] of Object.entries(SIGNAL_CONFIG)) {
+      const value = card.signals?.[key as keyof typeof card.signals];
+      if (typeof value !== "number" || !cfg) continue;
+      const n =
+        cfg.curve === "delta"
+          ? Math.max(0, Math.min(100, 50 + value / 2)) // ±100% -> 0..100
+          : normalize(value, maxes[`signal.${key}`], cfg.curve);
+      weighted += cfg.weight * n;
+      weightSum += cfg.weight;
+    }
+
+    const { floor, ceil } = RATING_CONFIG;
+    const rating = Math.round(floor + ((ceil - floor) * (weighted / weightSum)) / 100);
+    return Math.max(0, Math.min(99, rating));
   }
 
-  const { floor, ceil } = RATING_CONFIG;
-  const rating = Math.round(floor + ((ceil - floor) * weighted) / 100);
-  return Math.max(0, Math.min(99, rating));
+  return { computeRating };
+}
+
+const defaultContext = buildRatingContext(seed as Card[]);
+
+export function computeRating(card: Card): number {
+  return defaultContext.computeRating(card);
 }

@@ -37,8 +37,20 @@ export function getDailyCard(cards: MarketCard[], key = utcDayKey()): MarketCard
   return pool[dayHash(key) % pool.length];
 }
 
-/** Two cards run hot each day: flame badge + "+3" shown everywhere. */
+/**
+ * Two cards run hot each day: flame badge + "+3" shown everywhere.
+ * With pipeline data present, hot = top 2 by real Wikipedia attentionDelta
+ * (deterministic from committed JSON); otherwise date-hash fallback.
+ */
 export function getHotCards(cards: MarketCard[], key = utcDayKey()): MarketCard[] {
+  const withDelta = cards.filter(
+    (c) => typeof c.signals?.attentionDelta === "number",
+  );
+  if (withDelta.length >= 2) {
+    return [...withDelta]
+      .sort((a, b) => b.signals!.attentionDelta! - a.signals!.attentionDelta!)
+      .slice(0, 2);
+  }
   const rand = mulberry32(dayHash(`hot:${key}`));
   const first = Math.floor(rand() * cards.length);
   let second = Math.floor(rand() * (cards.length - 1));
