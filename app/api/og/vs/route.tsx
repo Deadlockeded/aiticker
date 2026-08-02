@@ -6,6 +6,10 @@ export async function GET(req: Request) {
   const url = new URL(req.url);
   const a = (url.searchParams.get("a") ?? "You").slice(0, 24);
   const b = (url.searchParams.get("b") ?? "The Index").slice(0, 24);
+  const ship = url.searchParams.get("mode") === "ship";
+  const glyph = ship ? "❤️‍🔥" : "⚡";
+  const word = ship ? "×" : "VS";
+  const path = ship ? "aiticker.xyz/shipmeter" : "aiticker.xyz/vs · card game math on public data";
 
   return new ImageResponse(
     (
@@ -32,9 +36,9 @@ export async function GET(req: Request) {
             margin: "0 48px",
           }}
         >
-          <div style={{ display: "flex", fontSize: 110 }}>⚡</div>
+          <div style={{ display: "flex", fontSize: 110 }}>{glyph}</div>
           <div style={{ display: "flex", fontSize: 54, fontWeight: 900, color: "#fbbf24", letterSpacing: 8 }}>
-            VS
+            {word}
           </div>
         </div>
         <div style={{ display: "flex", flexDirection: "column", width: 460 }}>
@@ -50,7 +54,7 @@ export async function GET(req: Request) {
             color: "#67e8f9",
           }}
         >
-          aiticker.xyz/vs · card game math on public data
+          {path}
         </div>
       </div>
     ),
