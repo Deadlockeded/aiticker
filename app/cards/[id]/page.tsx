@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import TradingCard from "@/components/TradingCard";
 import PriceChart from "@/components/PriceChart";
 import ShareButton from "@/components/ShareButton";
+import DailyQuip from "@/components/DailyQuip";
 import { getAllCards, getCard, getRank } from "@/lib/cards";
 import type { MarketCard } from "@/lib/cards";
 import { PULL_ODDS } from "@/lib/editions";
@@ -201,6 +202,8 @@ export default async function CardPage({
               <ShareButton className="text-xs" />
             </div>
           </div>
+
+          <DailyQuip card={card} />
 
           {/* 30-day chart */}
           <div className="rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-6">

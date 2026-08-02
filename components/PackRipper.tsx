@@ -14,6 +14,7 @@ import {
   subscribeStore,
 } from "@/lib/binder";
 import { addXP, XP_REWARDS } from "@/lib/xp";
+import { getRandomQuip } from "@/lib/daily";
 import { checkAchievements } from "@/lib/achievements";
 import TradingCard from "./TradingCard";
 import ShareButton from "./ShareButton";
@@ -133,6 +134,7 @@ export default function PackRipper({
   const [phase, setPhase] = useState<Phase>("idle");
   const [tearing, setTearing] = useState(false);
   const [pulls, setPulls] = useState<MarketCard[]>([]);
+  const [flipQuips, setFlipQuips] = useState<(string | null)[]>([]);
   const [flipped, setFlipped] = useState<boolean[]>([]);
   const [shimmering, setShimmering] = useState<number | null>(null);
   const [glowKey, setGlowKey] = useState(0);
@@ -176,6 +178,7 @@ export default function PackRipper({
     const pulled = pullPack(cards);
     setPulls(pulled);
     setFlipped(pulled.map(() => false));
+    setFlipQuips(pulled.map(() => null));
     addPulls(pulled.map((c) => c.id));
     addXP(XP_REWARDS.packPull);
     checkAchievements(cards);
@@ -188,7 +191,10 @@ export default function PackRipper({
 
   const flip = (i: number) => {
     if (flipped[i]) return;
+    if (navigator.vibrate) navigator.vibrate(10);
     setFlipped((f) => f.map((v, j) => (j === i ? true : v)));
+    const quip = getRandomQuip(pulls[i]);
+    setFlipQuips((q) => q.map((v, j) => (j === i ? quip : v)));
 
     const rarity = pulls[i].rarity;
     if (rarity !== "common") {
@@ -240,8 +246,8 @@ export default function PackRipper({
         <div>
           <div className="mx-auto grid max-w-xs grid-cols-1 gap-6 sm:max-w-3xl sm:grid-cols-3">
             {pulls.map((card, i) => (
+              <div key={`${card.id}-${i}`} className="flex flex-col">
               <button
-                key={`${card.id}-${i}`}
                 onClick={() => flip(i)}
                 className="deal-in relative aspect-[1/1.42] w-full [perspective:1200px]"
                 style={{
@@ -264,6 +270,12 @@ export default function PackRipper({
                   </div>
                 </div>
               </button>
+              {flipped[i] && flipQuips[i] && (
+                <p className="deal-in mt-2 text-center text-[11px] italic leading-snug text-white/50">
+                  “{flipQuips[i]}”
+                </p>
+              )}
+              </div>
             ))}
           </div>
 

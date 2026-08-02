@@ -124,6 +124,8 @@ export interface Card {
   stats: CardStats;
   /** One MTG-style lore line. Tone: affectionate roast. */
   flavorText: string;
+  /** Exactly 5 rotating persona quips (see QUIPS.md). Never duplicates flavorText. */
+  quips?: string[];
   /** Engineers only: 2–4 career stops, rendered as a timeline. */
   career?: CareerStop[];
   variant?: CardVariant;

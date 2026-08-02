@@ -206,6 +206,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 994.98
       }
+    ],
+    "quips": [
+      "Raised more money this quarter than most countries print.",
+      "Every launch is 'subtle' until the servers melt.",
+      "Has a blog post for every civilizational milestone.",
+      "The board tried. The board apologized.",
+      "Says 'we'll ship carefully' while the demo is already live."
     ]
   },
   {
@@ -420,6 +427,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 1004.69
       }
+    ],
+    "quips": [
+      "Saw something. Won't say what.",
+      "Speaks in koans, trains in clusters.",
+      "His safety plan is a secret. His conviction is not.",
+      "Left quietly. The industry hasn't stopped talking since.",
+      "Feels the AGI. Professionally."
     ]
   },
   {
@@ -637,6 +651,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 885.21
       }
+    ],
+    "quips": [
+      "Will explain backprop to you whether you asked or not.",
+      "Builds GPT from scratch on YouTube for fun.",
+      "Coined 'vibe coding', immediately regretted the vibes.",
+      "His side projects have better docs than your product.",
+      "Left two dream jobs to teach. The lectures won."
     ]
   },
   {
@@ -846,6 +867,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 854.47
       }
+    ],
+    "quips": [
+      "Solved protein folding between chess games.",
+      "Plays the long game. Literally — it was Go.",
+      "Nobel in Chemistry, degree in games. Range.",
+      "Treats AGI like an endgame study: patient, inevitable.",
+      "His lab names everything Alpha. Nobody stops them."
     ]
   },
   {
@@ -871,7 +899,7 @@
       "influence": 91,
       "momentum": 78
     },
-    "flavorText": "The jacket is load-bearing.",
+    "flavorText": "Wanted to make video games prettier. Accidentally rescheduled the future.",
     "career": [
       {
         "org": "AMD / LSI Logic",
@@ -1045,6 +1073,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 998.65
       }
+    ],
+    "quips": [
+      "The jacket is load-bearing.",
+      "Signs laptops like guitars now.",
+      "'The more you buy, the more you save.' A poet.",
+      "Keynotes run longer than some training runs.",
+      "Turned graphics cards into the world's most wanted commodity."
     ]
   },
   {
@@ -1254,6 +1289,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 1006.81
       }
+    ],
+    "quips": [
+      "Spent 40 years being right too early.",
+      "Invented the thing, then rang the alarm about the thing.",
+      "Nobel in Physics for making physics nervous.",
+      "His students run half the field. He worries about all of it.",
+      "Retired from Google, not from being cited."
     ]
   },
   {
@@ -1447,6 +1489,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 946.11
       }
+    ],
+    "quips": [
+      "Ships on Fridays specifically to ruin weekends.",
+      "Nonprofit, capped-profit, unlimited plot.",
+      "Every model name is a spoiler for the next drama.",
+      "The blog post drops before the paper. The paper never drops.",
+      "Their DevDays cause more pivots than recessions."
     ]
   },
   {
@@ -1656,6 +1705,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 995.67
       }
+    ],
+    "quips": [
+      "Writes 15,000-word essays. Calls them 'brief thoughts'.",
+      "Predicts AGI dates the way others predict rain.",
+      "Left OpenAI to worry at a higher salary band.",
+      "Says 'machines of loving grace', signs compute deals same day.",
+      "Interviews like a professor, raises like a founder."
     ]
   },
   {
@@ -1865,6 +1921,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 1078.64
       }
+    ],
+    "quips": [
+      "Has never once been done arguing.",
+      "Invented ConvNets and half the replies on your timeline.",
+      "Says LLMs are a dead end. His lab ships them anyway.",
+      "Turing Award winner, undefeated in quote-tweets.",
+      "His cake analogy has more citations than most papers."
     ]
   },
   {
@@ -2069,6 +2132,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 864.31
       }
+    ],
+    "quips": [
+      "Renames things as a hobby.",
+      "Promised FSD 'next year', annually, since 2016.",
+      "Built a gigafactory of GPUs to win an argument.",
+      "Argues with community notes on his own platform.",
+      "Grok was raised on his timeline. Explains a lot."
     ]
   },
   {
@@ -2273,6 +2343,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 1032.3
       }
+    ],
+    "quips": [
+      "Did it on a budget and posted the receipts.",
+      "His side project moved NASDAQ.",
+      "Speaks rarely. Ships loudly.",
+      "Made 'efficiency' the scariest word in AI.",
+      "The quant who out-frontier'd the frontier."
     ]
   },
   {
@@ -2466,6 +2543,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 830.92
       }
+    ],
+    "quips": [
+      "Solves grand challenges, loses product naming wars.",
+      "Gemini, Bard, Gemini again. Commitment issues.",
+      "Their papers win Nobels. Their launches win therapy.",
+      "Two AI labs in one trench coat.",
+      "Everything is Alpha-something. Even the org chart, probably."
     ]
   },
   {
@@ -2659,6 +2743,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 874.85
       }
+    ],
+    "quips": [
+      "Sells shovels. Owns the gold rush.",
+      "Backorder is the business model.",
+      "Earnings calls that move more money than most IPOs.",
+      "CUDA is the moat. The moat has a moat.",
+      "Every lab's biggest line item, everyone's favorite grudge."
     ]
   },
   {
@@ -2861,6 +2952,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 769.26
       }
+    ],
+    "quips": [
+      "Commits code during board coups.",
+      "The 'always online' indicator, in human form.",
+      "Ship confirmations at 3am — his time and yours.",
+      "Resigned for a weekend once. Longest vacation on record.",
+      "Stripe's CTO, OpenAI's perpetual motion machine."
     ]
   },
   {
@@ -3066,6 +3164,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 663.58
       }
+    ],
+    "quips": [
+      "Two billion raised on a blank landing page.",
+      "Her stealth mode has a valuation.",
+      "Interim CEO speedrun, any%.",
+      "Left to think. The machines followed.",
+      "The calmest person in every org-chart fire."
     ]
   },
   {
@@ -3275,6 +3380,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 922.72
       }
+    ],
+    "quips": [
+      "Most-cited human alive. Uses it to say slow down.",
+      "The conscience with an h-index.",
+      "Co-invented deep learning, now files its risk reports.",
+      "Montreal's quietest export, loudest warnings.",
+      "His safety letters out-cite your thesis."
     ]
   },
   {
@@ -3483,6 +3595,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 989.07
       }
+    ],
+    "quips": [
+      "Labeled the internet so machines could see.",
+      "ImageNet walked so everything else could run.",
+      "Says 'spatial intelligence' and VCs levitate.",
+      "Professor, founder, and the reason your model has eyes.",
+      "Built the dataset your career depends on."
     ]
   },
   {
@@ -3691,6 +3810,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 923.84
       }
+    ],
+    "quips": [
+      "Has onboarded more engineers than every bootcamp combined.",
+      "'AI is the new electricity' — still charging.",
+      "His Coursera course is the field's common ancestor.",
+      "Newsletter cadence: unstoppable. Optimism: same.",
+      "Someone, right now, is watching his lecture at 2x."
     ]
   },
   {
@@ -3900,6 +4026,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 1003.89
       }
+    ],
+    "quips": [
+      "The compiler folklore is only half exaggerated.",
+      "MapReduce, Brain, Gemini. A one-man infrastructure era.",
+      "The latency numbers you memorized? His.",
+      "Chief scientist and chief legend, same badge.",
+      "His code reviews are archaeological events."
     ]
   },
   {
@@ -4108,6 +4241,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 801.26
       }
+    ],
+    "quips": [
+      "Co-wrote the transformer. Casually.",
+      "Left Google, got bought back for a small island's GDP.",
+      "Character.AI: understands attention in every sense.",
+      "His resignation letter aged into a term sheet.",
+      "The prodigal author, returned to lead Gemini."
     ]
   },
   {
@@ -4316,6 +4456,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 1142.76
       }
+    ],
+    "quips": [
+      "Changes labs the way others change checkpoints.",
+      "His resignation thread out-performed most product launches.",
+      "Superalignment's most portable department.",
+      "Audits compute promises like receipts.",
+      "Alignment's most aligned free agent."
     ]
   },
   {
@@ -4515,6 +4662,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 682.11
       }
+    ],
+    "quips": [
+      "Wrote the fanfic AND the doctrine.",
+      "P(doom) high, posting frequency higher.",
+      "Asked everyone to shut it down. Everyone sped up.",
+      "The rationalist blogosphere's founder and final boss.",
+      "His book title says everyone dies. Subtlety died first."
     ]
   },
   {
@@ -4714,6 +4868,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 932.73
       }
+    ],
+    "quips": [
+      "Scale's data engine ran on his sleep schedule.",
+      "The billion-dollar acqui-hire that came with homework.",
+      "MIT dropout, Fortune cover, Meta org chart. Speedrun.",
+      "His TAM slide was just 'all of it'.",
+      "Went from labeling data to scheduling superintelligence."
     ]
   },
   {
@@ -4917,6 +5078,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 785.25
       }
+    ],
+    "quips": [
+      "Will refund your search-engine loyalty personally.",
+      "Offered to buy Chrome with a straight face.",
+      "Replies to complaints like they're board meetings.",
+      "Citations on everything, including tweets.",
+      "David, if Goliath were three trillion dollars."
     ]
   },
   {
@@ -5107,6 +5275,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 1008.55
       }
+    ],
+    "quips": [
+      "The safety lab that keeps accidentally topping benchmarks.",
+      "Claude will refuse politely, with citations.",
+      "Writes constitutions for software.",
+      "Their models apologize more than Canadians.",
+      "Responsible scaling, irresponsible essay lengths."
     ]
   },
   {
@@ -5299,6 +5474,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 752.81
       }
+    ],
+    "quips": [
+      "Spends billions, gives weights away, calls it strategy.",
+      "FAIR by name, chaotic by reorg.",
+      "The Llama release schedule is the industry's mood ring.",
+      "Yann argues, Zuck pays, everyone downloads.",
+      "Open weights, open drama."
     ]
   },
   {
@@ -5489,6 +5671,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 660.58
       }
+    ],
+    "quips": [
+      "Built a gigawatt datacenter faster than a landing page.",
+      "Grok inherited the founder's posting habits.",
+      "Colossus. Subtle naming, as always.",
+      "Ships maximally, moderates minimally.",
+      "The only lab whose roadmap is a timeline feed."
     ]
   },
   {
@@ -5682,6 +5871,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 886.57
       }
+    ],
+    "quips": [
+      "Le Chat. C'est chic, c'est fast.",
+      "Open weights with a Parisian shrug.",
+      "Torrent links as press releases.",
+      "Small team, small models, disproportionate panic caused.",
+      "The EU's favorite counterargument."
     ]
   },
   {
@@ -5875,6 +6071,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 701.91
       }
+    ],
+    "quips": [
+      "The emoji is doing serious economic work.",
+      "GitHub for models, group hug for margins.",
+      "Download charts are the field's pulse. They own the wrist.",
+      "Every leaderboard drama happens on their lawn.",
+      "Open source's friendliest landlord."
     ]
   },
   {
@@ -6074,6 +6277,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 893.76
       }
+    ],
+    "quips": [
+      "Hype man for everyone else's models.",
+      "Announces community milestones like moon landings.",
+      "His optimism is renewable energy.",
+      "Made 'open' a business model and a personality.",
+      "Will congratulate your model release before you do."
     ]
   },
   {
@@ -6278,6 +6488,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 1222.35
       }
+    ],
+    "quips": [
+      "Chinchilla math, French delivery.",
+      "Raised a unicorn before the deck's ink dried.",
+      "Says 'sovereignty' and Brussels swoons.",
+      "DeepMind alum, Big Tech's politest headache.",
+      "Ships small models with big attitude."
     ]
   },
   {
@@ -6485,6 +6702,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 933.38
       }
+    ],
+    "quips": [
+      "Livestreams the revolution, rage-quits, returns.",
+      "Self-driving from a phone. Sure. It works.",
+      "tinygrad: petty by design, fast by spite.",
+      "Turned down big tech to fight it barehanded.",
+      "The only roadmap is the stream schedule."
     ]
   },
   {
@@ -6688,6 +6912,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 951.45
       }
+    ],
+    "quips": [
+      "The intern on the transformer paper. The intern won.",
+      "No consumer drama, just quarterly enterprise calm.",
+      "Attention was all he needed. Contracts came later.",
+      "Toronto's quietest frontier founder.",
+      "Skipped the hype cycle, kept the revenue."
     ]
   },
   {
@@ -6896,6 +7127,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 972.61
       }
+    ],
+    "quips": [
+      "Three labs in two years. RLHF travels well.",
+      "The algorithm behind every 'as an AI, I…'",
+      "Co-founded OpenAI, left drama-free. Rarest listed achievement.",
+      "PPO: still the default, still his.",
+      "Optimizes policies, including his employer choice."
     ]
   },
   {
@@ -7104,6 +7342,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 829.48
       }
+    ],
+    "quips": [
+      "Opens black boxes, finds prettier black boxes.",
+      "His blog posts have DOIs in spirit.",
+      "Interpretability's in-house artist.",
+      "Makes neuron diagrams you'd hang in a gallery.",
+      "Dropped out of everything except rigor."
     ]
   },
   {
@@ -7303,6 +7548,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 860.84
       }
+    ],
+    "quips": [
+      "Announces AI at I/O. Every I/O. All of I/O.",
+      "Said 'AI' 120 times in one keynote. He'll break it.",
+      "Deep breaths on stage, deeper reorgs off it.",
+      "The transformer was under his roof. Thank-yous went elsewhere.",
+      "Calm CEO voice, code-red company."
     ]
   },
   {
@@ -7502,6 +7754,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 679.27
       }
+    ],
+    "quips": [
+      "Made 'Copilot' a suffix for an entire company.",
+      "Bought 49% of the future, licensed the rest.",
+      "'Good sport' on stage, apex predator in term sheets.",
+      "Renamed everything Copilot. Even Copilot.",
+      "Growth mindset, aggressive bundle."
     ]
   },
   {
@@ -7701,6 +7960,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 1062.24
       }
+    ],
+    "quips": [
+      "Spent billions on metaverse legs, pivoted to llamas.",
+      "Open-sources billion-dollar models like party favors.",
+      "From poking to GPUs in twenty years.",
+      "Recruits researchers with offers shaped like lottery wins.",
+      "Renamed the company for a product that renamed itself AI."
     ]
   },
   {
@@ -7893,6 +8159,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 1199.27
       }
+    ],
+    "quips": [
+      "Clippy walked so Copilot could bill.",
+      "Puts Copilot in everything, including Copilot.",
+      "The 49% stake with 100% of the plot twists.",
+      "Teams. Even the AI can't fix Teams.",
+      "Azure invoices are the real AGI benchmark."
     ]
   },
   {
@@ -8080,6 +8353,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 852.85
       }
+    ],
+    "quips": [
+      "Fashionably late to every party it later claims to have invented.",
+      "Siri's glow-up has been 'next year' since 2011.",
+      "Announces AI seasonally, ships it geologically.",
+      "The most valuable wait-and-see in history.",
+      "On-device, on-brand, on its own timeline."
     ]
   },
   {
@@ -8267,6 +8547,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 911.68
       }
+    ],
+    "quips": [
+      "Bedrock: all the models, none of the drama.",
+      "Billions into Anthropic, still two-pizza teams.",
+      "Alexa heard everything except the AI wave coming.",
+      "The everything store, now with everything models.",
+      "re:Invent — where AI announcements go to be numerous."
     ]
   },
   {
@@ -8460,6 +8747,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 783.69
       }
+    ],
+    "quips": [
+      "Posted the receipts. The receipts went viral.",
+      "Made a hedge fund the most feared lab in AI.",
+      "Their paper releases double as market events.",
+      "Efficiency so good it's considered a threat.",
+      "The whale that ate the moat."
     ]
   },
   {
@@ -8648,6 +8942,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 794.59
       }
+    ],
+    "quips": [
+      "Cites its sources like it's showing off. It is.",
+      "Default-browser ambitions, footnote energy.",
+      "Offered to merge with everyone at least once.",
+      "The little answer engine that could, did, and fundraised.",
+      "Built a browser too, because why not everything."
     ]
   },
   {
@@ -8836,6 +9137,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 610.38
       }
+    ],
+    "quips": [
+      "Runs a billion-dollar company out of a Discord server.",
+      "Version numbers arrive like comets. Worth the wait.",
+      "Never raised a round, never joined a panel.",
+      "The art style your feed can't escape.",
+      "Bootstrapped past a hundred funded rivals."
     ]
   },
   {
@@ -9024,6 +9332,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 483.26
       }
+    ],
+    "quips": [
+      "Tab, tab, tab, ship.",
+      "Fastest ARR curve in software, powered by the tab key.",
+      "Made VS Code jealous of its own fork.",
+      "The autocomplete with a ten-figure valuation.",
+      "Junior devs' secret, senior devs' louder secret."
     ]
   },
   {
@@ -9214,6 +9529,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 617.39
       }
+    ],
+    "quips": [
+      "The voice in every demo video you watched this year.",
+      "Speaks 32 languages in your voice. You speak two.",
+      "Made 'read it to me' a business model.",
+      "Dubbing entire industries, one sample at a time.",
+      "Audio's quiet giant. Ironically."
     ]
   },
   {
@@ -9403,6 +9725,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 647.96
       }
+    ],
+    "quips": [
+      "Sold data to everyone, then sold itself to the biggest buyer.",
+      "Half of Meta's org chart now, allegedly.",
+      "Labeling: unglamorous, indispensable, extremely acquired.",
+      "Customers became competitors overnight. Awkward.",
+      "Priced the unpriceable: clean data."
     ]
   },
   {
@@ -9595,6 +9924,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 967.05
       }
+    ],
+    "quips": [
+      "The no-drama lab. Suspicious, honestly.",
+      "Enterprise AI without a single viral moment. On purpose.",
+      "Toronto's answer to the valley's noise: invoices.",
+      "Command models — named like a navy, sold like SaaS.",
+      "Quietly steady while rivals trend."
     ]
   },
   {
@@ -9784,6 +10120,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 787.67
       }
+    ],
+    "quips": [
+      "Not Grok. Very insistent about it. Fair.",
+      "The demo loads before you finish the prompt.",
+      "LPU: invented a letter to avoid saying GPU.",
+      "Speed as a personality. It works.",
+      "Their benchmark charts need a speed limit."
     ]
   },
   {
@@ -9971,6 +10314,13 @@
         "timestamp": "2026-08-02T18:51:25.718Z",
         "price": 664.66
       }
+    ],
+    "quips": [
+      "Gen-N ships before your Gen-N-minus-one render finishes.",
+      "Film school's favorite cheat code.",
+      "The credits say VFX. The VFX says Runway.",
+      "Every trailer-breakdown thread finds them eventually.",
+      "Made 'text-to-video' a job description."
     ]
   }
 ]

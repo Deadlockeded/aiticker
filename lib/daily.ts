@@ -59,5 +59,17 @@ export function isHot(cardId: string, cards: MarketCard[], key = utcDayKey()): b
 /** Temporary rating boost shown on hot cards (display only, never sorts). */
 export const HOT_BOOST = 3;
 
+/** Quip of the day — same for everyone, rotates with the UTC date. */
+export function getDailyQuip(card: MarketCard, key = utcDayKey()): string | null {
+  if (!card.quips?.length) return null;
+  return card.quips[dayHash(`quip:${key}:${card.id}`) % card.quips.length];
+}
+
+/** Client-side random quip (pack flips, arena entrances). */
+export function getRandomQuip(card: MarketCard): string | null {
+  if (!card.quips?.length) return null;
+  return card.quips[Math.floor(Math.random() * card.quips.length)];
+}
+
 
 

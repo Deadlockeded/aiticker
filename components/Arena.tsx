@@ -17,7 +17,7 @@ import { addXP, XP_REWARDS } from "@/lib/xp";
 import { checkAchievements } from "@/lib/achievements";
 import { computeCommunityRating, toMarketCard } from "@/lib/create";
 import { getScoredProfile, ScoreError } from "@/lib/score";
-import { getHotCards, HOT_BOOST } from "@/lib/daily";
+import { getHotCards, getRandomQuip, HOT_BOOST } from "@/lib/daily";
 import {
   cardVsStats,
   commentary,
@@ -187,6 +187,7 @@ export default function Arena({
   const [pickerQuery, setPickerQuery] = useState("");
   const [phase, setPhase] = useState<Phase>("setup");
   const [result, setResult] = useState<VsResult | null>(null);
+  const [entranceQuips, setEntranceQuips] = useState<(string | null)[]>([null, null]);
   const [shownRounds, setShownRounds] = useState(0);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
   const autoRan = useRef(false);
@@ -268,6 +269,10 @@ export default function Arena({
   const fight = () => {
     if (!me || !foe) return;
     const res = resolveArena(me.side, foe.side, chaos);
+    setEntranceQuips([
+      me.card ? getRandomQuip(me.card) : null,
+      foe.card ? getRandomQuip(foe.card) : null,
+    ]);
     setResult(res);
     setShownRounds(0);
     setPhase("fight");
@@ -485,7 +490,14 @@ export default function Arena({
                     )}
                   </p>
                   {fighter.card ? (
-                    <TradingCard card={fighter.card} rank={ranks[fighter.card.id]} />
+                    <>
+                      <TradingCard card={fighter.card} rank={ranks[fighter.card.id]} />
+                      {entranceQuips[side === "a" ? 0 : 1] && (
+                        <p className="mt-2 text-center text-[11px] italic leading-snug text-white/50">
+                          “{entranceQuips[side === "a" ? 0 : 1]}”
+                        </p>
+                      )}
+                    </>
                   ) : (
                     <TradingCard
                       card={toMarketCard({
