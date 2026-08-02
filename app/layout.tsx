@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Nav from "@/components/Nav";
 import Toaster from "@/components/Toaster";
+import marketMeta from "@/data/market-meta.json";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -37,10 +38,15 @@ export default function RootLayout({
         {children}
         <footer className="space-y-1.5 px-4 py-6 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white/25">
           <p>
-            aiticker is a fan-made collectible game. Simulated stats, no real
-            money, no trading.
+            aiticker is a fan-made collectible game. Index values are computed
+            from public signals (Wikipedia, OpenAlex, GitHub, HF, HN). Not
+            financial anything. No real money, no trading.
           </p>
-          <p>Series 1 · aiticker.xyz</p>
+          <p>
+            {marketMeta.lastUpdated
+              ? `Live index · updated ${new Date(marketMeta.lastUpdated).toUTCString().slice(0, 16)} · powered by public data`
+              : "Series 1 · aiticker.xyz"}
+          </p>
           <p>
             Portraits via{" "}
             <a

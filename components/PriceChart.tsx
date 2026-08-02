@@ -24,10 +24,21 @@ export default function PriceChart({ history }: { history: PricePoint[] }) {
   const y = (p: number) =>
     PAD.top + (1 - (p - min) / span) * (H - PAD.top - PAD.bottom);
 
-  const line = prices
-    .map((p, i) => `${i === 0 ? "M" : "L"}${x(i).toFixed(1)},${y(p).toFixed(1)}`)
-    .join(" ");
-  const area = `${line} L${x(prices.length - 1).toFixed(1)},${H} L${x(0).toFixed(1)},${H} Z`;
+  const pathFor = (from: number, to: number) =>
+    prices
+      .slice(from, to + 1)
+      .map(
+        (p, i) =>
+          `${i === 0 ? "M" : "L"}${x(from + i).toFixed(1)},${y(p).toFixed(1)}`,
+      )
+      .join(" ");
+
+  // pre-pipeline backfill renders faded so real data stands out
+  const lastSim = history.reduce((k, p, i) => (p.simulated ? i : k), -1);
+  const simLine = lastSim >= 0 ? pathFor(0, Math.min(lastSim + 1, prices.length - 1)) : null;
+  const realStart = Math.max(0, lastSim);
+  const line = pathFor(realStart, prices.length - 1);
+  const area = `${pathFor(0, prices.length - 1)} L${x(prices.length - 1).toFixed(1)},${H} L${x(0).toFixed(1)},${H} Z`;
 
   const onMove = (e: React.MouseEvent<SVGSVGElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -71,6 +82,18 @@ export default function PriceChart({ history }: { history: PricePoint[] }) {
           </linearGradient>
         </defs>
         <path d={area} fill="url(#chart-fill)" />
+        {simLine && (
+          <path
+            d={simLine}
+            fill="none"
+            stroke={color}
+            strokeOpacity="0.35"
+            strokeDasharray="4 4"
+            strokeWidth="2"
+            strokeLinejoin="round"
+            strokeLinecap="round"
+          />
+        )}
         <path
           d={line}
           fill="none"

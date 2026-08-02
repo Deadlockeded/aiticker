@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import MarketTable, { MoverCard } from "@/components/MarketTable";
 import { getAllCards, getRank } from "@/lib/cards";
 import { getMovers } from "@/lib/market";
+import marketMeta from "@/data/market-meta.json";
 
 export const metadata: Metadata = { title: "Market · AI Ticker" };
 
@@ -15,7 +16,9 @@ export default function MarketPage() {
       <header className="mb-8">
         <h1 className="text-2xl font-bold tracking-tight text-white">Market</h1>
         <p className="mt-1 text-sm text-white/50">
-          Simulated 24h moves across the whole index.
+          {marketMeta.lastUpdated
+            ? `Live index · updated ${new Date(marketMeta.lastUpdated).toUTCString().slice(0, 22)} UTC · powered by public data`
+            : "Daily moves across the whole index."}
         </p>
       </header>
 

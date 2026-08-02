@@ -99,6 +99,56 @@ function ChangeStat({ label, pct }: { label: string; pct: number }) {
   );
 }
 
+const SIGNAL_LABELS: [keyof NonNullable<MarketCard["signals"]>, string, string][] = [
+  ["attention7d", "Wikipedia views (7d)", "Wikimedia Pageviews"],
+  ["attentionDelta", "Attention Δ vs prior week", "Wikimedia Pageviews"],
+  ["citations", "Citations", "OpenAlex"],
+  ["hIndex", "h-index", "OpenAlex"],
+  ["works", "Published works", "OpenAlex"],
+  ["stars", "GitHub stars (top 10 repos)", "GitHub"],
+  ["ghFollowers", "GitHub followers", "GitHub"],
+  ["hfDownloads30d", "HF downloads (30d)", "Hugging Face"],
+  ["hfLikes", "HF likes", "Hugging Face"],
+  ["hnMentions7d", "HN stories (7d)", "Hacker News"],
+];
+
+function SignalsPanel({ card }: { card: MarketCard }) {
+  const rows = SIGNAL_LABELS.filter(
+    ([key]) => typeof card.signals?.[key] === "number",
+  );
+  if (rows.length === 0) return null;
+  return (
+    <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <h2 className="mb-1 font-mono text-xs uppercase tracking-[0.3em] text-white/40">
+        Signals
+      </h2>
+      <p className="mb-4 text-xs text-white/35">
+        Live public data feeding this card&apos;s rating — the receipts.
+      </p>
+      <dl className="space-y-3">
+        {rows.map(([key, label, source]) => {
+          const value = card.signals![key]!;
+          return (
+            <div key={key} className="flex items-center justify-between gap-3">
+              <dt className="text-sm text-white/60">
+                {label}{" "}
+                <span className="font-mono text-[10px] text-white/30">
+                  {source}
+                </span>
+              </dt>
+              <dd className="tnum font-mono text-sm text-white">
+                {key === "attentionDelta"
+                  ? `${value >= 0 ? "+" : ""}${value}%`
+                  : value.toLocaleString()}
+              </dd>
+            </div>
+          );
+        })}
+      </dl>
+    </div>
+  );
+}
+
 export default async function CardPage({
   params,
 }: {
@@ -145,7 +195,7 @@ export default async function CardPage({
                   {formatTicks(price)}
                 </span>
                 <span className="block font-mono text-xs text-white/40">
-                  simulated price
+                  index value
                 </span>
               </div>
               <ShareButton className="text-xs" />
@@ -155,7 +205,7 @@ export default async function CardPage({
           {/* 30-day chart */}
           <div className="rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-6">
             <h2 className="mb-3 font-mono text-xs uppercase tracking-[0.3em] text-white/40">
-              30-day price
+              Price history
             </h2>
             <PriceChart history={card.priceHistory} />
             <div className="mt-4 grid grid-cols-3 gap-3">
@@ -186,6 +236,8 @@ export default async function CardPage({
               </ol>
             </div>
           )}
+
+          <SignalsPanel card={card} />
 
           <div className="grid gap-6 sm:grid-cols-2">
             {/* raw metrics */}
