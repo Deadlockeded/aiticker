@@ -8,15 +8,10 @@ const PAGES: Record<string, { title: string; sub: string; emoji: string }> = {
     sub: "Get rated by The Algorithm. Rarity is luck.",
     emoji: "🪪",
   },
-  guess: {
-    title: "Tickerdle",
-    sub: "Guess the AI figure of the day in 6 tries.",
-    emoji: "🟩",
-  },
-  tiers: {
-    title: "Tier list maker",
-    sub: "Rank the labs. Start arguments.",
-    emoji: "🏆",
+  roast: {
+    title: "Roast my repos",
+    sub: "Three personalized roasts. Affectionate dunks only.",
+    emoji: "🧾",
   },
 };
 

@@ -7,6 +7,8 @@ const nextConfig: NextConfig = {
       { source: "/vs", destination: "/arena", permanent: true },
       { source: "/lab", destination: "/", permanent: true },
       { source: "/today", destination: "/", permanent: true },
+      { source: "/guess", destination: "/", permanent: true },
+      { source: "/tiers", destination: "/", permanent: true },
     ];
   },
   images: {

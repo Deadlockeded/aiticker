@@ -1,45 +1,12 @@
 "use client";
 
-import { useMemo, useState, useSyncExternalStore } from "react";
+import { useState } from "react";
 import Link from "next/link";
-import { subscribeStore } from "@/lib/binder";
-import { utcDayKey } from "@/lib/daily";
-import {
-  dayNumber,
-  getTickerdleSnapshot,
-  parseTickerdle,
-} from "@/lib/tickerdle";
 
-/** Homepage tiles for Tickerdle (with played state) + Make-your-card CTA. */
+/** Homepage teaser tiles. */
 export function HomeTeasers() {
-  const raw = useSyncExternalStore(subscribeStore, getTickerdleSnapshot, () => null);
-  const view = useMemo(() => {
-    if (raw === null) return null;
-    const key = utcDayKey();
-    const day = parseTickerdle(raw).days[key];
-    return { num: dayNumber(key), played: !!day?.done, won: !!day?.won };
-  }, [raw]);
-
   return (
     <section className="mb-6 grid gap-3 sm:grid-cols-2">
-      <Link
-        href="/guess"
-        className="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.03] p-4 transition-colors hover:border-cyan-400/40"
-      >
-        <div>
-          <p className="font-semibold text-white">
-            Tickerdle {view ? `#${view.num}` : ""}
-          </p>
-          <p className="mt-0.5 text-xs text-white/45">
-            {view?.played
-              ? view.won
-                ? "Solved — new puzzle at midnight UTC"
-                : "Better luck tomorrow"
-              : "Guess the AI figure of the day"}
-          </p>
-        </div>
-        <span className="text-2xl">{view?.played ? (view.won ? "🟩" : "⬛") : "❓"}</span>
-      </Link>
       <Link
         href="/create"
         className="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.03] p-4 transition-colors hover:border-cyan-400/40"
@@ -72,7 +39,7 @@ export function HomeTeasers() {
 }
 
 const NUDGES = [
-  { href: "/guess", label: "Play today's Tickerdle →" },
+  { href: "/roast", label: "Get your repos roasted →" },
   { href: "/create", label: "Make your own card →" },
 ];
 

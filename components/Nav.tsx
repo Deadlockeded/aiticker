@@ -17,8 +17,6 @@ const PRIMARY = [
 const MORE = [
   { href: "/roast", label: "Roast" },
   { href: "/shipmeter", label: "Ship Meter" },
-  { href: "/guess", label: "Tickerdle" },
-  { href: "/tiers", label: "Tiers" },
   { href: "/leaderboard", label: "Ranks" },
 ];
 
