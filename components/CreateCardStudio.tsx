@@ -25,6 +25,28 @@ import { getScoredProfile, ScoreError, type ScoredProfile } from "@/lib/score";
 import { pickStamp } from "@/lib/lines";
 import ShareButton from "./ShareButton";
 import { canShareFiles, canvasBlob, sharePng, type ShareOutcome } from "@/lib/share";
+
+/** Inline Ship Meter launcher: second handle -> deep link with both prefilled. */
+function ShipMeterInline({ handle }: { handle: string }) {
+  const [other, setOther] = useState("");
+  return (
+    <div className="mt-2 flex gap-2">
+      <input
+        value={other}
+        onChange={(e) => setOther(e.target.value)}
+        placeholder="their GitHub handle"
+        className="min-w-0 flex-1 border-2 border-[#1E2430]/40 bg-[#FDFBF6] px-3 py-2 text-sm text-[#1E2430] placeholder-[#9AA0AC] outline-none focus:border-[#C23B2E]"
+      />
+      <Link
+        href={other.trim() ? `/shipmeter?a=${handle}&b=${other.trim().replace(/^@/, "")}` : "#"}
+        aria-disabled={!other.trim()}
+        className={`bg-[#C23B2E] px-4 py-2 font-mono text-xs font-semibold uppercase tracking-widest text-[#FDFBF6] hover:bg-[#A32F24] ${!other.trim() ? "pointer-events-none opacity-40" : ""}`}
+      >
+        Measure →
+      </Link>
+    </div>
+  );
+}
 import TradingCard from "./TradingCard";
 
 const RARITY_COLORS: Record<Rarity, [string, string]> = {
@@ -506,6 +528,24 @@ export default function CreateCardStudio() {
             We only read public data. Nothing is stored or sent anywhere —
             scoring runs in your browser.
           </p>
+
+          {saved.scored && saved.handle && (
+            <div className="coupon p-4">
+              <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.25em] text-[#1E2430]">
+                ✂ Check cofounder compatibility
+              </p>
+              <p className="mt-1 text-sm text-[#5A6070]">
+                Enter a second handle — the Ship Meter runs the numbers.
+              </p>
+              <ShipMeterInline handle={saved.handle} />
+              <p className="mt-2 font-mono text-[11px] text-[#9AA0AC]">
+                Or take the other treatment:{" "}
+                <Link href="/roast" className="text-[#C23B2E] hover:underline">
+                  get your repos roasted →
+                </Link>
+              </p>
+            </div>
+          )}
         </div>
       </div>
     );
