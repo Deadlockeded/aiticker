@@ -13,17 +13,17 @@ export default function LevelPill() {
 
   return (
     <span
-      className="relative hidden shrink-0 items-center gap-1.5 overflow-hidden rounded-lg border border-white/10 bg-white/5 px-2.5 py-1.5 sm:flex"
+      className="relative hidden shrink-0 items-center gap-1.5 overflow-hidden rounded-lg border border-[#1E2430]/30 bg-[#1E2430]/5 px-2.5 py-1.5 sm:flex"
       title={`${xp} XP`}
     >
       <span
-        className="absolute inset-y-0 left-0 bg-cyan-400/10"
+        className="absolute inset-y-0 left-0 bg-[#C23B2E]/10"
         style={{ width: `${progress * 100}%` }}
       />
-      <span className="tnum relative font-mono text-[11px] font-bold text-cyan-300">
+      <span className="tnum relative font-mono text-[11px] font-bold text-[#C23B2E]">
         Lv{level}
       </span>
-      <span className="relative text-[11px] text-white/60">{title}</span>
+      <span className="relative text-[11px] text-[#5A6070]">{title}</span>
     </span>
   );
 }

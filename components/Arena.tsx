@@ -289,7 +289,7 @@ export default function Arena({
 
   if (owned === null || record === null) {
     return (
-      <p className="py-24 text-center font-mono text-xs uppercase tracking-[0.3em] text-white/30">
+      <p className="py-24 text-center font-mono text-xs uppercase tracking-[0.3em] text-[#9AA0AC]">
         Opening the arena…
       </p>
     );
@@ -299,13 +299,13 @@ export default function Arena({
     return (
       <div className="flex flex-col items-center gap-5 py-24 text-center">
         <p className="text-5xl">⚔️</p>
-        <p className="text-white/60">
+        <p className="text-[#5A6070]">
           You fight with cards from your binder — rip your free daily packs
           first.
         </p>
         <Link
           href="/packs"
-          className="rounded-lg bg-cyan-400 px-6 py-2.5 text-sm font-semibold text-black transition-colors hover:bg-cyan-300"
+          className="rounded-lg bg-[#C23B2E] px-6 py-2.5 text-sm font-semibold text-[#FDFBF6] transition-colors hover:bg-[#A32F24]"
         >
           Rip a pack
         </Link>
@@ -328,9 +328,9 @@ export default function Arena({
 
   return (
     <div>
-      <p className="mb-6 text-center font-mono text-xs text-white/40">
-        Streak <span className="tnum text-white">{record.current}</span> · Best{" "}
-        <span className="tnum text-white">{record.best}</span> ·{" "}
+      <p className="mb-6 text-center font-mono text-xs text-[#9AA0AC]">
+        Streak <span className="tnum text-[#1E2430]">{record.current}</span> · Best{" "}
+        <span className="tnum text-[#1E2430]">{record.best}</span> ·{" "}
         <span className="tnum">{record.wins}W–{record.losses}L</span> · zero
         stakes, cards are never lost
       </p>
@@ -339,8 +339,8 @@ export default function Arena({
         <>
           <div className="grid gap-4 md:grid-cols-2">
             {/* fighter */}
-            <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
-              <p className="mb-2 font-mono text-[10px] uppercase tracking-widest text-white/40">
+            <div className="rounded-xl border border-[#1E2430]/30 bg-[#FDFBF6] p-3">
+              <p className="mb-2 font-mono text-[10px] uppercase tracking-widest text-[#9AA0AC]">
                 Your fighter · from your binder
               </p>
               <div className="grid max-h-56 grid-cols-1 gap-1.5 overflow-y-auto sm:grid-cols-2">
@@ -350,15 +350,15 @@ export default function Arena({
                     onClick={() => setMe(cardFighter(card))}
                     className={`flex items-center gap-2.5 rounded-lg border p-2 text-left transition-colors ${
                       me?.side.cardId === card.id
-                        ? "border-cyan-400/60 bg-cyan-400/10"
-                        : "border-white/10 bg-white/[0.02] hover:bg-white/[0.06]"
+                        ? "border-[#C23B2E] bg-[#C23B2E]/10"
+                        : "border-[#1E2430]/30 bg-[#1E2430]/[0.03] hover:bg-[#1E2430]/10"
                     }`}
                   >
                     <span className="h-8 w-8 shrink-0">
                       <CardArt card={card} />
                     </span>
                     <span className="min-w-0">
-                      <span className="block truncate text-[13px] font-medium text-white">
+                      <span className="block truncate text-[13px] font-medium text-[#1E2430]">
                         {card.name}
                         {hotIds.has(card.id) && (
                           <span className="ml-1 font-mono text-[10px] text-orange-300">
@@ -366,7 +366,7 @@ export default function Arena({
                           </span>
                         )}
                       </span>
-                      <span className="tnum font-mono text-[11px] text-white/40">
+                      <span className="tnum font-mono text-[11px] text-[#9AA0AC]">
                         {card.rating} ovr
                       </span>
                     </span>
@@ -376,8 +376,8 @@ export default function Arena({
             </div>
 
             {/* opponent */}
-            <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
-              <p className="mb-2 font-mono text-[10px] uppercase tracking-widest text-white/40">
+            <div className="rounded-xl border border-[#1E2430]/30 bg-[#FDFBF6] p-3">
+              <p className="mb-2 font-mono text-[10px] uppercase tracking-widest text-[#9AA0AC]">
                 Opponent · index card, GitHub handle, or chaos
               </p>
               <div className="relative">
@@ -385,10 +385,10 @@ export default function Arena({
                   value={pickerQuery}
                   onChange={(e) => setPickerQuery(e.target.value)}
                   placeholder="Search Series 1 cards…"
-                  className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-white placeholder-white/25 outline-none focus:border-cyan-400/50"
+                  className="w-full rounded-lg border border-[#1E2430]/30 bg-[#1E2430]/5 px-3 py-2 text-sm text-[#1E2430] placeholder-[#9AA0AC] outline-none focus:border-[#C23B2E]/70"
                 />
                 {pickerMatches.length > 0 && (
-                  <ul className="absolute inset-x-0 top-full z-20 mt-1 overflow-hidden rounded-xl border border-white/15 bg-[#131316] py-1 shadow-xl max-md:fixed max-md:inset-x-0 max-md:bottom-0 max-md:top-auto max-md:z-50 max-md:max-h-[55vh] max-md:overflow-y-auto max-md:rounded-b-none max-md:rounded-t-2xl max-md:border-t max-md:pb-[env(safe-area-inset-bottom)]">
+                  <ul className="absolute inset-x-0 top-full z-20 mt-1 overflow-hidden rounded-xl border border-[#1E2430]/40 bg-[#FDFBF6] py-1 shadow-xl max-md:fixed max-md:inset-x-0 max-md:bottom-0 max-md:top-auto max-md:z-50 max-md:max-h-[55vh] max-md:overflow-y-auto max-md:rounded-b-none max-md:rounded-t-2xl max-md:border-t max-md:pb-[env(safe-area-inset-bottom)]">
                     {pickerMatches.map((card) => (
                       <li key={card.id}>
                         <button
@@ -396,13 +396,13 @@ export default function Arena({
                             loadFoe(`card:${card.id}`);
                             setPickerQuery("");
                           }}
-                          className="flex w-full items-center gap-2 px-3 py-1.5 text-left text-sm text-white/80 hover:bg-white/5"
+                          className="flex w-full items-center gap-2 px-3 py-1.5 text-left text-sm text-[#5A6070] hover:bg-[#1E2430]/5"
                         >
                           <span className="h-6 w-6 shrink-0">
                             <CardArt card={card} />
                           </span>
                           <span className="truncate">{card.name}</span>
-                          <span className="tnum ml-auto font-mono text-[10px] text-white/35">
+                          <span className="tnum ml-auto font-mono text-[10px] text-[#9AA0AC]">
                             {card.rating}
                           </span>
                         </button>
@@ -417,11 +417,11 @@ export default function Arena({
                   onChange={(e) => setHandleInput(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && handleInput.trim() && loadFoe(handleInput.trim())}
                   placeholder="…or a GitHub handle"
-                  className="min-w-0 flex-1 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-white placeholder-white/25 outline-none focus:border-cyan-400/50"
+                  className="min-w-0 flex-1 rounded-lg border border-[#1E2430]/30 bg-[#1E2430]/5 px-3 py-2 text-sm text-[#1E2430] placeholder-[#9AA0AC] outline-none focus:border-[#C23B2E]/70"
                 />
                 <button
                   onClick={() => handleInput.trim() && loadFoe(handleInput.trim())}
-                  className="rounded-lg border border-white/15 px-3 py-2 text-sm text-white/80 hover:bg-white/5"
+                  className="rounded-lg border border-[#1E2430]/40 px-3 py-2 text-sm text-[#5A6070] hover:bg-[#1E2430]/5"
                 >
                   Score
                 </button>
@@ -437,15 +437,15 @@ export default function Arena({
                 </button>
               </div>
               {foeLoading && (
-                <p className="mt-2 font-mono text-[11px] text-white/40">
+                <p className="mt-2 font-mono text-[11px] text-[#9AA0AC]">
                   Scoring {foeLoading}…
                 </p>
               )}
               {foeError && (
-                <p className="mt-2 text-xs text-red-300">{foeError}</p>
+                <p className="mt-2 text-xs text-[#C23B2E]">{foeError}</p>
               )}
               {foe && (
-                <p className="mt-2 font-mono text-[11px] text-cyan-300">
+                <p className="mt-2 font-mono text-[11px] text-[#C23B2E]">
                   Opponent locked: {foe.side.label} ({foe.side.rating})
                   {foe.hot && ` · 🔥 +${HOT_BOOST} today`}
                   {chaos && " · chaos mode"}
@@ -457,7 +457,7 @@ export default function Arena({
             <button
               onClick={fight}
               disabled={!me || !foe}
-              className="rounded-lg bg-cyan-400 px-10 py-3 text-base font-semibold text-black transition-colors hover:bg-cyan-300 disabled:cursor-not-allowed disabled:opacity-40"
+              className="rounded-lg bg-[#C23B2E] px-10 py-3 text-base font-semibold text-[#FDFBF6] transition-colors hover:bg-[#A32F24] disabled:cursor-not-allowed disabled:opacity-40"
             >
               Fight
             </button>
@@ -479,7 +479,7 @@ export default function Arena({
                   key={side}
                   className={`origin-bottom ${side === "a" ? "rotate-[-2.5deg]" : "rotate-[2.5deg]"} ${lostLast ? "hit-shake" : ""} ${wonMatch ? "winner-pulse" : ""}`}
                 >
-                  <p className="mb-2 text-center font-mono text-[10px] uppercase tracking-widest text-white/40">
+                  <p className="mb-2 text-center font-mono text-[10px] uppercase tracking-widest text-[#9AA0AC]">
                     {side === "a" ? "You" : "Opponent"}
                     {fighter.hot && (
                       <span className="ml-1 text-orange-300">🔥 +{HOT_BOOST}</span>
@@ -489,7 +489,7 @@ export default function Arena({
                     <>
                       <TradingCard card={fighter.card} rank={ranks[fighter.card.id]} />
                       {entranceQuips[side === "a" ? 0 : 1] && (
-                        <p className="mt-2 text-center text-[11px] italic leading-snug text-white/50">
+                        <p className="mt-2 text-center text-[11px] italic leading-snug text-[#5A6070]">
                           “{entranceQuips[side === "a" ? 0 : 1]}”
                         </p>
                       )}
@@ -521,32 +521,32 @@ export default function Arena({
 
           <div className="mx-auto mt-6 max-w-2xl space-y-2">
             {decided.map((round, i) => (
-              <div key={i} className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
-                <div className="mb-1.5 flex items-center justify-between font-mono text-[10px] uppercase tracking-widest text-white/40">
+              <div key={i} className="rounded-xl border border-[#1E2430]/30 bg-[#FDFBF6] p-3">
+                <div className="mb-1.5 flex items-center justify-between font-mono text-[10px] uppercase tracking-widest text-[#9AA0AC]">
                   <span>
                     Round {i + 1} · {round.label}
                   </span>
                   {round.upset && <span className="text-amber-400">upset!</span>}
                 </div>
                 <div className="flex items-center gap-3">
-                  <span className={`tnum w-7 text-right font-mono text-sm ${round.winner === "a" ? "font-bold text-emerald-400" : "text-white/60"}`}>
+                  <span className={`tnum w-7 text-right font-mono text-sm ${round.winner === "a" ? "font-bold text-[#1F7A3D]" : "text-[#5A6070]"}`}>
                     {round.a}
                   </span>
                   <div className="flex h-1.5 flex-1 gap-1">
-                    <div className="flex flex-1 justify-end overflow-hidden rounded-full bg-white/10">
+                    <div className="flex flex-1 justify-end overflow-hidden rounded-full bg-[#1E2430]/10">
                       <div
-                        className={`h-full rounded-full transition-all duration-700 ${round.winner === "a" ? "bg-emerald-400" : "bg-white/40"}`}
+                        className={`h-full rounded-full transition-all duration-700 ${round.winner === "a" ? "bg-[#1F7A3D]" : "bg-white/40"}`}
                         style={{ width: `${round.a}%` }}
                       />
                     </div>
-                    <div className="flex flex-1 overflow-hidden rounded-full bg-white/10">
+                    <div className="flex flex-1 overflow-hidden rounded-full bg-[#1E2430]/10">
                       <div
-                        className={`h-full rounded-full transition-all duration-700 ${round.winner === "b" ? "bg-emerald-400" : "bg-white/40"}`}
+                        className={`h-full rounded-full transition-all duration-700 ${round.winner === "b" ? "bg-[#1F7A3D]" : "bg-white/40"}`}
                         style={{ width: `${round.b}%` }}
                       />
                     </div>
                   </div>
-                  <span className={`tnum w-7 font-mono text-sm ${round.winner === "b" ? "font-bold text-emerald-400" : "text-white/60"}`}>
+                  <span className={`tnum w-7 font-mono text-sm ${round.winner === "b" ? "font-bold text-[#1F7A3D]" : "text-[#5A6070]"}`}>
                     {round.b}
                   </span>
                 </div>
@@ -556,23 +556,23 @@ export default function Arena({
 
           {phase === "done" && (
             <div className="mt-6 text-center">
-              <p className="text-xl font-bold text-white">
+              <p className="text-xl font-bold text-[#1E2430]">
                 {result.winner === "tie"
                   ? `Dead heat ${result.aWins}–${result.bWins}`
                   : `${winnerLabel} takes it ${Math.max(result.aWins, result.bWins)}–${Math.min(result.aWins, result.bWins)}`}
-                <span className="ml-2 font-mono text-sm text-cyan-300">
+                <span className="ml-2 font-mono text-sm text-[#C23B2E]">
                   +{result.winner === "a" ? XP_REWARDS.battleWin : XP_REWARDS.battleLoss} XP
                 </span>
               </p>
               {result.winner !== "tie" && (
-                <p className="mt-1 text-sm text-white/55">
+                <p className="mt-1 text-sm text-[#5A6070]">
                   {commentary(result, winnerLabel)}
                 </p>
               )}
               <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
                 <button
                   onClick={fight}
-                  className="rounded-lg bg-cyan-400 px-6 py-2.5 text-sm font-semibold text-black transition-colors hover:bg-cyan-300"
+                  className="rounded-lg bg-[#C23B2E] px-6 py-2.5 text-sm font-semibold text-[#FDFBF6] transition-colors hover:bg-[#A32F24]"
                 >
                   Rematch
                 </button>
@@ -581,13 +581,13 @@ export default function Arena({
                     setPhase("setup");
                     setFoe(null);
                   }}
-                  className="rounded-lg border border-white/15 px-6 py-2.5 text-sm font-semibold text-white/80 transition-colors hover:bg-white/5"
+                  className="rounded-lg border border-[#1E2430]/40 px-6 py-2.5 text-sm font-semibold text-[#5A6070] transition-colors hover:bg-[#1E2430]/5"
                 >
                   New opponent
                 </button>
                 <button
                   onClick={async () => setShareMode(await exportArenaPng(me.side, foe.side, result))}
-                  className="rounded-lg border border-white/15 px-6 py-2.5 text-sm font-semibold text-white/80 transition-colors hover:bg-white/5"
+                  className="rounded-lg border border-[#1E2430]/40 px-6 py-2.5 text-sm font-semibold text-[#5A6070] transition-colors hover:bg-[#1E2430]/5"
                 >
                   Share result
                 </button>

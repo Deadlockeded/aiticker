@@ -34,11 +34,11 @@ export default function RivalryArt({
         <div
           className={`flex flex-col items-center ${i === 0 ? "-translate-x-1/4" : "translate-x-1/4"}`}
         >
-          <span className={`font-mono font-bold text-white ${hero ? "text-4xl" : "text-xl"}`}>
+          <span className={`font-mono font-bold text-[#1E2430] ${hero ? "text-4xl" : "text-xl"}`}>
             {sides[i].avatar}
           </span>
           <span
-            className={`mt-1 font-mono uppercase tracking-wider text-white/60 ${
+            className={`mt-1 font-mono uppercase tracking-wider text-[#5A6070] ${
               hero ? "text-xs" : "text-[8px]"
             }`}
           >

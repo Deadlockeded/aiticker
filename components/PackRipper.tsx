@@ -67,7 +67,7 @@ function PackGraphic({
     <div className={`relative mx-auto w-52 sm:w-60 ${shaking ? "pack-shake" : ""}`}>
       {/* tear strip */}
       <div
-        className={`relative z-10 h-9 rounded-t-2xl border-x border-t border-white/25 bg-gradient-to-r from-indigo-500 via-fuchsia-500 to-amber-400 ${
+        className={`relative z-10 h-9 rounded-t-2xl border-x border-t border-[#1E2430]/40 bg-gradient-to-r from-indigo-500 via-fuchsia-500 to-amber-400 ${
           tearing ? "pack-tear-top" : ""
         }`}
       >
@@ -78,7 +78,7 @@ function PackGraphic({
       </div>
       {/* body */}
       <div
-        className={`relative aspect-[3/4] overflow-hidden rounded-b-2xl border-x border-b border-white/25 bg-gradient-to-b from-indigo-950 via-slate-900 to-slate-950 shadow-[0_0_60px_-12px_rgba(139,92,246,0.7)] ${
+        className={`relative aspect-[3/4] overflow-hidden rounded-b-2xl border-x border-b border-[#1E2430]/40 bg-gradient-to-b from-indigo-950 via-slate-900 to-slate-950 shadow-[0_0_60px_-12px_rgba(139,92,246,0.7)] ${
           tearing ? "pack-vanish" : ""
         }`}
       >
@@ -86,13 +86,13 @@ function PackGraphic({
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
           <div className="mythic-border rounded-full p-[3px]">
             <div className="flex h-20 w-20 items-center justify-center rounded-full bg-slate-950">
-              <span className="font-mono text-2xl font-black text-white">AI</span>
+              <span className="font-mono text-2xl font-black text-[#1E2430]">AI</span>
             </div>
           </div>
           <span className="bg-gradient-to-r from-cyan-300 via-white to-fuchsia-300 bg-clip-text text-2xl font-black uppercase tracking-tight text-transparent">
             AI Ticker
           </span>
-          <span className="font-mono text-[10px] uppercase tracking-[0.35em] text-white/50">
+          <span className="font-mono text-[10px] uppercase tracking-[0.35em] text-[#5A6070]">
             Series 1 · 3 cards
           </span>
         </div>
@@ -103,7 +103,7 @@ function PackGraphic({
 
 function CardBack() {
   return (
-    <div className="absolute inset-0 overflow-hidden rounded-xl border border-white/20 bg-gradient-to-b from-slate-900 via-indigo-950 to-slate-950 [backface-visibility:hidden]">
+    <div className="absolute inset-0 overflow-hidden rounded-xl border border-[#1E2430]/40 bg-gradient-to-b from-slate-900 via-indigo-950 to-slate-950 [backface-visibility:hidden]">
       <div
         className="absolute inset-0 opacity-30"
         style={{
@@ -114,10 +114,10 @@ function CardBack() {
       <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
         <div className="mythic-border rounded-full p-[2px]">
           <div className="flex h-14 w-14 items-center justify-center rounded-full bg-slate-950">
-            <span className="font-mono text-lg font-black text-white">AI</span>
+            <span className="font-mono text-lg font-black text-[#1E2430]">AI</span>
           </div>
         </div>
-        <span className="font-mono text-[9px] uppercase tracking-[0.4em] text-white/40">
+        <span className="font-mono text-[9px] uppercase tracking-[0.4em] text-[#9AA0AC]">
           Tap to reveal
         </span>
       </div>
@@ -233,7 +233,7 @@ export default function PackRipper({
         <div className="pointer-events-none fixed inset-0 z-50 bg-white transition-opacity duration-700" style={{ animation: "glow-flash 0.9s ease-out forwards" }} />
       )}
 
-      <p className="mb-8 text-center font-mono text-xs uppercase tracking-[0.3em] text-white/40">
+      <p className="mb-8 text-center font-mono text-xs uppercase tracking-[0.3em] text-[#9AA0AC]">
         {mounted
           ? packsLeft > 0
             ? `${packsLeft} of ${PACKS_PER_DAY} free packs left today`
@@ -248,7 +248,7 @@ export default function PackRipper({
             <button
               onClick={rip}
               disabled={!mounted || phase === "ripping" || packsLeft === 0}
-              className="rounded-lg bg-cyan-400 px-8 py-3 text-base font-semibold text-black transition-colors hover:bg-cyan-300 disabled:cursor-not-allowed disabled:opacity-40"
+              className="rounded-lg bg-[#C23B2E] px-8 py-3 text-base font-semibold text-[#FDFBF6] transition-colors hover:bg-[#A32F24] disabled:cursor-not-allowed disabled:opacity-40"
             >
               {phase === "ripping" ? "Ripping…" : "Rip a Pack"}
             </button>
@@ -285,17 +285,17 @@ export default function PackRipper({
                 </div>
               </button>
               {flipped[i] && card.id === "agi" && (
-                <p className="mt-2 text-center font-mono text-[12px] text-white/70">
+                <p className="mt-2 text-center font-mono text-[12px] text-[#5A6070]">
                   well.
                 </p>
               )}
               {flipped[i] && card.id !== "agi" && flipQuips[i] && (
-                <p className="deal-in mt-2 text-center text-[11px] italic leading-snug text-white/50">
+                <p className="deal-in mt-2 text-center text-[11px] italic leading-snug text-[#5A6070]">
                   “{flipQuips[i]}”
                 </p>
               )}
               {flipped[i] && card.type === "artifact" && card.id !== "agi" && preOwned.has(card.id) && (
-                <p className="mt-1 text-center font-mono text-[10px] text-white/35">
+                <p className="mt-1 text-center font-mono text-[10px] text-[#9AA0AC]">
                   another one.
                 </p>
               )}
@@ -306,7 +306,7 @@ export default function PackRipper({
           <div className="mt-10 text-center">
             {allFlipped ? (
               <div className="space-y-4">
-                <p className="font-mono text-sm text-emerald-400">
+                <p className="font-mono text-sm text-[#1F7A3D]">
                   ✓ Saved to your binder
                 </p>
                 <ViralNudge />
@@ -321,21 +321,21 @@ export default function PackRipper({
                   {packsLeft > 0 && (
                     <button
                       onClick={rip}
-                      className="rounded-lg bg-cyan-400 px-6 py-2.5 text-sm font-semibold text-black transition-colors hover:bg-cyan-300"
+                      className="rounded-lg bg-[#C23B2E] px-6 py-2.5 text-sm font-semibold text-[#FDFBF6] transition-colors hover:bg-[#A32F24]"
                     >
                       Rip another
                     </button>
                   )}
                   <Link
                     href="/binder"
-                    className="rounded-lg border border-white/15 px-6 py-2.5 text-sm font-semibold text-white/80 transition-colors hover:bg-white/5"
+                    className="rounded-lg border border-[#1E2430]/40 px-6 py-2.5 text-sm font-semibold text-[#5A6070] transition-colors hover:bg-[#1E2430]/5"
                   >
                     View binder
                   </Link>
                 </div>
               </div>
             ) : (
-              <p className="font-mono text-xs uppercase tracking-[0.3em] text-white/40">
+              <p className="font-mono text-xs uppercase tracking-[0.3em] text-[#9AA0AC]">
                 Tap each card to reveal
               </p>
             )}

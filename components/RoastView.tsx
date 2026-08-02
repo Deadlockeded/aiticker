@@ -116,18 +116,18 @@ export default function RoastView() {
           onChange={(e) => setHandle(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && roast()}
           placeholder="your GitHub handle"
-          className="min-w-0 flex-1 rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-sm text-white placeholder-white/25 outline-none focus:border-cyan-400/50"
+          className="min-w-0 flex-1 rounded-lg border border-[#1E2430]/30 bg-[#1E2430]/5 px-3 py-2.5 text-sm text-[#1E2430] placeholder-[#9AA0AC] outline-none focus:border-[#C23B2E]/70"
         />
         <button
           onClick={roast}
           disabled={loading || !handle.trim()}
-          className="rounded-lg bg-cyan-400 px-5 py-2.5 text-sm font-semibold text-black transition-colors hover:bg-cyan-300 disabled:cursor-not-allowed disabled:opacity-40"
+          className="rounded-lg bg-[#C23B2E] px-5 py-2.5 text-sm font-semibold text-[#FDFBF6] transition-colors hover:bg-[#A32F24] disabled:cursor-not-allowed disabled:opacity-40"
         >
           {loading ? "Reading…" : "Roast me"}
         </button>
       </div>
-      {error && <p className="mt-3 text-center text-sm text-red-300">{error}</p>}
-      <p className="mt-2 text-center font-mono text-[11px] text-white/35">
+      {error && <p className="mt-3 text-center text-sm text-[#C23B2E]">{error}</p>}
+      <p className="mt-2 text-center font-mono text-[11px] text-[#9AA0AC]">
         For laughs — we only read public data, nothing is stored.
       </p>
 
@@ -173,7 +173,7 @@ export default function RoastView() {
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
             <button
               onClick={async () => setShareMode(await exportPng(result.facts, result.roasts))}
-              className="rounded-lg bg-cyan-400 px-5 py-2.5 text-sm font-semibold text-black transition-colors hover:bg-cyan-300"
+              className="rounded-lg bg-[#C23B2E] px-5 py-2.5 text-sm font-semibold text-[#FDFBF6] transition-colors hover:bg-[#A32F24]"
             >
               Share receipt
             </button>
@@ -190,16 +190,16 @@ export default function RoastView() {
               <a href="" target="_blank" className="underline">open in browser ↗</a>
             </p>
           )}
-          <p className="mt-4 text-center font-mono text-[11px] text-white/40">
-            <Link href="/arena" className="text-cyan-300 hover:underline">
+          <p className="mt-4 text-center font-mono text-[11px] text-[#9AA0AC]">
+            <Link href="/arena" className="text-[#C23B2E] hover:underline">
               Avenge yourself →
             </Link>{" "}
             ·{" "}
-            <Link href="/create" className="text-cyan-300 hover:underline">
+            <Link href="/create" className="text-[#C23B2E] hover:underline">
               Get rated →
             </Link>{" "}
             ·{" "}
-            <Link href="/shipmeter" className="text-cyan-300 hover:underline">
+            <Link href="/shipmeter" className="text-[#C23B2E] hover:underline">
               Now run the compatibility check →
             </Link>
           </p>

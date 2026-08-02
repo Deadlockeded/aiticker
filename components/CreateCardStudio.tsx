@@ -269,14 +269,14 @@ const DEFAULT_SLIDERS: CommunitySliders = {
 };
 
 const inputClass =
-  "w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-sm text-white placeholder-white/25 outline-none focus:border-cyan-400/50";
+  "w-full rounded-lg border border-[#1E2430]/30 bg-[#1E2430]/5 px-3 py-2.5 text-sm text-[#1E2430] placeholder-[#9AA0AC] outline-none focus:border-[#C23B2E]/70";
 
 function SourceChip({ label, state }: { label: string; state: boolean | null }) {
   if (state === null) return null;
   return (
     <span
       className={`rounded-md px-2 py-0.5 font-mono text-[10px] ${
-        state ? "bg-emerald-400/10 text-emerald-300" : "bg-white/5 text-white/35 line-through"
+        state ? "bg-[#1F7A3D]/10 text-emerald-300" : "bg-[#1E2430]/5 text-[#9AA0AC] line-through"
       }`}
     >
       {state ? "✓" : "✗"} {label}
@@ -316,7 +316,7 @@ export default function CreateCardStudio() {
 
   if (savedRaw === null) {
     return (
-      <p className="py-24 text-center font-mono text-xs uppercase tracking-[0.3em] text-white/30">
+      <p className="py-24 text-center font-mono text-xs uppercase tracking-[0.3em] text-[#9AA0AC]">
         Warming up The Algorithm…
       </p>
     );
@@ -411,26 +411,26 @@ export default function CreateCardStudio() {
         </div>
         <div className="flex flex-col gap-4">
           <div>
-            <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-cyan-400/80">
+            <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-[#C23B2E]">
               The Algorithm has spoken
               {saved.scored === false && " · manual build"}
             </p>
-            <h2 className="mt-1 text-2xl font-bold text-white">
+            <h2 className="mt-1 text-2xl font-bold text-[#1E2430]">
               {saved.handle ? `@${saved.handle}` : saved.name} ·{" "}
               <span className="tnum">{saved.rating}</span> OVR ·{" "}
               <span className="capitalize">{saved.rarity}</span>
             </h2>
             {saved.stamp && (
-              <p className="mt-2 inline-block rotate-[-3deg] rounded border-2 border-red-500/60 px-2 py-0.5 font-mono text-[11px] font-black uppercase tracking-widest text-red-400">
+              <p className="mt-2 inline-block rotate-[-3deg] rounded border-2 border-red-500/60 px-2 py-0.5 font-mono text-[11px] font-black uppercase tracking-widest text-[#C23B2E]">
                 {saved.stamp}
               </p>
             )}
             {saved.verdict && (
-              <p className="mt-2 text-base italic text-white/70">
+              <p className="mt-2 text-base italic text-[#5A6070]">
                 “{saved.verdict}”
               </p>
             )}
-            <p className="mt-1 text-sm text-white/50">
+            <p className="mt-1 text-sm text-[#5A6070]">
               {saved.scored
                 ? "Scored from your public footprint, in your browser. Deterministic — same handle, same stats. The rarity was luck."
                 : "Same name, same rating — the verdict is deterministic. The rarity was luck."}
@@ -442,7 +442,7 @@ export default function CreateCardStudio() {
                 <SourceChip label="Hacker News" state={sources.hackernews} />
                 <SourceChip label="OpenAlex" state={sources.openalex} />
                 {wasCached && (
-                  <span className="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] text-white/35">
+                  <span className="rounded-md bg-[#1E2430]/5 px-2 py-0.5 font-mono text-[10px] text-[#9AA0AC]">
                     cached this session
                   </span>
                 )}
@@ -452,21 +452,21 @@ export default function CreateCardStudio() {
           <div className="flex flex-wrap gap-3">
             <button
               onClick={async () => setShareMode(await exportPng(saved))}
-              className="rounded-lg bg-cyan-400 px-5 py-2.5 text-sm font-semibold text-black transition-colors hover:bg-cyan-300"
+              className="rounded-lg bg-[#C23B2E] px-5 py-2.5 text-sm font-semibold text-[#FDFBF6] transition-colors hover:bg-[#A32F24]"
             >
               Share card
             </button>
             <ShareButton label="Copy share text" text={shareText(saved)} url="" className="text-sm" />
             <Link
               href="/arena"
-              className="rounded-lg border border-cyan-400/40 px-5 py-2.5 text-sm font-semibold text-cyan-300 transition-colors hover:bg-cyan-400/10"
+              className="rounded-lg border border-[#C23B2E]/60 px-5 py-2.5 text-sm font-semibold text-[#C23B2E] transition-colors hover:bg-[#C23B2E]/10"
             >
               Challenge someone →
             </Link>
             <button
               onClick={reroll}
               disabled={left <= 0}
-              className="rounded-lg border border-white/15 px-5 py-2.5 text-sm font-semibold text-white/80 transition-colors hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
+              className="rounded-lg border border-[#1E2430]/40 px-5 py-2.5 text-sm font-semibold text-[#5A6070] transition-colors hover:bg-[#1E2430]/5 disabled:cursor-not-allowed disabled:opacity-40"
             >
               Re-roll rarity ({left}/{REROLLS_PER_DAY} today)
             </button>
@@ -482,13 +482,13 @@ export default function CreateCardStudio() {
                 }
                 setEditing(true);
               }}
-              className="rounded-lg border border-white/15 px-5 py-2.5 text-sm text-white/70 hover:bg-white/5"
+              className="rounded-lg border border-[#1E2430]/40 px-5 py-2.5 text-sm text-[#5A6070] hover:bg-[#1E2430]/5"
             >
               Re-make
             </button>
             <button
               onClick={() => clearCommunityCard()}
-              className="rounded-lg px-3 py-2.5 text-sm text-white/35 hover:text-white"
+              className="rounded-lg px-3 py-2.5 text-sm text-[#9AA0AC] hover:text-[#1E2430]"
             >
               Delete
             </button>
@@ -502,7 +502,7 @@ export default function CreateCardStudio() {
               </a>
             </p>
           )}
-          <p className="font-mono text-[11px] text-white/35">
+          <p className="font-mono text-[11px] text-[#9AA0AC]">
             We only read public data. Nothing is stored or sent anywhere —
             scoring runs in your browser.
           </p>
@@ -514,7 +514,7 @@ export default function CreateCardStudio() {
   // ---------------- forms ----------------
   return (
     <div className="mx-auto max-w-xl">
-      <div className="mb-4 flex rounded-lg bg-white/5 p-0.5">
+      <div className="mb-4 flex rounded-lg bg-[#1E2430]/5 p-0.5">
         {(
           [
             ["rated", "Get rated"],
@@ -525,7 +525,7 @@ export default function CreateCardStudio() {
             key={id}
             onClick={() => setTab(id)}
             className={`flex-1 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
-              tab === id ? "bg-white/12 text-white" : "text-white/50 hover:text-white/80"
+              tab === id ? "bg-[#1E2430]/15 text-[#1E2430]" : "text-[#5A6070] hover:text-[#5A6070]"
             }`}
           >
             {label}
@@ -534,9 +534,9 @@ export default function CreateCardStudio() {
       </div>
 
       {tab === "rated" ? (
-        <div className="space-y-4 rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+        <div className="space-y-4 rounded-2xl border border-[#1E2430]/30 bg-[#FDFBF6] p-6">
           <div>
-            <label className="mb-1 block font-mono text-[11px] uppercase tracking-wider text-white/40">
+            <label className="mb-1 block font-mono text-[11px] uppercase tracking-wider text-[#9AA0AC]">
               GitHub username *
             </label>
             <input
@@ -549,8 +549,8 @@ export default function CreateCardStudio() {
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="mb-1 block font-mono text-[11px] uppercase tracking-wider text-white/40">
-                Hugging Face <span className="text-white/25">optional</span>
+              <label className="mb-1 block font-mono text-[11px] uppercase tracking-wider text-[#9AA0AC]">
+                Hugging Face <span className="text-[#9AA0AC]">optional</span>
               </label>
               <input
                 value={hfHandle}
@@ -560,8 +560,8 @@ export default function CreateCardStudio() {
               />
             </div>
             <div>
-              <label className="mb-1 block font-mono text-[11px] uppercase tracking-wider text-white/40">
-                Hacker News <span className="text-white/25">optional</span>
+              <label className="mb-1 block font-mono text-[11px] uppercase tracking-wider text-[#9AA0AC]">
+                Hacker News <span className="text-[#9AA0AC]">optional</span>
               </label>
               <input
                 value={hnHandle}
@@ -572,8 +572,8 @@ export default function CreateCardStudio() {
             </div>
           </div>
           <div>
-            <label className="mb-1 block font-mono text-[11px] uppercase tracking-wider text-white/40">
-              Title <span className="text-white/25">display only, never scored</span>
+            <label className="mb-1 block font-mono text-[11px] uppercase tracking-wider text-[#9AA0AC]">
+              Title <span className="text-[#9AA0AC]">display only, never scored</span>
             </label>
             <input
               value={ratedTitle}
@@ -583,30 +583,30 @@ export default function CreateCardStudio() {
             />
           </div>
           {error && (
-            <p className="rounded-lg border border-red-400/30 bg-red-400/10 px-3 py-2 text-sm text-red-300">
+            <p className="rounded-lg border border-[#C23B2E]/50 bg-[#C23B2E]/10 px-3 py-2 text-sm text-[#C23B2E]">
               {error}
             </p>
           )}
           <button
             onClick={rate}
             disabled={!ghHandle.trim() || loading}
-            className="w-full rounded-lg bg-cyan-400 px-5 py-3 text-sm font-semibold text-black transition-colors hover:bg-cyan-300 disabled:cursor-not-allowed disabled:opacity-40"
+            className="w-full rounded-lg bg-[#C23B2E] px-5 py-3 text-sm font-semibold text-[#FDFBF6] transition-colors hover:bg-[#A32F24] disabled:cursor-not-allowed disabled:opacity-40"
           >
             {loading ? "Reading your footprint…" : "Face The Algorithm"}
           </button>
-          <p className="text-center font-mono text-[11px] text-white/35">
+          <p className="text-center font-mono text-[11px] text-[#9AA0AC]">
             We only read public data. Nothing is stored or sent anywhere —
             scoring runs in your browser.
           </p>
         </div>
       ) : (
-        <div className="space-y-4 rounded-2xl border border-white/10 bg-white/[0.03] p-6">
-          <p className="text-xs text-white/45">
+        <div className="space-y-4 rounded-2xl border border-[#1E2430]/30 bg-[#FDFBF6] p-6">
+          <p className="text-xs text-[#9AA0AC]">
             No GitHub? Build your card manually — it just won&apos;t carry the
             scored badge.
           </p>
           <div>
-            <label className="mb-1 block font-mono text-[11px] uppercase tracking-wider text-white/40">
+            <label className="mb-1 block font-mono text-[11px] uppercase tracking-wider text-[#9AA0AC]">
               Name *
             </label>
             <input
@@ -617,7 +617,7 @@ export default function CreateCardStudio() {
             />
           </div>
           <div>
-            <label className="mb-1 block font-mono text-[11px] uppercase tracking-wider text-white/40">
+            <label className="mb-1 block font-mono text-[11px] uppercase tracking-wider text-[#9AA0AC]">
               Title / role
             </label>
             <input
@@ -628,8 +628,8 @@ export default function CreateCardStudio() {
             />
           </div>
           <div>
-            <label className="mb-1 block font-mono text-[11px] uppercase tracking-wider text-white/40">
-              Photo <span className="normal-case text-white/30">(stays on your device)</span>
+            <label className="mb-1 block font-mono text-[11px] uppercase tracking-wider text-[#9AA0AC]">
+              Photo <span className="normal-case text-[#9AA0AC]">(stays on your device)</span>
             </label>
             <div className="flex items-center gap-3">
               <input
@@ -639,7 +639,7 @@ export default function CreateCardStudio() {
                   const file = e.target.files?.[0];
                   if (file) setPhoto(await readPhoto(file));
                 }}
-                className="text-xs text-white/50 file:mr-3 file:rounded-lg file:border-0 file:bg-white/10 file:px-3 file:py-2 file:text-xs file:font-semibold file:text-white hover:file:bg-white/15"
+                className="text-xs text-[#5A6070] file:mr-3 file:rounded-lg file:border-0 file:bg-[#1E2430]/10 file:px-3 file:py-2 file:text-xs file:font-semibold file:text-[#1E2430] hover:file:bg-[#1E2430]/15"
               />
               {photo && (
                 // eslint-disable-next-line @next/next/no-img-element
@@ -650,9 +650,9 @@ export default function CreateCardStudio() {
 
           {COMMUNITY_STATS.map((stat) => (
             <div key={stat.key}>
-              <label className="mb-1 flex justify-between font-mono text-[11px] uppercase tracking-wider text-white/40">
+              <label className="mb-1 flex justify-between font-mono text-[11px] uppercase tracking-wider text-[#9AA0AC]">
                 <span>{stat.label}</span>
-                <span className="tnum text-white/70">{sliders[stat.key]}</span>
+                <span className="tnum text-[#5A6070]">{sliders[stat.key]}</span>
               </label>
               <input
                 type="range"
@@ -662,7 +662,7 @@ export default function CreateCardStudio() {
                 onChange={(e) =>
                   setSliders((s) => ({ ...s, [stat.key]: Number(e.target.value) }))
                 }
-                className="w-full accent-cyan-400"
+                className="w-full accent-[#C23B2E]"
               />
             </div>
           ))}
@@ -670,11 +670,11 @@ export default function CreateCardStudio() {
           <button
             onClick={generateManual}
             disabled={!name.trim()}
-            className="w-full rounded-lg bg-cyan-400 px-5 py-3 text-sm font-semibold text-black transition-colors hover:bg-cyan-300 disabled:cursor-not-allowed disabled:opacity-40"
+            className="w-full rounded-lg bg-[#C23B2E] px-5 py-3 text-sm font-semibold text-[#FDFBF6] transition-colors hover:bg-[#A32F24] disabled:cursor-not-allowed disabled:opacity-40"
           >
             Face The Algorithm
           </button>
-          <p className="text-center font-mono text-[11px] text-white/35">
+          <p className="text-center font-mono text-[11px] text-[#9AA0AC]">
             Photos are processed in your browser and never uploaded anywhere.
           </p>
         </div>

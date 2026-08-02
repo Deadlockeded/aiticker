@@ -66,11 +66,11 @@ export default function TradeIn({
   };
 
   return (
-    <section className="mt-10 rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+    <section className="mt-10 rounded-2xl border border-[#1E2430]/30 bg-[#FDFBF6] p-5">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h2 className="text-sm font-semibold text-white">Trade-in</h2>
-          <p className="mt-0.5 text-xs text-white/45">
+          <h2 className="text-sm font-semibold text-[#1E2430]">Trade-in</h2>
+          <p className="mt-0.5 text-xs text-[#9AA0AC]">
             Burn {BURN_COUNT} commons for one guaranteed rare or better.
           </p>
         </div>
@@ -78,7 +78,7 @@ export default function TradeIn({
           <button
             disabled={totalCommons < BURN_COUNT}
             onClick={() => setPhase("picking")}
-            className="rounded-lg border border-white/15 px-4 py-2 text-sm font-semibold text-white/80 transition-colors hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
+            className="rounded-lg border border-[#1E2430]/40 px-4 py-2 text-sm font-semibold text-[#5A6070] transition-colors hover:bg-[#1E2430]/5 disabled:cursor-not-allowed disabled:opacity-40"
           >
             {totalCommons < BURN_COUNT
               ? `Need ${BURN_COUNT} commons (have ${totalCommons})`
@@ -99,11 +99,11 @@ export default function TradeIn({
                   className={`rounded-lg border px-3 py-1.5 text-xs transition-colors ${
                     n > 0
                       ? "border-amber-400/60 bg-amber-400/10 text-amber-300"
-                      : "border-white/10 bg-white/[0.03] text-white/70 hover:bg-white/[0.06]"
+                      : "border-[#1E2430]/30 bg-[#FDFBF6] text-[#5A6070] hover:bg-[#1E2430]/10"
                   }`}
                 >
                   {card.name}
-                  <span className="tnum ml-1.5 font-mono text-white/40">
+                  <span className="tnum ml-1.5 font-mono text-[#9AA0AC]">
                     {n > 0 ? `${n}/${copies}` : `×${copies}`}
                   </span>
                 </button>
@@ -111,31 +111,31 @@ export default function TradeIn({
             })}
           </div>
           <div className="mt-4 flex items-center gap-3">
-            <span className="tnum font-mono text-xs text-white/50">
+            <span className="tnum font-mono text-xs text-[#5A6070]">
               {picked}/{BURN_COUNT} selected
             </span>
             {phase === "picking" ? (
               <button
                 disabled={picked !== BURN_COUNT}
                 onClick={() => setPhase("confirm")}
-                className="rounded-lg bg-cyan-400 px-4 py-2 text-sm font-semibold text-black transition-colors hover:bg-cyan-300 disabled:cursor-not-allowed disabled:opacity-40"
+                className="rounded-lg bg-[#C23B2E] px-4 py-2 text-sm font-semibold text-[#FDFBF6] transition-colors hover:bg-[#A32F24] disabled:cursor-not-allowed disabled:opacity-40"
               >
                 Trade in
               </button>
             ) : (
               <>
-                <span className="text-xs text-red-400">
+                <span className="text-xs text-[#C23B2E]">
                   This burns {BURN_COUNT} cards permanently. Sure?
                 </span>
                 <button
                   onClick={burn}
-                  className="rounded-lg bg-red-500 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-red-400"
+                  className="rounded-lg bg-[#C23B2E] px-4 py-2 text-sm font-semibold text-[#1E2430] transition-colors hover:bg-[#A32F24]"
                 >
                   Burn them
                 </button>
                 <button
                   onClick={() => setPhase("picking")}
-                  className="rounded-lg border border-white/15 px-4 py-2 text-sm text-white/70 hover:bg-white/5"
+                  className="rounded-lg border border-[#1E2430]/40 px-4 py-2 text-sm text-[#5A6070] hover:bg-[#1E2430]/5"
                 >
                   Back
                 </button>
@@ -146,7 +146,7 @@ export default function TradeIn({
                 setPhase("closed");
                 setSelected({});
               }}
-              className="ml-auto text-xs text-white/40 hover:text-white"
+              className="ml-auto text-xs text-[#9AA0AC] hover:text-[#1E2430]"
             >
               Cancel
             </button>
@@ -177,7 +177,7 @@ export default function TradeIn({
           {flipped && (
             <button
               onClick={() => setPhase("closed")}
-              className="rounded-lg border border-white/15 px-4 py-2 text-sm text-white/70 hover:bg-white/5"
+              className="rounded-lg border border-[#1E2430]/40 px-4 py-2 text-sm text-[#5A6070] hover:bg-[#1E2430]/5"
             >
               Done
             </button>

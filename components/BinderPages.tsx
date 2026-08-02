@@ -132,7 +132,7 @@ export default function BinderPages({
 
   if (binder === null) {
     return (
-      <p className="py-24 text-center font-mono text-xs uppercase tracking-[0.3em] text-white/30">
+      <p className="py-24 text-center font-mono text-xs uppercase tracking-[0.3em] text-[#9AA0AC]">
         Opening binder…
       </p>
     );
@@ -183,7 +183,7 @@ export default function BinderPages({
   return (
     <div>
       {/* slim sticky header */}
-      <div className="sticky top-14 z-20 -mx-1 mb-3 flex items-center gap-3 rounded-xl border border-white/10 bg-[#0f0f11]/90 px-3 py-2 backdrop-blur-md">
+      <div className="sticky top-14 z-20 -mx-1 mb-3 flex items-center gap-3 rounded-xl border border-[#1E2430]/30 bg-[#FDFBF6]/95 px-3 py-2 backdrop-blur-md">
         <button
           onClick={() => setRingPop((v) => !v)}
           className="relative flex min-h-11 items-center gap-2"
@@ -197,31 +197,31 @@ export default function BinderPages({
               strokeLinecap="round"
             />
           </svg>
-          <span className="tnum font-mono text-sm text-white">
+          <span className="tnum font-mono text-sm text-[#1E2430]">
             {ownedCount}/{indexCards.length}
-            <span className="ml-1 text-[10px] text-white/40">
+            <span className="ml-1 text-[10px] text-[#9AA0AC]">
               +{ownedArtifacts}/{artifactCards.length}◆
             </span>
           </span>
         </button>
-        <span className="tnum font-mono text-sm text-white/70">{formatTicks(Math.round(value))}</span>
-        <span className="ml-auto font-mono text-[10px] uppercase tracking-widest text-white/40">
+        <span className="tnum font-mono text-sm text-[#5A6070]">{formatTicks(Math.round(value))}</span>
+        <span className="ml-auto font-mono text-[10px] uppercase tracking-widest text-[#9AA0AC]">
           {rarityLabel(currentPageCards)}
         </span>
         <button
           onClick={() => setTrophies(true)}
-          className="flex h-11 w-11 items-center justify-center rounded-lg text-lg hover:bg-white/5"
+          className="flex h-11 w-11 items-center justify-center rounded-lg text-lg hover:bg-[#1E2430]/5"
           title="Achievements"
         >
           🏆
         </button>
         {ringPop && (
-          <div className="absolute left-2 top-full z-30 mt-1 w-52 rounded-xl border border-white/15 bg-[#131316] p-3 shadow-xl">
+          <div className="absolute left-2 top-full z-30 mt-1 w-52 rounded-xl border border-[#1E2430]/40 bg-[#FDFBF6] p-3 shadow-xl">
             {RARITY_ORDER.map((r) => {
               const total = ordered.filter((c) => c.rarity === r).length;
               const have = ordered.filter((c) => c.rarity === r && binder[c.id]).length;
               return (
-                <div key={r} className="flex justify-between font-mono text-xs text-white/70">
+                <div key={r} className="flex justify-between font-mono text-xs text-[#5A6070]">
                   <span className="capitalize">{r}</span>
                   <span className="tnum">{have}/{total}</span>
                 </div>
@@ -238,7 +238,7 @@ export default function BinderPages({
             key={c}
             onClick={() => setChip(c)}
             className={`shrink-0 rounded-lg px-3 py-2 text-[12px] font-medium capitalize ${
-              chip === c ? "bg-white/12 text-white" : "bg-white/5 text-white/50"
+              chip === c ? "bg-[#1E2430]/15 text-[#1E2430]" : "bg-[#1E2430]/5 text-[#5A6070]"
             }`}
           >
             {c}
@@ -251,12 +251,12 @@ export default function BinderPages({
             onChange={(e) => setQuery(e.target.value)}
             onBlur={() => !query && setSearchOpen(false)}
             placeholder="name…"
-            className="min-w-24 flex-1 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-[12px] text-white outline-none focus:border-cyan-400/50"
+            className="min-w-24 flex-1 rounded-lg border border-[#1E2430]/30 bg-[#1E2430]/5 px-3 py-1.5 text-[12px] text-[#1E2430] outline-none focus:border-[#C23B2E]/70"
           />
         ) : (
           <button
             onClick={() => setSearchOpen(true)}
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/5 text-white/50"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#1E2430]/5 text-[#5A6070]"
             title="Search"
           >
             🔍
@@ -274,7 +274,7 @@ export default function BinderPages({
         >
           {pages.map((pageCards, pi) => (
             <div key={pi} className="w-full shrink-0 snap-start px-1 md:w-1/2">
-              <div className="binder-texture rounded-2xl border border-white/10 p-3">
+              <div className="binder-texture rounded-2xl border border-[#1E2430]/30 p-3">
                 <div className="grid grid-cols-3 gap-2.5">
                   {Array.from({ length: 9 }, (_, si) => {
                     const card = pageCards[si];
@@ -294,8 +294,8 @@ export default function BinderPages({
                           key={card.id}
                           className={`pocket flex aspect-[1/1.4] flex-col items-center justify-center rounded-lg bg-black/30 transition-opacity ${dim ? "opacity-25" : ""}`}
                         >
-                          <span className="text-xl text-white/15">?</span>
-                          <span className="mt-1 font-mono text-[8px] text-white/20">
+                          <span className="text-xl text-[#1E2430]/20">?</span>
+                          <span className="mt-1 font-mono text-[8px] text-[#9AA0AC]">
                             slot {pi * 9 + si + 1}
                           </span>
                         </div>
@@ -311,24 +311,24 @@ export default function BinderPages({
                         className={`pocket relative aspect-[1/1.4] rounded-lg bg-black/30 p-1 transition-opacity ${dim ? "opacity-25 saturate-0" : ""} ${initialCard === card.id ? "pulse-once" : ""}`}
                       >
                         <div
-                          className={`pocket-card relative h-full w-full overflow-hidden rounded-md bg-[#131316] ring-1 ${RARITY_RING[card.rarity]} ${card.rarity === "legendary" ? "foil-slow" : ""}`}
+                          className={`pocket-card relative h-full w-full overflow-hidden rounded-md bg-[#FDFBF6] ring-1 ${RARITY_RING[card.rarity]} ${card.rarity === "legendary" ? "foil-slow" : ""}`}
                         >
                           <div className="relative h-[70%]">
                             <CardArt card={card} shape="tile" />
                           </div>
-                          <p className="truncate px-1 pt-1 text-left text-[9px] font-medium text-white">
+                          <p className="truncate px-1 pt-1 text-left text-[9px] font-medium text-[#1E2430]">
                             {card.name}
                           </p>
-                          <p className="px-1 text-left font-mono text-[8px] text-white/40">
+                          <p className="px-1 text-left font-mono text-[8px] text-[#9AA0AC]">
                             {card.rating}
                           </p>
                           {entry.copies > 1 && (
-                            <span className="absolute right-0.5 top-0.5 rounded bg-black/70 px-1 font-mono text-[8px] font-bold text-white">
+                            <span className="absolute right-0.5 top-0.5 rounded bg-black/70 px-1 font-mono text-[8px] font-bold text-[#1E2430]">
                               ×{entry.copies}
                             </span>
                           )}
                           {isNew && (
-                            <span className="absolute left-0.5 top-0.5 rounded bg-cyan-400 px-1 font-mono text-[8px] font-bold text-black">
+                            <span className="absolute left-0.5 top-0.5 rounded bg-[#C23B2E] px-1 font-mono text-[8px] font-bold text-[#FDFBF6]">
                               NEW
                             </span>
                           )}
@@ -345,8 +345,8 @@ export default function BinderPages({
                     >
                       <div className="pocket-card mythic-border relative aspect-[1/1.4] overflow-hidden rounded-md p-[1.5px]">
                         <div className="flex h-full w-full flex-col items-center justify-center rounded-[5px] bg-[#0b0b0d]">
-                          <span className="text-2xl text-white/80">∞</span>
-                          <span className="mt-1 font-mono text-[8px] text-white/40">
+                          <span className="text-2xl text-[#5A6070]">∞</span>
+                          <span className="mt-1 font-mono text-[8px] text-[#9AA0AC]">
                             slot ∞
                           </span>
                         </div>
@@ -362,13 +362,13 @@ export default function BinderPages({
         {/* desktop click zones */}
         <button
           onClick={() => scroller.current?.scrollBy({ left: -scroller.current.clientWidth, behavior: "smooth" })}
-          className="absolute left-0 top-1/2 hidden h-24 w-10 -translate-y-1/2 items-center justify-center text-2xl text-white/25 hover:text-white md:flex"
+          className="absolute left-0 top-1/2 hidden h-24 w-10 -translate-y-1/2 items-center justify-center text-2xl text-[#9AA0AC] hover:text-[#1E2430] md:flex"
         >
           ‹
         </button>
         <button
           onClick={() => scroller.current?.scrollBy({ left: scroller.current.clientWidth, behavior: "smooth" })}
-          className="absolute right-0 top-1/2 hidden h-24 w-10 -translate-y-1/2 items-center justify-center text-2xl text-white/25 hover:text-white md:flex"
+          className="absolute right-0 top-1/2 hidden h-24 w-10 -translate-y-1/2 items-center justify-center text-2xl text-[#9AA0AC] hover:text-[#1E2430] md:flex"
         >
           ›
         </button>
@@ -377,7 +377,7 @@ export default function BinderPages({
           <div className="absolute inset-0 flex items-center justify-center">
             <Link
               href="/packs"
-              className="rounded-lg bg-cyan-400 px-6 py-3 text-sm font-semibold text-black shadow-2xl transition-colors hover:bg-cyan-300"
+              className="rounded-lg bg-[#C23B2E] px-6 py-3 text-sm font-semibold text-[#FDFBF6] shadow-2xl transition-colors hover:bg-[#A32F24]"
             >
               Rip your first pack →
             </Link>
@@ -390,10 +390,10 @@ export default function BinderPages({
         {pages.map((_, i) => (
           <span
             key={i}
-            className={`h-1.5 w-1.5 rounded-full ${Math.min(page, pages.length - 1) === i ? "bg-cyan-400" : "bg-white/20"}`}
+            className={`h-1.5 w-1.5 rounded-full ${Math.min(page, pages.length - 1) === i ? "bg-[#C23B2E]" : "bg-white/20"}`}
           />
         ))}
-        <span className="ml-2 font-mono text-[10px] text-white/40">
+        <span className="ml-2 font-mono text-[10px] text-[#9AA0AC]">
           Page {Math.min(page, pages.length - 1) + 1} of {Math.ceil(pages.length / perView) * perView >= pages.length ? pages.length : pages.length}
         </span>
       </div>
@@ -404,19 +404,19 @@ export default function BinderPages({
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
           <div
             onClick={(e) => e.stopPropagation()}
-            className="absolute inset-x-0 bottom-0 max-h-[85vh] overflow-y-auto rounded-t-2xl border-t border-white/15 bg-[#0f0f11] p-4 pb-[calc(1rem+env(safe-area-inset-bottom))] md:inset-y-0 md:left-auto md:right-0 md:w-[420px] md:rounded-none md:border-l md:border-t-0"
+            className="absolute inset-x-0 bottom-0 max-h-[85vh] overflow-y-auto rounded-t-2xl border-t border-[#1E2430]/40 bg-[#FDFBF6] p-4 pb-[calc(1rem+env(safe-area-inset-bottom))] md:inset-y-0 md:left-auto md:right-0 md:w-[420px] md:rounded-none md:border-l md:border-t-0"
           >
             <div className="mx-auto max-w-[320px]">
               <TradingCard card={open} rank={ranks[open.id]} size="hero" />
             </div>
             <div className="mt-4 space-y-3">
               <DailyQuip card={open} />
-              <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.03] p-3">
+              <div className="flex items-center justify-between rounded-xl border border-[#1E2430]/30 bg-[#FDFBF6] p-3">
                 <div>
-                  <p className="tnum font-mono text-lg font-bold text-white">
+                  <p className="tnum font-mono text-lg font-bold text-[#1E2430]">
                     {formatTicks(getCurrentPrice(open))}
                   </p>
-                  <p className={`tnum font-mono text-xs ${getDailyMove(open) >= 0 ? "text-emerald-400" : "text-red-400"}`}>
+                  <p className={`tnum font-mono text-xs ${getDailyMove(open) >= 0 ? "text-[#1F7A3D]" : "text-[#C23B2E]"}`}>
                     {formatMove(getDailyMove(open))} 24h · ×{binder[open.id]?.copies ?? 0} owned
                   </p>
                 </div>
@@ -425,13 +425,13 @@ export default function BinderPages({
               <div className="flex gap-2">
                 <Link
                   href={`/cards/${open.id}`}
-                  className="flex-1 rounded-lg bg-cyan-400 px-4 py-3 text-center text-sm font-semibold text-black hover:bg-cyan-300"
+                  className="flex-1 rounded-lg bg-[#C23B2E] px-4 py-3 text-center text-sm font-semibold text-[#FDFBF6] hover:bg-[#A32F24]"
                 >
                   View full page
                 </Link>
                 <Link
                   href={`/arena?me=${open.id}`}
-                  className="flex-1 rounded-lg border border-white/15 px-4 py-3 text-center text-sm font-semibold text-white/80 hover:bg-white/5"
+                  className="flex-1 rounded-lg border border-[#1E2430]/40 px-4 py-3 text-center text-sm font-semibold text-[#5A6070] hover:bg-[#1E2430]/5"
                 >
                   Use in Arena
                 </Link>
@@ -447,7 +447,7 @@ export default function BinderPages({
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
           <div
             onClick={(e) => e.stopPropagation()}
-            className="absolute inset-x-0 bottom-0 max-h-[80vh] overflow-y-auto rounded-t-2xl border-t border-white/15 bg-[#0f0f11] p-4 pb-[calc(1rem+env(safe-area-inset-bottom))]"
+            className="absolute inset-x-0 bottom-0 max-h-[80vh] overflow-y-auto rounded-t-2xl border-t border-[#1E2430]/40 bg-[#FDFBF6] p-4 pb-[calc(1rem+env(safe-area-inset-bottom))]"
           >
             <AchievementWall />
           </div>

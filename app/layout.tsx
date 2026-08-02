@@ -1,18 +1,28 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Archivo_Black, Lora, Oswald } from "next/font/google";
 import Nav from "@/components/Nav";
 import Toaster from "@/components/Toaster";
 import marketMeta from "@/data/market-meta.json";
 import "./globals.css";
 
-const geistSans = Geist({
+// Price-guide identity: Lora carries body copy via the old sans var, Oswald
+// takes over every font-mono label/table, Archivo Black is the display face.
+const lora = Lora({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  style: ["normal", "italic"],
 });
 
-const geistMono = Geist_Mono({
+const oswald = Oswald({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
+});
+
+const archivo = Archivo_Black({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -30,17 +40,19 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${lora.variable} ${oswald.variable} ${archivo.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col pb-14 md:pb-0">
         <Nav />
         <Toaster />
         {children}
-        <footer className="space-y-1.5 px-4 py-6 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white/25">
+        <footer className="space-y-1.5 px-4 py-6 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-[#9AA0AC]">
           <p>
-            aiticker is a fan-made collectible game. Index values are computed
-            from public signals (Wikipedia, OpenAlex, GitHub, HF, HN). Not
-            financial anything. No real money, no trading.
+            aiticker is a fan-made collectible game. Index values computed from
+            public signals. Not financial anything. ·{" "}
+            <a href="/about" className="underline hover:text-[#1E2430]">
+              From the Editor&apos;s Desk
+            </a>
           </p>
           <p>
             {marketMeta.lastUpdated
@@ -51,7 +63,7 @@ export default function RootLayout({
             Portraits via{" "}
             <a
               href="https://commons.wikimedia.org"
-              className="underline hover:text-white/50"
+              className="underline hover:text-[#5A6070]"
             >
               Wikimedia Commons
             </a>{" "}

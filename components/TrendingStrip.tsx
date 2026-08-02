@@ -29,24 +29,24 @@ export default function TrendingStrip({ cards }: { cards: MarketCard[] }) {
           <Link
             key={card.id}
             href={`/cards/${card.id}`}
-            className="flex items-center gap-2.5 rounded-lg border border-white/10 bg-black/30 px-3 py-1.5 transition-colors hover:border-orange-400/40"
+            className="flex items-center gap-2.5 rounded-lg border border-[#1E2430]/30 bg-black/30 px-3 py-1.5 transition-colors hover:border-orange-400/40"
           >
             <div className="h-7 w-7">
               <CardArt card={card} />
             </div>
-            <span className="text-[13px] font-medium text-white">
+            <span className="text-[13px] font-medium text-[#1E2430]">
               {card.name}
             </span>
             <span className="tnum font-mono text-xs text-orange-300">
               {card.rating}
               <span className="text-orange-400/80">+{HOT_BOOST}</span>
             </span>
-            <span className="tnum font-mono text-xs text-white/40">
+            <span className="tnum font-mono text-xs text-[#9AA0AC]">
               {formatTicks(getCurrentPrice(card))}
             </span>
           </Link>
         ))}
-        <span className="ml-auto hidden font-mono text-[10px] text-white/30 sm:block">
+        <span className="ml-auto hidden font-mono text-[10px] text-[#9AA0AC] sm:block">
           +3 in Arena today · rotates daily
         </span>
       </div>

@@ -56,17 +56,17 @@ export default function CardGrid({
 
   return (
     <div>
-      <div className="sticky top-14 z-20 -mx-1 mb-5 rounded-xl border border-white/10 bg-[#0f0f11]/90 p-2 backdrop-blur-md">
+      <div className="sticky top-14 z-20 -mx-1 mb-5 rounded-xl border border-[#1E2430]/30 bg-[#FDFBF6]/95 p-2 backdrop-blur-md">
         <div className="flex flex-wrap items-center gap-2">
-          <div className="flex rounded-lg bg-white/5 p-0.5">
+          <div className="flex rounded-lg bg-[#1E2430]/5 p-0.5">
             {FILTERS.map(({ value, label }) => (
               <button
                 key={value}
                 onClick={() => setFilter(value)}
                 className={`rounded-md px-3 py-1.5 text-[13px] font-medium transition-colors ${
                   filter === value
-                    ? "bg-white/12 text-white"
-                    : "text-white/50 hover:text-white/80"
+                    ? "bg-[#1E2430]/15 text-[#1E2430]"
+                    : "text-[#5A6070] hover:text-[#5A6070]"
                 }`}
               >
                 {label}
@@ -79,13 +79,13 @@ export default function CardGrid({
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={`Search ${cards.length} cards…`}
-            className="min-w-32 flex-1 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-[13px] text-white placeholder-white/30 outline-none focus:border-cyan-400/50"
+            className="min-w-32 flex-1 rounded-lg border border-[#1E2430]/30 bg-[#1E2430]/5 px-3 py-1.5 text-[13px] text-[#1E2430] placeholder-[#9AA0AC] outline-none focus:border-[#C23B2E]/70"
           />
 
           <select
             value={sort}
             onChange={(e) => setSort(e.target.value as Sort)}
-            className="rounded-lg border border-white/10 bg-white/5 px-2.5 py-1.5 text-[13px] text-white outline-none focus:border-cyan-400/50"
+            className="rounded-lg border border-[#1E2430]/30 bg-[#1E2430]/5 px-2.5 py-1.5 text-[13px] text-[#1E2430] outline-none focus:border-[#C23B2E]/70"
           >
             <option value="rating-desc" className="bg-zinc-900">Rating ↓</option>
             <option value="rating-asc" className="bg-zinc-900">Rating ↑</option>
@@ -97,7 +97,7 @@ export default function CardGrid({
       </div>
 
       {visible.length === 0 ? (
-        <p className="py-24 text-center text-sm text-white/40">
+        <p className="py-24 text-center text-sm text-[#9AA0AC]">
           No cards match “{query}”.
         </p>
       ) : (

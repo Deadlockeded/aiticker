@@ -9,13 +9,13 @@ export function HomeTeasers() {
     <section className="mb-6 grid gap-3 sm:grid-cols-2">
       <Link
         href="/create"
-        className="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.03] p-4 transition-colors hover:border-cyan-400/40"
+        className="flex items-center justify-between rounded-xl border border-[#1E2430]/30 bg-[#FDFBF6] p-4 transition-colors hover:border-[#C23B2E]/60"
       >
         <div>
-          <p className="font-semibold text-white">Get rated</p>
-          <p className="mt-0.5 text-xs text-white/45">
+          <p className="font-semibold text-[#1E2430]">Get rated</p>
+          <p className="mt-0.5 text-xs text-[#9AA0AC]">
             The Algorithm scores your public footprint.{" "}
-            <span className="text-cyan-300">Get roasted →</span>
+            <span className="text-[#C23B2E]">Get roasted →</span>
           </p>
         </div>
         <span className="text-2xl">🪪</span>
@@ -25,10 +25,10 @@ export function HomeTeasers() {
         className="flex items-center justify-between rounded-xl border border-amber-400/25 bg-amber-400/[0.04] p-4 transition-colors hover:border-amber-400/50 sm:col-span-2"
       >
         <div>
-          <p className="font-semibold text-white">
+          <p className="font-semibold text-[#1E2430]">
             Think you can beat the index?
           </p>
-          <p className="mt-0.5 text-xs text-white/45">
+          <p className="mt-0.5 text-xs text-[#9AA0AC]">
             Fight Karpathy&apos;s card with one of yours. Best of three. ⚔️
           </p>
         </div>
@@ -49,7 +49,7 @@ export function ViralNudge() {
   return (
     <Link
       href={nudge.href}
-      className="font-mono text-xs text-cyan-300/90 underline-offset-4 hover:underline"
+      className="font-mono text-xs text-[#C23B2E] underline-offset-4 hover:underline"
     >
       {nudge.label}
     </Link>

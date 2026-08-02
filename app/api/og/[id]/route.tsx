@@ -6,20 +6,19 @@ import type { Rarity } from "@/lib/types";
 export const runtime = "edge";
 
 const RARITY_BG: Record<Rarity, string> = {
-  common: "linear-gradient(135deg, #3f3f46 0%, #18181b 60%)",
-  rare: "linear-gradient(135deg, #0369a1 0%, #0f172a 60%)",
-  epic: "linear-gradient(135deg, #a21caf 0%, #1e1b4b 60%)",
-  legendary: "linear-gradient(135deg, #b45309 0%, #1c1917 60%)",
-  mythic:
-    "linear-gradient(135deg, #0891b2 0%, #7c3aed 35%, #db2777 70%, #0f172a 100%)",
+  common: "linear-gradient(135deg, #e8e1d0 0%, #F2EDE3 60%)",
+  rare: "linear-gradient(135deg, #cfd9e4 0%, #F2EDE3 60%)",
+  epic: "linear-gradient(135deg, #dccbe0 0%, #F2EDE3 60%)",
+  legendary: "linear-gradient(135deg, #e8cf9a 0%, #F2EDE3 60%)",
+  mythic: "linear-gradient(135deg, #d8d3e6 0%, #F2EDE3 60%)",
 };
 
 const RARITY_ACCENT: Record<Rarity, string> = {
-  common: "#d4d4d8",
-  rare: "#7dd3fc",
-  epic: "#f0abfc",
-  legendary: "#fcd34d",
-  mythic: "#67e8f9",
+  common: "#5A6070",
+  rare: "#1F4E79",
+  epic: "#6B3FA0",
+  legendary: "#8a6d1d",
+  mythic: "#C23B2E",
 };
 
 export async function GET(
@@ -42,7 +41,7 @@ export async function GET(
           alignItems: "center",
           padding: 64,
           background: RARITY_BG[card.rarity],
-          color: "#fff",
+          color: "#1E2430",
           fontFamily: "sans-serif",
         }}
       >
@@ -121,7 +120,7 @@ export async function GET(
                 display: "flex",
                 fontSize: 30,
                 marginLeft: 16,
-                color: "rgba(255,255,255,0.6)",
+                color: "rgba(30,36,48,0.55)",
               }}
             >
               OVR
@@ -137,7 +136,7 @@ export async function GET(
               {/* satori's default font lacks the ₮ glyph — spell it out */}
               <div style={{ display: "flex", fontSize: 54, fontWeight: 700 }}>
                 {Math.round(getCurrentPrice(card)).toLocaleString("en-US")}{" "}
-                <span style={{ fontSize: 30, marginLeft: 8, color: "rgba(255,255,255,0.6)" }}>
+                <span style={{ fontSize: 30, marginLeft: 8, color: "rgba(30,36,48,0.55)" }}>
                   TICKS
                 </span>
               </div>
@@ -146,7 +145,7 @@ export async function GET(
                   display: "flex",
                   fontSize: 34,
                   fontWeight: 700,
-                  color: move >= 0 ? "#34d399" : "#f87171",
+                  color: move >= 0 ? "#1F7A3D" : "#C23B2E",
                 }}
               >
                 {formatMove(move)} 24h
@@ -159,7 +158,7 @@ export async function GET(
               marginTop: 28,
               fontSize: 24,
               letterSpacing: 4,
-              color: "rgba(255,255,255,0.5)",
+              color: "rgba(30,36,48,0.5)",
             }}
           >
             AI TICKER · #{card.serial}/{card.editionSize} · powered by public data

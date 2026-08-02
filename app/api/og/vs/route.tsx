@@ -20,8 +20,8 @@ export async function GET(req: Request) {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "linear-gradient(120deg, #7f1d1d 0%, #0a0a0b 45%, #0a0a0b 55%, #0c4a6e 100%)",
-          color: "#fff",
+          background: "#F2EDE3",
+          color: "#1E2430",
           fontFamily: "sans-serif",
         }}
       >
@@ -51,7 +51,7 @@ export async function GET(req: Request) {
             display: "flex",
             fontSize: 26,
             letterSpacing: 6,
-            color: "#67e8f9",
+            color: "#C23B2E",
           }}
         >
           {path}

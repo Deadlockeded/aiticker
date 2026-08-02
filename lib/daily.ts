@@ -59,6 +59,20 @@ export function isHot(cardId: string, cards: MarketCard[], key = utcDayKey()): b
 /** Temporary rating boost shown on hot cards (display only, never sorts). */
 export const HOT_BOOST = 3;
 
+/** Launch epoch for issue numbering (weeks since). */
+export const LAUNCH_EPOCH = "2026-08-01";
+
+export function issueNumber(now = new Date()): number {
+  return Math.max(1, Math.floor((now.getTime() - Date.parse(LAUNCH_EPOCH)) / (7 * 86_400_000)) + 1);
+}
+
+/** Cover star of the month — month-hash pick from the index (no artifacts). */
+export function getCoverStar(cards: MarketCard[], now = new Date()): MarketCard {
+  const pool = cards.filter((c) => c.type !== "artifact");
+  const key = `${now.getUTCFullYear()}-${now.getUTCMonth()}`;
+  return pool[dayHash(`cover:${key}`) % pool.length];
+}
+
 /** Quip of the day — same for everyone, rotates with the UTC date. */
 export function getDailyQuip(card: MarketCard, key = utcDayKey()): string | null {
   if (!card.quips?.length) return null;

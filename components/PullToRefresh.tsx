@@ -38,7 +38,7 @@ export default function PullToRefresh({ lastUpdated }: { lastUpdated: string | n
   if (!toast) return null;
   return (
     <div className="fixed inset-x-0 top-16 z-40 flex justify-center">
-      <span className="deal-in rounded-full border border-white/15 bg-[#131316]/95 px-4 py-2 font-mono text-xs text-white/80 shadow-xl backdrop-blur">
+      <span className="deal-in rounded-full border border-[#1E2430]/40 bg-[#FDFBF6] px-4 py-2 font-mono text-xs text-[#5A6070] shadow-xl backdrop-blur">
         {toast}
       </span>
     </div>

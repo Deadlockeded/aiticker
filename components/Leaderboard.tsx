@@ -44,7 +44,7 @@ export default function Leaderboard({ cards }: { cards: MarketCard[] }) {
 
   if (yourValue === null) {
     return (
-      <p className="py-24 text-center font-mono text-xs uppercase tracking-[0.3em] text-white/30">
+      <p className="py-24 text-center font-mono text-xs uppercase tracking-[0.3em] text-[#9AA0AC]">
         Ranking collectors…
       </p>
     );
@@ -64,8 +64,8 @@ export default function Leaderboard({ cards }: { cards: MarketCard[] }) {
               key={row.name}
               className={`flex items-center gap-4 rounded-xl border p-4 ${
                 you
-                  ? "border-cyan-400/40 bg-cyan-400/10 shadow-[0_0_24px_-8px_rgba(34,211,238,0.5)]"
-                  : "border-white/10 bg-white/5"
+                  ? "border-[#C23B2E]/60 bg-[#C23B2E]/10 shadow-[0_0_24px_-8px_rgba(34,211,238,0.5)]"
+                  : "border-[#1E2430]/30 bg-[#1E2430]/5"
               }`}
             >
               <span
@@ -76,24 +76,24 @@ export default function Leaderboard({ cards }: { cards: MarketCard[] }) {
                       ? "text-zinc-300"
                       : i === 2
                         ? "text-amber-600"
-                        : "text-white/40"
+                        : "text-[#9AA0AC]"
                 }`}
               >
                 {i + 1}
               </span>
               <span
                 className={`flex-1 truncate font-semibold ${
-                  you ? "text-cyan-300" : "text-white"
+                  you ? "text-[#C23B2E]" : "text-[#1E2430]"
                 }`}
               >
                 {row.name}
                 {you && (
-                  <span className="ml-2 rounded-full bg-cyan-400/20 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-cyan-300">
+                  <span className="ml-2 rounded-full bg-[#C23B2E]/15 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-[#C23B2E]">
                     that&apos;s you
                   </span>
                 )}
               </span>
-              <span className="font-mono font-bold text-white">
+              <span className="font-mono font-bold text-[#1E2430]">
                 {formatTicks(row.value)}
               </span>
             </div>
@@ -101,10 +101,10 @@ export default function Leaderboard({ cards }: { cards: MarketCard[] }) {
         })}
       </div>
 
-      <p className="mt-6 text-center text-sm text-white/40">
+      <p className="mt-6 text-center text-sm text-[#9AA0AC]">
         Everyone starts with {formatTicks(STARTING_TICKS)} Ticks. Grow yours by
         ripping{" "}
-        <Link href="/packs" className="text-cyan-300 underline hover:text-cyan-200">
+        <Link href="/packs" className="text-[#C23B2E] underline hover:text-[#A32F24]">
           free daily packs
         </Link>
         . Play money — pure vibes.
