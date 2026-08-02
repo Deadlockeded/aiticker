@@ -3,6 +3,7 @@ import type { MarketCard } from "@/lib/cards";
 import { formatMove, formatTicks, getCurrentPrice, getDailyMove } from "@/lib/market";
 import CardArt from "./CardArt";
 import RivalryArt from "./RivalryArt";
+import HotBadge from "./HotBadge";
 
 /**
  * All rarity-driven styling lives here. The design is marketplace-tile
@@ -91,11 +92,14 @@ export default function TradingCard({
   const price = getCurrentPrice(card);
   const move = getDailyMove(card);
   const mythic = card.rarity === "mythic";
+  const freeAgent = card.variant === "freeAgent";
 
   const body = (
     <div
       className={`group flex h-full flex-col overflow-hidden bg-[#131316] transition duration-200 ${
-        mythic ? "rounded-[11px]" : `rounded-xl border ${r.border}`
+        mythic
+          ? "rounded-[11px]"
+          : `rounded-xl border ${freeAgent ? "border-zinc-300/40" : r.border}`
       } ${hero ? "" : "hover:-translate-y-1 hover:bg-[#18181c]"}`}
     >
       {/* art */}
@@ -153,6 +157,21 @@ export default function TradingCard({
         >
           {r.label}
         </span>
+
+        {freeAgent && (
+          <>
+            {/* silver-foil variant */}
+            <div className="foil-sweep pointer-events-none absolute inset-0" />
+            <div
+              className={`pointer-events-none absolute left-[-35%] top-[14%] w-[170%] rotate-[-18deg] bg-gradient-to-r from-zinc-400 via-zinc-100 to-zinc-400 text-center font-mono font-bold uppercase text-zinc-900 shadow-lg ${
+                hero ? "py-1 text-xs tracking-[0.5em]" : "py-0.5 text-[8px] tracking-[0.4em]"
+              }`}
+            >
+              Free Agent
+            </div>
+          </>
+        )}
+        <HotBadge cardId={card.id} />
 
         {/* engineer photos need a bottom scrim for the info block edge */}
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-black/50 to-transparent" />

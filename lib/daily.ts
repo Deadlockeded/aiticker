@@ -50,6 +50,9 @@ export function isHot(cardId: string, cards: MarketCard[], key = utcDayKey()): b
   return getHotCards(cards, key).some((c) => c.id === cardId);
 }
 
+/** Temporary rating boost shown on hot cards (display only, never sorts). */
+export const HOT_BOOST = 3;
+
 /** Which prediction runs today. */
 export function getPredictionIndex(poolSize: number, key = utcDayKey()): number {
   return dayHash(`predict:${key}`) % poolSize;
