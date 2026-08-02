@@ -1,5 +1,6 @@
 import seed from "@/data/cards.json";
 import type {
+  ArtifactMetrics,
   Card,
   CompanyMetrics,
   EngineerMetrics,
@@ -25,6 +26,7 @@ export const RATING_CONFIG: {
   engineer: MetricConfig<keyof EngineerMetrics>;
   moment: MetricConfig<keyof MomentMetrics>;
   rivalry: MetricConfig<keyof RivalryMetrics>;
+  artifact: MetricConfig<keyof ArtifactMetrics>;
 } = {
   floor: 55,
   ceil: 99,
@@ -52,7 +54,16 @@ export const RATING_CONFIG: {
     history: { weight: 0.2, curve: "linear" },
     pettiness: { weight: 0.15, curve: "linear" },
   },
+  artifact: {
+    ubiquity: { weight: 0.35, curve: "linear" },
+    lore: { weight: 0.3, curve: "linear" },
+    vibes: { weight: 0.25, curve: "linear" },
+    uselessness: { weight: 0.1, curve: "linear" },
+  },
 };
+
+/** Artifacts are the basic lands of the set — clamp them to the bottom. */
+const ARTIFACT_BAND = { floor: 50, ceil: 66 };
 
 /**
  * Live-signal weights (pipeline data, applied only when a card has the
@@ -123,7 +134,8 @@ export function buildRatingContext(cards: Card[]) {
       weightSum += cfg.weight;
     }
 
-    const { floor, ceil } = RATING_CONFIG;
+    const { floor, ceil } =
+      card.type === "artifact" ? ARTIFACT_BAND : RATING_CONFIG;
     const rating = Math.round(floor + ((ceil - floor) * (weighted / weightSum)) / 100);
     return Math.max(0, Math.min(99, rating));
   }

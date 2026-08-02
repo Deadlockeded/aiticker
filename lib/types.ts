@@ -1,4 +1,4 @@
-export type CardType = "company" | "engineer" | "moment" | "rivalry";
+export type CardType = "company" | "engineer" | "moment" | "rivalry" | "artifact";
 
 /** Visual variants (see PackRipper/TradingCard). Absent = standard. */
 export type CardVariant = "standard" | "freeAgent" | "hotStreak";
@@ -70,6 +70,14 @@ export interface EngineerMetrics {
   yearsInField: number;
 }
 
+/** Beloved useless objects of AI culture. All 0–100 editorial, all silly. */
+export interface ArtifactMetrics {
+  uselessness: number;
+  ubiquity: number;
+  lore: number;
+  vibes: number;
+}
+
 /** Collectible AI-history events. All 0–100 editorial. */
 export interface MomentMetrics {
   impact: number;
@@ -120,7 +128,7 @@ export interface Card {
   editionSize: number;
   series: number;
   /** Raw metrics feeding the rating engine — shape depends on `type`. */
-  metrics: CompanyMetrics | EngineerMetrics | MomentMetrics | RivalryMetrics;
+  metrics: CompanyMetrics | EngineerMetrics | MomentMetrics | RivalryMetrics | ArtifactMetrics;
   stats: CardStats;
   /** One MTG-style lore line. Tone: affectionate roast. */
   flavorText: string;
@@ -135,6 +143,8 @@ export interface Card {
   momentDate?: string;
   /** Rivalries only: the two half-faces. */
   sides?: [RivalrySide, RivalrySide];
+  /** Artifacts only: inner SVG markup for the icon art (viewBox 0 0 48 48). */
+  icon?: string;
   /** Data-pipeline source ids (see PIPELINE.md). All optional. */
   wikipediaSlug?: string;
   openalexId?: string;

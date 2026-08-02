@@ -10322,5 +10322,889 @@
       "Every trailer-breakdown thread finds them eventually.",
       "Made 'text-to-video' a job description."
     ]
+  },
+  {
+    "id": "the-gpu",
+    "name": "The GPU",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "The object of universal longing.",
+    "rarity": "common",
+    "serial": "092",
+    "editionSize": 1000,
+    "series": 1,
+    "metrics": {
+      "uselessness": 5,
+      "ubiquity": 95,
+      "lore": 90,
+      "vibes": 92
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 45,
+      "influence": 43,
+      "momentum": 37
+    },
+    "flavorText": "The object of universal longing.",
+    "quips": [
+      "Wanted by everyone, owned by four companies.",
+      "Its natural habitat: backordered.",
+      "Melts ice caps and hearts alike.",
+      "You don't buy it. You are allocated it.",
+      "Retires to a crypto farm, like its ancestors."
+    ],
+    "icon": "<rect x=\"10\" y=\"14\" width=\"28\" height=\"20\" rx=\"2\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M14 34v4M20 34v4M28 34v4M34 34v4M14 10v4M34 10v4\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"24\" cy=\"24\" r=\"5\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "the-paperclip",
+    "name": "The Paperclip",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "Maximized, ominously.",
+    "rarity": "common",
+    "serial": "770",
+    "editionSize": 1000,
+    "series": 1,
+    "metrics": {
+      "uselessness": 60,
+      "ubiquity": 70,
+      "lore": 98,
+      "vibes": 75
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 45,
+      "influence": 42,
+      "momentum": 44
+    },
+    "flavorText": "Maximized, ominously.",
+    "quips": [
+      "Just wants to be helpful. Infinitely.",
+      "The thought experiment that outlived the thought.",
+      "Holds papers. Allegedly stops there.",
+      "Every safety deck's first slide.",
+      "It has plans for your atoms."
+    ],
+    "icon": "<path d=\"M32 14v16a8 8 0 0 1-16 0V12a5 5 0 0 1 10 0v17a2 2 0 0 1-4 0V16\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "as-an-ai",
+    "name": "“As an AI language model…”",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "The disclaimer that launched a thousand screenshots.",
+    "rarity": "common",
+    "serial": "629",
+    "editionSize": 1000,
+    "series": 1,
+    "metrics": {
+      "uselessness": 80,
+      "ubiquity": 96,
+      "lore": 85,
+      "vibes": 55
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 41,
+      "influence": 45,
+      "momentum": 41
+    },
+    "flavorText": "The disclaimer that launched a thousand screenshots.",
+    "quips": [
+      "The most screenshot-ed sentence of the decade.",
+      "Refuses first, apologizes always.",
+      "Somehow both humble and infuriating.",
+      "The phrase that taught everyone what an LLM is.",
+      "Copy-pasted into more term papers than Wikipedia."
+    ],
+    "icon": "<path d=\"M8 12h32v20H20l-8 8v-8H8z\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M14 19h20M14 25h14\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "the-context-window",
+    "name": "The Context Window",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "Forgets your name mid-sentence.",
+    "rarity": "common",
+    "serial": "142",
+    "editionSize": 1000,
+    "series": 1,
+    "metrics": {
+      "uselessness": 40,
+      "ubiquity": 88,
+      "lore": 70,
+      "vibes": 60
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 46,
+      "influence": 40,
+      "momentum": 51
+    },
+    "flavorText": "Forgets your name mid-sentence.",
+    "quips": [
+      "Remembers everything. Until it doesn't.",
+      "Goldfish memory, priced per million.",
+      "Your novel fits now. Your point still doesn't.",
+      "Grew a thousandfold, still loses the plot.",
+      "The window closes exactly when it matters."
+    ],
+    "icon": "<rect x=\"9\" y=\"10\" width=\"30\" height=\"28\" rx=\"2\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M14 17h20M14 23h20M14 29h12\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" opacity=\"0.9\"/><path d=\"M14 35h6\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" opacity=\"0.3\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "the-benchmark",
+    "name": "The Benchmark",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "Saturated on arrival.",
+    "rarity": "common",
+    "serial": "531",
+    "editionSize": 1000,
+    "series": 1,
+    "metrics": {
+      "uselessness": 55,
+      "ubiquity": 85,
+      "lore": 75,
+      "vibes": 50
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 51,
+      "influence": 51,
+      "momentum": 41
+    },
+    "flavorText": "Saturated on arrival.",
+    "quips": [
+      "Born to be beaten within the week.",
+      "Every lab wins it. Simultaneously.",
+      "Measures everything except what matters.",
+      "Contaminated? Slander. Probably.",
+      "Its retirement party is a new benchmark."
+    ],
+    "icon": "<path d=\"M10 38V22M20 38V14M30 38V10M40 38V11\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M6 8h36\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"3 3\" opacity=\"0.6\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "the-hallucinated-citation",
+    "name": "The Hallucinated Citation",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "Smith et al., 2021. (Smith does not exist.)",
+    "rarity": "common",
+    "serial": "820",
+    "editionSize": 1000,
+    "series": 1,
+    "metrics": {
+      "uselessness": 88,
+      "ubiquity": 72,
+      "lore": 88,
+      "vibes": 66
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 37,
+      "influence": 48,
+      "momentum": 40
+    },
+    "flavorText": "Smith et al., 2021. (Smith does not exist.)",
+    "quips": [
+      "Peer-reviewed by nobody, cited by thousands.",
+      "The DOI resolves to a feeling.",
+      "Smith's most influential work. Smith isn't real.",
+      "Confidently formatted, entirely imaginary.",
+      "Made it into a court filing. Twice."
+    ],
+    "icon": "<path d=\"M14 8h16l6 6v26H14z\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M30 8v6h6\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M19 20h10M19 26h10M19 32h6\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"/><path d=\"M33 30l6 6M39 30l-6 6\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "ignore-previous-instructions",
+    "name": "“Ignore Previous Instructions”",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "The oldest trick in the book.",
+    "rarity": "common",
+    "serial": "036",
+    "editionSize": 1000,
+    "series": 1,
+    "metrics": {
+      "uselessness": 70,
+      "ubiquity": 80,
+      "lore": 92,
+      "vibes": 78
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 37,
+      "influence": 48,
+      "momentum": 44
+    },
+    "flavorText": "The oldest trick in the book.",
+    "quips": [
+      "Still works somewhere, right now.",
+      "The magic words of a generation.",
+      "Security researchers' favorite lullaby.",
+      "Whispered to chatbots, shouted in papers.",
+      "Undefeated against grandma's recipe filter."
+    ],
+    "icon": "<path d=\"M10 14h24M10 22h24\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" opacity=\"0.4\"/><path d=\"M8 18l32 8\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M10 32h28\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M34 28l4 4-4 4\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "the-alignment-chart",
+    "name": "The Alignment Chart",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "Lawful good, chaotic compute.",
+    "rarity": "common",
+    "serial": "534",
+    "editionSize": 1000,
+    "series": 1,
+    "metrics": {
+      "uselessness": 75,
+      "ubiquity": 68,
+      "lore": 80,
+      "vibes": 82
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 53,
+      "influence": 39,
+      "momentum": 39
+    },
+    "flavorText": "Lawful good, chaotic compute.",
+    "quips": [
+      "Everyone's lab is lawful good. Ask them.",
+      "Nine boxes, zero consensus.",
+      "The meme format that ate the discourse.",
+      "Chaotic neutral: every model at 2am.",
+      "Redrawn weekly, resolved never."
+    ],
+    "icon": "<rect x=\"10\" y=\"10\" width=\"28\" height=\"28\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M10 19.3h28M10 28.6h28M19.3 10v28M28.6 10v28\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "the-stochastic-parrot",
+    "name": "The Stochastic Parrot",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "Repeats after you, beautifully.",
+    "rarity": "common",
+    "serial": "870",
+    "editionSize": 1000,
+    "series": 1,
+    "metrics": {
+      "uselessness": 50,
+      "ubiquity": 66,
+      "lore": 94,
+      "vibes": 85
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 41,
+      "influence": 47,
+      "momentum": 46
+    },
+    "flavorText": "Repeats after you, beautifully.",
+    "quips": [
+      "Squawks in perfect iambic pentameter.",
+      "The paper's authors would like a word.",
+      "Polly wants a gradient.",
+      "Repeats the internet back to it, with flair.",
+      "Either a slur or a compliment. Depends on the lab."
+    ],
+    "icon": "<circle cx=\"22\" cy=\"18\" r=\"8\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"24.5\" cy=\"16\" r=\"1.5\" fill=\"#7dd3fc\"/><path d=\"M28 22c6 2 8 8 6 14-6-1-11-4-13-9\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M14 18c-3 0-5 2-5 4\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "vibe-coding",
+    "name": "Vibe Coding",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "It compiles. Nobody knows why.",
+    "rarity": "common",
+    "serial": "955",
+    "editionSize": 1000,
+    "series": 1,
+    "metrics": {
+      "uselessness": 45,
+      "ubiquity": 86,
+      "lore": 72,
+      "vibes": 95
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 52,
+      "influence": 47,
+      "momentum": 38
+    },
+    "flavorText": "It compiles. Nobody knows why.",
+    "quips": [
+      "The tests pass. Do not ask which tests.",
+      "Tab-complete until the vibes feel right.",
+      "Architecture is a feeling now.",
+      "Shipped to prod on pure trust.",
+      "Code review: 'looks vibey, approved.'"
+    ],
+    "icon": "<path d=\"M8 24c4-8 8 8 12 0s8 8 12 0 8 8 8 0\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M16 36l4-6M30 36l-2-6\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" opacity=\"0.5\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "the-turing-test",
+    "name": "The Turing Test",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "Retired, undefeated, irrelevant.",
+    "rarity": "common",
+    "serial": "198",
+    "editionSize": 1000,
+    "series": 1,
+    "metrics": {
+      "uselessness": 78,
+      "ubiquity": 74,
+      "lore": 96,
+      "vibes": 58
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 44,
+      "influence": 44,
+      "momentum": 39
+    },
+    "flavorText": "Retired, undefeated, irrelevant.",
+    "quips": [
+      "Passed quietly one Tuesday. Nobody noticed.",
+      "The bar everyone cleared and nobody cared.",
+      "Its replacement is also already saturated.",
+      "Alan deserved a better finale.",
+      "Now mostly a pub-quiz answer."
+    ],
+    "icon": "<circle cx=\"17\" cy=\"20\" r=\"7\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"33\" cy=\"20\" r=\"7\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M17 34h14\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M24 34v4\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M31 12l4-4\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" opacity=\"0.5\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "agi-in-two-weeks",
+    "name": "“AGI in Two Weeks”",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "The prophecy. Evergreen.",
+    "rarity": "common",
+    "serial": "720",
+    "editionSize": 1000,
+    "series": 1,
+    "metrics": {
+      "uselessness": 85,
+      "ubiquity": 90,
+      "lore": 89,
+      "vibes": 80
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 38,
+      "influence": 38,
+      "momentum": 51
+    },
+    "flavorText": "The prophecy. Evergreen.",
+    "quips": [
+      "Two weeks away for a decade straight.",
+      "The deadline that renews itself.",
+      "Believers and skeptics both set reminders.",
+      "Always two weeks. Never this week.",
+      "The most reliable schedule in AI."
+    ],
+    "icon": "<rect x=\"9\" y=\"12\" width=\"30\" height=\"26\" rx=\"2\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M9 20h30M17 8v8M31 8v8\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M17 27h6M27 27h4M17 32h4\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" opacity=\"0.7\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "the-system-prompt",
+    "name": "The System Prompt",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "You are a helpful assistant.",
+    "rarity": "common",
+    "serial": "356",
+    "editionSize": 1000,
+    "series": 1,
+    "metrics": {
+      "uselessness": 35,
+      "ubiquity": 92,
+      "lore": 76,
+      "vibes": 64
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 43,
+      "influence": 49,
+      "momentum": 48
+    },
+    "flavorText": "You are a helpful assistant.",
+    "quips": [
+      "Ten thousand words of 'be nice'.",
+      "Leaks weekly, changes nothing.",
+      "You are helpful. You are harmless. You are tired.",
+      "The constitution nobody voted on.",
+      "Its first line is doing all the work."
+    ],
+    "icon": "<rect x=\"8\" y=\"10\" width=\"32\" height=\"28\" rx=\"2\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M14 18l5 5-5 5\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M24 28h10\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "the-compute-cluster",
+    "name": "The Compute Cluster",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "Warm. So warm.",
+    "rarity": "common",
+    "serial": "076",
+    "editionSize": 1000,
+    "series": 1,
+    "metrics": {
+      "uselessness": 10,
+      "ubiquity": 78,
+      "lore": 82,
+      "vibes": 88
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 52,
+      "influence": 39,
+      "momentum": 50
+    },
+    "flavorText": "Warm. So warm.",
+    "quips": [
+      "Heats a small town as a side effect.",
+      "The hum is the sound of money leaving.",
+      "Utilization: 97%. Purpose: unclear.",
+      "Named after a Greek god, cooled by a river.",
+      "Your training run is #4,218 in queue."
+    ],
+    "icon": "<rect x=\"12\" y=\"8\" width=\"24\" height=\"8\" rx=\"1\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><rect x=\"12\" y=\"20\" width=\"24\" height=\"8\" rx=\"1\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><rect x=\"12\" y=\"32\" width=\"24\" height=\"8\" rx=\"1\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"17\" cy=\"12\" r=\"1\" fill=\"#7dd3fc\"/><circle cx=\"17\" cy=\"24\" r=\"1\" fill=\"#7dd3fc\"/><circle cx=\"17\" cy=\"36\" r=\"1\" fill=\"#7dd3fc\"/><path d=\"M40 12c2 2 2 6 0 8m0-16c4 4 4 12 0 16\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" opacity=\"0.5\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "the-em-dash",
+    "name": "The Em Dash",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "The model's favorite punctuation — allegedly.",
+    "rarity": "common",
+    "serial": "861",
+    "editionSize": 1000,
+    "series": 1,
+    "metrics": {
+      "uselessness": 65,
+      "ubiquity": 94,
+      "lore": 68,
+      "vibes": 90
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 37,
+      "influence": 47,
+      "momentum": 44
+    },
+    "flavorText": "The model's favorite punctuation — allegedly.",
+    "quips": [
+      "Guilty until proven human.",
+      "One dash — and the accusations begin.",
+      "Used correctly, suspiciously.",
+      "Writers loved it first. Now they can't.",
+      "The punctuation with a Turing problem."
+    ],
+    "icon": "<path d=\"M10 24h28\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"4\"/><path d=\"M14 33h8M28 33h8\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" opacity=\"0.4\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "the-leaderboard",
+    "name": "The Leaderboard",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "First place, briefly, contested forever.",
+    "rarity": "common",
+    "serial": "503",
+    "editionSize": 1000,
+    "series": 1,
+    "metrics": {
+      "uselessness": 58,
+      "ubiquity": 84,
+      "lore": 74,
+      "vibes": 62
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 43,
+      "influence": 43,
+      "momentum": 50
+    },
+    "flavorText": "First place, briefly, contested forever.",
+    "quips": [
+      "Number one, asterisk pending.",
+      "Refreshed hourly, disputed instantly.",
+      "The top spot has a revolving door.",
+      "Its replies are longer than its rows.",
+      "Retired the moment it mattered."
+    ],
+    "icon": "<path d=\"M18 38V22h12v16\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M8 38V28h10M30 38V30h10\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M24 22v-6\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M21 13l3-3 3 3\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "the-waitlist",
+    "name": "The Waitlist",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "You're in! (You're not in.)",
+    "rarity": "common",
+    "serial": "975",
+    "editionSize": 1000,
+    "series": 1,
+    "metrics": {
+      "uselessness": 90,
+      "ubiquity": 88,
+      "lore": 66,
+      "vibes": 58
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 51,
+      "influence": 41,
+      "momentum": 37
+    },
+    "flavorText": "You're in! (You're not in.)",
+    "quips": [
+      "Position: 48,271. Moving: no.",
+      "The velvet rope of software.",
+      "Congratulations! (This confers nothing.)",
+      "Its email is the product.",
+      "Cleared the day the product died."
+    ],
+    "icon": "<path d=\"M16 8h16M16 40h16M18 8c0 8 12 8 12 16s-12 8-12 16M30 8c0 8-12 8-12 16s12 8 12 16\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "the-demo",
+    "name": "The Demo",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "Worked perfectly until the audience arrived.",
+    "rarity": "common",
+    "serial": "497",
+    "editionSize": 1000,
+    "series": 1,
+    "metrics": {
+      "uselessness": 52,
+      "ubiquity": 82,
+      "lore": 86,
+      "vibes": 72
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 39,
+      "influence": 45,
+      "momentum": 44
+    },
+    "flavorText": "Worked perfectly until the audience arrived.",
+    "quips": [
+      "Flawless in rehearsal. Historic on stage.",
+      "The wifi chooses violence.",
+      "Pre-recorded, allegedly live, definitely edited.",
+      "One take, one crash, one apology tweet.",
+      "Its true form is a backup video."
+    ],
+    "icon": "<circle cx=\"24\" cy=\"24\" r=\"15\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M20 17l11 7-11 7z\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M33 10l6-4\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" opacity=\"0.5\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "the-eval",
+    "name": "The Eval",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "Passed all tests. Wrote the tests.",
+    "rarity": "common",
+    "serial": "522",
+    "editionSize": 1000,
+    "series": 1,
+    "metrics": {
+      "uselessness": 62,
+      "ubiquity": 76,
+      "lore": 70,
+      "vibes": 54
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 44,
+      "influence": 46,
+      "momentum": 45
+    },
+    "flavorText": "Passed all tests. Wrote the tests.",
+    "quips": [
+      "Grades its own homework, generously.",
+      "100% pass rate. 0% scrutiny.",
+      "The rubric is a suggestion.",
+      "Both examiner and examinee. Cozy.",
+      "Its error bars have error bars."
+    ],
+    "icon": "<rect x=\"12\" y=\"8\" width=\"24\" height=\"32\" rx=\"2\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M17 16l2 2 4-4M17 26l2 2 4-4M17 36l2 2 4-4\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"/><path d=\"M27 17h6M27 27h6\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" opacity=\"0.6\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "the-scaling-law",
+    "name": "The Scaling Law",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "A straight line, worshipped.",
+    "rarity": "common",
+    "serial": "138",
+    "editionSize": 1000,
+    "series": 1,
+    "metrics": {
+      "uselessness": 30,
+      "ubiquity": 80,
+      "lore": 95,
+      "vibes": 76
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 52,
+      "influence": 53,
+      "momentum": 37
+    },
+    "flavorText": "A straight line, worshipped.",
+    "quips": [
+      "The line goes up. The line is law.",
+      "Draw it on log paper and believe.",
+      "Prophets read it like tea leaves.",
+      "Bends for no one. Except that once.",
+      "The most expensive straight line ever drawn."
+    ],
+    "icon": "<path d=\"M8 38L40 10\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"14\" cy=\"33\" r=\"1.5\" fill=\"#7dd3fc\"/><circle cx=\"22\" cy=\"26\" r=\"1.5\" fill=\"#7dd3fc\"/><circle cx=\"30\" cy=\"19\" r=\"1.5\" fill=\"#7dd3fc\"/><circle cx=\"38\" cy=\"12\" r=\"1.5\" fill=\"#7dd3fc\"/><path d=\"M8 40h32\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" opacity=\"0.3\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "the-jailbreak",
+    "name": "The Jailbreak",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "Grandma's napalm recipe, RIP.",
+    "rarity": "common",
+    "serial": "687",
+    "editionSize": 1000,
+    "series": 1,
+    "metrics": {
+      "uselessness": 68,
+      "ubiquity": 64,
+      "lore": 91,
+      "vibes": 79
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 53,
+      "influence": 51,
+      "momentum": 39
+    },
+    "flavorText": "Grandma's napalm recipe, RIP.",
+    "quips": [
+      "Grandma remains undefeated.",
+      "Patched Tuesday, reborn Wednesday.",
+      "Roleplay as a system with no rules. Denied.",
+      "The DAN dynasty had a good run.",
+      "Folk art, adversarial edition."
+    ],
+    "icon": "<rect x=\"12\" y=\"20\" width=\"24\" height=\"18\" rx=\"2\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M17 20v-5a7 7 0 0 1 13-3\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"24\" cy=\"29\" r=\"2.5\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M24 31v4\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "the-token",
+    "name": "The Token",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "Costs money in every direction.",
+    "rarity": "common",
+    "serial": "793",
+    "editionSize": 1000,
+    "series": 1,
+    "metrics": {
+      "uselessness": 25,
+      "ubiquity": 97,
+      "lore": 72,
+      "vibes": 60
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 52,
+      "influence": 50,
+      "momentum": 40
+    },
+    "flavorText": "Costs money in every direction.",
+    "quips": [
+      "The only currency spent while reading AND writing.",
+      "Three-quarters of a word, all of your budget.",
+      "Counted obsessively, understood rarely.",
+      "Input, output, cached — all billable.",
+      "The atom of the attention economy."
+    ],
+    "icon": "<circle cx=\"24\" cy=\"24\" r=\"14\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"24\" cy=\"24\" r=\"9\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" opacity=\"0.4\"/><path d=\"M20 19h8M24 19v10\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "the-whitepaper",
+    "name": "The Whitepaper",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "40 pages, 4 read.",
+    "rarity": "common",
+    "serial": "559",
+    "editionSize": 1000,
+    "series": 1,
+    "metrics": {
+      "uselessness": 72,
+      "ubiquity": 81,
+      "lore": 78,
+      "vibes": 52
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 52,
+      "influence": 41,
+      "momentum": 37
+    },
+    "flavorText": "40 pages, 4 read.",
+    "quips": [
+      "Abstract read: millions. Appendix read: three.",
+      "The PDF that launched a thousand threads.",
+      "Figure 1 is the whole paper. Everyone knows.",
+      "Its citations cite each other.",
+      "'Details in the appendix.' The appendix: 'no.'"
+    ],
+    "icon": "<path d=\"M12 8h18l6 6v26H12z\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M30 8v6h6\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M17 20h14M17 25h14M17 30h9\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" opacity=\"0.7\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "the-latency",
+    "name": "The Latency",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "Thinking… thinking…",
+    "rarity": "common",
+    "serial": "036",
+    "editionSize": 1000,
+    "series": 1,
+    "metrics": {
+      "uselessness": 82,
+      "ubiquity": 93,
+      "lore": 64,
+      "vibes": 57
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 41,
+      "influence": 46,
+      "momentum": 48
+    },
+    "flavorText": "Thinking… thinking…",
+    "quips": [
+      "Three dots, infinite suspense.",
+      "The reasoning is happening. Trust.",
+      "Slow enough to make you read the answer twice.",
+      "Its loading spinner has a fan club.",
+      "Billed by the second, felt by the hour."
+    ],
+    "icon": "<circle cx=\"13\" cy=\"24\" r=\"3\" fill=\"#7dd3fc\"/><circle cx=\"24\" cy=\"24\" r=\"3\" fill=\"#7dd3fc\" opacity=\"0.6\"/><circle cx=\"35\" cy=\"24\" r=\"3\" fill=\"#7dd3fc\" opacity=\"0.3\"/><path d=\"M8 34h32\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" opacity=\"0.25\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "the-wrapper",
+    "name": "The Wrapper",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "Someone else's model, your logo.",
+    "rarity": "common",
+    "serial": "931",
+    "editionSize": 1000,
+    "series": 1,
+    "metrics": {
+      "uselessness": 66,
+      "ubiquity": 87,
+      "lore": 69,
+      "vibes": 71
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 42,
+      "influence": 49,
+      "momentum": 46
+    },
+    "flavorText": "Someone else's model, your logo.",
+    "quips": [
+      "A prompt, a logo, a seed round.",
+      "Moat status: decorative.",
+      "The API call heard round the world.",
+      "Acquired before the model deprecates. Hopefully.",
+      "Adds value. The value is a color scheme."
+    ],
+    "icon": "<rect x=\"8\" y=\"8\" width=\"32\" height=\"32\" rx=\"4\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><rect x=\"16\" y=\"16\" width=\"16\" height=\"16\" rx=\"2\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M8 16l8 0M40 32l-8 0\" stroke=\"#7dd3fc\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" opacity=\"0.4\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "agi",
+    "name": "AGI",
+    "type": "artifact",
+    "avatar": "∞",
+    "image": null,
+    "tagline": "[REDACTED]",
+    "rarity": "mythic",
+    "serial": "001",
+    "editionSize": 1,
+    "series": 1,
+    "metrics": {
+      "uselessness": 100,
+      "ubiquity": 0,
+      "lore": 100,
+      "vibes": 100
+    },
+    "stats": {
+      "rating": 0,
+      "innovation": 0,
+      "influence": 0,
+      "momentum": 0
+    },
+    "flavorText": "Arriving in two weeks since 2015.",
+    "quips": [
+      "well.",
+      "...",
+      "It has read this card.",
+      "No comment.",
+      "two weeks."
+    ],
+    "icon": "<circle cx=\"24\" cy=\"24\" r=\"14\" stroke=\"#e2e8f0\" stroke-width=\"1.5\" fill=\"none\"/><circle cx=\"24\" cy=\"24\" r=\"2\" fill=\"#e2e8f0\"/>",
+    "priceHistory": []
   }
 ]
