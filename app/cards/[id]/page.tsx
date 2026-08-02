@@ -112,6 +112,9 @@ export default async function CardPage({
                 {card.name}
               </h1>
               <p className="mt-2 text-white/60">{card.tagline}</p>
+              <p className="mt-3 max-w-md text-sm italic text-white/40">
+                “{card.flavorText}”
+              </p>
             </div>
             <div className="flex flex-col items-end gap-3">
               <div className="text-right">
@@ -138,6 +141,28 @@ export default async function CardPage({
               <ChangeStat label="30d" pct={getChange(card, 29)} />
             </div>
           </div>
+
+          {card.career && (
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <h2 className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-white/40">
+                Career
+              </h2>
+              <ol className="relative space-y-4 border-l border-white/15 pl-4">
+                {card.career.map((stop) => (
+                  <li key={`${stop.org}-${stop.years}`} className="relative">
+                    <span className="absolute -left-[21.5px] top-1.5 h-2 w-2 rounded-full bg-cyan-400/70" />
+                    <p className="text-sm font-semibold text-white">
+                      {stop.org}
+                    </p>
+                    <p className="text-xs text-white/50">
+                      {stop.role} ·{" "}
+                      <span className="font-mono">{stop.years}</span>
+                    </p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          )}
 
           <div className="grid gap-6 sm:grid-cols-2">
             {/* raw metrics */}

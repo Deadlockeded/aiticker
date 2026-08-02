@@ -167,6 +167,11 @@ export default function TradingCard({
         </div>
 
         {hero && <p className="text-sm text-white/55">{card.tagline}</p>}
+        {hero && (
+          <p className="text-[13px] italic leading-snug text-white/40">
+            “{card.flavorText}”
+          </p>
+        )}
 
         {hero && (
           <div className="mt-1 space-y-2 border-t border-white/10 pt-3">

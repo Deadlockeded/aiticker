@@ -1,4 +1,19 @@
-export type CardType = "company" | "engineer";
+export type CardType = "company" | "engineer" | "moment" | "rivalry";
+
+/** Visual variants (see PackRipper/TradingCard). Absent = standard. */
+export type CardVariant = "standard" | "freeAgent" | "hotStreak";
+
+export interface CareerStop {
+  org: string;
+  role: string;
+  years: string;
+}
+
+/** One half of a rivalry card's split face. */
+export interface RivalrySide {
+  name: string;
+  avatar: string;
+}
 
 export type Rarity = "common" | "rare" | "epic" | "legendary" | "mythic";
 
@@ -28,6 +43,22 @@ export interface EngineerMetrics {
   /** Editorial 0–100 score of field impact. */
   impactScore: number;
   yearsInField: number;
+}
+
+/** Collectible AI-history events. All 0–100 editorial. */
+export interface MomentMetrics {
+  impact: number;
+  chaos: number;
+  memeability: number;
+  legacy: number;
+}
+
+/** Dual-face feud cards. All 0–100 editorial. */
+export interface RivalryMetrics {
+  heat: number;
+  history: number;
+  pettiness: number;
+  stakes: number;
 }
 
 export interface CardStats {
@@ -64,8 +95,19 @@ export interface Card {
   editionSize: number;
   series: number;
   /** Raw metrics feeding the rating engine — shape depends on `type`. */
-  metrics: CompanyMetrics | EngineerMetrics;
+  metrics: CompanyMetrics | EngineerMetrics | MomentMetrics | RivalryMetrics;
   stats: CardStats;
+  /** One MTG-style lore line. Tone: affectionate roast. */
+  flavorText: string;
+  /** Engineers only: 2–4 career stops, rendered as a timeline. */
+  career?: CareerStop[];
+  variant?: CardVariant;
+  /** Curated cards only — powers the /today daily-card pick. */
+  dailyBlurb?: string;
+  /** Moments only: display date stamp, e.g. "Nov 2023". */
+  momentDate?: string;
+  /** Rivalries only: the two half-faces. */
+  sides?: [RivalrySide, RivalrySide];
   /** Empty until the price mechanic ships. */
   priceHistory: PricePoint[];
 }

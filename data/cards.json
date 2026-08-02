@@ -22,7 +22,9 @@
       "influence": 98,
       "momentum": 93
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Started as a nonprofit. The rest is a governance case study.",
+    "dailyBlurb": "Every product cycle still orbits them: each launch resets the industry's roadmap and X's timeline in the same hour."
   },
   {
     "id": "anthropic",
@@ -47,7 +49,9 @@
       "influence": 92,
       "momentum": 96
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Founded by people who left OpenAI to worry more professionally.",
+    "dailyBlurb": "The safety lab that keeps accidentally shipping the developers' favorite model. Claude's enterprise run is the quiet story of the year."
   },
   {
     "id": "google-deepmind",
@@ -72,7 +76,9 @@
       "influence": 93,
       "momentum": 88
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Solved protein folding, still can't ship a consistent product name.",
+    "dailyBlurb": "The deepest bench in AI research. When they focus on one thing — protein folding, weather models, math olympiads — records fall."
   },
   {
     "id": "nvidia",
@@ -97,7 +103,9 @@
       "influence": 97,
       "momentum": 92
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Sells shovels. Owns the gold rush anyway.",
+    "dailyBlurb": "Still the tollbooth on every training run that matters. Watch the export-control headlines to know their mood."
   },
   {
     "id": "meta-ai",
@@ -122,7 +130,8 @@
       "influence": 91,
       "momentum": 82
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Spends billions training models, gives them away to ruin everyone's margins."
   },
   {
     "id": "xai",
@@ -147,7 +156,9 @@
       "influence": 85,
       "momentum": 90
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Built a gigawatt datacenter faster than most companies build a landing page.",
+    "dailyBlurb": "The fastest datacenter buildout in history, wired to the world's loudest distribution channel."
   },
   {
     "id": "mistral",
@@ -172,7 +183,9 @@
       "influence": 78,
       "momentum": 81
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Seven-page memo, four billion euros. Europe's entire AI strategy in a hoodie.",
+    "dailyBlurb": "Europe's one real seat at the frontier table, balanced between open weights and sovereign-AI contracts."
   },
   {
     "id": "hugging-face",
@@ -197,7 +210,9 @@
       "influence": 88,
       "momentum": 78
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "The only place where 'download a stranger's weights' is a business model.",
+    "dailyBlurb": "The GitHub of models — every open-weights release lands here first, and their download charts are the field's pulse."
   },
   {
     "id": "perplexity",
@@ -222,7 +237,9 @@
       "influence": 74,
       "momentum": 88
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Answers your question, then asks for your default search engine.",
+    "dailyBlurb": "The first real dent in the search monopoly in twenty years — and every browser deal makes it bigger."
   },
   {
     "id": "cohere",
@@ -247,7 +264,8 @@
       "influence": 71,
       "momentum": 72
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Serving enterprise clients you've heard of with models you haven't."
   },
   {
     "id": "ilya-sutskever",
@@ -272,7 +290,31 @@
       "influence": 94,
       "momentum": 89
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Saw something. Still hasn't said what.",
+    "career": [
+      {
+        "org": "University of Toronto",
+        "role": "PhD, AlexNet",
+        "years": "2008–2012"
+      },
+      {
+        "org": "Google Brain",
+        "role": "Research Scientist",
+        "years": "2013–2015"
+      },
+      {
+        "org": "OpenAI",
+        "role": "Co-founder & Chief Scientist",
+        "years": "2015–2024"
+      },
+      {
+        "org": "SSI",
+        "role": "Co-founder",
+        "years": "2024–"
+      }
+    ],
+    "dailyBlurb": "Runs the most secretive lab in AI with the largest per-employee war chest ever assembled. Nobody knows what's inside."
   },
   {
     "id": "geoffrey-hinton",
@@ -297,7 +339,26 @@
       "influence": 96,
       "momentum": 78
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Spent 40 years being right too early. Now spends them being worried on time.",
+    "career": [
+      {
+        "org": "University of Toronto",
+        "role": "Professor",
+        "years": "1987–2013"
+      },
+      {
+        "org": "Google Brain",
+        "role": "VP & Engineering Fellow",
+        "years": "2013–2023"
+      },
+      {
+        "org": "Independent",
+        "role": "Safety advocate",
+        "years": "2023–"
+      }
+    ],
+    "dailyBlurb": "The godfather who quit to warn about his own life's work. When Hinton speaks about risk, hearing rooms fill."
   },
   {
     "id": "demis-hassabis",
@@ -322,7 +383,26 @@
       "influence": 93,
       "momentum": 87
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Chess prodigy, game dev, Nobel laureate. Pick a lane? Never.",
+    "career": [
+      {
+        "org": "Bullfrog / Lionhead",
+        "role": "Game developer",
+        "years": "1994–2005"
+      },
+      {
+        "org": "DeepMind",
+        "role": "Co-founder & CEO",
+        "years": "2010–"
+      },
+      {
+        "org": "Isomorphic Labs",
+        "role": "Founder",
+        "years": "2021–"
+      }
+    ],
+    "dailyBlurb": "A Nobel Prize later, still treats AGI like a chess endgame — patient, positional, inevitable."
   },
   {
     "id": "andrej-karpathy",
@@ -347,7 +427,32 @@
       "influence": 95,
       "momentum": 91
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Teaches a generation to build GPTs, one YouTube video at a time.",
+    "career": [
+      {
+        "org": "Stanford",
+        "role": "PhD, CS231n",
+        "years": "2011–2016"
+      },
+      {
+        "org": "OpenAI",
+        "role": "Founding member",
+        "years": "2015–2017"
+      },
+      {
+        "org": "Tesla",
+        "role": "Director of AI",
+        "years": "2017–2022"
+      },
+      {
+        "org": "Eureka Labs",
+        "role": "Founder",
+        "years": "2024–"
+      }
+    ],
+    "dailyBlurb": "The field's favorite teacher. One video from him moves more people into AI than a semester of courses.",
+    "variant": "freeAgent"
   },
   {
     "id": "yann-lecun",
@@ -372,7 +477,26 @@
       "influence": 92,
       "momentum": 76
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Invented the ConvNet and will reply to your tweet about it.",
+    "career": [
+      {
+        "org": "Bell Labs",
+        "role": "Researcher, ConvNets",
+        "years": "1988–1996"
+      },
+      {
+        "org": "NYU",
+        "role": "Professor",
+        "years": "2003–"
+      },
+      {
+        "org": "Meta",
+        "role": "Chief AI Scientist",
+        "years": "2013–"
+      }
+    ],
+    "dailyBlurb": "The frontier's in-house contrarian: insists LLMs are a dead end while his lab open-sources the evidence either way."
   },
   {
     "id": "fei-fei-li",
@@ -397,7 +521,8 @@
       "influence": 90,
       "momentum": 80
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Labeled the internet so machines could finally see it."
   },
   {
     "id": "andrew-ng",
@@ -422,7 +547,8 @@
       "influence": 93,
       "momentum": 77
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Has personally onboarded more people into AI than any university."
   },
   {
     "id": "john-schulman",
@@ -447,7 +573,26 @@
       "influence": 80,
       "momentum": 79
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Wrote PPO, then taught your chatbot manners.",
+    "career": [
+      {
+        "org": "UC Berkeley",
+        "role": "PhD, PPO",
+        "years": "2011–2016"
+      },
+      {
+        "org": "OpenAI",
+        "role": "Co-founder, RLHF lead",
+        "years": "2016–2024"
+      },
+      {
+        "org": "Anthropic → Thinking Machines",
+        "role": "Researcher",
+        "years": "2024–"
+      }
+    ],
+    "variant": "freeAgent"
   },
   {
     "id": "noam-shazeer",
@@ -472,7 +617,25 @@
       "influence": 78,
       "momentum": 74
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Co-wrote the transformer, left to make chatbots girlfriends, came back for $2.7B.",
+    "career": [
+      {
+        "org": "Google",
+        "role": "Transformer co-author",
+        "years": "2000–2021"
+      },
+      {
+        "org": "Character.AI",
+        "role": "Co-founder & CEO",
+        "years": "2021–2024"
+      },
+      {
+        "org": "Google DeepMind",
+        "role": "Gemini co-lead",
+        "years": "2024–"
+      }
+    ]
   },
   {
     "id": "chris-olah",
@@ -497,7 +660,8 @@
       "influence": 76,
       "momentum": 82
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Opens the black box, finds another black box, publishes beautifully anyway."
   },
   {
     "id": "microsoft-ai",
@@ -522,7 +686,8 @@
       "influence": 69,
       "momentum": 64
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Enterprise pilots: dozens. Case studies: pending legal review."
   },
   {
     "id": "apple-intelligence",
@@ -547,7 +712,8 @@
       "influence": 81,
       "momentum": 84
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Their API status page is the industry's heartbeat monitor."
   },
   {
     "id": "amazon-ai",
@@ -572,7 +738,8 @@
       "influence": 76,
       "momentum": 86
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Went viral once. The servers remember."
   },
   {
     "id": "ibm-watsonx",
@@ -597,7 +764,8 @@
       "influence": 76,
       "momentum": 78
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Product-market fit found; profitability still in stealth."
   },
   {
     "id": "tesla-ai",
@@ -622,7 +790,8 @@
       "influence": 73,
       "momentum": 76
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Their Discord knows the roadmap before the board does."
   },
   {
     "id": "scale-ai",
@@ -647,7 +816,8 @@
       "influence": 52,
       "momentum": 46
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "The pick-and-shovel play that got acquired by the gold mine."
   },
   {
     "id": "databricks",
@@ -672,7 +842,8 @@
       "influence": 58,
       "momentum": 70
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Buys a startup a quarter to stay one acquisition ahead of Snowflake."
   },
   {
     "id": "palantir",
@@ -697,7 +868,8 @@
       "influence": 62,
       "momentum": 67
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "The pivot to agents was always the plan. Always."
   },
   {
     "id": "amd",
@@ -722,7 +894,8 @@
       "influence": 73,
       "momentum": 82
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Every benchmark chart mysteriously ends where their model wins."
   },
   {
     "id": "intel",
@@ -747,7 +920,8 @@
       "influence": 70,
       "momentum": 76
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Half the team is ex-FAANG. The other half is ex-them."
   },
   {
     "id": "tsmc",
@@ -772,7 +946,8 @@
       "influence": 66,
       "momentum": 66
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Neutral ground in every AI war. The Switzerland of silicon."
   },
   {
     "id": "broadcom",
@@ -797,7 +972,8 @@
       "influence": 75,
       "momentum": 69
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Enterprise pilots: dozens. Case studies: pending legal review."
   },
   {
     "id": "qualcomm",
@@ -822,7 +998,8 @@
       "influence": 62,
       "momentum": 67
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Shipping fast, breaking things, apologizing in changelog haiku."
   },
   {
     "id": "arm",
@@ -847,7 +1024,8 @@
       "influence": 68,
       "momentum": 74
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Product-market fit found; profitability still in stealth."
   },
   {
     "id": "groq",
@@ -872,7 +1050,8 @@
       "influence": 46,
       "momentum": 51
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Says 'tokens per second' the way others say 'good morning'."
   },
   {
     "id": "cerebras",
@@ -897,7 +1076,8 @@
       "influence": 74,
       "momentum": 63
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Why buy a chip when you can buy the whole wafer?"
   },
   {
     "id": "sambanova",
@@ -922,7 +1102,8 @@
       "influence": 57,
       "momentum": 64
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Product-market fit found; profitability still in stealth."
   },
   {
     "id": "tenstorrent",
@@ -947,7 +1128,8 @@
       "influence": 45,
       "momentum": 52
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "The pivot to agents was always the plan. Always."
   },
   {
     "id": "etched",
@@ -972,7 +1154,8 @@
       "influence": 60,
       "momentum": 65
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Investors call it a platform. Users call it that one feature."
   },
   {
     "id": "together-ai",
@@ -997,7 +1180,8 @@
       "influence": 50,
       "momentum": 56
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Every benchmark chart mysteriously ends where their model wins."
   },
   {
     "id": "fireworks-ai",
@@ -1022,7 +1206,8 @@
       "influence": 48,
       "momentum": 40
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Somehow both undervalued and overvalued, depending on the thread."
   },
   {
     "id": "modal",
@@ -1047,7 +1232,8 @@
       "influence": 42,
       "momentum": 48
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Twelve competitors, one moat: shipping while others tweet."
   },
   {
     "id": "replicate",
@@ -1072,7 +1258,8 @@
       "influence": 40,
       "momentum": 45
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Investors call it a platform. Users call it that one feature."
   },
   {
     "id": "lambda-labs",
@@ -1097,7 +1284,8 @@
       "influence": 50,
       "momentum": 40
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Twelve competitors, one moat: shipping while others tweet."
   },
   {
     "id": "coreweave",
@@ -1122,7 +1310,8 @@
       "influence": 67,
       "momentum": 76
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Was mining Ethereum. Pivoted to mining NVIDIA allocations."
   },
   {
     "id": "nebius",
@@ -1147,7 +1336,8 @@
       "influence": 58,
       "momentum": 49
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Product-market fit found; profitability still in stealth."
   },
   {
     "id": "weights-biases",
@@ -1172,7 +1362,8 @@
       "influence": 69,
       "momentum": 69
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Half the team is ex-FAANG. The other half is ex-them."
   },
   {
     "id": "langchain",
@@ -1197,7 +1388,8 @@
       "influence": 58,
       "momentum": 65
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Enterprise pilots: dozens. Case studies: pending legal review."
   },
   {
     "id": "llamaindex",
@@ -1222,7 +1414,8 @@
       "influence": 46,
       "momentum": 45
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Signed a compute deal larger than their last valuation."
   },
   {
     "id": "pinecone",
@@ -1247,7 +1440,8 @@
       "influence": 49,
       "momentum": 50
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Went viral once. The servers remember."
   },
   {
     "id": "weaviate",
@@ -1272,7 +1466,8 @@
       "influence": 52,
       "momentum": 67
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "The launch video was cinematic. The waitlist is geological."
   },
   {
     "id": "elevenlabs",
@@ -1297,7 +1492,9 @@
       "influence": 54,
       "momentum": 53
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Your favorite podcast voice might be them.",
+    "dailyBlurb": "The voice layer of the internet. Every audiobook, dub and agent demo you've heard lately probably rents their larynx."
   },
   {
     "id": "runway",
@@ -1322,7 +1519,8 @@
       "influence": 67,
       "momentum": 60
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Hollywood pretends not to use them."
   },
   {
     "id": "pika",
@@ -1347,7 +1545,8 @@
       "influence": 66,
       "momentum": 56
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Shipping fast, breaking things, apologizing in changelog haiku."
   },
   {
     "id": "luma-ai",
@@ -1372,7 +1571,8 @@
       "influence": 55,
       "momentum": 67
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Half the team is ex-FAANG. The other half is ex-them."
   },
   {
     "id": "midjourney",
@@ -1397,7 +1597,9 @@
       "influence": 75,
       "momentum": 62
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "No investors, no sales team, no problem.",
+    "dailyBlurb": "Zero investors, nine figures of revenue, and half the internet's fantasy art. The bootstrapped anomaly."
   },
   {
     "id": "stability-ai",
@@ -1422,7 +1624,8 @@
       "influence": 49,
       "momentum": 57
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "The pivot to agents was always the plan. Always."
   },
   {
     "id": "black-forest-labs",
@@ -1447,7 +1650,8 @@
       "influence": 63,
       "momentum": 58
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Their API status page is the industry's heartbeat monitor."
   },
   {
     "id": "ideogram",
@@ -1472,7 +1676,8 @@
       "influence": 45,
       "momentum": 54
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Enterprise pilots: dozens. Case studies: pending legal review."
   },
   {
     "id": "suno",
@@ -1497,7 +1702,8 @@
       "influence": 55,
       "momentum": 65
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Your uncle's band is furious. Your playlist isn't."
   },
   {
     "id": "character-ai",
@@ -1522,7 +1728,8 @@
       "influence": 60,
       "momentum": 70
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "A billion conversations, most of them 'hi'."
   },
   {
     "id": "inflection-ai",
@@ -1547,7 +1754,8 @@
       "influence": 45,
       "momentum": 54
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Every benchmark chart mysteriously ends where their model wins."
   },
   {
     "id": "cognition",
@@ -1572,7 +1780,8 @@
       "influence": 54,
       "momentum": 55
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Product-market fit found; profitability still in stealth."
   },
   {
     "id": "cursor",
@@ -1597,7 +1806,9 @@
       "influence": 56,
       "momentum": 56
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Your IDE now finishes your thoughts. Fastest ARR curve in software history.",
+    "dailyBlurb": "The fastest-growing developer tool ever built. The 'AI writes the code' future is already their present."
   },
   {
     "id": "poolside",
@@ -1622,7 +1833,8 @@
       "influence": 60,
       "momentum": 62
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Signed a compute deal larger than their last valuation."
   },
   {
     "id": "magic-dev",
@@ -1647,7 +1859,8 @@
       "influence": 43,
       "momentum": 43
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Burns GPUs by day, burns cash by night. The roadmap says 'trust us'."
   },
   {
     "id": "sourcegraph",
@@ -1672,7 +1885,8 @@
       "influence": 57,
       "momentum": 61
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Twelve competitors, one moat: shipping while others tweet."
   },
   {
     "id": "replit",
@@ -1697,7 +1911,8 @@
       "influence": 54,
       "momentum": 40
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Their demo day clip did numbers. The product ships 'next quarter'."
   },
   {
     "id": "lovable",
@@ -1722,7 +1937,8 @@
       "influence": 60,
       "momentum": 60
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Twelve competitors, one moat: shipping while others tweet."
   },
   {
     "id": "harvey",
@@ -1747,7 +1963,8 @@
       "influence": 64,
       "momentum": 57
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Their demo day clip did numbers. The product ships 'next quarter'."
   },
   {
     "id": "glean",
@@ -1772,7 +1989,8 @@
       "influence": 62,
       "momentum": 57
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Every benchmark chart mysteriously ends where their model wins."
   },
   {
     "id": "sierra",
@@ -1797,7 +2015,8 @@
       "influence": 73,
       "momentum": 60
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Every benchmark chart mysteriously ends where their model wins."
   },
   {
     "id": "synthesia",
@@ -1822,7 +2041,8 @@
       "influence": 60,
       "momentum": 58
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Half the team is ex-FAANG. The other half is ex-them."
   },
   {
     "id": "heygen",
@@ -1847,7 +2067,8 @@
       "influence": 44,
       "momentum": 46
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Went viral once. The servers remember."
   },
   {
     "id": "deepgram",
@@ -1872,7 +2093,8 @@
       "influence": 43,
       "momentum": 49
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Investors call it a platform. Users call it that one feature."
   },
   {
     "id": "cartesia",
@@ -1897,7 +2119,8 @@
       "influence": 58,
       "momentum": 60
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Their API status page is the industry's heartbeat monitor."
   },
   {
     "id": "figure",
@@ -1922,7 +2145,9 @@
       "influence": 61,
       "momentum": 63
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Raising billions to fold your laundry. Eventually.",
+    "dailyBlurb": "Humanoids moved from demo reels to factory pilots. Their next raise prices in your future coworker."
   },
   {
     "id": "1x",
@@ -1947,7 +2172,8 @@
       "influence": 65,
       "momentum": 68
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Twelve competitors, one moat: shipping while others tweet."
   },
   {
     "id": "agility-robotics",
@@ -1972,7 +2198,8 @@
       "influence": 65,
       "momentum": 59
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Their API status page is the industry's heartbeat monitor."
   },
   {
     "id": "boston-dynamics",
@@ -1997,7 +2224,8 @@
       "influence": 47,
       "momentum": 42
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Twenty years of viral videos, one commercial product. Worth it."
   },
   {
     "id": "physical-intelligence",
@@ -2022,7 +2250,8 @@
       "influence": 54,
       "momentum": 56
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "The margins are negative but the vibes are gross positive."
   },
   {
     "id": "waymo",
@@ -2047,7 +2276,9 @@
       "influence": 59,
       "momentum": 64
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Your grandma's favorite robot chauffeur.",
+    "dailyBlurb": "Quietly became the only company driving millions of fully driverless miles a month while everyone argued about it."
   },
   {
     "id": "wayve",
@@ -2072,7 +2303,8 @@
       "influence": 59,
       "momentum": 63
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Raised a mega-round to compete with a company that raised two."
   },
   {
     "id": "aurora",
@@ -2097,7 +2329,8 @@
       "influence": 60,
       "momentum": 68
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Every benchmark chart mysteriously ends where their model wins."
   },
   {
     "id": "applied-intuition",
@@ -2122,7 +2355,8 @@
       "influence": 45,
       "momentum": 55
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "The launch video was cinematic. The waitlist is geological."
   },
   {
     "id": "deepl",
@@ -2147,7 +2381,8 @@
       "influence": 56,
       "momentum": 56
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Enterprise pilots: dozens. Case studies: pending legal review."
   },
   {
     "id": "writer",
@@ -2172,7 +2407,8 @@
       "influence": 55,
       "momentum": 54
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Their API status page is the industry's heartbeat monitor."
   },
   {
     "id": "abridge",
@@ -2197,7 +2433,8 @@
       "influence": 61,
       "momentum": 55
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Enterprise pilots: dozens. Case studies: pending legal review."
   },
   {
     "id": "isomorphic-labs",
@@ -2222,7 +2459,8 @@
       "influence": 69,
       "momentum": 66
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "The pivot to agents was always the plan. Always."
   },
   {
     "id": "recursion",
@@ -2247,7 +2485,8 @@
       "influence": 73,
       "momentum": 60
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Raised a mega-round to compete with a company that raised two."
   },
   {
     "id": "evolutionaryscale",
@@ -2272,7 +2511,8 @@
       "influence": 41,
       "momentum": 45
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Raised a mega-round to compete with a company that raised two."
   },
   {
     "id": "ai21-labs",
@@ -2297,7 +2537,8 @@
       "influence": 61,
       "momentum": 63
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Half the team is ex-FAANG. The other half is ex-them."
   },
   {
     "id": "aleph-alpha",
@@ -2322,7 +2563,8 @@
       "influence": 40,
       "momentum": 53
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "The margins are negative but the vibes are gross positive."
   },
   {
     "id": "deepseek",
@@ -2347,7 +2589,9 @@
       "influence": 69,
       "momentum": 76
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Shipped o1-class reasoning for the price of a nice dinner.",
+    "dailyBlurb": "Proof that frontier AI doesn't require frontier budgets. Every efficiency paper since has been chasing their cost curve."
   },
   {
     "id": "zhipu-ai",
@@ -2372,7 +2616,8 @@
       "influence": 75,
       "momentum": 77
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Shipping fast, breaking things, apologizing in changelog haiku."
   },
   {
     "id": "moonshot-ai",
@@ -2397,7 +2642,8 @@
       "influence": 76,
       "momentum": 68
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Burns GPUs by day, burns cash by night. The roadmap says 'trust us'."
   },
   {
     "id": "minimax",
@@ -2422,7 +2668,8 @@
       "influence": 51,
       "momentum": 57
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Investors call it a platform. Users call it that one feature."
   },
   {
     "id": "01-ai",
@@ -2447,7 +2694,8 @@
       "influence": 69,
       "momentum": 68
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Signed a compute deal larger than their last valuation."
   },
   {
     "id": "baidu-ernie",
@@ -2472,7 +2720,8 @@
       "influence": 67,
       "momentum": 67
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Shipping fast, breaking things, apologizing in changelog haiku."
   },
   {
     "id": "qwen",
@@ -2497,7 +2746,8 @@
       "influence": 73,
       "momentum": 78
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "The open-weights leaderboard's permanent resident."
   },
   {
     "id": "bytedance-seed",
@@ -2522,7 +2772,8 @@
       "influence": 62,
       "momentum": 64
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Twelve competitors, one moat: shipping while others tweet."
   },
   {
     "id": "tencent-hunyuan",
@@ -2547,7 +2798,8 @@
       "influence": 55,
       "momentum": 62
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Shipping fast, breaking things, apologizing in changelog haiku."
   },
   {
     "id": "sensetime",
@@ -2572,7 +2824,8 @@
       "influence": 77,
       "momentum": 72
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Investors call it a platform. Users call it that one feature."
   },
   {
     "id": "sakana-ai",
@@ -2597,7 +2850,8 @@
       "influence": 44,
       "momentum": 44
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Their API status page is the industry's heartbeat monitor."
   },
   {
     "id": "reka",
@@ -2622,7 +2876,8 @@
       "influence": 41,
       "momentum": 48
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Product-market fit found; profitability still in stealth."
   },
   {
     "id": "liquid-ai",
@@ -2647,7 +2902,8 @@
       "influence": 54,
       "momentum": 46
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Somehow both undervalued and overvalued, depending on the thread."
   },
   {
     "id": "world-labs",
@@ -2672,7 +2928,8 @@
       "influence": 42,
       "momentum": 41
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Shipping fast, breaking things, apologizing in changelog haiku."
   },
   {
     "id": "safe-superintelligence",
@@ -2697,7 +2954,9 @@
       "influence": 71,
       "momentum": 61
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Thirty-two billion dollars, zero products, one goal. Respect.",
+    "dailyBlurb": "The purest bet in AI: tens of billions, zero products, one promise. Either historic or a cautionary tale."
   },
   {
     "id": "thinking-machines",
@@ -2722,7 +2981,8 @@
       "influence": 45,
       "momentum": 54
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "The most expensive 'stealth mode' in history."
   },
   {
     "id": "kyutai",
@@ -2747,7 +3007,8 @@
       "influence": 61,
       "momentum": 61
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Every benchmark chart mysteriously ends where their model wins."
   },
   {
     "id": "yoshua-bengio",
@@ -2772,7 +3033,9 @@
       "influence": 81,
       "momentum": 73
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Most-cited living scientist. Uses the citations to ask you to slow down.",
+    "dailyBlurb": "The most-cited scientist alive now spends his citations on AI-safety policy. Governments actually call back."
   },
   {
     "id": "sam-altman",
@@ -2797,7 +3060,26 @@
       "influence": 82,
       "momentum": 83
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Fired on a Friday, rehired by Tuesday. Raises trillions casually.",
+    "career": [
+      {
+        "org": "Loopt",
+        "role": "Founder",
+        "years": "2005–2012"
+      },
+      {
+        "org": "Y Combinator",
+        "role": "President",
+        "years": "2014–2019"
+      },
+      {
+        "org": "OpenAI",
+        "role": "CEO",
+        "years": "2019–"
+      }
+    ],
+    "dailyBlurb": "The industry's chief fundraiser and lightning rod — chips, energy, and AGI timelines all route through his calendar."
   },
   {
     "id": "dario-amodei",
@@ -2822,7 +3104,26 @@
       "influence": 70,
       "momentum": 79
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Wrote the scaling laws, then built a lab to survive them.",
+    "career": [
+      {
+        "org": "Baidu / Google Brain",
+        "role": "Research Scientist",
+        "years": "2014–2016"
+      },
+      {
+        "org": "OpenAI",
+        "role": "VP of Research",
+        "years": "2016–2020"
+      },
+      {
+        "org": "Anthropic",
+        "role": "Co-founder & CEO",
+        "years": "2021–"
+      }
+    ],
+    "dailyBlurb": "Writes essays about machines of loving grace, then signs compute deals the size of small nations."
   },
   {
     "id": "daniela-amodei",
@@ -2847,7 +3148,8 @@
       "influence": 69,
       "momentum": 68
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "The citation graph bends around them."
   },
   {
     "id": "greg-brockman",
@@ -2872,7 +3174,8 @@
       "influence": 83,
       "momentum": 94
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Codes through the night, tweets through the board crisis."
   },
   {
     "id": "mira-murati",
@@ -2897,7 +3200,26 @@
       "influence": 68,
       "momentum": 73
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Ran OpenAI twice: once as CTO, once for a weekend.",
+    "career": [
+      {
+        "org": "Tesla",
+        "role": "Product Manager",
+        "years": "2013–2016"
+      },
+      {
+        "org": "OpenAI",
+        "role": "CTO",
+        "years": "2018–2024"
+      },
+      {
+        "org": "Thinking Machines",
+        "role": "Founder & CEO",
+        "years": "2024–"
+      }
+    ],
+    "dailyBlurb": "Two billion dollars raised on a blank page. The bet is entirely on her judgment."
   },
   {
     "id": "jakub-pachocki",
@@ -2922,7 +3244,8 @@
       "influence": 67,
       "momentum": 77
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Benchmarks fear their ablation studies."
   },
   {
     "id": "wojciech-zaremba",
@@ -2947,7 +3270,8 @@
       "influence": 65,
       "momentum": 67
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Benchmarks fear their ablation studies."
   },
   {
     "id": "jan-leike",
@@ -2972,7 +3296,8 @@
       "influence": 90,
       "momentum": 84
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Keynotes conferences, still answers GitHub issues at 2am."
   },
   {
     "id": "jared-kaplan",
@@ -2997,7 +3322,8 @@
       "influence": 86,
       "momentum": 90
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Reviews papers by day, ships repos by night, sleeps at NeurIPS."
   },
   {
     "id": "tom-brown",
@@ -3022,7 +3348,8 @@
       "influence": 80,
       "momentum": 93
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "The advisor every startup lists and no startup can reach."
   },
   {
     "id": "jack-clark",
@@ -3047,7 +3374,8 @@
       "influence": 77,
       "momentum": 64
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Wrote the textbook chapter, then made it obsolete."
   },
   {
     "id": "mark-chen",
@@ -3072,7 +3400,8 @@
       "influence": 90,
       "momentum": 82
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Their lab alumni page reads like a cap table."
   },
   {
     "id": "alec-radford",
@@ -3097,7 +3426,8 @@
       "influence": 86,
       "momentum": 95
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "No public talks, no drama. Just GPT, CLIP and Whisper."
   },
   {
     "id": "aditya-ramesh",
@@ -3122,7 +3452,8 @@
       "influence": 72,
       "momentum": 62
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Turned down three labs this year. Taking meetings anyway."
   },
   {
     "id": "tim-brooks",
@@ -3147,7 +3478,8 @@
       "influence": 72,
       "momentum": 68
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Benchmarks fear their ablation studies."
   },
   {
     "id": "bill-peebles",
@@ -3172,7 +3504,8 @@
       "influence": 63,
       "momentum": 69
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Has strong opinions about your training run. All of them correct."
   },
   {
     "id": "jason-wei",
@@ -3197,7 +3530,8 @@
       "influence": 71,
       "momentum": 71
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Left a comfortable job to make computers slightly less wrong."
   },
   {
     "id": "noam-brown",
@@ -3222,7 +3556,8 @@
       "influence": 68,
       "momentum": 74
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Everyone claims they discovered them first."
   },
   {
     "id": "lilian-weng",
@@ -3247,7 +3582,8 @@
       "influence": 88,
       "momentum": 89
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Reviews papers by day, ships repos by night, sleeps at NeurIPS."
   },
   {
     "id": "barret-zoph",
@@ -3272,7 +3608,8 @@
       "influence": 76,
       "momentum": 77
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Their h-index has an h-index."
   },
   {
     "id": "ashish-vaswani",
@@ -3297,7 +3634,8 @@
       "influence": 66,
       "momentum": 68
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Has strong opinions about your training run. All of them correct."
   },
   {
     "id": "jakob-uszkoreit",
@@ -3322,7 +3660,8 @@
       "influence": 69,
       "momentum": 73
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Left a comfortable job to make computers slightly less wrong."
   },
   {
     "id": "llion-jones",
@@ -3347,7 +3686,8 @@
       "influence": 92,
       "momentum": 91
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Their lab alumni page reads like a cap table."
   },
   {
     "id": "illia-polosukhin",
@@ -3372,7 +3712,8 @@
       "influence": 73,
       "momentum": 76
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Benchmarks fear their ablation studies."
   },
   {
     "id": "aidan-gomez",
@@ -3397,7 +3738,8 @@
       "influence": 82,
       "momentum": 91
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Their lab alumni page reads like a cap table."
   },
   {
     "id": "lukasz-kaiser",
@@ -3422,7 +3764,8 @@
       "influence": 67,
       "momentum": 74
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Quietly wrote the paper your favorite model is built on."
   },
   {
     "id": "niki-parmar",
@@ -3447,7 +3790,8 @@
       "influence": 92,
       "momentum": 93
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Benchmarks fear their ablation studies."
   },
   {
     "id": "juergen-schmidhuber",
@@ -3472,7 +3816,8 @@
       "influence": 98,
       "momentum": 95
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "You didn't invent it. He did. In the nineties. He has receipts."
   },
   {
     "id": "sepp-hochreiter",
@@ -3497,7 +3842,8 @@
       "influence": 87,
       "momentum": 97
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Their side project has more stars than your company."
   },
   {
     "id": "ian-goodfellow",
@@ -3522,7 +3868,25 @@
       "influence": 86,
       "momentum": 98
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Invented GANs at a bar. Best pub trivia answer in ML history.",
+    "career": [
+      {
+        "org": "Google Brain",
+        "role": "GAN inventor",
+        "years": "2013–2016"
+      },
+      {
+        "org": "Apple",
+        "role": "Director of ML",
+        "years": "2019–2022"
+      },
+      {
+        "org": "Google DeepMind",
+        "role": "Research Scientist",
+        "years": "2022–"
+      }
+    ]
   },
   {
     "id": "david-silver",
@@ -3547,7 +3911,8 @@
       "influence": 93,
       "momentum": 95
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Speaks softly and carries a large cluster."
   },
   {
     "id": "oriol-vinyals",
@@ -3572,7 +3937,8 @@
       "influence": 77,
       "momentum": 67
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Benchmarks fear their ablation studies."
   },
   {
     "id": "koray-kavukcuoglu",
@@ -3597,7 +3963,8 @@
       "influence": 88,
       "momentum": 85
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Turned down three labs this year. Taking meetings anyway."
   },
   {
     "id": "shane-legg",
@@ -3622,7 +3989,8 @@
       "influence": 70,
       "momentum": 79
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "The advisor every startup lists and no startup can reach."
   },
   {
     "id": "mustafa-suleyman",
@@ -3647,7 +4015,8 @@
       "influence": 68,
       "momentum": 67
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Reviews papers by day, ships repos by night, sleeps at NeurIPS."
   },
   {
     "id": "jeff-dean",
@@ -3672,7 +4041,26 @@
       "influence": 89,
       "momentum": 85
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "The man, the myth, the compiler folklore. Latency numbers fear him.",
+    "career": [
+      {
+        "org": "Google",
+        "role": "Employee ~#20, MapReduce",
+        "years": "1999–2011"
+      },
+      {
+        "org": "Google Brain",
+        "role": "Co-founder",
+        "years": "2011–2018"
+      },
+      {
+        "org": "Google",
+        "role": "Chief Scientist",
+        "years": "2018–"
+      }
+    ],
+    "dailyBlurb": "Google's living infrastructure legend — the systems he built two decades ago still carry today's models."
   },
   {
     "id": "quoc-le",
@@ -3697,7 +4085,8 @@
       "influence": 70,
       "momentum": 72
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Their intern project became a product line."
   },
   {
     "id": "kaiming-he",
@@ -3722,7 +4111,9 @@
       "influence": 71,
       "momentum": 71
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "ResNet has more citations than most universities.",
+    "dailyBlurb": "ResNet made deep networks trainable. A decade later, his papers are still load-bearing walls."
   },
   {
     "id": "ross-girshick",
@@ -3747,7 +4138,8 @@
       "influence": 72,
       "momentum": 81
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Their side project has more stars than your company."
   },
   {
     "id": "alex-krizhevsky",
@@ -3772,7 +4164,8 @@
       "influence": 70,
       "momentum": 65
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Turned down three labs this year. Taking meetings anyway."
   },
   {
     "id": "francois-chollet",
@@ -3797,7 +4190,8 @@
       "influence": 85,
       "momentum": 90
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Made Keras, then made a benchmark your AGI still can't pass."
   },
   {
     "id": "soumith-chintala",
@@ -3822,7 +4216,8 @@
       "influence": 78,
       "momentum": 70
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Left a comfortable job to make computers slightly less wrong."
   },
   {
     "id": "tri-dao",
@@ -3847,7 +4242,8 @@
       "influence": 93,
       "momentum": 91
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Made attention fast enough to be worth paying."
   },
   {
     "id": "albert-gu",
@@ -3872,7 +4268,8 @@
       "influence": 78,
       "momentum": 92
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Their 'quick thread' on scaling is required reading now."
   },
   {
     "id": "percy-liang",
@@ -3897,7 +4294,8 @@
       "influence": 77,
       "momentum": 80
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Left a comfortable job to make computers slightly less wrong."
   },
   {
     "id": "christopher-re",
@@ -3922,7 +4320,8 @@
       "influence": 88,
       "momentum": 84
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Speaks softly and carries a large cluster."
   },
   {
     "id": "christopher-manning",
@@ -3947,7 +4346,8 @@
       "influence": 84,
       "momentum": 82
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Their 'quick thread' on scaling is required reading now."
   },
   {
     "id": "sebastian-thrun",
@@ -3972,7 +4372,8 @@
       "influence": 90,
       "momentum": 88
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Put cars on roads without drivers before it was a category."
   },
   {
     "id": "daphne-koller",
@@ -3997,7 +4398,8 @@
       "influence": 67,
       "momentum": 67
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "The rare engineer whose demos work live."
   },
   {
     "id": "pieter-abbeel",
@@ -4022,7 +4424,8 @@
       "influence": 81,
       "momentum": 68
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Their h-index has an h-index."
   },
   {
     "id": "sergey-levine",
@@ -4047,7 +4450,8 @@
       "influence": 66,
       "momentum": 70
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Keynotes conferences, still answers GitHub issues at 2am."
   },
   {
     "id": "chelsea-finn",
@@ -4072,7 +4476,8 @@
       "influence": 79,
       "momentum": 94
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Left a comfortable job to make computers slightly less wrong."
   },
   {
     "id": "richard-sutton",
@@ -4097,7 +4502,9 @@
       "influence": 95,
       "momentum": 91
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Wrote The Bitter Lesson. The industry keeps learning it the bitter way.",
+    "dailyBlurb": "The Bitter Lesson's author, still betting on scale and search while everyone rediscovers his point."
   },
   {
     "id": "stuart-russell",
@@ -4122,7 +4529,8 @@
       "influence": 76,
       "momentum": 71
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Turned down three labs this year. Taking meetings anyway."
   },
   {
     "id": "peter-norvig",
@@ -4147,7 +4555,8 @@
       "influence": 85,
       "momentum": 79
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Their lab alumni page reads like a cap table."
   },
   {
     "id": "gary-marcus",
@@ -4172,7 +4581,8 @@
       "influence": 93,
       "momentum": 93
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Every model release is personally addressed to him."
   },
   {
     "id": "timnit-gebru",
@@ -4197,7 +4607,8 @@
       "influence": 70,
       "momentum": 77
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Has strong opinions about your training run. All of them correct."
   },
   {
     "id": "emily-bender",
@@ -4222,7 +4633,8 @@
       "influence": 78,
       "momentum": 75
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Turned down three labs this year. Taking meetings anyway."
   },
   {
     "id": "yejin-choi",
@@ -4247,7 +4659,8 @@
       "influence": 70,
       "momentum": 77
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Their h-index has an h-index."
   },
   {
     "id": "ali-farhadi",
@@ -4272,7 +4685,8 @@
       "influence": 68,
       "momentum": 67
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Speaks softly and carries a large cluster."
   },
   {
     "id": "jim-fan",
@@ -4297,7 +4711,8 @@
       "influence": 67,
       "momentum": 76
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Makes robots look easy and threads look effortless."
   },
   {
     "id": "anima-anandkumar",
@@ -4322,7 +4737,8 @@
       "influence": 80,
       "momentum": 95
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "The rare engineer whose demos work live."
   },
   {
     "id": "jitendra-malik",
@@ -4347,7 +4763,8 @@
       "influence": 76,
       "momentum": 83
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Everyone claims they discovered them first."
   },
   {
     "id": "alexei-efros",
@@ -4372,7 +4789,8 @@
       "influence": 88,
       "momentum": 94
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "The citation graph bends around them."
   },
   {
     "id": "john-carmack",
@@ -4397,7 +4815,8 @@
       "influence": 78,
       "momentum": 92
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Optimized Doom, now optimizing AGI. Same energy."
   },
   {
     "id": "george-hotz",
@@ -4422,7 +4841,8 @@
       "influence": 71,
       "momentum": 65
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Jailbroke the iPhone at 17. Now jailbreaking the GPU monopoly."
   },
   {
     "id": "chris-lattner",
@@ -4447,7 +4867,8 @@
       "influence": 93,
       "momentum": 90
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Their intern project became a product line."
   },
   {
     "id": "jeremy-howard",
@@ -4472,7 +4893,8 @@
       "influence": 93,
       "momentum": 93
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Keynotes conferences, still answers GitHub issues at 2am."
   },
   {
     "id": "sara-hooker",
@@ -4497,7 +4919,8 @@
       "influence": 84,
       "momentum": 85
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Told you the hardware was the lottery. Bought different tickets."
   },
   {
     "id": "rodney-brooks",
@@ -4522,7 +4945,8 @@
       "influence": 99,
       "momentum": 87
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Their h-index has an h-index."
   },
   {
     "id": "david-ha",
@@ -4547,7 +4971,8 @@
       "influence": 77,
       "momentum": 75
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Keynotes conferences, still answers GitHub issues at 2am."
   },
   {
     "id": "kenneth-stanley",
@@ -4572,7 +4997,8 @@
       "influence": 64,
       "momentum": 65
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Their lab alumni page reads like a cap table."
   },
   {
     "id": "volodymyr-mnih",
@@ -4597,7 +5023,8 @@
       "influence": 64,
       "momentum": 65
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "The rare engineer whose demos work live."
   },
   {
     "id": "alex-graves",
@@ -4622,7 +5049,8 @@
       "influence": 76,
       "momentum": 73
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Speaks softly and carries a large cluster."
   },
   {
     "id": "arthur-mensch",
@@ -4647,7 +5075,9 @@
       "influence": 93,
       "momentum": 94
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Left DeepMind with a slide deck, came back with a country's GDP.",
+    "dailyBlurb": "Europe's frontier-lab founder, fluent in both attention mechanisms and Brussels."
   },
   {
     "id": "guillaume-lample",
@@ -4672,7 +5102,8 @@
       "influence": 87,
       "momentum": 93
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Quietly wrote the paper your favorite model is built on."
   },
   {
     "id": "clem-delangue",
@@ -4697,7 +5128,8 @@
       "influence": 60,
       "momentum": 60
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Open-source's most relentless hype man. The emoji is load-bearing."
   },
   {
     "id": "thomas-wolf",
@@ -4722,7 +5154,8 @@
       "influence": 81,
       "momentum": 94
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "The rare engineer whose demos work live."
   },
   {
     "id": "aravind-srinivas",
@@ -4747,7 +5180,8 @@
       "influence": 81,
       "momentum": 77
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Will personally reply to your complaint about citations."
   },
   {
     "id": "alexandr-wang",
@@ -4772,7 +5206,8 @@
       "influence": 60,
       "momentum": 63
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Labeled data until Meta labeled him 'superintelligence chief'."
   },
   {
     "id": "liang-wenfeng",
@@ -4797,7 +5232,9 @@
       "influence": 65,
       "momentum": 72
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Ran a quant fund, got bored, wiped a trillion off NASDAQ with a side project.",
+    "dailyBlurb": "The quant who made frontier AI a commodity. Every pricing page in the industry is a response to him."
   },
   {
     "id": "kai-fu-lee",
@@ -4822,7 +5259,8 @@
       "influence": 74,
       "momentum": 76
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Wrote the book on AI superpowers. Literally."
   },
   {
     "id": "lex-fridman",
@@ -4847,7 +5285,8 @@
       "influence": 92,
       "momentum": 90
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Asks the same question to everyone: love. Somehow gets 4 hours out of it."
   },
   {
     "id": "paul-christiano",
@@ -4872,7 +5311,8 @@
       "influence": 71,
       "momentum": 67
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Their h-index has an h-index."
   },
   {
     "id": "joelle-pineau",
@@ -4897,7 +5337,8 @@
       "influence": 79,
       "momentum": 78
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Everyone claims they discovered them first."
   },
   {
     "id": "colin-raffel",
@@ -4922,7 +5363,8 @@
       "influence": 92,
       "momentum": 78
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Speaks softly and carries a large cluster."
   },
   {
     "id": "yi-tay",
@@ -4947,7 +5389,8 @@
       "influence": 92,
       "momentum": 92
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Their 'quick thread' on scaling is required reading now."
   },
   {
     "id": "eliezer-yudkowsky",
@@ -4972,7 +5415,8 @@
       "influence": 73,
       "momentum": 67
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "Has been warning you since before your lab existed."
   },
   {
     "id": "jeff-clune",
@@ -4997,6 +5441,7 @@
       "influence": 88,
       "momentum": 87
     },
-    "priceHistory": []
+    "priceHistory": [],
+    "flavorText": "The citation graph bends around them."
   }
 ]

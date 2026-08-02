@@ -1,5 +1,11 @@
 import seed from "@/data/cards.json";
-import type { Card, CompanyMetrics, EngineerMetrics } from "./types";
+import type {
+  Card,
+  CompanyMetrics,
+  EngineerMetrics,
+  MomentMetrics,
+  RivalryMetrics,
+} from "./types";
 
 /**
  * FIFA-style 0–99 rating computed from raw metrics.
@@ -17,6 +23,8 @@ export const RATING_CONFIG: {
   ceil: number;
   company: MetricConfig<keyof CompanyMetrics>;
   engineer: MetricConfig<keyof EngineerMetrics>;
+  moment: MetricConfig<keyof MomentMetrics>;
+  rivalry: MetricConfig<keyof RivalryMetrics>;
 } = {
   floor: 55,
   ceil: 99,
@@ -31,6 +39,18 @@ export const RATING_CONFIG: {
     impactScore: { weight: 0.3, curve: "linear" },
     followers: { weight: 0.2, curve: "log" },
     yearsInField: { weight: 0.15, curve: "linear" },
+  },
+  moment: {
+    impact: { weight: 0.35, curve: "linear" },
+    legacy: { weight: 0.3, curve: "linear" },
+    memeability: { weight: 0.2, curve: "linear" },
+    chaos: { weight: 0.15, curve: "linear" },
+  },
+  rivalry: {
+    heat: { weight: 0.35, curve: "linear" },
+    stakes: { weight: 0.3, curve: "linear" },
+    history: { weight: 0.2, curve: "linear" },
+    pettiness: { weight: 0.15, curve: "linear" },
   },
 };
 
@@ -50,9 +70,8 @@ for (const card of seed as Card[]) {
 }
 
 export function computeRating(card: Card): number {
-  const config: MetricConfig<string> =
-    card.type === "company" ? RATING_CONFIG.company : RATING_CONFIG.engineer;
-  const metrics = card.metrics as CompanyMetrics & EngineerMetrics;
+  const config = RATING_CONFIG[card.type] as MetricConfig<string>;
+  const metrics = card.metrics as unknown as Record<string, number>;
 
   let weighted = 0;
   for (const [key, { weight, curve }] of Object.entries(config)) {
