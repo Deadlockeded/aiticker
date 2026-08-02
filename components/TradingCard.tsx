@@ -82,10 +82,15 @@ export default function TradingCard({
   card,
   rank,
   size = "grid",
+  community = false,
+  communityStats,
 }: {
   card: MarketCard;
   rank: number;
   size?: "grid" | "hero";
+  /** Community Series (make-your-own) framing: ∞ serial, no market row. */
+  community?: boolean;
+  communityStats?: { label: string; value: number }[];
 }) {
   const r = RARITY[card.rarity];
   const hero = size === "hero";
@@ -187,20 +192,26 @@ export default function TradingCard({
           >
             {card.name}
           </h3>
-          <span
-            className={`tnum shrink-0 font-mono text-white/40 ${hero ? "text-sm" : "text-[10px]"}`}
-          >
-            #{rank}
-          </span>
+          {!community && (
+            <span
+              className={`tnum shrink-0 font-mono text-white/40 ${hero ? "text-sm" : "text-[10px]"}`}
+            >
+              #{rank}
+            </span>
+          )}
         </div>
         <div
           className={`flex items-center justify-between font-mono text-white/40 ${
             hero ? "text-xs" : "text-[9px]"
           }`}
         >
-          <span className="uppercase tracking-wider">{card.type}</span>
+          <span className={`uppercase tracking-wider ${community ? "text-cyan-400/80" : ""}`}>
+            {community ? "community" : card.type}
+          </span>
           <span className="tnum">
-            #{card.serial}/{card.editionSize} · S{card.series}
+            {community
+              ? "#???/∞ · Community"
+              : `#${card.serial}/${card.editionSize} · S${card.series}`}
           </span>
         </div>
 
@@ -211,7 +222,28 @@ export default function TradingCard({
           </p>
         )}
 
-        {hero && (
+        {hero && communityStats && (
+          <div className="mt-1 space-y-2 border-t border-white/10 pt-3">
+            {communityStats.map(({ label, value }) => (
+              <div key={label} className="flex items-center gap-2">
+                <span className={`w-24 font-mono text-xs ${r.accentText}`}>
+                  {label}
+                </span>
+                <div className="h-1 flex-1 overflow-hidden rounded-full bg-white/10">
+                  <div
+                    className="h-full rounded-full bg-white/60"
+                    style={{ width: `${value}%` }}
+                  />
+                </div>
+                <span className="tnum w-6 text-right font-mono text-xs text-white/70">
+                  {value}
+                </span>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {hero && !communityStats && (
           <div className="mt-1 space-y-2 border-t border-white/10 pt-3">
             {STAT_ROWS.map(({ key, label }) => (
               <div key={key} className="flex items-center gap-2">
@@ -232,27 +264,29 @@ export default function TradingCard({
           </div>
         )}
 
-        {/* price row */}
-        <div
-          className={`mt-auto flex items-center justify-between border-t border-white/10 ${
-            hero ? "pt-3" : "pt-2"
-          }`}
-        >
-          <span
-            className={`tnum font-mono font-semibold text-white ${
-              hero ? "text-lg" : "text-xs"
+        {/* price row (community cards have no market) */}
+        {!community && (
+          <div
+            className={`mt-auto flex items-center justify-between border-t border-white/10 ${
+              hero ? "pt-3" : "pt-2"
             }`}
           >
-            {formatTicks(price)}
-          </span>
-          <span
-            className={`tnum font-mono ${move >= 0 ? "text-emerald-400" : "text-red-400"} ${
-              hero ? "text-sm" : "text-[10px]"
-            }`}
-          >
-            {formatMove(move)}
-          </span>
-        </div>
+            <span
+              className={`tnum font-mono font-semibold text-white ${
+                hero ? "text-lg" : "text-xs"
+              }`}
+            >
+              {formatTicks(price)}
+            </span>
+            <span
+              className={`tnum font-mono ${move >= 0 ? "text-emerald-400" : "text-red-400"} ${
+                hero ? "text-sm" : "text-[10px]"
+              }`}
+            >
+              {formatMove(move)}
+            </span>
+          </div>
+        )}
       </div>
     </div>
   );

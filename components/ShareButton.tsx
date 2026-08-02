@@ -21,8 +21,9 @@ export default function ShareButton({
   const [copied, setCopied] = useState(false);
 
   const share = async () => {
-    const link = url ?? window.location.href;
-    const payload = text ? `${text}\n${link}` : link;
+    // url === "" means "text only" (the text already carries its own link)
+    const link = url === undefined ? window.location.href : url;
+    const payload = text ? (link ? `${text}\n${link}` : text) : link;
     try {
       if (navigator.share) {
         await navigator.share(text ? { text: payload } : { url: link });

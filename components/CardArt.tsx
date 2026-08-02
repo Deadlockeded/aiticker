@@ -22,6 +22,10 @@ export default function CardArt({
   const [failed, setFailed] = useState(false);
   const showImage = card.image !== null && !failed;
 
+  // user-uploaded photos are data URLs that never leave the device —
+  // bypass the optimizer for those
+  const local = card.image?.startsWith("data:") ?? false;
+
   if (shape === "tile") {
     if (showImage && card.type === "engineer") {
       return (
@@ -30,6 +34,7 @@ export default function CardArt({
           alt={card.name}
           fill
           priority={hero}
+          unoptimized={local}
           sizes={hero ? "340px" : "220px"}
           className="object-cover"
           onError={() => setFailed(true)}
