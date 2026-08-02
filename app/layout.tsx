@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Nav from "@/components/Nav";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -30,16 +31,20 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <Nav />
         {children}
-        <footer className="px-4 py-6 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white/25">
-          Portraits via{" "}
-          <a
-            href="https://commons.wikimedia.org"
-            className="underline hover:text-white/50"
-          >
-            Wikimedia Commons
-          </a>{" "}
-          (freely licensed) · Logos via site favicons
+        <footer className="space-y-1.5 px-4 py-6 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white/25">
+          <p>Prices are simulated. Series 1 · aiticker.xyz</p>
+          <p>
+            Portraits via{" "}
+            <a
+              href="https://commons.wikimedia.org"
+              className="underline hover:text-white/50"
+            >
+              Wikimedia Commons
+            </a>{" "}
+            (freely licensed) · Logos via site favicons
+          </p>
         </footer>
       </body>
     </html>

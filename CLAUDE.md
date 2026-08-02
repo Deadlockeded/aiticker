@@ -14,13 +14,17 @@ There is no test runner configured.
 
 ## Architecture
 
-Next.js App Router app (Next 16, React 19, TypeScript strict, Tailwind CSS v4) — a collectible trading-card index of AI companies and AI engineers.
+Next.js App Router app (Next 16, React 19, TypeScript strict, Tailwind CSS v4) — a collectible trading-card index of AI companies and AI engineers with a fully simulated market. Ship-fast constraints are deliberate: **no auth, no database, no external APIs, no chart/animation libraries** — static JSON + localStorage + deterministic simulation, deployable to Vercel as-is.
 
-- `lib/types.ts` — the `Card` type. `priceHistory: PricePoint[]` is intentionally an empty array on all seed data: the data model is pre-wired for a future Football-Index-style price mechanic, but no trading/pricing features exist yet. Keep new features compatible with that plan.
-- `data/cards.json` — all card data lives here as a static JSON seed (imported directly; `resolveJsonModule` is on). No database, no API routes. Card `image` URLs are remote and royalty-free: Wikimedia Commons thumbs for engineers, Google's favicon service for company logos (allowed hosts in next.config.ts); `image: null` falls back to the monogram via `components/CardArt.tsx`.
-- `lib/cards.ts` — typed accessors over the seed data (`getAllCards`, `getCard`), plus derived rank (cards sorted by `stats.rating`). Rank is computed, never stored.
-- `components/TradingCard.tsx` — the hero visual. All rarity-based styling (foil/gradient/shine per rarity tier) is driven by a `RARITY` config map in this file; add new tiers there, not with ad-hoc classes. Foil/shine keyframes live in `app/globals.css`.
-- `app/page.tsx` renders the grid; sorting/filtering is client-side in `components/CardGrid.tsx`.
-- `app/cards/[id]/page.tsx` — card detail, statically generated via `generateStaticParams` over the JSON. It reserves a placeholder panel for the future price chart.
+Data flow: `data/cards.json` (seed) → `lib/cards.ts` enriches each card at module load into a `MarketCard` (computed `rating` from `lib/rating.ts`, 30-day `priceHistory` from `lib/market.ts`). Pages import from `lib/cards.ts`, never the JSON directly.
+
+- `lib/rating.ts` — FIFA-style 0–99 rating from raw `card.metrics`. All tuning lives in the exported `RATING_CONFIG` (weights, log/linear curves per metric, floor/ceil). Runtime overwrites the legacy `stats.rating`; `MarketCard.rating` is the source of truth.
+- `lib/market.ts` — deterministic simulation: mulberry32 PRNG seeded from the card id, so server and client always generate identical prices (hydration-safe). Prices depend only on the PRNG, never on dates; timestamps are only ever rendered client-side (tooltips). Keep it that way.
+- `lib/binder.ts` / `lib/packs.ts` — localStorage collection + daily pack allowance (3/day, local-midnight reset) and odds-weighted pulls (`PULL_ODDS` in `lib/editions.ts`). Client-only: call post-mount. Pack pulls are true-random on purpose (click handlers only).
+- `data/cards.json` — static seed. Card `image` URLs are royalty-free remotes (Wikimedia Commons portraits, Google favicon service for logos; allowed hosts in next.config.ts); `image: null` falls back to the monogram via `components/CardArt.tsx`.
+- `components/TradingCard.tsx` — the hero visual. All rarity-based styling (foil/gradient/shine per tier) is driven by the `RARITY` config map in this file; add new tiers there, not with ad-hoc classes. Keyframes (foil, pack rip, confetti) live in `app/globals.css`.
+- `components/PackRipper.tsx` — pack-opening state machine (idle → ripping → reveal) with CSS-only ritual animations.
+- `app/api/og/[id]/route.tsx` — edge route rendering 1200×630 share images via `next/og`. Satori's default font lacks the ₮ glyph — spell out "TICKS" there.
+- Pages: `/` grid (+ hero CTA), `/market` (movers + sortable table), `/cards/[id]` (SSG detail + SVG price chart), `/packs`, `/binder`, `/leaderboard` (fake rivals + real binder value).
 
 Tailwind v4 note: there is no tailwind.config — theme tokens are declared in `app/globals.css` via `@theme inline`.

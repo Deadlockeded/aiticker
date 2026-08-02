@@ -1,15 +1,17 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import type { MarketCard } from "@/lib/cards";
 import { pullPack } from "@/lib/packs";
 import {
   addPulls,
   consumePack,
-  getPacksLeft,
+  getAllowanceSnapshot,
   msUntilReset,
+  packsLeftFrom,
   PACKS_PER_DAY,
+  subscribeStore,
 } from "@/lib/binder";
 import TradingCard from "./TradingCard";
 import ShareButton from "./ShareButton";
@@ -25,28 +27,25 @@ const CONFETTI_COLORS = [
   "#f87171",
 ];
 
-/** One CSS-only confetti burst. Randomized post-mount (client event), then done. */
-function Confetti() {
-  const pieces = useMemo(
-    () =>
-      Array.from({ length: 70 }, (_, i) => ({
-        left: `${Math.random() * 100}%`,
-        background: CONFETTI_COLORS[i % CONFETTI_COLORS.length],
-        "--confetti-delay": `${Math.random() * 0.5}s`,
-        "--confetti-duration": `${2 + Math.random() * 1.6}s`,
-        "--confetti-spin": `${360 + Math.random() * 540}deg`,
-        transform: `scale(${0.7 + Math.random() * 0.8})`,
-      })),
-    [],
-  );
+type ConfettiPiece = React.CSSProperties;
+
+/** Randomized in event handlers only — render stays pure. */
+function makeConfetti(): ConfettiPiece[] {
+  return Array.from({ length: 70 }, (_, i) => ({
+    left: `${Math.random() * 100}%`,
+    background: CONFETTI_COLORS[i % CONFETTI_COLORS.length],
+    "--confetti-delay": `${Math.random() * 0.5}s`,
+    "--confetti-duration": `${2 + Math.random() * 1.6}s`,
+    "--confetti-spin": `${360 + Math.random() * 540}deg`,
+    transform: `scale(${0.7 + Math.random() * 0.8})`,
+  })) as ConfettiPiece[];
+}
+
+function Confetti({ pieces }: { pieces: ConfettiPiece[] }) {
   return (
     <div className="pointer-events-none fixed inset-0 z-50 overflow-hidden">
       {pieces.map((style, i) => (
-        <span
-          key={i}
-          className="confetti-piece"
-          style={style as React.CSSProperties}
-        />
+        <span key={i} className="confetti-piece" style={style} />
       ))}
     </div>
   );
@@ -128,21 +127,27 @@ export default function PackRipper({
   cards: MarketCard[];
   ranks: Record<string, number>;
 }) {
-  const [mounted, setMounted] = useState(false);
   const [phase, setPhase] = useState<Phase>("idle");
   const [tearing, setTearing] = useState(false);
-  const [packsLeft, setPacksLeft] = useState(PACKS_PER_DAY);
   const [pulls, setPulls] = useState<MarketCard[]>([]);
   const [flipped, setFlipped] = useState<boolean[]>([]);
   const [shimmering, setShimmering] = useState<number | null>(null);
   const [glowKey, setGlowKey] = useState(0);
-  const [confettiKey, setConfettiKey] = useState(0);
+  const [confetti, setConfetti] = useState<{
+    key: number;
+    pieces: ConfettiPiece[];
+  } | null>(null);
   const [resetIn, setResetIn] = useState("");
 
-  useEffect(() => {
-    setMounted(true);
-    setPacksLeft(getPacksLeft());
-  }, []);
+  // Allowance is derived from the localStorage store; null server snapshot
+  // means "not hydrated yet". consumePack() notifies, so this stays fresh.
+  const allowanceRaw = useSyncExternalStore(
+    subscribeStore,
+    getAllowanceSnapshot,
+    () => null,
+  );
+  const mounted = allowanceRaw !== null;
+  const packsLeft = mounted ? packsLeftFrom(allowanceRaw) : PACKS_PER_DAY;
 
   // countdown to the daily reset while out of packs
   useEffect(() => {
@@ -153,15 +158,17 @@ export default function PackRipper({
       const m = Math.ceil((ms % 3_600_000) / 60_000);
       setResetIn(h > 0 ? `${h}h ${m}m` : `${m}m`);
     };
-    update();
+    const kickoff = setTimeout(update, 0);
     const timer = setInterval(update, 30_000);
-    return () => clearInterval(timer);
+    return () => {
+      clearTimeout(kickoff);
+      clearInterval(timer);
+    };
   }, [mounted, packsLeft]);
 
   const rip = () => {
     const left = consumePack();
     if (left === null) return;
-    setPacksLeft(left);
 
     const pulled = pullPack(cards);
     setPulls(pulled);
@@ -185,7 +192,7 @@ export default function PackRipper({
       setTimeout(() => setShimmering((s) => (s === i ? null : s)), 1600);
     }
     if (rarity === "legendary" || rarity === "mythic") {
-      setConfettiKey((k) => k + 1);
+      setConfetti((c) => ({ key: (c?.key ?? 0) + 1, pieces: makeConfetti() }));
     }
   };
 
@@ -199,7 +206,7 @@ export default function PackRipper({
           className="glow-flash pointer-events-none fixed inset-0 z-40 bg-[radial-gradient(circle_at_50%_45%,rgba(165,180,252,0.45),rgba(56,189,248,0.15)_45%,transparent_75%)]"
         />
       )}
-      {confettiKey > 0 && <Confetti key={confettiKey} />}
+      {confetti && <Confetti key={confetti.key} pieces={confetti.pieces} />}
 
       <p className="mb-8 text-center font-mono text-xs uppercase tracking-[0.3em] text-white/40">
         {mounted

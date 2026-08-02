@@ -1,9 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useMemo, useSyncExternalStore } from "react";
 import Link from "next/link";
 import type { MarketCard } from "@/lib/cards";
-import { getBinder } from "@/lib/binder";
+import {
+  getBinderSnapshot,
+  parseBinder,
+  subscribeStore,
+} from "@/lib/binder";
 import { formatTicks, getCurrentPrice } from "@/lib/market";
 
 export const STARTING_TICKS = 10_000;
@@ -27,16 +31,16 @@ const RIVALS: { name: string; value: number }[] = [
 ];
 
 export default function Leaderboard({ cards }: { cards: MarketCard[] }) {
-  const [yourValue, setYourValue] = useState<number | null>(null);
-
-  useEffect(() => {
-    const binder = getBinder();
+  const raw = useSyncExternalStore(subscribeStore, getBinderSnapshot, () => null);
+  const yourValue = useMemo(() => {
+    if (raw === null) return null;
+    const binder = parseBinder(raw);
     const portfolio = cards.reduce(
       (sum, c) => sum + (binder[c.id]?.copies ?? 0) * getCurrentPrice(c),
       0,
     );
-    setYourValue(Math.round(STARTING_TICKS + portfolio));
-  }, [cards]);
+    return Math.round(STARTING_TICKS + portfolio);
+  }, [raw, cards]);
 
   if (yourValue === null) {
     return (

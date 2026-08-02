@@ -1,10 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useMemo, useSyncExternalStore } from "react";
 import Link from "next/link";
 import type { MarketCard } from "@/lib/cards";
 import type { Rarity } from "@/lib/types";
-import { getBinder, type Binder } from "@/lib/binder";
+import {
+  getBinderSnapshot,
+  parseBinder,
+  subscribeStore,
+} from "@/lib/binder";
 import { formatTicks, getCurrentPrice } from "@/lib/market";
 import TradingCard from "./TradingCard";
 
@@ -36,11 +40,10 @@ export default function BinderView({
   cards: MarketCard[];
   ranks: Record<string, number>;
 }) {
-  const [binder, setBinder] = useState<Binder | null>(null);
-
-  useEffect(() => {
-    setBinder(getBinder());
-  }, []);
+  // null server snapshot = still hydrating; the store keeps this in sync
+  // with pack rips (same tab) and other tabs alike.
+  const raw = useSyncExternalStore(subscribeStore, getBinderSnapshot, () => null);
+  const binder = useMemo(() => (raw === null ? null : parseBinder(raw)), [raw]);
 
   if (binder === null) {
     return (
