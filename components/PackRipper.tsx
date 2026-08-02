@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState, useSyncExternalStore } from "react";
-import Link from "next/link";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { useRouter } from "next/navigation";
 import type { MarketCard } from "@/lib/cards";
 import { pullPack } from "@/lib/packs";
 import {
@@ -18,8 +18,6 @@ import { addXP, XP_REWARDS } from "@/lib/xp";
 import { getRandomQuip } from "@/lib/daily";
 import { checkAchievements } from "@/lib/achievements";
 import TradingCard from "./TradingCard";
-import ShareButton from "./ShareButton";
-import { ViralNudge } from "./ViralTeasers";
 
 type Phase = "idle" | "ripping" | "reveal";
 
@@ -132,6 +130,8 @@ export default function PackRipper({
   cards: MarketCard[];
   ranks: Record<string, number>;
 }) {
+  const router = useRouter();
+  const autoTimers = useRef<ReturnType<typeof setTimeout>[]>([]);
   const [phase, setPhase] = useState<Phase>("idle");
   const [tearing, setTearing] = useState(false);
   const [pulls, setPulls] = useState<MarketCard[]>([]);
@@ -191,8 +191,31 @@ export default function PackRipper({
     setTearing(false);
     setTimeout(() => setTearing(true), 650);
     setTimeout(() => setPhase("reveal"), 1300);
+
+    // ONE-TAP FLOW: cards flash-reveal in sequence, then straight to the
+    // binder. Legendary/mythic moments get extra breathing room — never cut
+    // those short.
+    autoTimers.current.forEach(clearTimeout);
+    autoTimers.current = pulled.map((_, i) =>
+      setTimeout(() => flipRef.current(i), 1700 + i * 600),
+    );
+    const special = pulled.some(
+      (c) => c.rarity === "legendary" || c.rarity === "mythic" || c.id === "agi",
+    );
+    autoTimers.current.push(
+      setTimeout(
+        () => router.push("/binder"),
+        1700 + pulled.length * 600 + 1200 + (special ? 1400 : 0),
+      ),
+    );
   };
 
+  const skipToBinder = () => {
+    autoTimers.current.forEach(clearTimeout);
+    router.push("/binder");
+  };
+
+  const flipRef = useRef<(i: number) => void>(() => {});
   const flip = (i: number) => {
     if (flipped[i]) return;
     if (navigator.vibrate) navigator.vibrate(10);
@@ -218,6 +241,9 @@ export default function PackRipper({
     }
   };
 
+  useEffect(() => {
+    flipRef.current = flip;
+  });
   const allFlipped = flipped.length > 0 && flipped.every(Boolean);
 
   return (
@@ -243,21 +269,26 @@ export default function PackRipper({
 
       {phase !== "reveal" && (
         <div>
-          <PackGraphic shaking={phase === "ripping" && !tearing} tearing={tearing} />
-          <div className="mt-10 text-center">
-            <button
-              onClick={rip}
-              disabled={!mounted || phase === "ripping" || packsLeft === 0}
-              className="rounded-lg bg-[#C23B2E] px-8 py-3 text-base font-semibold text-[#FDFBF6] transition-colors hover:bg-[#A32F24] disabled:cursor-not-allowed disabled:opacity-40"
-            >
-              {phase === "ripping" ? "Ripping…" : "Rip a Pack"}
-            </button>
-          </div>
+          <button
+            onClick={rip}
+            disabled={!mounted || phase === "ripping" || packsLeft === 0}
+            className="block w-full disabled:cursor-not-allowed disabled:opacity-50"
+            aria-label="Rip the pack"
+          >
+            <PackGraphic shaking={phase === "ripping" && !tearing} tearing={tearing} />
+          </button>
+          <p className="mt-6 text-center font-mono text-[11px] uppercase tracking-[0.25em] text-[#9AA0AC]">
+            {phase === "ripping"
+              ? "ripping…"
+              : packsLeft === 0 && mounted
+                ? `Next issue of free packs in ${resetIn}. — The Editor`
+                : "tap the pack to rip it"}
+          </p>
         </div>
       )}
 
       {phase === "reveal" && (
-        <div>
+        <div onClick={skipToBinder} role="button" aria-label="Skip to binder">
           <div className="mx-auto grid max-w-xs grid-cols-1 gap-6 sm:max-w-3xl sm:grid-cols-3">
             {pulls.map((card, i) => (
               <div key={`${card.id}-${i}`} className="flex flex-col">
@@ -302,44 +333,9 @@ export default function PackRipper({
               </div>
             ))}
           </div>
-
-          <div className="mt-10 text-center">
-            {allFlipped ? (
-              <div className="space-y-4">
-                <p className="font-mono text-sm text-[#1F7A3D]">
-                  ✓ Saved to your binder
-                </p>
-                <ViralNudge />
-                <div className="flex flex-wrap items-center justify-center gap-3">
-                  <ShareButton
-                    label="Share pull"
-                    text={`I just pulled ${pulls
-                      .map((c) => `${c.name} (${c.rarity.toUpperCase()})`)
-                      .join(", ")} on AI Ticker 🃏`}
-                    url={typeof window !== "undefined" ? `${window.location.origin}/packs` : "/packs"}
-                  />
-                  {packsLeft > 0 && (
-                    <button
-                      onClick={rip}
-                      className="rounded-lg bg-[#C23B2E] px-6 py-2.5 text-sm font-semibold text-[#FDFBF6] transition-colors hover:bg-[#A32F24]"
-                    >
-                      Rip another
-                    </button>
-                  )}
-                  <Link
-                    href="/binder"
-                    className="rounded-lg border border-[#1E2430]/40 px-6 py-2.5 text-sm font-semibold text-[#5A6070] transition-colors hover:bg-[#1E2430]/5"
-                  >
-                    View binder
-                  </Link>
-                </div>
-              </div>
-            ) : (
-              <p className="font-mono text-xs uppercase tracking-[0.3em] text-[#9AA0AC]">
-                Tap each card to reveal
-              </p>
-            )}
-          </div>
+          <p className="mt-8 text-center font-mono text-[10px] uppercase tracking-[0.3em] text-[#9AA0AC]">
+            {allFlipped ? "off to the binder…" : "tap anywhere to skip →"}
+          </p>
         </div>
       )}
     </div>

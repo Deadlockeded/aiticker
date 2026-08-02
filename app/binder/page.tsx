@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import BinderPages from "@/components/BinderPages";
 import TradeIn from "@/components/TradeIn";
+import PacksLeftChip from "@/components/PacksLeftChip";
 import { getAllCards, getRank } from "@/lib/cards";
 
 export const metadata: Metadata = { title: "Binder · AI Ticker" };
@@ -21,6 +22,7 @@ export default async function BinderPage({ searchParams }: { searchParams: Searc
         initialCard={card}
       />
       <TradeIn cards={cards} ranks={ranks} />
+      <PacksLeftChip />
     </main>
   );
 }
