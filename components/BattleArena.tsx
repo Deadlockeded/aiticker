@@ -17,6 +17,7 @@ import {
   resolveBattle,
 } from "@/lib/battle";
 import { addXP, XP_REWARDS } from "@/lib/xp";
+import { checkAchievements } from "@/lib/achievements";
 import TradingCard from "./TradingCard";
 import CardArt from "./CardArt";
 import ShareButton from "./ShareButton";
@@ -73,6 +74,7 @@ export default function BattleArena({
         const won = res.winner === "a";
         recordBattle(won);
         addXP(won ? XP_REWARDS.battleWin : XP_REWARDS.battleLoss);
+        checkAchievements(cards);
         setPhase("done");
       }, 700 + res.rounds.length * 1300 + 400),
     );

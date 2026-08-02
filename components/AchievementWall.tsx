@@ -1,0 +1,59 @@
+"use client";
+
+import { useMemo, useSyncExternalStore } from "react";
+import { subscribeStore } from "@/lib/binder";
+import {
+  ACHIEVEMENTS,
+  getUnlockedSnapshot,
+  parseUnlocked,
+} from "@/lib/achievements";
+
+/** Badge wall on /binder. */
+export default function AchievementWall() {
+  const raw = useSyncExternalStore(subscribeStore, getUnlockedSnapshot, () => null);
+  const unlocked = useMemo(
+    () => new Set(raw === null ? [] : parseUnlocked(raw)),
+    [raw],
+  );
+  if (raw === null) return null;
+
+  return (
+    <section className="mt-10">
+      <h2 className="mb-3 text-sm font-semibold text-white">
+        Achievements{" "}
+        <span className="tnum font-mono text-xs text-white/40">
+          {unlocked.size}/{ACHIEVEMENTS.length}
+        </span>
+      </h2>
+      <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
+        {ACHIEVEMENTS.map((a) => {
+          const has = unlocked.has(a.id);
+          return (
+            <div
+              key={a.id}
+              className={`flex items-start gap-3 rounded-xl border p-3 ${
+                has
+                  ? "border-cyan-400/30 bg-cyan-400/[0.06]"
+                  : "border-white/8 bg-white/[0.02] opacity-60"
+              }`}
+            >
+              <span className={`text-2xl ${has ? "" : "grayscale"}`}>
+                {has ? a.emoji : "🔒"}
+              </span>
+              <span className="min-w-0">
+                <span
+                  className={`block text-[13px] font-semibold ${has ? "text-white" : "text-white/50"}`}
+                >
+                  {a.name}
+                </span>
+                <span className="block text-[11px] leading-snug text-white/40">
+                  {a.desc}
+                </span>
+              </span>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}

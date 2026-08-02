@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import LevelPill from "./LevelPill";
 
 const LINKS = [
   { href: "/", label: "Cards" },
@@ -44,6 +45,7 @@ export default function Nav() {
             );
           })}
         </div>
+        <LevelPill />
         <Link
           href="/packs"
           className="hidden shrink-0 rounded-lg bg-cyan-400 px-3.5 py-1.5 text-[13px] font-semibold text-black transition-colors hover:bg-cyan-300 sm:block"

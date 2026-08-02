@@ -1,0 +1,14 @@
+[
+  { "id": "first-pull", "name": "Pack Fresh", "emoji": "🃏", "desc": "Rip your first pack." },
+  { "id": "first-blood", "name": "First Blood", "emoji": "⚔️", "desc": "Win your first battle." },
+  { "id": "hot-hand", "name": "Hot Hand", "emoji": "🔥", "desc": "Win 3 battles in a row." },
+  { "id": "pack-rat", "name": "Pack Rat", "emoji": "📦", "desc": "Hold 30 total cards in your binder." },
+  { "id": "moment-in-time", "name": "Moment in Time", "emoji": "🎞️", "desc": "Own any moment card." },
+  { "id": "attention-please", "name": "Attention, Please", "emoji": "📄", "desc": "Own 'Attention Is All You Need'." },
+  { "id": "doomer-deck", "name": "Doomer Deck", "emoji": "☠️", "desc": "Own Hinton, Bengio, Russell and Yudkowsky." },
+  { "id": "chaos-agent", "name": "Chaos Agent", "emoji": "⚡", "desc": "Save a lab with a rivalry card in it." },
+  { "id": "mint-condition", "name": "Mint Condition", "emoji": "✨", "desc": "Pull a Mint legendary or mythic." },
+  { "id": "seven-day-streak", "name": "Regular", "emoji": "📅", "desc": "Visit 7 days in a row." },
+  { "id": "level-5", "name": "Slab Lord", "emoji": "🏆", "desc": "Reach level 5." },
+  { "id": "full-set", "name": "Full Set", "emoji": "💎", "desc": "Collect every Series 1 card. See a doctor." }
+]

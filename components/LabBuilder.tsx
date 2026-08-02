@@ -12,6 +12,7 @@ import {
   saveLab,
   scoreLab,
 } from "@/lib/lab";
+import { checkAchievements } from "@/lib/achievements";
 import TradingCard from "./TradingCard";
 import CardArt from "./CardArt";
 import ShareButton from "./ShareButton";
@@ -125,9 +126,10 @@ export default function LabBuilder({
           <div className="mt-4 flex flex-wrap justify-center gap-2">
             <button
               disabled={!full || !name.trim() || labs.length >= MAX_LABS && !labs.some((l) => l.name === name.trim())}
-              onClick={() =>
-                saveLab({ name: name.trim(), ids: picked, savedAt: new Date().toISOString() })
-              }
+              onClick={() => {
+                saveLab({ name: name.trim(), ids: picked, savedAt: new Date().toISOString() });
+                checkAchievements(cards);
+              }}
               className="rounded-lg bg-cyan-400 px-5 py-2 text-sm font-semibold text-black transition-colors hover:bg-cyan-300 disabled:cursor-not-allowed disabled:opacity-40"
             >
               Save lab

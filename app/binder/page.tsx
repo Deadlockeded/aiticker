@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import BinderView from "@/components/BinderView";
+import TradeIn from "@/components/TradeIn";
+import AchievementWall from "@/components/AchievementWall";
 import { getAllCards, getRank } from "@/lib/cards";
 
 export const metadata: Metadata = { title: "Binder · AI Index" };
@@ -17,6 +19,8 @@ export default function BinderPage() {
         </p>
       </header>
       <BinderView cards={cards} ranks={ranks} />
+      <TradeIn cards={cards} ranks={ranks} />
+      <AchievementWall />
     </main>
   );
 }

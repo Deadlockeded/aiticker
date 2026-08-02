@@ -37,3 +37,21 @@ export function pullPack(cards: MarketCard[]): MarketCard[] {
   }
   return pulls;
 }
+
+/** Trade-in reward: one guaranteed rare-or-better, odds renormalized. */
+export function pullRarePlus(cards: MarketCard[]): MarketCard {
+  const tiers: Rarity[] = ["rare", "epic", "legendary", "mythic"];
+  const total = tiers.reduce((s, t) => s + PULL_ODDS[t], 0);
+  let roll = Math.random() * total;
+  let rarity: Rarity = "rare";
+  for (const tier of [...tiers].reverse()) {
+    roll -= PULL_ODDS[tier];
+    if (roll < 0) {
+      rarity = tier;
+      break;
+    }
+  }
+  let pool = cards.filter((c) => c.rarity === rarity);
+  if (pool.length === 0) pool = cards.filter((c) => c.rarity === "rare");
+  return pool[Math.floor(Math.random() * pool.length)];
+}

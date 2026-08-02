@@ -17,6 +17,7 @@ import {
   voteToday,
 } from "@/lib/daily";
 import { addXP, XP_REWARDS } from "@/lib/xp";
+import { checkAchievements } from "@/lib/achievements";
 import predictions from "@/data/predictions.json";
 import TradingCard from "./TradingCard";
 
@@ -114,6 +115,7 @@ export default function TodayView({
                   onClick={() => {
                     voteToday(i);
                     addXP(XP_REWARDS.dailyVote);
+                    checkAchievements(cards);
                   }}
                   className="w-full rounded-lg border border-white/10 bg-white/[0.03] p-3 text-left text-sm text-white/80 transition-colors hover:border-cyan-400/50 hover:bg-white/[0.06]"
                 >
