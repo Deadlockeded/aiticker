@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-02T18:51:25.718Z",
+  "lastUpdated": "2026-08-03T05:42:19.084Z",
   "sources": {
     "wikipedia": {
       "ok": 50,
@@ -10,8 +10,8 @@
       "fail": 0
     },
     "github": {
-      "ok": 15,
-      "fail": 2
+      "ok": 17,
+      "fail": 0
     },
     "huggingface": {
       "ok": 9,
