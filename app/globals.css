@@ -206,10 +206,43 @@ h1 {
   filter: saturate(0.15) opacity(0.42);
 }
 
-/* THE PULL BEAT: the drain lifts and the art comes up in full colour */
+/* HALFTONE VEIL — the dot screen collectors liked, rebuilt on tokens: a
+   rotated print screen over the drained art. Dots take the ink token, so
+   they read dark-on-light in light mode and light-on-dark in dark. Pitch
+   comes from --dot (5px pockets, 8px grid, 11px hero). Sits on the ART
+   only, under every chip — words stay crisp, always. */
+.dot-veil {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.dot-veil::before {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  transform: rotate(15deg); /* classic halftone screen angle */
+  background-image: radial-gradient(
+    circle,
+    var(--ink) calc(var(--dot, 8px) * 0.24),
+    transparent calc(var(--dot, 8px) * 0.3)
+  );
+  background-size: var(--dot, 8px) var(--dot, 8px);
+  opacity: 0.3;
+}
+
+/* THE PULL BEAT: the dots shrink away and the art comes up in colour */
 @keyframes art-resolve {
   to {
     filter: saturate(1) opacity(1);
+  }
+}
+
+@keyframes dots-shrink {
+  to {
+    background-size: 1px 1px;
+    opacity: 0;
   }
 }
 
@@ -217,10 +250,18 @@ h1 {
   animation: art-resolve 0.75s ease 0.15s forwards;
 }
 
+.art-resolving .dot-veil::before {
+  animation: dots-shrink 0.75s ease 0.15s forwards;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .art-resolving .art-locked {
     animation: none !important;
     filter: none;
+  }
+  .art-resolving .dot-veil::before {
+    animation: none !important;
+    opacity: 0;
   }
 }
 

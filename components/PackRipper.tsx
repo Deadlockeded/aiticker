@@ -161,6 +161,9 @@ function PullCard({
           <CardArt card={card} shape="tile" />
         )}
       </div>
+      {resolving && (
+        <div className="dot-veil" style={{ "--dot": "8px" } as React.CSSProperties} aria-hidden />
+      )}
       {variant === "holo" && <div className="holo-wash absolute inset-0 opacity-50" />}
       {variant === "silver" && <div className="silver-sheen absolute inset-0" />}
 

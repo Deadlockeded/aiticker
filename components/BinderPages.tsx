@@ -26,14 +26,6 @@ import AchievementWall from "./AchievementWall";
 import RaiseARound from "./RaiseARound";
 
 const RARITY_ORDER: Rarity[] = ["legendary", "epic", "rare", "common"];
-const RARITY_RING: Record<Rarity, string> = {
-  legendary: "ring-amber-400/60",
-  epic: "ring-fuchsia-400/50",
-  rare: "ring-sky-400/50",
-  common: "ring-white/15",
-  mythic: "ring-cyan-300/60",
-};
-
 type Chip = "all" | "missing" | "dupes";
 
 // Capture the previous visit timestamp exactly once per mount session and
@@ -449,21 +441,21 @@ export default function BinderPages({
                       return (
                         <div
                           key={card.id}
-                          className={`rounded-xl bg-surface2 relative aspect-[1/1.4] rounded-lg bg-black/30 p-1 transition-opacity ${dim ? "opacity-25" : ""}`}
+                          className={`relative aspect-[1/1.4] rounded-xl bg-surface2 p-1 transition-opacity ${dim ? "opacity-25" : ""}`}
                         >
-                          <div className="rounded-xl relative h-full w-full overflow-hidden rounded-md bg-surface">
+                          {/* STILL CHASING: drained art under the halftone
+                              screen — unmistakably a print you don't own */}
+                          <div className="relative h-full w-full overflow-hidden rounded-lg bg-surface">
                             <div
-                              className="relative h-[70%]"
+                              className="relative h-[70%] bg-surface2"
                               style={{ "--dot": "5px" } as React.CSSProperties}
                             >
-                              <CardArt card={card} shape="tile" />
-                              <div className="proof-veil">
-                                <div className="proof-tint" />
-                                <div className="proof-paper" />
-                                <div className="proof-dots" />
+                              <div className="art-locked absolute inset-0">
+                                <CardArt card={card} shape="tile" />
                               </div>
+                              <div className="dot-veil" />
                             </div>
-                            <p className="truncate px-1 pt-1 text-left text-[9px] font-medium text-ink">
+                            <p className="truncate px-1 pt-1 text-left text-[9px] font-medium text-ink3">
                               {card.name}
                             </p>
                             <p className="px-1 text-left font-mono text-[8px] text-ink3">
@@ -480,10 +472,12 @@ export default function BinderPages({
                           setOpen(card);
                           setSeen((s) => new Set(s).add(card.id));
                         }}
-                        className={`rounded-xl bg-surface2 relative aspect-[1/1.4] rounded-lg bg-black/30 p-1 transition-opacity ${dim ? "opacity-25 saturate-0" : ""} ${initialCard === card.id ? "pulse-once" : ""}`}
+                        className={`relative aspect-[1/1.4] rounded-xl bg-surface2 p-1 transition-opacity ${dim ? "opacity-25 saturate-0" : ""} ${initialCard === card.id ? "pulse-once" : ""}`}
                       >
+                        {/* OWNED: full colour + the pink keyline — the one
+                            mark that always means "in your binder" */}
                         <div
-                          className={`rounded-xl relative h-full w-full overflow-hidden rounded-md bg-surface ring-1 ${RARITY_RING[card.rarity]} ${card.rarity === "legendary" ? "foil-slow" : ""}`}
+                          className={`owned-keyline relative h-full w-full overflow-hidden rounded-lg bg-surface ${card.rarity === "legendary" ? "foil-slow" : ""}`}
                         >
                           <div className="relative h-[70%]">
                             <CardArt card={card} shape="tile" />

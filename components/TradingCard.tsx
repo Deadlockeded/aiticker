@@ -192,6 +192,7 @@ export default function TradingCard({
           <CardArt card={card} hero={hero} shape="tile" />
         )}
         </div>
+        {veiled && <div className="dot-veil" aria-hidden />}
         {veiled && !resolving && (
           <span
             className={`micro absolute bottom-2 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap rounded-full bg-surface px-2.5 py-1 font-semibold text-ink2 shadow-card ${hero ? "text-[10px]" : ""}`}

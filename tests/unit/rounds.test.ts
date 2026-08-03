@@ -100,16 +100,16 @@ test("share text carries amount, investor and terms", () => {
   assert.ok(text.includes("aiticker.xyz"));
 });
 
-test("the cap table caps at 10 and is idempotent per week", () => {
+test("the cap table caps at a year and is idempotent per week", () => {
   let rows: CapTableRow[] = [];
-  for (let i = 1; i <= 15; i++) {
-    rows = capTableWith(rows, { week: `2026-W${String(i).padStart(2, "0")}`, investor: "Uncle Dave", amount: 300 });
+  for (let i = 0; i < 60; i++) {
+    const week = `${2026 + Math.floor(i / 52)}-W${String((i % 52) + 1).padStart(2, "0")}`;
+    rows = capTableWith(rows, { week, investor: "Uncle Dave", amount: 300 });
   }
   assert.equal(rows.length, CAP_TABLE_MAX);
   // oldest rows fell off, newest kept
-  assert.equal(rows[0].week, "2026-W06");
-  assert.equal(rows[rows.length - 1].week, "2026-W15");
+  assert.equal(rows[rows.length - 1].week, "2027-W08");
   // double-claiming a week must not double-list it
-  const again = capTableWith(rows, { week: "2026-W15", investor: "Uncle Dave", amount: 300 });
+  const again = capTableWith(rows, { week: "2027-W08", investor: "Uncle Dave", amount: 300 });
   assert.deepEqual(again, rows);
 });

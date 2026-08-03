@@ -10,7 +10,7 @@ import {
   getRound,
   roundClaimedFrom,
 } from "@/lib/rituals";
-import { roundShareText } from "@/lib/rounds";
+import { generateRound, roundShareText, type SpecialWeek } from "@/lib/rounds";
 import ShareButton from "./ShareButton";
 
 /**
@@ -28,6 +28,7 @@ export default function RaiseARound({
 }) {
   const raw = useSyncExternalStore(subscribeStore, getRitualsSnapshot, () => null);
   const [justRaised, setJustRaised] = useState<number | null>(null);
+  const [ledgerOpen, setLedgerOpen] = useState(false);
   if (raw === null) return null;
   const claimed = roundClaimedFrom(raw);
   const round = getRound();
@@ -74,10 +75,13 @@ export default function RaiseARound({
     <div className="mb-5 space-y-2">
       {card}
       {history.length > 0 && (
-        <div className="rounded-[22px] bg-surface p-3 shadow-card">
+        <button
+          onClick={() => setLedgerOpen(true)}
+          className="block w-full rounded-[22px] bg-surface p-3 text-left shadow-card transition-transform active:scale-[.99]"
+        >
           <p className="micro text-ink3">Cap table</p>
           <ul className="mt-1.5 space-y-1">
-            {[...history].reverse().map((row) => (
+            {[...history].slice(-3).reverse().map((row) => (
               <li
                 key={row.week}
                 className="flex items-baseline justify-between gap-2 text-[13px]"
@@ -90,11 +94,85 @@ export default function RaiseARound({
               </li>
             ))}
           </ul>
-          <p className="micro mt-2 text-ink3">
-            Fully diluted. Emotionally, at least.
+          <p className="micro mt-2 text-pink">
+            {history.length > 3
+              ? `All ${history.length} bad deals →`
+              : "Review the damage →"}
           </p>
+        </button>
+      )}
+
+      {/* THE LEDGER — every deal you shouldn't have taken. Each row's terms
+          regenerate from its week key, so history costs no extra storage. */}
+      {ledgerOpen && (
+        <div className="fixed inset-0 z-40" onClick={() => setLedgerOpen(false)}>
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="absolute inset-x-0 bottom-0 max-h-[85vh] overflow-y-auto rounded-t-[22px] bg-bg p-4 pb-[calc(1.25rem+env(safe-area-inset-bottom))]"
+          >
+            <div className="mx-auto max-w-md">
+              <p className="font-display text-[20px] font-extrabold text-ink">
+                Cap table
+              </p>
+              <p className="mt-0.5 text-[13px] text-ink2">
+                Every deal you shouldn&apos;t have taken.
+              </p>
+              <ul className="mt-4 space-y-2">
+                {[...history].reverse().map((row) => {
+                  const deal = generateRound(row.week);
+                  return (
+                    <li key={row.week} className="rounded-[16px] bg-surface p-3 shadow-card">
+                      <div className="flex items-baseline justify-between gap-2">
+                        <span className="truncate text-[15px] font-semibold text-ink">
+                          {row.investor}
+                        </span>
+                        <span className="tnum shrink-0 font-mono text-[13px] text-ink">
+                          {formatTicks(row.amount)}
+                        </span>
+                      </div>
+                      <div className="mt-1 flex flex-wrap items-center gap-1.5">
+                        <span className="micro text-ink3">{row.week.replace("20", "'")}</span>
+                        {deal.special && <SpecialChip kind={deal.special} />}
+                      </div>
+                      <p className="micro mt-1.5 text-ink2">Terms: {deal.term}</p>
+                    </li>
+                  );
+                })}
+              </ul>
+              <div className="mt-4 rounded-[16px] bg-surface2 p-3 text-center">
+                <p className="tnum font-display text-[18px] font-extrabold text-ink">
+                  {formatTicks(history.reduce((s, r) => s + r.amount, 0))} raised to date
+                </p>
+                <p className="micro mt-1 text-ink3">
+                  Diligence performed: none · Nothing is binding · Everything vested
+                </p>
+              </div>
+              <button
+                onClick={() => setLedgerOpen(false)}
+                className="mt-4 w-full rounded-full bg-surface2 px-6 py-3 text-[16px] font-semibold text-ink transition-transform active:scale-[.97]"
+              >
+                Close the books
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </div>
+  );
+}
+
+/** Special-week badge on a ledger row. */
+function SpecialChip({ kind }: { kind: Exclude<SpecialWeek, null> }) {
+  const label =
+    kind === "down" ? "Down round" : kind === "oversub" ? "Oversubscribed" : "Bridge";
+  const tone =
+    kind === "down"
+      ? "bg-pink-tint text-pink"
+      : kind === "oversub"
+        ? "bg-teal-tint text-teal"
+        : "bg-amber-tint text-amber";
+  return (
+    <span className={`micro rounded-full px-1.5 py-0.5 font-semibold ${tone}`}>{label}</span>
   );
 }

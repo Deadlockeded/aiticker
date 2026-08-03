@@ -277,8 +277,13 @@ export interface CapTableRow {
   amount: number;
 }
 
-/** The long-running joke: a cap table of cursed names. Display caps at 10. */
-export const CAP_TABLE_MAX = 10;
+/**
+ * The long-running joke: a cap table of cursed names. Storage keeps a year of
+ * weeks (tiny rows); the binder shows the newest few and the tap-through
+ * sheet shows everything. Each row regenerates its full round (terms,
+ * special) from the week key — deterministic, so nothing extra is stored.
+ */
+export const CAP_TABLE_MAX = 52;
 
 export function capTableWith(prev: CapTableRow[], row: CapTableRow): CapTableRow[] {
   // idempotent per week — a double-tap must not double-list the round
