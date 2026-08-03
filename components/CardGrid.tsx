@@ -8,7 +8,7 @@ import { getCurrentPrice, getDailyMove } from "@/lib/market";
 import TradingCard from "./TradingCard";
 import DeckStack from "./DeckStack";
 import { useRouter } from "next/navigation";
-import { useOwnedSet } from "./useOwned";
+import { useBinderCopies } from "./useOwned";
 
 type Filter = "all" | CardType;
 type Sort = "rating-desc" | "rating-asc" | "price-desc" | "move-desc" | "name";
@@ -34,8 +34,9 @@ export default function CardGrid({
   // null = responsive default (deck < md, grid ≥ md) rendered via CSS so
   // the server paints the right view — no post-hydration swap, no LCP hit.
   const [view, setView] = useState<"deck" | "grid" | null>(null);
-  const owned = useOwnedSet();
-  const isProof = (id: string) => owned !== null && !owned.has(id);
+  const copies = useBinderCopies();
+  const isProof = (id: string) => copies !== null && !(id in copies);
+  const ownedCount = copies === null ? 0 : Object.keys(copies).length;
 
   const visible = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -112,7 +113,7 @@ export default function CardGrid({
           </button>
         </div>
         <p className="tnum mt-1.5 px-1 font-mono text-[10px] uppercase tracking-[0.2em] text-[#9CB09E]">
-          Collected: {owned?.size ?? 0}/{cards.length}
+          Collected: {ownedCount}
         </p>
       </div>
 
@@ -132,7 +133,7 @@ export default function CardGrid({
               keyOf={(c) => c.id}
               onTap={(c) => router.push(`/cards/${c.id}`)}
               renderCard={(c) => (
-                <TradingCard card={c} rank={ranks[c.id]} proof={isProof(c.id)} />
+                <TradingCard card={c} rank={ranks[c.id]} proof={isProof(c.id)} inBinder={!!copies?.[c.id]} copies={copies?.[c.id]} />
               )}
             />
           </div>
@@ -143,7 +144,7 @@ export default function CardGrid({
           >
             {visible.map((card) => (
               <Link key={card.id} href={`/cards/${card.id}`}>
-                <TradingCard card={card} rank={ranks[card.id]} proof={isProof(card.id)} />
+                <TradingCard card={card} rank={ranks[card.id]} proof={isProof(card.id)} inBinder={!!copies?.[card.id]} copies={copies?.[card.id]} />
               </Link>
             ))}
           </div>

@@ -1,6 +1,7 @@
 import type { Rarity } from "@/lib/types";
 import type { MarketCard } from "@/lib/cards";
 import { formatMove, formatTicks, getCurrentPrice, getDailyMove } from "@/lib/market";
+import { oddsLabelFor } from "@/lib/packs";
 import CardArt from "./CardArt";
 import RivalryArt from "./RivalryArt";
 import HotBadge from "./HotBadge";
@@ -89,6 +90,8 @@ export default function TradingCard({
   stamp,
   proof = false,
   resolving = false,
+  inBinder = false,
+  copies,
 }: {
   card: MarketCard;
   rank: number;
@@ -106,6 +109,9 @@ export default function TradingCard({
   proof?: boolean;
   /** Pack-rip payoff: the proof veil resolves away into full color. */
   resolving?: boolean;
+  /** Confirmed owned: shows the IN BINDER tag (and ×N with copies). */
+  inBinder?: boolean;
+  copies?: number;
 }) {
   const r = RARITY[card.rarity];
   const hero = size === "hero";
@@ -124,7 +130,7 @@ export default function TradingCard({
           : mythic
             ? "rounded-[3px] bg-[#F4F7F0]"
             : "rounded-[3px] border-2 border-[#17301F] bg-[#F4F7F0]"
-      } ${proof && !resolving ? "" : "paper-shadow"} ${hero ? "" : "hover:-translate-y-1"} ${resolving ? "proof-resolving" : ""}`}
+      } ${proof && !resolving ? "proof-shadow" : "paper-shadow"} ${hero ? "" : "hover:-translate-y-[3px] hover:rotate-[-0.4deg]"} ${resolving ? "proof-resolving" : ""}`}
     >
       {/* art */}
       <div
@@ -180,9 +186,16 @@ export default function TradingCard({
         )}
         {veiled && !resolving && (
           <span
-            className={`absolute bottom-1.5 right-1.5 z-10 rounded-sm bg-[#17301F]/85 px-1 font-mono uppercase tracking-wider text-[#F4F7F0] ${hero ? "text-[9px]" : "text-[6px]"}`}
+            className={`absolute bottom-1.5 right-1.5 z-10 rounded-sm border border-dashed border-[#9CB09E] bg-[#F4F7F0]/85 px-1 font-mono uppercase tracking-wider text-[#5A6E5E] ${hero ? "text-[9px]" : "text-[6px]"}`}
           >
             Not in your binder
+          </span>
+        )}
+        {inBinder && !veiled && (
+          <span
+            className={`absolute left-2 z-10 rounded-sm bg-[#17301F] px-1.5 py-0.5 font-mono uppercase tracking-[0.2em] text-[#F4F7F0] ${hero ? "top-14 text-[9px]" : "top-11 text-[7px]"}`}
+          >
+            In binder{copies && copies > 1 ? ` ×${copies}` : ""}
           </span>
         )}
 
@@ -324,27 +337,37 @@ export default function TradingCard({
           </div>
         )}
 
-        {/* price row (community cards have no market) */}
+        {/* price row (community cards have no market; proofs pitch the pull) */}
         {!community && (
           <div
             className={`mt-auto flex items-center justify-between border-t border-[#17301F]/30 ${
               hero ? "pt-3" : "pt-2"
             }`}
           >
-            <span
-              className={`tnum font-mono font-semibold text-[#17301F] ${
-                hero ? "text-lg" : "text-xs"
-              }`}
-            >
-              {agi ? "unpriced" : formatTicks(price)}
-            </span>
-            <span
-              className={`tnum font-mono ${move >= 0 ? "text-[#1F6E3D]" : "text-[#B23A2E]"} ${
-                hero ? "text-sm" : "text-[10px]"
-              }`}
-            >
-              {agi ? "" : formatMove(move)}
-            </span>
+            {proof && !resolving ? (
+              <span
+                className={`font-mono font-semibold uppercase tracking-widest text-[#B23A2E] ${hero ? "text-sm" : "text-[10px]"}`}
+              >
+                Pull odds {oddsLabelFor(card)} →
+              </span>
+            ) : (
+              <>
+                <span
+                  className={`tnum font-mono font-semibold text-[#17301F] ${
+                    hero ? "text-lg" : "text-xs"
+                  }`}
+                >
+                  {agi ? "unpriced" : formatTicks(price)}
+                </span>
+                <span
+                  className={`tnum font-mono ${move >= 0 ? "text-[#1F6E3D]" : "text-[#B23A2E]"} ${
+                    hero ? "text-sm" : "text-[10px]"
+                  }`}
+                >
+                  {agi ? "" : formatMove(move)}
+                </span>
+              </>
+            )}
           </div>
         )}
       </div>

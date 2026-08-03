@@ -1,16 +1,38 @@
-/** The wordmark header — magazine visual treatment, modern copy. */
-export default function Masthead({ cardCount }: { cardCount: number }) {
+import type { MarketCard } from "@/lib/cards";
+import { formatMove, formatTicks, getCurrentPrice, getDailyMove } from "@/lib/market";
+import { TickerTapeLogo } from "./Logo";
+
+/** Hero: ticker-tape logo + plain-register H1, live index chip right. */
+export default function Masthead({ cards }: { cards: MarketCard[] }) {
+  const pool = cards.filter((c) => c.id !== "agi");
+  // the composite: average card price + average daily move (deterministic,
+  // same on server and client — safe to SSR)
+  const composite = pool.reduce((s, c) => s + getCurrentPrice(c), 0) / pool.length;
+  const move = pool.reduce((s, c) => s + getDailyMove(c), 0) / pool.length;
+
   return (
-    <header className="paper-in border-b-[3px] border-[#17301F] pb-3 text-center">
-      <h1 className="mt-1 text-5xl leading-none text-[#17301F] sm:text-7xl">
-        ai<span className="text-[#B23A2E]">ticker</span>
-      </h1>
-      <p className="mt-2 text-[15px] text-[#5A6E5E]">
-        Trading cards for the AI industry. Real data. Fake money.
-      </p>
-      <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.25em] text-[#9CB09E]">
-        {cardCount} cards · 3 free packs daily
-      </p>
+    <header className="paper-in flex flex-col gap-5 border-b-[3px] border-[#17301F] pb-5 sm:flex-row sm:items-end sm:justify-between">
+      <div>
+        <TickerTapeLogo cards={cards} size="lg" />
+        <h1 className="mt-4 text-3xl leading-tight text-[#17301F] sm:text-4xl">
+          Trading cards for the{" "}
+          <span className="text-[#B23A2E]">AI industry.</span>
+        </h1>
+        <p className="mt-1 text-[16px] text-[#5A6E5E]">
+          Real data. Fake money. One card is mythic.
+        </p>
+      </div>
+      <div className="shrink-0 border-2 border-[#17301F] bg-[#EAF0E4] px-4 py-2.5 shadow-[4px_4px_0_#17301F]">
+        <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#5A6E5E]">
+          Index
+        </p>
+        <p className="tnum font-mono text-2xl font-bold leading-tight text-[#17301F]">
+          {formatTicks(Math.round(composite))}
+        </p>
+        <p className={`tnum font-mono text-sm ${move >= 0 ? "text-[#1F6E3D]" : "text-[#B23A2E]"}`}>
+          {formatMove(move)} today
+        </p>
+      </div>
     </header>
   );
 }

@@ -17,6 +17,17 @@ export const CATEGORY_ODDS = {
   legendary: 0.012,
 } as const;
 
+/** Display odds for a card's tier, per card slot — "1.2%" etc. */
+export function oddsLabelFor(card: { id: string; type: string; rarity: string }): string {
+  const v =
+    card.id === "agi"
+      ? CATEGORY_ODDS.agi
+      : card.type === "artifact"
+        ? CATEGORY_ODDS.artifact
+        : (CATEGORY_ODDS as Record<string, number>)[card.rarity] ?? CATEGORY_ODDS.common;
+  return `${(v * 100).toFixed(1).replace(/\.0$/, "")}%`;
+}
+
 const TIERS: Rarity[] = ["mythic", "legendary", "epic", "rare", "common"];
 
 function rollRarity(roll: number): Rarity {

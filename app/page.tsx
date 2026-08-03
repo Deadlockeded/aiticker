@@ -13,7 +13,7 @@ export default function Home() {
 
   return (
     <main className="mx-auto w-full max-w-7xl flex-1 px-3 py-6 sm:px-6">
-      <Masthead cardCount={cards.filter((c) => c.id !== "agi").length} />
+      <Masthead cards={cards} />
 
       <div className="mt-6 grid gap-4 md:grid-cols-[280px_1fr]">
         <div className="space-y-4">

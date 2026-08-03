@@ -75,36 +75,35 @@ function PackGraphic({
   tearing: boolean;
 }) {
   return (
-    <div className={`relative mx-auto w-52 sm:w-60 ${shaking ? "pack-shake" : ""}`}>
+    <div className={`relative mx-auto w-52 sm:w-60 ${shaking ? "pack-shake" : "pack-idle"}`}>
       {/* tear strip */}
       <div
-        className={`relative z-10 h-9 rounded-t-2xl border-x border-t border-[#17301F]/40 bg-gradient-to-r from-indigo-500 via-fuchsia-500 to-amber-400 ${
+        className={`relative z-10 h-9 rounded-t-lg border-2 border-b-0 border-[#17301F] bg-[#8E2E24] ${
           tearing ? "pack-tear-top" : ""
         }`}
       >
-        <div className="absolute inset-x-0 bottom-0 border-b-2 border-dashed border-black/50" />
-        <span className="absolute inset-0 flex items-center justify-center font-mono text-[9px] uppercase tracking-[0.4em] text-black/60">
+        {/* dashed perforation */}
+        <div className="absolute inset-x-0 bottom-0 border-b-2 border-dashed border-[#F4F7F0]/70" />
+        <span className="absolute inset-0 flex items-center justify-center font-mono text-[9px] uppercase tracking-[0.4em] text-[#F4F7F0]/80">
           Tear here
         </span>
       </div>
-      {/* body */}
+      {/* body — the brick-red foil pack, ink border, offset shadow */}
       <div
-        className={`relative aspect-[3/4] overflow-hidden rounded-b-2xl border-x border-b border-[#17301F]/40 bg-gradient-to-b from-indigo-950 via-slate-900 to-slate-950 shadow-[0_0_60px_-12px_rgba(139,92,246,0.7)] ${
+        className={`relative aspect-[3/4] overflow-hidden rounded-b-lg border-2 border-t-0 border-[#17301F] bg-[#B23A2E] shadow-[6px_6px_0_#17301F] ${
           tearing ? "pack-vanish" : ""
         }`}
       >
-        <div className="holo-wash absolute inset-0 opacity-50" />
+        <div className="holo-wash absolute inset-0 opacity-30" />
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-          <div className="mythic-border rounded-full p-[3px]">
-            <div className="flex h-20 w-20 items-center justify-center rounded-full bg-slate-950">
-              <span className="font-mono text-2xl font-black text-[#17301F]">AI</span>
-            </div>
+          <div className="rotate-[-4deg] rounded-[4px] border-[3px] border-[#17301F] bg-[#B23A2E] px-3 py-2 shadow-[3px_3px_0_#17301F]">
+            <span className="font-display text-3xl text-[#F4F7F0]">AT</span>
           </div>
-          <span className="bg-gradient-to-r from-cyan-300 via-white to-fuchsia-300 bg-clip-text text-2xl font-black uppercase tracking-tight text-transparent">
-            AI Ticker
+          <span className="font-display text-2xl uppercase tracking-tight text-[#F4F7F0]">
+            AI<span className="text-[#F0BFB6]">TICKER</span>
           </span>
-          <span className="font-mono text-[10px] uppercase tracking-[0.35em] text-[#5A6E5E]">
-            Series 1 · 3 cards
+          <span className="font-mono text-[10px] uppercase tracking-[0.35em] text-[#F0BFB6]">
+            Series 1 · 3 cards inside
           </span>
         </div>
       </div>
@@ -290,7 +289,7 @@ export default function PackRipper({
               ? "ripping…"
               : packsLeft === 0 && mounted
                 ? `Next free packs in ${resetIn}.`
-                : "tap the pack to rip it"}
+                : "Tap the pack · 3 free daily"}
           </p>
           {tutorial && phase === "idle" && packsLeft > 0 && (
             <EditorCaption className="mt-4" ttl={30000}>

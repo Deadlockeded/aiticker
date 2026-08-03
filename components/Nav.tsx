@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import LevelPill from "./LevelPill";
+import { TapeChip } from "./Logo";
 
 const LINKS = [
   { href: "/", label: "Cards" },
@@ -25,8 +26,9 @@ export default function Nav() {
     <>
       <nav className="sticky top-0 z-30 border-b-[3px] border-[#17301F] bg-[#F4F7F0]/95 backdrop-blur-sm">
         <div className="mx-auto flex h-14 w-full max-w-7xl items-center gap-2 px-3 sm:px-6">
-          <Link href="/" className="mr-2 flex shrink-0 items-baseline">
-            <span className="font-display text-lg uppercase tracking-tight text-[#17301F]">
+          <Link href="/" className="mr-2 flex shrink-0 items-center gap-2">
+            <TapeChip size={16} />
+            <span className="font-display text-lg uppercase tracking-tight text-[#17301F] max-[380px]:hidden">
               ai<span className="text-[#B23A2E]">ticker</span>
             </span>
           </Link>
@@ -35,10 +37,10 @@ export default function Nav() {
               <Link
                 key={href}
                 href={href}
-                className={`shrink-0 px-3 py-1.5 font-mono text-[13px] font-medium uppercase tracking-widest transition-colors ${
+                className={`shrink-0 border-b-[2.5px] px-3 py-1.5 font-mono text-[11px] font-medium uppercase tracking-[0.2em] transition-colors ${
                   isActive(href, pathname)
-                    ? "bg-[#17301F] text-[#F4F7F0]"
-                    : "text-[#5A6E5E] hover:text-[#17301F]"
+                    ? "border-[#B23A2E] text-[#17301F]"
+                    : "border-transparent text-[#5A6E5E] hover:text-[#17301F]"
                 }`}
               >
                 {label}
@@ -49,7 +51,7 @@ export default function Nav() {
           <LevelPill />
           <Link
             href="/create"
-            className="shrink-0 bg-[#B23A2E] px-3.5 py-1.5 font-mono text-[13px] font-semibold uppercase tracking-widest text-[#F4F7F0] transition-colors hover:bg-[#8E2E24]"
+            className="shrink-0 border-2 border-[#17301F] bg-[#B23A2E] px-3.5 py-1 font-display text-[13px] uppercase text-[#F4F7F0] shadow-[3px_3px_0_#17301F] transition-colors hover:bg-[#8E2E24]"
           >
             Roast me
           </Link>

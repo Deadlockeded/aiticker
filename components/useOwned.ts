@@ -16,3 +16,14 @@ export function useOwnedSet(): Set<string> | null {
     [raw],
   );
 }
+
+/** id → copies owned (null while hydrating). Powers IN BINDER ×N chips. */
+export function useBinderCopies(): Record<string, number> | null {
+  const raw = useSyncExternalStore(subscribeStore, getBinderSnapshot, () => null);
+  return useMemo(() => {
+    if (raw === null) return null;
+    return Object.fromEntries(
+      Object.entries(parseBinder(raw)).map(([id, e]) => [id, e.copies]),
+    );
+  }, [raw]);
+}

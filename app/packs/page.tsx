@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import MetaStrip from "@/components/MetaStrip";
 import PackRipper from "@/components/PackRipper";
 import SessionlessNotice from "@/components/SessionlessNotice";
 import { getAllCards, getRank } from "@/lib/cards";
@@ -20,6 +21,7 @@ export default function PacksPage() {
         </p>
       </header>
       <SessionlessNotice />
+      <MetaStrip />
       <PackRipper cards={cards} ranks={ranks} />
       <p className="mt-8 text-center font-mono text-[10px] uppercase tracking-widest text-[#9CB09E]">
         Per-card odds · artifacts 35% · commons 35.2% · rare 22% · epic 6.5%

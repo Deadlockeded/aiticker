@@ -41,6 +41,22 @@ h2 {
   font-family: var(--font-display), system-ui, sans-serif;
 }
 
+.pack-idle {
+  animation: pack-idle 5s ease-in-out infinite;
+}
+@keyframes pack-idle {
+  0%, 100% { transform: rotate(-1deg); }
+  50% { transform: rotate(1.2deg) translateY(-3px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pack-idle { animation: none; }
+}
+
+/* proofs sit flatter than finished prints */
+.proof-shadow {
+  box-shadow: 3px 3px 0 rgba(23, 48, 31, 0.45);
+}
+
 /* print-cut paper: hard offset shadow, never soft blur */
 .paper-card {
   background: var(--surface);

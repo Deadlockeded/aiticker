@@ -39,7 +39,7 @@ export default function CardReveal({
 
   return (
     <>
-      <TradingCard card={card} rank={rank} size="hero" proof={!isOwned} />
+      <TradingCard card={card} rank={rank} size="hero" proof={!isOwned} inBinder={owned !== null && isOwned} />
       <div className="mt-4">
         <DailyQuip card={card} />
       </div>

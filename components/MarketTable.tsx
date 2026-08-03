@@ -13,23 +13,20 @@ import {
 } from "@/lib/market";
 import CardArt from "./CardArt";
 import Sparkline from "./Sparkline";
+import { useBinderCopies } from "./useOwned";
 
 type SortKey = "rank" | "name" | "rating" | "price" | "move";
 
 const COLUMNS: { key: SortKey; label: string; align: "left" | "right" }[] = [
-  { key: "rank", label: "Nº", align: "left" },
+  { key: "rank", label: "#", align: "left" },
   { key: "name", label: "Card", align: "left" },
-  { key: "rating", label: "Ovr", align: "right" },
-  { key: "price", label: "Book LO/HI", align: "right" },
+  { key: "rating", label: "Rating", align: "right" },
+  { key: "price", label: "Price ₮", align: "right" },
   { key: "move", label: "24h", align: "right" },
 ];
 
 /** Rookie cards: the newest additions to the set. */
 const RC_IDS = new Set(["jensen-huang", "elon-musk", "sundar-pichai", "satya-nadella", "mark-zuckerberg"]);
-
-function bookRange(price: number): string {
-  return `${formatTicks(Math.round(price * 0.95))}–${formatTicks(Math.round(price * 1.08))}`;
-}
 
 function Thumb({ card }: { card: MarketCard }) {
   return (
@@ -61,6 +58,7 @@ export default function MarketTable({
   const router = useRouter();
   const [sortKey, setSortKey] = useState<SortKey>("rank");
   const [asc, setAsc] = useState(true);
+  const copies = useBinderCopies();
 
   const sorted = useMemo(() => {
     const value = (c: MarketCard): number | string => {
@@ -128,7 +126,7 @@ export default function MarketTable({
             <tr
               key={card.id}
               onClick={() => router.push(`/cards/${card.id}`)}
-              className={`cursor-pointer border-b border-dotted border-[#9CB09E] transition-colors odd:bg-[#17301F]/[0.03] hover:bg-[#B23A2E]/5 ${card.type === "artifact" ? "italic opacity-70" : ""}`}
+              className={`cursor-pointer border-b border-dotted border-[#9CB09E] transition-colors odd:bg-[#EAF0E4] hover:bg-[#B23A2E]/5 ${card.type === "artifact" ? "italic opacity-70" : ""}`}
             >
               <td className="px-3 py-2.5 font-mono text-[#5A6E5E]">
                 #{ranks[card.id]}
@@ -144,6 +142,11 @@ export default function MarketTable({
                           RC
                         </span>
                       )}
+                      {!!copies?.[card.id] && (
+                        <span className="ml-1.5 rounded-sm border border-[#8C6D1F] px-1 font-mono text-[9px] not-italic text-[#8C6D1F]">
+                          OWN ×{copies[card.id]}
+                        </span>
+                      )}
                     </span>
                     <span className="block text-xs capitalize text-[#9CB09E]">
                       {card.rarity} · {card.type}
@@ -155,7 +158,7 @@ export default function MarketTable({
                 {card.rating}
               </td>
               <td className="tnum px-3 py-2.5 text-right font-mono text-[#17301F]">
-                {bookRange(getCurrentPrice(card))}
+                {formatTicks(getCurrentPrice(card))}
               </td>
               <td className="px-3 py-2.5 text-right">
                 <MoveText pct={getDailyMove(card)} />
