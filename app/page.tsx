@@ -1,11 +1,20 @@
-import Link from "next/link";
-import CardGrid from "@/components/CardGrid";
-import CoverStar from "@/components/CoverStar";
-import HotList from "@/components/HotList";
-import Masthead from "@/components/Masthead";
-import NewCollectorTag from "@/components/NewCollectorTag";
-import TodayMeta from "@/components/TodayMeta";
+import type { Metadata } from "next";
+import HomePage from "@/components/HomePage";
 import { getAllCards, getRank } from "@/lib/cards";
+
+const title = "aiticker — trading cards for the AI industry";
+const description = "Real data. Fake money. Rip a pack.";
+
+export const metadata: Metadata = {
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    images: [{ url: "/api/og/promo?page=create", width: 1200, height: 630 }],
+  },
+  twitter: { card: "summary_large_image", title, description },
+};
 
 export default function Home() {
   const cards = getAllCards();
@@ -13,43 +22,7 @@ export default function Home() {
 
   return (
     <main className="mx-auto w-full max-w-7xl flex-1 px-3 py-6 sm:px-6">
-      <Masthead cards={cards} />
-
-      <div className="mt-6 grid gap-4 md:grid-cols-[280px_1fr]">
-        <div className="space-y-4">
-          <CoverStar cards={cards} ranks={ranks} />
-          <Link href="/packs" className="coupon block p-4 text-center paper-in">
-            <NewCollectorTag />
-            <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.25em] text-[#17301F]">
-              ✂ 3 free packs daily,
-              <br />
-              straight to your binder
-            </p>
-            <span className="mt-2 inline-block bg-[#B23A2E] px-4 py-2 font-mono text-xs font-semibold uppercase tracking-widest text-[#F4F7F0] hover:bg-[#8E2E24]">
-              Rip a pack →
-            </span>
-          </Link>
-        </div>
-        <div className="space-y-4">
-          <HotList cards={cards} />
-          <div className="coupon p-3 text-center">
-            <Link
-              href="/create"
-              className="font-mono text-[12px] font-semibold uppercase tracking-[0.25em] text-[#B23A2E] hover:underline"
-            >
-              Get scouted. Get roasted. It&apos;s the same department. →
-            </Link>
-          </div>
-          <TodayMeta cards={cards} />
-        </div>
-      </div>
-
-      <div className="mt-8">
-        <h2 className="mb-3 border-b-2 border-[#17301F] pb-1 text-lg text-[#17301F]">
-          The Checklist — Series 1
-        </h2>
-        <CardGrid cards={cards} ranks={ranks} />
-      </div>
+      <HomePage cards={cards} ranks={ranks} />
     </main>
   );
 }

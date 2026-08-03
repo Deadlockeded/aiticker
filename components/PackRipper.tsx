@@ -126,9 +126,12 @@ function CardBack({ card }: { card: MarketCard }) {
 export default function PackRipper({
   cards,
   ranks,
+  minimal = false,
 }: {
   cards: MarketCard[];
   ranks: Record<string, number>;
+  /** Ceremony mode: the page supplies the copy — hide allowance/captions. */
+  minimal?: boolean;
 }) {
   const router = useRouter();
   const autoTimers = useRef<ReturnType<typeof setTimeout>[]>([]);
@@ -266,6 +269,7 @@ export default function PackRipper({
         <div className="pointer-events-none fixed inset-0 z-50 bg-white transition-opacity duration-700" style={{ animation: "glow-flash 0.9s ease-out forwards" }} />
       )}
 
+      {!minimal && (
       <p className="mb-8 text-center font-mono text-xs uppercase tracking-[0.3em] text-[#9CB09E]">
         {mounted
           ? packsLeft > 0
@@ -273,6 +277,7 @@ export default function PackRipper({
             : `Out of packs · next pack in ${resetIn}`
           : `${PACKS_PER_DAY} free packs per day`}
       </p>
+      )}
 
       {phase !== "reveal" && (
         <div>
@@ -284,17 +289,21 @@ export default function PackRipper({
           >
             <PackGraphic shaking={phase === "ripping" && !tearing} tearing={tearing} />
           </button>
-          <p className="mt-6 text-center font-mono text-[11px] uppercase tracking-[0.25em] text-[#9CB09E]">
-            {phase === "ripping"
-              ? "ripping…"
-              : packsLeft === 0 && mounted
-                ? `Next free packs in ${resetIn}.`
-                : "Tap the pack · 3 free daily"}
-          </p>
-          {tutorial && phase === "idle" && packsLeft > 0 && (
-            <EditorCaption className="mt-4" ttl={30000}>
-              Tap the pack.
-            </EditorCaption>
+          {!minimal && (
+            <>
+              <p className="mt-6 text-center font-mono text-[11px] uppercase tracking-[0.25em] text-[#9CB09E]">
+                {phase === "ripping"
+                  ? "ripping…"
+                  : packsLeft === 0 && mounted
+                    ? `Next free packs in ${resetIn}.`
+                    : "Tap the pack · 3 free daily"}
+              </p>
+              {tutorial && phase === "idle" && packsLeft > 0 && (
+                <EditorCaption className="mt-4" ttl={30000}>
+                  Tap the pack.
+                </EditorCaption>
+              )}
+            </>
           )}
         </div>
       )}

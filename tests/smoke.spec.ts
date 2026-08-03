@@ -98,6 +98,7 @@ test("rip flow: packs → auto-flip → binder, and it persists", async ({ page 
 });
 
 test("gallery deck: mobile default, next advances the stack", async ({ page }) => {
+  await seedBinder(page, ["openai"]); // a fresh "/" is the first-pack ceremony
   await page.goto("/");
   const next = page.getByLabel("Next card").last();
   await expect(next).toBeVisible();
@@ -159,6 +160,38 @@ test("get rated: manual build works without GitHub", async ({ page }) => {
   await page.getByRole("button", { name: "Face The Algorithm" }).click();
   await expect(page.getByText("manual build")).toBeVisible();
   await expect(page.getByText("Test Person").first()).toBeVisible();
+});
+
+test("home state 1: first visit is the pack ceremony, nothing else", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.getByText("Tap to rip your first pack.")).toBeVisible();
+  await expect(page.getByLabel("Rip the pack")).toBeVisible();
+  await expect(page.getByText("The Hot List")).not.toBeVisible();
+  await expect(page.getByText("The Checklist")).not.toBeVisible();
+  // the second door in stays put
+  await expect(page.getByRole("link", { name: "Roast me" })).toBeVisible();
+});
+
+test("home state 2: returning with packs → pack hero + index", async ({ page }) => {
+  await seedBinder(page, ["openai"]);
+  await page.goto("/");
+  await expect(page.getByLabel("Rip the pack")).toBeVisible();
+  await expect(page.getByText(/\d packs? left today/)).toBeVisible();
+  await expect(page.getByText("The Hot List")).toBeVisible();
+  await expect(page.getByText("The Checklist")).toBeVisible();
+});
+
+test("home state 3: returning with no packs → index-first, countdown, no pack", async ({ page }) => {
+  await seedBinder(page, ["openai"]);
+  await page.addInitScript(() => {
+    const d = new Date();
+    const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+    localStorage.setItem("ai-index:packs:v1", JSON.stringify({ date: key, used: 3 }));
+  });
+  await page.goto("/");
+  await expect(page.getByText(/Next free packs in/)).toBeVisible();
+  await expect(page.getByText("The Hot List")).toBeVisible();
+  await expect(page.getByLabel("Rip the pack")).not.toBeVisible();
 });
 
 test("about + how it works render", async ({ page }) => {
