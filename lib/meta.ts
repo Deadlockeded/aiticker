@@ -286,6 +286,25 @@ const WATCH_LINES: Record<MetaKey, (name: string) => string> = {
   demoEnergy: (n) => `Demo Energy is in the meta. ${n} would demo it right now.`,
 };
 
+/**
+ * Per-card META WATCH line: the active category this card is loudest in
+ * today. Pure and deterministic — safe to call in render. The hot-list deck
+ * uses it so the line follows the card you're actually looking at.
+ */
+export function metaWatchLineFor(card: MarketCard, dateKey = utcDayKey()): string {
+  const active = getDailyMeta(dateKey);
+  let best = active[0];
+  let bestV = -1;
+  for (const cat of active) {
+    const v = metaValueForCard(card, cat.key);
+    if (v > bestV) {
+      bestV = v;
+      best = cat;
+    }
+  }
+  return WATCH_LINES[best.key](card.name);
+}
+
 // Same caching rule as getDailyMeta — string is primitive but keep it cheap.
 let cachedWatchKey: string | null = null;
 let cachedWatch = "";

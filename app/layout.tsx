@@ -70,29 +70,32 @@ export default function RootLayout({
           <div className="flex justify-center border-t border-line py-6">
             <Logo variant="lockup" size={26} />
           </div>
-          <div className="space-y-2 px-4 pb-8 text-center text-[13px] text-ink3">
-            <p>
-              <a href="/about" className="hover:text-ink2">
+          {/* one item per line — links first, then the fine print */}
+          <div className="mx-auto max-w-sm px-4 pb-8 text-center">
+            <nav className="flex flex-col gap-2.5">
+              <a href="/about" className="text-[15px] font-semibold text-ink2 hover:text-ink">
                 About
-              </a>{" "}
-              ·{" "}
-              <a href="/howto" className="hover:text-ink2">
+              </a>
+              <a href="/howto" className="text-[15px] font-semibold text-ink2 hover:text-ink">
                 How to collect
-              </a>{" "}
-              · a fan-made collectible game
-            </p>
-            <p className="micro text-ink3">
-              {marketMeta.lastUpdated
-                ? `Live index · updated ${new Date(marketMeta.lastUpdated).toUTCString().slice(0, 16)} · public data`
-                : "Series 1 · aiticker.xyz"}
-            </p>
-            <p className="text-[12px]">
-              Portraits via{" "}
-              <a href="https://commons.wikimedia.org" className="underline hover:text-ink2">
-                Wikimedia Commons
-              </a>{" "}
-              (freely licensed) · logos via site favicons
-            </p>
+              </a>
+            </nav>
+            <div className="mt-5 flex flex-col gap-1.5 text-[12px] text-ink3">
+              <p>A fan-made collectible game.</p>
+              <p>
+                {marketMeta.lastUpdated
+                  ? `Live index · updated ${new Date(marketMeta.lastUpdated).toUTCString().slice(0, 16)}`
+                  : "Series 1 · aiticker.xyz"}
+              </p>
+              <p>
+                Portraits via{" "}
+                <a href="https://commons.wikimedia.org" className="underline hover:text-ink2">
+                  Wikimedia Commons
+                </a>{" "}
+                (freely licensed).
+              </p>
+              <p>Logos via site favicons.</p>
+            </div>
           </div>
         </footer>
       </body>

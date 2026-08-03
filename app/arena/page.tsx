@@ -3,7 +3,7 @@ import Arena from "@/components/Arena";
 import MetaStrip from "@/components/MetaStrip";
 import { getAllCards, getRank } from "@/lib/cards";
 
-type Search = Promise<{ me?: string; vs?: string }>;
+type Search = Promise<{ me?: string; vs?: string; auto?: string }>;
 
 function refName(ref: string | undefined): string | null {
   if (!ref) return null;
@@ -31,7 +31,7 @@ export async function generateMetadata({
 }
 
 export default async function ArenaPage({ searchParams }: { searchParams: Search }) {
-  const { me, vs } = await searchParams;
+  const { me, vs, auto } = await searchParams;
   const cards = getAllCards();
   const ranks = Object.fromEntries(cards.map((c) => [c.id, getRank(c.id)]));
 
@@ -49,7 +49,7 @@ export default async function ArenaPage({ searchParams }: { searchParams: Search
         </p>
       </header>
       <MetaStrip />
-      <Arena cards={cards} ranks={ranks} initialMe={me} initialVs={vs} />
+      <Arena cards={cards} ranks={ranks} initialMe={me} initialVs={vs} autoStart={auto === "1"} />
     </main>
   );
 }

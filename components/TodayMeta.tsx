@@ -49,29 +49,27 @@ export default function TodayMeta({ cards }: { cards: MarketCard[] }) {
         ⚔ Today&apos;s meta
       </p>
       {today === null ? (
-        <div className="mt-3 grid grid-cols-2 gap-x-4 gap-y-3">
+        <div className="mt-3 flex min-h-[30px] flex-wrap gap-1.5">
           {Array.from({ length: 4 }, (_, i) => (
-            <div key={i}>
-              <div className="h-4 w-24 rounded-sm bg-surface2" />
-              <div className="mt-1 h-8 rounded-sm bg-surface2" />
-            </div>
+            <div key={i} className="h-[26px] w-20 rounded-full bg-surface2" />
           ))}
         </div>
       ) : (
-        <div className="mt-3 grid grid-cols-2 gap-x-4 gap-y-3">
-          {today.meta.map((cat) => (
-            <div key={cat.key}>
-              <p className="micro text-[11px] font-semibold text-ink">
-                {cat.name}
-              </p>
-              <p className="mt-0.5 min-h-8 text-[12px] italic leading-snug text-ink2">
-                {cat.definition}
-              </p>
-            </div>
+        /* names only — the definitions live on the meta strip's tap */
+        <div className="mt-3 flex min-h-[30px] flex-wrap gap-1.5">
+          {today.meta.map((cat, i) => (
+            <span
+              key={cat.key}
+              className={`micro rounded-full px-2.5 py-1.5 font-semibold ${
+                i === 0 ? "bg-pink text-on-accent" : "bg-surface2 text-ink2"
+              }`}
+            >
+              {cat.name}
+            </span>
           ))}
         </div>
       )}
-      <div className="mt-3 border-t border-dotted border-ink3 pt-3">
+      <div className="mt-3 border-t border-line pt-3">
         <p className="micro text-[10px] tracking-[0.25em] text-ink3">
           Main event
         </p>
@@ -79,10 +77,10 @@ export default function TodayMeta({ cards }: { cards: MarketCard[] }) {
           {today ? `${today.a.name} vs ${today.b.name}` : " "}
         </p>
         <Link
-          href={today ? `/arena?me=${today.a.id}&vs=${today.b.id}` : "/arena"}
-          className="mt-2 inline-block bg-pink px-4 py-2 micro text-xs font-semibold text-on-accent hover:bg-pink"
+          href={today ? `/arena?me=${today.a.id}&vs=${today.b.id}&auto=1` : "/arena"}
+          className="mt-2 inline-flex rounded-full bg-pink px-4 py-2 text-[14px] font-semibold text-on-accent transition-transform active:scale-[.97]"
         >
-          Watch it in the arena →
+          Watch the fight →
         </Link>
       </div>
     </div>

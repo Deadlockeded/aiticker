@@ -236,11 +236,14 @@ export default function Arena({
   ranks,
   initialMe,
   initialVs,
+  autoStart = false,
 }: {
   cards: MarketCard[];
   ranks: Record<string, number>;
   initialMe?: string;
   initialVs?: string;
+  /** MAIN EVENT links: run the fight on arrival instead of waiting on taps. */
+  autoStart?: boolean;
 }) {
   const binderRaw = useSyncExternalStore(subscribeStore, getBinderSnapshot, () => null);
   const recordRaw = useSyncExternalStore(subscribeStore, getBattleRecordSnapshot, () => null);
@@ -277,6 +280,7 @@ export default function Arena({
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
   const autoRan = useRef(false);
   const [arenaTips, setArenaTips] = useState(false);
+  const [pendingAuto, setPendingAuto] = useState(autoStart);
   const [purse, setPurse] = useState<{ purse: Purse; paid: number } | null>(null);
 
   // First arena visit with cards in hand: exactly 2 captions, then never again.
@@ -411,6 +415,20 @@ export default function Arena({
     return () => clearTimeout(kickoff);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // MAIN EVENT (?auto=1): both corners arrive by URL — run the bout the
+  // moment they're loaded, so "watch the fight" actually shows a fight
+  useEffect(() => {
+    if (!pendingAuto || !me || !foe || phase !== "setup") return;
+    // flip the flag INSIDE the timer: flipping it here re-renders, and the
+    // cleanup below would clear this very timeout before it ever fired
+    const kickoff = setTimeout(() => {
+      setPendingAuto(false);
+      fight();
+    }, 400);
+    return () => clearTimeout(kickoff);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pendingAuto, me, foe, phase]);
 
   const fight = (foeOverride?: Fighter) => {
     const activeFoe = foeOverride ?? foe;

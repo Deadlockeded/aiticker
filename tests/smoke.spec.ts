@@ -565,3 +565,25 @@ test("ship meter: a missing avatar falls back to initials, never a broken image"
   await expect(page.getByText("OC", { exact: true }).first()).toBeVisible();
   await expect(page.getByText(/Suggested split:/)).toBeVisible();
 });
+
+
+test("main event: ?auto=1 runs the bout without a tap", async ({ page }) => {
+  await blockArt(page);
+  await seedBinder(page, ["openai"]);
+  await page.goto("/arena?me=geoffrey-hinton&vs=demis-hassabis&auto=1");
+  // no Fight tap anywhere — the result arrives on its own
+  await expect(page.getByText(/takes it|Dead heat/)).toBeVisible({ timeout: 20_000 });
+});
+
+test("hot list: the meta-watch line follows the deck's top card", async ({ page }) => {
+  await blockArt(page);
+  await seedBinder(page, ["openai"]);
+  await page.goto("/market");
+  const line = page.locator("p", { hasText: "Meta watch" }).first();
+  await expect(line).toBeVisible();
+  const before = await line.innerText();
+  await page.getByRole("button", { name: "Next card" }).first().click();
+  await page.waitForTimeout(400);
+  const after = await line.innerText();
+  expect(after).not.toBe(before);
+});

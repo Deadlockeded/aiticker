@@ -2,22 +2,26 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useSyncExternalStore } from "react";
+import { useState, useSyncExternalStore } from "react";
 import DeckStack from "./DeckStack";
 import TradingCard from "./TradingCard";
 import type { MarketCard } from "@/lib/cards";
 import { formatMove, formatTicks, getCurrentPrice, getDailyMove, getMovers } from "@/lib/market";
-import { metaWatchLine } from "@/lib/meta";
+import { metaWatchLine, metaWatchLineFor } from "@/lib/meta";
 import { releasedOnly } from "@/lib/drops";
 import { useOwnedSet } from "./useOwned";
 
 const subscribeNever = () => () => {};
 
-/** META WATCH — today's loudest category and its best card. Date-derived → client-only. */
-function MetaWatch({ cards }: { cards: MarketCard[] }) {
+/**
+ * META WATCH. On mobile the line follows the deck's TOP CARD (the daily
+ * one-liner used to sit frozen under six swipeable cards); desktop keeps the
+ * daily line beside its full list. Date-derived → client-only.
+ */
+function MetaWatch({ cards, card }: { cards: MarketCard[]; card?: MarketCard }) {
   const line = useSyncExternalStore(
     subscribeNever,
-    () => metaWatchLine(cards),
+    () => (card ? metaWatchLineFor(card) : metaWatchLine(cards)),
     () => "",
   );
   // reserve the row pre-hydration — a late-appearing line is layout shift
@@ -28,7 +32,7 @@ function MetaWatch({ cards }: { cards: MarketCard[] }) {
       </p>
     );
   return (
-    <p className="border-t border-line px-4 py-3 text-[12px] italic text-ink2">
+    <p className="min-h-[62px] border-t border-line px-4 py-3 text-[12px] italic text-ink2">
       <span className="mr-1.5 micro text-[10px] font-semibold not-italic tracking-[0.25em] text-pink">
         Meta watch
       </span>
@@ -38,7 +42,14 @@ function MetaWatch({ cards }: { cards: MarketCard[] }) {
 }
 
 /** THE HOT LIST — red-bordered movers box, print-guide style. */
-function MobileDeck({ rows }: { rows: MarketCard[] }) {
+function MobileDeck({
+  rows,
+  onCycle,
+}: {
+  rows: MarketCard[];
+  /** Fires when a card is dismissed — the parent tracks the new top. */
+  onCycle?: () => void;
+}) {
   const router = useRouter();
   const owned = useOwnedSet();
   return (
@@ -47,6 +58,7 @@ function MobileDeck({ rows }: { rows: MarketCard[] }) {
         items={rows}
         keyOf={(c) => c.id}
         onTap={(c) => router.push(`/cards/${c.id}`)}
+        onPass={onCycle}
         renderCard={(c) => (
           <TradingCard card={c} rank={0} proof={owned !== null && !owned.has(c.id)} />
         )}
@@ -58,12 +70,14 @@ function MobileDeck({ rows }: { rows: MarketCard[] }) {
 export default function HotList({ cards }: { cards: MarketCard[] }) {
   const { gainers, losers } = getMovers(releasedOnly(cards.filter((c) => c.id !== "agi")));
   const rows = [...gainers.slice(0, 4), ...losers.slice(0, 2)];
+  // which card the mobile deck currently shows — drives its META WATCH line
+  const [topIdx, setTopIdx] = useState(0);
 
   return (
     <div className="surface-card overflow-hidden">
       <p className="micro px-4 pt-3 font-semibold text-pink">The hot list</p>
       {/* mobile: swipeable mini-deck */}
-      <MobileDeck rows={rows} />
+      <MobileDeck rows={rows} onCycle={() => setTopIdx((i) => (i + 1) % rows.length)} />
       <ul className="hidden md:block">
         {rows.map((card) => {
           const move = getDailyMove(card);
@@ -87,7 +101,13 @@ export default function HotList({ cards }: { cards: MarketCard[] }) {
           );
         })}
       </ul>
-      <MetaWatch cards={cards} />
+      {/* mobile: the line tracks the top card; desktop: the daily line */}
+      <div className="md:hidden">
+        <MetaWatch cards={cards} card={rows[topIdx]} />
+      </div>
+      <div className="hidden md:block">
+        <MetaWatch cards={cards} />
+      </div>
     </div>
   );
 }
