@@ -142,10 +142,12 @@ test("owned card: full color, binder action, no proof tag", async ({ page }) => 
   await expect(page.locator(".proof-veil")).toHaveCount(0);
 });
 
-test("gallery shows the collected progress line", async ({ page }) => {
+test("gallery shows the collected progress line (no global total)", async ({ page }) => {
   await seedBinder(page, ["openai"]);
   await page.goto("/");
-  await expect(page.getByText(/Collected: 1\/\d+/)).toBeVisible();
+  await expect(page.getByText(/Collected: 1/)).toBeVisible();
+  // series-scoped counts only — the total set size is never displayed
+  await expect(page.getByText(/Collected: 1\s*\/\s*\d+/)).not.toBeVisible();
 });
 
 test("get rated: manual build works without GitHub", async ({ page }) => {

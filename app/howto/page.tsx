@@ -109,8 +109,7 @@ const PANELS: { n: string; title: string; copy: React.ReactNode; art: React.Reac
     art: <ArtBinder />,
     copy: (
       <>
-        The full set is public — 50 index cards + 25 artifacts. Pulling a card
-        prints your copy to the{" "}
+        Series 1 is public. Pulling a card prints your copy to the{" "}
         <Link href="/binder" className="underline decoration-[#B23A2E] underline-offset-2">binder</Link>.
       </>
     ),

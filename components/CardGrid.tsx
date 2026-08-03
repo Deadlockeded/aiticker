@@ -88,7 +88,7 @@ export default function CardGrid({
             type="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder={`Search ${cards.length} cards…`}
+            placeholder="Search the index…"
             className="min-w-32 flex-1 rounded-lg border border-[#17301F]/30 bg-[#17301F]/5 px-3 py-1.5 text-[13px] text-[#17301F] placeholder-[#9CB09E] outline-none focus:border-[#B23A2E]/70"
           />
 
@@ -113,7 +113,10 @@ export default function CardGrid({
           </button>
         </div>
         <p className="tnum mt-1.5 px-1 font-mono text-[10px] uppercase tracking-[0.2em] text-[#9CB09E]">
-          Collected: {ownedCount}
+          Collected: {ownedCount}{" "}
+          <span className="normal-case italic tracking-normal">
+            · and the ones we don&apos;t list.
+          </span>
         </p>
       </div>
 

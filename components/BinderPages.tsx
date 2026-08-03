@@ -147,9 +147,20 @@ export default function BinderPages({
   }
 
   const indexCards = ordered.filter((c) => c.type !== "artifact");
-  const artifactCards = ordered.filter((c) => c.type === "artifact");
   const ownedCount = indexCards.filter((c) => binder[c.id]).length;
-  const ownedArtifacts = artifactCards.filter((c) => binder[c.id]).length;
+  // per-series progress — each series is sealed, so its denominator is
+  // stable; artifacts count inside their series. Future drops = new rows.
+  const seriesLines = [...new Set(cards.map((c) => c.series))]
+    .sort((a, b) => a - b)
+    .map((series) => {
+      const inSeries = cards.filter((c) => c.series === series);
+      return {
+        series,
+        size: inSeries.length,
+        owned: inSeries.filter((c) => binder[c.id]).length,
+      };
+    });
+  const s1 = seriesLines[0] ?? { owned: 0, size: 1 };
   const agiOwned = !!(agiCard && binder[agiCard.id]);
   const value = ordered.reduce(
     (s, c) => s + (binder[c.id]?.copies ?? 0) * getCurrentPrice(c),
@@ -198,15 +209,18 @@ export default function BinderPages({
             <circle cx="18" cy="18" r="14" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="4" />
             <circle
               cx="18" cy="18" r="14" fill="none" stroke="#22d3ee" strokeWidth="4"
-              strokeDasharray={`${(ownedCount / indexCards.length) * ring} ${ring}`}
+              strokeDasharray={`${(s1.owned / s1.size) * ring} ${ring}`}
               strokeLinecap="round"
             />
           </svg>
           <span className="tnum font-mono text-sm text-[#17301F]">
-            {ownedCount}/{indexCards.length}
-            <span className="ml-1 text-[10px] text-[#9CB09E]">
-              +{ownedArtifacts}/{artifactCards.length}◆
-            </span>
+            {/* series are sealed — per-series denominators only, never a
+                global total (the set will grow as new series drop) */}
+            {seriesLines.map(({ series, owned: o, size }) => (
+              <span key={series} className="mr-2">
+                S{series} — {o}/{size}
+              </span>
+            ))}
           </span>
         </button>
         <span className="tnum font-mono text-sm text-[#5A6E5E]">{formatTicks(Math.round(value))}</span>
