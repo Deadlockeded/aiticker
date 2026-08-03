@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { useRouter } from "next/navigation";
 import type { MarketCard } from "@/lib/cards";
 import { pullPackFor, type Pull } from "@/lib/packs";
-import { editionFor, variantLabel } from "@/lib/variants";
+import { editionFor, variantLabel, type Variant } from "@/lib/variants";
 import { EXCHANGE_PACK_COST, PACK_BANK_MAX } from "@/lib/economy";
 import { formatTicks } from "@/lib/market";
 import { balanceFrom, getWalletSnapshot, spendTicks } from "@/lib/wallet";
@@ -22,6 +22,7 @@ import { addXP, XP_REWARDS } from "@/lib/xp";
 import { getRandomQuip } from "@/lib/daily";
 import { checkAchievements } from "@/lib/achievements";
 import { readOnboarding, stampOnboarding } from "@/lib/onboarding";
+import CardArt from "./CardArt";
 import CardBackFace from "./CardBackFace";
 import TradingCard from "./TradingCard";
 import EditorCaption from "./EditorCaption";
@@ -109,6 +110,80 @@ function PackGraphic({
           <span className="micro font-semibold text-white">
             {gold ? "Collector's" : "Series 1"} · 3 cards inside
           </span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+/**
+ * The reveal fan's card face: ART, name, rarity — nothing else. At 112px the
+ * full TradingCard layout (serials, price, daily move) is unreadable noise;
+ * the tap-to-enlarge sheet carries all of that. Do not add rows here.
+ */
+function PullCard({
+  card,
+  variant,
+  resolving,
+  firstPull,
+}: {
+  card: MarketCard;
+  variant: Variant;
+  resolving: boolean;
+  firstPull: boolean;
+}) {
+  const rarityChip =
+    card.rarity === "legendary" || card.rarity === "mythic"
+      ? "bg-amber-tint text-amber"
+      : card.rarity === "epic"
+        ? "bg-violet-tint text-violet"
+        : card.rarity === "rare"
+          ? "bg-teal-tint text-teal"
+          : "bg-surface2 text-ink2";
+  return (
+    <div
+      className={`relative h-full w-full overflow-hidden rounded-[16px] bg-surface shadow-card ${
+        resolving ? "art-resolving" : ""
+      } ${variant === "gold" ? "outline outline-2 -outline-offset-2 outline-amber" : variant === "holo" ? "outline outline-2 -outline-offset-2 outline-violet" : variant === "silver" ? "outline outline-2 -outline-offset-2 outline-ink3" : ""}`}
+    >
+      {/* art fills the card */}
+      <div className={`absolute inset-0 ${resolving ? "art-locked bg-surface2" : ""}`}>
+        {card.type === "artifact" ? (
+          <div className={`absolute inset-0 flex items-center justify-center ${card.id === "agi" ? "bg-ink" : "bg-surface2"}`}>
+            <svg
+              viewBox="0 0 48 48"
+              className="h-16 w-16 sm:h-20 sm:w-20"
+              dangerouslySetInnerHTML={{ __html: card.icon ?? "" }}
+            />
+          </div>
+        ) : (
+          <CardArt card={card} shape="tile" />
+        )}
+      </div>
+      {variant === "holo" && <div className="holo-wash absolute inset-0 opacity-50" />}
+      {variant === "silver" && <div className="silver-sheen absolute inset-0" />}
+
+      {firstPull && (
+        <span className="micro pointer-events-none absolute left-1/2 top-2.5 z-10 -translate-x-1/2 rotate-[-8deg] whitespace-nowrap rounded-sm border border-line2 bg-surface/90 px-1.5 py-0.5 font-black text-ink">
+          First pull
+        </span>
+      )}
+
+      {/* one scrim, two facts */}
+      <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/85 via-black/45 to-transparent px-2 pb-2 pt-8 text-left">
+        <p className="truncate font-display text-[13px] font-bold leading-tight text-white sm:text-[15px]">
+          {card.name}
+        </p>
+        <div className="mt-1 flex items-center gap-1">
+          <span className={`micro rounded-full px-1.5 py-0.5 font-semibold ${rarityChip}`}>
+            {card.rarity === "mythic" ? "???" : card.rarity}
+          </span>
+          {variant !== "base" && (
+            <span className="micro rounded-full bg-surface/90 px-1.5 py-0.5 font-semibold text-ink">
+              {variantLabel(variant)}
+            </span>
+          )}
         </div>
       </div>
     </div>
@@ -448,7 +523,7 @@ export default function PackRipper({
                 key={`${card.id}-${i}`}
                 onClick={() => setEnlarged(i)}
                 aria-label={`Enlarge ${card.name}`}
-                className="relative w-[112px] shrink-0 sm:w-[150px]"
+                className="relative w-[118px] shrink-0 sm:w-[150px]"
                 style={{
                   transform: `rotate(${(i - 1) * 5}deg) translateY(${i === 1 ? 0 : 8}px)`,
                   zIndex: i === 1 ? 2 : 1,
@@ -464,35 +539,17 @@ export default function PackRipper({
                   >
                     <CardBack card={card} />
                     <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)]">
-                      {/* THE PULL BEAT: unowned cards flip as proofs and
-                          resolve into the finished print mid-flip */}
-                      <TradingCard
+                      {/* THE PULL BEAT: art-forward face; the drained art
+                          resolves to full colour mid-flip. Serials, price and
+                          the rest live in the tap-to-enlarge sheet. */}
+                      <PullCard
                         card={card}
-                        rank={ranks[card.id]}
-                        resolving={!preOwned.has(card.id) && fanned}
                         variant={variant}
-                        serialNo={serials[i]}
+                        resolving={!preOwned.has(card.id) && fanned}
+                        firstPull={!preOwned.has(card.id)}
                       />
                       {shimmering === i && (
-                        <div className="foil-sweep pointer-events-none absolute inset-0 overflow-hidden rounded-xl" />
-                      )}
-                      {!preOwned.has(card.id) && (
-                        <span className="pointer-events-none absolute left-1/2 top-[38%] z-20 -translate-x-1/2 rotate-[-14deg] border border-line2 bg-surface/85 px-1.5 py-0.5 micro text-[9px] font-black tracking-[0.2em] text-ink">
-                          First pull
-                        </span>
-                      )}
-                      {variant !== "base" && (
-                        <span
-                          className={`pointer-events-none absolute left-1/2 top-[56%] z-20 -translate-x-1/2 rotate-[4deg] border px-1.5 py-0.5 font-mono text-[9px] font-black uppercase tracking-[0.15em] ${
-                            variant === "gold"
-                              ? "border-amber bg-amber text-on-accent"
-                              : variant === "holo"
-                                ? "border-line2 bg-ink text-pink-tint"
-                                : "border-line2 bg-surface2 text-ink"
-                          }`}
-                        >
-                          {variantLabel(variant)} Nº {serials[i]}/{editionFor(variant, card.editionSize)}
-                        </span>
+                        <div className="foil-sweep pointer-events-none absolute inset-0 overflow-hidden rounded-[16px]" />
                       )}
                     </div>
                   </div>
@@ -501,7 +558,10 @@ export default function PackRipper({
             ))}
           </div>
 
-          <div className="mx-auto mt-10 flex max-w-[320px] flex-col gap-2">
+          <p className="mt-4 text-center micro text-white/60">
+            Tap a card for the full print
+          </p>
+          <div className="mx-auto mt-6 flex max-w-[320px] flex-col gap-2">
             <button
               onClick={() => router.push("/binder")}
               className="border border-line2 bg-pink px-6 py-3 font-display text-sm uppercase text-on-accent shadow-card hover:bg-pink"
