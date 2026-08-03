@@ -158,6 +158,10 @@ export default function TradingCard({
         {variant === "silver" && !veiled && <div className="silver-sheen absolute inset-0" />}
         {variant === "gold" && !veiled && <div className="foil-sweep absolute inset-0 overflow-hidden" />}
         {variant === "holo" && !veiled && <div className="holo-wash absolute inset-0 opacity-70" />}
+        {/* UNOWNED: the filter drains the ART ITSELF on a surface2 field.
+            It must wrap the art, never cover it — an overlay div here once
+            hid every image behind an opaque panel. */}
+        <div className={`absolute inset-0 ${veiled ? "art-locked bg-surface2" : ""}`}>
         {card.type === "moment" ? (
           /* cinematic frame: letterboxed wide crop + date stamp */
           <div className="absolute inset-0 flex flex-col justify-center bg-black/30">
@@ -187,14 +191,7 @@ export default function TradingCard({
         ) : (
           <CardArt card={card} hero={hero} shape="tile" />
         )}
-
-        {/* UNOWNED: the art drains to a ghost of itself on a surface2 field.
-            Never blurred — every word on the card stays readable, always. */}
-        {veiled && (
-          <div className="pointer-events-none absolute inset-0 bg-surface2" aria-hidden>
-            <div className="art-locked absolute inset-0" />
-          </div>
-        )}
+        </div>
         {veiled && !resolving && (
           <span
             className={`micro absolute bottom-2 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap rounded-full bg-surface px-2.5 py-1 font-semibold text-ink2 shadow-card ${hero ? "text-[10px]" : ""}`}
@@ -204,7 +201,7 @@ export default function TradingCard({
         )}
         {inBinder && !veiled && (
           <span
-            className={`absolute left-2 z-10 rounded-sm bg-ink px-1.5 py-0.5 font-mono uppercase tracking-[0.2em] text-on-accent ${hero ? "top-14 text-[9px]" : "top-11 text-[7px]"}`}
+            className={`absolute left-2 z-10 rounded-sm bg-ink px-1.5 py-0.5 font-mono uppercase tracking-[0.2em] text-bg ${hero ? "top-14 text-[9px]" : "top-11 text-[7px]"}`}
           >
             In binder{copies && copies > 1 ? ` ×${copies}` : ""}
           </span>
@@ -217,14 +214,14 @@ export default function TradingCard({
           }`}
         >
           <span
-            className={`tnum font-mono font-bold leading-none text-on-accent ${
+            className={`tnum font-mono font-bold leading-none text-bg ${
               hero ? "text-3xl" : "text-lg"
             }`}
           >
             {agi ? "?" : card.rating}
           </span>
           <span
-            className={`font-mono uppercase text-on-accent/60 ${hero ? "text-xs" : "text-[8px]"}`}
+            className={`font-mono uppercase text-bg/60 ${hero ? "text-xs" : "text-[8px]"}`}
           >
             ovr
           </span>

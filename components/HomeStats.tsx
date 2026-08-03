@@ -42,16 +42,18 @@ export default function HomeStats({ cards }: { cards: MarketCard[] }) {
 
   return (
     <div className="mb-5 grid grid-cols-3 gap-2">
-      <StatTile label="Index" value={formatTicks(index)} sub="avg card" />
+      <StatTile label="Index" value={formatTicks(index)} sub="avg card" href="/market" />
       <StatTile
         label="Your lab"
         value={formatTicks(valuation)}
         sub={`${owned} card${owned === 1 ? "" : "s"}`}
+        href="/binder"
       />
       <StatTile
         label="Packs"
         value={packs}
         sub={`${formatTicks(balanceFrom(walletRaw))} banked`}
+        href="/packs"
       />
     </div>
   );

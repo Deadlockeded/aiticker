@@ -139,22 +139,34 @@ export function StatTile({
   label,
   value,
   sub,
+  href,
   className = "",
 }: {
   label: string;
   value: React.ReactNode;
   sub?: React.ReactNode;
+  /** Makes the whole tile a link to its own page. */
+  href?: string;
   className?: string;
 }) {
-  return (
-    <div className={`rounded-[18px] bg-surface p-3 shadow-card ${className}`}>
+  const body = (
+    <>
       <p className="micro text-ink3">{label}</p>
       <p className="mt-1 font-display text-[22px] font-extrabold leading-none text-ink">
         {value}
       </p>
       {sub && <p className="mt-1 text-[13px] text-ink2">{sub}</p>}
-    </div>
+    </>
   );
+  const shell = `block rounded-[18px] bg-surface p-3 shadow-card ${className}`;
+  if (href) {
+    return (
+      <Link href={href} className={`${shell} transition-transform active:scale-[.97]`}>
+        {body}
+      </Link>
+    );
+  }
+  return <div className={shell}>{body}</div>;
 }
 
 // ------------------------------------------------------------- surfaces

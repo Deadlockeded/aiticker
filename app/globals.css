@@ -206,23 +206,21 @@ h1 {
   filter: saturate(0.15) opacity(0.42);
 }
 
-/* THE PULL BEAT: the drained field lifts away and the art comes up in colour */
+/* THE PULL BEAT: the drain lifts and the art comes up in full colour */
 @keyframes art-resolve {
   to {
-    opacity: 0;
+    filter: saturate(1) opacity(1);
   }
 }
 
-.art-resolving .art-locked,
-.art-resolving [aria-hidden].bg-surface2 {
+.art-resolving .art-locked {
   animation: art-resolve 0.75s ease 0.15s forwards;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .art-resolving .art-locked,
-  .art-resolving [aria-hidden].bg-surface2 {
+  .art-resolving .art-locked {
     animation: none !important;
-    opacity: 0;
+    filter: none;
   }
 }
 
