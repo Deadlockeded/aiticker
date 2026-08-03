@@ -37,16 +37,29 @@ PULL, PROOF) are the humor layer and stay. Register examples: "Next free packs i
 "No cards yet. Rip a pack first." · "Something broke. Refresh usually
 fixes it."
 
-## Design tokens (DESIGN.md)
+## Design System v1 (DESIGN-SYSTEM.md)
 
-Cream `#F2EDE3` bg · paper `#FDFBF6` · ink `#1E2430` · secondary
-`#5A6070` · muted `#9AA0AC` · accent red `#C23B2E` (hover `#A32F24`) ·
-green `#1F7A3D`. Fonts via next/font vars: Archivo Black
-(`--font-display`), Oswald (mapped over `--font-geist-mono` — every
-`font-mono` class renders Oswald), Lora (over `--font-geist-sans`).
-Tailwind v4: no config file — tokens in `app/globals.css` `@theme`.
-Motifs: `.paper-card`/`.paper-shadow` (5px offset ink), `.coupon`
-(dashed), rotated ink stamps.
+Tokens live in `app/globals.css` as CSS variables for BOTH modes and are
+mirrored as data in `lib/tokens.ts` for the canvas/OG renderers and the
+contrast gate. Screens consume tokens only (`bg-surface`, `text-ink2`,
+`border-line`) — never raw hex.
+
+- Modes: system preference wins; NO preference defaults to dark. The manual
+  toggle persists and is applied by an inline boot script before paint.
+- **GRADIENT LICENCE**: gradients appear only on sealed pack wrappers, rare+
+  foil material, and the mid-rip drain. Chrome/buttons/text/borders are flat.
+- **CONTRAST CONTRACT**: `tests/unit/contrast.test.ts` asserts WCAG AA on both
+  modes and fails the build. Six mandated pairs cannot reach 4.5:1 with the
+  fixed tokens and are held at 3:1 with usage rules recorded in `lib/tokens.ts`
+  — text on an accent fill is ≥16px/600, accent-on-tint is a micro-cap chip.
+  Dark teal and dark amber carry `onAccentInk`, not white.
+- Type: Sora (display) · Instrument Sans (body, 15px/1.6) · Martian Mono (data
+  and `.micro` labels at 8.5px letterspaced). No other fonts, ever, including
+  canvas.
+- Components: `components/ui.tsx` is the single source — pill buttons, chips,
+  the segmented control, stat tiles, entity tints. Do not fork them locally.
+- Logo: `components/Logo.tsx` is THE FAN (pink tile, three cards from one
+  pivot, grade tick ≥48px, `fallen` for error pages). Icons regenerate from it.
 
 ## Data flow
 
