@@ -15,8 +15,10 @@ and uploads traces on failure.
 
 - **Renders clean** — every page (`/`, market, packs, arena, binder, create,
   howto, about, a card detail) with zero console errors and zero same-origin
-  404s. Third-party card art (Wikimedia, favicons) is excluded from the 404
-  assertion so the suite is deterministic offline.
+  404s. Card art is third-party (Wikimedia/favicons via `/_next/image`) and
+  CI runners get rate-limited (429) upstream, so the suite aborts art
+  requests (`blockArt`) — the monogram fallback renders — and filters
+  resource-load console noise for art URLs out of the zero-error assertion.
 - **Rip flow** — tap the pack on /packs, auto-flip carries to /binder, the
   binder key is written and survives a reload.
 - **Deck** — gallery defaults to the deck on mobile; `next →` advances the

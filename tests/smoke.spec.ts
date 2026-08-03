@@ -23,11 +23,25 @@ const PAGES = [
 // for a fresh profile. Do not switch this to a common card.
 const FACEDOWN_CARD = "/cards/openai";
 
+// Card art is third-party (Wikimedia/favicons) proxied through /_next/image.
+// CI runners get rate-limited (429) upstream, so art is blocked in tests —
+// CardArt's onError monogram fallback renders instead — and the resulting
+// resource-load console noise is excluded from the zero-error assertion.
+const ART_URL = /_next\/image|upload\.wikimedia\.org|google\.com|gstatic\.com|avatars\.githubusercontent\.com/;
+const RESOURCE_NOISE = /Failed to load resource|net::ERR_FAILED/;
+
+const blockArt = (page: Page) =>
+  page.route("**/_next/image**", (route) => route.abort());
+
 function watchErrors(page: Page): { errors: string[]; notFound: string[] } {
   const errors: string[] = [];
   const notFound: string[] = [];
   page.on("console", (msg) => {
-    if (msg.type() === "error") errors.push(msg.text());
+    if (msg.type() !== "error") return;
+    const text = msg.text();
+    const src = msg.location()?.url ?? "";
+    if (RESOURCE_NOISE.test(text) && (ART_URL.test(text) || ART_URL.test(src))) return;
+    errors.push(text);
   });
   page.on("pageerror", (err) => errors.push(String(err)));
   page.on("response", (res) => {
@@ -55,6 +69,7 @@ const seedBinder = (page: Page, ids: string[]) =>
 test.describe("console + assets", () => {
   for (const path of PAGES) {
     test(`renders clean: ${path}`, async ({ page }) => {
+      await blockArt(page);
       const watch = watchErrors(page);
       await page.goto(path);
       await page.waitForLoadState("networkidle");
@@ -65,6 +80,7 @@ test.describe("console + assets", () => {
 });
 
 test("rip flow: packs → auto-flip → binder, and it persists", async ({ page }) => {
+  await blockArt(page);
   const watch = watchErrors(page);
   await page.goto("/packs");
   await page.getByLabel("Rip the pack").click();
