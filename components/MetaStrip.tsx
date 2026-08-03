@@ -30,7 +30,7 @@ export default function MetaStrip() {
           <button
             key={cat.key}
             onClick={() => setOpen(open === cat.key ? null : cat.key)}
-            className={`border px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.15em] transition-colors ${
+            className={`min-h-11 border px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.15em] transition-colors ${
               i === 0
                 ? "border-[#17301F] bg-[#B23A2E] text-[#F4F7F0]"
                 : open === cat.key

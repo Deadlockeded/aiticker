@@ -40,7 +40,7 @@ function ResetChip() {
   const [label, setLabel] = useState("");
   useEffect(() => {
     const update = () => {
-      const totalMin = Math.ceil(msUntilNextPack() / 60_000);
+      const totalMin = Math.max(1, Math.ceil(msUntilNextPack() / 60_000));
       const h = Math.floor(totalMin / 60);
       const m = totalMin % 60;
       setLabel(h > 0 ? `${h}h ${m}m` : `${m}m`);

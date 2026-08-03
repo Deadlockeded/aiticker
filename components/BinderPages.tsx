@@ -301,7 +301,7 @@ export default function BinderPages({
               key={r.id}
               onClick={() => unlocked && setRoom(r.id)}
               disabled={!unlocked}
-              className={`shrink-0 border px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.15em] ${
+              className={`min-h-11 shrink-0 border px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.15em] ${
                 room === r.id
                   ? "border-[#17301F] bg-[#17301F] text-[#F4F7F0]"
                   : unlocked
