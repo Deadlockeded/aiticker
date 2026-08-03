@@ -62,11 +62,11 @@ function SignalsPanel({ card }: { card: MarketCard }) {
   );
   if (rows.length === 0) return null;
   return (
-    <div className="rounded-2xl border border-[#17301F]/30 bg-[#17301F]/5 p-6">
-      <h2 className="mb-1 font-mono text-xs uppercase tracking-[0.3em] text-[#9CB09E]">
+    <div className="rounded-2xl border border-line bg-surface2 p-6">
+      <h2 className="mb-1 micro text-xs tracking-[0.3em] text-ink3">
         Signals
       </h2>
-      <p className="mb-4 text-xs text-[#9CB09E]">
+      <p className="mb-4 text-xs text-ink3">
         Live public data feeding this card&apos;s rating — the receipts.
       </p>
       <dl className="space-y-3">
@@ -74,13 +74,13 @@ function SignalsPanel({ card }: { card: MarketCard }) {
           const value = card.signals![key]!;
           return (
             <div key={key} className="flex items-center justify-between gap-3">
-              <dt className="text-sm text-[#5A6E5E]">
+              <dt className="text-sm text-ink2">
                 {label}{" "}
-                <span className="font-mono text-[10px] text-[#9CB09E]">
+                <span className="font-mono text-[10px] text-ink3">
                   {source}
                 </span>
               </dt>
-              <dd className="tnum font-mono text-sm text-[#17301F]">
+              <dd className="tnum font-mono text-sm text-ink">
                 {key === "attentionDelta"
                   ? `${value >= 0 ? "+" : ""}${value}%`
                   : value.toLocaleString()}
@@ -112,7 +112,7 @@ export default async function CardPage({
       <SwipeNav prevId={prevId} nextId={nextId} />
       <Link
         href="/"
-        className="font-mono text-sm uppercase tracking-widest text-[#5A6E5E] transition-colors hover:text-[#17301F]"
+        className="micro text-sm text-ink2 transition-colors hover:text-ink"
       >
         ← Back to the checklist
       </Link>
@@ -121,7 +121,7 @@ export default async function CardPage({
         {/* THE CARD — single source: proof art when unowned, quip below.
             self-start keeps the column auto-height: without it the grid
             stretches this item to the row, the hero's h-full inflates to
-            match, and the quip/coupon overflow onto the footer. */}
+            match, and the quip/rounded-[22px] border border-dashed border-line2 bg-surface overflow onto the footer. */}
         <div className="mx-auto w-full max-w-[340px] self-start">
           <CardReveal card={card} rank={rank} />
         </div>
@@ -129,12 +129,12 @@ export default async function CardPage({
         <div className="flex flex-col gap-4">
 
           {/* price chart + book values */}
-          <div className="paper-card p-4 sm:p-5">
-            <div className="flex items-baseline justify-between border-b-2 border-[#17301F] pb-1">
-              <h2 className="font-mono text-xs font-semibold uppercase tracking-[0.3em] text-[#17301F]">
+          <div className="surface-card p-4 sm:p-5">
+            <div className="flex items-baseline justify-between border-b border-line2 pb-1">
+              <h2 className="micro text-xs font-semibold tracking-[0.3em] text-ink">
                 Price history
               </h2>
-              <span className="tnum font-mono text-xs text-[#5A6E5E]">
+              <span className="tnum font-mono text-xs text-ink2">
                 {card.id === "agi"
                   ? "unpriced"
                   : `Book: ${formatTicks(Math.round(price * 0.95))}–${formatTicks(Math.round(price * 1.08))}`}
@@ -142,7 +142,7 @@ export default async function CardPage({
             </div>
             <div className="mt-3">
               {card.id === "agi" ? (
-                <p className="py-16 text-center font-mono text-sm text-[#9CB09E]">
+                <p className="py-16 text-center font-mono text-sm text-ink3">
                   unpriced
                 </p>
               ) : (
@@ -161,13 +161,13 @@ export default async function CardPage({
           <div className="flex flex-wrap gap-3">
             <Link
               href={`/arena?vs=${card.id}`}
-              className="bg-[#B23A2E] px-5 py-2.5 font-mono text-sm font-semibold uppercase tracking-widest text-[#F4F7F0] transition-colors hover:bg-[#8E2E24]"
+              className="bg-pink px-5 py-2.5 micro text-sm font-semibold text-on-accent transition-colors hover:bg-pink"
             >
               Fight this card
             </Link>
             <Link
               href={`/arena?me=${card.id}`}
-              className="border-2 border-[#17301F] px-5 py-2.5 font-mono text-sm font-semibold uppercase tracking-widest text-[#17301F] transition-colors hover:bg-[#17301F]/5"
+              className="border border-line2 px-5 py-2.5 micro text-sm font-semibold text-ink transition-colors hover:bg-surface2"
             >
               Use in Arena
             </Link>

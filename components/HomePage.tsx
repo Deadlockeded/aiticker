@@ -23,6 +23,8 @@ import PackRipper from "./PackRipper";
 import RaiseARound from "./RaiseARound";
 import RoastTeaser from "./RoastTeaser";
 import TodayMeta from "./TodayMeta";
+import HomeStats from "./HomeStats";
+import { ButtonLink } from "./ui";
 
 type HomeState = "ceremony" | "packs" | "index";
 
@@ -56,14 +58,11 @@ function ResetChip() {
     };
   }, []);
   return (
-    <div className="mb-4 flex flex-col items-center gap-1">
-      <span className="border-2 border-[#17301F] bg-[#EAF0E4] px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.2em] text-[#17301F] shadow-[3px_3px_0_#17301F]">
+    <div className="mb-4 flex flex-col items-center gap-1.5">
+      <span className="micro rounded-full bg-surface2 px-3 py-1.5 font-semibold text-ink2">
         Next pack in {label || "…"}
       </span>
-      <Link
-        href="/packs"
-        className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#B23A2E] underline underline-offset-4"
-      >
+      <Link href="/packs" className="micro font-semibold text-pink">
         or trade {formatTicks(EXCHANGE_PACK_COST)} for one now →
       </Link>
     </div>
@@ -83,6 +82,7 @@ function IndexSections({
   return (
     <>
       {children}
+      <HomeStats cards={cards} />
       <RaiseARound />
       <RoastTeaser />
       <NextDrop />
@@ -93,21 +93,11 @@ function IndexSections({
         </div>
         <div className="space-y-4">
           <HotList cards={cards} />
-          <div className="coupon p-3 text-center">
-            <Link
-              href="/create"
-              className="font-mono text-[12px] font-semibold uppercase tracking-[0.25em] text-[#B23A2E] hover:underline"
-            >
-              Get scouted. Get roasted. It&apos;s the same department. →
-            </Link>
-          </div>
           <TodayMeta cards={cards} />
         </div>
       </div>
       <div className="mt-8">
-        <h2 className="mb-3 border-b-2 border-[#17301F] pb-1 text-lg text-[#17301F]">
-          The Checklist
-        </h2>
+        <h2 className="mb-3 text-[20px] text-ink">The checklist</h2>
         <CardGrid cards={cards} ranks={ranks} />
       </div>
     </>
@@ -143,10 +133,9 @@ export default function HomePage({
     <div className={ceremony ? "flex min-h-[75vh] flex-col items-center justify-center py-10" : ""}>
       <div className={ceremony ? "w-full" : "hidden"}>
         {ceremony && !ripBusy && (
-          <p className="mb-8 text-center font-display text-2xl uppercase text-[#17301F] sm:text-3xl">
-            The AI industry is a{" "}
-            <span className="text-[#B23A2E]">card game now.</span>
-          </p>
+          <h1 className="mb-8 text-center text-[32px] leading-[1.08] text-ink sm:text-[40px]">
+            The AI industry is a <span className="text-pink">card game</span> now.
+          </h1>
         )}
       </div>
       <div className={showPack ? "mx-auto mb-10 w-full" : "hidden"}>
@@ -162,13 +151,13 @@ export default function HomePage({
       <div className={ceremony ? "w-full" : "hidden"}>
         {ceremony && !ripBusy && (
           <>
-            <p className="mt-2 text-center font-mono text-[12px] uppercase tracking-[0.3em] text-[#5A6E5E]">
+            <p className="mt-2 text-center text-[15px] text-ink2">
               Tap to rip your first pack.
             </p>
             <p className="mt-4 text-center">
               <a
                 href="/roast"
-                className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#9CB09E] underline underline-offset-4 hover:text-[#B23A2E]"
+                className="text-[14px] text-ink3 underline underline-offset-4 hover:text-pink"
               >
                 or get roasted first →
               </a>

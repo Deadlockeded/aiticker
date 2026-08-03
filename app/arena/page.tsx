@@ -40,10 +40,10 @@ export default async function ArenaPage({ searchParams }: { searchParams: Search
       {/* tight on a phone: the fighter rail and challenger deck have to clear
           the fold, so the hero shrinks and the subtitle only shows on desktop */}
       <header className="mb-3 text-center sm:mb-6">
-        <h1 className="text-2xl font-bold tracking-tight text-[#17301F] sm:text-3xl">
+        <h1 className="text-2xl font-bold tracking-tight text-ink sm:text-3xl">
           Arena
         </h1>
-        <p className="mt-1 hidden text-sm text-[#5A6E5E] sm:block">
+        <p className="mt-1 hidden text-sm text-ink2 sm:block">
           Fight with your cards. 3 rounds drawn from today&apos;s meta — best
           stats win.
         </p>

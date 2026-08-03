@@ -7,19 +7,19 @@ import type { Rarity } from "@/lib/types";
 export const runtime = "edge";
 
 const RARITY_BG: Record<Rarity, string> = {
-  common: "linear-gradient(135deg, #e0e8d8 0%, #F4F7F0 60%)",
-  rare: "linear-gradient(135deg, #cfd9e4 0%, #F4F7F0 60%)",
-  epic: "linear-gradient(135deg, #dccbe0 0%, #F4F7F0 60%)",
-  legendary: "linear-gradient(135deg, #e8cf9a 0%, #F4F7F0 60%)",
-  mythic: "linear-gradient(135deg, #d8d3e6 0%, #F4F7F0 60%)",
+  common: "linear-gradient(135deg, #20202B 0%, #F4F3F7 60%)",
+  rare: "linear-gradient(135deg, #cfd9e4 0%, #F4F3F7 60%)",
+  epic: "linear-gradient(135deg, #dccbe0 0%, #F4F3F7 60%)",
+  legendary: "linear-gradient(135deg, #e8cf9a 0%, #F4F3F7 60%)",
+  mythic: "linear-gradient(135deg, #d8d3e6 0%, #F4F3F7 60%)",
 };
 
 const RARITY_ACCENT: Record<Rarity, string> = {
-  common: "#5A6E5E",
-  rare: "#2E5E8E",
-  epic: "#6B4FA0",
-  legendary: "#8C6D1F",
-  mythic: "#B23A2E",
+  common: "#B9B7C6",
+  rare: "#3BD6CE",
+  epic: "#9D7BFF",
+  legendary: "#F0A94B",
+  mythic: "#FF1F8F",
 };
 
 export async function GET(
@@ -42,7 +42,7 @@ export async function GET(
           alignItems: "center",
           padding: 64,
           background: RARITY_BG[card.rarity],
-          color: "#17301F",
+          color: "#0E0E13",
           fontFamily: "sans-serif",
         }}
       >
@@ -56,7 +56,7 @@ export async function GET(
             height: 280,
             borderRadius: 999,
             border: `8px solid ${accent}`,
-            background: card.type === "company" ? "#ffffff" : card.image ? "#0f172a" : "#F4F7F0",
+            background: card.type === "company" ? "#ffffff" : card.image ? "#0f172a" : "#F4F3F7",
             overflow: "hidden",
           }}
         >
@@ -75,7 +75,7 @@ export async function GET(
             />
           ) : (
             // satori's default font has no emoji/dingbats — monogram from the name
-            <div style={{ display: "flex", fontSize: 110, fontWeight: 800, color: "#17301F" }}>
+            <div style={{ display: "flex", fontSize: 110, fontWeight: 800, color: "#0E0E13" }}>
               {(card.name.replace(/[^a-zA-Z ]/g, "").trim().split(/\s+/).slice(0, 2).map((w) => w[0]).join("") || "AT").toUpperCase()}
             </div>
           )}
@@ -148,7 +148,7 @@ export async function GET(
                   display: "flex",
                   fontSize: 34,
                   fontWeight: 700,
-                  color: move >= 0 ? "#1F6E3D" : "#B23A2E",
+                  color: move >= 0 ? "#3ADE96" : "#FF1F8F",
                 }}
               >
                 {formatMove(move)} 24h

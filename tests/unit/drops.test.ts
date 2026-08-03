@@ -23,7 +23,7 @@ test("upcoming tease appears only inside the 7-day window", () => {
   const nearIn = Date.parse("2026-08-19T00:00:00Z");
   const drop = upcomingDrop(nearIn);
   assert.ok(drop);
-  assert.equal(drop!.count, 15);
+  assert.equal(drop!.count, 23); // 10 bench cards + 5 artifacts + 8 funding artifacts
   assert.equal(drop!.days, 5);
   assert.equal(upcomingDrop(AFTER), null);
 });

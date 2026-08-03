@@ -17,7 +17,7 @@ export default function SessionlessNotice() {
   );
   if (!blocked) return null;
   return (
-    <p className="mb-4 border-2 border-[#17301F] bg-[#F4F7F0] p-3 text-center font-mono text-[11px] uppercase tracking-[0.15em] text-[#5A6E5E]">
+    <p className="mb-4 border border-line2 bg-surface p-3 text-center micro text-[11px] tracking-[0.15em] text-ink2">
       This browser blocks storage — you can browse and fight, but pulls
       won&apos;t be saved.
     </p>

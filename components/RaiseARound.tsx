@@ -28,11 +28,11 @@ export default function RaiseARound({ compact = false }: { compact?: boolean }) 
 
   if (justRaised !== null) {
     return (
-      <div className={`coupon p-4 text-center ${compact ? "" : "mb-5"}`}>
-        <p className="font-display text-sm uppercase text-[#1F6E3D]">
+      <div className={`rounded-[22px] border border-dashed border-line2 bg-surface p-4 text-center ${compact ? "" : "mb-5"}`}>
+        <p className="font-display text-sm uppercase text-up">
           Round closed — +{formatTicks(justRaised)}
         </p>
-        <p className="mt-1 text-[13px] text-[#5A6E5E]">
+        <p className="mt-1 text-[13px] text-ink2">
           {round.investor} is in. Nobody read the terms.
         </p>
         <div className="mt-2 flex justify-center">
@@ -48,20 +48,20 @@ export default function RaiseARound({ compact = false }: { compact?: boolean }) 
   }
 
   return (
-    <div className={`coupon p-4 text-center ${compact ? "" : "mb-5"}`}>
-      <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.3em] text-[#B23A2E]">
+    <div className={`rounded-[22px] border border-dashed border-line2 bg-surface p-4 text-center ${compact ? "" : "mb-5"}`}>
+      <p className="micro text-[10px] font-semibold tracking-[0.3em] text-pink">
         This week&apos;s round
       </p>
-      <p className="mt-1.5 text-[15px] leading-snug text-[#17301F]">
+      <p className="mt-1.5 text-[15px] leading-snug text-ink">
         <span className="font-semibold">{formatTicks(round.amount)}</span> from{" "}
         {round.investor}, at a valuation nobody verified.
       </p>
-      <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.15em] text-[#5A6E5E]">
+      <p className="mt-1 micro text-[11px] tracking-[0.15em] text-ink2">
         Terms: {round.term}
       </p>
       <button
         onClick={() => setJustRaised(claimRound())}
-        className="mt-3 border-2 border-[#17301F] bg-[#B23A2E] px-6 py-2.5 font-display text-sm uppercase text-[#F4F7F0] shadow-[3px_3px_0_#17301F] hover:bg-[#8E2E24]"
+        className="mt-3 border border-line2 bg-pink px-6 py-2.5 font-display text-sm uppercase text-on-accent shadow-card hover:bg-pink"
       >
         Sign it →
       </button>

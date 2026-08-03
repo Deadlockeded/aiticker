@@ -23,13 +23,13 @@ function MetaWatch({ cards }: { cards: MarketCard[] }) {
   // reserve the row pre-hydration — a late-appearing line is layout shift
   if (!line)
     return (
-      <p className="invisible border-t border-dotted border-[#9CB09E] px-3 py-2 text-[12px] italic">
+      <p className="invisible border-t border-line px-4 py-3 text-[12px] italic">
         &nbsp;
       </p>
     );
   return (
-    <p className="border-t border-dotted border-[#9CB09E] px-3 py-2 text-[12px] italic text-[#5A6E5E]">
-      <span className="mr-1.5 font-mono text-[10px] font-semibold not-italic uppercase tracking-[0.25em] text-[#B23A2E]">
+    <p className="border-t border-line px-4 py-3 text-[12px] italic text-ink2">
+      <span className="mr-1.5 micro text-[10px] font-semibold not-italic tracking-[0.25em] text-pink">
         Meta watch
       </span>
       {line}
@@ -60,27 +60,25 @@ export default function HotList({ cards }: { cards: MarketCard[] }) {
   const rows = [...gainers.slice(0, 4), ...losers.slice(0, 2)];
 
   return (
-    <div className="border-[3px] border-[#B23A2E] bg-[#F4F7F0] paper-shadow">
-      <p className="bg-[#B23A2E] px-3 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.3em] text-[#F4F7F0]">
-        🔥 The Hot List
-      </p>
+    <div className="surface-card overflow-hidden">
+      <p className="micro px-4 pt-3 font-semibold text-pink">The hot list</p>
       {/* mobile: swipeable mini-deck */}
       <MobileDeck rows={rows} />
       <ul className="hidden md:block">
         {rows.map((card) => {
           const move = getDailyMove(card);
           return (
-            <li key={card.id} className="border-b border-dotted border-[#9CB09E] last:border-0">
+            <li key={card.id} className="border-b border-line last:border-0">
               <Link
                 href={`/cards/${card.id}`}
-                className="flex items-center justify-between px-3 py-2 hover:bg-[#17301F]/5"
+                className="flex items-center justify-between px-3 py-2 hover:bg-surface2"
               >
-                <span className="truncate text-sm font-semibold text-[#17301F]">
+                <span className="truncate text-sm font-semibold text-ink">
                   {card.name}
                 </span>
                 <span className="tnum ml-3 shrink-0 font-mono text-xs">
-                  <span className="text-[#5A6E5E]">{formatTicks(getCurrentPrice(card))}</span>{" "}
-                  <span className={move >= 0 ? "text-[#1F6E3D]" : "text-[#B23A2E]"}>
+                  <span className="text-ink2">{formatTicks(getCurrentPrice(card))}</span>{" "}
+                  <span className={move >= 0 ? "text-up" : "text-down"}>
                     {formatMove(move)}
                   </span>
                 </span>

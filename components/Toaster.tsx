@@ -65,11 +65,11 @@ export default function Toaster() {
             <span
               key={t.key}
               data-testid="tick-toast"
-              className="deal-in border-2 border-[#17301F] bg-[#F4F7F0] px-3 py-1.5 font-mono text-[12px] font-semibold uppercase tracking-[0.15em] text-[#1F6E3D] shadow-[3px_3px_0_#17301F]"
+              className="deal-in border border-line2 bg-surface px-3 py-1.5 micro text-[12px] font-semibold tracking-[0.15em] text-up shadow-card"
             >
               +{formatTicks(t.amount)}
               {t.reason && (
-                <span className="ml-1.5 tracking-normal text-[#5A6E5E]">
+                <span className="ml-1.5 tracking-normal text-ink2">
                   {t.reason}
                 </span>
               )}
@@ -82,12 +82,12 @@ export default function Toaster() {
           {toasts.map((toast) => (
             <div
               key={toast.key}
-              className="deal-in flex items-start gap-3 rounded-xl border border-[#B23A2E]/50 bg-[#F4F7F0] p-3 shadow-[0_8px_32px_rgba(0,0,0,0.5)] backdrop-blur"
+              className="deal-in flex items-start gap-3 rounded-xl border border-line bg-surface p-3 shadow-[0_8px_32px_rgba(0,0,0,0.5)] backdrop-blur"
             >
               <span className="text-2xl">{toast.emoji}</span>
               <div className="min-w-0">
-                <p className="text-sm font-semibold text-[#17301F]">{toast.title}</p>
-                <p className="mt-0.5 text-xs text-[#5A6E5E]">{toast.body}</p>
+                <p className="text-sm font-semibold text-ink">{toast.title}</p>
+                <p className="mt-0.5 text-xs text-ink2">{toast.body}</p>
               </div>
             </div>
           ))}

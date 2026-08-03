@@ -4,6 +4,7 @@ import { formatMove, formatTicks, getCurrentPrice, getDailyMove } from "@/lib/ma
 import { oddsLabelFor } from "@/lib/packs";
 import { editionFor, variantLabel, type Variant } from "@/lib/variants";
 import CardArt from "./CardArt";
+import { Chip, rarityTone } from "./ui";
 import RivalryArt from "./RivalryArt";
 import HotBadge from "./HotBadge";
 import { statTier } from "@/lib/lines";
@@ -33,7 +34,7 @@ const RARITY: Record<
     label: "Common",
     artBg: "bg-[radial-gradient(120%_100%_at_50%_0%,#e0e8d8_0%,#ccd8c4_70%)]",
     accentText: "text-zinc-400",
-    border: "border-[#17301F]/30",
+    border: "border-line",
     glow: "",
     foilSweep: false,
     holoWash: false,
@@ -68,7 +69,7 @@ const RARITY: Record<
   mythic: {
     label: "Mythic",
     artBg: "bg-[radial-gradient(120%_100%_at_50%_0%,#d8d3e6_0%,#bfb8d6_72%)]",
-    accentText: "text-[#B23A2E]",
+    accentText: "text-pink",
     border: "border-transparent",
     glow: "shadow-[0_0_32px_-6px_rgba(56,189,248,0.35)]",
     foilSweep: true,
@@ -127,24 +128,24 @@ export default function TradingCard({
   const artifact = card.type === "artifact";
   const agi = card.id === "agi";
   const veiled = proof || resolving;
+  const oddsLabel = oddsLabelFor(card);
+  // parallels get a coloured outline instead of the pink owned keyline
   const variantFrame =
     variant === "silver"
-      ? "border-[3px] border-[#8EA6B4]"
+      ? "outline outline-2 -outline-offset-2 outline-ink3"
       : variant === "gold"
-        ? "border-[3px] border-[#8C6D1F]"
+        ? "outline outline-2 -outline-offset-2 outline-amber"
         : variant === "holo"
-          ? "border-[3px] border-[#17301F]"
+          ? "outline outline-2 -outline-offset-2 outline-violet"
           : "";
 
   const body = (
     <div
-      className={`group flex h-full flex-col overflow-hidden transition duration-200 ${
-        artifact && !agi
-          ? "rounded-[3px] border-[3px] border-double border-[#17301F]/60 bg-[#F4F7F0]"
-          : mythic
-            ? "rounded-[3px] bg-[#F4F7F0]"
-            : `rounded-[3px] ${variantFrame || "border-2 border-[#17301F]"} bg-[#F4F7F0]`
-      } ${proof && !resolving ? "proof-shadow" : "paper-shadow"} ${hero ? "" : "hover:-translate-y-[3px] hover:rotate-[-0.4deg]"} ${resolving ? "proof-resolving" : ""}`}
+      className={`group flex h-full flex-col overflow-hidden rounded-[22px] bg-surface shadow-card transition duration-200 ${
+        variantFrame
+      } ${inBinder || (!veiled && !community) ? "owned-keyline" : ""} ${
+        hero ? "" : "hover:-translate-y-[2px]"
+      } ${resolving ? "art-resolving" : ""}`}
     >
       {/* art */}
       <div
@@ -160,11 +161,11 @@ export default function TradingCard({
         {card.type === "moment" ? (
           /* cinematic frame: letterboxed wide crop + date stamp */
           <div className="absolute inset-0 flex flex-col justify-center bg-black/30">
-            <div className="flex aspect-video items-center justify-center border-y border-[#17301F]/40 bg-gradient-to-b from-black/60 via-transparent to-black/60">
+            <div className="flex aspect-video items-center justify-center border-y border-line bg-gradient-to-b from-black/60 via-transparent to-black/60">
               <span className={hero ? "text-7xl" : "text-4xl"}>{card.avatar}</span>
             </div>
             <span
-              className={`absolute bottom-2 left-2 rounded bg-black/60 px-1.5 py-0.5 font-mono uppercase tracking-wider text-[#5A6E5E] ${
+              className={`absolute bottom-2 left-2 rounded bg-black/60 px-1.5 py-0.5 font-mono uppercase tracking-wider text-ink2 ${
                 hero ? "text-[11px]" : "text-[8px]"
               }`}
             >
@@ -175,7 +176,7 @@ export default function TradingCard({
           <RivalryArt sides={card.sides} hero={hero} />
         ) : artifact ? (
           <div
-            className={`absolute inset-0 flex items-center justify-center ${agi ? "bg-[#0b0b0d]" : "bg-[radial-gradient(110%_100%_at_50%_0%,#e6eede_0%,#d5e2cb_70%)]"}`}
+            className={`absolute inset-0 flex items-center justify-center ${agi ? "bg-ink" : "bg-[radial-gradient(110%_100%_at_50%_0%,#e6eede_0%,#d5e2cb_70%)]"}`}
           >
             <svg
               viewBox="0 0 48 48"
@@ -187,30 +188,23 @@ export default function TradingCard({
           <CardArt card={card} hero={hero} shape="tile" />
         )}
 
-        {/* PRINT PROOF veil — sits on the art, UNDER every chip: only the
-            art is unfinished, every word stays crisp */}
+        {/* UNOWNED: the art drains to a ghost of itself on a surface2 field.
+            Never blurred — every word on the card stays readable, always. */}
         {veiled && (
-          <div className="proof-veil" aria-hidden>
-            <div className="proof-tint" />
-            <div className="proof-paper" />
-            <div className="proof-dots" />
-            <span
-              className={`proof-mark font-mono font-black uppercase ${hero ? "text-2xl tracking-[0.5em]" : "text-xs tracking-[0.4em]"}`}
-            >
-              Proof
-            </span>
+          <div className="pointer-events-none absolute inset-0 bg-surface2" aria-hidden>
+            <div className="art-locked absolute inset-0" />
           </div>
         )}
         {veiled && !resolving && (
           <span
-            className={`absolute bottom-1.5 right-1.5 z-10 rounded-sm border border-dashed border-[#9CB09E] bg-[#F4F7F0]/85 px-1 font-mono uppercase tracking-wider text-[#5A6E5E] ${hero ? "text-[9px]" : "text-[6px]"}`}
+            className={`micro absolute bottom-2 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap rounded-full bg-surface px-2.5 py-1 font-semibold text-ink2 shadow-card ${hero ? "text-[10px]" : ""}`}
           >
-            Not in your binder
+            Pull to unlock · {oddsLabel}
           </span>
         )}
         {inBinder && !veiled && (
           <span
-            className={`absolute left-2 z-10 rounded-sm bg-[#17301F] px-1.5 py-0.5 font-mono uppercase tracking-[0.2em] text-[#F4F7F0] ${hero ? "top-14 text-[9px]" : "top-11 text-[7px]"}`}
+            className={`absolute left-2 z-10 rounded-sm bg-ink px-1.5 py-0.5 font-mono uppercase tracking-[0.2em] text-on-accent ${hero ? "top-14 text-[9px]" : "top-11 text-[7px]"}`}
           >
             In binder{copies && copies > 1 ? ` ×${copies}` : ""}
           </span>
@@ -218,19 +212,19 @@ export default function TradingCard({
 
         {/* rating chip */}
         <div
-          className={`absolute left-2 top-2 flex items-baseline gap-1 rounded-lg bg-[#17301F] ${
+          className={`absolute left-2 top-2 flex items-baseline gap-1 rounded-lg bg-ink ${
             hero ? "px-3 py-1.5" : "px-2 py-1"
           }`}
         >
           <span
-            className={`tnum font-mono font-bold leading-none text-[#F4F7F0] ${
+            className={`tnum font-mono font-bold leading-none text-on-accent ${
               hero ? "text-3xl" : "text-lg"
             }`}
           >
             {agi ? "?" : card.rating}
           </span>
           <span
-            className={`font-mono uppercase text-[#F4F7F0]/60 ${hero ? "text-xs" : "text-[8px]"}`}
+            className={`font-mono uppercase text-on-accent/60 ${hero ? "text-xs" : "text-[8px]"}`}
           >
             ovr
           </span>
@@ -249,7 +243,7 @@ export default function TradingCard({
 
         {stamp && (
           <span
-            className={`pointer-events-none absolute left-1/2 top-[62%] z-10 -translate-x-1/2 rotate-[-12deg] whitespace-nowrap rounded border-double border-red-500/75 px-2 py-0.5 font-mono font-black uppercase tracking-widest text-[#B23A2E] opacity-90 mix-blend-screen [border-width:4px] [text-shadow:0_0_2px_rgba(239,68,68,0.6),1px_1px_0_rgba(0,0,0,0.4)] ${
+            className={`pointer-events-none absolute left-1/2 top-[62%] z-10 -translate-x-1/2 rotate-[-12deg] whitespace-nowrap rounded border-double border-red-500/75 px-2 py-0.5 font-mono font-black uppercase tracking-widest text-pink opacity-90 mix-blend-screen [border-width:4px] [text-shadow:0_0_2px_rgba(239,68,68,0.6),1px_1px_0_rgba(0,0,0,0.4)] ${
               hero ? "text-xs" : "text-[8px]"
             }`}
           >
@@ -265,7 +259,7 @@ export default function TradingCard({
       <div className={`flex flex-1 flex-col ${hero ? "gap-2 p-5" : "gap-1.5 p-3"}`}>
         <div className="flex items-center justify-between gap-2">
           <h3
-            className={`truncate font-semibold text-[#17301F] ${
+            className={`truncate font-semibold text-ink ${
               hero ? "text-xl" : "text-sm"
             }`}
           >
@@ -273,22 +267,22 @@ export default function TradingCard({
           </h3>
           {!community && rank > 0 && (
             <span
-              className={`tnum shrink-0 font-mono text-[#9CB09E] ${hero ? "text-sm" : "text-[10px]"}`}
+              className={`tnum shrink-0 font-mono text-ink3 ${hero ? "text-sm" : "text-[10px]"}`}
             >
               #{rank}
             </span>
           )}
         </div>
         <div
-          className={`flex items-center justify-between font-mono text-[#9CB09E] ${
+          className={`flex items-center justify-between font-mono text-ink3 ${
             hero ? "text-xs" : "text-[9px]"
           }`}
         >
-          <span className={`uppercase tracking-wider ${community ? "text-[#B23A2E]" : ""}`}>
+          <span className={`uppercase tracking-wider ${community ? "text-pink" : ""}`}>
             {community ? "community" : artifact ? "artifact" : card.type}
           </span>
           <span
-            className={`tnum ${variant === "gold" ? "font-semibold text-[#8C6D1F]" : variant === "holo" ? "font-semibold text-[#6B4FA0]" : variant === "silver" ? "font-semibold text-[#5A6E5E]" : ""}`}
+            className={`tnum ${variant === "gold" ? "font-semibold text-amber" : variant === "holo" ? "font-semibold text-violet" : variant === "silver" ? "font-semibold text-ink2" : ""}`}
           >
             {community
               ? "#???/∞ · Community"
@@ -298,30 +292,30 @@ export default function TradingCard({
           </span>
         </div>
 
-        {hero && <p className="text-sm text-[#5A6E5E]">{card.tagline}</p>}
+        {hero && <p className="text-sm text-ink2">{card.tagline}</p>}
         {/* artifacts seed tagline === flavorText — never print it twice */}
         {hero &&
           card.flavorText.toLowerCase().replace(/[“”".]/g, "").trim() !==
             card.tagline.toLowerCase().replace(/[“”".]/g, "").trim() && (
-            <p className="text-[13px] italic leading-snug text-[#9CB09E]">
+            <p className="text-[13px] italic leading-snug text-ink3">
               “{card.flavorText}”
             </p>
           )}
 
         {hero && communityStats && (
-          <div className="mt-1 space-y-2 border-t border-[#17301F]/30 pt-3">
+          <div className="mt-1 space-y-2 border-t border-line pt-3">
             {communityStats.map(({ label, value }) => (
               <div key={label} className="flex items-center gap-2">
                 <span className={`w-24 font-mono text-xs ${r.accentText}`}>
                   {label}
                 </span>
-                <div className="h-1 flex-1 overflow-hidden rounded-full bg-[#17301F]/10">
+                <div className="h-1 flex-1 overflow-hidden rounded-full bg-surface2">
                   <div
                     className="h-full rounded-full bg-white/60"
                     style={{ width: `${value}%` }}
                   />
                 </div>
-                <span className="tnum w-6 text-right font-mono text-xs text-[#5A6E5E]">
+                <span className="tnum w-6 text-right font-mono text-xs text-ink2">
                   {value}
                 </span>
               </div>
@@ -330,27 +324,27 @@ export default function TradingCard({
         )}
 
         {hero && !communityStats && (
-          <div className="mt-1 space-y-2 border-t border-[#17301F]/30 pt-3">
+          <div className="mt-1 space-y-2 border-t border-line pt-3">
             {STAT_ROWS.map(({ key, label }) => (
               <div key={key} className="flex items-center gap-2">
                 <span className={`w-24 font-mono text-[10px] tracking-wider ${r.accentText}`}>
                   {label}
                 </span>
-                <div className="h-1 flex-1 overflow-hidden rounded-full bg-[#17301F]/10">
+                <div className="h-1 flex-1 overflow-hidden rounded-full bg-surface2">
                   <div
                     className="h-full rounded-full bg-white/60"
                     style={{ width: `${card.stats[key]}%` }}
                   />
                 </div>
-                <span className="tnum w-6 text-right font-mono text-xs text-[#5A6E5E]">
+                <span className="tnum w-6 text-right font-mono text-xs text-ink2">
                   {agi ? "?" : card.stats[key]}
                 </span>
                 {!agi && (
                   <span
                     className={`border px-1 font-mono text-[8px] font-semibold ${
                       statTier(card.stats[key]).hot
-                        ? "border-[#B23A2E] bg-[#B23A2E] text-[#F4F7F0]"
-                        : "border-[#17301F]/60 text-[#17301F]"
+                        ? "border-pink bg-pink text-on-accent"
+                        : "border-line text-ink"
                     }`}
                   >
                     {statTier(card.stats[key]).word}
@@ -364,27 +358,27 @@ export default function TradingCard({
         {/* price row (community cards have no market; proofs pitch the pull) */}
         {!community && (
           <div
-            className={`mt-auto flex items-center justify-between border-t border-[#17301F]/30 ${
+            className={`mt-auto flex items-center justify-between border-t border-line ${
               hero ? "pt-3" : "pt-2"
             }`}
           >
             {proof && !resolving ? (
               <span
-                className={`font-mono font-semibold uppercase tracking-widest text-[#B23A2E] ${hero ? "text-sm" : "text-[10px]"}`}
+                className={`font-mono font-semibold uppercase tracking-widest text-pink ${hero ? "text-sm" : "text-[10px]"}`}
               >
                 Pull odds {oddsLabelFor(card)} →
               </span>
             ) : (
               <>
                 <span
-                  className={`tnum font-mono font-semibold text-[#17301F] ${
+                  className={`tnum font-mono font-semibold text-ink ${
                     hero ? "text-lg" : "text-xs"
                   }`}
                 >
                   {agi ? "unpriced" : formatTicks(price)}
                 </span>
                 <span
-                  className={`tnum font-mono ${move >= 0 ? "text-[#1F6E3D]" : "text-[#B23A2E]"} ${
+                  className={`tnum font-mono ${move >= 0 ? "text-up" : "text-pink"} ${
                     hero ? "text-sm" : "text-[10px]"
                   }`}
                 >

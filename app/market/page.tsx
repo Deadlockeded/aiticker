@@ -15,8 +15,8 @@ export default function MarketPage() {
     <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-10 sm:px-8">
       <PullToRefresh lastUpdated={marketMeta.lastUpdated} />
       <header className="mb-8">
-        <h1 className="text-3xl text-[#17301F]">Market</h1>
-        <p className="mt-1 text-sm text-[#5A6E5E]">
+        <h1 className="text-3xl text-ink">Market</h1>
+        <p className="mt-1 text-sm text-ink2">
           {marketMeta.lastUpdated
             ? `Live index · updated ${new Date(marketMeta.lastUpdated).toUTCString().slice(0, 22)} UTC · powered by public data`
             : "Daily moves across the whole index."}
@@ -28,7 +28,7 @@ export default function MarketPage() {
       </section>
 
       <section>
-        <h2 className="mb-3 border-b-2 border-[#17301F] pb-1 text-lg text-[#17301F]">
+        <h2 className="mb-3 border-b border-line2 pb-1 text-lg text-ink">
           Book values — all cards
         </h2>
         <MarketTable cards={cards} ranks={ranks} />

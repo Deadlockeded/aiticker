@@ -39,7 +39,7 @@ export default function SwipeNav({
   }, [prevId, nextId, router]);
 
   return (
-    <div className="pointer-events-none fixed inset-y-0 left-0 right-0 z-10 hidden items-center justify-between px-1 font-mono text-2xl text-[#17301F]/20 [@media(hover:none)]:flex">
+    <div className="pointer-events-none fixed inset-y-0 left-0 right-0 z-10 hidden items-center justify-between px-1 font-mono text-2xl text-ink/20 [@media(hover:none)]:flex">
       <span>{prevId ? "‹" : ""}</span>
       <span>{nextId ? "›" : ""}</span>
     </div>

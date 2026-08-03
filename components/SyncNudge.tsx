@@ -51,12 +51,12 @@ export default function SyncNudge({ cards }: { cards: MarketCard[] }) {
   if (!authEnabled || dismissed || hidden || !hasValue || signedIn !== false) return null;
 
   return (
-    <div className="coupon mb-4 flex items-center gap-3 p-3">
-      <p className="flex-1 text-[13px] text-[#17301F]">
+    <div className="rounded-[22px] border border-dashed border-line2 bg-surface mb-4 flex items-center gap-3 p-3">
+      <p className="flex-1 text-[13px] text-ink">
         Your binder lives in this browser.{" "}
         <button
           onClick={() => window.dispatchEvent(new Event(OPEN_AUTH_EVENT))}
-          className="font-semibold text-[#B23A2E] underline underline-offset-2"
+          className="font-semibold text-pink underline underline-offset-2"
         >
           Sign in to keep it.
         </button>
@@ -66,7 +66,7 @@ export default function SyncNudge({ cards }: { cards: MarketCard[] }) {
           writeRaw(NUDGE_KEY, "1");
           setHidden(true);
         }}
-        className="shrink-0 px-2 font-mono text-xs text-[#9CB09E] hover:text-[#17301F]"
+        className="shrink-0 px-2 font-mono text-xs text-ink3 hover:text-ink"
         aria-label="Dismiss"
       >
         ✕

@@ -21,8 +21,8 @@ export async function GET(req: Request) {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#F4F7F0",
-          color: "#17301F",
+          background: "#F4F3F7",
+          color: "#0E0E13",
           fontFamily: "sans-serif",
         }}
       >
@@ -38,7 +38,7 @@ export async function GET(req: Request) {
           }}
         >
           <div style={{ display: "flex", fontSize: 110 }}>{glyph}</div>
-          <div style={{ display: "flex", fontSize: 54, fontWeight: 900, color: "#B23A2E", letterSpacing: 8 }}>
+          <div style={{ display: "flex", fontSize: 54, fontWeight: 900, color: "#FF1F8F", letterSpacing: 8 }}>
             {word}
           </div>
         </div>
@@ -55,7 +55,7 @@ export async function GET(req: Request) {
           }}
         >
           <OgMark size={30} />
-          <div style={{ display: "flex", fontSize: 24, letterSpacing: 5, color: "#B23A2E" }}>{path}</div>
+          <div style={{ display: "flex", fontSize: 24, letterSpacing: 5, color: "#FF1F8F" }}>{path}</div>
         </div>
       </div>
     ),

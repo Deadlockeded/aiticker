@@ -25,10 +25,10 @@ export default async function CreatePage({ searchParams }: { searchParams: Promi
   return (
     <main className="mx-auto w-full max-w-5xl flex-1 px-3 py-8 sm:px-6">
       <header className="mb-6 text-center">
-        <h1 className="text-3xl font-bold tracking-tight text-[#17301F]">
+        <h1 className="text-3xl font-bold tracking-tight text-ink">
           Make your own card
         </h1>
-        <p className="mt-1 text-sm text-[#5A6E5E]">
+        <p className="mt-1 text-sm text-ink2">
           Rate yourself. The Algorithm has final say.
         </p>
       </header>

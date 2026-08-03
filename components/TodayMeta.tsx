@@ -44,16 +44,16 @@ export default function TodayMeta({ cards }: { cards: MarketCard[] }) {
   );
 
   return (
-    <div className="paper-card p-4">
-      <p className="border-b-2 border-[#17301F] pb-2 font-mono text-[11px] font-semibold uppercase tracking-[0.3em] text-[#B23A2E]">
+    <div className="surface-card p-4">
+      <p className="border-b border-line2 pb-2 micro text-[11px] font-semibold tracking-[0.3em] text-pink">
         ⚔ Today&apos;s meta
       </p>
       {today === null ? (
         <div className="mt-3 grid grid-cols-2 gap-x-4 gap-y-3">
           {Array.from({ length: 4 }, (_, i) => (
             <div key={i}>
-              <div className="h-4 w-24 rounded-sm bg-[#17301F]/10" />
-              <div className="mt-1 h-8 rounded-sm bg-[#17301F]/5" />
+              <div className="h-4 w-24 rounded-sm bg-surface2" />
+              <div className="mt-1 h-8 rounded-sm bg-surface2" />
             </div>
           ))}
         </div>
@@ -61,26 +61,26 @@ export default function TodayMeta({ cards }: { cards: MarketCard[] }) {
         <div className="mt-3 grid grid-cols-2 gap-x-4 gap-y-3">
           {today.meta.map((cat) => (
             <div key={cat.key}>
-              <p className="font-mono text-[11px] font-semibold uppercase tracking-widest text-[#17301F]">
+              <p className="micro text-[11px] font-semibold text-ink">
                 {cat.name}
               </p>
-              <p className="mt-0.5 min-h-8 text-[12px] italic leading-snug text-[#5A6E5E]">
+              <p className="mt-0.5 min-h-8 text-[12px] italic leading-snug text-ink2">
                 {cat.definition}
               </p>
             </div>
           ))}
         </div>
       )}
-      <div className="mt-3 border-t border-dotted border-[#9CB09E] pt-3">
-        <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#9CB09E]">
+      <div className="mt-3 border-t border-dotted border-ink3 pt-3">
+        <p className="micro text-[10px] tracking-[0.25em] text-ink3">
           Main event
         </p>
-        <p className="mt-0.5 min-h-6 text-[14px] font-semibold text-[#17301F]">
+        <p className="mt-0.5 min-h-6 text-[14px] font-semibold text-ink">
           {today ? `${today.a.name} vs ${today.b.name}` : " "}
         </p>
         <Link
           href={today ? `/arena?me=${today.a.id}&vs=${today.b.id}` : "/arena"}
-          className="mt-2 inline-block bg-[#B23A2E] px-4 py-2 font-mono text-xs font-semibold uppercase tracking-widest text-[#F4F7F0] hover:bg-[#8E2E24]"
+          className="mt-2 inline-block bg-pink px-4 py-2 micro text-xs font-semibold text-on-accent hover:bg-pink"
         >
           Watch it in the arena →
         </Link>

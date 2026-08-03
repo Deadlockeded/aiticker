@@ -7,14 +7,14 @@ export default function Error({ reset }: { error: Error; reset: () => void }) {
   return (
     <main className="mx-auto flex w-full max-w-md flex-1 flex-col items-center justify-center gap-4 px-4 py-24 text-center">
       <Logo variant="icon" size={64} fallen />
-      <p className="font-display text-4xl uppercase text-[#17301F]">Something broke.</p>
-      <p className="text-sm text-[#5A6E5E]">
+      <p className="font-display text-4xl uppercase text-ink">Something broke.</p>
+      <p className="text-sm text-ink2">
         Refresh usually fixes it. Your binder is safe — it lives in this
         browser, not on our servers.
       </p>
       <button
         onClick={reset}
-        className="bg-[#B23A2E] px-6 py-2.5 font-mono text-sm font-semibold uppercase tracking-widest text-[#F4F7F0] hover:bg-[#8E2E24]"
+        className="bg-pink px-6 py-2.5 micro text-sm font-semibold text-on-accent hover:bg-pink"
       >
         Try again
       </button>

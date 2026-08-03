@@ -15,6 +15,7 @@ import CardArt from "./CardArt";
 import Sparkline from "./Sparkline";
 import { releasedOnly } from "@/lib/drops";
 import { useBinderCopies } from "./useOwned";
+import { Chip, Segmented, tintFor } from "./ui";
 
 type SortKey = "rank" | "name" | "rating" | "price" | "move";
 
@@ -29,12 +30,14 @@ const COLUMNS: { key: SortKey; label: string; align: "left" | "right" }[] = [
 /** Rookie cards: the newest additions to the set. */
 const RC_IDS = new Set(["jensen-huang", "elon-musk", "sundar-pichai", "satya-nadella", "mark-zuckerberg"]);
 
-function Thumb({ card }: { card: MarketCard }) {
+/** 40px tinted tile — the tint rotates per entity so long lists have rhythm. */
+function Thumb({ card, size = 40 }: { card: MarketCard; size?: number }) {
   return (
-    <div className="h-9 w-9 shrink-0 overflow-hidden rounded-full border border-[#17301F]/40">
-      <div className="relative h-full w-full">
-        <CardArt card={card} />
-      </div>
+    <div
+      className={`relative shrink-0 overflow-hidden rounded-xl ${tintFor(card.id)}`}
+      style={{ width: size, height: size }}
+    >
+      <CardArt card={card} />
     </div>
   );
 }
@@ -42,7 +45,7 @@ function Thumb({ card }: { card: MarketCard }) {
 function MoveText({ pct, className = "" }: { pct: number; className?: string }) {
   return (
     <span
-      className={`font-mono ${pct >= 0 ? "text-[#1F6E3D]" : "text-[#B23A2E]"} ${className}`}
+      className={`tnum font-mono ${pct >= 0 ? "text-up" : "text-down"} ${className}`}
     >
       {formatMove(pct)}
     </span>
@@ -59,6 +62,7 @@ export default function MarketTable({
   const router = useRouter();
   const [sortKey, setSortKey] = useState<SortKey>("rank");
   const [asc, setAsc] = useState(true);
+  const [filter, setFilter] = useState<"all" | "owned" | "missing">("all");
   const copies = useBinderCopies();
 
   const sorted = useMemo(() => {
@@ -97,12 +101,27 @@ export default function MarketTable({
     }
   };
 
+  const shown = sorted.filter((c) =>
+    filter === "all" ? true : filter === "owned" ? !!copies?.[c.id] : !copies?.[c.id],
+  );
+
   return (
     <div>
+      <div className="mb-3 sm:hidden">
+        <Segmented
+          value={filter}
+          onChange={setFilter}
+          options={[
+            { value: "all", label: "All" },
+            { value: "owned", label: "Owned" },
+            { value: "missing", label: "Missing" },
+          ]}
+        />
+      </div>
       {/* desktop table */}
       <table className="hidden w-full border-collapse text-sm sm:table">
         <thead>
-          <tr className="bg-[#17301F] text-left font-mono text-xs uppercase tracking-widest text-[#F4F7F0]">
+          <tr className="bg-ink text-left micro text-xs text-on-accent">
             {COLUMNS.map((col) => (
               <th
                 key={col.key}
@@ -110,8 +129,8 @@ export default function MarketTable({
               >
                 <button
                   onClick={() => onSort(col.key)}
-                  className={`uppercase tracking-widest hover:text-[#B23A2E] ${
-                    sortKey === col.key ? "text-[#B23A2E]" : ""
+                  className={`uppercase tracking-widest hover:text-pink ${
+                    sortKey === col.key ? "text-pink" : ""
                   }`}
                 >
                   {col.label}
@@ -127,38 +146,38 @@ export default function MarketTable({
             <tr
               key={card.id}
               onClick={() => router.push(`/cards/${card.id}`)}
-              className={`cursor-pointer border-b border-dotted border-[#9CB09E] transition-colors odd:bg-[#EAF0E4] hover:bg-[#B23A2E]/5 ${card.type === "artifact" ? "italic opacity-70" : ""}`}
+              className={`cursor-pointer border-b border-dotted border-ink3 transition-colors odd:bg-surface2 hover:bg-pink/5 ${card.type === "artifact" ? "italic opacity-70" : ""}`}
             >
-              <td className="px-3 py-2.5 font-mono text-[#5A6E5E]">
+              <td className="px-3 py-2.5 font-mono text-ink2">
                 #{ranks[card.id]}
               </td>
               <td className="px-3 py-2.5">
                 <span className="flex items-center gap-3">
                   <Thumb card={card} />
                   <span>
-                    <span className="block font-semibold text-[#17301F]">
+                    <span className="block font-semibold text-ink">
                       {card.name}
                       {RC_IDS.has(card.id) && (
-                        <span className="ml-1.5 rounded-sm bg-[#B23A2E] px-1 font-mono text-[9px] not-italic text-[#F4F7F0]">
+                        <span className="ml-1.5 rounded-sm bg-pink px-1 font-mono text-[9px] not-italic text-on-accent">
                           RC
                         </span>
                       )}
                       {!!copies?.[card.id] && (
-                        <span className="ml-1.5 rounded-sm border border-[#8C6D1F] px-1 font-mono text-[9px] not-italic text-[#8C6D1F]">
+                        <span className="ml-1.5 rounded-sm border border-amber px-1 font-mono text-[9px] not-italic text-amber">
                           OWN ×{copies[card.id]}
                         </span>
                       )}
                     </span>
-                    <span className="block text-xs capitalize text-[#9CB09E]">
+                    <span className="block text-xs capitalize text-ink3">
                       {card.rarity} · {card.type}
                     </span>
                   </span>
                 </span>
               </td>
-              <td className="px-3 py-2.5 text-right font-mono font-bold text-[#17301F]">
+              <td className="px-3 py-2.5 text-right font-mono font-bold text-ink">
                 {card.rating}
               </td>
-              <td className="tnum px-3 py-2.5 text-right font-mono text-[#17301F]">
+              <td className="tnum px-3 py-2.5 text-right font-mono text-ink">
                 {formatTicks(getCurrentPrice(card))}
               </td>
               <td className="px-3 py-2.5 text-right">
@@ -174,32 +193,43 @@ export default function MarketTable({
         </tbody>
       </table>
 
-      {/* mobile cards */}
-      <div className="space-y-2 sm:hidden">
-        {sorted.map((card) => (
+      {/* mobile: Spotify rows on one surface */}
+      <div className="overflow-hidden rounded-[22px] bg-surface shadow-card sm:hidden">
+        {shown.map((card, i) => (
           <Link
             key={card.id}
             href={`/cards/${card.id}`}
-            className="flex items-center gap-3 rounded-xl border border-[#17301F]/30 bg-[#17301F]/5 p-3"
+            className={`flex items-center gap-3 px-3 py-2.5 active:bg-surface2 ${i > 0 ? "border-t border-line" : ""}`}
           >
-            <span className="w-8 font-mono text-xs text-[#9CB09E]">
-              #{ranks[card.id]}
-            </span>
             <Thumb card={card} />
             <span className="min-w-0 flex-1">
-              <span className="block truncate text-sm font-semibold text-[#17301F]">
+              <span className="block truncate text-[15px] font-semibold text-ink">
                 {card.name}
               </span>
-              <span className="block font-mono text-xs text-[#5A6E5E]">
-                {card.rating} · {formatTicks(getCurrentPrice(card))}
+              <span className="micro block text-ink3">
+                #{ranks[card.id]} · {card.rarity}
+                {!!copies?.[card.id] && ` · ×${copies[card.id]}`}
               </span>
             </span>
             <span className="text-right">
-              <MoveText pct={getDailyMove(card)} className="block text-xs" />
-              <Sparkline history={card.priceHistory} width={72} height={20} />
+              <span className="tnum block font-mono text-[13px] text-ink">
+                {formatTicks(getCurrentPrice(card))}
+              </span>
+              <MoveText pct={getDailyMove(card)} className="block text-[12px]" />
             </span>
           </Link>
         ))}
+        {/* AGI: listed, unpriced, permanently ambiguous */}
+        <div className="flex items-center gap-3 border-t border-line px-3 py-2.5">
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-surface2 font-display text-[18px] font-extrabold text-ink3">
+            ?
+          </span>
+          <span className="min-w-0 flex-1">
+            <span className="block text-[15px] font-semibold text-ink3">AGI</span>
+            <span className="micro block text-ink3">Unpriced · unlisted</span>
+          </span>
+          <span className="micro text-ink3">—</span>
+        </div>
       </div>
     </div>
   );
@@ -216,14 +246,14 @@ export function MoverCard({
   return (
     <Link
       href={`/cards/${card.id}`}
-      className="flex items-center gap-3 rounded-xl border border-[#17301F]/30 bg-[#17301F]/5 p-3 transition-colors hover:bg-[#17301F]/10"
+      className="flex items-center gap-3 rounded-xl border border-line bg-surface2 p-3 transition-colors hover:bg-surface2"
     >
       <Thumb card={card} />
       <span className="min-w-0 flex-1">
-        <span className="block truncate text-sm font-semibold text-[#17301F]">
+        <span className="block truncate text-sm font-semibold text-ink">
           {card.name}
         </span>
-        <span className="block font-mono text-xs text-[#5A6E5E]">
+        <span className="block font-mono text-xs text-ink2">
           #{rank} · {formatTicks(getCurrentPrice(card))}
         </span>
       </span>

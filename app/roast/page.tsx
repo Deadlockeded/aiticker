@@ -29,8 +29,8 @@ export default async function RoastPage({ searchParams }: { searchParams: Search
   return (
     <main className="mx-auto w-full max-w-2xl flex-1 px-4 py-10 sm:px-8">
       <header className="mb-6 text-center">
-        <h1 className="text-3xl text-[#17301F]">Your GitHub has it coming.</h1>
-        <p className="mt-1 text-sm text-[#5A6E5E]">
+        <h1 className="text-3xl text-ink">Your GitHub has it coming.</h1>
+        <p className="mt-1 text-sm text-ink2">
           Three lines, prepared to order. Choose your heat.
         </p>
       </header>

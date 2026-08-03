@@ -199,22 +199,22 @@ test("arena: full fight completes", async ({ page }) => {
   await expect(page.getByText(/takes it|Dead heat/)).toBeVisible({ timeout: 20_000 });
 });
 
-test("unowned card: readable text, proof art, odds + rip CTA", async ({ page }) => {
+test("unowned card: readable text, locked art, odds + rip CTA", async ({ page }) => {
   await page.goto(UNOWNED_CARD);
   // the index is public — every word crisp
   await expect(page.getByRole("heading", { name: "OpenAI" }).first()).toBeVisible();
-  // only the art is unfinished
-  await expect(page.getByText("Not in your binder")).toBeVisible();
+  // only the ART is locked — every word on the card stays readable
+  await expect(page.getByText(/Pull to unlock/).first()).toBeVisible();
   await expect(page.getByText(/per card slot/)).toBeVisible();
-  await expect(page.getByText("Rip packs to print your copy")).toBeVisible();
+  await expect(page.getByText("Rip packs to unlock it →")).toBeVisible();
 });
 
-test("owned card: full color, binder action, no proof tag", async ({ page }) => {
+test("owned card: full colour art, binder action, no unlock pill", async ({ page }) => {
   await seedBinder(page, ["openai"]);
   await page.goto(UNOWNED_CARD);
   await expect(page.getByText("In your binder →")).toBeVisible();
-  await expect(page.getByText("Not in your binder")).not.toBeVisible();
-  await expect(page.locator(".proof-veil")).toHaveCount(0);
+  await expect(page.getByText(/Pull to unlock/)).toHaveCount(0);
+  await expect(page.locator(".art-locked")).toHaveCount(0);
 });
 
 test("gallery shows the collected progress line (no global total)", async ({ page }) => {

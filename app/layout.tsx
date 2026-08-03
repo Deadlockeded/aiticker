@@ -1,35 +1,36 @@
 import type { Metadata } from "next";
-import { Archivo_Black, Lora, Oswald } from "next/font/google";
+import { Instrument_Sans, Martian_Mono, Sora } from "next/font/google";
 import Logo from "@/components/Logo";
 import Nav from "@/components/Nav";
 import StorageBoot from "@/components/StorageBoot";
 import Toaster from "@/components/Toaster";
 import marketMeta from "@/data/market-meta.json";
+import { THEME_BOOT_SCRIPT } from "@/lib/theme";
 import "./globals.css";
 
-// Price-guide identity: Lora carries body copy via the old sans var, Oswald
-// takes over every font-mono label/table, Archivo Black is the display face.
-const lora = Lora({
-  variable: "--font-geist-sans",
+// Three faces, three jobs. Sora titles and card names, Instrument Sans all
+// body/UI copy, Martian Mono every number, serial and micro-label.
+const sora = Sora({
+  variable: "--font-sora",
   subsets: ["latin"],
-  style: ["normal", "italic"],
+  weight: ["600", "700", "800"],
 });
 
-const oswald = Oswald({
-  variable: "--font-geist-mono",
+const instrument = Instrument_Sans({
+  variable: "--font-instrument",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
 });
 
-const archivo = Archivo_Black({
-  variable: "--font-display",
+const martian = Martian_Mono({
+  variable: "--font-martian",
   subsets: ["latin"],
-  weight: "400",
+  weight: ["400", "600"],
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://aiticker.xyz"),
-  title: "AIticker",
+  title: "aiticker",
   icons: {
     icon: [
       { url: "/icon-16.png", sizes: "16x16", type: "image/png" },
@@ -50,9 +51,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${lora.variable} ${oswald.variable} ${archivo.variable} h-full antialiased`}
+      suppressHydrationWarning
+      className={`${sora.variable} ${instrument.variable} ${martian.variable} h-full`}
     >
-      <body className="min-h-full flex flex-col pb-14 md:pb-0">
+      <head>
+        {/* stamps data-theme before first paint — an effect here would flash */}
+        <script dangerouslySetInnerHTML={{ __html: THEME_BOOT_SCRIPT }} />
+      </head>
+      <body className="flex min-h-full flex-col bg-bg pb-20 md:pb-0">
         {/* card art hosts — shave DNS+TLS off the first image fetch */}
         <link rel="preconnect" href="https://upload.wikimedia.org" />
         <link rel="preconnect" href="https://www.google.com" />
@@ -60,37 +66,34 @@ export default function RootLayout({
         <StorageBoot />
         <Toaster />
         {children}
-        <footer className="mt-6">
-        <div className="flex justify-center border-t-[3px] border-[#17301F] bg-[#17301F] py-4">
-          <Logo variant="lockup" size={28} onDark />
-        </div>
-        <div className="space-y-1.5 px-4 py-6 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-[#9CB09E]">
-          <p>
-            <a href="/about" className="underline hover:text-[#17301F]">
-              About
-            </a>{" "}
-            ·{" "}
-            <a href="/howto" className="underline hover:text-[#17301F]">
-              How to collect
-            </a>{" "}
-            · a fan-made collectible game · est. tuesday
-          </p>
-          <p>
-            {marketMeta.lastUpdated
-              ? `Live index · updated ${new Date(marketMeta.lastUpdated).toUTCString().slice(0, 16)} · powered by public data`
-              : "Series 1 · aiticker.xyz"}
-          </p>
-          <p>
-            Portraits via{" "}
-            <a
-              href="https://commons.wikimedia.org"
-              className="underline hover:text-[#5A6E5E]"
-            >
-              Wikimedia Commons
-            </a>{" "}
-            (freely licensed) · Logos via site favicons
-          </p>
-        </div>
+        <footer className="mt-10">
+          <div className="flex justify-center border-t border-line py-6">
+            <Logo variant="lockup" size={26} />
+          </div>
+          <div className="space-y-2 px-4 pb-8 text-center text-[13px] text-ink3">
+            <p>
+              <a href="/about" className="hover:text-ink2">
+                About
+              </a>{" "}
+              ·{" "}
+              <a href="/howto" className="hover:text-ink2">
+                How to collect
+              </a>{" "}
+              · a fan-made collectible game
+            </p>
+            <p className="micro text-ink3">
+              {marketMeta.lastUpdated
+                ? `Live index · updated ${new Date(marketMeta.lastUpdated).toUTCString().slice(0, 16)} · public data`
+                : "Series 1 · aiticker.xyz"}
+            </p>
+            <p className="text-[12px]">
+              Portraits via{" "}
+              <a href="https://commons.wikimedia.org" className="underline hover:text-ink2">
+                Wikimedia Commons
+              </a>{" "}
+              (freely licensed) · logos via site favicons
+            </p>
+          </div>
         </footer>
       </body>
     </html>

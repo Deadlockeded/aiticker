@@ -1,38 +1,38 @@
 import Link from "next/link";
 
-/** Homepage roast hook: a rendered sample receipt (fictional handle —
- * never a real person's live data) + the front-door CTA. */
+/**
+ * The roast block: the page's one full colour field, in teal. Pink is the
+ * brand accent everywhere else, so the roast gets the other half of the
+ * palette and never competes with a CTA. The sample receipt uses a fictional
+ * handle — never a real person's live data.
+ */
 const SAMPLE = [
   "14 repos named some variant of “test”. Bold archival strategy.",
   "One repo carries the entire account. It knows. It's tired.",
-  "Bio says “building”. Building what? When? The people deserve answers.",
+  "Bio says “building”. Building what? When?",
 ];
 
 export default function RoastTeaser() {
   return (
-    <div className="mb-4 grid gap-4 border-2 border-[#17301F] bg-[#F4F7F0] p-4 shadow-[4px_4px_0_#17301F] sm:grid-cols-[1fr_auto] sm:items-center">
-      <div>
-        <p className="font-display text-xl uppercase text-[#17301F] sm:text-2xl">
-          Your GitHub has it <span className="text-[#B23A2E]">coming.</span>
-        </p>
-        <div className="coupon mt-3 p-3">
-          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#9CB09E]">
-            Roast receipt · @sample_dev
-          </p>
-          <ul className="mt-1.5 space-y-1">
-            {SAMPLE.map((line) => (
-              <li key={line} className="text-[13px] leading-snug text-[#5A6E5E]">
-                — {line}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+    <div className="dark-teal-ink mb-5 rounded-[22px] bg-teal p-5 text-on-accent">
+      <p className="font-display text-[24px] font-extrabold leading-tight">
+        Your GitHub has it coming.
+      </p>
+      <p className="mt-1 text-[15px] opacity-85">
+        Three lines, prepared to order.
+      </p>
+      <ul className="mt-3 space-y-1.5 rounded-[16px] bg-black/15 p-3">
+        {SAMPLE.map((line) => (
+          <li key={line} className="text-[13px] leading-snug opacity-90">
+            — {line}
+          </li>
+        ))}
+      </ul>
       <Link
         href="/roast"
-        className="inline-block border-2 border-[#17301F] bg-[#B23A2E] px-6 py-3 text-center font-display text-sm uppercase text-[#F4F7F0] shadow-[3px_3px_0_#17301F] hover:bg-[#8E2E24]"
+        className="mt-4 inline-flex rounded-full bg-surface px-6 py-3 text-[16px] font-semibold text-ink transition-transform active:scale-[.97]"
       >
-        Roast me
+        Roast me →
       </Link>
     </div>
   );

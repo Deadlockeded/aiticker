@@ -35,8 +35,8 @@ export async function GET(req: Request) {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: "#F4F7F0",
-          color: "#17301F",
+          background: "#F4F3F7",
+          color: "#0E0E13",
           fontFamily: "sans-serif",
         }}
       >
@@ -49,7 +49,7 @@ export async function GET(req: Request) {
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 14, marginTop: 44 }}>
           <OgMark size={32} />
-          <div style={{ display: "flex", fontSize: 26, letterSpacing: 5, color: "#B23A2E" }}>
+          <div style={{ display: "flex", fontSize: 26, letterSpacing: 5, color: "#FF1F8F" }}>
             aiticker.xyz/{page}
           </div>
         </div>

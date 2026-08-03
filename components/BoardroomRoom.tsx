@@ -30,7 +30,7 @@ export default function BoardroomRoom({
       {walls.map((wall, wi) => (
         <div key={wi} className="w-full shrink-0 snap-start px-1 md:w-1/2">
           <div
-            className="rounded-2xl border-2 border-[#17301F] p-4 shadow-[5px_5px_0_#17301F]"
+            className="rounded-2xl border border-line2 p-4 shadow-card"
             style={{
               background:
                 "linear-gradient(180deg, #3E2C20 0%, #2E2016 55%, #241812 100%)",
@@ -47,7 +47,7 @@ export default function BoardroomRoom({
                   return (
                     <div key={card.id} className={legendary ? "col-span-2" : ""}>
                       <div className="aspect-[4/5] rounded-[2px] border-[5px] border-[#4A3626] bg-[#241a12] shadow-[inset_0_2px_8px_rgba(0,0,0,0.6)]" />
-                      <div className="mx-auto mt-1 w-max rounded-[2px] bg-[#6B5B3A]/60 px-1.5 py-0.5 font-mono text-[7px] uppercase tracking-widest text-[#D8CBA8]/70">
+                      <div className="mx-auto mt-1 w-max rounded-[2px] bg-[#6B5B3A]/60 px-1.5 py-0.5 micro text-[7px] text-[#D8CBA8]/70">
                         vacant
                       </div>
                     </div>
@@ -62,19 +62,19 @@ export default function BoardroomRoom({
                     <div
                       className={`relative aspect-[4/5] overflow-hidden rounded-[2px] border-[5px] shadow-[0_4px_10px_rgba(0,0,0,0.55)] ${
                         hasGold
-                          ? "border-[#C9A227]"
+                          ? "border-amber"
                           : legendary
-                            ? "border-[#8C6D1F]"
+                            ? "border-amber"
                             : "border-[#6B4B2A]"
                       }`}
                     >
-                      <div className="relative h-full w-full bg-[#F4F7F0]">
+                      <div className="relative h-full w-full bg-surface">
                         <CardArt card={card} shape="tile" />
                       </div>
                     </div>
                     <div
                       className={`mx-auto mt-1 w-max max-w-full truncate rounded-[2px] px-1.5 py-0.5 font-mono text-[7px] uppercase tracking-widest ${
-                        hasGold ? "bg-[#C9A227] text-[#241812]" : "bg-[#8C6D1F] text-[#F4F7F0]"
+                        hasGold ? "bg-amber text-surface2" : "bg-amber text-on-accent"
                       }`}
                     >
                       {card.name}

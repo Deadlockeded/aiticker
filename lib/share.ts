@@ -69,11 +69,11 @@ export function drawLogoMark(
   displayFont: string,
   opts: { onDark?: boolean } = {},
 ): number {
-  const INK = "#17301F";
-  const PAPER = "#F4F7F0";
+  const INK = "#0E0E13";
+  const PAPER = "#F4F3F7";
   const s = h / 90;
   const stroke = opts.onDark ? PAPER : INK;
-  const fills = opts.onDark ? [PAPER, "#9CB09E", "#B23A2E"] : ["#FDFEFC", "#EAF0E4", "#B23A2E"];
+  const fills = opts.onDark ? [PAPER, "#8A8899", "#FF1F8F"] : ["#F4F3F7", "#20202B", "#FF1F8F"];
   ctx.save();
   ctx.translate(x, y);
   ctx.scale(s, s);
@@ -109,7 +109,7 @@ export function drawLogoMark(
   ctx.fillStyle = opts.onDark ? PAPER : INK;
   ctx.fillText("AI", tx, ty);
   tx += ctx.measureText("AI").width;
-  ctx.fillStyle = opts.onDark ? "#F0BFB6" : "#B23A2E";
+  ctx.fillStyle = opts.onDark ? "#43102B" : "#FF1F8F";
   ctx.fillText("ticker", tx, ty);
   const total = tx + ctx.measureText("ticker").width - x;
   ctx.restore();

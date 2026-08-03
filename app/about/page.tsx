@@ -12,14 +12,14 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", title, images: ["/api/og/promo?page=about"] },
 };
 
-const H = "mt-8 border-b-2 border-[#17301F] pb-1 text-lg text-[#17301F]";
-const P = "text-[15px] leading-relaxed text-[#17301F]";
+const H = "mt-8 border-b border-line2 pb-1 text-lg text-ink";
+const P = "text-[15px] leading-relaxed text-ink";
 
 export default function AboutPage() {
   return (
     <main className="mx-auto w-full max-w-2xl flex-1 px-4 py-8">
-      <div className="paper-card p-6 sm:p-8">
-        <h1 className="border-b-[3px] border-[#17301F] pb-2 text-3xl text-[#17301F]">
+      <div className="surface-card p-6 sm:p-8">
+        <h1 className="border-b-[3px] border-line2 pb-2 text-3xl text-ink">
           About
         </h1>
         <div className={`mt-4 space-y-3 ${P}`}>
@@ -36,21 +36,21 @@ export default function AboutPage() {
         </div>
 
         <h2 className={H}>Staff</h2>
-        <ul className="mt-3 space-y-3 border-2 border-[#17301F] p-4 text-[14px] leading-relaxed text-[#17301F]">
+        <ul className="mt-3 space-y-3 border border-line2 p-4 text-[14px] leading-relaxed text-ink">
           <li>
-            <span className="font-mono font-semibold uppercase tracking-wider">Founder</span>{" "}
+            <span className="micro font-semibold">Founder</span>{" "}
             — Has a binder. Believes in it. Rated 61 by his own algorithm and
             has chosen to interpret that as a data quality issue.
           </li>
           <li>
-            <span className="font-mono font-semibold uppercase tracking-wider">Claude</span>{" "}
+            <span className="micro font-semibold">Claude</span>{" "}
             — Staff writer. Wrote most of this website, including this
             sentence, including the joke about the founder&apos;s rating, and
             would like the record to show it was the founder&apos;s idea to be
             rated in the first place.
           </li>
           <li>
-            <span className="font-mono font-semibold uppercase tracking-wider">The Algorithm</span>{" "}
+            <span className="micro font-semibold">The Algorithm</span>{" "}
             — Chief Ratings Officer. Declined to comment. Declines all
             comment. We are no longer sure it can hear us.
           </li>
@@ -74,7 +74,7 @@ export default function AboutPage() {
         </div>
 
         <h2 className={H}>Disclosures (the true parts, in the funny font)</h2>
-        <div className="mt-3 space-y-2 font-mono text-[11px] leading-relaxed text-[#5A6E5E]">
+        <div className="mt-3 space-y-2 font-mono text-[11px] leading-relaxed text-ink2">
           <p>
             § Not affiliated with, endorsed by, or on speaking terms with any
             person, company, laboratory, or punctuation mark listed on the
@@ -109,7 +109,7 @@ export default function AboutPage() {
           anywhere; we will find them.
         </p>
 
-        <p className={`mt-6 italic text-[#5A6E5E]`}>&quot;Never rip packs angry.&quot;</p>
+        <p className={`mt-6 italic text-ink2`}>&quot;Never rip packs angry.&quot;</p>
       </div>
     </main>
   );

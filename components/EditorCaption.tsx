@@ -26,11 +26,11 @@ export default function EditorCaption({
   return (
     <button
       onClick={() => setGone(true)}
-      className={`paper-in mx-auto block max-w-xs border-2 border-[#17301F] bg-[#F4F7F0] px-3 py-1.5 text-center font-mono text-[11px] uppercase tracking-[0.15em] text-[#17301F] paper-shadow ${className}`}
+      className={`deal-in mx-auto block max-w-xs border border-line2 bg-surface px-3 py-1.5 text-center font-mono text-[11px] uppercase tracking-[0.15em] text-ink shadow-card ${className}`}
       aria-label="Dismiss tip"
     >
       {children}
-      <span className="ml-2 text-[#9CB09E]">✕</span>
+      <span className="ml-2 text-ink3">✕</span>
     </button>
   );
 }

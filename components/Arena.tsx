@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import type { MarketCard } from "@/lib/cards";
+import { SHARE } from "@/lib/tokens";
 import {
   getBinderSnapshot,
   parseBinder,
@@ -58,12 +59,12 @@ async function exportArenaPng(a: VsSide, b: VsSide, result: VsResult) {
   const ctx = canvas.getContext("2d")!;
   const fonts = await brandFonts();
   // Price Guide tokens: cream stock, ink, accent red, win green
-  const INK = "#17301F";
-  const CREAM = "#F4F7F0";
-  const PAPER = "#F4F7F0";
-  const RED = "#B23A2E";
-  const GREEN = "#1F6E3D";
-  const SECONDARY = "#5A6E5E";
+  const INK = SHARE.ink;
+  const CREAM = SHARE.surface;
+  const PAPER = SHARE.surface;
+  const RED = SHARE.pink;
+  const GREEN = SHARE.up;
+  const SECONDARY = SHARE.ink2;
   ctx.fillStyle = CREAM;
   ctx.fillRect(0, 0, W, H);
 
@@ -199,29 +200,29 @@ function PurseBreakdown({ purse, paid }: { purse: Purse; paid: number }) {
   return (
     <div
       data-testid="purse"
-      className="deal-in mx-auto mt-4 max-w-[280px] border-2 border-[#17301F] bg-[#F4F7F0] p-3 text-left shadow-[3px_3px_0_#17301F]"
+      className="deal-in mx-auto mt-4 max-w-[280px] border border-line2 bg-surface p-3 text-left shadow-card"
     >
-      <p className="text-center font-mono text-[10px] uppercase tracking-[0.3em] text-[#9CB09E]">
+      <p className="text-center micro text-[10px] tracking-[0.3em] text-ink3">
         Purse
       </p>
-      <dl className="mt-2 space-y-0.5 font-mono text-[11px] uppercase tracking-[0.1em]">
+      <dl className="mt-2 space-y-0.5 micro text-[11px] tracking-[0.1em]">
         {rows
           .filter(([, v]) => v > 0)
           .map(([label, v]) => (
             <div key={label} className="flex justify-between">
-              <dt className="text-[#5A6E5E]">{label}</dt>
-              <dd className="tnum text-[#17301F]">+{formatTicks(v)}</dd>
+              <dt className="text-ink2">{label}</dt>
+              <dd className="tnum text-ink">+{formatTicks(v)}</dd>
             </div>
           ))}
-        <div className="mt-1 flex justify-between border-t-2 border-dashed border-[#17301F]/40 pt-1">
-          <dt className="font-semibold text-[#17301F]">Paid</dt>
-          <dd className="text-[#1F6E3D]">
+        <div className="mt-1 flex justify-between border-t border-dashed border-line pt-1">
+          <dt className="font-semibold text-ink">Paid</dt>
+          <dd className="text-up">
             +<TickCountUp to={paid} />
           </dd>
         </div>
       </dl>
       {paid < purse.total && (
-        <p className="mt-1.5 text-center font-mono text-[9px] uppercase tracking-[0.15em] text-[#9CB09E]">
+        <p className="mt-1.5 text-center micro text-[9px] tracking-[0.15em] text-ink3">
           Daily earn cap reached — the rest keeps till tomorrow.
         </p>
       )}
@@ -435,7 +436,7 @@ export default function Arena({
 
   if (owned === null || record === null) {
     return (
-      <p className="py-24 text-center font-mono text-xs uppercase tracking-[0.3em] text-[#9CB09E]">
+      <p className="py-24 text-center micro text-xs tracking-[0.3em] text-ink3">
         Opening the arena…
       </p>
     );
@@ -445,10 +446,10 @@ export default function Arena({
     return (
       <div className="flex flex-col items-center gap-5 py-24 text-center">
         <p className="text-5xl">⚔️</p>
-        <p className="text-[#5A6E5E]">No cards yet. Rip a pack first.</p>
+        <p className="text-ink2">No cards yet. Rip a pack first.</p>
         <Link
           href="/packs"
-          className="rounded-lg bg-[#B23A2E] px-6 py-2.5 text-sm font-semibold text-[#F4F7F0] transition-colors hover:bg-[#8E2E24]"
+          className="rounded-lg bg-pink px-6 py-2.5 text-sm font-semibold text-on-accent transition-colors hover:bg-pink"
         >
           Rip a pack
         </Link>
@@ -471,9 +472,9 @@ export default function Arena({
 
   return (
     <div>
-      <p className="mb-3 text-center font-mono text-[11px] text-[#9CB09E]">
-        Streak <span className="tnum text-[#17301F]">{record.current}</span> · Best{" "}
-        <span className="tnum text-[#17301F]">{record.best}</span> ·{" "}
+      <p className="mb-3 text-center font-mono text-[11px] text-ink3">
+        Streak <span className="tnum text-ink">{record.current}</span> · Best{" "}
+        <span className="tnum text-ink">{record.best}</span> ·{" "}
         <span className="tnum">{record.wins}W–{record.losses}L</span>
       </p>
 
@@ -487,8 +488,8 @@ export default function Arena({
           {/* fighter rail: one compact swipeable row so the challenger deck
               stays above the fold on a phone (this used to be a 224px-tall
               vertical list that pushed everything off-screen) */}
-          <div className="rounded-xl border border-[#17301F]/30 bg-[#F4F7F0] p-2">
-            <p className="mb-1.5 font-mono text-[10px] uppercase tracking-widest text-[#9CB09E]">
+          <div className="rounded-xl border border-line bg-surface p-2">
+            <p className="mb-1.5 micro text-[10px] text-ink3">
               Your fighter · from your binder
             </p>
             <div className="-mx-1 flex gap-1.5 overflow-x-auto px-1 pb-1">
@@ -498,17 +499,17 @@ export default function Arena({
                   onClick={() => setMe(cardFighter(card))}
                   className={`flex w-[112px] shrink-0 flex-col items-center gap-1 rounded-lg border p-1.5 text-center transition-colors ${
                     me?.side.cardId === card.id
-                      ? "border-[#B23A2E] bg-[#B23A2E]/10"
-                      : "border-[#17301F]/30 bg-[#17301F]/[0.03] hover:bg-[#17301F]/10"
+                      ? "border-pink bg-pink/10"
+                      : "border-line bg-ink/[0.03] hover:bg-surface2"
                   }`}
                 >
                   <span className="h-8 w-8 shrink-0">
                     <CardArt card={card} />
                   </span>
-                  <span className="w-full truncate text-[12px] font-medium leading-tight text-[#17301F]">
+                  <span className="w-full truncate text-[12px] font-medium leading-tight text-ink">
                     {card.name}
                   </span>
-                  <span className="tnum font-mono text-[10px] text-[#9CB09E]">
+                  <span className="tnum font-mono text-[10px] text-ink3">
                     {card.rating} ovr
                     {hotIds.has(card.id) && <span className="ml-1 text-orange-400">🔥</span>}
                   </span>
@@ -519,7 +520,7 @@ export default function Arena({
 
           {me && !foe && challengers.length > 0 && (
             <div className="mx-auto mt-6 max-w-[280px]">
-              <p className="mb-3 border-b-2 border-[#17301F] pb-1 text-center font-mono text-[11px] font-semibold uppercase tracking-[0.3em] text-[#B23A2E]">
+              <p className="mb-3 border-b border-line2 pb-1 text-center micro text-[11px] font-semibold tracking-[0.3em] text-pink">
                 The Challenger Line
               </p>
               {arenaTips && (
@@ -539,32 +540,32 @@ export default function Arena({
                 )}
                 footerFor={(c) => (
                   <div className="text-center">
-                    <p className="text-[13px] italic text-[#5A6E5E]">
+                    <p className="text-[13px] italic text-ink2">
                       “{getDeterministicQuip(c)}”
                     </p>
                     <button
                       onClick={() => fight(cardFighter(c))}
-                      className="mt-2 bg-[#B23A2E] px-6 py-2 font-mono text-xs font-semibold uppercase tracking-widest text-[#F4F7F0] hover:bg-[#8E2E24]"
+                      className="mt-2 bg-pink px-6 py-2 micro text-xs font-semibold text-on-accent hover:bg-pink"
                     >
                       Fight →
                     </button>
                     {passes >= 10 && (
-                      <p className="mt-2 font-mono text-[10px] uppercase tracking-widest text-[#9CB09E]">
+                      <p className="mt-2 micro text-[10px] text-ink3">
                         The index is starting to take this personally.
                       </p>
                     )}
                   </div>
                 )}
               />
-              <p className="mt-2 text-center font-mono text-[10px] text-[#9CB09E]">
+              <p className="mt-2 text-center font-mono text-[10px] text-ink3">
                 swipe left to pass · right (or tap) to fight
               </p>
             </div>
           )}
 
           {/* opponent by handle — folded away until asked for */}
-          <details className="mt-3 rounded-xl border border-[#17301F]/30 bg-[#F4F7F0] p-3">
-            <summary className="cursor-pointer font-mono text-[10px] uppercase tracking-widest text-[#9CB09E]">
+          <details className="mt-3 rounded-xl border border-line bg-surface p-3">
+            <summary className="cursor-pointer micro text-[10px] text-ink3">
               …or fight a GitHub handle
             </summary>
             <div className="mt-2">
@@ -574,25 +575,25 @@ export default function Arena({
                   onChange={(e) => setHandleInput(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && handleInput.trim() && loadFoe(handleInput.trim())}
                   placeholder="…or a GitHub handle"
-                  className="min-w-0 flex-1 rounded-lg border border-[#17301F]/30 bg-[#17301F]/5 px-3 py-2 text-sm text-[#17301F] placeholder-[#9CB09E] outline-none focus:border-[#B23A2E]/70"
+                  className="min-w-0 flex-1 rounded-lg border border-line bg-surface2 px-3 py-2 text-sm text-ink placeholder-ink3 outline-none focus:border-line"
                 />
                 <button
                   onClick={() => handleInput.trim() && loadFoe(handleInput.trim())}
-                  className="rounded-lg border border-[#17301F]/40 px-3 py-2 text-sm text-[#5A6E5E] hover:bg-[#17301F]/5"
+                  className="rounded-lg border border-line px-3 py-2 text-sm text-ink2 hover:bg-surface2"
                 >
                   Score
                 </button>
               </div>
               {foeLoading && (
-                <p className="mt-2 font-mono text-[11px] text-[#9CB09E]">
+                <p className="mt-2 font-mono text-[11px] text-ink3">
                   Scoring {foeLoading}…
                 </p>
               )}
               {foeError && (
-                <p className="mt-2 text-xs text-[#B23A2E]">{foeError}</p>
+                <p className="mt-2 text-xs text-pink">{foeError}</p>
               )}
               {foe && (
-                <p className="mt-2 font-mono text-[11px] text-[#B23A2E]">
+                <p className="mt-2 font-mono text-[11px] text-pink">
                   Opponent locked: {foe.side.label} ({foe.side.rating})
                   {foe.hot && ` · 🔥 +${HOT_BOOST} today`}
                   {chaos && " · chaos mode"}
@@ -602,7 +603,7 @@ export default function Arena({
                 <button
                   onClick={() => fight()}
                   disabled={!me || !foe}
-                  className="rounded-lg bg-[#B23A2E] px-8 py-2.5 text-sm font-semibold text-[#F4F7F0] transition-colors hover:bg-[#8E2E24] disabled:cursor-not-allowed disabled:opacity-40"
+                  className="rounded-lg bg-pink px-8 py-2.5 text-sm font-semibold text-on-accent transition-colors hover:bg-pink disabled:cursor-not-allowed disabled:opacity-40"
                 >
                   Fight
                 </button>
@@ -627,7 +628,7 @@ export default function Arena({
                   key={side}
                   className={`origin-bottom ${side === "a" ? "rotate-[-2.5deg]" : "rotate-[2.5deg]"} ${lostLast ? "hit-shake" : ""} ${wonMatch ? "winner-pulse" : ""}`}
                 >
-                  <p className="mb-2 text-center font-mono text-[10px] uppercase tracking-widest text-[#9CB09E]">
+                  <p className="mb-2 text-center micro text-[10px] text-ink3">
                     {side === "a" ? "You" : "Opponent"}
                     {fighter.hot && (
                       <span className="ml-1 text-orange-300">🔥 +{HOT_BOOST}</span>
@@ -641,7 +642,7 @@ export default function Arena({
                         proof={!ownedIds.has(fighter.card.id)}
                       />
                       {entranceQuips[side === "a" ? 0 : 1] && (
-                        <p className="mt-2 text-center text-[11px] italic leading-snug text-[#5A6E5E]">
+                        <p className="mt-2 text-center text-[11px] italic leading-snug text-ink2">
                           “{entranceQuips[side === "a" ? 0 : 1]}”
                         </p>
                       )}
@@ -673,12 +674,12 @@ export default function Arena({
 
           <div className="mx-auto mt-6 max-w-2xl space-y-2">
             {decided.map((round, i) => (
-              <div key={i} className="rounded-xl border border-[#17301F]/30 bg-[#F4F7F0] p-3">
-                <div className="mb-1.5 flex items-center justify-between font-mono text-[10px] uppercase tracking-widest text-[#9CB09E]">
+              <div key={i} className="rounded-xl border border-line bg-surface p-3">
+                <div className="mb-1.5 flex items-center justify-between micro text-[10px] text-ink3">
                   <span>
                     Round {i + 1}: {round.label}
                     {round.definition && i === decided.length - 1 && phase === "fight" && (
-                      <span className="deal-in ml-1.5 normal-case italic tracking-normal text-[#5A6E5E]">
+                      <span className="deal-in ml-1.5 normal-case italic tracking-normal text-ink2">
                         — {round.definition.toLowerCase().replace(/\.$/, "")}
                       </span>
                     )}
@@ -686,24 +687,24 @@ export default function Arena({
                   {round.upset && <span className="text-amber-400">upset!</span>}
                 </div>
                 <div className="flex items-center gap-3">
-                  <span className={`tnum w-7 text-right font-mono text-sm ${round.winner === "a" ? "font-bold text-[#1F6E3D]" : "text-[#5A6E5E]"}`}>
+                  <span className={`tnum w-7 text-right font-mono text-sm ${round.winner === "a" ? "font-bold text-up" : "text-ink2"}`}>
                     {round.a}
                   </span>
                   <div className="flex h-1.5 flex-1 gap-1">
-                    <div className="flex flex-1 justify-end overflow-hidden rounded-full bg-[#17301F]/10">
+                    <div className="flex flex-1 justify-end overflow-hidden rounded-full bg-surface2">
                       <div
-                        className={`h-full rounded-full transition-all duration-700 ${round.winner === "a" ? "bg-[#1F6E3D]" : "bg-white/40"}`}
+                        className={`h-full rounded-full transition-all duration-700 ${round.winner === "a" ? "bg-up" : "bg-white/40"}`}
                         style={{ width: `${round.a}%` }}
                       />
                     </div>
-                    <div className="flex flex-1 overflow-hidden rounded-full bg-[#17301F]/10">
+                    <div className="flex flex-1 overflow-hidden rounded-full bg-surface2">
                       <div
-                        className={`h-full rounded-full transition-all duration-700 ${round.winner === "b" ? "bg-[#1F6E3D]" : "bg-white/40"}`}
+                        className={`h-full rounded-full transition-all duration-700 ${round.winner === "b" ? "bg-up" : "bg-white/40"}`}
                         style={{ width: `${round.b}%` }}
                       />
                     </div>
                   </div>
-                  <span className={`tnum w-7 font-mono text-sm ${round.winner === "b" ? "font-bold text-[#1F6E3D]" : "text-[#5A6E5E]"}`}>
+                  <span className={`tnum w-7 font-mono text-sm ${round.winner === "b" ? "font-bold text-up" : "text-ink2"}`}>
                     {round.b}
                   </span>
                 </div>
@@ -713,16 +714,16 @@ export default function Arena({
 
           {phase === "done" && (
             <div className="mt-6 text-center">
-              <p className="text-xl font-bold text-[#17301F]">
+              <p className="text-xl font-bold text-ink">
                 {result.winner === "tie"
                   ? `Dead heat ${result.aWins}–${result.bWins}`
                   : `${winnerLabel} takes it ${Math.max(result.aWins, result.bWins)}–${Math.min(result.aWins, result.bWins)}`}
-                <span className="ml-2 font-mono text-sm text-[#B23A2E]">
+                <span className="ml-2 font-mono text-sm text-pink">
                   +{result.winner === "a" ? XP_REWARDS.battleWin : XP_REWARDS.battleLoss} XP
                 </span>
               </p>
               {result.winner !== "tie" && (
-                <p className="mt-1 text-sm text-[#5A6E5E]">
+                <p className="mt-1 text-sm text-ink2">
                   {commentary(result, winnerLabel)}
                 </p>
               )}
@@ -730,7 +731,7 @@ export default function Arena({
               <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
                 <button
                   onClick={() => fight()}
-                  className="rounded-lg bg-[#B23A2E] px-6 py-2.5 text-sm font-semibold text-[#F4F7F0] transition-colors hover:bg-[#8E2E24]"
+                  className="rounded-lg bg-pink px-6 py-2.5 text-sm font-semibold text-on-accent transition-colors hover:bg-pink"
                 >
                   Rematch
                 </button>
@@ -744,13 +745,13 @@ export default function Arena({
                     setDeckSeed(Math.floor(Math.random() * 2 ** 31) || 1);
                     setPasses(0);
                   }}
-                  className="rounded-lg border border-[#17301F]/40 px-6 py-2.5 text-sm font-semibold text-[#5A6E5E] transition-colors hover:bg-[#17301F]/5"
+                  className="rounded-lg border border-line px-6 py-2.5 text-sm font-semibold text-ink2 transition-colors hover:bg-surface2"
                 >
                   New opponent
                 </button>
                 <button
                   onClick={async () => setShareMode(await exportArenaPng(me.side, foe.side, result))}
-                  className="rounded-lg border border-[#17301F]/40 px-6 py-2.5 text-sm font-semibold text-[#5A6E5E] transition-colors hover:bg-[#17301F]/5"
+                  className="rounded-lg border border-line px-6 py-2.5 text-sm font-semibold text-ink2 transition-colors hover:bg-surface2"
                 >
                   Share result
                 </button>

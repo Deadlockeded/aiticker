@@ -29,11 +29,11 @@ export default function CoverStar({
   // month-hash pick resolves client-side.
   if (!star) {
     return (
-      <div className="paper-card paper-in p-4">
-        <p className="border-b-2 border-[#17301F] pb-2 text-center font-mono text-[11px] font-semibold uppercase tracking-[0.3em] text-[#B23A2E]">
+      <div className="surface-card deal-in p-4">
+        <p className="border-b border-line2 pb-2 text-center micro text-[11px] font-semibold tracking-[0.3em] text-pink">
           ★ Featured card ★
         </p>
-        <div className="mt-3 aspect-[1/1.42] w-full rounded-[3px] border-2 border-[#17301F]/20" />
+        <div className="mt-3 aspect-[1/1.42] w-full rounded-[3px] border border-line" />
         <div className="mt-3 h-[22px]" />
       </div>
     );
@@ -41,8 +41,8 @@ export default function CoverStar({
   const price = getCurrentPrice(star);
 
   return (
-    <div className="paper-card paper-in p-4">
-      <p className="border-b-2 border-[#17301F] pb-2 text-center font-mono text-[11px] font-semibold uppercase tracking-[0.3em] text-[#B23A2E]">
+    <div className="surface-card deal-in p-4">
+      <p className="border-b border-line2 pb-2 text-center micro text-[11px] font-semibold tracking-[0.3em] text-pink">
         ★ Featured card ★
       </p>
       <Link href={`/cards/${star.id}`} className="mt-3 block">
@@ -52,11 +52,11 @@ export default function CoverStar({
           proof={owned !== null && !owned.has(star.id)}
         />
       </Link>
-      <div className="mt-3 flex items-center justify-between font-mono text-[11px] uppercase tracking-widest">
-        <span className="bg-[#17301F] px-1.5 py-0.5 text-[#F4F7F0]">
+      <div className="mt-3 flex items-center justify-between micro text-[11px]">
+        <span className="bg-ink px-1.5 py-0.5 text-on-accent">
           {star.rarity === "legendary" ? "Legend" : star.rarity}
         </span>
-        <span className="tnum text-[#5A6E5E]">
+        <span className="tnum text-ink2">
           Book: {formatTicks(Math.round(price * 0.95))}–{formatTicks(Math.round(price * 1.08))}
         </span>
       </div>

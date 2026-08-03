@@ -25,7 +25,7 @@ import { readOnboarding, stampOnboarding } from "@/lib/onboarding";
 import CardBackFace from "./CardBackFace";
 import TradingCard from "./TradingCard";
 import EditorCaption from "./EditorCaption";
-import Logo from "./Logo";
+import { FanGlyph } from "./Logo";
 
 // Capture-once: is this a first-run visitor? Stays true for the whole
 // session (so the flip caption still fires after rip() stamps the flag).
@@ -74,40 +74,40 @@ function Confetti({ pieces }: { pieces: ConfettiPiece[] }) {
 function PackGraphic({
   shaking,
   tearing,
+  gold = false,
 }: {
   shaking: boolean;
   tearing: boolean;
+  gold?: boolean;
 }) {
   return (
-    <div className={`relative mx-auto w-52 sm:w-60 ${shaking ? "pack-shake" : "pack-idle"}`}>
-      {/* tear strip */}
+    <div className={`relative mx-auto w-52 sm:w-60 ${shaking ? "pack-shake" : ""}`}>
+      {/* tear strip: dashed perforation across the top of the wrapper */}
       <div
-        className={`relative z-10 h-9 rounded-t-lg border-2 border-b-0 border-[#17301F] bg-[#8E2E24] ${
-          tearing ? "pack-tear-top" : ""
-        }`}
+        className={`relative z-10 h-8 overflow-hidden rounded-t-[18px] ${
+          gold ? "foil-gold" : "foil-series1"
+        } ${tearing ? "pack-tear-top" : ""}`}
       >
-        {/* dashed perforation */}
-        <div className="absolute inset-x-0 bottom-0 border-b-2 border-dashed border-[#F4F7F0]/70" />
-        <span className="absolute inset-0 flex items-center justify-center font-mono text-[9px] uppercase tracking-[0.4em] text-[#F4F7F0]/80">
-          Tear here
-        </span>
+        <div className="absolute inset-x-0 bottom-0 border-b-2 border-dashed border-white/70" />
       </div>
-      {/* body — the brick-red foil pack, ink border, offset shadow */}
+      {/* the sealed object: foil wrapper + one slow sheen, the app's only
+          ambient animation. Gradient is licensed HERE and nowhere else. */}
       <div
-        className={`relative aspect-[3/4] overflow-hidden rounded-b-lg border-2 border-t-0 border-[#17301F] bg-[#B23A2E] shadow-[6px_6px_0_#17301F] ${
-          tearing ? "pack-vanish" : ""
-        }`}
+        className={`relative aspect-[3/4] overflow-hidden rounded-b-[18px] shadow-card ${
+          gold ? "foil-gold" : "foil-series1"
+        } ${tearing ? "pack-vanish" : "pack-sheen"}`}
       >
-        <div className="holo-wash absolute inset-0 opacity-30" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-          <div className="rotate-[-4deg] rounded-[4px] border-[3px] border-[#17301F] bg-[#B23A2E] px-3 py-2 shadow-[3px_3px_0_#17301F]">
-            <span className="font-display text-3xl text-[#F4F7F0]">AT</span>
-          </div>
-          <span className="font-display text-2xl tracking-tight text-[#F4F7F0]">
-            AI<span className="lowercase text-[#F0BFB6]">ticker</span>
-          </span>
-          <span className="font-mono text-[10px] uppercase tracking-[0.35em] text-[#F0BFB6]">
-            Series 1 · 3 cards inside
+        {/* THE DRAIN: flat pink floods down from the tear as the foil leaves */}
+        {tearing && (
+          <>
+            <div className="foil-drain absolute inset-0 bg-inherit" />
+            <div className="pink-flood absolute inset-0 bg-pink" />
+          </>
+        )}
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
+          <FanGlyph size={56} />
+          <span className="micro font-semibold text-white">
+            {gold ? "Collector's" : "Series 1"} · 3 cards inside
           </span>
         </div>
       </div>
@@ -120,7 +120,7 @@ function CardBack({ card }: { card: MarketCard }) {
   return (
     <div className="absolute inset-0 [backface-visibility:hidden]">
       <CardBackFace card={card} anonymous />
-      <span className="pointer-events-none absolute inset-x-0 bottom-2 text-center font-mono text-[9px] uppercase tracking-[0.4em] text-[#9CB09E]">
+      <span className="pointer-events-none absolute inset-x-0 bottom-2 text-center micro text-[9px] tracking-[0.4em] text-ink3">
         Tap to reveal
       </span>
     </div>
@@ -321,7 +321,7 @@ export default function PackRipper({
       )}
 
       {!minimal && !inReveal && (
-        <p className="mb-8 text-center font-mono text-xs uppercase tracking-[0.3em] text-[#9CB09E]">
+        <p className="mb-8 text-center micro text-xs tracking-[0.3em] text-ink3">
           {mounted
             ? packsLeft > 0
               ? `${packsLeft} pack${packsLeft === 1 ? "" : "s"} ready`
@@ -344,10 +344,10 @@ export default function PackRipper({
             <>
               {phase === "ripping" && (
                 <span className="mt-4 flex justify-center">
-                  <Logo variant="icon" size={26} animate="loop" />
+                  <FanGlyph size={26} />
                 </span>
               )}
-              <p className="mt-6 text-center font-mono text-[11px] uppercase tracking-[0.25em] text-[#9CB09E]">
+              <p className="mt-6 text-center micro text-[11px] tracking-[0.25em] text-ink3">
                 {phase === "ripping"
                   ? "ripping…"
                   : packsLeft === 0 && mounted
@@ -359,7 +359,7 @@ export default function PackRipper({
                     <button
                       onClick={() => setConfirmExchange(true)}
                       disabled={!canExchange}
-                      className="mt-1 tracking-[0.2em] text-[#B23A2E] underline underline-offset-4 disabled:text-[#9CB09E] disabled:no-underline"
+                      className="mt-1 tracking-[0.2em] text-pink underline underline-offset-4 disabled:text-ink3 disabled:no-underline"
                     >
                       {canExchange
                         ? `or trade ${formatTicks(EXCHANGE_PACK_COST)} for one now →`
@@ -374,18 +374,18 @@ export default function PackRipper({
                 </EditorCaption>
               )}
               {mounted && phase !== "ripping" && (
-                <div className="coupon mx-auto mt-6 max-w-[300px] p-3 text-center">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#9CB09E]">
-                    Wallet · <span className="tnum text-[#17301F]">{formatTicks(balance)}</span>
+                <div className="rounded-[22px] border border-dashed border-line2 bg-surface mx-auto mt-6 max-w-[300px] p-3 text-center">
+                  <p className="micro text-[10px] tracking-[0.3em] text-ink3">
+                    Wallet · <span className="tnum text-ink">{formatTicks(balance)}</span>
                   </p>
                   <button
                     onClick={() => setConfirmExchange(true)}
                     disabled={!canExchange}
-                    className="mt-2 w-full border-2 border-[#17301F] bg-[#EAF0E4] px-4 py-2.5 font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-[#17301F] shadow-[3px_3px_0_#17301F] hover:bg-[#F4F7F0] disabled:border-[#9CB09E] disabled:text-[#9CB09E] disabled:shadow-none"
+                    className="mt-2 w-full border border-line2 bg-surface2 px-4 py-2.5 micro text-[11px] font-semibold tracking-[0.2em] text-ink shadow-card hover:bg-surface disabled:border-ink3 disabled:text-ink3 disabled:shadow-none"
                   >
                     Exchange pack — {formatTicks(EXCHANGE_PACK_COST)}
                   </button>
-                  <p className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.15em] text-[#9CB09E]">
+                  <p className="mt-1.5 micro text-[10px] tracking-[0.15em] text-ink3">
                     {canExchange
                       ? "Same cards. Same odds."
                       : "Win fights to earn Ticks."}
@@ -398,6 +398,13 @@ export default function PackRipper({
       )}
 
       {/* facedown stack — tap to reveal */}
+      {/* THE REVEAL: its own near-black layer in BOTH modes, so nothing
+          from the page competes with three cards. Holds until a tap. */}
+      {inReveal && (
+      <div
+        className="fixed inset-0 z-40 flex flex-col items-center justify-center overflow-y-auto px-3 py-8"
+        style={{ background: "var(--reveal-veil)" }}
+      >
       {phase === "stack" && (
         <button
           onClick={revealAll}
@@ -416,7 +423,7 @@ export default function PackRipper({
               <CardBackFace card={card} anonymous />
             </div>
           ))}
-          <span className="absolute inset-x-0 -bottom-9 text-center font-mono text-[10px] uppercase tracking-[0.3em] text-[#5A6E5E]">
+          <span className="absolute inset-x-0 -bottom-9 text-center micro text-[10px] tracking-[0.3em] text-ink2">
             Tap to reveal
           </span>
         </button>
@@ -467,18 +474,18 @@ export default function PackRipper({
                         <div className="foil-sweep pointer-events-none absolute inset-0 overflow-hidden rounded-xl" />
                       )}
                       {!preOwned.has(card.id) && (
-                        <span className="pointer-events-none absolute left-1/2 top-[38%] z-20 -translate-x-1/2 rotate-[-14deg] border-2 border-[#17301F] bg-[#F4F7F0]/85 px-1.5 py-0.5 font-mono text-[9px] font-black uppercase tracking-[0.2em] text-[#17301F]">
+                        <span className="pointer-events-none absolute left-1/2 top-[38%] z-20 -translate-x-1/2 rotate-[-14deg] border border-line2 bg-surface/85 px-1.5 py-0.5 micro text-[9px] font-black tracking-[0.2em] text-ink">
                           First pull
                         </span>
                       )}
                       {variant !== "base" && (
                         <span
-                          className={`pointer-events-none absolute left-1/2 top-[56%] z-20 -translate-x-1/2 rotate-[4deg] border-2 px-1.5 py-0.5 font-mono text-[9px] font-black uppercase tracking-[0.15em] ${
+                          className={`pointer-events-none absolute left-1/2 top-[56%] z-20 -translate-x-1/2 rotate-[4deg] border px-1.5 py-0.5 font-mono text-[9px] font-black uppercase tracking-[0.15em] ${
                             variant === "gold"
-                              ? "border-[#8C6D1F] bg-[#8C6D1F] text-[#F4F7F0]"
+                              ? "border-amber bg-amber text-on-accent"
                               : variant === "holo"
-                                ? "border-[#17301F] bg-[#17301F] text-[#F0BFB6]"
-                                : "border-[#17301F] bg-[#EAF0E4] text-[#17301F]"
+                                ? "border-line2 bg-ink text-pink-tint"
+                                : "border-line2 bg-surface2 text-ink"
                           }`}
                         >
                           {variantLabel(variant)} Nº {serials[i]}/{editionFor(variant, card.editionSize)}
@@ -494,14 +501,14 @@ export default function PackRipper({
           <div className="mx-auto mt-10 flex max-w-[320px] flex-col gap-2">
             <button
               onClick={() => router.push("/binder")}
-              className="border-2 border-[#17301F] bg-[#B23A2E] px-6 py-3 font-display text-sm uppercase text-[#F4F7F0] shadow-[3px_3px_0_#17301F] hover:bg-[#8E2E24]"
+              className="border border-line2 bg-pink px-6 py-3 font-display text-sm uppercase text-on-accent shadow-card hover:bg-pink"
             >
               Add to binder →
             </button>
             {packsLeft > 0 ? (
               <button
                 onClick={ripAnother}
-                className="border-2 border-[#17301F] px-6 py-2.5 font-mono text-xs font-semibold uppercase tracking-widest text-[#17301F] hover:bg-[#17301F]/5"
+                className="border border-line2 px-6 py-2.5 micro text-xs font-semibold text-ink hover:bg-surface2"
               >
                 Rip another ({packsLeft} banked)
               </button>
@@ -509,7 +516,7 @@ export default function PackRipper({
               canExchange && (
                 <button
                   onClick={() => setConfirmExchange(true)}
-                  className="border-2 border-[#17301F] px-6 py-2.5 font-mono text-xs font-semibold uppercase tracking-widest text-[#17301F] hover:bg-[#17301F]/5"
+                  className="border border-line2 px-6 py-2.5 micro text-xs font-semibold text-ink hover:bg-surface2"
                 >
                   Exchange pack — {formatTicks(EXCHANGE_PACK_COST)}
                 </button>
@@ -519,29 +526,32 @@ export default function PackRipper({
         </div>
       )}
 
+      </div>
+      )}
+
       {/* exchange confirm: one sheet, balance-after, then instant */}
       {confirmExchange && (
         <div className="fixed inset-0 z-50" onClick={() => setConfirmExchange(false)}>
-          <div className="absolute inset-0 bg-[#17301F]/60" />
+          <div className="absolute inset-0 bg-surface2" />
           <div
             onClick={(e) => e.stopPropagation()}
-            className="absolute inset-x-0 bottom-0 border-t-2 border-[#17301F] bg-[#F4F7F0] p-5 pb-[calc(1.5rem+env(safe-area-inset-bottom))]"
+            className="absolute inset-x-0 bottom-0 border-t border-line2 bg-surface p-5 pb-[calc(1.5rem+env(safe-area-inset-bottom))]"
           >
             <div className="mx-auto max-w-[320px] text-center">
-              <p className="font-display text-lg uppercase text-[#17301F]">
+              <p className="font-display text-lg uppercase text-ink">
                 Exchange pack
               </p>
-              <p className="mt-1 text-[13px] text-[#5A6E5E]">
+              <p className="mt-1 text-[13px] text-ink2">
                 Three cards. The same odds as a free pack.
               </p>
-              <dl className="mt-4 space-y-1 border-2 border-[#17301F] p-3 text-left font-mono text-[12px] uppercase tracking-[0.1em]">
+              <dl className="mt-4 space-y-1 border border-line2 p-3 text-left micro text-[12px] tracking-[0.1em]">
                 <div className="flex justify-between">
-                  <dt className="text-[#5A6E5E]">Cost</dt>
-                  <dd className="tnum text-[#B23A2E]">−{formatTicks(EXCHANGE_PACK_COST)}</dd>
+                  <dt className="text-ink2">Cost</dt>
+                  <dd className="tnum text-pink">−{formatTicks(EXCHANGE_PACK_COST)}</dd>
                 </div>
-                <div className="flex justify-between border-t border-dashed border-[#17301F]/40 pt-1">
-                  <dt className="text-[#5A6E5E]">Balance after</dt>
-                  <dd className="tnum text-[#17301F]">
+                <div className="flex justify-between border-t border-dashed border-line pt-1">
+                  <dt className="text-ink2">Balance after</dt>
+                  <dd className="tnum text-ink">
                     {formatTicks(Math.max(0, balance - EXCHANGE_PACK_COST))}
                   </dd>
                 </div>
@@ -549,13 +559,13 @@ export default function PackRipper({
               <button
                 onClick={() => rip(true)}
                 disabled={!canExchange}
-                className="mt-4 w-full border-2 border-[#17301F] bg-[#B23A2E] px-6 py-3 font-display text-sm uppercase text-[#F4F7F0] shadow-[3px_3px_0_#17301F] hover:bg-[#8E2E24] disabled:opacity-50"
+                className="mt-4 w-full border border-line2 bg-pink px-6 py-3 font-display text-sm uppercase text-on-accent shadow-card hover:bg-pink disabled:opacity-50"
               >
                 Trade {formatTicks(EXCHANGE_PACK_COST)} → rip it
               </button>
               <button
                 onClick={() => setConfirmExchange(false)}
-                className="mt-2 w-full px-4 py-2 font-mono text-[11px] uppercase tracking-widest text-[#5A6E5E] hover:text-[#17301F]"
+                className="mt-2 w-full px-4 py-2 micro text-[11px] text-ink2 hover:text-ink"
               >
                 Not now
               </button>
@@ -567,10 +577,10 @@ export default function PackRipper({
       {/* enlarge sheet: card + quip */}
       {enlarged !== null && pulls[enlarged] && (
         <div className="fixed inset-0 z-50" onClick={() => setEnlarged(null)}>
-          <div className="absolute inset-0 bg-[#17301F]/60" />
+          <div className="absolute inset-0 bg-surface2" />
           <div
             onClick={(e) => e.stopPropagation()}
-            className="absolute inset-x-0 bottom-0 max-h-[88vh] overflow-y-auto border-t-2 border-[#17301F] bg-[#F4F7F0] p-4 pb-[calc(1.25rem+env(safe-area-inset-bottom))]"
+            className="absolute inset-x-0 bottom-0 max-h-[88vh] overflow-y-auto border-t border-line2 bg-surface p-4 pb-[calc(1.25rem+env(safe-area-inset-bottom))]"
           >
             <div className="mx-auto max-w-[320px]">
               <TradingCard
@@ -582,17 +592,17 @@ export default function PackRipper({
                 serialNo={serials[enlarged]}
               />
               {pulls[enlarged].card.id === "agi" ? (
-                <p className="mt-3 text-center font-mono text-[12px] text-[#5A6E5E]">well.</p>
+                <p className="mt-3 text-center font-mono text-[12px] text-ink2">well.</p>
               ) : (
                 flipQuips[enlarged] && (
-                  <p className="mt-3 text-center text-[13px] italic leading-snug text-[#5A6E5E]">
+                  <p className="mt-3 text-center text-[13px] italic leading-snug text-ink2">
                     “{flipQuips[enlarged]}”
                   </p>
                 )
               )}
               <button
                 onClick={() => setEnlarged(null)}
-                className="mt-4 w-full border-2 border-[#17301F] px-4 py-2 font-mono text-xs uppercase tracking-widest text-[#17301F] hover:bg-[#17301F]/5"
+                className="mt-4 w-full border border-line2 px-4 py-2 micro text-xs text-ink hover:bg-surface2"
               >
                 Close
               </button>

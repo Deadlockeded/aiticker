@@ -17,7 +17,7 @@ export default function PriceChart({ history }: { history: PricePoint[] }) {
   const max = Math.max(...prices);
   const span = max - min || 1;
   const up = prices[prices.length - 1] >= prices[0];
-  const color = up ? "#1F6E3D" : "#B23A2E";
+  const color = up ? "var(--up)" : "var(--pink)";
 
   const x = (i: number) =>
     PAD.left + (i / (history.length - 1)) * (W - PAD.left - PAD.right);
@@ -53,15 +53,15 @@ export default function PriceChart({ history }: { history: PricePoint[] }) {
     <div className="relative">
       {point && (
         <div
-          className="pointer-events-none absolute -top-2 z-10 -translate-x-1/2 whitespace-nowrap rounded-lg border border-[#17301F]/40 bg-[#F4F7F0] px-2.5 py-1.5 text-center font-mono text-xs"
+          className="pointer-events-none absolute -top-2 z-10 -translate-x-1/2 whitespace-nowrap rounded-lg border border-line bg-surface px-2.5 py-1.5 text-center font-mono text-xs"
           style={{
             left: `${((x(hover!) - 0) / W) * 100}%`,
           }}
         >
-          <span className="block font-semibold text-[#17301F]">
+          <span className="block font-semibold text-ink">
             {formatTicks(point.price, 2)}
           </span>
-          <span className="block text-[10px] text-[#5A6E5E]">
+          <span className="block text-[10px] text-ink2">
             {new Date(point.timestamp).toLocaleDateString("en-US", {
               month: "short",
               day: "numeric",
@@ -117,7 +117,7 @@ export default function PriceChart({ history }: { history: PricePoint[] }) {
               cy={y(point.price)}
               r="4"
               fill={color}
-              stroke="#F4F7F0"
+              stroke="var(--surface)"
               strokeWidth="2"
             />
           </>

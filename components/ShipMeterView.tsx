@@ -161,7 +161,7 @@ export default function ShipMeterView({
           value={inputA}
           onChange={(e) => setInputA(e.target.value)}
           placeholder="handle one"
-          className="w-40 rounded-lg border border-[#17301F]/30 bg-[#17301F]/5 px-3 py-2.5 text-sm text-[#17301F] placeholder-[#9CB09E] outline-none focus:border-[#B23A2E]/70"
+          className="w-40 rounded-lg border border-line bg-surface2 px-3 py-2.5 text-sm text-ink placeholder-ink3 outline-none focus:border-line"
         />
         <span className="text-xl">×</span>
         <input
@@ -169,29 +169,29 @@ export default function ShipMeterView({
           onChange={(e) => setInputB(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && run(inputA, inputB)}
           placeholder="handle two"
-          className="w-40 rounded-lg border border-[#17301F]/30 bg-[#17301F]/5 px-3 py-2.5 text-sm text-[#17301F] placeholder-[#9CB09E] outline-none focus:border-[#B23A2E]/70"
+          className="w-40 rounded-lg border border-line bg-surface2 px-3 py-2.5 text-sm text-ink placeholder-ink3 outline-none focus:border-line"
         />
         <button
           onClick={() => run(inputA, inputB)}
           disabled={loading || !inputA.trim() || !inputB.trim()}
-          className="rounded-lg bg-[#B23A2E] px-5 py-2.5 text-sm font-semibold text-[#F4F7F0] transition-colors hover:bg-[#8E2E24] disabled:cursor-not-allowed disabled:opacity-40"
+          className="rounded-lg bg-pink px-5 py-2.5 text-sm font-semibold text-on-accent transition-colors hover:bg-pink disabled:cursor-not-allowed disabled:opacity-40"
         >
           {loading ? "Measuring…" : "Measure"}
         </button>
       </div>
       {error && (
-        <p className="mt-3 text-center text-sm text-[#B23A2E]">{error}</p>
+        <p className="mt-3 text-center text-sm text-pink">{error}</p>
       )}
 
       {pair && !loading && (
         <div className="mt-8 text-center">
           <p className="text-6xl">{shipIcon(pct)}</p>
-          <p className="tnum mt-2 text-7xl font-black text-[#17301F]">{pct}%</p>
-          <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.3em] text-[#9CB09E]">
+          <p className="tnum mt-2 text-7xl font-black text-ink">{pct}%</p>
+          <p className="mt-1 micro text-[11px] tracking-[0.3em] text-ink3">
             cofounder compatibility
             {pair.cached && " · cached"}
           </p>
-          <p className="mx-auto mt-3 max-w-md text-lg italic text-[#B23A2E]">
+          <p className="mx-auto mt-3 max-w-md text-lg italic text-pink">
             “{verdict}”
           </p>
 
@@ -209,7 +209,7 @@ export default function ShipMeterView({
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
             <button
               onClick={async () => setShareMode(await exportPng(pair.a, pair.b, pct, verdict))}
-              className="rounded-lg bg-[#B23A2E] px-5 py-2.5 text-sm font-semibold text-[#F4F7F0] transition-colors hover:bg-[#8E2E24]"
+              className="rounded-lg bg-pink px-5 py-2.5 text-sm font-semibold text-on-accent transition-colors hover:bg-pink"
             >
               Share (PNG)
             </button>
@@ -235,9 +235,9 @@ export default function ShipMeterView({
               <a href="" target="_blank" className="underline">open in browser ↗</a>
             </p>
           )}
-          <p className="mt-4 font-mono text-[11px] text-[#9CB09E]">
+          <p className="mt-4 font-mono text-[11px] text-ink3">
             Deterministic — same pair, same number, either order. Now{" "}
-            <Link href="/roast" className="text-[#B23A2E] hover:underline">
+            <Link href="/roast" className="text-pink hover:underline">
               get roasted →
             </Link>
           </p>

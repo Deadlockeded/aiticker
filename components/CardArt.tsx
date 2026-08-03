@@ -61,7 +61,7 @@ export default function CardArt({
     return (
       <div className="absolute inset-0 flex items-center justify-center">
         <span
-          className={`font-mono font-bold tracking-tight text-[#17301F]/35 ${
+          className={`font-mono font-bold tracking-tight text-ink/35 ${
             hero ? "text-7xl" : "text-4xl"
           }`}
         >
@@ -75,7 +75,7 @@ export default function CardArt({
     return (
       <div className="flex h-full w-full items-center justify-center rounded-full bg-zinc-900">
         <span
-          className={`font-mono font-bold tracking-tighter text-[#5A6E5E] ${
+          className={`font-mono font-bold tracking-tighter text-ink2 ${
             hero ? "text-4xl" : "text-xs"
           }`}
         >

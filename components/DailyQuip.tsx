@@ -32,18 +32,18 @@ export default function DailyQuip({ card }: { card: MarketCard }) {
   };
 
   return (
-    <blockquote className="flex items-start gap-3 rounded-2xl border border-[#17301F]/30 bg-[#F4F7F0] p-4">
-      <span className="text-2xl leading-none text-[#B23A2E]/70">“</span>
-      <p className="flex-1 text-[15px] italic leading-snug text-[#5A6E5E]">
+    <blockquote className="flex items-start gap-3 rounded-2xl border border-line bg-surface p-4">
+      <span className="text-2xl leading-none text-pink/70">“</span>
+      <p className="flex-1 text-[15px] italic leading-snug text-ink2">
         {quip}
-        <span className="mt-1 block font-mono text-[10px] not-italic uppercase tracking-widest text-[#9CB09E]">
+        <span className="mt-1 block micro text-[10px] not-italic text-ink3">
           quip of the day
         </span>
       </p>
       <button
         onClick={copy}
         title="Copy quip"
-        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-[#9CB09E] transition-colors hover:bg-[#17301F]/5 hover:text-[#17301F]"
+        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-ink3 transition-colors hover:bg-surface2 hover:text-ink"
       >
         {copied ? "✓" : "❝"}
       </button>

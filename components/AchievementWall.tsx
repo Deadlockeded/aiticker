@@ -24,19 +24,19 @@ export default function AchievementWall({ valuation = 0 }: { valuation?: number 
   return (
     <section className="mt-10">
       {/* the funding ladder — the XP levels, dressed for the industry */}
-      <div className="mb-5 border-2 border-[#17301F] bg-[#F4F7F0] p-3 text-center shadow-[3px_3px_0_#17301F]">
-        <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#9CB09E]">
+      <div className="mb-5 border border-line2 bg-surface p-3 text-center shadow-card">
+        <p className="micro text-[10px] tracking-[0.3em] text-ink3">
           Stage
         </p>
-        <p className="mt-0.5 font-display text-lg uppercase text-[#17301F]">
+        <p className="mt-0.5 font-display text-lg uppercase text-ink">
           {stage.title}
         </p>
-        <p className="mt-0.5 text-[13px] italic text-[#5A6E5E]">
+        <p className="mt-0.5 text-[13px] italic text-ink2">
           {raiseLine(stage.level)}
         </p>
-        <div className="mx-auto mt-2 h-1.5 w-40 border border-[#17301F]/40">
+        <div className="mx-auto mt-2 h-1.5 w-40 border border-line">
           <div
-            className="h-full bg-[#B23A2E]"
+            className="h-full bg-pink"
             style={{ width: `${Math.round(stage.progress * 100)}%` }}
           />
         </div>
@@ -49,9 +49,9 @@ export default function AchievementWall({ valuation = 0 }: { valuation?: number 
           />
         </div>
       </div>
-      <h2 className="mb-3 text-sm font-semibold text-[#17301F]">
+      <h2 className="mb-3 text-sm font-semibold text-ink">
         Achievements{" "}
-        <span className="tnum font-mono text-xs text-[#9CB09E]">
+        <span className="tnum font-mono text-xs text-ink3">
           {unlocked.size}/{ACHIEVEMENTS.length}
         </span>
       </h2>
@@ -63,8 +63,8 @@ export default function AchievementWall({ valuation = 0 }: { valuation?: number 
               key={a.id}
               className={`flex items-start gap-3 rounded-xl border p-3 ${
                 has
-                  ? "border-[#B23A2E]/50 bg-[#B23A2E]/5"
-                  : "border-[#17301F]/30 bg-[#17301F]/[0.03] opacity-60"
+                  ? "border-line bg-pink/5"
+                  : "border-line bg-ink/[0.03] opacity-60"
               }`}
             >
               <span className={`text-2xl ${has ? "" : "grayscale"}`}>
@@ -72,11 +72,11 @@ export default function AchievementWall({ valuation = 0 }: { valuation?: number 
               </span>
               <span className="min-w-0">
                 <span
-                  className={`block text-[13px] font-semibold ${has ? "text-[#17301F]" : "text-[#5A6E5E]"}`}
+                  className={`block text-[13px] font-semibold ${has ? "text-ink" : "text-ink2"}`}
                 >
                   {a.name}
                 </span>
-                <span className="block text-[11px] leading-snug text-[#9CB09E]">
+                <span className="block text-[11px] leading-snug text-ink3">
                   {a.desc}
                 </span>
               </span>
@@ -85,7 +85,7 @@ export default function AchievementWall({ valuation = 0 }: { valuation?: number 
         })}
       </div>
       {[...unlocked].filter((id) => id.startsWith("artifact-win-")).length > 0 && (
-        <p className="mt-3 font-mono text-[11px] text-[#9CB09E]">
+        <p className="mt-3 font-mono text-[11px] text-ink3">
           ◆ {[...unlocked].filter((id) => id.startsWith("artifact-win-")).length}{" "}
           hidden artifact trophies earned
         </p>

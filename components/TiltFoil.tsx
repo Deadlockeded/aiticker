@@ -120,7 +120,7 @@ export default function TiltFoil() {
       {needsPermission && (
         <button
           onClick={requestTilt}
-          className="absolute bottom-2 left-2 z-10 rounded-md border border-[#17301F]/40 bg-black/70 px-2 py-1 font-mono text-[9px] text-[#5A6E5E] backdrop-blur-sm"
+          className="absolute bottom-2 left-2 z-10 rounded-md border border-line bg-black/70 px-2 py-1 font-mono text-[9px] text-ink2 backdrop-blur-sm"
         >
           ✨ enable tilt
         </button>

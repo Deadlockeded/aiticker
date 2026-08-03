@@ -1,5 +1,7 @@
 "use client";
 
+import { SHARE } from "@/lib/tokens";
+
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { pickRoasts, type Heat } from "@/lib/lines";
@@ -45,27 +47,27 @@ async function exportRoastPng(handle: string, heat: Heat, lines: string[]) {
   canvas.height = H;
   const ctx = canvas.getContext("2d")!;
   const fonts = await brandFonts();
-  ctx.fillStyle = "#F4F7F0";
+  ctx.fillStyle = SHARE.surface;
   ctx.fillRect(0, 0, W, H);
   // receipt frame (dashed)
-  ctx.strokeStyle = "#17301F";
+  ctx.strokeStyle = SHARE.ink;
   ctx.lineWidth = 4;
   ctx.setLineDash([14, 10]);
   ctx.strokeRect(60, 60, W - 120, H - 120);
   ctx.setLineDash([]);
   ctx.textAlign = "center";
-  ctx.fillStyle = "#B23A2E";
+  ctx.fillStyle = SHARE.pink;
   ctx.font = `400 64px ${fonts.display}`;
   ctx.fillText("ROAST RECEIPT", W / 2, 190);
-  ctx.fillStyle = "#17301F";
+  ctx.fillStyle = SHARE.ink;
   ctx.font = `600 44px ${fonts.mono}`;
   ctx.fillText(`@${handle}`, W / 2, 260);
-  ctx.fillStyle = "#5A6E5E";
+  ctx.fillStyle = SHARE.ink2;
   ctx.font = `400 26px ${fonts.mono}`;
   ctx.fillText(`ROAST Nº ${roastSerial(handle, heat)}`, W / 2, 310);
   // lines
   ctx.textAlign = "left";
-  ctx.fillStyle = "#17301F";
+  ctx.fillStyle = SHARE.ink;
   ctx.font = `400 34px ${fonts.body}`;
   let y = 420;
   for (const line of lines) {
@@ -82,17 +84,17 @@ async function exportRoastPng(handle: string, heat: Heat, lines: string[]) {
   ctx.font = `400 40px ${fonts.display}`;
   const label = `PREPARED: ${heat === "crispy" ? "EXTRA CRISPY" : heat.toUpperCase()}`;
   const sw = ctx.measureText(label).width;
-  ctx.strokeStyle = "#B23A2E";
+  ctx.strokeStyle = SHARE.pink;
   ctx.lineWidth = 5;
   ctx.strokeRect(-sw / 2 - 24, -46, sw + 48, 72);
-  ctx.fillStyle = "#B23A2E";
+  ctx.fillStyle = SHARE.pink;
   ctx.textAlign = "center";
   ctx.fillText(label, 0, 6);
   ctx.restore();
   // mark + url
   drawLogoMark(ctx, 140, H - 190, 44, fonts.display);
   ctx.textAlign = "right";
-  ctx.fillStyle = "#5A6E5E";
+  ctx.fillStyle = SHARE.ink2;
   ctx.font = `600 26px ${fonts.mono}`;
   ctx.fillText("aiticker.xyz/roast", W - 140, H - 152);
   const blob = await canvasBlob(canvas);
@@ -164,15 +166,15 @@ export default function RoastStudio({
   return (
     <div className="mx-auto max-w-md">
       {burnMode && receipt && (
-        <div className="mb-4 border-2 border-[#B23A2E] bg-[#B23A2E] p-3 text-center shadow-[3px_3px_0_#17301F]">
-          <p className="font-display text-lg uppercase text-[#F4F7F0]">You&apos;ve been roasted.</p>
+        <div className="mb-4 border border-pink bg-pink p-3 text-center shadow-card">
+          <p className="font-display text-lg uppercase text-on-accent">You&apos;ve been roasted.</p>
           <button
             onClick={() => {
               setReceipt(null);
               setBurnMode(false);
               setTimeout(() => inputRef.current?.focus(), 0);
             }}
-            className="mt-1 font-mono text-[11px] uppercase tracking-[0.2em] text-[#F0BFB6] underline underline-offset-2"
+            className="mt-1 micro text-[11px] tracking-[0.2em] text-pink-tint underline underline-offset-2"
           >
             Avenge yourself →
           </button>
@@ -180,8 +182,8 @@ export default function RoastStudio({
       )}
 
       {!receipt && (
-        <div className="paper-card p-5">
-          <label className="mb-1 block font-mono text-[11px] uppercase tracking-wider text-[#9CB09E]">
+        <div className="surface-card p-5">
+          <label className="mb-1 block micro text-[11px] text-ink3">
             GitHub username
           </label>
           <input
@@ -190,7 +192,7 @@ export default function RoastStudio({
             onChange={(e) => setHandle(e.target.value.slice(0, 40))}
             onKeyDown={(e) => e.key === "Enter" && roast(handle, heat)}
             placeholder="octocat"
-            className="w-full border-2 border-[#17301F]/40 bg-[#EAF0E4] px-3 py-2.5 text-base text-[#17301F] outline-none focus:border-[#B23A2E]"
+            className="w-full border border-line bg-surface2 px-3 py-2.5 text-base text-ink outline-none focus:border-pink"
           />
           <div className="mt-3 flex gap-1.5">
             {HEATS.map((h) => (
@@ -199,8 +201,8 @@ export default function RoastStudio({
                 onClick={() => setHeat(h.id)}
                 className={`min-h-11 flex-1 border px-2 py-1.5 font-mono text-[11px] uppercase tracking-[0.1em] transition-colors ${
                   heat === h.id
-                    ? "border-[#17301F] bg-[#B23A2E] text-[#F4F7F0]"
-                    : "border-[#17301F]/50 text-[#17301F] active:bg-[#17301F]/10"
+                    ? "border-line2 bg-pink text-on-accent"
+                    : "border-line text-ink active:bg-surface2"
                 }`}
               >
                 {h.label}
@@ -210,36 +212,36 @@ export default function RoastStudio({
           <button
             onClick={() => roast(handle, heat)}
             disabled={loading || !handle.trim()}
-            className="mt-4 w-full border-2 border-[#17301F] bg-[#B23A2E] px-5 py-3 font-display text-sm uppercase text-[#F4F7F0] shadow-[3px_3px_0_#17301F] hover:bg-[#8E2E24] disabled:cursor-not-allowed disabled:opacity-40"
+            className="mt-4 w-full border border-line2 bg-pink px-5 py-3 font-display text-sm uppercase text-on-accent shadow-card hover:bg-pink disabled:cursor-not-allowed disabled:opacity-40"
           >
             {loading ? "Preparing…" : "Roast me"}
           </button>
-          {error && <p className="mt-2 text-sm text-[#B23A2E]">{error}</p>}
-          <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.15em] text-[#9CB09E]">
+          {error && <p className="mt-2 text-sm text-pink">{error}</p>}
+          <p className="mt-3 micro text-[10px] tracking-[0.15em] text-ink3">
             Patterns, not persons. Public repos only. Affection guaranteed.
           </p>
         </div>
       )}
 
       {receipt && (
-        <div className="coupon relative p-5">
-          <p className="text-center font-display text-xl uppercase text-[#B23A2E]">
+        <div className="rounded-[22px] border border-dashed border-line2 bg-surface relative p-5">
+          <p className="text-center font-display text-xl uppercase text-pink">
             Roast receipt
           </p>
-          <p className="mt-0.5 text-center font-mono text-sm font-semibold text-[#17301F]">
+          <p className="mt-0.5 text-center font-mono text-sm font-semibold text-ink">
             @{receipt.handle}
           </p>
-          <p className="tnum text-center font-mono text-[10px] uppercase tracking-[0.2em] text-[#9CB09E]">
+          <p className="tnum text-center micro text-[10px] tracking-[0.2em] text-ink3">
             Roast Nº {roastSerial(receipt.handle, receipt.heat)}
           </p>
           <ul className="mt-4 space-y-3">
             {receipt.lines.map((line, i) => (
-              <li key={i} className="text-[15px] leading-snug text-[#17301F]">
+              <li key={i} className="text-[15px] leading-snug text-ink">
                 — {line}
               </li>
             ))}
           </ul>
-          <p className="mt-5 rotate-[-3deg] border-2 border-[#B23A2E] px-2 py-1 text-center font-display text-sm uppercase text-[#B23A2E]">
+          <p className="mt-5 rotate-[-3deg] border border-pink px-2 py-1 text-center font-display text-sm uppercase text-pink">
             Prepared: {receipt.heat === "crispy" ? "Extra Crispy" : receipt.heat}
           </p>
 
@@ -248,7 +250,7 @@ export default function RoastStudio({
               onClick={async () =>
                 setShareMode(await exportRoastPng(receipt.handle, receipt.heat, receipt.lines))
               }
-              className="min-h-11 border-2 border-[#17301F] bg-[#B23A2E] px-4 py-2.5 font-display text-sm uppercase text-[#F4F7F0] shadow-[3px_3px_0_#17301F] hover:bg-[#8E2E24]"
+              className="min-h-11 border border-line2 bg-pink px-4 py-2.5 font-display text-sm uppercase text-on-accent shadow-card hover:bg-pink"
             >
               Share the receipt
             </button>
@@ -262,34 +264,34 @@ export default function RoastStudio({
                   // clipboard blocked — nothing to do
                 }
               }}
-              className="min-h-11 border-2 border-[#17301F] px-4 py-2.5 font-mono text-xs font-semibold uppercase tracking-widest text-[#17301F] active:bg-[#17301F]/10"
+              className="min-h-11 border border-line2 px-4 py-2.5 micro text-xs font-semibold text-ink active:bg-surface2"
             >
               {copied ? "Link copied ✓" : "Send them this →"}
             </button>
             {shareMode === "downloaded" && !canShareFiles() && (
-              <p className="text-center font-mono text-[10px] text-[#5A6E5E]">
+              <p className="text-center font-mono text-[10px] text-ink2">
                 Saved the image instead — this browser blocks native share.
               </p>
             )}
           </div>
 
           {/* the funnel: card → ship meter → arena */}
-          <div className="mt-4 grid grid-cols-3 gap-1.5 border-t border-dotted border-[#9CB09E] pt-4">
+          <div className="mt-4 grid grid-cols-3 gap-1.5 border-t border-dotted border-ink3 pt-4">
             <Link
               href={`/create?gh=${encodeURIComponent(receipt.handle)}`}
-              className="min-h-11 border border-[#17301F]/60 px-1 py-2 text-center font-mono text-[10px] uppercase tracking-[0.1em] text-[#17301F] active:bg-[#17301F]/10"
+              className="min-h-11 border border-line px-1 py-2 text-center micro text-[10px] tracking-[0.1em] text-ink active:bg-surface2"
             >
               Get your card
             </Link>
             <Link
               href={`/shipmeter?a=${encodeURIComponent(receipt.handle)}`}
-              className="min-h-11 border border-[#17301F]/60 px-1 py-2 text-center font-mono text-[10px] uppercase tracking-[0.1em] text-[#17301F] active:bg-[#17301F]/10"
+              className="min-h-11 border border-line px-1 py-2 text-center micro text-[10px] tracking-[0.1em] text-ink active:bg-surface2"
             >
               Ship meter
             </Link>
             <Link
               href={`/arena?vs=@${encodeURIComponent(receipt.handle)}`}
-              className="min-h-11 border border-[#17301F]/60 px-1 py-2 text-center font-mono text-[10px] uppercase tracking-[0.1em] text-[#17301F] active:bg-[#17301F]/10"
+              className="min-h-11 border border-line px-1 py-2 text-center micro text-[10px] tracking-[0.1em] text-ink active:bg-surface2"
             >
               Fight the index
             </Link>
@@ -302,7 +304,7 @@ export default function RoastStudio({
               setHandle("");
               setTimeout(() => inputRef.current?.focus(), 0);
             }}
-            className="mt-3 w-full py-2 text-center font-mono text-[11px] uppercase tracking-widest text-[#5A6E5E] active:text-[#17301F]"
+            className="mt-3 w-full py-2 text-center micro text-[11px] text-ink2 active:text-ink"
           >
             Roast someone else
           </button>

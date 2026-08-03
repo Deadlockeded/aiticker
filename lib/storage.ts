@@ -21,6 +21,7 @@ export const KEYS = {
   binderRoom: "ai-index:binder-room:v1",
   wallet: "ai-index:wallet:v1",
   rituals: "ai-index:rituals:v1",
+  theme: "ai-index:theme:v1",
   roomsSeen: "ai-index:rooms-seen:v1",
   storageVersion: "ai-index:storage-version",
 } as const;

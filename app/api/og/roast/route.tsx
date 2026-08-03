@@ -32,8 +32,8 @@ export async function GET(req: Request) {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: "#F4F7F0",
-          color: "#17301F",
+          background: "#F4F3F7",
+          color: "#0E0E13",
           fontFamily: "sans-serif",
         }}
       >
@@ -42,20 +42,20 @@ export async function GET(req: Request) {
             display: "flex",
             flexDirection: "column",
             width: 900,
-            border: "4px dashed #17301F",
+            border: "4px dashed #0E0E13",
             padding: "36px 48px",
           }}
         >
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <div style={{ display: "flex", fontSize: 40, fontWeight: 800, color: "#B23A2E" }}>
+            <div style={{ display: "flex", fontSize: 40, fontWeight: 800, color: "#FF1F8F" }}>
               ROAST RECEIPT
             </div>
             <div
               style={{
                 display: "flex",
                 transform: "rotate(-4deg)",
-                border: "4px solid #B23A2E",
-                color: "#B23A2E",
+                border: "4px solid #FF1F8F",
+                color: "#FF1F8F",
                 fontSize: 24,
                 fontWeight: 800,
                 padding: "4px 14px",
@@ -69,10 +69,10 @@ export async function GET(req: Request) {
           </div>
           {burn ? (
             <div style={{ display: "flex", flexDirection: "column", marginTop: 24 }}>
-              <div style={{ display: "flex", fontSize: 44, fontWeight: 800, color: "#B23A2E" }}>
+              <div style={{ display: "flex", fontSize: 44, fontWeight: 800, color: "#FF1F8F" }}>
                 You&apos;ve been roasted.
               </div>
-              <div style={{ display: "flex", fontSize: 26, marginTop: 12, color: "#5A6E5E" }}>
+              <div style={{ display: "flex", fontSize: 26, marginTop: 12, color: "#B9B7C6" }}>
                 Three lines, prepared fresh. Open to read them.
               </div>
             </div>
@@ -81,7 +81,7 @@ export async function GET(req: Request) {
               {SAMPLE_LINES.map((line) => (
                 <div
                   key={line}
-                  style={{ display: "flex", fontSize: 25, marginTop: 12, color: "#17301F" }}
+                  style={{ display: "flex", fontSize: 25, marginTop: 12, color: "#0E0E13" }}
                 >
                   — {line}
                 </div>
@@ -97,7 +97,7 @@ export async function GET(req: Request) {
             }}
           >
             <OgMark size={30} />
-            <div style={{ display: "flex", fontSize: 22, letterSpacing: 4, color: "#5A6E5E" }}>
+            <div style={{ display: "flex", fontSize: 22, letterSpacing: 4, color: "#B9B7C6" }}>
               aiticker.xyz/roast
             </div>
           </div>
