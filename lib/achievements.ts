@@ -4,6 +4,7 @@ import { getBinder, notifyStore } from "./binder";
 import { getBattleRecordSnapshot, parseBattleRecord } from "./battle";
 import { addXP, getXP, XP_REWARDS } from "./xp";
 import { KEYS, readRaw, writeRaw } from "./storage";
+import { TOAST_EVENT } from "./toast";
 
 export interface Achievement {
   id: string;
@@ -14,7 +15,7 @@ export interface Achievement {
 
 export const ACHIEVEMENTS = achievements as Achievement[];
 
-export const TOAST_EVENT = "ai-index:toast";
+export { TOAST_EVENT };
 
 export function getUnlockedSnapshot(): string {
   return readRaw(KEYS.achievements) ?? "[]";

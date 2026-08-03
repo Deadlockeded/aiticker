@@ -1523,7 +1523,8 @@
       "Nonprofit, capped-profit, unlimited plot.",
       "Every model name is a spoiler for the next drama.",
       "The blog post drops before the paper. The paper never drops.",
-      "Their DevDays cause more pivots than recessions."
+      "Their DevDays cause more pivots than recessions.",
+      "Capped profit. Uncapped conversation about the cap."
     ]
   },
   {
@@ -6193,7 +6194,8 @@
       "GitHub for models, group hug for margins.",
       "Download charts are the field's pulse. They own the wrist.",
       "Every leaderboard drama happens on their lawn.",
-      "Open source's friendliest landlord."
+      "Open source's friendliest landlord.",
+      "The moat is everyone else's goodwill. Somehow it holds."
     ]
   },
   {
@@ -15836,7 +15838,8 @@
       "The safest model is the one that doesn't ship.",
       "A straight shot, they say. To where, they don't.",
       "No demos. No blog. Just capital.",
-      "Superintelligence, but make it stealth."
+      "Superintelligence, but make it stealth.",
+      "No product, by design. The roadmap is one sentence long."
     ]
   },
   {
@@ -16046,6 +16049,278 @@
       "Alignment, one click at a time."
     ],
     "icon": "<path d=\"M16 22 l8-12 c3 0 4 3 3 6 l-1 4 h10 c2 0 3 2 2 4 l-3 12 c-0.5 2-2 3-4 3 h-15 z\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M16 22 h-6 v17 h6\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "the-seed-round",
+    "name": "The Seed Round",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "Money for a deck and a dream",
+    "rarity": "common",
+    "serial": "101",
+    "editionSize": 1000,
+    "series": 1.5,
+    "metrics": {
+      "uselessness": 55,
+      "ubiquity": 72,
+      "lore": 60,
+      "vibes": 80
+    },
+    "stats": {
+      "rating": 52,
+      "innovation": 55,
+      "influence": 48,
+      "momentum": 62
+    },
+    "flavorText": "Nothing exists yet. That is the whole appeal.",
+    "quips": [
+      "Pre-product, pre-revenue, pre-everything. Priced accordingly: high.",
+      "Raised on a deck with one chart and a great deal of confidence.",
+      "Sixteen investors, one shared document, zero questions.",
+      "The friendliest money you will ever regret taking.",
+      "Small round. Enormous adjectives."
+    ],
+    "icon": "<circle cx=\"24\" cy=\"30\" r=\"12\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M24 30 v-8\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M24 24 c-6 -2 -8 -6 -7 -10 c5 0 8 4 7 10z\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M24 24 c6 -2 8 -6 7 -10 c-5 0 -8 4 -7 10z\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "the-valuation",
+    "name": "The Valuation",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "The number went up",
+    "rarity": "common",
+    "serial": "102",
+    "editionSize": 1000,
+    "series": 1.5,
+    "metrics": {
+      "uselessness": 68,
+      "ubiquity": 88,
+      "lore": 55,
+      "vibes": 72
+    },
+    "stats": {
+      "rating": 55,
+      "innovation": 40,
+      "influence": 66,
+      "momentum": 74
+    },
+    "flavorText": "Nobody asked how. Asking how is considered rude.",
+    "quips": [
+      "Number went up. Nobody asked how.",
+      "Arrived at by multiplying hope by a comparable.",
+      "Entirely defensible, provided nobody opens the model.",
+      "It went up again while you were reading this.",
+      "A price is a story two people agreed to stop arguing about."
+    ],
+    "icon": "<path d=\"M10 38 L20 26 L28 32 L38 14\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M30 14 h8 v8\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M10 42 h28\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"3 3\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "the-term-sheet",
+    "name": "The Term Sheet",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "Non-binding, mostly",
+    "rarity": "common",
+    "serial": "103",
+    "editionSize": 1000,
+    "series": 1.5,
+    "metrics": {
+      "uselessness": 40,
+      "ubiquity": 66,
+      "lore": 74,
+      "vibes": 58
+    },
+    "stats": {
+      "rating": 54,
+      "innovation": 45,
+      "influence": 70,
+      "momentum": 50
+    },
+    "flavorText": "Four pages. One of them matters. It is not page one.",
+    "quips": [
+      "Non-binding, except for the parts that decide everything.",
+      "Signed at a dinner nobody remembers ordering.",
+      "The good news is in 14pt. The rest is not.",
+      "Clean terms, they said. Twice. Quickly.",
+      "Everyone agreed it was standard. Nobody said standard for whom."
+    ],
+    "icon": "<path d=\"M14 8 h16 l6 6 v26 a2 2 0 0 1 -2 2 h-20 a2 2 0 0 1 -2 -2 v-30 a2 2 0 0 1 2 -2z\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M30 8 v6 h6\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M19 22 h12 M19 28 h12\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"2 3\"/><path d=\"M18 35 c3 -4 5 4 8 0 c2 -2 4 2 6 -1\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "the-pivot",
+    "name": "The Pivot",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "Same team, new everything",
+    "rarity": "common",
+    "serial": "104",
+    "editionSize": 1000,
+    "series": 1.5,
+    "metrics": {
+      "uselessness": 52,
+      "ubiquity": 70,
+      "lore": 62,
+      "vibes": 76
+    },
+    "stats": {
+      "rating": 53,
+      "innovation": 62,
+      "influence": 46,
+      "momentum": 70
+    },
+    "flavorText": "The old plan is now the origin story.",
+    "quips": [
+      "Same team, same investors, an entirely different company.",
+      "We were always going to end up here. Retroactively.",
+      "The domain still says the old thing. Nobody has the login.",
+      "Six months of work, reclassified as market research.",
+      "It is not a pivot if you change the deck first."
+    ],
+    "icon": "<path d=\"M10 38 h14 a6 6 0 0 0 6 -6 v-14\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M24 24 l6 -8 l6 8\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"10\" cy=\"38\" r=\"3\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "the-burn-rate",
+    "name": "The Burn Rate",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "Money, but faster",
+    "rarity": "common",
+    "serial": "105",
+    "editionSize": 1000,
+    "series": 1.5,
+    "metrics": {
+      "uselessness": 62,
+      "ubiquity": 78,
+      "lore": 50,
+      "vibes": 68
+    },
+    "stats": {
+      "rating": 54,
+      "innovation": 48,
+      "influence": 52,
+      "momentum": 76
+    },
+    "flavorText": "Runway is a countdown with better branding.",
+    "quips": [
+      "Twelve months of runway. Eleven, actually. Ten.",
+      "The compute bill arrives monthly, like weather.",
+      "Spending is a strategy if you say it confidently enough.",
+      "Every graph goes up. That is precisely the problem.",
+      "Efficient, relative to the least efficient comparable."
+    ],
+    "icon": "<path d=\"M24 40 c-7 0 -11 -5 -11 -11 c0 -7 7 -9 7 -17 c6 4 6 9 4 12 c3 -1 4 -4 4 -7 c5 4 7 8 7 12 c0 6 -4 11 -11 11z\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 44 h24\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"3 3\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "the-down-round",
+    "name": "The Down Round",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "The number went the other way",
+    "rarity": "common",
+    "serial": "106",
+    "editionSize": 1000,
+    "series": 1.5,
+    "metrics": {
+      "uselessness": 58,
+      "ubiquity": 54,
+      "lore": 66,
+      "vibes": 44
+    },
+    "stats": {
+      "rating": 50,
+      "innovation": 38,
+      "influence": 55,
+      "momentum": 40
+    },
+    "flavorText": "Still a round. Technically. Legally.",
+    "quips": [
+      "The number went the other way. We do not discuss the number.",
+      "Reframed internally as a recapitalization. Externally as nothing.",
+      "Preference stacks: the horror genre of finance.",
+      "Everyone is still here, just holding rather less of it.",
+      "A flat round wearing an extremely brave face."
+    ],
+    "icon": "<path d=\"M10 12 L20 24 L28 18 L38 34\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M30 34 h8 v-8\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M10 42 h28\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"3 3\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "the-stealth-startup",
+    "name": "The Stealth Startup",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "Pre-product, post-money",
+    "rarity": "common",
+    "serial": "107",
+    "editionSize": 1000,
+    "series": 1.5,
+    "metrics": {
+      "uselessness": 66,
+      "ubiquity": 58,
+      "lore": 62,
+      "vibes": 84
+    },
+    "stats": {
+      "rating": 52,
+      "innovation": 50,
+      "influence": 44,
+      "momentum": 58
+    },
+    "flavorText": "The website is a black square and an email address.",
+    "quips": [
+      "Pre-product, post-money, mid-conversation.",
+      "In stealth, which is also where the demo lives.",
+      "The landing page is one word, and it is lowercase.",
+      "Cannot say what they are building. Can say it is big.",
+      "Three years of stealth. At some point that is simply privacy."
+    ],
+    "icon": "<rect x=\"10\" y=\"14\" width=\"28\" height=\"22\" rx=\"3\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"4 3\"/><path d=\"M18 25 h4 M26 25 h4\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M19 31 c3 2 7 2 10 0\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "the-exit",
+    "name": "The Exit",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "Everybody says it was always the plan",
+    "rarity": "common",
+    "serial": "108",
+    "editionSize": 1000,
+    "series": 1.5,
+    "metrics": {
+      "uselessness": 44,
+      "ubiquity": 74,
+      "lore": 80,
+      "vibes": 70
+    },
+    "stats": {
+      "rating": 57,
+      "innovation": 52,
+      "influence": 68,
+      "momentum": 60
+    },
+    "flavorText": "The team stays two years. Nobody stays two years.",
+    "quips": [
+      "Acquired. The blog post uses the word journey four times.",
+      "Everyone says it was always the plan. It was never the plan.",
+      "The product sunsets in eighteen months. That is paragraph nine.",
+      "Two-year retention package. Average stay: eleven months.",
+      "A great outcome for everybody, ranked strictly by preference stack."
+    ],
+    "icon": "<path d=\"M12 10 h14 v28 h-14z\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M22 24 h0.01\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M28 24 h10\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M34 19 l5 5 l-5 5\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>",
     "priceHistory": []
   }
 ]

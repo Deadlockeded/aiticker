@@ -23,6 +23,7 @@ import TradingCard from "./TradingCard";
 import DailyQuip from "./DailyQuip";
 import Sparkline from "./Sparkline";
 import AchievementWall from "./AchievementWall";
+import RaiseARound from "./RaiseARound";
 
 const RARITY_ORDER: Rarity[] = ["legendary", "epic", "rare", "common"];
 const RARITY_RING: Record<Rarity, string> = {
@@ -239,8 +240,9 @@ export default function BinderPages({
 
   return (
     <div>
-      {/* slim sticky header */}
-      <div className="sticky top-14 z-20 -mx-1 mb-3 flex items-center gap-3 rounded-xl border border-[#17301F]/30 bg-[#F4F7F0]/95 px-3 py-2 backdrop-blur-md">
+      {/* slim sticky header — two rows on mobile: collection, then money */}
+      <div className="sticky top-14 z-20 -mx-1 mb-3 rounded-xl border border-[#17301F]/30 bg-[#F4F7F0]/95 px-3 py-2 backdrop-blur-md">
+      <div className="flex items-center gap-2">
         <button
           onClick={() => setRingPop((v) => !v)}
           className="relative flex min-h-11 items-center gap-2"
@@ -254,24 +256,32 @@ export default function BinderPages({
               strokeLinecap="round"
             />
           </svg>
-          <span className="tnum font-mono text-sm text-[#17301F]">
+          <span className="tnum whitespace-nowrap font-mono text-[13px] text-[#17301F]">
             {/* series are sealed — per-series denominators only, never a
                 global total (the set will grow as new series drop) */}
-            {seriesLines.map(({ series, owned: o, size, silver, gold, holo }) => (
+            {/* parallels live in the popover — the header stays one line */}
+            {seriesLines.map(({ series, owned: o, size }) => (
               <span key={series} className="mr-2">
-                S{series} — {o}/{size}
-                <span className="ml-1.5 text-[10px] text-[#9CB09E]">
-                  · <span className="text-[#5A6E5E]">SILVER {silver}</span> ·{" "}
-                  <span className="text-[#8C6D1F]">GOLD {gold}</span> ·{" "}
-                  <span className="text-[#6B4FA0]">HOLO {holo}</span>
-                </span>
+                S{series} {o}/{size}
               </span>
             ))}
           </span>
         </button>
+        <span className="ml-auto font-mono text-[10px] uppercase tracking-widest text-[#9CB09E]">
+          {pageLabel(Math.min(page, pages.length - 1), chaseStart, artifactStart, chaseCount)}
+        </span>
+        <button
+          onClick={() => setTrophies(true)}
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-lg hover:bg-[#17301F]/5"
+          title="Achievements"
+        >
+          🏆
+        </button>
+      </div>
+      <div className="flex items-center gap-3 border-t border-dotted border-[#9CB09E]/60 pt-1">
         <button
           onClick={() => setValuationInfo((v) => !v)}
-          className="relative flex min-h-11 items-center font-mono text-[11px] uppercase tracking-[0.15em] text-[#5A6E5E]"
+          className="relative flex min-h-9 items-center font-mono text-[10px] uppercase tracking-[0.15em] text-[#5A6E5E]"
           title="How this is calculated"
         >
           Lab valuation:{" "}
@@ -286,25 +296,17 @@ export default function BinderPages({
           )}
         </button>
         {walletRaw !== null && (
-          <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-[#5A6E5E]">
+          <span className="ml-auto font-mono text-[10px] uppercase tracking-[0.15em] text-[#5A6E5E]">
             Wallet{" "}
-            <span className="tnum text-sm tracking-normal text-[#1F6E3D]">
+            <span className="tnum text-[13px] tracking-normal text-[#1F6E3D]">
               {formatTicks(balanceFrom(walletRaw))}
             </span>
           </span>
         )}
-        <span className="ml-auto font-mono text-[10px] uppercase tracking-widest text-[#9CB09E]">
-          {pageLabel(Math.min(page, pages.length - 1), chaseStart, artifactStart, chaseCount)}
-        </span>
-        <button
-          onClick={() => setTrophies(true)}
-          className="flex h-11 w-11 items-center justify-center rounded-lg text-lg hover:bg-[#17301F]/5"
-          title="Achievements"
-        >
-          🏆
-        </button>
+      </div>
+      <div className="relative">
         {ringPop && (
-          <div className="absolute left-2 top-full z-30 mt-1 w-52 rounded-xl border border-[#17301F]/40 bg-[#F4F7F0] p-3 shadow-xl">
+          <div className="absolute left-2 top-full z-30 mt-1 w-56 rounded-xl border border-[#17301F]/40 bg-[#F4F7F0] p-3 shadow-xl">
             {RARITY_ORDER.map((r) => {
               const total = ordered.filter((c) => c.rarity === r).length;
               const have = ordered.filter((c) => c.rarity === r && binder[c.id]).length;
@@ -315,9 +317,24 @@ export default function BinderPages({
                 </div>
               );
             })}
+            <div className="mt-2 border-t border-dotted border-[#9CB09E] pt-2">
+              {seriesLines.map(({ series, silver, gold, holo }) => (
+                <div key={series} className="flex justify-between font-mono text-[11px]">
+                  <span className="text-[#9CB09E]">S{series} parallels</span>
+                  <span className="tnum">
+                    <span className="text-[#5A6E5E]">{silver} silver</span> ·{" "}
+                    <span className="text-[#8C6D1F]">{gold} gold</span> ·{" "}
+                    <span className="text-[#6B4FA0]">{holo} holo</span>
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         )}
       </div>
+      </div>
+
+      <RaiseARound />
 
       {/* room switcher — presentation skins over the same collection */}
       <div className="mb-2 flex items-center gap-1.5 overflow-x-auto">
@@ -663,7 +680,7 @@ export default function BinderPages({
             onClick={(e) => e.stopPropagation()}
             className="absolute inset-x-0 bottom-0 max-h-[80vh] overflow-y-auto rounded-t-2xl border-t border-[#17301F]/40 bg-[#F4F7F0] p-4 pb-[calc(1rem+env(safe-area-inset-bottom))]"
           >
-            <AchievementWall />
+            <AchievementWall valuation={value} />
           </div>
         </div>
       )}

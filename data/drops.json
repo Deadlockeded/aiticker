@@ -18,7 +18,15 @@
       "the-temperature-slider",
       "the-conference-badge",
       "the-arxiv-timestamp",
-      "the-rlhf-thumbs-up"
+      "the-rlhf-thumbs-up",
+      "the-seed-round",
+      "the-valuation",
+      "the-term-sheet",
+      "the-pivot",
+      "the-burn-rate",
+      "the-down-round",
+      "the-stealth-startup",
+      "the-exit"
     ]
   }
 ]

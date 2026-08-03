@@ -20,6 +20,7 @@ import Masthead from "./Masthead";
 import NextDrop from "./NextDrop";
 import MetaStrip from "./MetaStrip";
 import PackRipper from "./PackRipper";
+import RaiseARound from "./RaiseARound";
 import RoastTeaser from "./RoastTeaser";
 import TodayMeta from "./TodayMeta";
 
@@ -82,6 +83,7 @@ function IndexSections({
   return (
     <>
       {children}
+      <RaiseARound />
       <RoastTeaser />
       <NextDrop />
       <MetaStrip />

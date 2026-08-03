@@ -7,18 +7,48 @@ import {
   getUnlockedSnapshot,
   parseUnlocked,
 } from "@/lib/achievements";
+import { getXPSnapshot, levelFor, levelShareText, raiseLine } from "@/lib/xp";
+import ShareButton from "./ShareButton";
 
 /** Badge wall on /binder. */
-export default function AchievementWall() {
+export default function AchievementWall({ valuation = 0 }: { valuation?: number }) {
   const raw = useSyncExternalStore(subscribeStore, getUnlockedSnapshot, () => null);
+  const xpRaw = useSyncExternalStore(subscribeStore, getXPSnapshot, () => null);
   const unlocked = useMemo(
     () => new Set(raw === null ? [] : parseUnlocked(raw)),
     [raw],
   );
   if (raw === null) return null;
+  const stage = levelFor(parseInt(xpRaw ?? "0", 10) || 0);
 
   return (
     <section className="mt-10">
+      {/* the funding ladder — the XP levels, dressed for the industry */}
+      <div className="mb-5 border-2 border-[#17301F] bg-[#F4F7F0] p-3 text-center shadow-[3px_3px_0_#17301F]">
+        <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#9CB09E]">
+          Stage
+        </p>
+        <p className="mt-0.5 font-display text-lg uppercase text-[#17301F]">
+          {stage.title}
+        </p>
+        <p className="mt-0.5 text-[13px] italic text-[#5A6E5E]">
+          {raiseLine(stage.level)}
+        </p>
+        <div className="mx-auto mt-2 h-1.5 w-40 border border-[#17301F]/40">
+          <div
+            className="h-full bg-[#B23A2E]"
+            style={{ width: `${Math.round(stage.progress * 100)}%` }}
+          />
+        </div>
+        <div className="mt-2 flex justify-center">
+          <ShareButton
+            label="Share the round"
+            text={levelShareText(stage.level, Math.round(valuation))}
+            url=""
+            className="text-xs"
+          />
+        </div>
+      </div>
       <h2 className="mb-3 text-sm font-semibold text-[#17301F]">
         Achievements{" "}
         <span className="tnum font-mono text-xs text-[#9CB09E]">

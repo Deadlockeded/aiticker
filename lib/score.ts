@@ -226,6 +226,13 @@ const VERDICTS: { when: (r: RawFootprint, s: CommunitySliders) => boolean; line:
   { when: (r) => r.followers < 10 && r.pushes90d >= 30, line: "Building in silence. The silence is deafening." },
   { when: (r) => r.publicRepos > 100, line: "Starts projects like browser tabs. Closes neither." },
   { when: (r) => r.mlRepos === 0 && r.hfModels === 0 && r.publicRepos > 3, line: "Zero ML repos in this economy. Genuinely brave." },
+  // Funding-flavoured verdicts: patterns only. No real raise, amount, or
+  // valuation is ever asserted here (see the hard rule in lines.ts).
+  { when: (r, s) => s.yapping >= 70 && s.shipping <= 40, line: "Fundable. Unfortunately." },
+  { when: (r) => r.publicRepos <= 3 && r.followers >= 500, line: "Pre-product, post-following. The deck writes itself." },
+  { when: (r, s) => s.gpuHoarding >= 70 && s.shipping <= 50, line: "Burn rate: confirmed. Product: pending." },
+  { when: (r, s) => s.galaxyBrain >= 75 && s.yapping <= 35, line: "Would raise on a whiteboard photo. Will not post the photo." },
+  { when: (r) => r.mlRepos >= 5 && r.totalStars < 100, line: "Deep tech, deeply pre-revenue. The best kind of pre." },
   { when: (r, s) => s.shipping >= 70 && s.yapping >= 70, line: "Ships AND markets. Insufferable at parties, priceless at work." },
   { when: (r) => r.totalStars > 20_000, line: "More stars than a clear desert night. Statistically." },
   { when: (r, s) => Object.values(s).every((v) => v >= 40 && v <= 60), line: "Perfectly balanced. The Algorithm finds this deeply suspicious." },

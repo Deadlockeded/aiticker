@@ -65,6 +65,32 @@ const seedBinder = (page: Page, ids: string[]) =>
     );
   }, ids);
 
+/** Seed a Tick balance (and optionally today's earn counter). */
+const seedWallet = (page: Page, bal: number) =>
+  page.addInitScript((amount: number) => {
+    const d = new Date();
+    const day = `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, "0")}-${String(d.getUTCDate()).padStart(2, "0")}`;
+    // seed once — this init script re-runs on every navigation, and a
+    // reload must not wipe what the test just earned or claimed
+    if (!localStorage.getItem("ai-index:wallet:v1")) {
+      localStorage.setItem(
+        "ai-index:wallet:v1",
+        JSON.stringify({ bal: amount, day, earned: 0 }),
+      );
+      // the daily visit stipend is pre-claimed so balances stay exact
+      localStorage.setItem("ai-index:rituals:v1", JSON.stringify({ visit: day }));
+    }
+  }, bal);
+
+/** Drain the free-pack bank so only the exchange path is left. */
+const seedNoPacks = (page: Page) =>
+  page.addInitScript(() => {
+    localStorage.setItem(
+      "ai-index:packs:v1",
+      JSON.stringify({ bank: 0, ts: Date.now(), ripped: 9 }),
+    );
+  });
+
 test.describe("console + assets", () => {
   for (const path of PAGES) {
     test(`renders clean: ${path}`, async ({ page }) => {
@@ -270,7 +296,7 @@ test("binder rooms: switcher renders all three skins", async ({ page }) => {
   await expect(page.getByText(/\d+ participants/)).toBeVisible();
   await expect(page.getByText(/Waiting for .* to join/).first()).toBeVisible();
   await page.getByRole("button", { name: "The Binder" }).click();
-  await expect(page.getByText(/S1 —/)).toBeVisible();
+  await expect(page.getByText(/S1 \d+\/\d+/)).toBeVisible();
 });
 
 test("drops: unreleased Series 1.5 cards are hidden everywhere", async ({ page }) => {
@@ -333,4 +359,73 @@ test("about + how it works render", async ({ page }) => {
   await expect(page.getByRole("heading", { name: "How it works" })).toBeVisible();
   await page.goto("/about");
   await expect(page.getByRole("heading", { name: "About" })).toBeVisible();
+});
+
+
+test("exchange pack: ₮500 buys a rip and the balance drops", async ({ page }) => {
+  await blockArt(page);
+  await seedBinder(page, ["openai"]);
+  await seedWallet(page, 900);
+  await seedNoPacks(page);
+  await page.goto("/packs");
+  // free bank is empty, so the countdown offers the exchange as a second line
+  await expect(page.getByText(/Next pack in/).first()).toBeVisible();
+  await page.getByRole("button", { name: /Exchange pack — ₮500/ }).click();
+  await expect(page.getByText("Balance after")).toBeVisible();
+  await expect(page.getByText("₮400")).toBeVisible();
+  await page.getByRole("button", { name: /Trade ₮500/ }).click();
+  await page.getByLabel("Reveal the cards").click({ timeout: 10_000 });
+  await page.getByRole("button", { name: "Add to binder →" }).click();
+  await page.waitForURL("**/binder");
+  const wallet = await page.evaluate(() =>
+    JSON.parse(localStorage.getItem("ai-index:wallet:v1") ?? "{}"),
+  );
+  expect(wallet.bal).toBe(400);
+  // the pack landed: more than the single seeded card is in the binder
+  const binder = await page.evaluate(() =>
+    JSON.parse(localStorage.getItem("ai-index:binder:v1") ?? "{}"),
+  );
+  expect(Object.keys(binder).length).toBeGreaterThan(1);
+});
+
+test("exchange pack is refused when the wallet is short", async ({ page }) => {
+  await blockArt(page);
+  await seedBinder(page, ["openai"]);
+  await seedWallet(page, 120);
+  await seedNoPacks(page);
+  await page.goto("/packs");
+  await expect(page.getByRole("button", { name: /Exchange pack — ₮500/ })).toBeDisabled();
+});
+
+test("arena purse: fighting pays, line-itemed, and never debits", async ({ page }) => {
+  await blockArt(page);
+  await seedBinder(page, ["openai", "the-em-dash"]);
+  await seedWallet(page, 0);
+  await page.goto("/arena");
+  await page.getByRole("button", { name: /OpenAI/ }).first().click();
+  await page.getByRole("button", { name: "Fight →" }).first().click();
+  await expect(page.getByTestId("purse")).toBeVisible({ timeout: 15_000 });
+  await expect(page.getByText("Base")).toBeVisible();
+  const wallet = await page.evaluate(() =>
+    JSON.parse(localStorage.getItem("ai-index:wallet:v1") ?? "{}"),
+  );
+  // win or lose, the balance only ever moves up
+  expect(wallet.bal).toBeGreaterThan(0);
+});
+
+test("raise a round: claimable once, then gone for the week", async ({ page }) => {
+  await blockArt(page);
+  await seedBinder(page, ["openai"]);
+  await seedWallet(page, 0);
+  await page.goto("/binder");
+  await expect(page.getByText("This week's round")).toBeVisible();
+  await page.getByRole("button", { name: "Sign it →" }).click();
+  await expect(page.getByText(/Round closed — \+₮300/)).toBeVisible();
+  const wallet = await page.evaluate(() =>
+    JSON.parse(localStorage.getItem("ai-index:wallet:v1") ?? "{}"),
+  );
+  expect(wallet.bal).toBe(300);
+  // a reload inside the same week must not offer it again
+  await page.reload();
+  await expect(page.getByText("This week's round")).not.toBeVisible();
 });

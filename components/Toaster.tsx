@@ -56,7 +56,11 @@ export default function Toaster() {
   return (
     <>
       {ticks.length > 0 && (
-        <div className="pointer-events-none fixed inset-x-0 top-[calc(0.75rem+env(safe-area-inset-top))] z-50 flex flex-col items-center gap-1.5">
+        <div
+          // top offset clears the sticky nav — a chip level with the header
+          // reads as chrome, not as a reward
+          className="pointer-events-none fixed inset-x-0 top-[calc(5rem+env(safe-area-inset-top))] z-50 flex flex-col items-center gap-1.5"
+        >
           {ticks.map((t) => (
             <span
               key={t.key}

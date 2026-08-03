@@ -2,6 +2,7 @@ import type { MarketCard } from "./cards";
 import type { CommunitySliders } from "./create";
 import type { ArtifactMetrics, EngineerMetrics } from "./types";
 import { dayHash, utcDayKey } from "./daily";
+import { isReleased } from "./drops";
 
 /**
  * THE DAILY META — the rotating pool of fight categories.
@@ -295,7 +296,10 @@ export function metaWatchLine(cards: MarketCard[], dateKey = utcDayKey()): strin
     cachedWatchKey = dateKey;
     const active = getDailyMeta(dateKey);
     const cat = active[dayHash(`meta-watch:${dateKey}`) % active.length];
-    const pool = cards.filter((c) => c.type !== "artifact" && c.id !== "agi");
+    // unreleased drop cards must never surface in a META WATCH line
+    const pool = cards.filter(
+      (c) => c.type !== "artifact" && c.id !== "agi" && isReleased(c.id),
+    );
     const top = [...pool].sort(
       (a, b) => metaValueForCard(b, cat.key) - metaValueForCard(a, cat.key),
     )[0];
