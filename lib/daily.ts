@@ -15,6 +15,20 @@ export function utcDayKey(d = new Date()): string {
 /** FNV-1a of a date-ish key — the app-wide deterministic picker. */
 export const dayHash = fnvHash;
 
+/** ISO-ish week key, e.g. "2026-W31". Weeks start Monday, UTC. */
+export function utcWeekKey(d = new Date()): string {
+  const t = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
+  // Thursday of this week decides the year (ISO-8601)
+  const day = (t.getUTCDay() + 6) % 7;
+  t.setUTCDate(t.getUTCDate() - day + 3);
+  const firstThursday = new Date(Date.UTC(t.getUTCFullYear(), 0, 4));
+  const fDay = (firstThursday.getUTCDay() + 6) % 7;
+  firstThursday.setUTCDate(firstThursday.getUTCDate() - fDay + 3);
+  const week =
+    1 + Math.round((t.getTime() - firstThursday.getTime()) / (7 * 86_400_000));
+  return `${t.getUTCFullYear()}-W${String(week).padStart(2, "0")}`;
+}
+
 
 /**
  * Two cards run hot each day: flame badge + "+3" shown everywhere.

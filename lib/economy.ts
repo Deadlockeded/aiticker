@@ -42,7 +42,13 @@ export const PURSE_STREAK_BONUS: Record<number, number> = {
 
 /** Once per UTC day, just for showing up. */
 export const DAILY_VISIT_TICKS = 50;
-/** RAISE A ROUND: once per ISO week. */
+/**
+ * RAISE A ROUND: once per ISO week, ₮300 base. ~1 week in 6 is special and
+ * the amount moves WITH the copy (lib/rounds.ts): down ₮150, bridge ₮200,
+ * oversubscribed ₮400. Ceiling note: an oversubscribed round day tops out at
+ * 650 cap + 50 visit + 400 round = ₮1,100 ≈ 2.2 packs, at most once every
+ * ~6 weeks; every ordinary round day still caps at exactly 2 packs.
+ */
 export const WEEKLY_ROUND_TICKS = 300;
 
 /** Selling a duplicate pays this share of the card's current book price. */

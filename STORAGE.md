@@ -15,6 +15,7 @@ is kept so existing collectors' data survives — do not "fix" it.
 | `ai-index:battle:v1` | `{current, best, wins, losses, giantSlain?, winDay?}` | `lib/battle.ts` | Arena record + streaks. `winDay` is the UTC day of the last win, which drives the first-win-of-day purse. |
 | `ai-index:wallet:v1` | `{bal, day, earned}` | `lib/wallet.ts` | Tick balance. `earned` is today's capped income and resets on UTC rollover; the cap is `EARN_DAILY_CAP`. Fresh wallets open at ₮100. |
 | `ai-index:rituals:v1` | `{visit?: dayKey, round?: weekKey}` | `lib/rituals.ts` | Idempotency stamps for the daily visit stipend and RAISE A ROUND. |
+| `ai-index:cap-table:v1` | `{week, investor, amount}[]` (max 10) | `lib/rituals.ts` | The fictional cap table — past claimed rounds, newest last. |
 | `ai-index:binder-visit:v1` | epoch ms as string | `components/BinderPages.tsx` | Previous visit timestamp, powers NEW tags. |
 | `ai-index:community-card:v1` | `CommunityCard` JSON | `lib/create.ts` | The saved prospect card. |
 | `ai-index:reroll:v1` | `{date, used}` | `lib/create.ts` | Rarity re-roll allowance (3/day). |

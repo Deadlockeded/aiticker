@@ -424,21 +424,28 @@ test("arena purse: fighting pays, line-itemed, and never debits", async ({ page 
   expect(wallet.bal).toBeGreaterThan(0);
 });
 
-test("raise a round: claimable once, then gone for the week", async ({ page }) => {
+test("raise a round: claimable once, cap table remembers, gone for the week", async ({ page }) => {
   await blockArt(page);
   await seedBinder(page, ["openai"]);
   await seedWallet(page, 0);
   await page.goto("/binder");
   await expect(page.getByText("This week's round")).toBeVisible();
-  await page.getByRole("button", { name: "Sign it →" }).click();
-  await expect(page.getByText(/Round closed — \+₮300/)).toBeVisible();
+  await expect(page.getByText(/Terms: /)).toBeVisible();
+  // the button label varies with the week (Sign it / Take it / Shake on it /
+  // Sign it all) — claim via testid, then check the wallet took the round's
+  // own amount, which special weeks change with the copy
+  await page.getByTestId("claim-round").click();
+  await expect(page.getByText(/Round closed — \+₮\d+/)).toBeVisible();
   const wallet = await page.evaluate(() =>
     JSON.parse(localStorage.getItem("ai-index:wallet:v1") ?? "{}"),
   );
-  expect(wallet.bal).toBe(300);
-  // a reload inside the same week must not offer it again
+  expect([150, 200, 300, 400]).toContain(wallet.bal);
+  // a reload inside the same week must not offer it again — but the cap
+  // table keeps the closed round on the books
   await page.reload();
   await expect(page.getByText("This week's round")).not.toBeVisible();
+  await expect(page.getByText("Cap table")).toBeVisible();
+  await expect(page.getByText(/₮(150|200|300|400)/).first()).toBeVisible();
 });
 
 

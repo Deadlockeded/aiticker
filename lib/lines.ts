@@ -188,46 +188,6 @@ export function pickStamp(ctx: StampCtx, random: () => number = Math.random): st
   return eligible[eligible.length - 1]?.text ?? "VERIFIED HUMAN (PROBABLY)";
 }
 
-// ---------------------------------------------------------------- Funding
-
-/**
- * RAISE A ROUND pools. HARD RULE: every investor here is FICTIONAL and every
- * term is nonsense. No real fund, firm, person, or deal may ever be named,
- * and no funding number may be attributed to a real company anywhere in the
- * app — the funding bit satirizes the ritual, using the player's own
- * imaginary lab as the mark.
- */
-export const INVESTORS = [
-  "Uncle Dave",
-  "The Group Chat",
-  "Gut Feeling Capital",
-  "Three Dentists And A Podcast",
-  "Perpetual Motion Partners",
-  "A Family Office That Won't Name The Family",
-  "Someone's Former Manager",
-  "Slightly Bored Sovereign Wealth",
-  "Diligence-Free Ventures",
-  "The Cousin Fund",
-  "A Man Who Owns Several Airports",
-  "Post-Rational Capital",
-  "The Guy From The Conference Hallway",
-  "Vibe-Weighted Holdings",
-  "Two Angels And A Spreadsheet",
-];
-
-export const ROUND_TERMS = [
-  "vibes",
-  "a napkin",
-  "one warm intro",
-  "a handshake at baggage claim",
-  "a liquidation preference nobody read",
-  "pro-rata on everything, forever",
-  "a board seat for their nephew",
-  "no cap, no floor, no notes",
-  "a SAFE with a typo in it",
-  "an option pool that eats you last",
-];
-
 // ---------------------------------------------------------------- Ship Meter v2
 
 /**

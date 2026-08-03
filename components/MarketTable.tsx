@@ -121,7 +121,7 @@ export default function MarketTable({
       {/* desktop table */}
       <table className="hidden w-full border-collapse text-sm sm:table">
         <thead>
-          <tr className="bg-ink text-left micro text-xs text-on-accent">
+          <tr className="bg-ink text-left micro text-xs text-bg">
             {COLUMNS.map((col) => (
               <th
                 key={col.key}

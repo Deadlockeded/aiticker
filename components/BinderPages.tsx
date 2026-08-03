@@ -334,7 +334,7 @@ export default function BinderPages({
       </div>
       </div>
 
-      <RaiseARound />
+      <RaiseARound showHistory />
 
       {/* room switcher — presentation skins over the same collection */}
       <div className="mb-2 flex items-center gap-1.5 overflow-x-auto">
@@ -347,7 +347,7 @@ export default function BinderPages({
               disabled={!unlocked}
               className={`min-h-11 shrink-0 border px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.15em] ${
                 room === r.id
-                  ? "border-line2 bg-ink text-on-accent"
+                  ? "border-line2 bg-ink text-bg"
                   : unlocked
                     ? "border-line text-ink hover:border-line2"
                     : "cursor-not-allowed border-line text-ink3"

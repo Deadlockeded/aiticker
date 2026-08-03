@@ -170,3 +170,102 @@ Discourse · Safety Posting · Demo Energy**
 (The twelve in bold are new.) "Fundraising" is an opinion score for *makes
 people want in*, derived from influence and momentum — it is not a claim
 about any real raise.
+
+## RAISE A ROUND v2 — the term-sheet generator (lib/rounds.ts)
+
+Every element is seeded by ISO week: the whole world sees the same round, and
+it rolls over Monday UTC. ~1 week in 6 is SPECIAL (by week-hash) and the
+amount moves with the copy: **down ₮150 ("Take it →") · bridge ₮200 ("Shake
+on it →") · oversubscribed ₮400 ("Sign it all →")**; every other week stays
+₮300. Ceiling: an oversubscribed round day = 650 cap + 50 visit + 400 =
+₮1,100 ≈ 2.2 packs, at most once every ~6 weeks. Claimed rounds append to the
+CAP TABLE in the binder (last 10) — the long-running joke is your fictional
+cap table filling with cursed names.
+
+### Templates (8, rotate weekly)
+
+1. "₮{amt} from {investor}, at a valuation nobody verified."
+2. "₮{amt} from {investor}. Diligence was {diligence}."
+3. "{investor} is in for ₮{amt}. They found you via {sourcing}."
+4. "₮{amt} led by {investor}, who asked zero questions and answered none."
+5. "Oversubscribed: {investor} AND {investor2} want in. Still ₮{amt}."
+6. "₮{amt} from {investor}, wired {wiring}."
+7. "{investor} offers ₮{amt} and 'as much help as you need,' which is none."
+8. "₮{amt} from {investor} after a {meeting} that ran long."
+
+### Investors (30 — all fictional, no real-firm puns; checked by hand)
+
+Uncle Dave · Blustery Capital · Your Landlord (Diversifying) · Moist Ventures
+⚠️ (gross-funny; flag if it reads crude) · The Group Chat · Dentist Money LLC ·
+A Guy From The Sauna · FOMO Partners · Your Mom's Book Club Fund ⚠️ ("your
+mom" is affectionate here, but it is the only investor that references the
+player's family — swap for "The Book Club Fund" if it lands wrong) · Sigma
+Grindset Family Office · Gut Feeling Capital · Perpetual Motion Partners ·
+Diligence-Free Ventures · The Cousin Fund · Post-Rational Capital ·
+Vibe-Weighted Holdings · Two Angels And A Spreadsheet · A Family Office That
+Won't Name The Family · Someone's Former Manager · Slightly Bored Sovereign
+Wealth · The Guy From The Conference Hallway · A Man Who Owns Several
+Airports · Lukewarm Intro Capital · Napkin Math Partners · The Airport Lounge
+Collective · Barely Liquid Ventures · Your Barber's Investment Club · Exit
+Vibes Only LP · The Podcast Cohost · Grandma's Mattress Fund
+
+### Terms (25)
+
+VIBES ONLY · A NAPKIN, SIGNED · ONE WARM INTRO, PERPETUAL · PRO-RATA ON
+FEELINGS · BOARD SEAT: THE DOG · LIQUIDATION PREFERENCE: DIBS · MFN WITH YOUR
+COUSIN · SAFE (SORT OF) · DUE BY VIBES · NON-BINDING, LIKE EVERYTHING · NO
+CAP, NO FLOOR, NO NOTES · A HANDSHAKE AT BAGGAGE CLAIM · AN OPTION POOL THAT
+EATS YOU LAST · ANTI-DILUTION: ASKED NICELY · DRAG-ALONG: EMOTIONALLY ·
+TAG-ALONG: TO BRUNCH · CLIFF: EVERY MONDAY · VESTING ON GOOD BEHAVIOR ·
+INFORMATION RIGHTS: THE GROUP CHAT · A SIDE LETTER, LOST · PAY-TO-PLAY, VENMO
+PENDING ⚠️ (names a real product; descriptive use, not a joke about Venmo —
+swap for "PAYMENT PENDING" if you'd rather keep brands out entirely) · FULL
+RATCHET, WHATEVER THAT IS · ROFR ON YOUR NEXT IDEA · BOARD OBSERVER: MUTED ·
+EXCLUSIVITY UNTIL LUNCH
+
+### Diligence (10)
+
+a vibe check · one squinted look at the landing page · your LinkedIn banner
+⚠️ (the NO-LINKEDIN hard rule is about data sources and roast targets; this
+only jokes that an investor looked at a banner — flagged so you confirm the
+boundary) · skipped entirely · outsourced to their nephew · a coin, flipped
+once · three minutes of scrolling, impressed · asking around the sauna ·
+reading the README's first sentence · a gut feeling, seconded by the dog
+
+### Sourcing (10)
+
+a reply guy · your roast receipt · a podcast at 2x · the group chat ·
+misreading your bio · a screenshot of a screenshot · the wrong search result ·
+your arena record · a conference lanyard they kept · an airport lounge
+conversation
+
+### Wiring (8)
+
+eventually · in exposure first · pending one more call · to the wrong
+account, then yours · in three tranches of vibes · after one more sauna · by
+check, somehow · the moment you stop asking
+
+### Meetings (8)
+
+walk-and-talk · voice note · sauna session · Zoom with cameras off ⚠️ (Zoom
+is a real product; descriptive use — swap for "video call, cameras off" if
+preferred) · chance encounter at baggage claim · dinner nobody remembers
+ordering · gym spot turned pitch · car ride to the airport
+
+### Sign lines (8)
+
+Signed. Nothing is binding. · Wire pending. Forever. · Congrats on the
+dilution. · {investor} has already told three people. · The napkin is
+countersigned. · Your cap table just got more interesting. · Your hoodie is
+in the mail. · The announcement thread drafts itself.
+
+### Special-week copy
+
+DOWN (₮150): preline "Market conditions. Their words." + "₮150 from
+{investor}, reluctantly." · OVERSUBSCRIBED (₮400): template 5 with two
+distinct investors · BRIDGE (₮200): "₮200 from {investor}. A bridge to the
+next bridge."
+
+### Share line
+
+"Just closed ₮{amt} from {investor}. Terms: {term}. aiticker.xyz"
