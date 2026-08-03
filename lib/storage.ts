@@ -11,7 +11,6 @@
 export const KEYS = {
   binder: "ai-index:binder:v1",
   packs: "ai-index:packs:v1",
-  peeked: "ai-index:peeked:v1",
   xp: "ai-index:xp:v1",
   achievements: "ai-index:achievements:v1",
   battle: "ai-index:battle:v1",
@@ -22,16 +21,17 @@ export const KEYS = {
   storageVersion: "ai-index:storage-version",
 } as const;
 
-/** Keys written by since-removed features (draft lab, Tickerdle, tier lists, visit streaks, daily votes). */
+/** Keys written by since-removed features (draft lab, Tickerdle, tier lists, visit streaks, daily votes, the peek system). */
 const STALE_KEYS = [
   "ai-index:labs:v1",
   "ai-index:tickerdle:v1",
   "ai-index:tiers:v1",
   "ai-index:visits:v1",
   "ai-index:votes:v1",
+  "ai-index:peeked:v1",
 ];
 
-const CURRENT_VERSION = 2;
+const CURRENT_VERSION = 3;
 
 /** Read a raw string; null when missing or storage is unavailable. */
 export function readRaw(key: string): string | null {
@@ -87,7 +87,7 @@ export function storageAvailable(): boolean {
 
 /**
  * Versioned one-time migration, run once per client at boot (StorageBoot).
- * v2: clear keys orphaned by removed features.
+ * v2: clear keys orphaned by removed features. v3: clear the peek system.
  */
 export function runMigrations() {
   const version = parseInt(readRaw(KEYS.storageVersion) ?? "1", 10) || 1;

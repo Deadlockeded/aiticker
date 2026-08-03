@@ -26,18 +26,15 @@ and uploads traces on failure.
 - **Market** — 40+ card rows and ₮ prices render.
 - **Arena** — binder seeded via `addInitScript`, fighter picked, a full
   3-round fight resolves to a verdict.
-- **Peek** — press-and-hold 900ms on a facedown hero flips it, stamps
-  PEEKED, and records `ai-index:peeked:v1`.
-- **Mystery** — `?ref=share` renders REVEALED BY A COLLECTOR; direct
-  navigation stays facedown with the UNPULLED coupon.
+- **Proof states** — unowned cards keep every word readable with proof art
+  (NOT IN YOUR BINDER, tier odds, RIP PACKS CTA); owned cards render full
+  color with binder actions; the gallery shows Collected: n/76.
 - **Get rated (manual)** — GitHub API access is aborted by route
   interception; the manual build still produces a card.
 
 ### Conventions
 
-- Facedown-state tests use `/cards/openai` — legendary, therefore never the
-  weekly SPOTLIGHT card, therefore reliably facedown for a fresh profile.
+- Proof-state tests use `/cards/openai` — a fresh profile owns nothing, so
+  any card renders as a print proof.
 - Seed state with `addInitScript` (runs before app code); the helper also
   stamps all onboarding flags so first-run captions don't race assertions.
-- `data-testid="peekable"` on PeekableBack is the one test hook in
-  production code.

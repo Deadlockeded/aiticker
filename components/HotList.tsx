@@ -8,6 +8,7 @@ import TradingCard from "./TradingCard";
 import type { MarketCard } from "@/lib/cards";
 import { formatMove, formatTicks, getCurrentPrice, getDailyMove, getMovers } from "@/lib/market";
 import { metaWatchLine } from "@/lib/meta";
+import { useOwnedSet } from "./useOwned";
 
 const subscribeNever = () => () => {};
 
@@ -38,13 +39,16 @@ function MetaWatch({ cards }: { cards: MarketCard[] }) {
 /** THE HOT LIST — red-bordered movers box, print-guide style. */
 function MobileDeck({ rows }: { rows: MarketCard[] }) {
   const router = useRouter();
+  const owned = useOwnedSet();
   return (
     <div className="mx-auto max-w-[240px] p-3 md:hidden">
       <DeckStack
         items={rows}
         keyOf={(c) => c.id}
         onTap={(c) => router.push(`/cards/${c.id}`)}
-        renderCard={(c) => <TradingCard card={c} rank={0} />}
+        renderCard={(c) => (
+          <TradingCard card={c} rank={0} proof={owned !== null && !owned.has(c.id)} />
+        )}
       />
     </div>
   );

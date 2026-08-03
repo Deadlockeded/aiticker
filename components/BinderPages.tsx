@@ -6,16 +6,13 @@ import type { MarketCard } from "@/lib/cards";
 import type { Rarity } from "@/lib/types";
 import {
   getBinderSnapshot,
-  getPeekSnapshot,
   parseBinder,
-  parsePeek,
   subscribeStore,
   type Binder,
 } from "@/lib/binder";
 import { formatMove, formatTicks, getCurrentPrice, getDailyMove } from "@/lib/market";
 import { KEYS, readRaw, writeRaw } from "@/lib/storage";
 import CardArt from "./CardArt";
-import PeekableBack from "./PeekableBack";
 import TradingCard from "./TradingCard";
 import DailyQuip from "./DailyQuip";
 import Sparkline from "./Sparkline";
@@ -110,8 +107,6 @@ export default function BinderPages({
   const lastPage = useRef(0);
   // NEW tags: previous visit ts, captured once + stamped (webview-safe: 0)
   const lastVisit = useSyncExternalStore(subscribeNever, visitSnapshot, () => 0);
-  const peekRaw = useSyncExternalStore(subscribeStore, getPeekSnapshot, () => null);
-  const peekTotal = useMemo(() => (peekRaw ? parsePeek(peekRaw).total : 0), [peekRaw]);
 
   // deep links: /binder?page=N&card=id
   useEffect(() => {
@@ -215,11 +210,6 @@ export default function BinderPages({
           </span>
         </button>
         <span className="tnum font-mono text-sm text-[#5A6070]">{formatTicks(Math.round(value))}</span>
-        {peekTotal > 0 && (
-          <span className="tnum shrink-0 font-mono text-[10px] uppercase tracking-widest text-[#9AA0AC]">
-            Peeked: {peekTotal}
-          </span>
-        )}
         <span className="ml-auto font-mono text-[10px] uppercase tracking-widest text-[#9AA0AC]">
           {pageLabel(Math.min(page, pages.length - 1), chaseStart, artifactStart, chaseCount)}
         </span>
@@ -308,34 +298,32 @@ export default function BinderPages({
                       Date.parse(entry.lastPulledAt) > lastVisit &&
                       !seen.has(card.id);
                     if (!entry) {
-                      // EMPTY POCKET — a gap, not a ghost card. Press-and-
-                      // hold peeks; the pocket stays facedown afterwards
-                      // (stamped), the reveal stays with the pull.
+                      // STILL CHASING pocket — the card face-up as a print
+                      // proof: name and rating readable, art unfinished.
                       return (
                         <div
                           key={card.id}
-                          className={`pocket relative flex aspect-[1/1.4] flex-col items-center justify-center rounded-lg bg-black/30 transition-opacity ${dim ? "opacity-25" : ""}`}
+                          className={`pocket relative aspect-[1/1.4] rounded-lg bg-black/30 p-1 transition-opacity ${dim ? "opacity-25" : ""}`}
                         >
-                          <div className="h-full w-full p-1">
-                            <PeekableBack
-                              card={card}
-                              size="thumb"
-                              revealWhenPeeked={false}
-                              face={
-                                <div className="pocket-card relative h-full w-full overflow-hidden rounded-md bg-[#FDFBF6]">
-                                  <div className="relative h-[70%]">
-                                    <CardArt card={card} shape="tile" />
-                                  </div>
-                                  <p className="truncate px-1 pt-1 text-left text-[9px] font-medium text-[#1E2430]">
-                                    {card.name}
-                                  </p>
-                                </div>
-                              }
-                            />
+                          <div className="pocket-card relative h-full w-full overflow-hidden rounded-md bg-[#FDFBF6]">
+                            <div
+                              className="relative h-[70%]"
+                              style={{ "--dot": "5px" } as React.CSSProperties}
+                            >
+                              <CardArt card={card} shape="tile" />
+                              <div className="proof-veil">
+                                <div className="proof-tint" />
+                                <div className="proof-paper" />
+                                <div className="proof-dots" />
+                              </div>
+                            </div>
+                            <p className="truncate px-1 pt-1 text-left text-[9px] font-medium text-[#1E2430]">
+                              {card.name}
+                            </p>
+                            <p className="px-1 text-left font-mono text-[8px] text-[#9AA0AC]">
+                              {card.rating}
+                            </p>
                           </div>
-                          <span className="pointer-events-none absolute inset-x-0 bottom-0.5 truncate px-1 text-center font-mono text-[7px] uppercase text-[#5A6070]">
-                            {card.name}
-                          </span>
                         </div>
                       );
                     }

@@ -19,9 +19,8 @@ const PAGES = [
   "/cards/openai",
 ];
 
-// openai is legendary → never the weekly spotlight → reliably facedown
-// for a fresh profile. Do not switch this to a common card.
-const FACEDOWN_CARD = "/cards/openai";
+// Any card works for proof-state tests — a fresh profile owns nothing.
+const UNOWNED_CARD = "/cards/openai";
 
 // Card art is third-party (Wikimedia/favicons) proxied through /_next/image.
 // CI runners get rate-limited (429) upstream, so art is blocked in tests —
@@ -125,29 +124,28 @@ test("arena: full fight completes", async ({ page }) => {
   await expect(page.getByText(/takes it|Dead heat/)).toBeVisible({ timeout: 20_000 });
 });
 
-test("peek: press-and-hold flips and stamps PEEKED", async ({ page }) => {
-  await page.goto(FACEDOWN_CARD);
-  await expect(page.getByText("press & hold to peek")).toBeVisible();
-  const back = page.getByTestId("peekable").first();
-  const box = (await back.boundingBox())!;
-  await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
-  await page.mouse.down();
-  await page.waitForTimeout(900); // hold past the 600ms threshold
-  await page.mouse.up();
-  const peeked = await page.evaluate(() =>
-    JSON.parse(localStorage.getItem("ai-index:peeked:v1") ?? '{"ids":[]}'),
-  );
-  expect(peeked.ids).toContain("openai");
-  await expect(page.getByText("Peeked", { exact: false }).first()).toBeVisible();
+test("unowned card: readable text, proof art, odds + rip CTA", async ({ page }) => {
+  await page.goto(UNOWNED_CARD);
+  // the index is public — every word crisp
+  await expect(page.getByRole("heading", { name: "OpenAI" }).first()).toBeVisible();
+  // only the art is unfinished
+  await expect(page.getByText("Not in your binder")).toBeVisible();
+  await expect(page.getByText(/per card slot/)).toBeVisible();
+  await expect(page.getByText("Rip packs to print your copy")).toBeVisible();
 });
 
-test("mystery: share-ref reveals, direct nav stays facedown", async ({ page }) => {
-  await page.goto(`${FACEDOWN_CARD}?ref=share`);
-  await expect(page.getByText("Revealed by a collector")).toBeVisible();
-  // direct navigation in a fresh state stays facedown
-  await page.goto(FACEDOWN_CARD);
-  await expect(page.getByText("Unpulled — rip packs to reveal")).toBeVisible();
-  await expect(page.getByText("Revealed by a collector")).not.toBeVisible();
+test("owned card: full color, binder action, no proof tag", async ({ page }) => {
+  await seedBinder(page, ["openai"]);
+  await page.goto(UNOWNED_CARD);
+  await expect(page.getByText("In your binder →")).toBeVisible();
+  await expect(page.getByText("Not in your binder")).not.toBeVisible();
+  await expect(page.locator(".proof-veil")).toHaveCount(0);
+});
+
+test("gallery shows the collected progress line", async ({ page }) => {
+  await seedBinder(page, ["openai"]);
+  await page.goto("/");
+  await expect(page.getByText(/Collected: 1\/\d+/)).toBeVisible();
 });
 
 test("get rated: manual build works without GitHub", async ({ page }) => {

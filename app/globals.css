@@ -315,6 +315,68 @@ h2 {
   border-radius: 10px;
 }
 
+/* PRINT PROOF — unowned card art: single-ink duotone under a coarse
+   rotated halftone screen. Deliberate print, never a broken image.
+   Dot pitch comes from --dot (set responsively per card size). */
+/* NOTE: no z-index/transform on .proof-veil — a stacking context here
+   would wall off mix-blend-mode from the art underneath (opaque navy). */
+.proof-veil {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.proof-tint {
+  position: absolute;
+  inset: 0;
+  background: #1e2430;
+  mix-blend-mode: color; /* single-ink navy, luminance preserved */
+}
+.proof-paper {
+  position: absolute;
+  inset: 0;
+  background: #f2ede3;
+  opacity: 0.16; /* reduced contrast — proof stock, not final print */
+}
+.proof-dots {
+  position: absolute;
+  inset: -30%;
+  transform: rotate(15deg); /* classic halftone screen angle */
+  background-image: radial-gradient(
+    circle,
+    #f2ede3 calc(var(--dot, 8px) * 0.24),
+    transparent calc(var(--dot, 8px) * 0.3)
+  );
+  background-size: var(--dot, 8px) var(--dot, 8px);
+}
+.proof-mark {
+  position: absolute;
+  left: -8%;
+  top: 14%;
+  transform: rotate(-24deg);
+  color: #f2ede3;
+  opacity: 0.55;
+  text-shadow: 0 0 2px rgba(30, 36, 48, 0.6);
+}
+/* the pull payoff: dots shrink away, the finished print comes up */
+.proof-resolving .proof-veil {
+  animation: proof-fade 0.9s ease 0.15s forwards;
+}
+.proof-resolving .proof-dots {
+  animation: proof-dots-shrink 0.9s ease 0.15s forwards;
+}
+@keyframes proof-fade {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes proof-dots-shrink {
+  to {
+    background-size: 1px 1px;
+    opacity: 0;
+  }
+}
+
 /* card-back hover sheen — much subtler than face foils */
 .back-sheen {
   position: absolute;
@@ -349,6 +411,11 @@ h2 {
   .back-sheen,
   .pulse-once {
     animation: none !important;
+  }
+  /* reduced motion still resolves the pull — instantly, no dot animation */
+  .proof-resolving .proof-veil {
+    animation: none !important;
+    opacity: 0;
   }
 }
 

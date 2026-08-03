@@ -6,6 +6,7 @@ import type { MarketCard } from "@/lib/cards";
 import { getCoverStar } from "@/lib/daily";
 import { formatTicks, getCurrentPrice } from "@/lib/market";
 import TradingCard from "./TradingCard";
+import { useOwnedSet } from "./useOwned";
 
 const subscribeNever = () => () => {};
 
@@ -22,6 +23,7 @@ export default function CoverStar({
     () => getCoverStar(cards),
     () => null,
   );
+  const owned = useOwnedSet();
   // Zero-CLS skeleton: same frame + same card footprint while the
   // month-hash pick resolves client-side.
   if (!star) {
@@ -43,7 +45,11 @@ export default function CoverStar({
         ★ Featured card ★
       </p>
       <Link href={`/cards/${star.id}`} className="mt-3 block">
-        <TradingCard card={star} rank={ranks[star.id]} />
+        <TradingCard
+          card={star}
+          rank={ranks[star.id]}
+          proof={owned !== null && !owned.has(star.id)}
+        />
       </Link>
       <div className="mt-3 flex items-center justify-between font-mono text-[11px] uppercase tracking-widest">
         <span className="bg-[#1E2430] px-1.5 py-0.5 text-[#FDFBF6]">

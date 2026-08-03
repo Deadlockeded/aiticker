@@ -109,8 +109,9 @@ const PANELS: { n: string; title: string; copy: React.ReactNode; art: React.Reac
     art: <ArtBinder />,
     copy: (
       <>
-        Pulls land in your <Link href="/binder" className="underline decoration-[#C23B2E] underline-offset-2">binder</Link>.
-        50 index cards + 25 artifacts. Yes, the artifacts count.
+        The full set is public — 50 index cards + 25 artifacts. Pulling a card
+        prints your copy to the{" "}
+        <Link href="/binder" className="underline decoration-[#C23B2E] underline-offset-2">binder</Link>.
       </>
     ),
   },

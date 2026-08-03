@@ -13,17 +13,6 @@ import {
 } from "@/lib/market";
 import CardArt from "./CardArt";
 import Sparkline from "./Sparkline";
-import { getSpotlightCard } from "@/lib/daily";
-
-const subscribeNever = () => () => {};
-
-function SpotlightChip() {
-  return (
-    <span className="ml-1.5 rounded-sm bg-[#1E2430] px-1 font-mono text-[9px] not-italic text-[#FDFBF6]">
-      SPOTLIGHT
-    </span>
-  );
-}
 
 type SortKey = "rank" | "name" | "rating" | "price" | "move";
 
@@ -72,11 +61,6 @@ export default function MarketTable({
   const router = useRouter();
   const [sortKey, setSortKey] = useState<SortKey>("rank");
   const [asc, setAsc] = useState(true);
-  const spotlightId = useSyncExternalStore(
-    subscribeNever,
-    () => getSpotlightCard(cards)?.id ?? "",
-    () => "",
-  );
 
   const sorted = useMemo(() => {
     const value = (c: MarketCard): number | string => {
@@ -160,7 +144,6 @@ export default function MarketTable({
                           RC
                         </span>
                       )}
-                      {card.id === spotlightId && <SpotlightChip />}
                     </span>
                     <span className="block text-xs capitalize text-[#9AA0AC]">
                       {card.rarity} · {card.type}
@@ -202,7 +185,6 @@ export default function MarketTable({
             <span className="min-w-0 flex-1">
               <span className="block truncate text-sm font-semibold text-[#1E2430]">
                 {card.name}
-                {card.id === spotlightId && <SpotlightChip />}
               </span>
               <span className="block font-mono text-xs text-[#5A6070]">
                 {card.rating} · {formatTicks(getCurrentPrice(card))}

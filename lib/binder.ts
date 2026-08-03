@@ -66,61 +66,8 @@ export function addPulls(ids: string[]): Binder {
     };
   }
   writeRaw(KEYS.binder, JSON.stringify(binder));
-  clearPeeked(ids); // pulling clears the PEEKED stamp (its own notify)
   notify();
   return binder;
-}
-
-// ---- THE PEEK --------------------------------------------------------------
-// Press-and-hold on a facedown card flips it while held; the first peek
-// permanently stamps the card PEEKED (until pulled). `total` is lifetime —
-// pulling clears the stamp, not the count.
-
-export interface PeekState {
-  ids: string[];
-  total: number;
-}
-
-export function getPeekSnapshot(): string {
-  return readRaw(KEYS.peeked) ?? '{"ids":[],"total":0}';
-}
-
-export function parsePeek(raw: string): PeekState {
-  try {
-    const p = JSON.parse(raw) as Partial<PeekState> | null;
-    return { ids: p?.ids ?? [], total: p?.total ?? 0 };
-  } catch {
-    return { ids: [], total: 0 };
-  }
-}
-
-export function markPeeked(id: string) {
-  const p = parsePeek(getPeekSnapshot());
-  if (p.ids.includes(id)) return;
-  writeRaw(
-    KEYS.peeked,
-    JSON.stringify({ ids: [...p.ids, id], total: p.total + 1 }),
-  );
-  notify();
-}
-
-function clearPeeked(ids: string[]) {
-  const p = parsePeek(getPeekSnapshot());
-  const next = p.ids.filter((id) => !ids.includes(id));
-  if (next.length === p.ids.length) return;
-  writeRaw(KEYS.peeked, JSON.stringify({ ids: next, total: p.total }));
-}
-
-// A peek-hold shouldn't count as the tap/click that follows it — surfaces
-// consume this guard before navigating.
-let peekGuard = false;
-export function setPeekGuard() {
-  peekGuard = true;
-}
-export function consumePeekGuard(): boolean {
-  const g = peekGuard;
-  peekGuard = false;
-  return g;
 }
 
 /** Trade-in burns: remove N copies per id. */

@@ -185,6 +185,7 @@ export default function Arena({
     const binder = parseBinder(binderRaw);
     return cards.filter((c) => binder[c.id]);
   }, [binderRaw, cards]);
+  const ownedIds = useMemo(() => new Set((owned ?? []).map((c) => c.id)), [owned]);
 
   const [me, setMe] = useState<Fighter | null>(null);
   const [foe, setFoe] = useState<Fighter | null>(null);
@@ -483,7 +484,9 @@ export default function Arena({
                 onPass={() => setPasses((p) => p + 1)}
                 onSwipeRight={(c) => fight(cardFighter(c))}
                 onTap={(c) => fight(cardFighter(c))}
-                renderCard={(c) => <TradingCard card={c} rank={0} />}
+                renderCard={(c) => (
+                  <TradingCard card={c} rank={0} proof={!ownedIds.has(c.id)} />
+                )}
                 footerFor={(c) => (
                   <div className="text-center">
                     <p className="text-[13px] italic text-[#5A6070]">
@@ -543,7 +546,11 @@ export default function Arena({
                   </p>
                   {fighter.card ? (
                     <>
-                      <TradingCard card={fighter.card} rank={ranks[fighter.card.id]} />
+                      <TradingCard
+                        card={fighter.card}
+                        rank={ranks[fighter.card.id]}
+                        proof={!ownedIds.has(fighter.card.id)}
+                      />
                       {entranceQuips[side === "a" ? 0 : 1] && (
                         <p className="mt-2 text-center text-[11px] italic leading-snug text-[#5A6070]">
                           “{entranceQuips[side === "a" ? 0 : 1]}”

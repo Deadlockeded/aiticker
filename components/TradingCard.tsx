@@ -87,6 +87,8 @@ export default function TradingCard({
   community = false,
   communityStats,
   stamp,
+  proof = false,
+  resolving = false,
 }: {
   card: MarketCard;
   rank: number;
@@ -96,6 +98,14 @@ export default function TradingCard({
   communityStats?: { label: string; value: number }[];
   /** Rubber-stamp certification overlay (community cards). */
   stamp?: string;
+  /**
+   * Unowned: every word stays crisp — only the ART renders as a coarse
+   * halftone print proof (single-ink navy, PROOF watermark, no foil, flat
+   * shadow). Ownership is the finished print.
+   */
+  proof?: boolean;
+  /** Pack-rip payoff: the proof veil resolves away into full color. */
+  resolving?: boolean;
 }) {
   const r = RARITY[card.rarity];
   const hero = size === "hero";
@@ -104,24 +114,26 @@ export default function TradingCard({
   const mythic = card.rarity === "mythic";
   const artifact = card.type === "artifact";
   const agi = card.id === "agi";
+  const veiled = proof || resolving;
 
   const body = (
     <div
       className={`group flex h-full flex-col overflow-hidden transition duration-200 ${
         artifact && !agi
-          ? "rounded-[3px] border-[3px] border-double border-[#1E2430]/60 bg-[#FDFBF6] paper-shadow"
+          ? "rounded-[3px] border-[3px] border-double border-[#1E2430]/60 bg-[#FDFBF6]"
           : mythic
             ? "rounded-[3px] bg-[#FDFBF6]"
-            : "rounded-[3px] border-2 border-[#1E2430] bg-[#FDFBF6] paper-shadow"
-      } ${hero ? "" : "hover:-translate-y-1"}`}
+            : "rounded-[3px] border-2 border-[#1E2430] bg-[#FDFBF6]"
+      } ${proof && !resolving ? "" : "paper-shadow"} ${hero ? "" : "hover:-translate-y-1"} ${resolving ? "proof-resolving" : ""}`}
     >
       {/* art */}
       <div
         className={`relative aspect-square overflow-hidden ${r.artBg} ${
-          r.foilSweep || card.type === "moment" ? "foil-sweep" : ""
+          !veiled && (r.foilSweep || card.type === "moment") ? "foil-sweep" : ""
         }`}
+        style={veiled ? ({ "--dot": hero ? "11px" : "8px" } as React.CSSProperties) : undefined}
       >
-        {r.holoWash && !agi && <div className="holo-wash absolute inset-0 opacity-50" />}
+        {r.holoWash && !agi && !veiled && <div className="holo-wash absolute inset-0 opacity-50" />}
         {card.type === "moment" ? (
           /* cinematic frame: letterboxed wide crop + date stamp */
           <div className="absolute inset-0 flex flex-col justify-center bg-black/30">
@@ -150,6 +162,28 @@ export default function TradingCard({
           </div>
         ) : (
           <CardArt card={card} hero={hero} shape="tile" />
+        )}
+
+        {/* PRINT PROOF veil — sits on the art, UNDER every chip: only the
+            art is unfinished, every word stays crisp */}
+        {veiled && (
+          <div className="proof-veil" aria-hidden>
+            <div className="proof-tint" />
+            <div className="proof-paper" />
+            <div className="proof-dots" />
+            <span
+              className={`proof-mark font-mono font-black uppercase ${hero ? "text-2xl tracking-[0.5em]" : "text-xs tracking-[0.4em]"}`}
+            >
+              Proof
+            </span>
+          </div>
+        )}
+        {veiled && !resolving && (
+          <span
+            className={`absolute bottom-1.5 right-1.5 z-10 rounded-sm bg-[#1E2430]/85 px-1 font-mono uppercase tracking-wider text-[#F2EDE3] ${hero ? "text-[9px]" : "text-[6px]"}`}
+          >
+            Not in your binder
+          </span>
         )}
 
         {/* rating chip */}
@@ -181,7 +215,7 @@ export default function TradingCard({
           {r.label}
         </span>
         <HotBadge cardId={card.id} />
-        {hero && card.rarity !== "common" && <TiltFoil />}
+        {hero && card.rarity !== "common" && !veiled && <TiltFoil />}
 
         {stamp && (
           <span

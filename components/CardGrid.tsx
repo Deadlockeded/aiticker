@@ -1,33 +1,14 @@
 "use client";
 
-import { useMemo, useState, useSyncExternalStore } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import type { CardType } from "@/lib/types";
 import type { MarketCard } from "@/lib/cards";
 import { getCurrentPrice, getDailyMove } from "@/lib/market";
 import TradingCard from "./TradingCard";
 import DeckStack from "./DeckStack";
-import PeekableBack from "./PeekableBack";
 import { useRouter } from "next/navigation";
-import {
-  consumePeekGuard,
-  getBinderSnapshot,
-  getPeekSnapshot,
-  parseBinder,
-  parsePeek,
-  subscribeStore,
-} from "@/lib/binder";
-import { getSpotlightCard } from "@/lib/daily";
-
-const subscribeNever = () => () => {};
-
-function SpotlightChip() {
-  return (
-    <span className="pointer-events-none absolute left-1.5 top-1.5 z-10 rotate-[-4deg] bg-[#C23B2E] px-1.5 py-0.5 font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-[#FDFBF6]">
-      Spotlight
-    </span>
-  );
-}
+import { useOwnedSet } from "./useOwned";
 
 type Filter = "all" | CardType;
 type Sort = "rating-desc" | "rating-asc" | "price-desc" | "move-desc" | "name";
@@ -53,36 +34,14 @@ export default function CardGrid({
   // null = responsive default (deck < md, grid ≥ md) rendered via CSS so
   // the server paints the right view — no post-hydration swap, no LCP hit.
   const [view, setView] = useState<"deck" | "grid" | null>(null);
-  const isMobile = useSyncExternalStore(
-    () => () => {},
-    () => window.innerWidth < 768,
-    () => false,
-  );
-  const effectiveView = view ?? (isMobile ? "deck" : "grid");
-  const binderRaw = useSyncExternalStore(subscribeStore, getBinderSnapshot, () => null);
-  const owned = useMemo(
-    () => new Set(binderRaw ? Object.keys(parseBinder(binderRaw)) : []),
-    [binderRaw],
-  );
-  // Weekly spotlight: face-up for everyone (date-derived → client-only)
-  const spotlightId = useSyncExternalStore(
-    subscribeNever,
-    () => getSpotlightCard(cards)?.id ?? "",
-    () => "",
-  );
-  const peekRaw = useSyncExternalStore(subscribeStore, getPeekSnapshot, () => null);
-  // "revealed" = pulled or peeked — a wall of backs is a challenge, not a bug
-  const revealed = useMemo(() => {
-    const ids = new Set(owned);
-    if (peekRaw) for (const id of parsePeek(peekRaw).ids) ids.add(id);
-    return ids.size;
-  }, [owned, peekRaw]);
+  const owned = useOwnedSet();
+  const isProof = (id: string) => owned !== null && !owned.has(id);
 
   const visible = useMemo(() => {
     const q = query.trim().toLowerCase();
     const filtered = cards.filter(
       (c) =>
-        c.id !== "agi" && // the secret mythic stays hidden until pulled
+        c.id !== "agi" && // the secret mythic stays out of the checklist until pulled
         (filter === "all" || c.type === filter) &&
         (q === "" ||
           c.name.toLowerCase().includes(q) ||
@@ -145,15 +104,15 @@ export default function CardGrid({
           </select>
 
           <button
-            onClick={() => setView(effectiveView === "deck" ? "grid" : "deck")}
-            title={effectiveView === "deck" ? "Grid view" : "Deck view"}
+            onClick={() => setView(view === "deck" ? "grid" : "deck")}
+            title="Toggle deck / grid view"
             className="rounded-lg border border-[#1E2430]/30 bg-[#1E2430]/5 px-2.5 py-1.5 text-[13px] text-[#1E2430]"
           >
-            {effectiveView === "deck" ? "▦" : "🂠"}
+            {view === "deck" ? "▦" : "🂠"}
           </button>
         </div>
         <p className="tnum mt-1.5 px-1 font-mono text-[10px] uppercase tracking-[0.2em] text-[#9AA0AC]">
-          You&apos;ve revealed {revealed} of {cards.length}
+          Collected: {owned?.size ?? 0}/{cards.length}
         </p>
       </div>
 
@@ -171,24 +130,10 @@ export default function CardGrid({
             <DeckStack
               items={visible}
               keyOf={(c) => c.id}
-              onTap={(c) => {
-                if (consumePeekGuard()) return; // a peek-hold is not a tap
-                router.push(`/cards/${c.id}`);
-              }}
-              renderCard={(c) =>
-                owned.has(c.id) ? (
-                  <TradingCard card={c} rank={ranks[c.id]} />
-                ) : c.id === spotlightId ? (
-                  <div className="relative">
-                    <SpotlightChip />
-                    <TradingCard card={c} rank={ranks[c.id]} />
-                  </div>
-                ) : (
-                  <div className="aspect-[1/1.42]">
-                    <PeekableBack card={c} rank={ranks[c.id]} />
-                  </div>
-                )
-              }
+              onTap={(c) => router.push(`/cards/${c.id}`)}
+              renderCard={(c) => (
+                <TradingCard card={c} rank={ranks[c.id]} proof={isProof(c.id)} />
+              )}
             />
           </div>
           <div
@@ -197,25 +142,8 @@ export default function CardGrid({
             }`}
           >
             {visible.map((card) => (
-              <Link
-                key={card.id}
-                href={`/cards/${card.id}`}
-                onClick={(e) => {
-                  if (consumePeekGuard()) e.preventDefault();
-                }}
-              >
-                {owned.has(card.id) ? (
-                  <TradingCard card={card} rank={ranks[card.id]} />
-                ) : card.id === spotlightId ? (
-                  <div className="relative">
-                    <SpotlightChip />
-                    <TradingCard card={card} rank={ranks[card.id]} />
-                  </div>
-                ) : (
-                  <div className="aspect-[1/1.42]">
-                    <PeekableBack card={card} rank={ranks[card.id]} />
-                  </div>
-                )}
+              <Link key={card.id} href={`/cards/${card.id}`}>
+                <TradingCard card={card} rank={ranks[card.id]} proof={isProof(card.id)} />
               </Link>
             ))}
           </div>

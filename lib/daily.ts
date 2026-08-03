@@ -51,20 +51,6 @@ export function getCoverStar(cards: MarketCard[], now = new Date()): MarketCard 
   return pool[dayHash(`cover:${key}`) % pool.length];
 }
 
-/**
- * CHECKLIST SPOTLIGHT — one card renders fully face-up for everyone each
- * week (UTC week index), cycling through the set in id order. Legendary and
- * mythic are never spotlighted: their reveals belong to pulls and shares.
- */
-export function getSpotlightCard(cards: MarketCard[], now = new Date()): MarketCard | null {
-  const pool = cards
-    .filter((c) => c.id !== "agi" && c.rarity !== "legendary" && c.rarity !== "mythic")
-    .sort((a, b) => a.id.localeCompare(b.id));
-  if (pool.length === 0) return null;
-  const week = Math.floor(Date.parse(utcDayKey(now)) / (7 * 86_400_000));
-  return pool[week % pool.length];
-}
-
 /** Quip of the day — same for everyone, rotates with the UTC date. */
 export function getDailyQuip(card: MarketCard, key = utcDayKey()): string | null {
   if (!card.quips?.length) return null;

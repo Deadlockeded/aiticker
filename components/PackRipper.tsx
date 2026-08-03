@@ -7,12 +7,10 @@ import { pullPack } from "@/lib/packs";
 import {
   addPulls,
   getBinder,
-  getPeekSnapshot,
   consumePack,
   getAllowanceSnapshot,
   msUntilReset,
   packsLeftFrom,
-  parsePeek,
   PACKS_PER_DAY,
   subscribeStore,
 } from "@/lib/binder";
@@ -140,7 +138,6 @@ export default function PackRipper({
   const [pulls, setPulls] = useState<MarketCard[]>([]);
   const [flipQuips, setFlipQuips] = useState<(string | null)[]>([]);
   const [preOwned, setPreOwned] = useState<Set<string>>(new Set());
-  const [prePeeked, setPrePeeked] = useState<Set<string>>(new Set());
   const [agiFlash, setAgiFlash] = useState(false);
   const [flipped, setFlipped] = useState<boolean[]>([]);
   const [shimmering, setShimmering] = useState<number | null>(null);
@@ -187,8 +184,6 @@ export default function PackRipper({
 
     const pulled = pullPack(cards);
     setPreOwned(new Set(Object.keys(getBinder())));
-    // captured before addPulls clears the stamps — SIGHT UNSEEN needs it
-    setPrePeeked(new Set(parsePeek(getPeekSnapshot()).ids));
     setPulls(pulled);
     setFlipped(pulled.map(() => false));
     setFlipQuips(pulled.map(() => null));
@@ -214,7 +209,8 @@ export default function PackRipper({
     autoTimers.current.push(
       setTimeout(
         () => router.push("/binder"),
-        1700 + pulled.length * 600 + 1200 + (special ? 1400 : 0),
+        // +2000 leaves room for the last card's proof-resolve beat
+        1700 + pulled.length * 600 + 2000 + (special ? 1400 : 0),
       ),
     );
   };
@@ -241,9 +237,11 @@ export default function PackRipper({
     }
     const rarity = pulls[i].rarity;
     if (rarity !== "common") {
+      // fresh pulls resolve from proof first — the foil kicks in after
+      const foilDelay = preOwned.has(pulls[i].id) ? 0 : 1000;
       setGlowKey((k) => k + 1);
-      setShimmering(i);
-      setTimeout(() => setShimmering((s) => (s === i ? null : s)), 1600);
+      setTimeout(() => setShimmering(i), foilDelay);
+      setTimeout(() => setShimmering((s) => (s === i ? null : s)), foilDelay + 1600);
     }
     if (rarity === "legendary" || rarity === "mythic") {
       if (navigator.vibrate) navigator.vibrate([30, 50, 30]);
@@ -329,7 +327,13 @@ export default function PackRipper({
                 >
                   <CardBack card={card} />
                   <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)]">
-                    <TradingCard card={card} rank={ranks[card.id]} />
+                    {/* THE PULL BEAT: a card you don't own yet flips as a
+                        proof and resolves into the finished print */}
+                    <TradingCard
+                      card={card}
+                      rank={ranks[card.id]}
+                      resolving={!preOwned.has(card.id) && flipped[i]}
+                    />
                     {shimmering === i && (
                       <div className="foil-sweep pointer-events-none absolute inset-0 overflow-hidden rounded-xl" />
                     )}
@@ -344,11 +348,6 @@ export default function PackRipper({
               {flipped[i] && !preOwned.has(card.id) && (
                 <span className="pointer-events-none absolute left-1/2 top-[38%] z-20 -translate-x-1/2 rotate-[-14deg] border-[3px] border-[#1E2430] bg-[#FDFBF6]/85 px-2 py-0.5 font-mono text-[11px] font-black uppercase tracking-[0.25em] text-[#1E2430]">
                   First pull
-                </span>
-              )}
-              {flipped[i] && !preOwned.has(card.id) && !prePeeked.has(card.id) && card.id !== "agi" && (
-                <span className="pointer-events-none absolute left-1/2 top-[50%] z-20 -translate-x-1/2 rotate-[7deg] border-2 border-[#C23B2E] bg-[#FDFBF6]/85 px-2 py-0.5 font-mono text-[10px] font-black uppercase tracking-[0.25em] text-[#C23B2E]">
-                  Sight unseen
                 </span>
               )}
               {flipped[i] && card.id !== "agi" && flipQuips[i] && (

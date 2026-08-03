@@ -29,9 +29,8 @@ The 90s price-guide magazine identity is **visual-only**. Tokens, fonts,
 paper-card/coupon/stamp motifs stay. Copy is modern and plain: no
 "— The Editor" attributions, no ISSUE Nº, no in-universe bits in
 functional UI (tutorials, empty states, errors, countdowns, tooltips).
-Card quips, flavor text, roast/verdict lines, and stamp names (PEEKED,
-SIGHT UNSEEN, FIRST PULL, SPOTLIGHT, REVEALED BY A COLLECTOR) are the
-humor layer and stay. Register examples: "Next free packs in 14h." ·
+Card quips, flavor text, roast/verdict lines, and stamp names (FIRST
+PULL, PROOF) are the humor layer and stay. Register examples: "Next free packs in 14h." ·
 "No cards yet. Rip a pack first." · "Something broke. Refresh usually
 fixes it."
 
@@ -59,10 +58,10 @@ clamp) → git commit. See PIPELINE.md. Never zero a stat on fetch failure.
 
 - `rng.ts` — THE seeded-randomness toolkit (fnvHash + mulberry32). Never copy these into feature libs.
 - `storage.ts` — THE localStorage gateway: `KEYS` registry, try/catch accessors, versioned migration. Every new persistent key goes here + STORAGE.md.
-- `binder.ts` — collection, pack allowance, THE PEEK state, and the shared store bus (`notifyStore`/`subscribeStore`).
+- `binder.ts` — collection, pack allowance, and the shared store bus (`notifyStore`/`subscribeStore`).
 - `meta.ts` — the Daily Meta: 10 fight categories with documented formulas; 4 active per UTC day; per-card ±8 seed wobble (values fixed, not random).
 - `vsMapping.ts` — arena resolution: 3 rounds drawn from today's active 4 (pairing-hash pick), AGI coin-flips, chaos upsets, `decisiveCategory` for share text.
-- `daily.ts` — all date-hash picks: hot cards (+3 boost), weekly SPOTLIGHT (`getSpotlightCard`, never legendary/mythic), featured card, quips of the day.
+- `daily.ts` — all date-hash picks: hot cards (+3 boost), featured card, quips of the day.
 - `market.ts` — prices (committed history wins; deterministic simulation as pre-pipeline fallback), `formatTicks` (₮).
 - `packs.ts`/`editions.ts` — odds (`CATEGORY_ODDS`: agi 0.1%, artifacts 35%…), serials.
 - `score.ts` — client-side GitHub/HF/HN scoring for Get Rated (sessionStorage cache), `getRoastFacts`. NO LinkedIn, ever.
@@ -71,17 +70,20 @@ clamp) → git commit. See PIPELINE.md. Never zero a stat on fetch failure.
 - `onboarding.ts` — first-run caption flags (~6 one-liners, each shown once).
 - `create.ts`, `xp.ts`, `achievements.ts`, `battle.ts`, `shipmeter.ts` — prospect cards, XP, trophies, arena record, ship meter.
 
-## Mystery / reveal rules
+## Ownership / visibility rules (the print-proof system)
 
-Unpulled cards render facedown (`CardBackFace`) in gallery + detail +
-binder chase pockets. Exemptions: Market table, Featured Card, arena
-opponents, the weekly SPOTLIGHT card, and any detail page opened with a
-`?ref=` param (share links append it — "sharing is the leak", stamp:
-REVEALED BY A COLLECTOR). Press-and-hold 600ms = THE PEEK
-(`PeekableBack`): flips while held, permanently stamps PEEKED until
-pulled; peek-holds set a guard (`consumePeekGuard`) so release isn't a
-tap. First pulls of never-peeked cards get SIGHT UNSEEN. Pack reveal
-beats live in `PackRipper` (one-tap flow, auto-binder).
+ALL cards are face-up everywhere, always — the index is public, every
+word (name, stats, quips, price) stays crisp. Mystery lives ONLY inside
+the pack rip. Ownership is expressed through the ART: unowned cards
+render their art as a coarse halftone PRINT PROOF (single-ink navy,
+rotated dot screen via `--dot` CSS var scaled per size, PROOF watermark,
+"NOT IN YOUR BINDER" tag, no foil/tilt, flat shadow) — `proof` prop on
+`TradingCard`, ownership via `useOwnedSet()`. Pulling a new card =
+`resolving` prop: the veil's dots shrink away into full color, then foil
+(THE pull beat, in `PackRipper`). FIRST PULL stamp stays. Card backs
+(`CardBackFace`, anonymous) exist only as the pack pre-flip state. No
+gaussian blur anywhere. Unowned detail pages show tier odds + a RIP
+PACKS CTA; owned show binder actions.
 
 ## House patterns (the lint config enforces these)
 
@@ -104,9 +106,9 @@ beats live in `PackRipper` (one-tap flow, auto-binder).
 ## Routes
 
 `/` (masthead + featured + hot list + gallery deck/grid) · `/market`
-(price table, SPOTLIGHT chip) · `/cards/[id]` (SSG detail: CardReveal
-gate, chart, stats, TODAY'S FORM, signals) · `/packs` · `/binder`
-(9-pocket pages, trade-in, PEEKED counter) · `/arena` (meta strip,
+(price table) · `/cards/[id]` (SSG detail: hero card w/ proof-or-owned,
+chart, stats, TODAY'S FORM, signals) · `/packs` · `/binder`
+(9-pocket pages, trade-in) · `/arena` (meta strip,
 CHALLENGER LINE swipe deck, fights) · `/create` (Get Rated + SCOUT'S
 ROAST; manual mode) · `/shipmeter` · `/howto` · `/about` · OG routes
 under `/api/og/*`. Redirects from all removed features live in
