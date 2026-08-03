@@ -208,6 +208,19 @@ export function consumePack(now = Date.now()): number | null {
   return next.bank;
 }
 
+/**
+ * Count a pack that was paid for with Ticks: the bank and its timer are
+ * untouched, but `ripped` still advances so the pull engine (and the
+ * deterministic first-two-packs path) sees every pack this profile opened.
+ */
+export function countExchangePack(): number {
+  const s = parsePackState(getAllowanceSnapshot());
+  const next: PackBank = { ...s, ripped: s.ripped + 1 };
+  writeRaw(KEYS.packs, JSON.stringify(next));
+  notify();
+  return next.ripped;
+}
+
 /** Ms until the next pack accrues (0 when the bank is full). */
 export function msUntilNextPack(now = Date.now()): number {
   const s = normalizeBank(parsePackState(getAllowanceSnapshot(), now), now);

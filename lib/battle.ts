@@ -1,4 +1,5 @@
 import { notifyStore } from "./binder";
+import { utcDayKey } from "./daily";
 import { KEYS, readRaw, writeRaw } from "./storage";
 
 /**
@@ -16,6 +17,8 @@ export interface BattleRecord {
   losses: number;
   /** Ever beat an opponent rated 10+ above the fighter (Giant Slayer). */
   giantSlain?: boolean;
+  /** UTC day of the most recent win — drives the first-win-of-day purse. */
+  winDay?: string;
 }
 
 export function getBattleRecordSnapshot(): string {
@@ -30,8 +33,18 @@ export function parseBattleRecord(raw: string): BattleRecord {
   }
 }
 
-export function recordBattle(won: boolean, giantSlain = false): BattleRecord {
+/**
+ * Record a fight. Returns the new record plus `firstWinToday`, which the
+ * arena purse needs (and which must be read BEFORE the write, hence the
+ * combined return instead of a second helper).
+ */
+export function recordBattle(
+  won: boolean,
+  giantSlain = false,
+  day = utcDayKey(),
+): BattleRecord & { firstWinToday: boolean } {
   const rec = parseBattleRecord(getBattleRecordSnapshot());
+  const firstWinToday = won && rec.winDay !== day;
   const next: BattleRecord = won
     ? {
         current: rec.current + 1,
@@ -39,9 +52,10 @@ export function recordBattle(won: boolean, giantSlain = false): BattleRecord {
         wins: rec.wins + 1,
         losses: rec.losses,
         giantSlain: rec.giantSlain || giantSlain,
+        winDay: day,
       }
     : { ...rec, current: 0, losses: rec.losses + 1 };
   writeRaw(KEYS.battle, JSON.stringify(next));
   notifyStore();
-  return next;
+  return { ...next, firstWinToday };
 }

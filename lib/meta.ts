@@ -8,7 +8,7 @@ import { dayHash, utcDayKey } from "./daily";
  *
  * Every card type maps onto every category from its existing real stats,
  * plus a stable per-card seed wobble (hash of card id + category, ±8) so a
- * card's value in a category is FIXED — never random per fight. Four
+ * card's value in a category is FIXED — never random per fight. Four of the 22
  * categories are "in the meta" each UTC day (date-hash, same for everyone);
  * fight rounds draw their 3 categories from the active 4.
  *
@@ -26,7 +26,19 @@ export type MetaKey =
   | "hype"
   | "mystique"
   | "grindset"
-  | "mainCharacter";
+  | "mainCharacter"
+  | "benchmark"
+  | "burnRate"
+  | "compute"
+  | "citations"
+  | "keynote"
+  | "fundraising"
+  | "pivot"
+  | "longevity"
+  | "moat"
+  | "discourse"
+  | "safetyPosting"
+  | "demoEnergy";
 
 export interface MetaCategory {
   key: MetaKey;
@@ -45,7 +57,19 @@ export const META_CATEGORIES: MetaCategory[] = [
   { key: "hype", name: "Hype", definition: "Currently everywhere." },
   { key: "mystique", name: "Mystique", definition: "Says nothing. Moves markets." },
   { key: "grindset", name: "Grindset", definition: "The streak is the personality." },
-  { key: "mainCharacter", name: "Main Character Energy", definition: "It's their timeline. We're posting in it." },
+  { key: "mainCharacter", name: "Main Character", definition: "It's their timeline. We're posting in it." },
+  { key: "benchmark", name: "Benchmarks", definition: "The number went up. Methodology optional." },
+  { key: "burnRate", name: "Burn Rate", definition: "Compute in. Product out. Eventually." },
+  { key: "compute", name: "Compute", definition: "Proximity to serious silicon." },
+  { key: "citations", name: "Citations", definition: "Cited widely. Read occasionally." },
+  { key: "keynote", name: "Keynote", definition: "Owns the stage and the slides." },
+  { key: "fundraising", name: "Fundraising", definition: "Makes people want in. Terms later." },
+  { key: "pivot", name: "Pivot Speed", definition: "Nimble. Some would say directionless." },
+  { key: "longevity", name: "Staying Power", definition: "Still here. Suspiciously still here." },
+  { key: "moat", name: "Moat", definition: "Hard to copy. Easy to claim." },
+  { key: "discourse", name: "Discourse", definition: "Generates replies at industrial scale." },
+  { key: "safetyPosting", name: "Safety Posting", definition: "Concerned. Publicly. At length." },
+  { key: "demoEnergy", name: "Demo Energy", definition: "It worked on stage. Once." },
 ];
 
 /** Stable per-card seed wobble, ±8. Same card + category → same wobble, forever. */
@@ -89,6 +113,18 @@ function artifactMeta(card: MarketCard, key: MetaKey): number {
     case "mystique":    return clamp(0.5 * m.lore + 0.3 * m.uselessness + w);
     case "grindset":    return clamp(0.5 * m.ubiquity + 0.15 * m.vibes + w); // being everywhere IS the grind
     case "mainCharacter": return clamp(0.5 * m.vibes + 0.3 * m.ubiquity + w);
+    case "benchmark":   return clamp(0.5 * m.ubiquity + 0.2 * m.lore + w); // everyone quotes it, nobody checks
+    case "burnRate":    return clamp(0.5 * m.uselessness + 0.25 * m.ubiquity + w); // expensive nothing
+    case "compute":     return clamp(0.45 * m.ubiquity + 0.25 * m.vibes + w);
+    case "citations":   return clamp(0.7 * m.lore + w); // lore IS the citation trail
+    case "keynote":     return clamp(0.5 * m.vibes + 0.3 * m.ubiquity + w);
+    case "fundraising": return clamp(0.45 * m.vibes + 0.3 * m.ubiquity + w); // vibes raise rounds
+    case "pivot":       return clamp(0.5 * m.uselessness + 0.2 * m.vibes + w);
+    case "longevity":   return clamp(0.6 * m.lore + 0.2 * m.ubiquity + w);
+    case "moat":        return clamp(0.5 * m.lore + 0.25 * m.uselessness + w);
+    case "discourse":   return clamp(0.45 * m.ubiquity + 0.3 * m.uselessness + w);
+    case "safetyPosting": return clamp(0.4 * m.lore + 0.25 * m.uselessness + w);
+    case "demoEnergy":  return clamp(0.5 * m.vibes + 0.25 * m.ubiquity + w);
   }
 }
 
@@ -127,6 +163,30 @@ function indexMeta(card: MarketCard, key: MetaKey): number {
     case "grindset":    return clamp(0.55 * s.momentum + 0.25 * s.innovation + Math.min(15, 4 * log10(stars)) + w);
     // composite of clout + drama + seed
     case "mainCharacter": return clamp(0.45 * s.influence + 0.35 * s.momentum + Math.min(12, Math.abs(delta) / 2) + w);
+    // research output that other people quote back at you
+    case "benchmark":   return clamp(0.6 * s.innovation + 0.25 * s.momentum + Math.min(15, 4 * log10(cites)) + w);
+    // appetite for compute, paid for by someone: standing + heat
+    case "burnRate":    return clamp(0.5 * s.momentum + 0.3 * card.rating + Math.min(12, 3 * log10(stars)) + w);
+    // proximity to silicon — companies simply run warmer than people
+    case "compute":     return clamp(0.45 * card.rating + 0.35 * s.influence + (card.type === "company" ? 8 : 0) + w);
+    // the actual citation log for engineers; institutional research weight for labs
+    case "citations":   return clamp(card.type === "engineer" ? Math.min(72, 14 * log10(cites)) + 0.3 * s.innovation + w : 0.5 * s.innovation + 0.2 * s.influence + w);
+    // stage presence: pure reach, lightly heated
+    case "keynote":     return clamp(0.6 * s.influence + 0.25 * s.momentum + w);
+    // NOT a claim about any real raise: an opinion score for "makes people want in"
+    case "fundraising": return clamp(0.5 * s.influence + 0.3 * s.momentum + 0.15 * card.rating + w);
+    // scrappier cards turn faster; volatility helps
+    case "pivot":       return clamp(0.5 * s.momentum + 0.2 * (99 - card.rating) + Math.min(12, Math.abs(delta) / 3) + w);
+    // years for engineers, institutional weight for companies
+    case "longevity":   return clamp(card.type === "engineer" ? 3 * years + 0.3 * s.influence + w : 0.55 * card.rating + 0.25 * s.influence + w);
+    // durable standing that does not depend on this week's noise
+    case "moat":        return clamp(0.5 * card.rating + 0.3 * s.innovation - 0.15 * s.momentum + 15 + w);
+    // reply volume: heat + reach + whichever direction attention moved
+    case "discourse":   return clamp(0.5 * s.momentum + 0.3 * s.influence + Math.min(18, Math.abs(delta) / 1.5) + w);
+    // high standing, low posting: the concerned-essay profile
+    case "safetyPosting": return clamp(0.45 * s.influence + 0.25 * s.innovation - 0.2 * s.momentum + 20 + w);
+    // shipping heat minus the gravitas that stops you demoing early
+    case "demoEnergy":  return clamp(0.55 * s.momentum + 0.3 * s.innovation - 0.1 * s.influence + 10 + w);
   }
 }
 
@@ -165,6 +225,18 @@ export function profileMetaValues(
     mystique: v("mystique", 0.5 * stats.galaxyBrain - 0.25 * stats.yapping + 30),
     grindset: v("grindset", 0.75 * stats.shipping + 0.15 * stats.gpuHoarding),
     mainCharacter: v("mainCharacter", 0.55 * stats.yapping + 0.3 * stats.shipping),
+    benchmark: v("benchmark", 0.6 * stats.galaxyBrain + 0.2 * stats.shipping),
+    burnRate: v("burnRate", 0.6 * stats.gpuHoarding + 0.2 * stats.shipping),
+    compute: v("compute", 0.9 * stats.gpuHoarding),
+    citations: v("citations", 0.85 * stats.galaxyBrain),
+    keynote: v("keynote", 0.6 * stats.yapping + 0.2 * stats.galaxyBrain),
+    fundraising: v("fundraising", 0.5 * stats.yapping + 0.25 * rating),
+    pivot: v("pivot", 0.5 * stats.shipping + 0.25 * stats.yapping),
+    longevity: v("longevity", 0.7 * rating),
+    moat: v("moat", 0.5 * stats.galaxyBrain + 0.3 * stats.shipping - 0.15 * stats.yapping + 10),
+    discourse: v("discourse", 0.75 * stats.yapping),
+    safetyPosting: v("safetyPosting", 0.4 * stats.galaxyBrain + 0.25 * stats.yapping),
+    demoEnergy: v("demoEnergy", 0.5 * stats.shipping + 0.3 * stats.yapping),
   };
 }
 
@@ -198,7 +270,19 @@ const WATCH_LINES: Record<MetaKey, (name: string) => string> = {
   hype: (n) => `Hype is in the meta. ${n} is currently everywhere.`,
   mystique: (n) => `Mystique is in the meta. ${n} said nothing and gained ten points.`,
   grindset: (n) => `Grindset is in the meta. ${n} has not logged off.`,
-  mainCharacter: (n) => `Main Character Energy is in the meta. It's ${n}'s timeline today.`,
+  mainCharacter: (n) => `Main Character is in the meta. It's ${n}'s timeline today.`,
+  benchmark: (n) => `Benchmarks are in the meta. ${n}'s number went up. Somehow.`,
+  burnRate: (n) => `Burn Rate is in the meta. ${n} is converting electricity into vibes.`,
+  compute: (n) => `Compute is in the meta. ${n} runs warmer than everyone.`,
+  citations: (n) => `Citations are in the meta. ${n} is in everybody's bibliography.`,
+  keynote: (n) => `Keynote is in the meta. ${n} owns the stage today.`,
+  fundraising: (n) => `Fundraising is in the meta. ${n} makes people want in.`,
+  pivot: (n) => `Pivot Speed is in the meta. ${n} can turn on a dime.`,
+  longevity: (n) => `Staying Power is in the meta. ${n} is still here.`,
+  moat: (n) => `Moat is in the meta. Good luck copying ${n}.`,
+  discourse: (n) => `Discourse is in the meta. ${n} generates replies at scale.`,
+  safetyPosting: (n) => `Safety Posting is in the meta. ${n} is concerned, publicly, at length.`,
+  demoEnergy: (n) => `Demo Energy is in the meta. ${n} would demo it right now.`,
 };
 
 // Same caching rule as getDailyMeta — string is primitive but keep it cheap.

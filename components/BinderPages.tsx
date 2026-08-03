@@ -15,6 +15,7 @@ import { isReleased } from "@/lib/drops";
 import { KEYS, readRaw, writeRaw } from "@/lib/storage";
 import { TOAST_EVENT } from "@/lib/achievements";
 import { getRoomSnapshot, getToastedRooms, markRoomToasted, ROOMS, setRoom, type RoomId } from "@/lib/rooms";
+import { balanceFrom, dupeValue, getWalletSnapshot, sellDupe } from "@/lib/wallet";
 import BoardroomRoom from "./BoardroomRoom";
 import CallRoom from "./CallRoom";
 import CardArt from "./CardArt";
@@ -64,6 +65,7 @@ export default function BinderPages({
   initialCard?: string;
 }) {
   const raw = useSyncExternalStore(subscribeStore, getBinderSnapshot, () => null);
+  const walletRaw = useSyncExternalStore(subscribeStore, getWalletSnapshot, () => null);
   const binder: Binder | null = useMemo(
     () => (raw === null ? null : parseBinder(raw)),
     [raw],
@@ -108,6 +110,8 @@ export default function BinderPages({
   const [open, setOpen] = useState<MarketCard | null>(null);
   const [trophies, setTrophies] = useState(false);
   const [ringPop, setRingPop] = useState(false);
+  const [valuationInfo, setValuationInfo] = useState(false);
+  const [sold, setSold] = useState<number | null>(null);
   const [seen, setSeen] = useState<Set<string>>(new Set());
   const scroller = useRef<HTMLDivElement>(null);
   const lastPage = useRef(0);
@@ -265,7 +269,30 @@ export default function BinderPages({
             ))}
           </span>
         </button>
-        <span className="tnum font-mono text-sm text-[#5A6E5E]">{formatTicks(Math.round(value))}</span>
+        <button
+          onClick={() => setValuationInfo((v) => !v)}
+          className="relative flex min-h-11 items-center font-mono text-[11px] uppercase tracking-[0.15em] text-[#5A6E5E]"
+          title="How this is calculated"
+        >
+          Lab valuation:{" "}
+          <span className="tnum ml-1 text-sm normal-case tracking-normal text-[#17301F]">
+            {formatTicks(Math.round(value))}
+          </span>
+          {valuationInfo && (
+            <span className="absolute left-0 top-full z-30 mt-1 w-56 border-2 border-[#17301F] bg-[#F4F7F0] p-2 text-left text-[11px] normal-case leading-snug tracking-normal text-[#5A6E5E] shadow-[3px_3px_0_#17301F]">
+              Sum of your cards at today&apos;s prices. As rigorous as most
+              valuations.
+            </span>
+          )}
+        </button>
+        {walletRaw !== null && (
+          <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-[#5A6E5E]">
+            Wallet{" "}
+            <span className="tnum text-sm tracking-normal text-[#1F6E3D]">
+              {formatTicks(balanceFrom(walletRaw))}
+            </span>
+          </span>
+        )}
         <span className="ml-auto font-mono text-[10px] uppercase tracking-widest text-[#9CB09E]">
           {pageLabel(Math.min(page, pages.length - 1), chaseStart, artifactStart, chaseCount)}
         </span>
@@ -544,7 +571,7 @@ export default function BinderPages({
 
       {/* card sheet: bottom on mobile, side panel on desktop */}
       {open && (
-        <div className="fixed inset-0 z-40" onClick={() => setOpen(null)}>
+        <div className="fixed inset-0 z-40" onClick={() => { setOpen(null); setSold(null); }}>
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
           <div
             onClick={(e) => e.stopPropagation()}
@@ -594,6 +621,20 @@ export default function BinderPages({
                     )}
                   </ul>
                 </div>
+              )}
+              {/* dupes only — the last copy of a card is never sellable */}
+              {(binder[open.id]?.copies ?? 0) > 1 && (
+                <button
+                  onClick={() => {
+                    const paid = sellDupe(open.id, getCurrentPrice(open));
+                    if (paid > 0) setSold(paid);
+                  }}
+                  className="coupon w-full p-3 text-center font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B23A2E] hover:bg-[#EAF0E4]"
+                >
+                  {sold !== null
+                    ? `Sold — +${formatTicks(sold)}`
+                    : `Sell one spare — ${formatTicks(dupeValue(getCurrentPrice(open)))}`}
+                </button>
               )}
               <div className="flex gap-2">
                 <Link

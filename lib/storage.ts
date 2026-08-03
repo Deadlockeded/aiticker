@@ -19,6 +19,8 @@ export const KEYS = {
   reroll: "ai-index:reroll:v1",
   onboarding: "ai-index:onboarding:v1",
   binderRoom: "ai-index:binder-room:v1",
+  wallet: "ai-index:wallet:v1",
+  rituals: "ai-index:rituals:v1",
   roomsSeen: "ai-index:rooms-seen:v1",
   storageVersion: "ai-index:storage-version",
 } as const;

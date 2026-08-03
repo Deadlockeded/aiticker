@@ -121,7 +121,8 @@ const PANELS: { n: string; title: string; copy: React.ReactNode; art: React.Reac
     copy: (
       <>
         Take any card to the <Link href="/arena" className="underline decoration-[#B23A2E] underline-offset-2">Arena</Link>.
-        3 rounds, best stats win. The meta rotates daily.
+        3 rounds, best stats win, and every fight pays a purse. Win fights,
+        earn Ticks, trade Ticks for packs. Nothing is ever staked.
       </>
     ),
   },
@@ -131,9 +132,9 @@ const PANELS: { n: string; title: string; copy: React.ReactNode; art: React.Reac
     art: <ArtTrade />,
     copy: (
       <>
-        Sell dupes at book value, in the{" "}
-        <Link href="/binder" className="underline decoration-[#B23A2E] underline-offset-2">binder</Link>.
-        Ticks are fake. The feelings are real.
+        Sell spare copies in the{" "}
+        <Link href="/binder" className="underline decoration-[#B23A2E] underline-offset-2">binder</Link>, or
+        trade ₮500 for an Exchange Pack. Ticks are fake. The feelings are real.
       </>
     ),
   },
@@ -154,7 +155,7 @@ const PANELS: { n: string; title: string; copy: React.ReactNode; art: React.Reac
     n: "06",
     title: "The fine print",
     art: <ArtFinePrint />,
-    copy: <>No real money in, none out, ever. Never rip packs angry.</>,
+    copy: <>No real money in, none out, ever. Ticks cannot be bought, and nothing can be wagered. Never rip packs angry.</>,
   },
 ];
 

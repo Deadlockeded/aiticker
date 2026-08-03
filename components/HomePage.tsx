@@ -11,6 +11,8 @@ import {
   parseBinder,
   subscribeStore,
 } from "@/lib/binder";
+import { EXCHANGE_PACK_COST } from "@/lib/economy";
+import { formatTicks } from "@/lib/market";
 import CardGrid from "./CardGrid";
 import CoverStar from "./CoverStar";
 import HotList from "./HotList";
@@ -53,10 +55,16 @@ function ResetChip() {
     };
   }, []);
   return (
-    <div className="mb-4 flex justify-center">
+    <div className="mb-4 flex flex-col items-center gap-1">
       <span className="border-2 border-[#17301F] bg-[#EAF0E4] px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.2em] text-[#17301F] shadow-[3px_3px_0_#17301F]">
         Next pack in {label || "…"}
       </span>
+      <Link
+        href="/packs"
+        className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#B23A2E] underline underline-offset-4"
+      >
+        or trade {formatTicks(EXCHANGE_PACK_COST)} for one now →
+      </Link>
     </div>
   );
 }

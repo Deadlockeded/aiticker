@@ -5,9 +5,12 @@ import { useRouter } from "next/navigation";
 import type { MarketCard } from "@/lib/cards";
 import { pullPackFor, type Pull } from "@/lib/packs";
 import { editionFor, variantLabel } from "@/lib/variants";
-import { PACK_BANK_MAX } from "@/lib/economy";
+import { EXCHANGE_PACK_COST, PACK_BANK_MAX } from "@/lib/economy";
+import { formatTicks } from "@/lib/market";
+import { balanceFrom, getWalletSnapshot, spendTicks } from "@/lib/wallet";
 import {
   addPulls,
+  countExchangePack,
   getBinder,
   consumePack,
   getAllowanceSnapshot,
@@ -155,6 +158,7 @@ export default function PackRipper({
     pieces: ConfettiPiece[];
   } | null>(null);
   const [resetIn, setResetIn] = useState("");
+  const [confirmExchange, setConfirmExchange] = useState(false);
   const [flipCaption, setFlipCaption] = useState(false);
   const tutorial = useSyncExternalStore(subscribeNever, firstRunSnapshot, () => false);
 
@@ -165,8 +169,11 @@ export default function PackRipper({
     getAllowanceSnapshot,
     () => null,
   );
+  const walletRaw = useSyncExternalStore(subscribeStore, getWalletSnapshot, () => null);
   const mounted = allowanceRaw !== null;
   const packsLeft = mounted ? packsLeftFrom(allowanceRaw) : PACK_BANK_MAX;
+  const balance = walletRaw === null ? 0 : balanceFrom(walletRaw);
+  const canExchange = walletRaw !== null && balance >= EXCHANGE_PACK_COST;
 
   // countdown to the daily reset while out of packs
   useEffect(() => {
@@ -185,9 +192,16 @@ export default function PackRipper({
     };
   }, [mounted, packsLeft]);
 
-  const rip = () => {
-    const left = consumePack();
-    if (left === null) return;
+  const rip = (paid = false) => {
+    if (paid) {
+      // Ticks are the only price; free packs and their timer are untouched.
+      if (!spendTicks(EXCHANGE_PACK_COST)) return;
+      countExchangePack();
+      setConfirmExchange(false);
+    } else {
+      const left = consumePack();
+      if (left === null) return;
+    }
     // synchronously, BEFORE the store notify re-renders the host page:
     // the homepage must lock the pack in place or this component remounts
     // mid-rip (the reveal vanishes into a fresh idle pack)
@@ -288,7 +302,7 @@ export default function PackRipper({
     setPhase("idle");
     setFanned(false);
     setEnlarged(null);
-    setTimeout(rip, 60);
+    setTimeout(() => rip(), 60);
   };
 
   const inReveal = phase === "stack" || phase === "fanned";
@@ -319,7 +333,7 @@ export default function PackRipper({
       {!inReveal && (
         <div>
           <button
-            onClick={rip}
+            onClick={() => rip()}
             disabled={!mounted || phase === "ripping" || packsLeft === 0}
             className="block w-full disabled:cursor-not-allowed disabled:opacity-50"
             aria-label="Rip the pack"
@@ -339,11 +353,44 @@ export default function PackRipper({
                   : packsLeft === 0 && mounted
                     ? `Next pack in ${resetIn}.`
                     : "Tap the pack · a fresh one every 8 hours"}
+                {packsLeft === 0 && mounted && phase !== "ripping" && (
+                  <>
+                    <br />
+                    <button
+                      onClick={() => setConfirmExchange(true)}
+                      disabled={!canExchange}
+                      className="mt-1 tracking-[0.2em] text-[#B23A2E] underline underline-offset-4 disabled:text-[#9CB09E] disabled:no-underline"
+                    >
+                      {canExchange
+                        ? `or trade ${formatTicks(EXCHANGE_PACK_COST)} for one now →`
+                        : `exchange pack ${formatTicks(EXCHANGE_PACK_COST)} · you have ${formatTicks(balance)}`}
+                    </button>
+                  </>
+                )}
               </p>
               {tutorial && phase === "idle" && packsLeft > 0 && (
                 <EditorCaption className="mt-4" ttl={30000}>
                   Tap the pack.
                 </EditorCaption>
+              )}
+              {mounted && phase !== "ripping" && (
+                <div className="coupon mx-auto mt-6 max-w-[300px] p-3 text-center">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#9CB09E]">
+                    Wallet · <span className="tnum text-[#17301F]">{formatTicks(balance)}</span>
+                  </p>
+                  <button
+                    onClick={() => setConfirmExchange(true)}
+                    disabled={!canExchange}
+                    className="mt-2 w-full border-2 border-[#17301F] bg-[#EAF0E4] px-4 py-2.5 font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-[#17301F] shadow-[3px_3px_0_#17301F] hover:bg-[#F4F7F0] disabled:border-[#9CB09E] disabled:text-[#9CB09E] disabled:shadow-none"
+                  >
+                    Exchange pack — {formatTicks(EXCHANGE_PACK_COST)}
+                  </button>
+                  <p className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.15em] text-[#9CB09E]">
+                    {canExchange
+                      ? "Same cards. Same odds."
+                      : "Win fights to earn Ticks."}
+                  </p>
+                </div>
               )}
             </>
           )}
@@ -451,14 +498,68 @@ export default function PackRipper({
             >
               Add to binder →
             </button>
-            {packsLeft > 0 && (
+            {packsLeft > 0 ? (
               <button
                 onClick={ripAnother}
                 className="border-2 border-[#17301F] px-6 py-2.5 font-mono text-xs font-semibold uppercase tracking-widest text-[#17301F] hover:bg-[#17301F]/5"
               >
                 Rip another ({packsLeft} banked)
               </button>
+            ) : (
+              canExchange && (
+                <button
+                  onClick={() => setConfirmExchange(true)}
+                  className="border-2 border-[#17301F] px-6 py-2.5 font-mono text-xs font-semibold uppercase tracking-widest text-[#17301F] hover:bg-[#17301F]/5"
+                >
+                  Exchange pack — {formatTicks(EXCHANGE_PACK_COST)}
+                </button>
+              )
             )}
+          </div>
+        </div>
+      )}
+
+      {/* exchange confirm: one sheet, balance-after, then instant */}
+      {confirmExchange && (
+        <div className="fixed inset-0 z-50" onClick={() => setConfirmExchange(false)}>
+          <div className="absolute inset-0 bg-[#17301F]/60" />
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="absolute inset-x-0 bottom-0 border-t-2 border-[#17301F] bg-[#F4F7F0] p-5 pb-[calc(1.5rem+env(safe-area-inset-bottom))]"
+          >
+            <div className="mx-auto max-w-[320px] text-center">
+              <p className="font-display text-lg uppercase text-[#17301F]">
+                Exchange pack
+              </p>
+              <p className="mt-1 text-[13px] text-[#5A6E5E]">
+                Three cards. The same odds as a free pack.
+              </p>
+              <dl className="mt-4 space-y-1 border-2 border-[#17301F] p-3 text-left font-mono text-[12px] uppercase tracking-[0.1em]">
+                <div className="flex justify-between">
+                  <dt className="text-[#5A6E5E]">Cost</dt>
+                  <dd className="tnum text-[#B23A2E]">−{formatTicks(EXCHANGE_PACK_COST)}</dd>
+                </div>
+                <div className="flex justify-between border-t border-dashed border-[#17301F]/40 pt-1">
+                  <dt className="text-[#5A6E5E]">Balance after</dt>
+                  <dd className="tnum text-[#17301F]">
+                    {formatTicks(Math.max(0, balance - EXCHANGE_PACK_COST))}
+                  </dd>
+                </div>
+              </dl>
+              <button
+                onClick={() => rip(true)}
+                disabled={!canExchange}
+                className="mt-4 w-full border-2 border-[#17301F] bg-[#B23A2E] px-6 py-3 font-display text-sm uppercase text-[#F4F7F0] shadow-[3px_3px_0_#17301F] hover:bg-[#8E2E24] disabled:opacity-50"
+              >
+                Trade {formatTicks(EXCHANGE_PACK_COST)} → rip it
+              </button>
+              <button
+                onClick={() => setConfirmExchange(false)}
+                className="mt-2 w-full px-4 py-2 font-mono text-[11px] uppercase tracking-widest text-[#5A6E5E] hover:text-[#17301F]"
+              >
+                Not now
+              </button>
+            </div>
           </div>
         </div>
       )}

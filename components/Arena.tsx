@@ -14,6 +14,9 @@ import {
   recordBattle,
 } from "@/lib/battle";
 import { addXP, XP_REWARDS } from "@/lib/xp";
+import { computePurse, type Purse } from "@/lib/economy";
+import { formatTicks } from "@/lib/market";
+import { grantTicks } from "@/lib/wallet";
 import { checkAchievements, unlockArtifactWin } from "@/lib/achievements";
 import { computeCommunityRating, toMarketCard } from "@/lib/create";
 import { isReleased } from "@/lib/drops";
@@ -165,6 +168,66 @@ async function exportArenaPng(a: VsSide, b: VsSide, result: VsResult) {
   return sharePng(blob, { filename: "aiticker-arena.png", text: `Arena result ${result.aWins}–${result.bWins}. Run yours.`, url: "https://aiticker.vercel.app/arena" });
 }
 
+/** Counts a Tick total up on mount. Pure transform+text, no layout shift. */
+function TickCountUp({ to, ms = 900 }: { to: number; ms?: number }) {
+  const [n, setN] = useState(0);
+  useEffect(() => {
+    if (to <= 0) return;
+    let raf = 0;
+    const start = performance.now();
+    const tick = (t: number) => {
+      const p = Math.min(1, (t - start) / ms);
+      // ease-out so the last digits settle
+      setN(Math.round(to * (1 - Math.pow(1 - p, 3))));
+      if (p < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [to, ms]);
+  return <span className="tnum">{formatTicks(n)}</span>;
+}
+
+/** Line-itemed purse for the result screen. Losses still pay — never a debit. */
+function PurseBreakdown({ purse, paid }: { purse: Purse; paid: number }) {
+  const rows: [string, number][] = [
+    ["Base", purse.base],
+    ["Upset", purse.upset],
+    ["Streak", purse.streak],
+    ["First win today", purse.daily],
+  ];
+  return (
+    <div
+      data-testid="purse"
+      className="deal-in mx-auto mt-4 max-w-[280px] border-2 border-[#17301F] bg-[#F4F7F0] p-3 text-left shadow-[3px_3px_0_#17301F]"
+    >
+      <p className="text-center font-mono text-[10px] uppercase tracking-[0.3em] text-[#9CB09E]">
+        Purse
+      </p>
+      <dl className="mt-2 space-y-0.5 font-mono text-[11px] uppercase tracking-[0.1em]">
+        {rows
+          .filter(([, v]) => v > 0)
+          .map(([label, v]) => (
+            <div key={label} className="flex justify-between">
+              <dt className="text-[#5A6E5E]">{label}</dt>
+              <dd className="tnum text-[#17301F]">+{formatTicks(v)}</dd>
+            </div>
+          ))}
+        <div className="mt-1 flex justify-between border-t-2 border-dashed border-[#17301F]/40 pt-1">
+          <dt className="font-semibold text-[#17301F]">Paid</dt>
+          <dd className="text-[#1F6E3D]">
+            +<TickCountUp to={paid} />
+          </dd>
+        </div>
+      </dl>
+      {paid < purse.total && (
+        <p className="mt-1.5 text-center font-mono text-[9px] uppercase tracking-[0.15em] text-[#9CB09E]">
+          Daily earn cap reached — the rest keeps till tomorrow.
+        </p>
+      )}
+    </div>
+  );
+}
+
 export default function Arena({
   cards,
   ranks,
@@ -204,6 +267,7 @@ export default function Arena({
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
   const autoRan = useRef(false);
   const [arenaTips, setArenaTips] = useState(false);
+  const [purse, setPurse] = useState<{ purse: Purse; paid: number } | null>(null);
 
   // First arena visit with cards in hand: exactly 2 captions, then never again.
   useEffect(() => {
@@ -325,6 +389,7 @@ export default function Arena({
       activeFoe.card ? getRandomQuip(activeFoe.card) : null,
     ]);
     setResult(res);
+    setPurse(null);
     setShownRounds(0);
     setPhase("fight");
     timers.current.forEach(clearTimeout);
@@ -334,7 +399,18 @@ export default function Arena({
     timers.current.push(
       setTimeout(() => {
         const won = res.winner === "a";
-        recordBattle(won, won && activeFoe.side.rating >= me.side.rating + 10);
+        const rec = recordBattle(won, won && activeFoe.side.rating >= me.side.rating + 10);
+        // Purses only ever ADD Ticks — nothing is ever staked or lost here.
+        const p = computePurse({
+          won,
+          myRating: me.side.rating,
+          foeRating: activeFoe.side.rating,
+          streakAfter: rec.current,
+          firstWinToday: rec.firstWinToday,
+        });
+        // silent: the result screen counts the total up itself
+        const paid = grantTicks(p.total, { reason: "arena purse", silent: true });
+        setPurse({ purse: p, paid });
         addXP(won ? XP_REWARDS.battleWin : XP_REWARDS.battleLoss);
         if (won && me.card?.type === "artifact") {
           unlockArtifactWin(me.card);
@@ -384,7 +460,7 @@ export default function Arena({
         Streak <span className="tnum text-[#17301F]">{record.current}</span> · Best{" "}
         <span className="tnum text-[#17301F]">{record.best}</span> ·{" "}
         <span className="tnum">{record.wins}W–{record.losses}L</span> · zero
-        stakes, cards are never lost
+        stakes — cards and Ticks are never lost, and every fight pays
       </p>
 
       {phase === "setup" && (
@@ -639,6 +715,7 @@ export default function Arena({
                   {commentary(result, winnerLabel)}
                 </p>
               )}
+              {purse && <PurseBreakdown purse={purse.purse} paid={purse.paid} />}
               <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
                 <button
                   onClick={() => fight()}
@@ -665,9 +742,12 @@ export default function Arena({
                   label="Copy result"
                   text={(() => {
                     const cat = decisiveCategory(result)?.toUpperCase();
+                    const took = purse?.paid
+                      ? ` Took ${formatTicks(purse.paid)} off ${foe.side.label}.`
+                      : "";
                     return result.winner === "a"
-                      ? `My ${me.side.label} card just beat ${foe.side.label} ${result.aWins}-${result.bWins} in the aiticker arena.${cat ? ` Sealed it on ${cat}.` : ""} aiticker.xyz/arena`
-                      : `${foe.side.label} took my ${me.side.label} card ${result.bWins}-${result.aWins}.${cat ? ` Lost on ${cat}, which honestly tracks.` : ""} aiticker.xyz/arena`;
+                      ? `My ${me.side.label} card just beat ${foe.side.label} ${result.aWins}-${result.bWins} in the aiticker arena.${cat ? ` Sealed it on ${cat}.` : ""}${took} aiticker.xyz/arena`
+                      : `${foe.side.label} took my ${me.side.label} card ${result.bWins}-${result.aWins}.${cat ? ` Lost on ${cat}, which honestly tracks.` : ""}${purse?.paid ? ` Still walked with ${formatTicks(purse.paid)}.` : ""} aiticker.xyz/arena`;
                   })()}
                   url=""
                   className="text-sm"
