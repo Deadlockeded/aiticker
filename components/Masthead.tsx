@@ -1,7 +1,7 @@
 import type { MarketCard } from "@/lib/cards";
 import { formatMove, formatTicks, getCurrentPrice, getDailyMove } from "@/lib/market";
 
-/** Hero: the rising-fan lockup + plain-register H1, live index chip right. */
+/** Hero: the Sora headline — "card game" is the only coloured phrase on the page. */
 export default function Masthead({ cards }: { cards: MarketCard[] }) {
   const pool = cards.filter((c) => c.id !== "agi");
   // the composite: average card price + average daily move (deterministic,

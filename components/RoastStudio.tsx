@@ -192,27 +192,25 @@ export default function RoastStudio({
             onChange={(e) => setHandle(e.target.value.slice(0, 40))}
             onKeyDown={(e) => e.key === "Enter" && roast(handle, heat)}
             placeholder="octocat"
-            className="w-full border border-line bg-surface2 px-3 py-2.5 text-base text-ink outline-none focus:border-pink"
+            className="w-full rounded-full bg-surface2 px-4 py-3 text-[16px] text-ink outline-none ring-inset placeholder:text-ink3 focus:ring-2 focus:ring-pink"
           />
-          <div className="mt-3 flex gap-1.5">
+          <div className="mt-3 flex gap-1 rounded-full bg-surface2 p-1">
             {HEATS.map((h) => (
-              <button
-                key={h.id}
-                onClick={() => setHeat(h.id)}
-                className={`min-h-11 flex-1 border px-2 py-1.5 font-mono text-[11px] uppercase tracking-[0.1em] transition-colors ${
-                  heat === h.id
-                    ? "border-line2 bg-pink text-on-accent"
-                    : "border-line text-ink active:bg-surface2"
-                }`}
-              >
-                {h.label}
-              </button>
-            ))}
+            <button
+              key={h.id}
+              onClick={() => setHeat(h.id)}
+              className={`min-h-9 flex-1 rounded-full px-3 py-2 text-[14px] font-semibold transition-all ${
+                heat === h.id ? "bg-pink text-on-accent" : "text-ink2 hover:text-ink"
+              }`}
+            >
+              {h.label}
+            </button>
+          ))}
           </div>
           <button
             onClick={() => roast(handle, heat)}
             disabled={loading || !handle.trim()}
-            className="mt-4 w-full border border-line2 bg-pink px-5 py-3 font-display text-sm uppercase text-on-accent shadow-card hover:bg-pink disabled:cursor-not-allowed disabled:opacity-40"
+            className="mt-4 w-full rounded-full bg-pink px-6 py-3.5 text-[16px] font-semibold text-on-accent transition-transform active:scale-[.97] disabled:pointer-events-none disabled:opacity-40"
           >
             {loading ? "Preparing…" : "Roast me"}
           </button>

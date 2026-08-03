@@ -17,7 +17,7 @@ export default function MetaStrip() {
     () => null as MetaCategory[] | null,
   );
   const [open, setOpen] = useState<string | null>(null);
-  if (!active) return <div className="mb-5 min-h-[64px]" />;
+  if (!active) return <div className="mb-5 h-[82px]" aria-hidden />;
   const opened = active.find((c) => c.key === open);
 
   return (

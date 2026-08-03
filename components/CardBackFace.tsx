@@ -34,7 +34,7 @@ function Crest({ withRing }: { withRing: boolean }) {
           <text
             fill="var(--surface)"
             fontSize="9.5"
-            fontFamily="var(--font-geist-mono)"
+            fontFamily="var(--font-martian)"
             letterSpacing="3.5"
           >
             <textPath href="#crest-top" startOffset="50%" textAnchor="middle">
@@ -44,7 +44,7 @@ function Crest({ withRing }: { withRing: boolean }) {
           <text
             fill="var(--surface)"
             fontSize="8"
-            fontFamily="var(--font-geist-mono)"
+            fontFamily="var(--font-martian)"
             letterSpacing="3"
           >
             <textPath href="#crest-bot" startOffset="50%" textAnchor="middle">

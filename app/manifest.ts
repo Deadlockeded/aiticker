@@ -3,16 +3,17 @@ import type { MetadataRoute } from "next";
 /** PWA basics only — clean Add-to-Home-Screen. No service worker on purpose. */
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "AIticker",
-    short_name: "AIticker",
+    name: "aiticker",
+    short_name: "aiticker",
     description: "Rip packs. Build your binder. Fight the index.",
     start_url: "/",
     display: "standalone",
-    background_color: "#0a0a0b",
-    theme_color: "#0a0a0b",
+    background_color: "#0E0E13",
+    theme_color: "#0E0E13",
     icons: [
       { src: "/icon-192.png", sizes: "192x192", type: "image/png" },
       { src: "/icon-512.png", sizes: "512x512", type: "image/png" },
+      { src: "/icon-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
     ],
   };
 }

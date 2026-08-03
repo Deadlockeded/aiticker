@@ -119,7 +119,7 @@ export function drawLogoMark(
 /**
  * The brand font families (next/font hashed names, read from the CSS vars)
  * for canvas exports, awaited so nothing draws with a fallback face.
- * display = Archivo Black · mono = Oswald · body = Lora.
+ * display = Sora · mono = Martian Mono · body = Instrument Sans.
  */
 export async function brandFonts(): Promise<{
   display: string;
@@ -130,9 +130,9 @@ export async function brandFonts(): Promise<{
   const pick = (name: string, fallback: string) =>
     css.getPropertyValue(name).trim() || fallback;
   const fonts = {
-    display: pick("--font-display", "system-ui"),
-    mono: pick("--font-geist-mono", "ui-monospace"),
-    body: pick("--font-geist-sans", "system-ui"),
+    display: pick("--font-sora", "system-ui"),
+    mono: pick("--font-martian", "ui-monospace"),
+    body: pick("--font-instrument", "system-ui"),
   };
   try {
     await document.fonts.ready;

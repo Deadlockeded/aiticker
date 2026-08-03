@@ -7,8 +7,8 @@ export default function Error({ reset }: { error: Error; reset: () => void }) {
   return (
     <main className="mx-auto flex w-full max-w-md flex-1 flex-col items-center justify-center gap-4 px-4 py-24 text-center">
       <Logo variant="icon" size={64} fallen />
-      <p className="font-display text-4xl uppercase text-ink">Something broke.</p>
-      <p className="text-sm text-ink2">
+      <p className="text-[32px] text-ink">Something broke.</p>
+      <p className="text-[15px] text-ink2">
         Refresh usually fixes it. Your binder is safe — it lives in this
         browser, not on our servers.
       </p>

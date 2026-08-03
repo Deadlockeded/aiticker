@@ -373,6 +373,9 @@ export default function PackRipper({
                   Tap the pack.
                 </EditorCaption>
               )}
+              {/* reserved height: this row resolves from localStorage, and a
+                  late-appearing coupon was worth 0.12 CLS on /packs */}
+              {!mounted && <div className="mx-auto mt-6 h-[118px] max-w-[300px]" aria-hidden />}
               {mounted && phase !== "ripping" && (
                 <div className="rounded-[22px] border border-dashed border-line2 bg-surface mx-auto mt-6 max-w-[300px] p-3 text-center">
                   <p className="micro text-[10px] tracking-[0.3em] text-ink3">
