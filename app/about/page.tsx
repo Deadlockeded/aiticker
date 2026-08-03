@@ -12,14 +12,14 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", title, images: ["/api/og/promo?page=about"] },
 };
 
-const H = "mt-8 border-b-2 border-[#1E2430] pb-1 text-lg text-[#1E2430]";
-const P = "text-[15px] leading-relaxed text-[#1E2430]";
+const H = "mt-8 border-b-2 border-[#17301F] pb-1 text-lg text-[#17301F]";
+const P = "text-[15px] leading-relaxed text-[#17301F]";
 
 export default function AboutPage() {
   return (
     <main className="mx-auto w-full max-w-2xl flex-1 px-4 py-8">
       <div className="paper-card p-6 sm:p-8">
-        <h1 className="border-b-[3px] border-[#1E2430] pb-2 text-3xl text-[#1E2430]">
+        <h1 className="border-b-[3px] border-[#17301F] pb-2 text-3xl text-[#17301F]">
           About
         </h1>
         <div className={`mt-4 space-y-3 ${P}`}>
@@ -36,7 +36,7 @@ export default function AboutPage() {
         </div>
 
         <h2 className={H}>Staff</h2>
-        <ul className="mt-3 space-y-3 border-2 border-[#1E2430] p-4 text-[14px] leading-relaxed text-[#1E2430]">
+        <ul className="mt-3 space-y-3 border-2 border-[#17301F] p-4 text-[14px] leading-relaxed text-[#17301F]">
           <li>
             <span className="font-mono font-semibold uppercase tracking-wider">Founder</span>{" "}
             — Has a binder. Believes in it. Rated 61 by his own algorithm and
@@ -74,7 +74,7 @@ export default function AboutPage() {
         </div>
 
         <h2 className={H}>Disclosures (the true parts, in the funny font)</h2>
-        <div className="mt-3 space-y-2 font-mono text-[11px] leading-relaxed text-[#5A6070]">
+        <div className="mt-3 space-y-2 font-mono text-[11px] leading-relaxed text-[#5A6E5E]">
           <p>
             § Not affiliated with, endorsed by, or on speaking terms with any
             person, company, laboratory, or punctuation mark listed on the
@@ -105,7 +105,7 @@ export default function AboutPage() {
           anywhere; we will find them.
         </p>
 
-        <p className={`mt-6 italic text-[#5A6070]`}>&quot;Never rip packs angry.&quot;</p>
+        <p className={`mt-6 italic text-[#5A6E5E]`}>&quot;Never rip packs angry.&quot;</p>
       </div>
     </main>
   );

@@ -29,9 +29,9 @@ const RARITY: Record<
 > = {
   common: {
     label: "Common",
-    artBg: "bg-[radial-gradient(120%_100%_at_50%_0%,#e8e1d0_0%,#d9d2bf_70%)]",
+    artBg: "bg-[radial-gradient(120%_100%_at_50%_0%,#e0e8d8_0%,#ccd8c4_70%)]",
     accentText: "text-zinc-400",
-    border: "border-[#1E2430]/30",
+    border: "border-[#17301F]/30",
     glow: "",
     foilSweep: false,
     holoWash: false,
@@ -66,7 +66,7 @@ const RARITY: Record<
   mythic: {
     label: "Mythic",
     artBg: "bg-[radial-gradient(120%_100%_at_50%_0%,#d8d3e6_0%,#bfb8d6_72%)]",
-    accentText: "text-[#C23B2E]",
+    accentText: "text-[#B23A2E]",
     border: "border-transparent",
     glow: "shadow-[0_0_32px_-6px_rgba(56,189,248,0.35)]",
     foilSweep: true,
@@ -120,10 +120,10 @@ export default function TradingCard({
     <div
       className={`group flex h-full flex-col overflow-hidden transition duration-200 ${
         artifact && !agi
-          ? "rounded-[3px] border-[3px] border-double border-[#1E2430]/60 bg-[#FDFBF6]"
+          ? "rounded-[3px] border-[3px] border-double border-[#17301F]/60 bg-[#F4F7F0]"
           : mythic
-            ? "rounded-[3px] bg-[#FDFBF6]"
-            : "rounded-[3px] border-2 border-[#1E2430] bg-[#FDFBF6]"
+            ? "rounded-[3px] bg-[#F4F7F0]"
+            : "rounded-[3px] border-2 border-[#17301F] bg-[#F4F7F0]"
       } ${proof && !resolving ? "" : "paper-shadow"} ${hero ? "" : "hover:-translate-y-1"} ${resolving ? "proof-resolving" : ""}`}
     >
       {/* art */}
@@ -137,11 +137,11 @@ export default function TradingCard({
         {card.type === "moment" ? (
           /* cinematic frame: letterboxed wide crop + date stamp */
           <div className="absolute inset-0 flex flex-col justify-center bg-black/30">
-            <div className="flex aspect-video items-center justify-center border-y border-[#1E2430]/40 bg-gradient-to-b from-black/60 via-transparent to-black/60">
+            <div className="flex aspect-video items-center justify-center border-y border-[#17301F]/40 bg-gradient-to-b from-black/60 via-transparent to-black/60">
               <span className={hero ? "text-7xl" : "text-4xl"}>{card.avatar}</span>
             </div>
             <span
-              className={`absolute bottom-2 left-2 rounded bg-black/60 px-1.5 py-0.5 font-mono uppercase tracking-wider text-[#5A6070] ${
+              className={`absolute bottom-2 left-2 rounded bg-black/60 px-1.5 py-0.5 font-mono uppercase tracking-wider text-[#5A6E5E] ${
                 hero ? "text-[11px]" : "text-[8px]"
               }`}
             >
@@ -152,7 +152,7 @@ export default function TradingCard({
           <RivalryArt sides={card.sides} hero={hero} />
         ) : artifact ? (
           <div
-            className={`absolute inset-0 flex items-center justify-center ${agi ? "bg-[#0b0b0d]" : "bg-[radial-gradient(110%_100%_at_50%_0%,#efe8d6_0%,#e0d7c0_70%)]"}`}
+            className={`absolute inset-0 flex items-center justify-center ${agi ? "bg-[#0b0b0d]" : "bg-[radial-gradient(110%_100%_at_50%_0%,#e6eede_0%,#d5e2cb_70%)]"}`}
           >
             <svg
               viewBox="0 0 48 48"
@@ -180,7 +180,7 @@ export default function TradingCard({
         )}
         {veiled && !resolving && (
           <span
-            className={`absolute bottom-1.5 right-1.5 z-10 rounded-sm bg-[#1E2430]/85 px-1 font-mono uppercase tracking-wider text-[#F2EDE3] ${hero ? "text-[9px]" : "text-[6px]"}`}
+            className={`absolute bottom-1.5 right-1.5 z-10 rounded-sm bg-[#17301F]/85 px-1 font-mono uppercase tracking-wider text-[#F4F7F0] ${hero ? "text-[9px]" : "text-[6px]"}`}
           >
             Not in your binder
           </span>
@@ -188,19 +188,19 @@ export default function TradingCard({
 
         {/* rating chip */}
         <div
-          className={`absolute left-2 top-2 flex items-baseline gap-1 rounded-lg bg-[#1E2430] ${
+          className={`absolute left-2 top-2 flex items-baseline gap-1 rounded-lg bg-[#17301F] ${
             hero ? "px-3 py-1.5" : "px-2 py-1"
           }`}
         >
           <span
-            className={`tnum font-mono font-bold leading-none text-[#FDFBF6] ${
+            className={`tnum font-mono font-bold leading-none text-[#F4F7F0] ${
               hero ? "text-3xl" : "text-lg"
             }`}
           >
             {agi ? "?" : card.rating}
           </span>
           <span
-            className={`font-mono uppercase text-[#FDFBF6]/60 ${hero ? "text-xs" : "text-[8px]"}`}
+            className={`font-mono uppercase text-[#F4F7F0]/60 ${hero ? "text-xs" : "text-[8px]"}`}
           >
             ovr
           </span>
@@ -219,7 +219,7 @@ export default function TradingCard({
 
         {stamp && (
           <span
-            className={`pointer-events-none absolute left-1/2 top-[62%] z-10 -translate-x-1/2 rotate-[-12deg] whitespace-nowrap rounded border-double border-red-500/75 px-2 py-0.5 font-mono font-black uppercase tracking-widest text-[#C23B2E] opacity-90 mix-blend-screen [border-width:4px] [text-shadow:0_0_2px_rgba(239,68,68,0.6),1px_1px_0_rgba(0,0,0,0.4)] ${
+            className={`pointer-events-none absolute left-1/2 top-[62%] z-10 -translate-x-1/2 rotate-[-12deg] whitespace-nowrap rounded border-double border-red-500/75 px-2 py-0.5 font-mono font-black uppercase tracking-widest text-[#B23A2E] opacity-90 mix-blend-screen [border-width:4px] [text-shadow:0_0_2px_rgba(239,68,68,0.6),1px_1px_0_rgba(0,0,0,0.4)] ${
               hero ? "text-xs" : "text-[8px]"
             }`}
           >
@@ -235,7 +235,7 @@ export default function TradingCard({
       <div className={`flex flex-1 flex-col ${hero ? "gap-2 p-5" : "gap-1.5 p-3"}`}>
         <div className="flex items-center justify-between gap-2">
           <h3
-            className={`truncate font-semibold text-[#1E2430] ${
+            className={`truncate font-semibold text-[#17301F] ${
               hero ? "text-xl" : "text-sm"
             }`}
           >
@@ -243,18 +243,18 @@ export default function TradingCard({
           </h3>
           {!community && rank > 0 && (
             <span
-              className={`tnum shrink-0 font-mono text-[#9AA0AC] ${hero ? "text-sm" : "text-[10px]"}`}
+              className={`tnum shrink-0 font-mono text-[#9CB09E] ${hero ? "text-sm" : "text-[10px]"}`}
             >
               #{rank}
             </span>
           )}
         </div>
         <div
-          className={`flex items-center justify-between font-mono text-[#9AA0AC] ${
+          className={`flex items-center justify-between font-mono text-[#9CB09E] ${
             hero ? "text-xs" : "text-[9px]"
           }`}
         >
-          <span className={`uppercase tracking-wider ${community ? "text-[#C23B2E]" : ""}`}>
+          <span className={`uppercase tracking-wider ${community ? "text-[#B23A2E]" : ""}`}>
             {community ? "community" : artifact ? "artifact" : card.type}
           </span>
           <span className="tnum">
@@ -264,27 +264,27 @@ export default function TradingCard({
           </span>
         </div>
 
-        {hero && <p className="text-sm text-[#5A6070]">{card.tagline}</p>}
+        {hero && <p className="text-sm text-[#5A6E5E]">{card.tagline}</p>}
         {hero && (
-          <p className="text-[13px] italic leading-snug text-[#9AA0AC]">
+          <p className="text-[13px] italic leading-snug text-[#9CB09E]">
             “{card.flavorText}”
           </p>
         )}
 
         {hero && communityStats && (
-          <div className="mt-1 space-y-2 border-t border-[#1E2430]/30 pt-3">
+          <div className="mt-1 space-y-2 border-t border-[#17301F]/30 pt-3">
             {communityStats.map(({ label, value }) => (
               <div key={label} className="flex items-center gap-2">
                 <span className={`w-24 font-mono text-xs ${r.accentText}`}>
                   {label}
                 </span>
-                <div className="h-1 flex-1 overflow-hidden rounded-full bg-[#1E2430]/10">
+                <div className="h-1 flex-1 overflow-hidden rounded-full bg-[#17301F]/10">
                   <div
                     className="h-full rounded-full bg-white/60"
                     style={{ width: `${value}%` }}
                   />
                 </div>
-                <span className="tnum w-6 text-right font-mono text-xs text-[#5A6070]">
+                <span className="tnum w-6 text-right font-mono text-xs text-[#5A6E5E]">
                   {value}
                 </span>
               </div>
@@ -293,27 +293,27 @@ export default function TradingCard({
         )}
 
         {hero && !communityStats && (
-          <div className="mt-1 space-y-2 border-t border-[#1E2430]/30 pt-3">
+          <div className="mt-1 space-y-2 border-t border-[#17301F]/30 pt-3">
             {STAT_ROWS.map(({ key, label }) => (
               <div key={key} className="flex items-center gap-2">
                 <span className={`w-24 font-mono text-[10px] tracking-wider ${r.accentText}`}>
                   {label}
                 </span>
-                <div className="h-1 flex-1 overflow-hidden rounded-full bg-[#1E2430]/10">
+                <div className="h-1 flex-1 overflow-hidden rounded-full bg-[#17301F]/10">
                   <div
                     className="h-full rounded-full bg-white/60"
                     style={{ width: `${card.stats[key]}%` }}
                   />
                 </div>
-                <span className="tnum w-6 text-right font-mono text-xs text-[#5A6070]">
+                <span className="tnum w-6 text-right font-mono text-xs text-[#5A6E5E]">
                   {agi ? "?" : card.stats[key]}
                 </span>
                 {!agi && (
                   <span
                     className={`border px-1 font-mono text-[8px] font-semibold ${
                       statTier(card.stats[key]).hot
-                        ? "border-[#C23B2E] bg-[#C23B2E] text-[#FDFBF6]"
-                        : "border-[#1E2430]/60 text-[#1E2430]"
+                        ? "border-[#B23A2E] bg-[#B23A2E] text-[#F4F7F0]"
+                        : "border-[#17301F]/60 text-[#17301F]"
                     }`}
                   >
                     {statTier(card.stats[key]).word}
@@ -327,19 +327,19 @@ export default function TradingCard({
         {/* price row (community cards have no market) */}
         {!community && (
           <div
-            className={`mt-auto flex items-center justify-between border-t border-[#1E2430]/30 ${
+            className={`mt-auto flex items-center justify-between border-t border-[#17301F]/30 ${
               hero ? "pt-3" : "pt-2"
             }`}
           >
             <span
-              className={`tnum font-mono font-semibold text-[#1E2430] ${
+              className={`tnum font-mono font-semibold text-[#17301F] ${
                 hero ? "text-lg" : "text-xs"
               }`}
             >
               {agi ? "unpriced" : formatTicks(price)}
             </span>
             <span
-              className={`tnum font-mono ${move >= 0 ? "text-[#1F7A3D]" : "text-[#C23B2E]"} ${
+              className={`tnum font-mono ${move >= 0 ? "text-[#1F6E3D]" : "text-[#B23A2E]"} ${
                 hero ? "text-sm" : "text-[10px]"
               }`}
             >

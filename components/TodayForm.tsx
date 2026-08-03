@@ -21,11 +21,11 @@ export default function TodayForm({ card }: { card: MarketCard }) {
 
   return (
     <div className="paper-card p-4 sm:p-5">
-      <div className="flex items-baseline justify-between border-b-2 border-[#1E2430] pb-1">
-        <h2 className="font-mono text-xs font-semibold uppercase tracking-[0.3em] text-[#1E2430]">
+      <div className="flex items-baseline justify-between border-b-2 border-[#17301F] pb-1">
+        <h2 className="font-mono text-xs font-semibold uppercase tracking-[0.3em] text-[#17301F]">
           Today&apos;s form
         </h2>
-        <span className="font-mono text-[10px] uppercase tracking-widest text-[#9AA0AC]">
+        <span className="font-mono text-[10px] uppercase tracking-widest text-[#9CB09E]">
           meta rotates daily
         </span>
       </div>
@@ -33,12 +33,12 @@ export default function TodayForm({ card }: { card: MarketCard }) {
         {active.map((cat) => (
           <div key={cat.key} className="text-center">
             <dt
-              className="font-mono text-[10px] uppercase tracking-widest text-[#5A6070]"
+              className="font-mono text-[10px] uppercase tracking-widest text-[#5A6E5E]"
               title={cat.definition}
             >
               {cat.name}
             </dt>
-            <dd className="tnum font-mono text-xl font-bold text-[#1E2430]">
+            <dd className="tnum font-mono text-xl font-bold text-[#17301F]">
               {card.id === "agi" ? "?" : metaValueForCard(card, cat.key)}
             </dd>
           </div>

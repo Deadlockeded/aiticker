@@ -20,12 +20,12 @@ export default function Home() {
           <CoverStar cards={cards} ranks={ranks} />
           <Link href="/packs" className="coupon block p-4 text-center paper-in">
             <NewCollectorTag />
-            <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.25em] text-[#1E2430]">
+            <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.25em] text-[#17301F]">
               ✂ 3 free packs daily,
               <br />
               straight to your binder
             </p>
-            <span className="mt-2 inline-block bg-[#C23B2E] px-4 py-2 font-mono text-xs font-semibold uppercase tracking-widest text-[#FDFBF6] hover:bg-[#A32F24]">
+            <span className="mt-2 inline-block bg-[#B23A2E] px-4 py-2 font-mono text-xs font-semibold uppercase tracking-widest text-[#F4F7F0] hover:bg-[#8E2E24]">
               Rip a pack →
             </span>
           </Link>
@@ -35,7 +35,7 @@ export default function Home() {
           <div className="coupon p-3 text-center">
             <Link
               href="/create"
-              className="font-mono text-[12px] font-semibold uppercase tracking-[0.25em] text-[#C23B2E] hover:underline"
+              className="font-mono text-[12px] font-semibold uppercase tracking-[0.25em] text-[#B23A2E] hover:underline"
             >
               Get scouted. Get roasted. It&apos;s the same department. →
             </Link>
@@ -45,7 +45,7 @@ export default function Home() {
       </div>
 
       <div className="mt-8">
-        <h2 className="mb-3 border-b-2 border-[#1E2430] pb-1 text-lg text-[#1E2430]">
+        <h2 className="mb-3 border-b-2 border-[#17301F] pb-1 text-lg text-[#17301F]">
           The Checklist — Series 1
         </h2>
         <CardGrid cards={cards} ranks={ranks} />

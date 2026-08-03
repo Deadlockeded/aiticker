@@ -6,19 +6,19 @@ import type { Rarity } from "@/lib/types";
 export const runtime = "edge";
 
 const RARITY_BG: Record<Rarity, string> = {
-  common: "linear-gradient(135deg, #e8e1d0 0%, #F2EDE3 60%)",
-  rare: "linear-gradient(135deg, #cfd9e4 0%, #F2EDE3 60%)",
-  epic: "linear-gradient(135deg, #dccbe0 0%, #F2EDE3 60%)",
-  legendary: "linear-gradient(135deg, #e8cf9a 0%, #F2EDE3 60%)",
-  mythic: "linear-gradient(135deg, #d8d3e6 0%, #F2EDE3 60%)",
+  common: "linear-gradient(135deg, #e0e8d8 0%, #F4F7F0 60%)",
+  rare: "linear-gradient(135deg, #cfd9e4 0%, #F4F7F0 60%)",
+  epic: "linear-gradient(135deg, #dccbe0 0%, #F4F7F0 60%)",
+  legendary: "linear-gradient(135deg, #e8cf9a 0%, #F4F7F0 60%)",
+  mythic: "linear-gradient(135deg, #d8d3e6 0%, #F4F7F0 60%)",
 };
 
 const RARITY_ACCENT: Record<Rarity, string> = {
-  common: "#5A6070",
-  rare: "#1F4E79",
-  epic: "#6B3FA0",
-  legendary: "#8a6d1d",
-  mythic: "#C23B2E",
+  common: "#5A6E5E",
+  rare: "#2E5E8E",
+  epic: "#6B4FA0",
+  legendary: "#8C6D1F",
+  mythic: "#B23A2E",
 };
 
 export async function GET(
@@ -41,7 +41,7 @@ export async function GET(
           alignItems: "center",
           padding: 64,
           background: RARITY_BG[card.rarity],
-          color: "#1E2430",
+          color: "#17301F",
           fontFamily: "sans-serif",
         }}
       >
@@ -55,7 +55,7 @@ export async function GET(
             height: 280,
             borderRadius: 999,
             border: `8px solid ${accent}`,
-            background: card.type === "company" ? "#ffffff" : card.image ? "#0f172a" : "#FDFBF6",
+            background: card.type === "company" ? "#ffffff" : card.image ? "#0f172a" : "#F4F7F0",
             overflow: "hidden",
           }}
         >
@@ -74,7 +74,7 @@ export async function GET(
             />
           ) : (
             // satori's default font has no emoji/dingbats — monogram from the name
-            <div style={{ display: "flex", fontSize: 110, fontWeight: 800, color: "#1E2430" }}>
+            <div style={{ display: "flex", fontSize: 110, fontWeight: 800, color: "#17301F" }}>
               {(card.name.replace(/[^a-zA-Z ]/g, "").trim().split(/\s+/).slice(0, 2).map((w) => w[0]).join("") || "AT").toUpperCase()}
             </div>
           )}
@@ -122,7 +122,7 @@ export async function GET(
                 display: "flex",
                 fontSize: 30,
                 marginLeft: 16,
-                color: "rgba(30,36,48,0.55)",
+                color: "rgba(23, 48, 31,0.55)",
               }}
             >
               OVR
@@ -138,7 +138,7 @@ export async function GET(
               {/* satori's default font lacks the ₮ glyph — spell it out */}
               <div style={{ display: "flex", fontSize: 54, fontWeight: 700 }}>
                 {Math.round(getCurrentPrice(card)).toLocaleString("en-US")}{" "}
-                <span style={{ fontSize: 30, marginLeft: 8, color: "rgba(30,36,48,0.55)" }}>
+                <span style={{ fontSize: 30, marginLeft: 8, color: "rgba(23, 48, 31,0.55)" }}>
                   TICKS
                 </span>
               </div>
@@ -147,7 +147,7 @@ export async function GET(
                   display: "flex",
                   fontSize: 34,
                   fontWeight: 700,
-                  color: move >= 0 ? "#1F7A3D" : "#C23B2E",
+                  color: move >= 0 ? "#1F6E3D" : "#B23A2E",
                 }}
               >
                 {formatMove(move)} 24h
@@ -160,7 +160,7 @@ export async function GET(
               marginTop: 28,
               fontSize: 24,
               letterSpacing: 4,
-              color: "rgba(30,36,48,0.5)",
+              color: "rgba(23, 48, 31,0.5)",
             }}
           >
             AI TICKER · #{card.serial}/{card.editionSize} · powered by public data

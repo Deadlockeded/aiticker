@@ -40,7 +40,7 @@ export default function ShareButton({
   return (
     <button
       onClick={share}
-      className={`rounded-full border border-[#1E2430]/40 px-6 py-2.5 font-semibold uppercase tracking-wide text-[#5A6070] transition-colors hover:bg-[#1E2430]/10 ${className}`}
+      className={`rounded-full border border-[#17301F]/40 px-6 py-2.5 font-semibold uppercase tracking-wide text-[#5A6E5E] transition-colors hover:bg-[#17301F]/10 ${className}`}
     >
       {copied ? "Copied ✓" : label}
     </button>

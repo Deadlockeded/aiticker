@@ -35,12 +35,12 @@ export default function Toaster() {
       {toasts.map((toast) => (
         <div
           key={toast.key}
-          className="deal-in flex items-start gap-3 rounded-xl border border-[#C23B2E]/50 bg-[#FDFBF6] p-3 shadow-[0_8px_32px_rgba(0,0,0,0.5)] backdrop-blur"
+          className="deal-in flex items-start gap-3 rounded-xl border border-[#B23A2E]/50 bg-[#F4F7F0] p-3 shadow-[0_8px_32px_rgba(0,0,0,0.5)] backdrop-blur"
         >
           <span className="text-2xl">{toast.emoji}</span>
           <div className="min-w-0">
-            <p className="text-sm font-semibold text-[#1E2430]">{toast.title}</p>
-            <p className="mt-0.5 text-xs text-[#5A6070]">{toast.body}</p>
+            <p className="text-sm font-semibold text-[#17301F]">{toast.title}</p>
+            <p className="mt-0.5 text-xs text-[#5A6E5E]">{toast.body}</p>
           </div>
         </div>
       ))}

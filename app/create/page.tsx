@@ -24,10 +24,10 @@ export default function CreatePage() {
   return (
     <main className="mx-auto w-full max-w-5xl flex-1 px-3 py-8 sm:px-6">
       <header className="mb-6 text-center">
-        <h1 className="text-3xl font-bold tracking-tight text-[#1E2430]">
+        <h1 className="text-3xl font-bold tracking-tight text-[#17301F]">
           Make your own card
         </h1>
-        <p className="mt-1 text-sm text-[#5A6070]">
+        <p className="mt-1 text-sm text-[#5A6E5E]">
           Rate yourself. The Algorithm has final say.
         </p>
       </header>

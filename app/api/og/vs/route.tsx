@@ -20,8 +20,8 @@ export async function GET(req: Request) {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#F2EDE3",
-          color: "#1E2430",
+          background: "#F4F7F0",
+          color: "#17301F",
           fontFamily: "sans-serif",
         }}
       >
@@ -37,7 +37,7 @@ export async function GET(req: Request) {
           }}
         >
           <div style={{ display: "flex", fontSize: 110 }}>{glyph}</div>
-          <div style={{ display: "flex", fontSize: 54, fontWeight: 900, color: "#C23B2E", letterSpacing: 8 }}>
+          <div style={{ display: "flex", fontSize: 54, fontWeight: 900, color: "#B23A2E", letterSpacing: 8 }}>
             {word}
           </div>
         </div>
@@ -51,7 +51,7 @@ export async function GET(req: Request) {
             display: "flex",
             fontSize: 26,
             letterSpacing: 6,
-            color: "#C23B2E",
+            color: "#B23A2E",
           }}
         >
           {path}

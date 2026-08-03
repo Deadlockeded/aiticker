@@ -51,13 +51,13 @@ export default function RootLayout({
         <StorageBoot />
         <Toaster />
         {children}
-        <footer className="space-y-1.5 px-4 py-6 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-[#9AA0AC]">
+        <footer className="space-y-1.5 px-4 py-6 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-[#9CB09E]">
           <p>
-            <a href="/about" className="underline hover:text-[#1E2430]">
+            <a href="/about" className="underline hover:text-[#17301F]">
               About
             </a>{" "}
             ·{" "}
-            <a href="/howto" className="underline hover:text-[#1E2430]">
+            <a href="/howto" className="underline hover:text-[#17301F]">
               How to collect
             </a>{" "}
             · a fan-made collectible game · est. tuesday
@@ -71,7 +71,7 @@ export default function RootLayout({
             Portraits via{" "}
             <a
               href="https://commons.wikimedia.org"
-              className="underline hover:text-[#5A6070]"
+              className="underline hover:text-[#5A6E5E]"
             >
               Wikimedia Commons
             </a>{" "}

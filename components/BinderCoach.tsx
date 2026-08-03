@@ -41,7 +41,7 @@ export default function BinderCoach() {
         <p className="mt-1.5 text-center">
           <Link
             href="/howto"
-            className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#C23B2E] underline hover:text-[#A32F24]"
+            className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#B23A2E] underline hover:text-[#8E2E24]"
           >
             How it works →
           </Link>
@@ -53,7 +53,7 @@ export default function BinderCoach() {
   if (show === "nudge") {
     return (
       <Link href="/arena" className="coupon mb-4 block p-3 text-center paper-in">
-        <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.25em] text-[#C23B2E]">
+        <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.25em] text-[#B23A2E]">
           ✂ Your cards can fight → visit the arena
         </span>
       </Link>

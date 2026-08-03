@@ -34,8 +34,8 @@ export async function GET(req: Request) {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: "#F2EDE3",
-          color: "#1E2430",
+          background: "#F4F7F0",
+          color: "#17301F",
           fontFamily: "sans-serif",
         }}
       >
@@ -43,7 +43,7 @@ export async function GET(req: Request) {
         <div style={{ display: "flex", fontSize: 84, fontWeight: 800, marginTop: 16 }}>
           {meta.title}
         </div>
-        <div style={{ display: "flex", fontSize: 36, marginTop: 14, color: "rgba(30,36,48,0.55)" }}>
+        <div style={{ display: "flex", fontSize: 36, marginTop: 14, color: "rgba(23, 48, 31,0.55)" }}>
           {meta.sub}
         </div>
         <div
@@ -52,7 +52,7 @@ export async function GET(req: Request) {
             marginTop: 44,
             fontSize: 28,
             letterSpacing: 6,
-            color: "#C23B2E",
+            color: "#B23A2E",
           }}
         >
           aiticker.xyz/{page}

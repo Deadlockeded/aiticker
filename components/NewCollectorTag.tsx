@@ -14,7 +14,7 @@ export default function NewCollectorTag() {
   );
   if (!show) return null;
   return (
-    <span className="mb-2 inline-block rotate-[-2deg] bg-[#1E2430] px-2 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-[#FDFBF6]">
+    <span className="mb-2 inline-block rotate-[-2deg] bg-[#17301F] px-2 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-[#F4F7F0]">
       New collector? Start here ↓
     </span>
   );

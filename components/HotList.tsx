@@ -22,13 +22,13 @@ function MetaWatch({ cards }: { cards: MarketCard[] }) {
   // reserve the row pre-hydration — a late-appearing line is layout shift
   if (!line)
     return (
-      <p className="invisible border-t border-dotted border-[#9AA0AC] px-3 py-2 text-[12px] italic">
+      <p className="invisible border-t border-dotted border-[#9CB09E] px-3 py-2 text-[12px] italic">
         &nbsp;
       </p>
     );
   return (
-    <p className="border-t border-dotted border-[#9AA0AC] px-3 py-2 text-[12px] italic text-[#5A6070]">
-      <span className="mr-1.5 font-mono text-[10px] font-semibold not-italic uppercase tracking-[0.25em] text-[#C23B2E]">
+    <p className="border-t border-dotted border-[#9CB09E] px-3 py-2 text-[12px] italic text-[#5A6E5E]">
+      <span className="mr-1.5 font-mono text-[10px] font-semibold not-italic uppercase tracking-[0.25em] text-[#B23A2E]">
         Meta watch
       </span>
       {line}
@@ -59,8 +59,8 @@ export default function HotList({ cards }: { cards: MarketCard[] }) {
   const rows = [...gainers.slice(0, 4), ...losers.slice(0, 2)];
 
   return (
-    <div className="border-[3px] border-[#C23B2E] bg-[#FDFBF6] paper-shadow">
-      <p className="bg-[#C23B2E] px-3 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.3em] text-[#FDFBF6]">
+    <div className="border-[3px] border-[#B23A2E] bg-[#F4F7F0] paper-shadow">
+      <p className="bg-[#B23A2E] px-3 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.3em] text-[#F4F7F0]">
         🔥 The Hot List
       </p>
       {/* mobile: swipeable mini-deck */}
@@ -69,17 +69,17 @@ export default function HotList({ cards }: { cards: MarketCard[] }) {
         {rows.map((card) => {
           const move = getDailyMove(card);
           return (
-            <li key={card.id} className="border-b border-dotted border-[#9AA0AC] last:border-0">
+            <li key={card.id} className="border-b border-dotted border-[#9CB09E] last:border-0">
               <Link
                 href={`/cards/${card.id}`}
-                className="flex items-center justify-between px-3 py-2 hover:bg-[#1E2430]/5"
+                className="flex items-center justify-between px-3 py-2 hover:bg-[#17301F]/5"
               >
-                <span className="truncate text-sm font-semibold text-[#1E2430]">
+                <span className="truncate text-sm font-semibold text-[#17301F]">
                   {card.name}
                 </span>
                 <span className="tnum ml-3 shrink-0 font-mono text-xs">
-                  <span className="text-[#5A6070]">{formatTicks(getCurrentPrice(card))}</span>{" "}
-                  <span className={move >= 0 ? "text-[#1F7A3D]" : "text-[#C23B2E]"}>
+                  <span className="text-[#5A6E5E]">{formatTicks(getCurrentPrice(card))}</span>{" "}
+                  <span className={move >= 0 ? "text-[#1F6E3D]" : "text-[#B23A2E]"}>
                     {formatMove(move)}
                   </span>
                 </span>

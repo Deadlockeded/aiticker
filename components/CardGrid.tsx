@@ -65,17 +65,17 @@ export default function CardGrid({
 
   return (
     <div>
-      <div className="sticky top-14 z-20 -mx-1 mb-5 rounded-xl border border-[#1E2430]/30 bg-[#FDFBF6]/95 p-2 backdrop-blur-md">
+      <div className="sticky top-14 z-20 -mx-1 mb-5 rounded-xl border border-[#17301F]/30 bg-[#F4F7F0]/95 p-2 backdrop-blur-md">
         <div className="flex flex-wrap items-center gap-2">
-          <div className="flex rounded-lg bg-[#1E2430]/5 p-0.5">
+          <div className="flex rounded-lg bg-[#17301F]/5 p-0.5">
             {FILTERS.map(({ value, label }) => (
               <button
                 key={value}
                 onClick={() => setFilter(value)}
                 className={`rounded-md px-3 py-1.5 text-[13px] font-medium transition-colors ${
                   filter === value
-                    ? "bg-[#1E2430]/15 text-[#1E2430]"
-                    : "text-[#5A6070] hover:text-[#5A6070]"
+                    ? "bg-[#17301F]/15 text-[#17301F]"
+                    : "text-[#5A6E5E] hover:text-[#5A6E5E]"
                 }`}
               >
                 {label}
@@ -88,13 +88,13 @@ export default function CardGrid({
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={`Search ${cards.length} cards…`}
-            className="min-w-32 flex-1 rounded-lg border border-[#1E2430]/30 bg-[#1E2430]/5 px-3 py-1.5 text-[13px] text-[#1E2430] placeholder-[#9AA0AC] outline-none focus:border-[#C23B2E]/70"
+            className="min-w-32 flex-1 rounded-lg border border-[#17301F]/30 bg-[#17301F]/5 px-3 py-1.5 text-[13px] text-[#17301F] placeholder-[#9CB09E] outline-none focus:border-[#B23A2E]/70"
           />
 
           <select
             value={sort}
             onChange={(e) => setSort(e.target.value as Sort)}
-            className="rounded-lg border border-[#1E2430]/30 bg-[#1E2430]/5 px-2.5 py-1.5 text-[13px] text-[#1E2430] outline-none focus:border-[#C23B2E]/70"
+            className="rounded-lg border border-[#17301F]/30 bg-[#17301F]/5 px-2.5 py-1.5 text-[13px] text-[#17301F] outline-none focus:border-[#B23A2E]/70"
           >
             <option value="rating-desc" className="bg-zinc-900">Rating ↓</option>
             <option value="rating-asc" className="bg-zinc-900">Rating ↑</option>
@@ -106,18 +106,18 @@ export default function CardGrid({
           <button
             onClick={() => setView(view === "deck" ? "grid" : "deck")}
             title="Toggle deck / grid view"
-            className="rounded-lg border border-[#1E2430]/30 bg-[#1E2430]/5 px-2.5 py-1.5 text-[13px] text-[#1E2430]"
+            className="rounded-lg border border-[#17301F]/30 bg-[#17301F]/5 px-2.5 py-1.5 text-[13px] text-[#17301F]"
           >
             {view === "deck" ? "▦" : "🂠"}
           </button>
         </div>
-        <p className="tnum mt-1.5 px-1 font-mono text-[10px] uppercase tracking-[0.2em] text-[#9AA0AC]">
+        <p className="tnum mt-1.5 px-1 font-mono text-[10px] uppercase tracking-[0.2em] text-[#9CB09E]">
           Collected: {owned?.size ?? 0}/{cards.length}
         </p>
       </div>
 
       {visible.length === 0 ? (
-        <p className="py-24 text-center text-sm text-[#9AA0AC]">
+        <p className="py-24 text-center text-sm text-[#9CB09E]">
           No cards match “{query}”.
         </p>
       ) : (

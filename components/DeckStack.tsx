@@ -138,7 +138,7 @@ export default function DeckStack<T>({
         >
           {renderCard(top, true)}
           {showStamp && (
-            <span className="pointer-events-none absolute left-1/2 top-1/3 -translate-x-1/2 rotate-[-16deg] border-[3px] border-[#1E2430] bg-[#FDFBF6]/90 px-3 py-1 font-mono text-sm font-black uppercase tracking-[0.3em] text-[#1E2430]">
+            <span className="pointer-events-none absolute left-1/2 top-1/3 -translate-x-1/2 rotate-[-16deg] border-[3px] border-[#17301F] bg-[#F4F7F0]/90 px-3 py-1 font-mono text-sm font-black uppercase tracking-[0.3em] text-[#17301F]">
               {leftStamp}
             </span>
           )}
@@ -149,18 +149,18 @@ export default function DeckStack<T>({
 
       {/* progress strip */}
       <div className="mt-3 flex items-center gap-2">
-        <div className="h-1 flex-1 overflow-hidden rounded-full bg-[#1E2430]/15">
+        <div className="h-1 flex-1 overflow-hidden rounded-full bg-[#17301F]/15">
           <div
-            className="h-full rounded-full bg-[#1E2430]"
+            className="h-full rounded-full bg-[#17301F]"
             style={{ width: `${(((head % n) + 1) / n) * 100}%` }}
           />
         </div>
-        <span className="tnum shrink-0 font-mono text-[10px] text-[#5A6070]">
+        <span className="tnum shrink-0 font-mono text-[10px] text-[#5A6E5E]">
           {(head % n) + 1} / {n}
         </span>
         <button
           onClick={() => dismiss("left")}
-          className="shrink-0 px-2 font-mono text-[11px] uppercase tracking-widest text-[#5A6070] hover:text-[#1E2430]"
+          className="shrink-0 px-2 font-mono text-[11px] uppercase tracking-widest text-[#5A6E5E] hover:text-[#17301F]"
           aria-label="Next card"
         >
           next →

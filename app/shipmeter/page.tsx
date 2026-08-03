@@ -27,8 +27,8 @@ export default async function ShipMeterPage({ searchParams }: { searchParams: Se
   return (
     <main className="mx-auto w-full max-w-4xl flex-1 px-3 py-8 sm:px-6">
       <header className="mb-6 text-center">
-        <h1 className="text-3xl font-bold tracking-tight text-[#1E2430]">Ship Meter</h1>
-        <p className="mt-1 text-sm text-[#5A6070]">
+        <h1 className="text-3xl font-bold tracking-tight text-[#17301F]">Ship Meter</h1>
+        <p className="mt-1 text-sm text-[#5A6E5E]">
           Cofounder compatibility, computed from public footprints. Science-ish.
         </p>
       </header>

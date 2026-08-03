@@ -18,7 +18,7 @@ export default function PacksLeftChip() {
   return (
     <Link
       href="/packs"
-      className="coupon paper-in fixed bottom-20 right-3 z-30 px-4 py-2.5 font-mono text-[11px] font-semibold uppercase tracking-widest text-[#C23B2E] md:bottom-6"
+      className="coupon paper-in fixed bottom-20 right-3 z-30 px-4 py-2.5 font-mono text-[11px] font-semibold uppercase tracking-widest text-[#B23A2E] md:bottom-6"
     >
       ✂ {left} pack{left === 1 ? "" : "s"} left — rip another →
     </Link>

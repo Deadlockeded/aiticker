@@ -60,11 +60,11 @@ function SignalsPanel({ card }: { card: MarketCard }) {
   );
   if (rows.length === 0) return null;
   return (
-    <div className="rounded-2xl border border-[#1E2430]/30 bg-[#1E2430]/5 p-6">
-      <h2 className="mb-1 font-mono text-xs uppercase tracking-[0.3em] text-[#9AA0AC]">
+    <div className="rounded-2xl border border-[#17301F]/30 bg-[#17301F]/5 p-6">
+      <h2 className="mb-1 font-mono text-xs uppercase tracking-[0.3em] text-[#9CB09E]">
         Signals
       </h2>
-      <p className="mb-4 text-xs text-[#9AA0AC]">
+      <p className="mb-4 text-xs text-[#9CB09E]">
         Live public data feeding this card&apos;s rating — the receipts.
       </p>
       <dl className="space-y-3">
@@ -72,13 +72,13 @@ function SignalsPanel({ card }: { card: MarketCard }) {
           const value = card.signals![key]!;
           return (
             <div key={key} className="flex items-center justify-between gap-3">
-              <dt className="text-sm text-[#5A6070]">
+              <dt className="text-sm text-[#5A6E5E]">
                 {label}{" "}
-                <span className="font-mono text-[10px] text-[#9AA0AC]">
+                <span className="font-mono text-[10px] text-[#9CB09E]">
                   {source}
                 </span>
               </dt>
-              <dd className="tnum font-mono text-sm text-[#1E2430]">
+              <dd className="tnum font-mono text-sm text-[#17301F]">
                 {key === "attentionDelta"
                   ? `${value >= 0 ? "+" : ""}${value}%`
                   : value.toLocaleString()}
@@ -110,7 +110,7 @@ export default async function CardPage({
       <SwipeNav prevId={prevId} nextId={nextId} />
       <Link
         href="/"
-        className="font-mono text-sm uppercase tracking-widest text-[#5A6070] transition-colors hover:text-[#1E2430]"
+        className="font-mono text-sm uppercase tracking-widest text-[#5A6E5E] transition-colors hover:text-[#17301F]"
       >
         ← Back to the checklist
       </Link>
@@ -128,11 +128,11 @@ export default async function CardPage({
 
           {/* price chart + book values */}
           <div className="paper-card p-4 sm:p-5">
-            <div className="flex items-baseline justify-between border-b-2 border-[#1E2430] pb-1">
-              <h2 className="font-mono text-xs font-semibold uppercase tracking-[0.3em] text-[#1E2430]">
+            <div className="flex items-baseline justify-between border-b-2 border-[#17301F] pb-1">
+              <h2 className="font-mono text-xs font-semibold uppercase tracking-[0.3em] text-[#17301F]">
                 Price history
               </h2>
-              <span className="tnum font-mono text-xs text-[#5A6070]">
+              <span className="tnum font-mono text-xs text-[#5A6E5E]">
                 {card.id === "agi"
                   ? "unpriced"
                   : `Book: ${formatTicks(Math.round(price * 0.95))}–${formatTicks(Math.round(price * 1.08))}`}
@@ -140,7 +140,7 @@ export default async function CardPage({
             </div>
             <div className="mt-3">
               {card.id === "agi" ? (
-                <p className="py-16 text-center font-mono text-sm text-[#9AA0AC]">
+                <p className="py-16 text-center font-mono text-sm text-[#9CB09E]">
                   unpriced
                 </p>
               ) : (
@@ -159,13 +159,13 @@ export default async function CardPage({
           <div className="flex flex-wrap gap-3">
             <Link
               href={`/arena?vs=${card.id}`}
-              className="bg-[#C23B2E] px-5 py-2.5 font-mono text-sm font-semibold uppercase tracking-widest text-[#FDFBF6] transition-colors hover:bg-[#A32F24]"
+              className="bg-[#B23A2E] px-5 py-2.5 font-mono text-sm font-semibold uppercase tracking-widest text-[#F4F7F0] transition-colors hover:bg-[#8E2E24]"
             >
               Fight this card
             </Link>
             <Link
               href={`/arena?me=${card.id}`}
-              className="border-2 border-[#1E2430] px-5 py-2.5 font-mono text-sm font-semibold uppercase tracking-widest text-[#1E2430] transition-colors hover:bg-[#1E2430]/5"
+              className="border-2 border-[#17301F] px-5 py-2.5 font-mono text-sm font-semibold uppercase tracking-widest text-[#17301F] transition-colors hover:bg-[#17301F]/5"
             >
               Use in Arena
             </Link>

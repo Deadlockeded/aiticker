@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f2ede3; /* newsprint cream */
-  --foreground: #1e2430; /* ink */
-  --surface: #fdfbf6; /* paper */
-  --surface-hover: #f7f3e9;
-  --ink: #1e2430;
-  --ink-2: #5a6070;
-  --ink-3: #9aa0ac;
-  --accent: #c23b2e;
-  --accent-hover: #a32f24;
-  --market-green: #1f7a3d;
+  --background: #f4f7f0; /* newsprint cream */
+  --foreground: #17301f; /* ink */
+  --surface: #f4f7f0; /* paper */
+  --surface-hover: #eaf0e4;
+  --ink: #17301f;
+  --ink-2: #5a6e5e;
+  --ink-3: #9cb09e;
+  --accent: #b23a2e;
+  --accent-hover: #8e2e24;
+  --market-green: #1f6e3d;
 }
 
 @theme inline {
@@ -24,7 +24,7 @@
 body {
   background: var(--background);
   /* halftone dot texture — ink on newsprint */
-  background-image: radial-gradient(rgba(30, 36, 48, 0.05) 0.6px, transparent 0.6px);
+  background-image: radial-gradient(rgba(23, 48, 31, 0.05) 0.6px, transparent 0.6px);
   background-size: 4px 4px;
   color: var(--foreground);
   font-family: var(--font-sans), Georgia, serif;
@@ -99,9 +99,9 @@ h2 {
   background: linear-gradient(
     100deg,
     transparent 15%,
-    rgba(194, 59, 46, 0.08) 45%,
+    rgba(196, 206, 204, 0.16) 45%,
     rgba(230, 180, 80, 0.28) 50%,
-    rgba(194, 59, 46, 0.08) 55%,
+    rgba(196, 206, 204, 0.16) 55%,
     transparent 85%
   );
   animation: foil-sweep 5s ease-in-out infinite;
@@ -127,8 +127,8 @@ h2 {
   background: linear-gradient(
     115deg,
     rgba(230, 180, 80, 0.22),
-    rgba(194, 59, 46, 0.12) 30%,
-    rgba(31, 122, 61, 0.12) 55%,
+    rgba(196, 206, 204, 0.14) 30%,
+    rgba(31, 110, 61, 0.12) 55%,
     rgba(230, 180, 80, 0.18) 80%,
     rgba(230, 180, 80, 0.22)
   );
@@ -266,8 +266,8 @@ h2 {
 /* ---- Binder pocket pages ---- */
 
 .binder-texture {
-  background-color: #e9e2d2;
-  background-image: radial-gradient(rgba(30, 36, 48, 0.06) 0.6px, transparent 0.6px);
+  background-color: #e3ebdc;
+  background-image: radial-gradient(rgba(23, 48, 31, 0.06) 0.6px, transparent 0.6px);
   background-size: 5px 5px;
   border: 2px solid var(--ink) !important;
   box-shadow: 5px 5px 0 var(--ink);
@@ -275,13 +275,13 @@ h2 {
 
 .pocket {
   box-shadow:
-    inset 0 2px 6px rgba(30, 36, 48, 0.25),
+    inset 0 2px 6px rgba(23, 48, 31, 0.25),
     inset 0 -1px 0 rgba(255, 255, 255, 0.4);
-  background: rgba(30, 36, 48, 0.06) !important;
+  background: rgba(23, 48, 31, 0.06) !important;
 }
 
 .pocket-card {
-  box-shadow: 3px 3px 0 rgba(30, 36, 48, 0.75);
+  box-shadow: 3px 3px 0 rgba(23, 48, 31, 0.75);
 }
 
 /* legendary in-pocket flourish: one slow 8s sweep, nothing else */
@@ -329,14 +329,14 @@ h2 {
 .proof-tint {
   position: absolute;
   inset: 0;
-  background: #1e2430;
+  background: #17301f;
   mix-blend-mode: color; /* single-ink navy, luminance preserved */
 }
 .proof-paper {
   position: absolute;
   inset: 0;
-  background: #f2ede3;
-  opacity: 0.16; /* reduced contrast — proof stock, not final print */
+  background: #f4f7f0;
+  opacity: 0.2; /* reduced contrast — proof stock, not final print */
 }
 .proof-dots {
   position: absolute;
@@ -344,7 +344,7 @@ h2 {
   transform: rotate(15deg); /* classic halftone screen angle */
   background-image: radial-gradient(
     circle,
-    #f2ede3 calc(var(--dot, 8px) * 0.24),
+    rgba(23, 48, 31, 0.55) calc(var(--dot, 8px) * 0.24),
     transparent calc(var(--dot, 8px) * 0.3)
   );
   background-size: var(--dot, 8px) var(--dot, 8px);
@@ -354,9 +354,7 @@ h2 {
   left: -8%;
   top: 14%;
   transform: rotate(-24deg);
-  color: #f2ede3;
-  opacity: 0.55;
-  text-shadow: 0 0 2px rgba(30, 36, 48, 0.6);
+  color: rgba(23, 48, 31, 0.32);
 }
 /* the pull payoff: dots shrink away, the finished print comes up */
 .proof-resolving .proof-veil {

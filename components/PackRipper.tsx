@@ -78,7 +78,7 @@ function PackGraphic({
     <div className={`relative mx-auto w-52 sm:w-60 ${shaking ? "pack-shake" : ""}`}>
       {/* tear strip */}
       <div
-        className={`relative z-10 h-9 rounded-t-2xl border-x border-t border-[#1E2430]/40 bg-gradient-to-r from-indigo-500 via-fuchsia-500 to-amber-400 ${
+        className={`relative z-10 h-9 rounded-t-2xl border-x border-t border-[#17301F]/40 bg-gradient-to-r from-indigo-500 via-fuchsia-500 to-amber-400 ${
           tearing ? "pack-tear-top" : ""
         }`}
       >
@@ -89,7 +89,7 @@ function PackGraphic({
       </div>
       {/* body */}
       <div
-        className={`relative aspect-[3/4] overflow-hidden rounded-b-2xl border-x border-b border-[#1E2430]/40 bg-gradient-to-b from-indigo-950 via-slate-900 to-slate-950 shadow-[0_0_60px_-12px_rgba(139,92,246,0.7)] ${
+        className={`relative aspect-[3/4] overflow-hidden rounded-b-2xl border-x border-b border-[#17301F]/40 bg-gradient-to-b from-indigo-950 via-slate-900 to-slate-950 shadow-[0_0_60px_-12px_rgba(139,92,246,0.7)] ${
           tearing ? "pack-vanish" : ""
         }`}
       >
@@ -97,13 +97,13 @@ function PackGraphic({
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
           <div className="mythic-border rounded-full p-[3px]">
             <div className="flex h-20 w-20 items-center justify-center rounded-full bg-slate-950">
-              <span className="font-mono text-2xl font-black text-[#1E2430]">AI</span>
+              <span className="font-mono text-2xl font-black text-[#17301F]">AI</span>
             </div>
           </div>
           <span className="bg-gradient-to-r from-cyan-300 via-white to-fuchsia-300 bg-clip-text text-2xl font-black uppercase tracking-tight text-transparent">
             AI Ticker
           </span>
-          <span className="font-mono text-[10px] uppercase tracking-[0.35em] text-[#5A6070]">
+          <span className="font-mono text-[10px] uppercase tracking-[0.35em] text-[#5A6E5E]">
             Series 1 · 3 cards
           </span>
         </div>
@@ -117,7 +117,7 @@ function CardBack({ card }: { card: MarketCard }) {
   return (
     <div className="absolute inset-0 [backface-visibility:hidden]">
       <CardBackFace card={card} anonymous />
-      <span className="pointer-events-none absolute inset-x-0 bottom-2 text-center font-mono text-[9px] uppercase tracking-[0.4em] text-[#9AA0AC]">
+      <span className="pointer-events-none absolute inset-x-0 bottom-2 text-center font-mono text-[9px] uppercase tracking-[0.4em] text-[#9CB09E]">
         Tap to reveal
       </span>
     </div>
@@ -267,7 +267,7 @@ export default function PackRipper({
         <div className="pointer-events-none fixed inset-0 z-50 bg-white transition-opacity duration-700" style={{ animation: "glow-flash 0.9s ease-out forwards" }} />
       )}
 
-      <p className="mb-8 text-center font-mono text-xs uppercase tracking-[0.3em] text-[#9AA0AC]">
+      <p className="mb-8 text-center font-mono text-xs uppercase tracking-[0.3em] text-[#9CB09E]">
         {mounted
           ? packsLeft > 0
             ? `${packsLeft} of ${PACKS_PER_DAY} free packs left today`
@@ -285,7 +285,7 @@ export default function PackRipper({
           >
             <PackGraphic shaking={phase === "ripping" && !tearing} tearing={tearing} />
           </button>
-          <p className="mt-6 text-center font-mono text-[11px] uppercase tracking-[0.25em] text-[#9AA0AC]">
+          <p className="mt-6 text-center font-mono text-[11px] uppercase tracking-[0.25em] text-[#9CB09E]">
             {phase === "ripping"
               ? "ripping…"
               : packsLeft === 0 && mounted
@@ -341,22 +341,22 @@ export default function PackRipper({
                 </div>
               </div>
               {flipped[i] && card.id === "agi" && (
-                <p className="mt-2 text-center font-mono text-[12px] text-[#5A6070]">
+                <p className="mt-2 text-center font-mono text-[12px] text-[#5A6E5E]">
                   well.
                 </p>
               )}
               {flipped[i] && !preOwned.has(card.id) && (
-                <span className="pointer-events-none absolute left-1/2 top-[38%] z-20 -translate-x-1/2 rotate-[-14deg] border-[3px] border-[#1E2430] bg-[#FDFBF6]/85 px-2 py-0.5 font-mono text-[11px] font-black uppercase tracking-[0.25em] text-[#1E2430]">
+                <span className="pointer-events-none absolute left-1/2 top-[38%] z-20 -translate-x-1/2 rotate-[-14deg] border-[3px] border-[#17301F] bg-[#F4F7F0]/85 px-2 py-0.5 font-mono text-[11px] font-black uppercase tracking-[0.25em] text-[#17301F]">
                   First pull
                 </span>
               )}
               {flipped[i] && card.id !== "agi" && flipQuips[i] && (
-                <p className="deal-in mt-2 text-center text-[11px] italic leading-snug text-[#5A6070]">
+                <p className="deal-in mt-2 text-center text-[11px] italic leading-snug text-[#5A6E5E]">
                   “{flipQuips[i]}”
                 </p>
               )}
               {flipped[i] && card.type === "artifact" && card.id !== "agi" && preOwned.has(card.id) && (
-                <p className="mt-1 text-center font-mono text-[10px] text-[#9AA0AC]">
+                <p className="mt-1 text-center font-mono text-[10px] text-[#9CB09E]">
                   another one.
                 </p>
               )}
@@ -364,7 +364,7 @@ export default function PackRipper({
               )}
             />
           </div>
-          <p className="mt-8 text-center font-mono text-[10px] uppercase tracking-[0.3em] text-[#9AA0AC]">
+          <p className="mt-8 text-center font-mono text-[10px] uppercase tracking-[0.3em] text-[#9CB09E]">
             {allFlipped ? "off to the binder…" : "tap anywhere to skip →"}
           </p>
         </div>

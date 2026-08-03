@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "The full rules. There are not many.",
 };
 
-const INK = "#1E2430";
+const INK = "#17301F";
 const S = {
   fill: "none",
   stroke: INK,
@@ -96,7 +96,7 @@ const PANELS: { n: string; title: string; copy: React.ReactNode; art: React.Reac
     copy: (
       <>
         3 free packs daily. Odds posted on the{" "}
-        <Link href="/packs" className="underline decoration-[#C23B2E] underline-offset-2">
+        <Link href="/packs" className="underline decoration-[#B23A2E] underline-offset-2">
           packs page
         </Link>
         .
@@ -111,7 +111,7 @@ const PANELS: { n: string; title: string; copy: React.ReactNode; art: React.Reac
       <>
         The full set is public — 50 index cards + 25 artifacts. Pulling a card
         prints your copy to the{" "}
-        <Link href="/binder" className="underline decoration-[#C23B2E] underline-offset-2">binder</Link>.
+        <Link href="/binder" className="underline decoration-[#B23A2E] underline-offset-2">binder</Link>.
       </>
     ),
   },
@@ -121,7 +121,7 @@ const PANELS: { n: string; title: string; copy: React.ReactNode; art: React.Reac
     art: <ArtFight />,
     copy: (
       <>
-        Take any card to the <Link href="/arena" className="underline decoration-[#C23B2E] underline-offset-2">Arena</Link>.
+        Take any card to the <Link href="/arena" className="underline decoration-[#B23A2E] underline-offset-2">Arena</Link>.
         3 rounds, best stats win. The meta rotates daily.
       </>
     ),
@@ -133,7 +133,7 @@ const PANELS: { n: string; title: string; copy: React.ReactNode; art: React.Reac
     copy: (
       <>
         Sell dupes at book value, in the{" "}
-        <Link href="/binder" className="underline decoration-[#C23B2E] underline-offset-2">binder</Link>.
+        <Link href="/binder" className="underline decoration-[#B23A2E] underline-offset-2">binder</Link>.
         Ticks are fake. The feelings are real.
       </>
     ),
@@ -144,7 +144,7 @@ const PANELS: { n: string; title: string; copy: React.ReactNode; art: React.Reac
     art: <ArtScout />,
     copy: (
       <>
-        <Link href="/create" className="underline decoration-[#C23B2E] underline-offset-2">
+        <Link href="/create" className="underline decoration-[#B23A2E] underline-offset-2">
           &ldquo;Roast me&rdquo;
         </Link>{" "}
         turns your GitHub into a prospect card. It is not gentle.
@@ -162,11 +162,11 @@ const PANELS: { n: string; title: string; copy: React.ReactNode; art: React.Reac
 export default function HowToPage() {
   return (
     <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-10 sm:px-8">
-      <header className="mb-8 border-b-[3px] border-[#1E2430] pb-4 text-center">
-        <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-[#C23B2E]">
+      <header className="mb-8 border-b-[3px] border-[#17301F] pb-4 text-center">
+        <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-[#B23A2E]">
           The full rules · there are not many
         </p>
-        <h1 className="mt-1 text-3xl text-[#1E2430] sm:text-4xl">How it works</h1>
+        <h1 className="mt-1 text-3xl text-[#17301F] sm:text-4xl">How it works</h1>
       </header>
 
       <div className="grid gap-4 sm:grid-cols-2">
@@ -174,17 +174,17 @@ export default function HowToPage() {
           <section key={p.n} className="paper-card flex items-start gap-4 p-5">
             <div className="shrink-0">{p.art}</div>
             <div className="min-w-0">
-              <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.3em] text-[#C23B2E]">
+              <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.3em] text-[#B23A2E]">
                 {p.n} — {p.title}
               </p>
-              <p className="mt-1.5 text-[15px] leading-snug text-[#5A6070]">{p.copy}</p>
+              <p className="mt-1.5 text-[15px] leading-snug text-[#5A6E5E]">{p.copy}</p>
             </div>
           </section>
         ))}
       </div>
 
       <Link href="/packs" className="coupon mt-8 block p-5 text-center paper-in">
-        <span className="bg-[#C23B2E] px-8 py-3 font-mono text-sm font-semibold uppercase tracking-widest text-[#FDFBF6] hover:bg-[#A32F24]">
+        <span className="bg-[#B23A2E] px-8 py-3 font-mono text-sm font-semibold uppercase tracking-widest text-[#F4F7F0] hover:bg-[#8E2E24]">
           Rip your first pack →
         </span>
       </Link>

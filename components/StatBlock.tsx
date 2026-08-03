@@ -11,8 +11,8 @@ function TierChip({ value }: { value: number }) {
     <span
       className={`border px-1 py-0.5 font-mono text-[9px] font-semibold tracking-wider ${
         tier.hot
-          ? "border-[#C23B2E] bg-[#C23B2E] text-[#FDFBF6]"
-          : "border-[#1E2430] text-[#1E2430]"
+          ? "border-[#B23A2E] bg-[#B23A2E] text-[#F4F7F0]"
+          : "border-[#17301F] text-[#17301F]"
       }`}
     >
       {tier.word}
@@ -65,32 +65,32 @@ export default function StatBlock({
 
   return (
     <div className="paper-card p-4">
-      <h2 className="border-b-2 border-[#1E2430] pb-1 font-mono text-xs font-semibold uppercase tracking-[0.3em] text-[#1E2430]">
+      <h2 className="border-b-2 border-[#17301F] pb-1 font-mono text-xs font-semibold uppercase tracking-[0.3em] text-[#17301F]">
         The stat line
       </h2>
       <ul className="mt-2">
         {rows.map(({ key, label, value }) => (
-          <li key={key} className="border-b border-dotted border-[#9AA0AC] last:border-0">
+          <li key={key} className="border-b border-dotted border-[#9CB09E] last:border-0">
             <button
               onClick={() => setOpenKey(openKey === key ? null : key)}
               className="flex min-h-11 w-full items-center gap-2 py-1.5 text-left"
             >
-              <span className="w-32 font-mono text-[11px] font-semibold tracking-widest text-[#1E2430]">
+              <span className="w-32 font-mono text-[11px] font-semibold tracking-widest text-[#17301F]">
                 {label}
               </span>
-              <span className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#1E2430]/10">
+              <span className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#17301F]/10">
                 <span
-                  className="block h-full rounded-full bg-[#1E2430]"
+                  className="block h-full rounded-full bg-[#17301F]"
                   style={{ width: agi ? "0%" : `${value}%` }}
                 />
               </span>
-              <span className="tnum w-7 text-right font-mono text-sm font-bold text-[#1E2430]">
+              <span className="tnum w-7 text-right font-mono text-sm font-bold text-[#17301F]">
                 {agi ? "?" : value}
               </span>
               {!agi && <TierChip value={value} />}
             </button>
             {openKey === key && (
-              <p className="pb-2 pl-1 text-[13px] italic leading-snug text-[#5A6070]">
+              <p className="pb-2 pl-1 text-[13px] italic leading-snug text-[#5A6E5E]">
                 {STAT_DEFS[key]}
               </p>
             )}
@@ -98,7 +98,7 @@ export default function StatBlock({
         ))}
       </ul>
       {!agi && (
-        <p className="mt-2 font-mono text-[11px] uppercase tracking-wider text-[#C23B2E]">
+        <p className="mt-2 font-mono text-[11px] uppercase tracking-wider text-[#B23A2E]">
           More {STAT_ADJECTIVES[best.key] ?? best.key} than {pct}% of the index.
         </p>
       )}

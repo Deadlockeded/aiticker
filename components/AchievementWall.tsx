@@ -19,9 +19,9 @@ export default function AchievementWall() {
 
   return (
     <section className="mt-10">
-      <h2 className="mb-3 text-sm font-semibold text-[#1E2430]">
+      <h2 className="mb-3 text-sm font-semibold text-[#17301F]">
         Achievements{" "}
-        <span className="tnum font-mono text-xs text-[#9AA0AC]">
+        <span className="tnum font-mono text-xs text-[#9CB09E]">
           {unlocked.size}/{ACHIEVEMENTS.length}
         </span>
       </h2>
@@ -33,8 +33,8 @@ export default function AchievementWall() {
               key={a.id}
               className={`flex items-start gap-3 rounded-xl border p-3 ${
                 has
-                  ? "border-[#C23B2E]/50 bg-[#C23B2E]/5"
-                  : "border-[#1E2430]/30 bg-[#1E2430]/[0.03] opacity-60"
+                  ? "border-[#B23A2E]/50 bg-[#B23A2E]/5"
+                  : "border-[#17301F]/30 bg-[#17301F]/[0.03] opacity-60"
               }`}
             >
               <span className={`text-2xl ${has ? "" : "grayscale"}`}>
@@ -42,11 +42,11 @@ export default function AchievementWall() {
               </span>
               <span className="min-w-0">
                 <span
-                  className={`block text-[13px] font-semibold ${has ? "text-[#1E2430]" : "text-[#5A6070]"}`}
+                  className={`block text-[13px] font-semibold ${has ? "text-[#17301F]" : "text-[#5A6E5E]"}`}
                 >
                   {a.name}
                 </span>
-                <span className="block text-[11px] leading-snug text-[#9AA0AC]">
+                <span className="block text-[11px] leading-snug text-[#9CB09E]">
                   {a.desc}
                 </span>
               </span>
@@ -55,7 +55,7 @@ export default function AchievementWall() {
         })}
       </div>
       {[...unlocked].filter((id) => id.startsWith("artifact-win-")).length > 0 && (
-        <p className="mt-3 font-mono text-[11px] text-[#9AA0AC]">
+        <p className="mt-3 font-mono text-[11px] text-[#9CB09E]">
           ◆ {[...unlocked].filter((id) => id.startsWith("artifact-win-")).length}{" "}
           hidden artifact trophies earned
         </p>

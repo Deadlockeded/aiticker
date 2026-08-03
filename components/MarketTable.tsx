@@ -33,7 +33,7 @@ function bookRange(price: number): string {
 
 function Thumb({ card }: { card: MarketCard }) {
   return (
-    <div className="h-9 w-9 shrink-0 overflow-hidden rounded-full border border-[#1E2430]/40">
+    <div className="h-9 w-9 shrink-0 overflow-hidden rounded-full border border-[#17301F]/40">
       <div className="relative h-full w-full">
         <CardArt card={card} />
       </div>
@@ -44,7 +44,7 @@ function Thumb({ card }: { card: MarketCard }) {
 function MoveText({ pct, className = "" }: { pct: number; className?: string }) {
   return (
     <span
-      className={`font-mono ${pct >= 0 ? "text-[#1F7A3D]" : "text-[#C23B2E]"} ${className}`}
+      className={`font-mono ${pct >= 0 ? "text-[#1F6E3D]" : "text-[#B23A2E]"} ${className}`}
     >
       {formatMove(pct)}
     </span>
@@ -103,7 +103,7 @@ export default function MarketTable({
       {/* desktop table */}
       <table className="hidden w-full border-collapse text-sm sm:table">
         <thead>
-          <tr className="bg-[#1E2430] text-left font-mono text-xs uppercase tracking-widest text-[#FDFBF6]">
+          <tr className="bg-[#17301F] text-left font-mono text-xs uppercase tracking-widest text-[#F4F7F0]">
             {COLUMNS.map((col) => (
               <th
                 key={col.key}
@@ -111,8 +111,8 @@ export default function MarketTable({
               >
                 <button
                   onClick={() => onSort(col.key)}
-                  className={`uppercase tracking-widest hover:text-[#C23B2E] ${
-                    sortKey === col.key ? "text-[#C23B2E]" : ""
+                  className={`uppercase tracking-widest hover:text-[#B23A2E] ${
+                    sortKey === col.key ? "text-[#B23A2E]" : ""
                   }`}
                 >
                   {col.label}
@@ -128,33 +128,33 @@ export default function MarketTable({
             <tr
               key={card.id}
               onClick={() => router.push(`/cards/${card.id}`)}
-              className={`cursor-pointer border-b border-dotted border-[#9AA0AC] transition-colors odd:bg-[#1E2430]/[0.03] hover:bg-[#C23B2E]/5 ${card.type === "artifact" ? "italic opacity-70" : ""}`}
+              className={`cursor-pointer border-b border-dotted border-[#9CB09E] transition-colors odd:bg-[#17301F]/[0.03] hover:bg-[#B23A2E]/5 ${card.type === "artifact" ? "italic opacity-70" : ""}`}
             >
-              <td className="px-3 py-2.5 font-mono text-[#5A6070]">
+              <td className="px-3 py-2.5 font-mono text-[#5A6E5E]">
                 #{ranks[card.id]}
               </td>
               <td className="px-3 py-2.5">
                 <span className="flex items-center gap-3">
                   <Thumb card={card} />
                   <span>
-                    <span className="block font-semibold text-[#1E2430]">
+                    <span className="block font-semibold text-[#17301F]">
                       {card.name}
                       {RC_IDS.has(card.id) && (
-                        <span className="ml-1.5 rounded-sm bg-[#C23B2E] px-1 font-mono text-[9px] not-italic text-[#FDFBF6]">
+                        <span className="ml-1.5 rounded-sm bg-[#B23A2E] px-1 font-mono text-[9px] not-italic text-[#F4F7F0]">
                           RC
                         </span>
                       )}
                     </span>
-                    <span className="block text-xs capitalize text-[#9AA0AC]">
+                    <span className="block text-xs capitalize text-[#9CB09E]">
                       {card.rarity} · {card.type}
                     </span>
                   </span>
                 </span>
               </td>
-              <td className="px-3 py-2.5 text-right font-mono font-bold text-[#1E2430]">
+              <td className="px-3 py-2.5 text-right font-mono font-bold text-[#17301F]">
                 {card.rating}
               </td>
-              <td className="tnum px-3 py-2.5 text-right font-mono text-[#1E2430]">
+              <td className="tnum px-3 py-2.5 text-right font-mono text-[#17301F]">
                 {bookRange(getCurrentPrice(card))}
               </td>
               <td className="px-3 py-2.5 text-right">
@@ -176,17 +176,17 @@ export default function MarketTable({
           <Link
             key={card.id}
             href={`/cards/${card.id}`}
-            className="flex items-center gap-3 rounded-xl border border-[#1E2430]/30 bg-[#1E2430]/5 p-3"
+            className="flex items-center gap-3 rounded-xl border border-[#17301F]/30 bg-[#17301F]/5 p-3"
           >
-            <span className="w-8 font-mono text-xs text-[#9AA0AC]">
+            <span className="w-8 font-mono text-xs text-[#9CB09E]">
               #{ranks[card.id]}
             </span>
             <Thumb card={card} />
             <span className="min-w-0 flex-1">
-              <span className="block truncate text-sm font-semibold text-[#1E2430]">
+              <span className="block truncate text-sm font-semibold text-[#17301F]">
                 {card.name}
               </span>
-              <span className="block font-mono text-xs text-[#5A6070]">
+              <span className="block font-mono text-xs text-[#5A6E5E]">
                 {card.rating} · {formatTicks(getCurrentPrice(card))}
               </span>
             </span>
@@ -212,14 +212,14 @@ export function MoverCard({
   return (
     <Link
       href={`/cards/${card.id}`}
-      className="flex items-center gap-3 rounded-xl border border-[#1E2430]/30 bg-[#1E2430]/5 p-3 transition-colors hover:bg-[#1E2430]/10"
+      className="flex items-center gap-3 rounded-xl border border-[#17301F]/30 bg-[#17301F]/5 p-3 transition-colors hover:bg-[#17301F]/10"
     >
       <Thumb card={card} />
       <span className="min-w-0 flex-1">
-        <span className="block truncate text-sm font-semibold text-[#1E2430]">
+        <span className="block truncate text-sm font-semibold text-[#17301F]">
           {card.name}
         </span>
-        <span className="block font-mono text-xs text-[#5A6070]">
+        <span className="block font-mono text-xs text-[#5A6E5E]">
           #{rank} · {formatTicks(getCurrentPrice(card))}
         </span>
       </span>
