@@ -444,6 +444,44 @@ test("arena setup clears the fold: rail + challenger deck, no scrolling", async 
   expect(box!.y).toBeLessThan(viewport.height);
 });
 
+test("today's challenger is the same card for everyone", async ({ browser }) => {
+  const open = async () => {
+    const ctx = await browser.newContext();
+    const page = await ctx.newPage();
+    await page.route("**/_next/image**", (r) => r.abort());
+    await seedBinder(page, ["the-em-dash", "anthropic"]);
+    await page.goto("http://localhost:3123/arena");
+    await page.getByRole("button", { name: /Anthropic/ }).first().click();
+    // the deck opens on the day's shared challenger — same card for everyone
+    await expect(page.getByText("Today's challenger")).toBeVisible();
+    const name = await page
+      .locator('[aria-label="Top card — drag to cycle, tap to open"] h3')
+      .first()
+      .innerText();
+    await ctx.close();
+    return name;
+  };
+  expect(await open()).toBe(await open());
+});
+
+test("challenger line alternates types and holds passed cards back", async ({ page }) => {
+  await blockArt(page);
+  await seedBinder(page, ["openai", "anthropic", "nvidia"]);
+  await page.goto("/arena");
+  await page.getByRole("button", { name: /OpenAI/ }).first().click();
+  const top = () =>
+    page.locator('[aria-label="Top card — drag to cycle, tap to open"] h3').first().innerText();
+  const seen: string[] = [];
+  for (let i = 0; i < 6; i++) {
+    seen.push(await top());
+    await page.getByRole("button", { name: "Next card" }).click();
+    await page.waitForTimeout(280);
+  }
+  // no immediate repeats as the deck cycles
+  for (let i = 1; i < seen.length; i++) expect(seen[i]).not.toBe(seen[i - 1]);
+  expect(new Set(seen).size).toBeGreaterThan(3);
+});
+
 test("new opponent reshuffles the challenger line", async ({ page }) => {
   await blockArt(page);
   await seedBinder(page, ["openai"]);

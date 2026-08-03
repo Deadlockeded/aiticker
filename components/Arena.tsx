@@ -24,7 +24,8 @@ import { isReleased } from "@/lib/drops";
 import { readOnboarding, stampOnboarding } from "@/lib/onboarding";
 import { getScoredProfile, ScoreError } from "@/lib/score";
 import { dayHash, getHotCards, getRandomQuip, HOT_BOOST } from "@/lib/daily";
-import { mulberry32 } from "@/lib/rng";
+import { dealChallengers, dailySpotlight, dealerSeed } from "@/lib/dealer";
+import { fireToast } from "@/lib/toast";
 import {
   cardVsStats,
   commentary,
@@ -261,10 +262,13 @@ export default function Arena({
   const [chaos, setChaos] = useState(false);
   const [handleInput, setHandleInput] = useState("");
   const [passes, setPasses] = useState(0);
-  // Reshuffles the Challenger Line. Seed 0 = the deterministic opening deck
-  // (same for everyone, hydration-safe); NEW OPPONENT rolls a fresh seed in
-  // the event handler, so render stays pure while the deck feels random.
-  const [deckSeed, setDeckSeed] = useState(0);
+  // The dealer's session nonce. 0 = the deterministic opening deck (same for
+  // everyone on a given day, hydration-safe); NEW OPPONENT and deck exhaustion
+  // roll a fresh nonce in an event handler, so render stays pure.
+  const [nonce, setNonce] = useState(0);
+  // Cards already served this session — the dealer holds them back until the
+  // pool is dry, then the deck refreshes.
+  const [served, setServed] = useState<Set<string>>(new Set());
   const [phase, setPhase] = useState<Phase>("setup");
   const [result, setResult] = useState<VsResult | null>(null);
   const [entranceQuips, setEntranceQuips] = useState<(string | null)[]>([null, null]);
@@ -288,28 +292,44 @@ export default function Arena({
   const getDeterministicQuip = (c: MarketCard): string =>
     c.quips?.[dayHash(`line-quip:${c.id}`) % (c.quips?.length || 1)] ?? c.flavorText;
 
+  const binderSize = owned?.length ?? 0;
   const challengers = useMemo(() => {
     if (!me) return [];
-    const myR = me.side.rating;
-    // A fresh seed shuffles hard (the jitter term dominates the rating gap),
-    // so NEW OPPONENT genuinely reshuffles instead of re-dealing the same
-    // five cards. Seed 0 keeps the original close-matchup ordering.
-    const rand = mulberry32(deckSeed || 1);
-    const jitter = deckSeed === 0 ? 22 : 60;
-    return cards
-      .filter((c) => c.id !== "agi" && c.id !== me.side.cardId && isReleased(c.id))
-      .map((c) => ({
-        c,
-        w:
-          Math.abs(c.rating - myR) +
-          (deckSeed === 0
-            ? ((dayHash(`line:${c.id}:${me.side.cardId}`) % 100) / 100) * jitter
-            : rand() * jitter) -
-          (c.rarity === "legendary" || c.rarity === "epic" ? 9 : 0), // bait
-      }))
-      .sort((a, b) => a.w - b.w)
-      .map((x) => x.c);
-  }, [cards, me, deckSeed]);
+    return dealChallengers({
+      pool: cards,
+      myRating: me.side.rating,
+      served,
+      binderSize,
+      seed: dealerSeed(nonce),
+      excludeId: me.side.cardId,
+      spotlightFirst: nonce === 0,
+    });
+  }, [cards, me, served, binderSize, nonce]);
+
+  // must exclude the fighter exactly as the dealer does, or the chip points at
+  // a card that was never dealt (the day OpenAI is the spotlight AND your pick)
+  const spotlightId = useMemo(
+    () =>
+      me
+        ? (dailySpotlight(cards.filter((c) => c.id !== me.side.cardId))?.id ?? null)
+        : null,
+    [cards, me],
+  );
+
+  /** A pass sends the card to the back of the deck, never out of it. */
+  const onPass = (card: MarketCard) => {
+    setPasses((p) => p + 1);
+    setServed((prev) => {
+      const next = new Set(prev).add(card.id);
+      // pool exhausted → fresh deck, and say so
+      if (next.size >= challengers.length + prev.size - 1) {
+        setNonce(Math.floor(Math.random() * 2 ** 31) || 1);
+        fireToast("🃏", "Fresh deck.", "Everyone's back in the line.");
+        return new Set();
+      }
+      return next;
+    });
+  };
 
   const hotIds = useMemo(
     () => new Set(getHotCards(cards).map((c) => c.id)),
@@ -532,11 +552,18 @@ export default function Arena({
                 items={challengers}
                 keyOf={(c) => c.id}
                 leftStamp="Passed"
-                onPass={() => setPasses((p) => p + 1)}
+                onPass={onPass}
                 onSwipeRight={(c) => fight(cardFighter(c))}
                 onTap={(c) => fight(cardFighter(c))}
                 renderCard={(c) => (
-                  <TradingCard card={c} rank={0} proof={!ownedIds.has(c.id)} />
+                  <div className="relative">
+                    {c.id === spotlightId && (
+                      <span className="micro absolute -top-2 left-1/2 z-20 -translate-x-1/2 whitespace-nowrap rounded-full bg-pink px-2.5 py-1 font-semibold text-on-accent shadow-card">
+                        Today&apos;s challenger
+                      </span>
+                    )}
+                    <TradingCard card={c} rank={0} proof={!ownedIds.has(c.id)} />
+                  </div>
                 )}
                 footerFor={(c) => (
                   <div className="text-center">
@@ -742,7 +769,7 @@ export default function Arena({
                     setResult(null);
                     setPurse(null);
                     // random lives in the handler, never in render
-                    setDeckSeed(Math.floor(Math.random() * 2 ** 31) || 1);
+                    setNonce(Math.floor(Math.random() * 2 ** 31) || 1);
                     setPasses(0);
                   }}
                   className="rounded-lg border border-line px-6 py-2.5 text-sm font-semibold text-ink2 transition-colors hover:bg-surface2"
