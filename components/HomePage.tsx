@@ -112,51 +112,59 @@ export default function HomePage({
     homeSnapshot,
     () => null as HomeState | null,
   );
-  const allowanceRaw = useSyncExternalStore(subscribeStore, getAllowanceSnapshot, () => null);
-  const packsLeft = allowanceRaw === null ? 0 : packsLeftFrom(allowanceRaw);
+  // Set synchronously by PackRipper's rip() — BEFORE the store notify
+  // flips `state` — so the pack keeps its tree position and never remounts
+  // mid-rip (that remount was the "pack vanishes into a fresh idle pack" bug).
+  const [ripBusy, setRipBusy] = useState(false);
 
   // neutral paper until storage resolves — no flash of the wrong homepage
   if (state === null) return <div className="min-h-[70vh]" aria-hidden />;
 
-  if (state === "ceremony") {
-    return (
-      <div className="flex min-h-[75vh] flex-col items-center justify-center py-10">
-        <p className="mb-8 text-center font-display text-2xl uppercase text-[#17301F] sm:text-3xl">
-          Trading cards for the{" "}
-          <span className="text-[#B23A2E]">AI industry.</span>
-        </p>
-        <div className="w-full max-w-[280px]">
-          <PackRipper cards={cards} ranks={ranks} minimal />
-        </div>
-        <p className="mt-8 text-center font-mono text-[12px] uppercase tracking-[0.3em] text-[#5A6E5E]">
-          Tap to rip your first pack.
-        </p>
-      </div>
-    );
-  }
+  const ceremony = state === "ceremony";
+  const showPack = state !== "index" || ripBusy;
 
-  if (state === "packs") {
-    return (
-      <div>
-        <div className="mx-auto mb-10 mt-2 w-full max-w-[210px]">
-          <PackRipper cards={cards} ranks={ranks} minimal />
-          <p className="mt-4 text-center font-mono text-[11px] uppercase tracking-[0.25em] text-[#5A6E5E]">
-            {packsLeft} pack{packsLeft === 1 ? "" : "s"} ready
-          </p>
-        </div>
-        <IndexSections cards={cards} ranks={ranks} />
-      </div>
-    );
-  }
-
-  // index-first: the pack object does not render
+  // ONE stable tree: the PackRipper slot never moves between states, so
+  // React reconciles (keeps rip/reveal state) instead of remounting.
   return (
-    <div>
-      <Masthead cards={cards} />
-      <div className="mt-6">
-        <ResetChip />
-        <IndexSections cards={cards} ranks={ranks} />
+    <div className={ceremony ? "flex min-h-[75vh] flex-col items-center justify-center py-10" : ""}>
+      <div className={ceremony ? "w-full" : "hidden"}>
+        {ceremony && !ripBusy && (
+          <p className="mb-8 text-center font-display text-2xl uppercase text-[#17301F] sm:text-3xl">
+            Trading cards for the{" "}
+            <span className="text-[#B23A2E]">AI industry.</span>
+          </p>
+        )}
       </div>
+      <div className={showPack ? "mx-auto mb-10 w-full" : "hidden"}>
+        {showPack && (
+          <PackRipper
+            cards={cards}
+            ranks={ranks}
+            minimal={ceremony}
+            onRevealChange={setRipBusy}
+          />
+        )}
+      </div>
+      <div className={ceremony ? "w-full" : "hidden"}>
+        {ceremony && !ripBusy && (
+          <p className="mt-2 text-center font-mono text-[12px] uppercase tracking-[0.3em] text-[#5A6E5E]">
+            Tap to rip your first pack.
+          </p>
+        )}
+      </div>
+      {!ceremony && (
+        <div>
+          {state === "index" && !ripBusy && (
+            <>
+              <Masthead cards={cards} />
+              <div className="mt-6">
+                <ResetChip />
+              </div>
+            </>
+          )}
+          <IndexSections cards={cards} ranks={ranks} />
+        </div>
+      )}
     </div>
   );
 }

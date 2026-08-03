@@ -210,14 +210,24 @@ test("get rated: manual build works without GitHub", async ({ page }) => {
   await expect(page.getByText("Test Person").first()).toBeVisible();
 });
 
-test("home state 1: first visit is the pack ceremony, nothing else", async ({ page }) => {
+test("home state 1: ceremony rips through to readable cards, then binder", async ({ page }) => {
+  await blockArt(page);
   await page.goto("/");
   await expect(page.getByText("Tap to rip your first pack.")).toBeVisible();
-  await expect(page.getByLabel("Rip the pack")).toBeVisible();
   await expect(page.getByText("The Hot List")).not.toBeVisible();
   await expect(page.getByText("The Checklist")).not.toBeVisible();
   // the second door in stays put
   await expect(page.getByRole("link", { name: "Roast me" })).toBeVisible();
+  // rip ON the landing page: stack → fan of 3 readable cards → HOLD
+  await page.getByLabel("Rip the pack").click();
+  await page.getByLabel("Reveal the cards").click({ timeout: 10_000 });
+  const fanCards = page.getByRole("button", { name: /^Enlarge / });
+  await expect(fanCards).toHaveCount(3);
+  for (const card of await fanCards.all()) await expect(card).toBeVisible();
+  await page.waitForTimeout(2000);
+  await expect(page).toHaveURL(/localhost:3123\/$/); // still on the landing page
+  await page.getByRole("button", { name: "Add to binder →" }).click();
+  await page.waitForURL("**/binder");
 });
 
 test("home state 2: returning with packs → pack hero + index", async ({ page }) => {

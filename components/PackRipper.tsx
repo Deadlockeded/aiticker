@@ -126,11 +126,14 @@ export default function PackRipper({
   cards,
   ranks,
   minimal = false,
+  onRevealChange,
 }: {
   cards: MarketCard[];
   ranks: Record<string, number>;
   /** Ceremony mode: the page supplies the copy — hide allowance/captions. */
   minimal?: boolean;
+  /** Lets the host page hide its own framing copy during stack/fan. */
+  onRevealChange?: (inReveal: boolean) => void;
 }) {
   const router = useRouter();
   const fxTimers = useRef<ReturnType<typeof setTimeout>[]>([]);
@@ -182,6 +185,10 @@ export default function PackRipper({
   const rip = () => {
     const left = consumePack();
     if (left === null) return;
+    // synchronously, BEFORE the store notify re-renders the host page:
+    // the homepage must lock the pack in place or this component remounts
+    // mid-rip (the reveal vanishes into a fresh idle pack)
+    onRevealChange?.(true);
     stampOnboarding("pack");
 
     const pulled = pullPackFor(cards);
