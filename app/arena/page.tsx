@@ -36,10 +36,14 @@ export default async function ArenaPage({ searchParams }: { searchParams: Search
   const ranks = Object.fromEntries(cards.map((c) => [c.id, getRank(c.id)]));
 
   return (
-    <main className="mx-auto w-full max-w-4xl flex-1 px-3 py-8 sm:px-6">
-      <header className="mb-6 text-center">
-        <h1 className="text-3xl font-bold tracking-tight text-[#17301F]">Arena</h1>
-        <p className="mt-1 text-sm text-[#5A6E5E]">
+    <main className="mx-auto w-full max-w-4xl flex-1 px-3 py-4 sm:px-6 sm:py-8">
+      {/* tight on a phone: the fighter rail and challenger deck have to clear
+          the fold, so the hero shrinks and the subtitle only shows on desktop */}
+      <header className="mb-3 text-center sm:mb-6">
+        <h1 className="text-2xl font-bold tracking-tight text-[#17301F] sm:text-3xl">
+          Arena
+        </h1>
+        <p className="mt-1 hidden text-sm text-[#5A6E5E] sm:block">
           Fight with your cards. 3 rounds drawn from today&apos;s meta — best
           stats win.
         </p>

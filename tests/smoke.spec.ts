@@ -429,3 +429,36 @@ test("raise a round: claimable once, then gone for the week", async ({ page }) =
   await page.reload();
   await expect(page.getByText("This week's round")).not.toBeVisible();
 });
+
+
+test("arena setup clears the fold: rail + challenger deck, no scrolling", async ({ page }) => {
+  await blockArt(page);
+  await seedBinder(page, ["openai", "anthropic", "nvidia"]);
+  await page.goto("/arena");
+  await page.getByRole("button", { name: /OpenAI/ }).first().click();
+  const heading = page.getByText("The Challenger Line");
+  await expect(heading).toBeVisible();
+  const box = await heading.boundingBox();
+  const viewport = page.viewportSize()!;
+  // the deck's heading must be reachable without scrolling on a Pixel 7
+  expect(box!.y).toBeLessThan(viewport.height);
+});
+
+test("new opponent reshuffles the challenger line", async ({ page }) => {
+  await blockArt(page);
+  await seedBinder(page, ["openai"]);
+  await page.goto("/arena");
+  await page.getByRole("button", { name: /OpenAI/ }).first().click();
+  const topCard = () =>
+    page.locator('[aria-label="Top card — drag to cycle, tap to open"] h3').first().innerText();
+  const seen = new Set<string>();
+  for (let i = 0; i < 5; i++) {
+    seen.add(await topCard());
+    await page.getByRole("button", { name: "Fight →" }).click();
+    await expect(page.getByText(/takes it|Dead heat/)).toBeVisible({ timeout: 20_000 });
+    await page.getByRole("button", { name: "New opponent" }).click();
+    await expect(page.getByText("The Challenger Line")).toBeVisible();
+  }
+  // five reshuffles over ~70 candidates: identical every time is not a shuffle
+  expect(seen.size).toBeGreaterThan(1);
+});

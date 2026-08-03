@@ -23,6 +23,7 @@ import { isReleased } from "@/lib/drops";
 import { readOnboarding, stampOnboarding } from "@/lib/onboarding";
 import { getScoredProfile, ScoreError } from "@/lib/score";
 import { dayHash, getHotCards, getRandomQuip, HOT_BOOST } from "@/lib/daily";
+import { mulberry32 } from "@/lib/rng";
 import {
   cardVsStats,
   commentary,
@@ -259,6 +260,10 @@ export default function Arena({
   const [chaos, setChaos] = useState(false);
   const [handleInput, setHandleInput] = useState("");
   const [passes, setPasses] = useState(0);
+  // Reshuffles the Challenger Line. Seed 0 = the deterministic opening deck
+  // (same for everyone, hydration-safe); NEW OPPONENT rolls a fresh seed in
+  // the event handler, so render stays pure while the deck feels random.
+  const [deckSeed, setDeckSeed] = useState(0);
   const [phase, setPhase] = useState<Phase>("setup");
   const [result, setResult] = useState<VsResult | null>(null);
   const [entranceQuips, setEntranceQuips] = useState<(string | null)[]>([null, null]);
@@ -285,18 +290,25 @@ export default function Arena({
   const challengers = useMemo(() => {
     if (!me) return [];
     const myR = me.side.rating;
+    // A fresh seed shuffles hard (the jitter term dominates the rating gap),
+    // so NEW OPPONENT genuinely reshuffles instead of re-dealing the same
+    // five cards. Seed 0 keeps the original close-matchup ordering.
+    const rand = mulberry32(deckSeed || 1);
+    const jitter = deckSeed === 0 ? 22 : 60;
     return cards
       .filter((c) => c.id !== "agi" && c.id !== me.side.cardId && isReleased(c.id))
       .map((c) => ({
         c,
         w:
           Math.abs(c.rating - myR) +
-          ((dayHash(`line:${c.id}:${me.side.cardId}`) % 100) / 100) * 22 -
+          (deckSeed === 0
+            ? ((dayHash(`line:${c.id}:${me.side.cardId}`) % 100) / 100) * jitter
+            : rand() * jitter) -
           (c.rarity === "legendary" || c.rarity === "epic" ? 9 : 0), // bait
       }))
       .sort((a, b) => a.w - b.w)
       .map((x) => x.c);
-  }, [cards, me]);
+  }, [cards, me, deckSeed]);
 
   const hotIds = useMemo(
     () => new Set(getHotCards(cards).map((c) => c.id)),
@@ -446,21 +458,23 @@ export default function Arena({
 
   const decided = result ? result.rounds.slice(0, shownRounds) : [];
   const lastRound = decided[decided.length - 1];
-  const winnerLabel = result
-    ? result.winner === "a"
-      ? me!.side.label
+  // null-safe on purpose: NEW OPPONENT clears `foe` while `result` may still
+  // be set for a frame. Reading foe!.side here used to throw and blank the
+  // whole arena after any fight you lost.
+  const winnerLabel = !result
+    ? ""
+    : result.winner === "a"
+      ? (me?.side.label ?? "You")
       : result.winner === "b"
-        ? foe!.side.label
-        : "Nobody"
-    : "";
+        ? (foe?.side.label ?? "The index")
+        : "Nobody";
 
   return (
     <div>
-      <p className="mb-6 text-center font-mono text-xs text-[#9CB09E]">
+      <p className="mb-3 text-center font-mono text-[11px] text-[#9CB09E]">
         Streak <span className="tnum text-[#17301F]">{record.current}</span> · Best{" "}
         <span className="tnum text-[#17301F]">{record.best}</span> ·{" "}
-        <span className="tnum">{record.wins}W–{record.losses}L</span> · zero
-        stakes — cards and Ticks are never lost, and every fight pays
+        <span className="tnum">{record.wins}W–{record.losses}L</span>
       </p>
 
       {phase === "setup" && (
@@ -470,81 +484,39 @@ export default function Arena({
               Pick your fighter from your binder.
             </EditorCaption>
           )}
-          <div className="grid gap-4 md:grid-cols-2">
-            {/* fighter */}
-            <div className="rounded-xl border border-[#17301F]/30 bg-[#F4F7F0] p-3">
-              <p className="mb-2 font-mono text-[10px] uppercase tracking-widest text-[#9CB09E]">
-                Your fighter · from your binder
-              </p>
-              <div className="grid max-h-56 grid-cols-1 gap-1.5 overflow-y-auto sm:grid-cols-2">
-                {owned.map((card) => (
-                  <button
-                    key={card.id}
-                    onClick={() => setMe(cardFighter(card))}
-                    className={`flex items-center gap-2.5 rounded-lg border p-2 text-left transition-colors ${
-                      me?.side.cardId === card.id
-                        ? "border-[#B23A2E] bg-[#B23A2E]/10"
-                        : "border-[#17301F]/30 bg-[#17301F]/[0.03] hover:bg-[#17301F]/10"
-                    }`}
-                  >
-                    <span className="h-8 w-8 shrink-0">
-                      <CardArt card={card} />
-                    </span>
-                    <span className="min-w-0">
-                      <span className="block truncate text-[13px] font-medium text-[#17301F]">
-                        {card.name}
-                        {hotIds.has(card.id) && (
-                          <span className="ml-1 font-mono text-[10px] text-orange-300">
-                            🔥 +{HOT_BOOST} today
-                          </span>
-                        )}
-                      </span>
-                      <span className="tnum font-mono text-[11px] text-[#9CB09E]">
-                        {card.rating} ovr
-                      </span>
-                    </span>
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* opponent */}
-            <div className="rounded-xl border border-[#17301F]/30 bg-[#F4F7F0] p-3">
-              <p className="mb-2 font-mono text-[10px] uppercase tracking-widest text-[#9CB09E]">
-                Opponent · index card, GitHub handle, or chaos
-              </p>
-              <div className="mt-1 flex gap-2">
-                <input
-                  value={handleInput}
-                  onChange={(e) => setHandleInput(e.target.value)}
-                  onKeyDown={(e) => e.key === "Enter" && handleInput.trim() && loadFoe(handleInput.trim())}
-                  placeholder="…or a GitHub handle"
-                  className="min-w-0 flex-1 rounded-lg border border-[#17301F]/30 bg-[#17301F]/5 px-3 py-2 text-sm text-[#17301F] placeholder-[#9CB09E] outline-none focus:border-[#B23A2E]/70"
-                />
+          {/* fighter rail: one compact swipeable row so the challenger deck
+              stays above the fold on a phone (this used to be a 224px-tall
+              vertical list that pushed everything off-screen) */}
+          <div className="rounded-xl border border-[#17301F]/30 bg-[#F4F7F0] p-2">
+            <p className="mb-1.5 font-mono text-[10px] uppercase tracking-widest text-[#9CB09E]">
+              Your fighter · from your binder
+            </p>
+            <div className="-mx-1 flex gap-1.5 overflow-x-auto px-1 pb-1">
+              {owned.map((card) => (
                 <button
-                  onClick={() => handleInput.trim() && loadFoe(handleInput.trim())}
-                  className="rounded-lg border border-[#17301F]/40 px-3 py-2 text-sm text-[#5A6E5E] hover:bg-[#17301F]/5"
+                  key={card.id}
+                  onClick={() => setMe(cardFighter(card))}
+                  className={`flex w-[112px] shrink-0 flex-col items-center gap-1 rounded-lg border p-1.5 text-center transition-colors ${
+                    me?.side.cardId === card.id
+                      ? "border-[#B23A2E] bg-[#B23A2E]/10"
+                      : "border-[#17301F]/30 bg-[#17301F]/[0.03] hover:bg-[#17301F]/10"
+                  }`}
                 >
-                  Score
+                  <span className="h-8 w-8 shrink-0">
+                    <CardArt card={card} />
+                  </span>
+                  <span className="w-full truncate text-[12px] font-medium leading-tight text-[#17301F]">
+                    {card.name}
+                  </span>
+                  <span className="tnum font-mono text-[10px] text-[#9CB09E]">
+                    {card.rating} ovr
+                    {hotIds.has(card.id) && <span className="ml-1 text-orange-400">🔥</span>}
+                  </span>
                 </button>
-              </div>
-              {foeLoading && (
-                <p className="mt-2 font-mono text-[11px] text-[#9CB09E]">
-                  Scoring {foeLoading}…
-                </p>
-              )}
-              {foeError && (
-                <p className="mt-2 text-xs text-[#B23A2E]">{foeError}</p>
-              )}
-              {foe && (
-                <p className="mt-2 font-mono text-[11px] text-[#B23A2E]">
-                  Opponent locked: {foe.side.label} ({foe.side.rating})
-                  {foe.hot && ` · 🔥 +${HOT_BOOST} today`}
-                  {chaos && " · chaos mode"}
-                </p>
-              )}
+              ))}
             </div>
           </div>
+
           {me && !foe && challengers.length > 0 && (
             <div className="mx-auto mt-6 max-w-[280px]">
               <p className="mb-3 border-b-2 border-[#17301F] pb-1 text-center font-mono text-[11px] font-semibold uppercase tracking-[0.3em] text-[#B23A2E]">
@@ -590,15 +562,54 @@ export default function Arena({
             </div>
           )}
 
-          <div className="mt-5 text-center">
-            <button
-              onClick={() => fight()}
-              disabled={!me || !foe}
-              className="rounded-lg bg-[#B23A2E] px-10 py-3 text-base font-semibold text-[#F4F7F0] transition-colors hover:bg-[#8E2E24] disabled:cursor-not-allowed disabled:opacity-40"
-            >
-              Fight
-            </button>
-          </div>
+          {/* opponent by handle — folded away until asked for */}
+          <details className="mt-3 rounded-xl border border-[#17301F]/30 bg-[#F4F7F0] p-3">
+            <summary className="cursor-pointer font-mono text-[10px] uppercase tracking-widest text-[#9CB09E]">
+              …or fight a GitHub handle
+            </summary>
+            <div className="mt-2">
+              <div className="mt-1 flex gap-2">
+                <input
+                  value={handleInput}
+                  onChange={(e) => setHandleInput(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && handleInput.trim() && loadFoe(handleInput.trim())}
+                  placeholder="…or a GitHub handle"
+                  className="min-w-0 flex-1 rounded-lg border border-[#17301F]/30 bg-[#17301F]/5 px-3 py-2 text-sm text-[#17301F] placeholder-[#9CB09E] outline-none focus:border-[#B23A2E]/70"
+                />
+                <button
+                  onClick={() => handleInput.trim() && loadFoe(handleInput.trim())}
+                  className="rounded-lg border border-[#17301F]/40 px-3 py-2 text-sm text-[#5A6E5E] hover:bg-[#17301F]/5"
+                >
+                  Score
+                </button>
+              </div>
+              {foeLoading && (
+                <p className="mt-2 font-mono text-[11px] text-[#9CB09E]">
+                  Scoring {foeLoading}…
+                </p>
+              )}
+              {foeError && (
+                <p className="mt-2 text-xs text-[#B23A2E]">{foeError}</p>
+              )}
+              {foe && (
+                <p className="mt-2 font-mono text-[11px] text-[#B23A2E]">
+                  Opponent locked: {foe.side.label} ({foe.side.rating})
+                  {foe.hot && ` · 🔥 +${HOT_BOOST} today`}
+                  {chaos && " · chaos mode"}
+                </p>
+              )}
+              <div className="mt-3 text-center">
+                <button
+                  onClick={() => fight()}
+                  disabled={!me || !foe}
+                  className="rounded-lg bg-[#B23A2E] px-8 py-2.5 text-sm font-semibold text-[#F4F7F0] transition-colors hover:bg-[#8E2E24] disabled:cursor-not-allowed disabled:opacity-40"
+                >
+                  Fight
+                </button>
+              </div>
+            </div>
+          </details>
+
         </>
       )}
 
@@ -727,6 +738,11 @@ export default function Arena({
                   onClick={() => {
                     setPhase("setup");
                     setFoe(null);
+                    setResult(null);
+                    setPurse(null);
+                    // random lives in the handler, never in render
+                    setDeckSeed(Math.floor(Math.random() * 2 ** 31) || 1);
+                    setPasses(0);
                   }}
                   className="rounded-lg border border-[#17301F]/40 px-6 py-2.5 text-sm font-semibold text-[#5A6E5E] transition-colors hover:bg-[#17301F]/5"
                 >
