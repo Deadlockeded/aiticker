@@ -2,7 +2,7 @@ import type { MarketCard } from "@/lib/cards";
 import { formatMove, formatTicks, getCurrentPrice, getDailyMove } from "@/lib/market";
 import Logo from "./Logo";
 
-/** Hero: the riffle lockup + plain-register H1, live index chip right. */
+/** Hero: the rising-fan lockup + plain-register H1, live index chip right. */
 export default function Masthead({ cards }: { cards: MarketCard[] }) {
   const pool = cards.filter((c) => c.id !== "agi");
   // the composite: average card price + average daily move (deterministic,

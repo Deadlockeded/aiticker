@@ -57,10 +57,9 @@ export function canvasBlob(canvas: HTMLCanvasElement): Promise<Blob | null> {
 }
 
 /**
- * THE RIFFLE mark for canvas share exports: two cards mid-shuffle + the
- * rising arrow, followed by the "AIticker" wordmark. `h` is icon height;
- * returns the total width drawn (for right-aligned placement, measure via
- * measureLogoMark first). Colors are the fixed brand tokens.
+ * THE RISING FAN mark for canvas share exports: three ascending cards +
+ * the arrow, followed by the "AIticker" wordmark. `h` is icon height;
+ * returns the total width drawn. Colors are the fixed brand tokens.
  */
 export function drawLogoMark(
   ctx: CanvasRenderingContext2D,
@@ -74,43 +73,30 @@ export function drawLogoMark(
   const PAPER = "#F4F7F0";
   const s = h / 90;
   const stroke = opts.onDark ? PAPER : INK;
+  const fills = opts.onDark ? [PAPER, "#9CB09E", "#B23A2E"] : ["#FDFEFC", "#EAF0E4", "#B23A2E"];
   ctx.save();
   ctx.translate(x, y);
   ctx.scale(s, s);
   ctx.lineJoin = "round";
-  // left card
-  ctx.save();
-  ctx.translate(35, 70);
-  ctx.rotate((-14 * Math.PI) / 180);
-  ctx.translate(-35, -70);
+  ctx.lineWidth = 4;
+  ctx.strokeStyle = stroke;
+  const bar = (bx: number, by: number, bh: number, fill: string) => {
+    ctx.beginPath();
+    ctx.roundRect(bx, by, 26, bh, 5);
+    ctx.fillStyle = fill;
+    ctx.fill();
+    ctx.stroke();
+  };
+  bar(6, 46, 42, fills[0]);
+  bar(37, 30, 58, fills[1]);
+  bar(68, 12, 76, fills[2]);
   ctx.beginPath();
-  ctx.roundRect(14, 16, 42, 60, 7);
-  ctx.fillStyle = opts.onDark ? PAPER : "#FDFEFC";
+  ctx.moveTo(81, 20);
+  ctx.lineTo(88, 30);
+  ctx.lineTo(74, 30);
+  ctx.closePath();
+  ctx.fillStyle = PAPER;
   ctx.fill();
-  ctx.strokeStyle = stroke;
-  ctx.lineWidth = 5;
-  ctx.stroke();
-  ctx.restore();
-  // right card
-  ctx.save();
-  ctx.translate(65, 70);
-  ctx.rotate((14 * Math.PI) / 180);
-  ctx.translate(-65, -70);
-  ctx.beginPath();
-  ctx.roundRect(44, 16, 42, 60, 7);
-  ctx.fillStyle = opts.onDark ? "#9CB09E" : "#EAF0E4";
-  ctx.fill();
-  ctx.strokeStyle = stroke;
-  ctx.lineWidth = 5;
-  ctx.stroke();
-  ctx.restore();
-  // arrow
-  const p = new Path2D("M50 2 L62 20 L54 20 L54 32 L46 32 L46 20 L38 20 Z");
-  ctx.fillStyle = "#B23A2E";
-  ctx.fill(p);
-  ctx.strokeStyle = stroke;
-  ctx.lineWidth = 3;
-  ctx.stroke(p);
   ctx.restore();
   // wordmark
   const fontSize = h * 0.62;

@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import OgRiffle from "@/components/OgRiffle";
+import OgMark from "@/components/OgMark";
 
 export const runtime = "edge";
 
@@ -48,7 +48,7 @@ export async function GET(req: Request) {
           {meta.sub}
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 14, marginTop: 44 }}>
-          <OgRiffle size={32} />
+          <OgMark size={32} />
           <div style={{ display: "flex", fontSize: 26, letterSpacing: 5, color: "#B23A2E" }}>
             aiticker.xyz/{page}
           </div>

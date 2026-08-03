@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import OgRiffle from "@/components/OgRiffle";
+import OgMark from "@/components/OgMark";
 import { getCard, getRank } from "@/lib/cards";
 import { formatMove, getCurrentPrice, getDailyMove } from "@/lib/market";
 import type { Rarity } from "@/lib/types";
@@ -163,7 +163,7 @@ export async function GET(
               marginTop: 28,
             }}
           >
-            <OgRiffle size={34} />
+            <OgMark size={34} />
             <div style={{ display: "flex", fontSize: 24, letterSpacing: 4, color: "rgba(23, 48, 31,0.5)" }}>
               #{card.serial}/{card.editionSize} · powered by public data
             </div>

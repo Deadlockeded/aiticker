@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import OgRiffle from "@/components/OgRiffle";
+import OgMark from "@/components/OgMark";
 
 export const runtime = "edge";
 
@@ -54,7 +54,7 @@ export async function GET(req: Request) {
             gap: 14,
           }}
         >
-          <OgRiffle size={30} />
+          <OgMark size={30} />
           <div style={{ display: "flex", fontSize: 24, letterSpacing: 5, color: "#B23A2E" }}>{path}</div>
         </div>
       </div>
