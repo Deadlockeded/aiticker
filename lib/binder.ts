@@ -1,4 +1,5 @@
 import { PACK_BANK_MAX, PACK_INTERVAL_MS } from "./economy";
+import { startSerial, type Variant } from "./variants";
 import { KEYS, readRaw, writeRaw } from "./storage";
 
 /**
@@ -6,10 +7,23 @@ import { KEYS, readRaw, writeRaw } from "./storage";
  * Client-only — every function here must be called post-mount.
  */
 
+export interface PrintCopy {
+  /** Variant of this printed copy. */
+  v: Variant;
+  /** Serial number within the variant's edition. */
+  n: number;
+}
+
 export interface BinderEntry {
   copies: number;
   firstPulledAt: string;
   lastPulledAt: string;
+  /**
+   * Per-copy print records (variant + serial), minted at pull time.
+   * Entries from before parallels existed have no prints — those copies
+   * render as unstamped base prints.
+   */
+  prints?: PrintCopy[];
 }
 
 export type Binder = Record<string, BinderEntry>;
@@ -54,31 +68,69 @@ export function getBinder(): Binder {
   return parseBinder(getBinderSnapshot());
 }
 
-export function addPulls(ids: string[]): Binder {
+export interface Mint {
+  id: string;
+  variant: Variant;
+  /** Base edition size of the card (for base-variant serial seeding). */
+  editionSize: number;
+}
+
+/**
+ * Add pulled copies, minting a print record (variant + serial) for each.
+ * Serials increment locally per card+variant from a seeded start — see
+ * lib/variants.ts for the no-server rationale.
+ */
+export function addPulls(mints: Mint[]): number[] {
   const binder = getBinder();
   const now = new Date().toISOString();
-  for (const id of ids) {
+  const serials: number[] = [];
+  for (const { id, variant, editionSize } of mints) {
     const entry = binder[id];
+    const prints = entry?.prints ?? [];
+    const already = prints.filter((p) => p.v === variant).length;
+    const serial = startSerial(id, variant, editionSize) + already;
+    serials.push(serial);
     binder[id] = {
       copies: (entry?.copies ?? 0) + 1,
       firstPulledAt: entry?.firstPulledAt ?? now,
       lastPulledAt: now,
+      prints: [...prints, { v: variant, n: serial }],
     };
   }
   writeRaw(KEYS.binder, JSON.stringify(binder));
   notify();
-  return binder;
+  return serials;
 }
 
-/** Trade-in burns: remove N copies per id. */
+/**
+ * Trade-in burns: remove N copies per id. BASE prints burn first — silver
+ * gold/holo copies are pull-only scarcity and The House never takes them
+ * unless nothing else is left.
+ */
 export function burnCopies(counts: Record<string, number>): Binder {
   const binder = getBinder();
   for (const [id, n] of Object.entries(counts)) {
     const entry = binder[id];
     if (!entry) continue;
     const copies = Math.max(0, entry.copies - n);
-    if (copies === 0) delete binder[id];
-    else binder[id] = { ...entry, copies };
+    if (copies === 0) {
+      delete binder[id];
+      continue;
+    }
+    const prints = [...(entry.prints ?? [])];
+    let toBurn = n;
+    // unstamped legacy copies burn silently first (copies > prints.length)
+    const unstamped = entry.copies - prints.length;
+    toBurn -= Math.min(toBurn, Math.max(0, unstamped));
+    for (const v of ["base", "silver", "gold", "holo"] as const) {
+      while (toBurn > 0) {
+        const i = prints.findIndex((p) => p.v === v);
+        if (i === -1) break;
+        prints.splice(i, 1);
+        toBurn--;
+      }
+    }
+    binder[id] = { ...entry, copies, prints };
   }
   writeRaw(KEYS.binder, JSON.stringify(binder));
   notify();

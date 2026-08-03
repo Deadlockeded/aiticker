@@ -3,7 +3,8 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { useRouter } from "next/navigation";
 import type { MarketCard } from "@/lib/cards";
-import { pullPackFor } from "@/lib/packs";
+import { pullPackFor, type Pull } from "@/lib/packs";
+import { editionFor, variantLabel } from "@/lib/variants";
 import { PACK_BANK_MAX } from "@/lib/economy";
 import {
   addPulls,
@@ -140,7 +141,8 @@ export default function PackRipper({
   const fxTimers = useRef<ReturnType<typeof setTimeout>[]>([]);
   const [phase, setPhase] = useState<Phase>("idle");
   const [tearing, setTearing] = useState(false);
-  const [pulls, setPulls] = useState<MarketCard[]>([]);
+  const [pulls, setPulls] = useState<Pull[]>([]);
+  const [serials, setSerials] = useState<number[]>([]);
   const [flipQuips, setFlipQuips] = useState<(string | null)[]>([]);
   const [preOwned, setPreOwned] = useState<Set<string>>(new Set());
   const [agiFlash, setAgiFlash] = useState(false);
@@ -198,7 +200,11 @@ export default function PackRipper({
     setFanned(false);
     setEnlarged(null);
     setFlipQuips(pulled.map(() => null));
-    addPulls(pulled.map((c) => c.id));
+    setSerials(
+      addPulls(
+        pulled.map((p) => ({ id: p.card.id, variant: p.variant, editionSize: p.card.editionSize })),
+      ),
+    );
     addXP(XP_REWARDS.packPull);
     checkAchievements(cards);
 
@@ -221,10 +227,10 @@ export default function PackRipper({
     setPhase("fanned");
     if (tutorial) setFlipCaption(true);
     if (navigator.vibrate) navigator.vibrate(10);
-    setFlipQuips(pulls.map((c) => getRandomQuip(c)));
+    setFlipQuips(pulls.map((p) => getRandomQuip(p.card)));
     fxTimers.current.forEach(clearTimeout);
     fxTimers.current = [];
-    pulls.forEach((card, i) => {
+    pulls.forEach(({ card, variant }, i) => {
       const at = 250 + i * 150; // sync effects to each card's flip
       if (card.id === "agi") {
         fxTimers.current.push(
@@ -252,6 +258,27 @@ export default function PackRipper({
             if (navigator.vibrate) navigator.vibrate([30, 50, 30]);
             setConfetti((c) => ({ key: (c?.key ?? 0) + 1, pieces: makeConfetti() }));
           }, at),
+        );
+      }
+      // PARALLEL moments escalate: silver sheen → gold tear+haptic → holo prism+confetti
+      if (variant === "silver") {
+        fxTimers.current.push(setTimeout(() => setGlowKey((k) => k + 1), at + 200));
+      }
+      if (variant === "gold") {
+        fxTimers.current.push(
+          setTimeout(() => {
+            if (navigator.vibrate) navigator.vibrate([20, 40, 20]);
+            setGlowKey((k) => k + 1);
+          }, at + 200),
+        );
+      }
+      if (variant === "holo") {
+        fxTimers.current.push(
+          setTimeout(() => {
+            if (navigator.vibrate) navigator.vibrate([30, 40, 30, 40, 30]);
+            setGlowKey((k) => k + 1);
+            setConfetti((c) => ({ key: (c?.key ?? 0) + 1, pieces: makeConfetti() }));
+          }, at + 250),
         );
       }
     });
@@ -330,7 +357,7 @@ export default function PackRipper({
           aria-label="Reveal the cards"
           className="deal-in relative mx-auto mb-14 block aspect-[1/1.42] w-[210px]"
         >
-          {pulls.map((card, i) => (
+          {pulls.map(({ card }, i) => (
             <div
               key={`${card.id}-${i}`}
               className="absolute inset-0"
@@ -359,7 +386,7 @@ export default function PackRipper({
             </div>
           )}
           <div className="mx-auto flex max-w-[400px] items-center justify-center">
-            {pulls.map((card, i) => (
+            {pulls.map(({ card, variant }, i) => (
               <button
                 key={`${card.id}-${i}`}
                 onClick={() => setEnlarged(i)}
@@ -386,6 +413,8 @@ export default function PackRipper({
                         card={card}
                         rank={ranks[card.id]}
                         resolving={!preOwned.has(card.id) && fanned}
+                        variant={variant}
+                        serialNo={serials[i]}
                       />
                       {shimmering === i && (
                         <div className="foil-sweep pointer-events-none absolute inset-0 overflow-hidden rounded-xl" />
@@ -393,6 +422,19 @@ export default function PackRipper({
                       {!preOwned.has(card.id) && (
                         <span className="pointer-events-none absolute left-1/2 top-[38%] z-20 -translate-x-1/2 rotate-[-14deg] border-2 border-[#17301F] bg-[#F4F7F0]/85 px-1.5 py-0.5 font-mono text-[9px] font-black uppercase tracking-[0.2em] text-[#17301F]">
                           First pull
+                        </span>
+                      )}
+                      {variant !== "base" && (
+                        <span
+                          className={`pointer-events-none absolute left-1/2 top-[56%] z-20 -translate-x-1/2 rotate-[4deg] border-2 px-1.5 py-0.5 font-mono text-[9px] font-black uppercase tracking-[0.15em] ${
+                            variant === "gold"
+                              ? "border-[#8C6D1F] bg-[#8C6D1F] text-[#F4F7F0]"
+                              : variant === "holo"
+                                ? "border-[#17301F] bg-[#17301F] text-[#F0BFB6]"
+                                : "border-[#17301F] bg-[#EAF0E4] text-[#17301F]"
+                          }`}
+                        >
+                          {variantLabel(variant)} Nº {serials[i]}/{editionFor(variant, card.editionSize)}
                         </span>
                       )}
                     </div>
@@ -430,8 +472,15 @@ export default function PackRipper({
             className="absolute inset-x-0 bottom-0 max-h-[88vh] overflow-y-auto border-t-2 border-[#17301F] bg-[#F4F7F0] p-4 pb-[calc(1.25rem+env(safe-area-inset-bottom))]"
           >
             <div className="mx-auto max-w-[320px]">
-              <TradingCard card={pulls[enlarged]} rank={ranks[pulls[enlarged].id]} size="hero" inBinder />
-              {pulls[enlarged].id === "agi" ? (
+              <TradingCard
+                card={pulls[enlarged].card}
+                rank={ranks[pulls[enlarged].card.id]}
+                size="hero"
+                inBinder
+                variant={pulls[enlarged].variant}
+                serialNo={serials[enlarged]}
+              />
+              {pulls[enlarged].card.id === "agi" ? (
                 <p className="mt-3 text-center font-mono text-[12px] text-[#5A6E5E]">well.</p>
               ) : (
                 flipQuips[enlarged] && (

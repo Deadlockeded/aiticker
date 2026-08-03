@@ -63,15 +63,23 @@ export function mergeStates(local: CollectorState, cloud: Partial<CollectorState
   const binder: Binder = { ...(cloud.binder ?? {}) };
   for (const [id, mine] of Object.entries(local.binder)) {
     const theirs = binder[id];
-    binder[id] = theirs
-      ? {
-          copies: Math.max(mine.copies, theirs.copies),
-          firstPulledAt:
-            mine.firstPulledAt < theirs.firstPulledAt ? mine.firstPulledAt : theirs.firstPulledAt,
-          lastPulledAt:
-            mine.lastPulledAt > theirs.lastPulledAt ? mine.lastPulledAt : theirs.lastPulledAt,
-        }
-      : mine;
+    if (!theirs) {
+      binder[id] = mine;
+      continue;
+    }
+    // prints union (dedup by variant+serial); copies covers at least them
+    const prints = [...(theirs.prints ?? [])];
+    for (const p of mine.prints ?? []) {
+      if (!prints.some((q) => q.v === p.v && q.n === p.n)) prints.push(p);
+    }
+    binder[id] = {
+      copies: Math.max(mine.copies, theirs.copies, prints.length),
+      firstPulledAt:
+        mine.firstPulledAt < theirs.firstPulledAt ? mine.firstPulledAt : theirs.firstPulledAt,
+      lastPulledAt:
+        mine.lastPulledAt > theirs.lastPulledAt ? mine.lastPulledAt : theirs.lastPulledAt,
+      prints,
+    };
   }
   const cb = cloud.battle;
   return {

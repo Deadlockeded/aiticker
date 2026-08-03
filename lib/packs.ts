@@ -2,6 +2,7 @@ import type { MarketCard } from "./cards";
 import type { Rarity } from "./types";
 import { PULL_ODDS } from "./editions";
 import { CARDS_PER_PACK, getBinder, getRippedCount } from "./binder";
+import { rollVariant, type Variant } from "./variants";
 import { utcDayKey } from "./daily";
 import { fnvHash, mulberry32 } from "./rng";
 
@@ -48,7 +49,12 @@ function rollRarity(roll: number): Rarity {
  * click handler, so hydration is safe); the deterministic first-pack path
  * passes a seeded stream instead — same algorithm, same odds table.
  */
-export function pullPack(cards: MarketCard[], rand: () => number = Math.random): MarketCard[] {
+export interface Pull {
+  card: MarketCard;
+  variant: Variant;
+}
+
+export function pullPack(cards: MarketCard[], rand: () => number = Math.random): Pull[] {
   const byRarity = new Map<Rarity, MarketCard[]>();
   for (const card of cards) {
     if (card.type === "artifact") continue; // artifacts have their own bucket
@@ -58,23 +64,26 @@ export function pullPack(cards: MarketCard[], rand: () => number = Math.random):
   const artifacts = cards.filter((c) => c.type === "artifact" && c.id !== "agi");
   const agi = cards.find((c) => c.id === "agi");
 
-  const pulls: MarketCard[] = [];
+  const pulls: Pull[] = [];
   for (let i = 0; i < CARDS_PER_PACK; i++) {
     const roll = rand();
+    let card: MarketCard;
     if (agi && roll < CATEGORY_ODDS.agi) {
-      pulls.push(agi);
-      continue;
+      card = agi;
+    } else if (artifacts.length && roll < CATEGORY_ODDS.agi + CATEGORY_ODDS.artifact) {
+      card = artifacts[Math.floor(rand() * artifacts.length)];
+    } else {
+      let rarity = rollRarity(rand());
+      while (!byRarity.get(rarity)?.length) {
+        rarity = TIERS[Math.min(TIERS.indexOf(rarity) + 1, TIERS.length - 1)];
+      }
+      const pool = byRarity.get(rarity)!;
+      card = pool[Math.floor(rand() * pool.length)];
     }
-    if (artifacts.length && roll < CATEGORY_ODDS.agi + CATEGORY_ODDS.artifact) {
-      pulls.push(artifacts[Math.floor(rand() * artifacts.length)]);
-      continue;
-    }
-    let rarity = rollRarity(rand());
-    while (!byRarity.get(rarity)?.length) {
-      rarity = TIERS[Math.min(TIERS.indexOf(rarity) + 1, TIERS.length - 1)];
-    }
-    const pool = byRarity.get(rarity)!;
-    pulls.push(pool[Math.floor(rand() * pool.length)]);
+    // PARALLELS: the variant roll is independent of the card roll (a holo
+    // common is a real chase). AGI has no variants — it is its own thing.
+    const variant = card.id === "agi" ? "base" : rollVariant(rand);
+    pulls.push({ card, variant });
   }
   return pulls;
 }
@@ -96,7 +105,7 @@ export function firstPackRand(dateKey: string, packNumber: number): () => number
  * and no UI ever mentions this. Real anti-abuse arrives with server-side
  * inventory once Supabase auth is enabled (see README-AUTH.md).
  */
-export function pullPackFor(cards: MarketCard[]): MarketCard[] {
+export function pullPackFor(cards: MarketCard[]): Pull[] {
   // consumePack() has already incremented `ripped` for this rip, so it is
   // 1-based here: 1 = the profile's first-ever pack.
   const packNumber = getRippedCount();

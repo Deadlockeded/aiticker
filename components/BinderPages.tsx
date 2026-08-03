@@ -154,10 +154,15 @@ export default function BinderPages({
     .sort((a, b) => a - b)
     .map((series) => {
       const inSeries = cards.filter((c) => c.series === series);
+      const withVariant = (v: string) =>
+        inSeries.filter((c) => binder[c.id]?.prints?.some((p) => p.v === v)).length;
       return {
         series,
         size: inSeries.length,
         owned: inSeries.filter((c) => binder[c.id]).length,
+        silver: withVariant("silver"),
+        gold: withVariant("gold"),
+        holo: withVariant("holo"),
       };
     });
   const s1 = seriesLines[0] ?? { owned: 0, size: 1 };
@@ -216,9 +221,14 @@ export default function BinderPages({
           <span className="tnum font-mono text-sm text-[#17301F]">
             {/* series are sealed — per-series denominators only, never a
                 global total (the set will grow as new series drop) */}
-            {seriesLines.map(({ series, owned: o, size }) => (
+            {seriesLines.map(({ series, owned: o, size, silver, gold, holo }) => (
               <span key={series} className="mr-2">
                 S{series} — {o}/{size}
+                <span className="ml-1.5 text-[10px] text-[#9CB09E]">
+                  · <span className="text-[#5A6E5E]">SILVER {silver}</span> ·{" "}
+                  <span className="text-[#8C6D1F]">GOLD {gold}</span> ·{" "}
+                  <span className="text-[#6B4FA0]">HOLO {holo}</span>
+                </span>
               </span>
             ))}
           </span>
@@ -363,8 +373,21 @@ export default function BinderPages({
                             {card.rating}
                           </p>
                           {entry.copies > 1 && (
-                            <span className="absolute right-0.5 top-0.5 rounded bg-black/70 px-1 font-mono text-[8px] font-bold text-[#17301F]">
+                            <span className="absolute -right-1 -top-1 z-10 rounded-full border-2 border-[#F4F7F0] bg-[#B23A2E] px-1.5 py-0.5 font-mono text-[10px] font-bold leading-none text-[#F4F7F0]">
                               ×{entry.copies}
+                            </span>
+                          )}
+                          {(entry.prints ?? []).some((p) => p.v !== "base") && (
+                            <span className="absolute bottom-0.5 right-0.5 flex gap-0.5">
+                              {entry.prints?.some((p) => p.v === "silver") && (
+                                <span className="h-2 w-2 rounded-full border border-[#17301F]/50 bg-[#8EA6B4]" title="Silver" />
+                              )}
+                              {entry.prints?.some((p) => p.v === "gold") && (
+                                <span className="h-2 w-2 rounded-full border border-[#17301F]/50 bg-[#8C6D1F]" title="Gold" />
+                              )}
+                              {entry.prints?.some((p) => p.v === "holo") && (
+                                <span className="h-2 w-2 rounded-full border border-[#17301F]/50 bg-[#6B4FA0]" title="Holo" />
+                              )}
                             </span>
                           )}
                           {isNew && (
@@ -462,6 +485,35 @@ export default function BinderPages({
                 </div>
                 <Sparkline history={open.priceHistory} />
               </div>
+              {/* YOUR COPIES — every print, variant + serial */}
+              {binder[open.id] && (
+                <div className="rounded-xl border border-[#17301F]/30 bg-[#F4F7F0] p-3">
+                  <p className="mb-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.25em] text-[#5A6E5E]">
+                    Your copies · ×{binder[open.id].copies}
+                  </p>
+                  <ul className="space-y-1">
+                    {(binder[open.id].prints ?? []).map((p, i) => (
+                      <li key={i} className="flex items-center gap-2 font-mono text-[12px] text-[#17301F]">
+                        <span
+                          className={`h-2.5 w-2.5 rounded-full border border-[#17301F]/40 ${
+                            p.v === "silver" ? "bg-[#8EA6B4]" : p.v === "gold" ? "bg-[#8C6D1F]" : p.v === "holo" ? "bg-[#6B4FA0]" : "bg-[#EAF0E4]"
+                          }`}
+                        />
+                        <span className="uppercase">{p.v}</span>
+                        <span className="tnum ml-auto text-[#5A6E5E]">
+                          Nº {String(p.n).padStart(3, "0")}/{p.v === "base" ? open.editionSize : p.v === "silver" ? 100 : p.v === "gold" ? 25 : 10}
+                        </span>
+                      </li>
+                    ))}
+                    {binder[open.id].copies > (binder[open.id].prints?.length ?? 0) && (
+                      <li className="font-mono text-[11px] text-[#9CB09E]">
+                        +{binder[open.id].copies - (binder[open.id].prints?.length ?? 0)} early print
+                        {binder[open.id].copies - (binder[open.id].prints?.length ?? 0) === 1 ? "" : "s"} (unstamped base)
+                      </li>
+                    )}
+                  </ul>
+                </div>
+              )}
               <div className="flex gap-2">
                 <Link
                   href={`/cards/${open.id}`}

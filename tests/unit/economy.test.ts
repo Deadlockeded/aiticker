@@ -48,7 +48,7 @@ test("claim-from-full math: next pack lands one interval after the claim", () =>
 test("deterministic first packs: same day+number = same pulls; date/number vary", () => {
   const cards = getAllCards();
   const ids = (dateKey: string, n: number) =>
-    pullPack(cards, firstPackRand(dateKey, n)).map((c) => c.id);
+    pullPack(cards, firstPackRand(dateKey, n)).map((p) => p.card.id + ":" + p.variant);
   assert.deepEqual(ids("2026-08-03", 1), ids("2026-08-03", 1));
   assert.deepEqual(ids("2026-08-03", 2), ids("2026-08-03", 2));
   assert.notDeepEqual(ids("2026-08-03", 1), ids("2026-08-03", 2));

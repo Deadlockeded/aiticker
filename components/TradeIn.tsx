@@ -57,7 +57,7 @@ export default function TradeIn({
   const burn = () => {
     const prize = pullRarePlus(cards);
     burnCopies(selected);
-    addPulls([prize.id]);
+    addPulls([{ id: prize.id, variant: "base", editionSize: prize.editionSize }]);
     checkAchievements(cards);
     setReward(prize);
     setFlipped(false);

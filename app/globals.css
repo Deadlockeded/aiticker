@@ -419,6 +419,26 @@ h2 {
   }
 }
 
+/* SILVER parallel: cool metallic sheen sweep */
+.silver-sheen::after {
+  content: "";
+  position: absolute;
+  inset: -20% auto -20% 0;
+  width: 45%;
+  background: linear-gradient(
+    100deg,
+    transparent 20%,
+    rgba(198, 212, 222, 0.45) 50%,
+    transparent 80%
+  );
+  animation: foil-sweep 6s ease-in-out infinite;
+  pointer-events: none;
+}
+.silver-sheen {
+  overflow: hidden;
+  pointer-events: none;
+}
+
 /* card-back hover sheen — much subtler than face foils */
 .back-sheen {
   position: absolute;

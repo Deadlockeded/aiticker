@@ -2,6 +2,7 @@ import type { Rarity } from "@/lib/types";
 import type { MarketCard } from "@/lib/cards";
 import { formatMove, formatTicks, getCurrentPrice, getDailyMove } from "@/lib/market";
 import { oddsLabelFor } from "@/lib/packs";
+import { editionFor, variantLabel, type Variant } from "@/lib/variants";
 import CardArt from "./CardArt";
 import RivalryArt from "./RivalryArt";
 import HotBadge from "./HotBadge";
@@ -92,6 +93,8 @@ export default function TradingCard({
   resolving = false,
   inBinder = false,
   copies,
+  variant = "base",
+  serialNo,
 }: {
   card: MarketCard;
   rank: number;
@@ -112,6 +115,9 @@ export default function TradingCard({
   /** Confirmed owned: shows the IN BINDER tag (and ×N with copies). */
   inBinder?: boolean;
   copies?: number;
+  /** PARALLEL print: silver/gold/holo frame treatment + serial stamp. */
+  variant?: Variant;
+  serialNo?: number;
 }) {
   const r = RARITY[card.rarity];
   const hero = size === "hero";
@@ -121,6 +127,14 @@ export default function TradingCard({
   const artifact = card.type === "artifact";
   const agi = card.id === "agi";
   const veiled = proof || resolving;
+  const variantFrame =
+    variant === "silver"
+      ? "border-[3px] border-[#8EA6B4]"
+      : variant === "gold"
+        ? "border-[3px] border-[#8C6D1F]"
+        : variant === "holo"
+          ? "border-[3px] border-[#17301F]"
+          : "";
 
   const body = (
     <div
@@ -129,7 +143,7 @@ export default function TradingCard({
           ? "rounded-[3px] border-[3px] border-double border-[#17301F]/60 bg-[#F4F7F0]"
           : mythic
             ? "rounded-[3px] bg-[#F4F7F0]"
-            : "rounded-[3px] border-2 border-[#17301F] bg-[#F4F7F0]"
+            : `rounded-[3px] ${variantFrame || "border-2 border-[#17301F]"} bg-[#F4F7F0]`
       } ${proof && !resolving ? "proof-shadow" : "paper-shadow"} ${hero ? "" : "hover:-translate-y-[3px] hover:rotate-[-0.4deg]"} ${resolving ? "proof-resolving" : ""}`}
     >
       {/* art */}
@@ -140,6 +154,9 @@ export default function TradingCard({
         style={veiled ? ({ "--dot": hero ? "11px" : "8px" } as React.CSSProperties) : undefined}
       >
         {r.holoWash && !agi && !veiled && <div className="holo-wash absolute inset-0 opacity-50" />}
+        {variant === "silver" && !veiled && <div className="silver-sheen absolute inset-0" />}
+        {variant === "gold" && !veiled && <div className="foil-sweep absolute inset-0 overflow-hidden" />}
+        {variant === "holo" && !veiled && <div className="holo-wash absolute inset-0 opacity-70" />}
         {card.type === "moment" ? (
           /* cinematic frame: letterboxed wide crop + date stamp */
           <div className="absolute inset-0 flex flex-col justify-center bg-black/30">
@@ -270,10 +287,14 @@ export default function TradingCard({
           <span className={`uppercase tracking-wider ${community ? "text-[#B23A2E]" : ""}`}>
             {community ? "community" : artifact ? "artifact" : card.type}
           </span>
-          <span className="tnum">
+          <span
+            className={`tnum ${variant === "gold" ? "font-semibold text-[#8C6D1F]" : variant === "holo" ? "font-semibold text-[#6B4FA0]" : variant === "silver" ? "font-semibold text-[#5A6E5E]" : ""}`}
+          >
             {community
               ? "#???/∞ · Community"
-              : `#${card.serial}/${card.editionSize} · S${card.series}`}
+              : variant !== "base" && serialNo
+                ? `Nº ${String(serialNo).padStart(3, "0")}/${editionFor(variant, card.editionSize)} ${variantLabel(variant)}`
+                : `#${card.serial}/${card.editionSize} · S${card.series}`}
           </span>
         </div>
 

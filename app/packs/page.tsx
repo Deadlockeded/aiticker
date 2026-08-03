@@ -26,6 +26,8 @@ export default function PacksPage() {
       <p className="mt-8 text-center font-mono text-[10px] uppercase tracking-widest text-[#9CB09E]">
         Per-card odds · artifacts 35% · commons 35.2% · rare 22% · epic 6.5%
         · legendary 1.2% · ??? 0.1%
+        <br />
+        Parallels per card · silver 9% (/100) · gold 2.5% (/25) · holo 0.5% (/10)
       </p>
     </main>
   );
