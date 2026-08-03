@@ -116,8 +116,11 @@ export default async function CardPage({
       </Link>
 
       <div className="mt-6 grid gap-8 md:grid-cols-[minmax(0,340px)_1fr]">
-        {/* THE CARD — single source; facedown until pulled, quip included in reveal */}
-        <div className="mx-auto w-full max-w-[340px]">
+        {/* THE CARD — single source: proof art when unowned, quip below.
+            self-start keeps the column auto-height: without it the grid
+            stretches this item to the row, the hero's h-full inflates to
+            match, and the quip/coupon overflow onto the footer. */}
+        <div className="mx-auto w-full max-w-[340px] self-start">
           <CardReveal card={card} rank={rank} />
         </div>
 

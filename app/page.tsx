@@ -4,6 +4,7 @@ import CoverStar from "@/components/CoverStar";
 import HotList from "@/components/HotList";
 import Masthead from "@/components/Masthead";
 import NewCollectorTag from "@/components/NewCollectorTag";
+import TodayMeta from "@/components/TodayMeta";
 import { getAllCards, getRank } from "@/lib/cards";
 
 export default function Home() {
@@ -39,6 +40,7 @@ export default function Home() {
               Get scouted. Get roasted. It&apos;s the same department. →
             </Link>
           </div>
+          <TodayMeta cards={cards} />
         </div>
       </div>
 
