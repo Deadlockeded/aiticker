@@ -13,6 +13,10 @@ import {
 import { formatMove, formatTicks, getCurrentPrice, getDailyMove } from "@/lib/market";
 import { isReleased } from "@/lib/drops";
 import { KEYS, readRaw, writeRaw } from "@/lib/storage";
+import { TOAST_EVENT } from "@/lib/achievements";
+import { getRoomSnapshot, getToastedRooms, markRoomToasted, ROOMS, setRoom, type RoomId } from "@/lib/rooms";
+import BoardroomRoom from "./BoardroomRoom";
+import CallRoom from "./CallRoom";
 import CardArt from "./CardArt";
 import TradingCard from "./TradingCard";
 import DailyQuip from "./DailyQuip";
@@ -109,6 +113,7 @@ export default function BinderPages({
   const lastPage = useRef(0);
   // NEW tags: previous visit ts, captured once + stamped (webview-safe: 0)
   const lastVisit = useSyncExternalStore(subscribeNever, visitSnapshot, () => 0);
+  const roomRaw = useSyncExternalStore(subscribeStore, getRoomSnapshot, () => "binder");
 
   // deep links: /binder?page=N&card=id
   useEffect(() => {
@@ -127,6 +132,26 @@ export default function BinderPages({
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // room unlock moments — toast exactly once when a threshold is crossed
+  useEffect(() => {
+    if (raw === null) return;
+    const owned = Object.keys(parseBinder(raw)).length;
+    const kickoff = setTimeout(() => {
+      const toasted = getToastedRooms();
+      for (const r of ROOMS) {
+        if (r.unlockAt > 0 && owned >= r.unlockAt && !toasted.includes(r.id)) {
+          markRoomToasted(r.id);
+          window.dispatchEvent(
+            new CustomEvent(TOAST_EVENT, {
+              detail: { emoji: "🚪", title: `New room unlocked: ${r.name}`, body: "Try it from the binder header." },
+            }),
+          );
+        }
+      }
+    }, 0);
+    return () => clearTimeout(kickoff);
+  }, [raw]);
 
   // desktop arrow keys
   useEffect(() => {
@@ -150,6 +175,10 @@ export default function BinderPages({
 
   const indexCards = ordered.filter((c) => c.type !== "artifact");
   const ownedCount = indexCards.filter((c) => binder[c.id]).length;
+  const ownedTotal = ordered.filter((c) => binder[c.id]).length;
+  const roomUnlocked = (id: RoomId) =>
+    (ROOMS.find((r) => r.id === id)?.unlockAt ?? 0) <= ownedTotal;
+  const room: RoomId = roomUnlocked(roomRaw as RoomId) ? (roomRaw as RoomId) : "binder";
   // per-series progress — each series is sealed, so its denominator is
   // stable; artifacts count inside their series. Future drops = new rows.
   const releasedCards = cards.filter((c) => isReleased(c.id));
@@ -263,6 +292,30 @@ export default function BinderPages({
         )}
       </div>
 
+      {/* room switcher — presentation skins over the same collection */}
+      <div className="mb-2 flex items-center gap-1.5 overflow-x-auto">
+        {ROOMS.map((r) => {
+          const unlocked = roomUnlocked(r.id);
+          return (
+            <button
+              key={r.id}
+              onClick={() => unlocked && setRoom(r.id)}
+              disabled={!unlocked}
+              className={`shrink-0 border px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.15em] ${
+                room === r.id
+                  ? "border-[#17301F] bg-[#17301F] text-[#F4F7F0]"
+                  : unlocked
+                    ? "border-[#17301F]/50 text-[#17301F] hover:border-[#17301F]"
+                    : "cursor-not-allowed border-[#9CB09E]/60 text-[#9CB09E]"
+              }`}
+              title={unlocked ? r.name : `Unlocks at ${r.condition}`}
+            >
+              {unlocked ? r.name : `🔒 ${r.name} · ${r.condition}`}
+            </button>
+          );
+        })}
+      </div>
+
       {/* filter chips — dim in place, never re-sort */}
       <div className="mb-3 flex items-center gap-1.5 overflow-x-auto">
         {(["all", "missing", "dupes"] as Chip[]).map((c) => (
@@ -296,7 +349,29 @@ export default function BinderPages({
         )}
       </div>
 
+      {room === "boardroom" && (
+        <BoardroomRoom
+          cards={ordered}
+          binder={binder}
+          onOpen={(c) => {
+            setOpen(c);
+            setSeen((s) => new Set(s).add(c.id));
+          }}
+        />
+      )}
+      {room === "call" && (
+        <CallRoom
+          cards={ordered}
+          binder={binder}
+          onOpen={(c) => {
+            setOpen(c);
+            setSeen((s) => new Set(s).add(c.id));
+          }}
+        />
+      )}
+
       {/* pocket pages */}
+      {room === "binder" && (
       <div className="relative">
         <div
           ref={scroller}
@@ -450,8 +525,10 @@ export default function BinderPages({
           </div>
         )}
       </div>
+      )}
 
       {/* page indicator */}
+      {room === "binder" && (
       <div className="mt-3 flex items-center justify-center gap-2">
         {pages.map((_, i) => (
           <span
@@ -463,6 +540,7 @@ export default function BinderPages({
           Page {Math.min(page, pages.length - 1) + 1} of {Math.ceil(pages.length / perView) * perView >= pages.length ? pages.length : pages.length}
         </span>
       </div>
+      )}
 
       {/* card sheet: bottom on mobile, side panel on desktop */}
       {open && (

@@ -252,6 +252,37 @@ test("home state 3: returning with no packs → index-first, countdown, no pack"
   await expect(page.getByLabel("Rip the pack")).not.toBeVisible();
 });
 
+test("binder rooms: switcher renders all three skins", async ({ page }) => {
+  await blockArt(page);
+  // collect 45 real card ids from the market list, then seed them
+  await page.goto("/market");
+  const ids = await page.$$eval('a[href^="/cards/"]', (els) =>
+    [...new Set(els.map((e) => (e.getAttribute("href") ?? "").split("/").pop() ?? ""))]
+      .filter(Boolean)
+      .slice(0, 45),
+  );
+  await seedBinder(page, ids);
+  await page.goto("/binder");
+  await expect(page.getByRole("button", { name: "The Boardroom" })).toBeEnabled();
+  await page.getByRole("button", { name: "The Boardroom" }).click();
+  await expect(page.getByText("vacant").first()).toBeVisible();
+  await page.getByRole("button", { name: "The Call" }).click();
+  await expect(page.getByText(/\d+ participants/)).toBeVisible();
+  await expect(page.getByText(/Waiting for .* to join/).first()).toBeVisible();
+  await page.getByRole("button", { name: "The Binder" }).click();
+  await expect(page.getByText(/S1 —/)).toBeVisible();
+});
+
+test("drops: unreleased Series 1.5 cards are hidden everywhere", async ({ page }) => {
+  await seedBinder(page, ["openai"]);
+  await page.goto("/");
+  const search = page.getByPlaceholder("Search the index…");
+  await search.fill("Goodfellow");
+  await expect(page.getByText(/No cards match/)).toBeVisible();
+  await page.goto("/market");
+  await expect(page.getByText("Ian Goodfellow")).not.toBeVisible();
+});
+
 test("about + how it works render", async ({ page }) => {
   await page.goto("/howto");
   await expect(page.getByRole("heading", { name: "How it works" })).toBeVisible();

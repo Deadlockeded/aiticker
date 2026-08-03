@@ -18,6 +18,8 @@ export const KEYS = {
   communityCard: "ai-index:community-card:v1",
   reroll: "ai-index:reroll:v1",
   onboarding: "ai-index:onboarding:v1",
+  binderRoom: "ai-index:binder-room:v1",
+  roomsSeen: "ai-index:rooms-seen:v1",
   storageVersion: "ai-index:storage-version",
 } as const;
 
