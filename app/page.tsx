@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import HomePage from "@/components/HomePage";
 import { getAllCards, getRank } from "@/lib/cards";
 
-const title = "AIticker — trading cards for the AI industry";
-const description = "Real data. Fake money. Rip a pack.";
+const title = "The AI industry is a card game now. — AIticker";
+const description = "Real data. Fake money. One card is mythic.";
 
 export const metadata: Metadata = {
   title,

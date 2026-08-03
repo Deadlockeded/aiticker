@@ -4,7 +4,7 @@ const title = "About — AIticker";
 
 export const metadata: Metadata = {
   title,
-  description: "A trading-card index for the AI industry. Real data. Fake money.",
+  description: "The AI industry is a card game now. Real data. Fake money.",
   openGraph: {
     title,
     images: [{ url: "/api/og/promo?page=about", width: 1200, height: 630 }],
@@ -24,8 +24,8 @@ export default function AboutPage() {
         </h1>
         <div className={`mt-4 space-y-3 ${P}`}>
           <p>
-            AIticker is a live index of the AI industry, in trading-card form,
-            built on real public data and fake money.
+            The AI industry is a card game now. AIticker is the index: real
+            public data, fake money, cards for everyone in it.
           </p>
           <p>
             Why? Because the AI industry already behaves like a trading card

@@ -1,6 +1,6 @@
 # aiticker
 
-Trading cards for the AI industry. Real data. Fake money.
+The AI industry is a card game now. Real data. Fake money.
 
 A live index of AI companies, engineers, and beloved useless artifacts (The
 GPU, The Em Dash, The Waitlist) in collectible-card form. Rip free packs,

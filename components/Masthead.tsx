@@ -15,8 +15,8 @@ export default function Masthead({ cards }: { cards: MarketCard[] }) {
       <div>
         <Logo variant="lockup" size={56} animate />
         <h1 className="mt-4 text-3xl leading-tight text-[#17301F] sm:text-4xl">
-          Trading cards for the{" "}
-          <span className="text-[#B23A2E]">AI industry.</span>
+          The AI industry is a{" "}
+          <span className="text-[#B23A2E]">card game now.</span>
         </h1>
         <p className="mt-1 text-[16px] text-[#5A6E5E]">
           Real data. Fake money. One card is mythic.

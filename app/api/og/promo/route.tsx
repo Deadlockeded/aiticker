@@ -11,7 +11,7 @@ const PAGES: Record<string, { title: string; sub: string; emoji: string }> = {
   },
   about: {
     title: "About AIticker",
-    sub: "Trading cards for the AI industry. Real data. Fake money.",
+    sub: "The AI industry is a card game now. Real data. Fake money.",
     emoji: "📇",
   },
   roast: {

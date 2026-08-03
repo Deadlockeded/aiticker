@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     apple: "/icon-192.png",
   },
   description:
-    "Collectible trading cards for the companies and engineers shaping AI.",
+    "The AI industry is a card game now. Real data. Fake money. One card is mythic.",
 };
 
 export default function RootLayout({

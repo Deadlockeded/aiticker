@@ -134,8 +134,8 @@ export default function HomePage({
       <div className={ceremony ? "w-full" : "hidden"}>
         {ceremony && !ripBusy && (
           <p className="mb-8 text-center font-display text-2xl uppercase text-[#17301F] sm:text-3xl">
-            Trading cards for the{" "}
-            <span className="text-[#B23A2E]">AI industry.</span>
+            The AI industry is a{" "}
+            <span className="text-[#B23A2E]">card game now.</span>
           </p>
         )}
       </div>
