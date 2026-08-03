@@ -20,7 +20,7 @@ export async function generateMetadata({
   const nameA = refName(me);
   const nameB = refName(vs);
   const title =
-    nameA && nameB ? `${nameA} vs ${nameB} · Arena · AI Ticker` : "Arena · AI Ticker";
+    nameA && nameB ? `${nameA} vs ${nameB} · Arena · AIticker` : "Arena · AIticker";
   const og = `/api/og/vs?a=${encodeURIComponent(nameA ?? "You")}&b=${encodeURIComponent(nameB ?? "The Index")}`;
   return {
     title,

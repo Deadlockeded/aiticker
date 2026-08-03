@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import OgRiffle from "@/components/OgRiffle";
 import { getCard, getRank } from "@/lib/cards";
 import { formatMove, getCurrentPrice, getDailyMove } from "@/lib/market";
 import type { Rarity } from "@/lib/types";
@@ -157,13 +158,15 @@ export async function GET(
           <div
             style={{
               display: "flex",
+              alignItems: "center",
+              gap: 16,
               marginTop: 28,
-              fontSize: 24,
-              letterSpacing: 4,
-              color: "rgba(23, 48, 31,0.5)",
             }}
           >
-            AI TICKER · #{card.serial}/{card.editionSize} · powered by public data
+            <OgRiffle size={34} />
+            <div style={{ display: "flex", fontSize: 24, letterSpacing: 4, color: "rgba(23, 48, 31,0.5)" }}>
+              #{card.serial}/{card.editionSize} · powered by public data
+            </div>
           </div>
         </div>
       </div>

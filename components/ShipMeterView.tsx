@@ -6,7 +6,7 @@ import { computeCommunityRating, toMarketCard } from "@/lib/create";
 import { getScoredProfile, ScoreError, type ScoredProfile } from "@/lib/score";
 import { compatibility, shipIcon, shipVerdict } from "@/lib/shipmeter";
 import ShareButton from "./ShareButton";
-import { brandFonts, canShareFiles, canvasBlob, sharePng, type ShareOutcome } from "@/lib/share";
+import { brandFonts, canShareFiles, canvasBlob, drawLogoMark, sharePng, type ShareOutcome } from "@/lib/share";
 import TradingCard from "./TradingCard";
 
 async function exportPng(a: ScoredProfile, b: ScoredProfile, pct: number, verdict: string) {
@@ -84,7 +84,8 @@ async function exportPng(a: ScoredProfile, b: ScoredProfile, pct: number, verdic
 
   ctx.fillStyle = "rgba(255,255,255,0.45)";
   ctx.font = `600 28px ${fonts.mono}`;
-  ctx.fillText("aiticker.xyz/shipmeter", W / 2, H - 70);
+  drawLogoMark(ctx, W / 2 - 130, H - 130, 44, fonts.display, { onDark: true });
+  ctx.fillText("aiticker.xyz/shipmeter", W / 2, H - 56);
 
   const blob = await canvasBlob(canvas);
   if (!blob) return "cancelled" as const;

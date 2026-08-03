@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import HomePage from "@/components/HomePage";
 import { getAllCards, getRank } from "@/lib/cards";
 
-const title = "aiticker — trading cards for the AI industry";
+const title = "AIticker — trading cards for the AI industry";
 const description = "Real data. Fake money. Rip a pack.";
 
 export const metadata: Metadata = {

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const title = "About — aiticker";
+const title = "About — AIticker";
 
 export const metadata: Metadata = {
   title,
@@ -24,7 +24,7 @@ export default function AboutPage() {
         </h1>
         <div className={`mt-4 space-y-3 ${P}`}>
           <p>
-            aiticker is a live index of the AI industry, in trading-card form,
+            AIticker is a live index of the AI industry, in trading-card form,
             built on real public data and fake money.
           </p>
           <p>

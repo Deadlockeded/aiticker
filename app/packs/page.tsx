@@ -4,7 +4,7 @@ import PackRipper from "@/components/PackRipper";
 import SessionlessNotice from "@/components/SessionlessNotice";
 import { getAllCards, getRank } from "@/lib/cards";
 
-export const metadata: Metadata = { title: "Packs · AI Ticker" };
+export const metadata: Metadata = { title: "Packs · AIticker" };
 
 export default function PacksPage() {
   const cards = getAllCards();

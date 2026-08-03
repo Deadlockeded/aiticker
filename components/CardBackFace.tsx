@@ -17,7 +17,7 @@ const RARITY_FRAME: Record<string, string> = {
   mythic: "#B23A2E",
 };
 
-/** The circular seal: "at" monogram in a double ring, AITICKER / SERIES 1. */
+/** The circular seal: "at" monogram in a double ring, AIticker / SERIES 1. */
 function Crest({ withRing }: { withRing: boolean }) {
   return (
     <svg viewBox="0 0 100 100" className="h-full w-full" aria-hidden>
@@ -38,7 +38,7 @@ function Crest({ withRing }: { withRing: boolean }) {
             letterSpacing="3.5"
           >
             <textPath href="#crest-top" startOffset="50%" textAnchor="middle">
-              AITICKER
+              AIticker
             </textPath>
           </text>
           <text

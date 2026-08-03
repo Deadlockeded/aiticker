@@ -1,8 +1,8 @@
 import type { MarketCard } from "@/lib/cards";
 import { formatMove, formatTicks, getCurrentPrice, getDailyMove } from "@/lib/market";
-import { TickerTapeLogo } from "./Logo";
+import Logo from "./Logo";
 
-/** Hero: ticker-tape logo + plain-register H1, live index chip right. */
+/** Hero: the riffle lockup + plain-register H1, live index chip right. */
 export default function Masthead({ cards }: { cards: MarketCard[] }) {
   const pool = cards.filter((c) => c.id !== "agi");
   // the composite: average card price + average daily move (deterministic,
@@ -13,7 +13,7 @@ export default function Masthead({ cards }: { cards: MarketCard[] }) {
   return (
     <header className="paper-in flex flex-col gap-5 border-b-[3px] border-[#17301F] pb-5 sm:flex-row sm:items-end sm:justify-between">
       <div>
-        <TickerTapeLogo cards={cards} size="lg" />
+        <Logo variant="lockup" size={56} animate />
         <h1 className="mt-4 text-3xl leading-tight text-[#17301F] sm:text-4xl">
           Trading cards for the{" "}
           <span className="text-[#B23A2E]">AI industry.</span>

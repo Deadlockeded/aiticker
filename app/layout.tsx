@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Archivo_Black, Lora, Oswald } from "next/font/google";
+import Logo from "@/components/Logo";
 import Nav from "@/components/Nav";
 import StorageBoot from "@/components/StorageBoot";
 import Toaster from "@/components/Toaster";
@@ -28,7 +29,15 @@ const archivo = Archivo_Black({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://aiticker.xyz"),
-  title: "AI Ticker",
+  title: "AIticker",
+  icons: {
+    icon: [
+      { url: "/icon-16.png", sizes: "16x16", type: "image/png" },
+      { url: "/icon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon-64.png", sizes: "64x64", type: "image/png" },
+    ],
+    apple: "/icon-192.png",
+  },
   description:
     "Collectible trading cards for the companies and engineers shaping AI.",
 };
@@ -51,7 +60,11 @@ export default function RootLayout({
         <StorageBoot />
         <Toaster />
         {children}
-        <footer className="space-y-1.5 px-4 py-6 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-[#9CB09E]">
+        <footer className="mt-6">
+        <div className="flex justify-center border-t-[3px] border-[#17301F] bg-[#17301F] py-4">
+          <Logo variant="lockup" size={28} onDark />
+        </div>
+        <div className="space-y-1.5 px-4 py-6 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-[#9CB09E]">
           <p>
             <a href="/about" className="underline hover:text-[#17301F]">
               About
@@ -77,6 +90,7 @@ export default function RootLayout({
             </a>{" "}
             (freely licensed) · Logos via site favicons
           </p>
+        </div>
         </footer>
       </body>
     </html>

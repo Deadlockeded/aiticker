@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import OgRiffle from "@/components/OgRiffle";
 
 export const runtime = "edge";
 
@@ -9,7 +10,7 @@ const PAGES: Record<string, { title: string; sub: string; emoji: string }> = {
     emoji: "🪪",
   },
   about: {
-    title: "About aiticker",
+    title: "About AIticker",
     sub: "Trading cards for the AI industry. Real data. Fake money.",
     emoji: "📇",
   },
@@ -46,16 +47,11 @@ export async function GET(req: Request) {
         <div style={{ display: "flex", fontSize: 36, marginTop: 14, color: "rgba(23, 48, 31,0.55)" }}>
           {meta.sub}
         </div>
-        <div
-          style={{
-            display: "flex",
-            marginTop: 44,
-            fontSize: 28,
-            letterSpacing: 6,
-            color: "#B23A2E",
-          }}
-        >
-          aiticker.xyz/{page}
+        <div style={{ display: "flex", alignItems: "center", gap: 14, marginTop: 44 }}>
+          <OgRiffle size={32} />
+          <div style={{ display: "flex", fontSize: 26, letterSpacing: 5, color: "#B23A2E" }}>
+            aiticker.xyz/{page}
+          </div>
         </div>
       </div>
     ),

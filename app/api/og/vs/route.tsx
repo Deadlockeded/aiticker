@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import OgRiffle from "@/components/OgRiffle";
 
 export const runtime = "edge";
 
@@ -47,14 +48,14 @@ export async function GET(req: Request) {
         <div
           style={{
             position: "absolute",
-            bottom: 40,
+            bottom: 36,
             display: "flex",
-            fontSize: 26,
-            letterSpacing: 6,
-            color: "#B23A2E",
+            alignItems: "center",
+            gap: 14,
           }}
         >
-          {path}
+          <OgRiffle size={30} />
+          <div style={{ display: "flex", fontSize: 24, letterSpacing: 5, color: "#B23A2E" }}>{path}</div>
         </div>
       </div>
     ),

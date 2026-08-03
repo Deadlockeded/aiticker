@@ -11,8 +11,8 @@ export async function generateMetadata({
   const { a, b } = await searchParams;
   const title =
     a && b
-      ? `@${a} × @${b} · Ship Meter · AI Ticker`
-      : "Ship Meter · AI Ticker";
+      ? `@${a} × @${b} · Ship Meter · AIticker`
+      : "Ship Meter · AIticker";
   const og = `/api/og/vs?mode=ship&a=${encodeURIComponent(a ? `@${a}` : "You")}&b=${encodeURIComponent(b ? `@${b}` : "Them")}`;
   return {
     title,

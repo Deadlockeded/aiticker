@@ -21,6 +21,7 @@ import { readOnboarding, stampOnboarding } from "@/lib/onboarding";
 import CardBackFace from "./CardBackFace";
 import TradingCard from "./TradingCard";
 import EditorCaption from "./EditorCaption";
+import Logo from "./Logo";
 
 // Capture-once: is this a first-run visitor? Stays true for the whole
 // session (so the flip caption still fires after rip() stamps the flag).
@@ -98,8 +99,8 @@ function PackGraphic({
           <div className="rotate-[-4deg] rounded-[4px] border-[3px] border-[#17301F] bg-[#B23A2E] px-3 py-2 shadow-[3px_3px_0_#17301F]">
             <span className="font-display text-3xl text-[#F4F7F0]">AT</span>
           </div>
-          <span className="font-display text-2xl uppercase tracking-tight text-[#F4F7F0]">
-            AI<span className="text-[#F0BFB6]">TICKER</span>
+          <span className="font-display text-2xl tracking-tight text-[#F4F7F0]">
+            AI<span className="lowercase text-[#F0BFB6]">ticker</span>
           </span>
           <span className="font-mono text-[10px] uppercase tracking-[0.35em] text-[#F0BFB6]">
             Series 1 · 3 cards inside
@@ -300,6 +301,11 @@ export default function PackRipper({
           </button>
           {!minimal && (
             <>
+              {phase === "ripping" && (
+                <span className="mt-4 flex justify-center">
+                  <Logo variant="icon" size={26} animate="loop" />
+                </span>
+              )}
               <p className="mt-6 text-center font-mono text-[11px] uppercase tracking-[0.25em] text-[#9CB09E]">
                 {phase === "ripping"
                   ? "ripping…"

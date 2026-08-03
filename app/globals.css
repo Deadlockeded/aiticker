@@ -41,6 +41,34 @@ h2 {
   font-family: var(--font-display), system-ui, sans-serif;
 }
 
+/* THE RIFFLE — cards shuffle out, the arrow rises. Once on first paint;
+   the infinite loop is reserved for loading states. */
+@keyframes riffle-card-left {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-14deg); }
+}
+@keyframes riffle-card-right {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(14deg); }
+}
+@keyframes riffle-arrow-rise {
+  from { transform: translateY(14px); opacity: 0; }
+  55% { opacity: 1; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.riffle-left-once { animation: riffle-card-left 1.05s ease-in-out both; }
+.riffle-right-once { animation: riffle-card-right 1.05s ease-in-out both; }
+.riffle-arrow-once { animation: riffle-arrow-rise 0.8s ease-out 0.45s both; }
+.riffle-left-loop { animation: riffle-card-left 1.05s ease-in-out infinite alternate; }
+.riffle-right-loop { animation: riffle-card-right 1.05s ease-in-out infinite alternate; }
+.riffle-arrow-loop { animation: riffle-arrow-rise 1.05s ease-in-out infinite alternate; }
+@media (prefers-reduced-motion: reduce) {
+  .riffle-left-once, .riffle-right-once, .riffle-arrow-once,
+  .riffle-left-loop, .riffle-right-loop, .riffle-arrow-loop {
+    animation: none !important; /* base styles already hold the final state */
+  }
+}
+
 .pack-idle {
   animation: pack-idle 5s ease-in-out infinite;
 }

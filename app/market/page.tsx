@@ -5,7 +5,7 @@ import { getAllCards, getRank } from "@/lib/cards";
 import marketMeta from "@/data/market-meta.json";
 import PullToRefresh from "@/components/PullToRefresh";
 
-export const metadata: Metadata = { title: "Market · AI Ticker" };
+export const metadata: Metadata = { title: "Market · AIticker" };
 
 export default function MarketPage() {
   const cards = getAllCards().filter((c) => c.id !== "agi"); // unpriced, unlisted

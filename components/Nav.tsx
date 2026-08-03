@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import AuthMenu from "./AuthMenu";
 import LevelPill from "./LevelPill";
-import { TapeChip } from "./Logo";
+import Logo from "./Logo";
 
 const LINKS = [
   { href: "/", label: "Cards" },
@@ -27,11 +27,8 @@ export default function Nav() {
     <>
       <nav className="sticky top-0 z-30 border-b-[3px] border-[#17301F] bg-[#F4F7F0]/95 backdrop-blur-sm">
         <div className="mx-auto flex h-14 w-full max-w-7xl items-center gap-2 px-3 sm:px-6">
-          <Link href="/" className="mr-2 flex shrink-0 items-center gap-2">
-            <TapeChip size={16} />
-            <span className="font-display text-lg uppercase tracking-tight text-[#17301F] max-[380px]:hidden">
-              ai<span className="text-[#B23A2E]">ticker</span>
-            </span>
+          <Link href="/" className="mr-2 flex shrink-0 items-center">
+            <Logo variant="chip" />
           </Link>
           <div className="hidden flex-1 items-center gap-0.5 md:flex lg:gap-1">
             {LINKS.map(({ href, label }) => (

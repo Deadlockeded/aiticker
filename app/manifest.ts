@@ -3,8 +3,8 @@ import type { MetadataRoute } from "next";
 /** PWA basics only — clean Add-to-Home-Screen. No service worker on purpose. */
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "aiticker",
-    short_name: "aiticker",
+    name: "AIticker",
+    short_name: "AIticker",
     description: "Rip packs. Build your binder. Fight the index.",
     start_url: "/",
     display: "standalone",

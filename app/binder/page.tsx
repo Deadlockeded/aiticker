@@ -7,7 +7,7 @@ import SessionlessNotice from "@/components/SessionlessNotice";
 import SyncNudge from "@/components/SyncNudge";
 import { getAllCards, getRank } from "@/lib/cards";
 
-export const metadata: Metadata = { title: "Binder · AI Ticker" };
+export const metadata: Metadata = { title: "Binder · AIticker" };
 
 type Search = Promise<{ page?: string; card?: string }>;
 

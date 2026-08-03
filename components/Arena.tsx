@@ -33,7 +33,7 @@ import DeckStack from "./DeckStack";
 import EditorCaption from "./EditorCaption";
 import TradingCard from "./TradingCard";
 import ShareButton from "./ShareButton";
-import { brandFonts, canShareFiles, canvasBlob, sharePng, type ShareOutcome } from "@/lib/share";
+import { brandFonts, canShareFiles, canvasBlob, drawLogoMark, sharePng, type ShareOutcome } from "@/lib/share";
 import { ViralNudge } from "./ViralTeasers";
 
 type Phase = "setup" | "fight" | "done";
@@ -153,10 +153,11 @@ async function exportArenaPng(a: VsSide, b: VsSide, result: VsResult) {
     y += 54;
   }
 
-  ctx.textAlign = "center";
-  ctx.fillStyle = RED;
-  ctx.font = `600 28px ${fonts.mono}`;
-  ctx.fillText("aiticker.xyz/arena", W / 2, H - 26);
+  drawLogoMark(ctx, 80, H - 74, 44, fonts.display);
+  ctx.textAlign = "right";
+  ctx.fillStyle = SECONDARY;
+  ctx.font = `600 24px ${fonts.mono}`;
+  ctx.fillText("aiticker.xyz/arena", W - 80, H - 40);
 
   const blob = await canvasBlob(canvas);
   if (!blob) return "cancelled" as const;

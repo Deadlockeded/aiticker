@@ -25,7 +25,7 @@ import { getRoastFacts, getScoredProfile, ScoreError, type ScoredProfile } from 
 import { ROAST_LINES } from "@/lib/lines";
 import { pickStamp } from "@/lib/lines";
 import ShareButton from "./ShareButton";
-import { brandFonts, canShareFiles, canvasBlob, sharePng, type ShareOutcome } from "@/lib/share";
+import { brandFonts, canShareFiles, canvasBlob, drawLogoMark, sharePng, type ShareOutcome } from "@/lib/share";
 
 /** Inline Ship Meter launcher: second handle -> deep link with both prefilled. */
 function ShipMeterInline({ handle }: { handle: string }) {
@@ -290,10 +290,8 @@ async function exportPng(card: CommunityCard, roasts?: string[] | null) {
   ctx.fillStyle = "rgba(255,255,255,0.45)";
   ctx.font = `600 26px ${fonts.mono}`;
   ctx.fillText("#???/∞ · COMMUNITY SERIES", artX + 6, H - M - 44);
-  ctx.textAlign = "right";
-  ctx.fillStyle = accent;
-  ctx.fillText("aiticker.xyz", W - M - 34, H - M - 44);
   ctx.textAlign = "left";
+  drawLogoMark(ctx, W - M - 200, H - M - 74, 40, fonts.display, { onDark: true });
 
   const blob = await canvasBlob(canvas);
   if (!blob) return "cancelled" as const;

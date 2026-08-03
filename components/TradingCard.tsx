@@ -278,11 +278,14 @@ export default function TradingCard({
         </div>
 
         {hero && <p className="text-sm text-[#5A6E5E]">{card.tagline}</p>}
-        {hero && (
-          <p className="text-[13px] italic leading-snug text-[#9CB09E]">
-            “{card.flavorText}”
-          </p>
-        )}
+        {/* artifacts seed tagline === flavorText — never print it twice */}
+        {hero &&
+          card.flavorText.toLowerCase().replace(/[“”".]/g, "").trim() !==
+            card.tagline.toLowerCase().replace(/[“”".]/g, "").trim() && (
+            <p className="text-[13px] italic leading-snug text-[#9CB09E]">
+              “{card.flavorText}”
+            </p>
+          )}
 
         {hero && communityStats && (
           <div className="mt-1 space-y-2 border-t border-[#17301F]/30 pt-3">
