@@ -13,6 +13,7 @@ import {
 } from "@/lib/market";
 import CardArt from "./CardArt";
 import Sparkline from "./Sparkline";
+import { releasedOnly } from "@/lib/drops";
 import { useBinderCopies } from "./useOwned";
 
 type SortKey = "rank" | "name" | "rating" | "price" | "move";
@@ -75,7 +76,7 @@ export default function MarketTable({
           return getDailyMove(c);
       }
     };
-    return [...cards].sort((a, b) => {
+    return releasedOnly(cards).sort((a, b) => {
       const va = value(a);
       const vb = value(b);
       const cmp =

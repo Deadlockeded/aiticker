@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useSyncExternalStore } from "react";
 import type { MarketCard } from "@/lib/cards";
 import { dayHash, utcDayKey } from "@/lib/daily";
+import { releasedOnly } from "@/lib/drops";
 import { getDailyMeta, type MetaCategory } from "@/lib/meta";
 
 const subscribeNever = () => () => {};
@@ -22,7 +23,7 @@ function todaySnapshot(cards: MarketCard[]): Today | null {
   if (key !== cachedKey) {
     cachedKey = key;
     // MAIN EVENT: two of the top 24 index cards, date-hash pick, distinct
-    const pool = cards.filter((c) => c.type !== "artifact" && c.id !== "agi").slice(0, 24);
+    const pool = releasedOnly(cards).filter((c) => c.type !== "artifact" && c.id !== "agi").slice(0, 24);
     const i = dayHash(`main-event-a:${key}`) % pool.length;
     const j = (i + 1 + (dayHash(`main-event-b:${key}`) % (pool.length - 1))) % pool.length;
     cached = { meta: getDailyMeta(key), a: pool[i], b: pool[j] };

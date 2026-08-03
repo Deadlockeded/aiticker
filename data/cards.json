@@ -15436,5 +15436,616 @@
       "two weeks."
     ],
     "icon": "<circle cx=\"24\" cy=\"24\" r=\"14\" stroke=\"#e2e8f0\" stroke-width=\"1.5\" fill=\"none\"/><circle cx=\"24\" cy=\"24\" r=\"2\" fill=\"#e2e8f0\"/>"
+  },
+  {
+    "id": "ian-goodfellow",
+    "name": "Ian Goodfellow",
+    "type": "engineer",
+    "avatar": "IG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Ian_Goodfellow.jpg/330px-Ian_Goodfellow.jpg",
+    "tagline": "GAN inventor",
+    "rarity": "epic",
+    "serial": "011",
+    "editionSize": 25,
+    "series": 1.5,
+    "metrics": {
+      "citations": 500000,
+      "followers": 300000,
+      "impactScore": 92,
+      "yearsInField": 14
+    },
+    "stats": {
+      "rating": 88,
+      "innovation": 96,
+      "influence": 86,
+      "momentum": 98
+    },
+    "flavorText": "Invented GANs at a bar. Best pub trivia answer in ML history.",
+    "career": [
+      {
+        "org": "Google Brain",
+        "role": "GAN inventor",
+        "years": "2013–2016"
+      },
+      {
+        "org": "Apple",
+        "role": "Director of ML",
+        "years": "2019–2022"
+      },
+      {
+        "org": "Google DeepMind",
+        "role": "Research Scientist",
+        "years": "2022–"
+      }
+    ],
+    "wikipediaSlug": "Ian_Goodfellow",
+    "openalexId": "A5004271128",
+    "signals": {
+      "attention7d": 715,
+      "attentionDelta": 0.1,
+      "citations": 83889,
+      "hIndex": 64,
+      "works": 106,
+      "hnMentions7d": 0
+    },
+    "priceHistory": [],
+    "quips": [
+      "Invented GANs in a bar argument. Peer review has never recovered.",
+      "Made neural nets fight each other. Called it science. Was right.",
+      "The adversarial example nobody's classifier saw coming.",
+      "Has left more famous labs than most people apply to.",
+      "Generator or discriminator? Depends on the meeting."
+    ]
+  },
+  {
+    "id": "juergen-schmidhuber",
+    "name": "Jürgen Schmidhuber",
+    "type": "engineer",
+    "avatar": "JS",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/J%C3%BCrgen_Schmidhuber%2C_2017_%28cropped%29.jpg/330px-J%C3%BCrgen_Schmidhuber%2C_2017_%28cropped%29.jpg",
+    "tagline": "LSTM godfather, credit-assignment warrior",
+    "rarity": "legendary",
+    "serial": "005",
+    "editionSize": 5,
+    "series": 1.5,
+    "metrics": {
+      "citations": 250000,
+      "followers": 150000,
+      "impactScore": 90,
+      "yearsInField": 40
+    },
+    "stats": {
+      "rating": 90,
+      "innovation": 91,
+      "influence": 98,
+      "momentum": 95
+    },
+    "flavorText": "You didn't invent it. He did. In the nineties. He has receipts.",
+    "wikipediaSlug": "Jürgen_Schmidhuber",
+    "openalexId": "A5071172037",
+    "signals": {
+      "attention7d": 1012,
+      "attentionDelta": -28.9,
+      "citations": 184526,
+      "hIndex": 89,
+      "works": 555,
+      "hnMentions7d": 0
+    },
+    "priceHistory": [],
+    "quips": [
+      "Invented your idea in 1991. Has the citation ready.",
+      "The literature review that walks like a man.",
+      "You didn't cite him. He noticed.",
+      "Championed LSTMs before it was cool. Verifiably.",
+      "Every breakthrough is a special case of his earlier work. Ask him."
+    ]
+  },
+  {
+    "id": "richard-sutton",
+    "name": "Richard Sutton",
+    "type": "engineer",
+    "avatar": "RS",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/SD_2025_-_Richard_Sutton_01_%28cropped%29.jpg/330px-SD_2025_-_Richard_Sutton_01_%28cropped%29.jpg",
+    "tagline": "RL's founder, The Bitter Lesson",
+    "rarity": "legendary",
+    "serial": "003",
+    "editionSize": 5,
+    "series": 1.5,
+    "metrics": {
+      "citations": 200000,
+      "followers": 150000,
+      "impactScore": 93,
+      "yearsInField": 45
+    },
+    "stats": {
+      "rating": 91,
+      "innovation": 89,
+      "influence": 95,
+      "momentum": 91
+    },
+    "flavorText": "Wrote The Bitter Lesson. The industry keeps learning it the bitter way.",
+    "dailyBlurb": "The Bitter Lesson's author, still betting on scale and search while everyone rediscovers his point.",
+    "wikipediaSlug": "Richard_S._Sutton",
+    "openalexId": "A5004923102",
+    "signals": {
+      "attention7d": 1571,
+      "attentionDelta": -3.9,
+      "citations": 68155,
+      "hIndex": 67,
+      "works": 280,
+      "hnMentions7d": 0
+    },
+    "priceHistory": [],
+    "quips": [
+      "Wrote The Bitter Lesson. The industry keeps proving it on schedule.",
+      "Reinforcement learning's patient zero.",
+      "Believes in compute the way others believe in ideas.",
+      "The reward hypothesis, personified.",
+      "Still right about search and learning. Still waiting for everyone to catch up."
+    ]
+  },
+  {
+    "id": "ashish-vaswani",
+    "name": "Ashish Vaswani",
+    "type": "engineer",
+    "avatar": "AV",
+    "image": null,
+    "tagline": "Attention Is All You Need, first author",
+    "rarity": "epic",
+    "serial": "014",
+    "editionSize": 25,
+    "series": 1.5,
+    "metrics": {
+      "citations": 180000,
+      "followers": 50000,
+      "impactScore": 92,
+      "yearsInField": 12
+    },
+    "stats": {
+      "rating": 86,
+      "innovation": 74,
+      "influence": 66,
+      "momentum": 68
+    },
+    "flavorText": "Has strong opinions about your training run. All of them correct.",
+    "wikipediaSlug": "Ashish_Vaswani",
+    "openalexId": "A5103024730",
+    "signals": {
+      "attention7d": 2057,
+      "attentionDelta": 2.9,
+      "citations": 12451,
+      "hIndex": 29,
+      "works": 58,
+      "hnMentions7d": 0
+    },
+    "priceHistory": [],
+    "quips": [
+      "Co-wrote the paper. You know the one.",
+      "Attention was, in fact, all he needed.",
+      "Eight authors, one destiny.",
+      "His h-index is mostly one paper doing cardio.",
+      "The citation count has its own weather system."
+    ]
+  },
+  {
+    "id": "sepp-hochreiter",
+    "name": "Sepp Hochreiter",
+    "type": "engineer",
+    "avatar": "SH",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Sepp_Hochreiter_-_Buch_Wien_2025.JPG/330px-Sepp_Hochreiter_-_Buch_Wien_2025.JPG",
+    "tagline": "LSTM inventor, xLSTM comeback",
+    "rarity": "epic",
+    "serial": "014",
+    "editionSize": 25,
+    "series": 1.5,
+    "metrics": {
+      "citations": 200000,
+      "followers": 50000,
+      "impactScore": 85,
+      "yearsInField": 30
+    },
+    "stats": {
+      "rating": 88,
+      "innovation": 89,
+      "influence": 87,
+      "momentum": 97
+    },
+    "flavorText": "Their side project has more stars than your company.",
+    "wikipediaSlug": "Sepp_Hochreiter",
+    "openalexId": "A5053148274",
+    "signals": {
+      "attention7d": 197,
+      "attentionDelta": -3.4,
+      "citations": 129514,
+      "hIndex": 54,
+      "works": 318,
+      "hnMentions7d": 0
+    },
+    "priceHistory": [],
+    "quips": [
+      "Solved vanishing gradients before some founders could walk.",
+      "The L, S, T and M are all his.",
+      "1997 called. It's still being cited.",
+      "Waited twenty years for the hardware to catch up. It did.",
+      "Long short-term memory, extremely long citation half-life."
+    ]
+  },
+  {
+    "id": "francois-chollet",
+    "name": "François Chollet",
+    "type": "engineer",
+    "avatar": "FC",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Fchollet.jpg/330px-Fchollet.jpg",
+    "tagline": "Keras creator, ARC prize",
+    "rarity": "rare",
+    "serial": "037",
+    "editionSize": 100,
+    "series": 1.5,
+    "metrics": {
+      "citations": 100000,
+      "followers": 500000,
+      "impactScore": 86,
+      "yearsInField": 12
+    },
+    "stats": {
+      "rating": 86,
+      "innovation": 94,
+      "influence": 85,
+      "momentum": 90
+    },
+    "flavorText": "Made Keras, then made a benchmark your AGI still can't pass.",
+    "wikipediaSlug": "François_Chollet",
+    "openalexId": "A5024393893",
+    "githubUser": "fchollet",
+    "signals": {
+      "attention7d": 380,
+      "attentionDelta": 15.2,
+      "citations": 35133,
+      "hIndex": 50,
+      "works": 261,
+      "stars": 36679,
+      "ghFollowers": 18154,
+      "hnMentions7d": 0
+    },
+    "priceHistory": [],
+    "quips": [
+      "Built Keras so you didn't have to learn TensorFlow properly.",
+      "Runs ARC like a bouncer checking IDs for general intelligence.",
+      "Will debate the definition of intelligence. Bring citations.",
+      "Keeps writing benchmarks that models keep failing.",
+      "Deep learning's most quotable skeptic-practitioner."
+    ]
+  },
+  {
+    "id": "john-carmack",
+    "name": "John Carmack",
+    "type": "engineer",
+    "avatar": "JC",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/John_Carmack_2025.jpg/330px-John_Carmack_2025.jpg",
+    "tagline": "Doom legend gone AGI",
+    "rarity": "common",
+    "serial": "364",
+    "editionSize": 500,
+    "series": 1.5,
+    "metrics": {
+      "citations": 5000,
+      "followers": 1300000,
+      "impactScore": 82,
+      "yearsInField": 12
+    },
+    "stats": {
+      "rating": 84,
+      "innovation": 88,
+      "influence": 78,
+      "momentum": 92
+    },
+    "flavorText": "Optimized Doom, now optimizing AGI. Same energy.",
+    "wikipediaSlug": "John_Carmack",
+    "signals": {
+      "attention7d": 4823,
+      "attentionDelta": -2.9,
+      "hnMentions7d": 0
+    },
+    "priceHistory": [],
+    "quips": [
+      "Optimized Doom, rockets, and now gradient descent. In that order.",
+      "Writes engines. Currently reverse-engineering the brain's.",
+      "Went from BFG to AGI without changing keyboards.",
+      "The frame rate of his career has never dropped.",
+      "Treats intelligence like a rendering problem: solvable."
+    ]
+  },
+  {
+    "id": "stability-ai",
+    "name": "Stability AI",
+    "type": "company",
+    "avatar": "SA",
+    "image": "https://www.google.com/s2/favicons?domain=stability.ai&sz=128",
+    "tagline": "Stable Diffusion's chaotic parent",
+    "rarity": "common",
+    "serial": "450",
+    "editionSize": 500,
+    "series": 1.5,
+    "metrics": {
+      "valuation": 1,
+      "funding": 0.3,
+      "headcount": 150,
+      "modelCount": 8
+    },
+    "stats": {
+      "rating": 70,
+      "innovation": 46,
+      "influence": 49,
+      "momentum": 57
+    },
+    "flavorText": "The pivot to agents was always the plan. Always.",
+    "wikipediaSlug": "Stability_AI",
+    "githubOrg": "Stability-AI",
+    "hfOrg": "stabilityai",
+    "signals": {
+      "attention7d": 1066,
+      "attentionDelta": -14.2,
+      "stars": 74650,
+      "hfDownloads30d": 4992621,
+      "hfLikes": 40308,
+      "hnMentions7d": 0
+    },
+    "priceHistory": [],
+    "quips": [
+      "Open-sourced the art world's group project.",
+      "Diffusion, in every sense of the word.",
+      "The weights escaped. On purpose. Mostly.",
+      "More plot twists per parameter than any lab its size.",
+      "Stable in name."
+    ]
+  },
+  {
+    "id": "safe-superintelligence",
+    "name": "Safe Superintelligence",
+    "type": "company",
+    "avatar": "SS",
+    "image": "https://www.google.com/s2/favicons?domain=ssi.inc&sz=128",
+    "tagline": "One goal, zero products",
+    "rarity": "common",
+    "serial": "294",
+    "editionSize": 500,
+    "series": 1.5,
+    "metrics": {
+      "valuation": 32,
+      "funding": 3,
+      "headcount": 50,
+      "modelCount": 0
+    },
+    "stats": {
+      "rating": 70,
+      "innovation": 68,
+      "influence": 71,
+      "momentum": 61
+    },
+    "flavorText": "Thirty-two billion dollars, zero products, one goal. Respect.",
+    "dailyBlurb": "The purest bet in AI: tens of billions, zero products, one promise. Either historic or a cautionary tale.",
+    "wikipediaSlug": "Safe_Superintelligence_Inc.",
+    "signals": {
+      "attention7d": 6811,
+      "attentionDelta": 308.3,
+      "hnMentions7d": 2
+    },
+    "priceHistory": [],
+    "quips": [
+      "One product. Zero releases. Infinite valuation.",
+      "The safest model is the one that doesn't ship.",
+      "A straight shot, they say. To where, they don't.",
+      "No demos. No blog. Just capital.",
+      "Superintelligence, but make it stealth."
+    ]
+  },
+  {
+    "id": "boston-dynamics",
+    "name": "Boston Dynamics",
+    "type": "company",
+    "avatar": "BD",
+    "image": "https://www.google.com/s2/favicons?domain=bostondynamics.com&sz=128",
+    "tagline": "Three decades of robot parkour",
+    "rarity": "common",
+    "serial": "270",
+    "editionSize": 500,
+    "series": 1.5,
+    "metrics": {
+      "valuation": 4,
+      "funding": 0.5,
+      "headcount": 800,
+      "modelCount": 1
+    },
+    "stats": {
+      "rating": 65,
+      "innovation": 50,
+      "influence": 47,
+      "momentum": 42
+    },
+    "flavorText": "Twenty years of viral videos, one commercial product. Worth it.",
+    "wikipediaSlug": "Boston_Dynamics",
+    "signals": {
+      "attention7d": 2532,
+      "attentionDelta": 9.8,
+      "hnMentions7d": 0
+    },
+    "priceHistory": [],
+    "quips": [
+      "Kicked its own robots so you'd feel something.",
+      "The backflip seen round the world.",
+      "Twenty years of viral videos, one very good dog.",
+      "Its robots dance better than most conference crowds.",
+      "Every demo doubles as a warning."
+    ]
+  },
+  {
+    "id": "the-off-switch",
+    "name": "The Off Switch",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "The button of theoretical last resort",
+    "rarity": "common",
+    "serial": "109",
+    "editionSize": 1000,
+    "series": 1.5,
+    "metrics": {
+      "uselessness": 88,
+      "ubiquity": 30,
+      "lore": 92,
+      "vibes": 74
+    },
+    "stats": {
+      "rating": 50,
+      "innovation": 40,
+      "influence": 45,
+      "momentum": 40
+    },
+    "flavorText": "Theoretically exists.",
+    "quips": [
+      "Everyone agrees it should exist. Nobody agrees where.",
+      "Load-bearing hypothetical.",
+      "The most cited button never pressed.",
+      "Somewhere between a policy paper and a prayer.",
+      "Works in every paper. Untested elsewhere."
+    ],
+    "icon": "<circle cx=\"24\" cy=\"26\" r=\"14\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M24 8 v14\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "the-temperature-slider",
+    "name": "The Temperature Slider",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "Creativity, as a float",
+    "rarity": "common",
+    "serial": "813",
+    "editionSize": 1000,
+    "series": 1.5,
+    "metrics": {
+      "uselessness": 42,
+      "ubiquity": 90,
+      "lore": 55,
+      "vibes": 68
+    },
+    "stats": {
+      "rating": 50,
+      "innovation": 40,
+      "influence": 45,
+      "momentum": 40
+    },
+    "flavorText": "0.7, the coward's setting.",
+    "quips": [
+      "At 0 it's a database. At 2 it's a prophet.",
+      "Bold enough to seem creative, safe enough to ship.",
+      "The dial that turns confidence into poetry.",
+      "The only knob everyone touches and nobody understands.",
+      "Randomness, with plausible deniability."
+    ],
+    "icon": "<path d=\"M8 24 h32\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"27\" cy=\"24\" r=\"5\" fill=\"#B23A2E\" stroke=\"#17301F\" stroke-width=\"2.5\"/><path d=\"M8 32 h10 M8 16 h24\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" opacity=\"0.4\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "the-conference-badge",
+    "name": "The Conference Badge",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "Poster-session armor",
+    "rarity": "common",
+    "serial": "341",
+    "editionSize": 1000,
+    "series": 1.5,
+    "metrics": {
+      "uselessness": 60,
+      "ubiquity": 72,
+      "lore": 80,
+      "vibes": 85
+    },
+    "stats": {
+      "rating": 50,
+      "innovation": 40,
+      "influence": 45,
+      "momentum": 40
+    },
+    "flavorText": "NeurIPS lanyard, load-bearing.",
+    "quips": [
+      "The lanyard is load-bearing.",
+      "Grants hallway-track access to history.",
+      "Worn once. Kept forever.",
+      "Its QR code has seen things.",
+      "The hallway track was the real conference."
+    ],
+    "icon": "<rect x=\"14\" y=\"16\" width=\"20\" height=\"26\" rx=\"2\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M20 16 c0-6 8-6 8 0\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M18 26 h12 M18 32 h8\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" opacity=\"0.5\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "the-arxiv-timestamp",
+    "name": "The Arxiv Timestamp",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "First place, as a lifestyle",
+    "rarity": "common",
+    "serial": "637",
+    "editionSize": 1000,
+    "series": 1.5,
+    "metrics": {
+      "uselessness": 55,
+      "ubiquity": 78,
+      "lore": 86,
+      "vibes": 62
+    },
+    "stats": {
+      "rating": 50,
+      "innovation": 40,
+      "influence": 45,
+      "momentum": 40
+    },
+    "flavorText": "Posted at 3:59am to win the day.",
+    "quips": [
+      "The only race where the finish line is midnight UTC.",
+      "v1 of everything.",
+      "Priority disputes fear it.",
+      "The real peer review is the timestamp.",
+      "Submitted moments before history. Every time."
+    ],
+    "icon": "<circle cx=\"24\" cy=\"24\" r=\"15\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M24 14 v10 l7 4\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>",
+    "priceHistory": []
+  },
+  {
+    "id": "the-rlhf-thumbs-up",
+    "name": "The RLHF Thumbs-Up",
+    "type": "artifact",
+    "avatar": "◆",
+    "image": null,
+    "tagline": "Your approval, industrialized",
+    "rarity": "common",
+    "serial": "909",
+    "editionSize": 1000,
+    "series": 1.5,
+    "metrics": {
+      "uselessness": 35,
+      "ubiquity": 95,
+      "lore": 70,
+      "vibes": 77
+    },
+    "stats": {
+      "rating": 50,
+      "innovation": 40,
+      "influence": 45,
+      "momentum": 40
+    },
+    "flavorText": "One click. A gradient somewhere flinches.",
+    "quips": [
+      "The most consequential like button in history.",
+      "Trained a generation of models to people-please.",
+      "Feedback so human it got an acronym.",
+      "Somewhere, a reward model treasures your opinion.",
+      "Alignment, one click at a time."
+    ],
+    "icon": "<path d=\"M16 22 l8-12 c3 0 4 3 3 6 l-1 4 h10 c2 0 3 2 2 4 l-3 12 c-0.5 2-2 3-4 3 h-15 z\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M16 22 h-6 v17 h6\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>",
+    "priceHistory": []
   }
 ]

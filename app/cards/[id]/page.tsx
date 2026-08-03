@@ -7,11 +7,13 @@ import TodayForm from "@/components/TodayForm";
 import Link from "next/link";
 import SwipeNav from "@/components/SwipeNav";
 import { getAllCards, getCard, getRank } from "@/lib/cards";
+import { releasedOnly } from "@/lib/drops";
 import type { MarketCard } from "@/lib/cards";
 import { formatTicks, getCurrentPrice } from "@/lib/market";
 
 export function generateStaticParams() {
-  return getAllCards().map((card) => ({ id: card.id }));
+  // unreleased drop cards get no page until release (site rebuilds nightly)
+  return releasedOnly(getAllCards()).map((card) => ({ id: card.id }));
 }
 
 export async function generateMetadata({
@@ -100,7 +102,7 @@ export default async function CardPage({
   if (!card) notFound();
   const rank = getRank(card.id);
   const price = getCurrentPrice(card);
-  const ranked = getAllCards();
+  const ranked = releasedOnly(getAllCards());
   const idx = ranked.findIndex((c) => c.id === card.id);
   const prevId = idx > 0 ? ranked[idx - 1].id : null;
   const nextId = idx < ranked.length - 1 ? ranked[idx + 1].id : null;

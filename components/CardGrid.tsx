@@ -8,6 +8,7 @@ import { getCurrentPrice, getDailyMove } from "@/lib/market";
 import TradingCard from "./TradingCard";
 import DeckStack from "./DeckStack";
 import { useRouter } from "next/navigation";
+import { isReleased } from "@/lib/drops";
 import { useBinderCopies } from "./useOwned";
 
 type Filter = "all" | CardType;
@@ -43,6 +44,7 @@ export default function CardGrid({
     const filtered = cards.filter(
       (c) =>
         c.id !== "agi" && // the secret mythic stays out of the checklist until pulled
+        isReleased(c.id) && // future drops stay fully hidden until release day
         (filter === "all" || c.type === filter) &&
         (q === "" ||
           c.name.toLowerCase().includes(q) ||

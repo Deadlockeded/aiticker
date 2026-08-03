@@ -8,6 +8,7 @@ import TradingCard from "./TradingCard";
 import type { MarketCard } from "@/lib/cards";
 import { formatMove, formatTicks, getCurrentPrice, getDailyMove, getMovers } from "@/lib/market";
 import { metaWatchLine } from "@/lib/meta";
+import { releasedOnly } from "@/lib/drops";
 import { useOwnedSet } from "./useOwned";
 
 const subscribeNever = () => () => {};
@@ -55,7 +56,7 @@ function MobileDeck({ rows }: { rows: MarketCard[] }) {
 }
 
 export default function HotList({ cards }: { cards: MarketCard[] }) {
-  const { gainers, losers } = getMovers(cards.filter((c) => c.id !== "agi"));
+  const { gainers, losers } = getMovers(releasedOnly(cards.filter((c) => c.id !== "agi")));
   const rows = [...gainers.slice(0, 4), ...losers.slice(0, 2)];
 
   return (

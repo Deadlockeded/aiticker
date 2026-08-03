@@ -16,6 +16,7 @@ import {
 import { addXP, XP_REWARDS } from "@/lib/xp";
 import { checkAchievements, unlockArtifactWin } from "@/lib/achievements";
 import { computeCommunityRating, toMarketCard } from "@/lib/create";
+import { isReleased } from "@/lib/drops";
 import { readOnboarding, stampOnboarding } from "@/lib/onboarding";
 import { getScoredProfile, ScoreError } from "@/lib/score";
 import { dayHash, getHotCards, getRandomQuip, HOT_BOOST } from "@/lib/daily";
@@ -221,7 +222,7 @@ export default function Arena({
     if (!me) return [];
     const myR = me.side.rating;
     return cards
-      .filter((c) => c.id !== "agi" && c.id !== me.side.cardId)
+      .filter((c) => c.id !== "agi" && c.id !== me.side.cardId && isReleased(c.id))
       .map((c) => ({
         c,
         w:

@@ -15,6 +15,7 @@ import CardGrid from "./CardGrid";
 import CoverStar from "./CoverStar";
 import HotList from "./HotList";
 import Masthead from "./Masthead";
+import NextDrop from "./NextDrop";
 import MetaStrip from "./MetaStrip";
 import PackRipper from "./PackRipper";
 import TodayMeta from "./TodayMeta";
@@ -72,6 +73,7 @@ function IndexSections({
   return (
     <>
       {children}
+      <NextDrop />
       <MetaStrip />
       <div className="grid gap-4 md:grid-cols-[280px_1fr]">
         <div className="space-y-4">
@@ -92,7 +94,7 @@ function IndexSections({
       </div>
       <div className="mt-8">
         <h2 className="mb-3 border-b-2 border-[#17301F] pb-1 text-lg text-[#17301F]">
-          The Checklist — Series 1
+          The Checklist
         </h2>
         <CardGrid cards={cards} ranks={ranks} />
       </div>

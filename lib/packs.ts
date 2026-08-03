@@ -2,6 +2,7 @@ import type { MarketCard } from "./cards";
 import type { Rarity } from "./types";
 import { PULL_ODDS } from "./editions";
 import { CARDS_PER_PACK, getBinder, getRippedCount } from "./binder";
+import { releasedOnly } from "./drops";
 import { rollVariant, type Variant } from "./variants";
 import { utcDayKey } from "./daily";
 import { fnvHash, mulberry32 } from "./rng";
@@ -54,7 +55,8 @@ export interface Pull {
   variant: Variant;
 }
 
-export function pullPack(cards: MarketCard[], rand: () => number = Math.random): Pull[] {
+export function pullPack(allCards: MarketCard[], rand: () => number = Math.random): Pull[] {
+  const cards = releasedOnly(allCards); // future-drop cards never pull early
   const byRarity = new Map<Rarity, MarketCard[]>();
   for (const card of cards) {
     if (card.type === "artifact") continue; // artifacts have their own bucket

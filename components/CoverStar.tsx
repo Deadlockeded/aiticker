@@ -6,6 +6,7 @@ import type { MarketCard } from "@/lib/cards";
 import { getCoverStar } from "@/lib/daily";
 import { formatTicks, getCurrentPrice } from "@/lib/market";
 import TradingCard from "./TradingCard";
+import { releasedOnly } from "@/lib/drops";
 import { useOwnedSet } from "./useOwned";
 
 const subscribeNever = () => () => {};
@@ -20,7 +21,7 @@ export default function CoverStar({
 }) {
   const star = useSyncExternalStore(
     subscribeNever,
-    () => getCoverStar(cards),
+    () => getCoverStar(releasedOnly(cards)),
     () => null,
   );
   const owned = useOwnedSet();

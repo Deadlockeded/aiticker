@@ -1,0 +1,24 @@
+[
+  {
+    "id": "series-1-5",
+    "name": "Series 1.5 — The Second Printing",
+    "releaseDate": "2026-08-24",
+    "cardIds": [
+      "ian-goodfellow",
+      "juergen-schmidhuber",
+      "richard-sutton",
+      "ashish-vaswani",
+      "sepp-hochreiter",
+      "francois-chollet",
+      "john-carmack",
+      "stability-ai",
+      "safe-superintelligence",
+      "boston-dynamics",
+      "the-off-switch",
+      "the-temperature-slider",
+      "the-conference-badge",
+      "the-arxiv-timestamp",
+      "the-rlhf-thumbs-up"
+    ]
+  }
+]

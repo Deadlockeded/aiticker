@@ -54,6 +54,17 @@ function ordered(card: Record<string, unknown>): Record<string, unknown> {
 
 async function main() {
   const cards = JSON.parse(readFileSync(CARDS_PATH, "utf8")) as Card[];
+  // DROP GATE: cards in a future drop are skipped entirely (no wasted API
+  // calls); they join the nightly fetch automatically once released.
+  const drops = JSON.parse(readFileSync("data/drops.json", "utf8")) as {
+    releaseDate: string;
+    cardIds: string[];
+  }[];
+  const unreleased = new Set(
+    drops
+      .filter((d) => Date.parse(d.releaseDate) > Date.now())
+      .flatMap((d) => d.cardIds),
+  );
   const oldContext = buildRatingContext(cards);
   const oldRatings = new Map(cards.map((c) => [c.id, oldContext.computeRating(c)]));
 
@@ -61,6 +72,7 @@ async function main() {
   for (const source of SOURCES) tally[source.name] = { ok: 0, fail: 0 };
 
   for (const card of cards) {
+    if (unreleased.has(card.id)) continue;
     for (const source of SOURCES) {
       if (!source.applies(card)) continue;
       try {

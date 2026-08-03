@@ -11,6 +11,7 @@ import {
   type Binder,
 } from "@/lib/binder";
 import { formatMove, formatTicks, getCurrentPrice, getDailyMove } from "@/lib/market";
+import { isReleased } from "@/lib/drops";
 import { KEYS, readRaw, writeRaw } from "@/lib/storage";
 import CardArt from "./CardArt";
 import TradingCard from "./TradingCard";
@@ -72,8 +73,9 @@ export default function BinderPages({
     const bySlot = (a: MarketCard, b: MarketCard) =>
       rank(a.rarity) - rank(b.rarity) || b.rating - a.rating;
     const own = (c: MarketCard) => !!binder?.[c.id];
-    const index = cards.filter((c) => c.type !== "artifact");
-    const artifacts = cards.filter((c) => c.type === "artifact" && c.id !== "agi");
+    // unreleased drops are invisible in the chase (owned copies still show)
+    const index = cards.filter((c) => c.type !== "artifact" && (isReleased(c.id) || own(c)));
+    const artifacts = cards.filter((c) => c.type === "artifact" && c.id !== "agi" && (isReleased(c.id) || own(c)));
     const ownedIndex = index.filter(own).sort(bySlot);
     const missingIndex = index.filter((c) => !own(c)).sort(bySlot);
     const ownedArt = artifacts.filter(own).sort(bySlot);
@@ -150,10 +152,11 @@ export default function BinderPages({
   const ownedCount = indexCards.filter((c) => binder[c.id]).length;
   // per-series progress — each series is sealed, so its denominator is
   // stable; artifacts count inside their series. Future drops = new rows.
-  const seriesLines = [...new Set(cards.map((c) => c.series))]
+  const releasedCards = cards.filter((c) => isReleased(c.id));
+  const seriesLines = [...new Set(releasedCards.map((c) => c.series))]
     .sort((a, b) => a - b)
     .map((series) => {
-      const inSeries = cards.filter((c) => c.series === series);
+      const inSeries = releasedCards.filter((c) => c.series === series);
       const withVariant = (v: string) =>
         inSeries.filter((c) => binder[c.id]?.prints?.some((p) => p.v === v)).length;
       return {
