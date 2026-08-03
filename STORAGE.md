@@ -8,11 +8,13 @@ is kept so existing collectors' data survives — do not "fix" it.
 
 | Key | Schema | Written by | Notes |
 | --- | --- | --- | --- |
-| `ai-index:binder:v1` | `Record<cardId, {copies, firstPulledAt, lastPulledAt}>` | `lib/binder.ts` | The collection. The single most precious key. |
+| `ai-index:binder:v1` | `Record<cardId, {copies, firstPulledAt, lastPulledAt, prints?}>` | `lib/binder.ts` | The collection. The single most precious key. |
 | `ai-index:packs:v1` | `{bank, ts, ripped}` | `lib/binder.ts` | Pack bank: 1 accrues per 8h (rolling), cap 2; `ripped` = lifetime rips (feeds the deterministic first-pack path). Legacy `{date, used}` converts in place. |
 | `ai-index:xp:v1` | number as string | `lib/xp.ts` | Collector XP. |
 | `ai-index:achievements:v1` | `string[]` of achievement ids | `lib/achievements.ts` | Includes hidden `artifact-win-*` trophies. |
-| `ai-index:battle:v1` | `{current, best, wins, losses, giantSlain?}` | `lib/battle.ts` | Arena record + streaks. |
+| `ai-index:battle:v1` | `{current, best, wins, losses, giantSlain?, winDay?}` | `lib/battle.ts` | Arena record + streaks. `winDay` is the UTC day of the last win, which drives the first-win-of-day purse. |
+| `ai-index:wallet:v1` | `{bal, day, earned}` | `lib/wallet.ts` | Tick balance. `earned` is today's capped income and resets on UTC rollover; the cap is `EARN_DAILY_CAP`. Fresh wallets open at ₮100. |
+| `ai-index:rituals:v1` | `{visit?: dayKey, round?: weekKey}` | `lib/rituals.ts` | Idempotency stamps for the daily visit stipend and RAISE A ROUND. |
 | `ai-index:binder-visit:v1` | epoch ms as string | `components/BinderPages.tsx` | Previous visit timestamp, powers NEW tags. |
 | `ai-index:community-card:v1` | `CommunityCard` JSON | `lib/create.ts` | The saved prospect card. |
 | `ai-index:reroll:v1` | `{date, used}` | `lib/create.ts` | Rarity re-roll allowance (3/day). |
@@ -32,7 +34,8 @@ is kept so existing collectors' data survives — do not "fix" it.
 | Name | Purpose |
 | --- | --- |
 | `ai-index:store` | Same-tab change notification for `useSyncExternalStore` subscribers. |
-| `ai-index:toast` | Achievement toast dispatch. |
+| `ai-index:toast` | Achievement and level-up toast dispatch (`lib/toast.ts`). |
+| `ai-index:ticks` | +₮n grant toast dispatch (`lib/wallet.ts`). |
 
 ## Removed keys (cleared by migrations v2–v3)
 

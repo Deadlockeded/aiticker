@@ -15,13 +15,16 @@ Uses **pnpm** (don't use npm/yarn).
 ## Product in one paragraph
 
 A collectible trading-card index of the AI industry: 50 flagship cards +
-25 joke "artifact" commons + 1 secret AGI mythic (`data/cards.json`). Free
+33 joke "artifact" commons + 1 secret AGI mythic (`data/cards.json`). Free
 daily packs → localStorage binder → arena fights over a daily-rotating
 meta → viral toys (Get Rated/roast at `/create`, ship meter). Prices are
 real: a nightly GitHub Action fetches public signals and commits them.
 Hard rules: **no auth, no database, no paid services, no real money or
-wagering anywhere** — and quips/roasts target public personas' work only,
-never appearance/family/health/identity.
+wagering anywhere** (Ticks are earned by playing and spent only on packs —
+never staked, never purchasable; the funding satire never attaches a
+fabricated round, amount, or valuation to a real company or person) — and
+quips/roasts target public personas' work only, never appearance / family /
+health / identity.
 
 ## THE MAGAZINE RULE (Phase 0, 2026-08-03)
 
@@ -59,11 +62,15 @@ clamp) → git commit. See PIPELINE.md. Never zero a stat on fetch failure.
 - `rng.ts` — THE seeded-randomness toolkit (fnvHash + mulberry32). Never copy these into feature libs.
 - `storage.ts` — THE localStorage gateway: `KEYS` registry, try/catch accessors, versioned migration. Every new persistent key goes here + STORAGE.md.
 - `binder.ts` — collection, pack allowance, and the shared store bus (`notifyStore`/`subscribeStore`).
-- `meta.ts` — the Daily Meta: 10 fight categories with documented formulas; 4 active per UTC day; per-card ±8 seed wobble (values fixed, not random).
+- `meta.ts` — the Daily Meta: 22 fight categories with documented formulas; 4 active per UTC day; per-card ±8 seed wobble (values fixed, not random). Adding a category means a case in BOTH switches, an entry in `profileMetaValues`, and a WATCH line.
 - `vsMapping.ts` — arena resolution: 3 rounds drawn from today's active 4 (pairing-hash pick), AGI coin-flips, chaos upsets, `decisiveCategory` for share text.
 - `daily.ts` — all date-hash picks: hot cards (+3 boost), featured card, quips of the day.
 - `market.ts` — prices (committed history wins; deterministic simulation as pre-pipeline fallback), `formatTicks` (₮).
-- `economy.ts` — pack cadence: 1 pack per 8h rolling, bank cap 2 (constants only).
+- `economy.ts` — pack cadence (1 pack per 8h rolling, bank cap 2) plus THE TICK ECONOMY: exchange-pack price, purse constants, and the pure `computePurse` math. The hard rules live in its header comment — no wagering ever, no real money, earned packs capped by `EARN_DAILY_CAP`. Earn-rate table in ECONOMY.md.
+- `wallet.ts` — THE Tick gateway: balance, capped `grantTicks`, `spendTicks`, dupe sales, the `+₮n` toast event. Ticks buy exactly one thing: the ₮500 Exchange Pack.
+- `rituals.ts` — the two claimable grants: daily visit (₮50, fired at boot) and RAISE A ROUND (₮300 per ISO week, deterministic fictional investor + terms from `lines.ts`).
+- `toast.ts` — the toast bus, split out so `xp.ts` can fire level-ups without an import cycle through `achievements.ts`.
+- `xp.ts` — XP levels dressed as FUNDING STAGES (Garage → … → Acquired (Derogatory)). Thresholds never changed with the rename; only the labels did.
 - `packs.ts`/`editions.ts` — odds (`CATEGORY_ODDS`: agi 0.1%, artifacts 35%…), serials. `pullPackFor` seeds a fresh profile's first two packs from (UTC date + pack number) — incognito fishing gets identical pulls; interim until Supabase server-side inventory (README-AUTH.md).
 - `score.ts` — client-side GitHub/HF/HN scoring for Get Rated (sessionStorage cache), `getRoastFacts`. NO LinkedIn, ever.
 - `lines.ts` — ALL joke copy: roast lines, verdicts, stamps, stat tiers/definitions.
@@ -106,7 +113,7 @@ PACKS CTA; owned show binder actions.
 
 ## Routes
 
-`/` (masthead + featured + hot list + gallery deck/grid) · `/market`
+`/` (masthead + featured + weekly round + hot list + gallery deck/grid) · `/market`
 (price table) · `/cards/[id]` (SSG detail: hero card w/ proof-or-owned,
 chart, stats, TODAY'S FORM, signals) · `/packs` · `/binder`
 (9-pocket pages, trade-in) · `/arena` (meta strip,
