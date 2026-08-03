@@ -36,7 +36,7 @@ export default function BinderCoach() {
     return (
       <div className="mb-4">
         <EditorCaption ttl={8000}>
-          3 free packs daily. Complete the index. That&apos;s the whole hobby.
+          A fresh pack every 8 hours. Complete the index. That&apos;s the whole hobby.
         </EditorCaption>
         <p className="mt-1.5 text-center">
           <Link

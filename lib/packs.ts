@@ -1,7 +1,9 @@
 import type { MarketCard } from "./cards";
 import type { Rarity } from "./types";
 import { PULL_ODDS } from "./editions";
-import { CARDS_PER_PACK } from "./binder";
+import { CARDS_PER_PACK, getBinder, getRippedCount } from "./binder";
+import { utcDayKey } from "./daily";
+import { fnvHash, mulberry32 } from "./rng";
 
 /**
  * Category odds per card slot. Artifacts fatten the common pool (~35%)
@@ -41,10 +43,12 @@ function rollRarity(roll: number): Rarity {
 }
 
 /**
- * Rip one pack: CARDS_PER_PACK independent rolls. True random on purpose —
- * only ever called client-side from a click handler, so hydration is safe.
+ * Rip one pack: CARDS_PER_PACK independent rolls over the published odds.
+ * `rand` defaults to true randomness (only ever called client-side from a
+ * click handler, so hydration is safe); the deterministic first-pack path
+ * passes a seeded stream instead — same algorithm, same odds table.
  */
-export function pullPack(cards: MarketCard[]): MarketCard[] {
+export function pullPack(cards: MarketCard[], rand: () => number = Math.random): MarketCard[] {
   const byRarity = new Map<Rarity, MarketCard[]>();
   for (const card of cards) {
     if (card.type === "artifact") continue; // artifacts have their own bucket
@@ -56,23 +60,50 @@ export function pullPack(cards: MarketCard[]): MarketCard[] {
 
   const pulls: MarketCard[] = [];
   for (let i = 0; i < CARDS_PER_PACK; i++) {
-    const roll = Math.random();
+    const roll = rand();
     if (agi && roll < CATEGORY_ODDS.agi) {
       pulls.push(agi);
       continue;
     }
     if (artifacts.length && roll < CATEGORY_ODDS.agi + CATEGORY_ODDS.artifact) {
-      pulls.push(artifacts[Math.floor(Math.random() * artifacts.length)]);
+      pulls.push(artifacts[Math.floor(rand() * artifacts.length)]);
       continue;
     }
-    let rarity = rollRarity(Math.random());
+    let rarity = rollRarity(rand());
     while (!byRarity.get(rarity)?.length) {
       rarity = TIERS[Math.min(TIERS.indexOf(rarity) + 1, TIERS.length - 1)];
     }
     const pool = byRarity.get(rarity)!;
-    pulls.push(pool[Math.floor(Math.random() * pool.length)]);
+    pulls.push(pool[Math.floor(rand() * pool.length)]);
   }
   return pulls;
+}
+
+/** Seeded stream for a fresh profile's Nth pack on a given UTC day. */
+export function firstPackRand(dateKey: string, packNumber: number): () => number {
+  return mulberry32(fnvHash(`first-pack:${dateKey}:${packNumber}`));
+}
+
+/**
+ * ANTI-FISHING: a fresh profile's first two packs are derived from
+ * (UTC date + pack number), so every fresh profile that day pulls the SAME
+ * cards — re-rolling in incognito yields identical results, which makes
+ * fishing for a hot first pack pointless. The date is inside the seed, so
+ * rarity distribution across days follows the published odds (some days'
+ * first packs DO contain rares — fixed per day, never systematically worse
+ * than random). From the 3rd pack, or for any profile with existing
+ * history, pulls are true-random. The reveal flow is identical either way
+ * and no UI ever mentions this. Real anti-abuse arrives with server-side
+ * inventory once Supabase auth is enabled (see README-AUTH.md).
+ */
+export function pullPackFor(cards: MarketCard[]): MarketCard[] {
+  // consumePack() has already incremented `ripped` for this rip, so it is
+  // 1-based here: 1 = the profile's first-ever pack.
+  const packNumber = getRippedCount();
+  // a synced/imported profile has cards before its first local rip → random
+  const fresh = packNumber === 1 ? Object.keys(getBinder()).length === 0 : true;
+  if (packNumber > 2 || !fresh) return pullPack(cards);
+  return pullPack(cards, firstPackRand(utcDayKey(), packNumber));
 }
 
 /** Trade-in reward: one guaranteed rare-or-better, odds renormalized. */

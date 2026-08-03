@@ -78,23 +78,71 @@ test.describe("console + assets", () => {
   }
 });
 
-test("rip flow: packs → auto-flip → binder, and it persists", async ({ page }) => {
+test("rip flow: stack → fan holds until tap → binder; persists", async ({ page }) => {
   await blockArt(page);
   const watch = watchErrors(page);
   await page.goto("/packs");
   await page.getByLabel("Rip the pack").click();
-  await page.waitForURL("**/binder", { timeout: 20_000 });
+  // tear lands on a facedown stack — nothing reveals without a tap
+  await page.getByLabel("Reveal the cards").click({ timeout: 10_000 });
+  // one continuous flip+fan: all 3 cards visible at once on 390px
+  const fanCards = page.getByRole("button", { name: /^Enlarge / });
+  await expect(fanCards).toHaveCount(3);
+  for (const card of await fanCards.all()) await expect(card).toBeVisible();
+  // THE HOLD: no auto-navigation, ever — still here seconds later
+  await page.waitForTimeout(3000);
+  await expect(page).toHaveURL(/\/packs/);
+  // enlarge sheet works
+  await fanCards.first().click();
+  await expect(page.getByRole("button", { name: "Close" })).toBeVisible();
+  await page.getByRole("button", { name: "Close" }).click();
+  // leaving is the user's tap
+  await page.getByRole("button", { name: "Add to binder →" }).click();
+  await page.waitForURL("**/binder");
   const binder = await page.evaluate(() =>
     JSON.parse(localStorage.getItem("ai-index:binder:v1") ?? "{}"),
   );
   expect(Object.keys(binder).length).toBeGreaterThan(0);
-  // persistence across reload
   await page.reload();
   const after = await page.evaluate(() =>
     JSON.parse(localStorage.getItem("ai-index:binder:v1") ?? "{}"),
   );
   expect(Object.keys(after)).toEqual(Object.keys(binder));
   expect(watch.errors).toEqual([]);
+});
+
+test("cadence: two banked packs, then an 8h countdown", async ({ page }) => {
+  await blockArt(page);
+  await page.goto("/packs");
+  await page.getByLabel("Rip the pack").click();
+  await page.getByLabel("Reveal the cards").click({ timeout: 10_000 });
+  // second pack is banked → RIP ANOTHER offered; claim it
+  await page.getByRole("button", { name: /Rip another/ }).click();
+  await page.getByLabel("Reveal the cards").click({ timeout: 10_000 });
+  await expect(page.getByRole("button", { name: /Rip another/ })).not.toBeVisible();
+  await page.getByRole("button", { name: "Add to binder →" }).click();
+  await page.waitForURL("**/binder");
+  // bank empty: the claim window math puts the next pack ~8h out
+  await page.goto("/packs");
+  await expect(page.getByText(/Next pack in [78]h/).first()).toBeVisible();
+});
+
+test("anti-fishing: two fresh profiles pull identical first packs", async ({ browser }) => {
+  const ids = async () => {
+    const ctx = await browser.newContext();
+    const page = await ctx.newPage();
+    await page.goto("http://localhost:3123/packs");
+    await page.getByLabel("Rip the pack").click();
+    await page.getByLabel("Reveal the cards").click({ timeout: 10_000 });
+    const binder = await page.evaluate(() =>
+      Object.keys(JSON.parse(localStorage.getItem("ai-index:binder:v1") ?? "{}")).sort(),
+    );
+    await ctx.close();
+    return binder;
+  };
+  // same UTC day + same pack number → same seed → identical pulls
+  // (day-to-day variance is unit-tested against explicit date keys)
+  expect(await ids()).toEqual(await ids());
 });
 
 test("gallery deck: mobile default, next advances the stack", async ({ page }) => {
@@ -176,7 +224,7 @@ test("home state 2: returning with packs → pack hero + index", async ({ page }
   await seedBinder(page, ["openai"]);
   await page.goto("/");
   await expect(page.getByLabel("Rip the pack")).toBeVisible();
-  await expect(page.getByText(/\d packs? left today/)).toBeVisible();
+  await expect(page.getByText(/\d packs? ready/)).toBeVisible();
   await expect(page.getByText("The Hot List")).toBeVisible();
   await expect(page.getByText("The Checklist")).toBeVisible();
 });
@@ -189,7 +237,7 @@ test("home state 3: returning with no packs → index-first, countdown, no pack"
     localStorage.setItem("ai-index:packs:v1", JSON.stringify({ date: key, used: 3 }));
   });
   await page.goto("/");
-  await expect(page.getByText(/Next free packs in/)).toBeVisible();
+  await expect(page.getByText(/Next pack in/)).toBeVisible();
   await expect(page.getByText("The Hot List")).toBeVisible();
   await expect(page.getByLabel("Rip the pack")).not.toBeVisible();
 });

@@ -95,7 +95,7 @@ const PANELS: { n: string; title: string; copy: React.ReactNode; art: React.Reac
     art: <ArtRip />,
     copy: (
       <>
-        3 free packs daily. Odds posted on the{" "}
+        A fresh pack every 8 hours. Odds posted on the{" "}
         <Link href="/packs" className="underline decoration-[#B23A2E] underline-offset-2">
           packs page
         </Link>

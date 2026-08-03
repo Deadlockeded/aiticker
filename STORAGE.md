@@ -9,7 +9,7 @@ is kept so existing collectors' data survives — do not "fix" it.
 | Key | Schema | Written by | Notes |
 | --- | --- | --- | --- |
 | `ai-index:binder:v1` | `Record<cardId, {copies, firstPulledAt, lastPulledAt}>` | `lib/binder.ts` | The collection. The single most precious key. |
-| `ai-index:packs:v1` | `{date: "YYYY-MM-DD", used: number}` | `lib/binder.ts` | Daily pack allowance (3/day, local-midnight reset). |
+| `ai-index:packs:v1` | `{bank, ts, ripped}` | `lib/binder.ts` | Pack bank: 1 accrues per 8h (rolling), cap 2; `ripped` = lifetime rips (feeds the deterministic first-pack path). Legacy `{date, used}` converts in place. |
 | `ai-index:xp:v1` | number as string | `lib/xp.ts` | Collector XP. |
 | `ai-index:achievements:v1` | `string[]` of achievement ids | `lib/achievements.ts` | Includes hidden `artifact-win-*` trophies. |
 | `ai-index:battle:v1` | `{current, best, wins, losses, giantSlain?}` | `lib/battle.ts` | Arena record + streaks. |

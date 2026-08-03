@@ -46,3 +46,11 @@ prices redeploy themselves).
 
 Fan-made. Not affiliated with anyone on the index. The Wrapper card is
 autobiographical.
+
+## Anti-abuse note
+
+A fresh profile's first two packs are deterministic per UTC day (seeded
+from date + pack number), so incognito re-roll fishing yields identical
+pulls and is pointless. This is the interim mitigation — real anti-abuse
+(server-side pack inventory) arrives when Supabase auth is enabled; see
+README-AUTH.md.

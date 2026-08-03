@@ -1,3 +1,4 @@
+import { PACK_BANK_MAX, PACK_INTERVAL_MS } from "./economy";
 import { KEYS, readRaw, writeRaw } from "./storage";
 
 /**
@@ -15,7 +16,6 @@ export type Binder = Record<string, BinderEntry>;
 
 const STORE_EVENT = "ai-index:store";
 
-export const PACKS_PER_DAY = 3;
 export const CARDS_PER_PACK = 3;
 
 /** Notify same-tab subscribers (the storage event only fires cross-tab). */
@@ -85,44 +85,80 @@ export function burnCopies(counts: Record<string, number>): Binder {
   return binder;
 }
 
-function todayKey(): string {
-  const d = new Date();
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+// ---- pack bank (1 pack / 8h, cap 2) ---------------------------------------
+
+export interface PackBank {
+  /** Claimable packs (before accrual is applied). */
+  bank: number;
+  /** Accrual checkpoint (epoch ms). Idle while the bank is full. */
+  ts: number;
+  /** Lifetime packs ripped in this profile — feeds the pull engine. */
+  ripped: number;
 }
 
-function parseAllowance(raw: string): { date: string; used: number } {
+/**
+ * Parse either shape: the current bank, or the legacy daily allowance
+ * ({date, used}) which converts in place — remaining daily packs carry
+ * over (capped) and legacy profiles are marked non-fresh (high ripped)
+ * so they never hit the deterministic first-pack path.
+ */
+export function parsePackState(raw: string, now = Date.now()): PackBank {
   try {
-    const parsed = JSON.parse(raw) as { date: string; used: number } | null;
-    if (parsed && parsed.date === todayKey()) return parsed;
+    const p = JSON.parse(raw) as Partial<PackBank> & { date?: string; used?: number };
+    if (p && typeof p.used === "number" && p.date) {
+      return { bank: Math.min(PACK_BANK_MAX, Math.max(0, 3 - p.used)), ts: now, ripped: 99 };
+    }
+    if (p && typeof p.bank === "number" && typeof p.ts === "number") {
+      return { bank: p.bank, ts: p.ts, ripped: p.ripped ?? 0 };
+    }
   } catch {
-    // fall through to a fresh allowance
+    // fresh profile below
   }
-  return { date: todayKey(), used: 0 };
+  // fresh profiles start with a full bank — the ceremony needs a pack
+  return { bank: PACK_BANK_MAX, ts: now, ripped: 0 };
 }
 
-/** Packs remaining today, derived from an allowance snapshot string. */
-export function packsLeftFrom(raw: string): number {
-  return Math.max(0, PACKS_PER_DAY - parseAllowance(raw).used);
+/** Apply rolling accrual: +1 pack per interval, timer idle at the cap. */
+export function normalizeBank(state: PackBank, now = Date.now()): PackBank {
+  if (state.bank >= PACK_BANK_MAX) return { ...state, bank: PACK_BANK_MAX, ts: now };
+  const earned = Math.floor((now - state.ts) / PACK_INTERVAL_MS);
+  if (earned <= 0) return state;
+  const bank = Math.min(PACK_BANK_MAX, state.bank + earned);
+  return { ...state, bank, ts: bank >= PACK_BANK_MAX ? now : state.ts + earned * PACK_INTERVAL_MS };
+}
+
+/** Claimable packs, derived from an allowance snapshot string. */
+export function packsLeftFrom(raw: string, now = Date.now()): number {
+  return normalizeBank(parsePackState(raw, now), now).bank;
 }
 
 export function getPacksLeft(): number {
   return packsLeftFrom(getAllowanceSnapshot());
 }
 
-/** Returns packs remaining after consuming one, or null if none left. */
-export function consumePack(): number | null {
-  const allowance = parseAllowance(getAllowanceSnapshot());
-  if (allowance.used >= PACKS_PER_DAY) return null;
-  const next = { date: allowance.date, used: allowance.used + 1 };
-  writeRaw(KEYS.packs, JSON.stringify(next));
-  notify();
-  return PACKS_PER_DAY - next.used;
+export function getRippedCount(): number {
+  return parsePackState(getAllowanceSnapshot()).ripped;
 }
 
-/** Ms until the allowance resets (next local midnight). */
-export function msUntilReset(): number {
-  const now = new Date();
-  const midnight = new Date(now);
-  midnight.setHours(24, 0, 0, 0);
-  return midnight.getTime() - now.getTime();
+/** Claim a pack: returns packs remaining after, or null if none banked. */
+export function consumePack(now = Date.now()): number | null {
+  const s = normalizeBank(parsePackState(getAllowanceSnapshot(), now), now);
+  if (s.bank <= 0) return null;
+  const wasFull = s.bank >= PACK_BANK_MAX;
+  const next: PackBank = {
+    bank: s.bank - 1,
+    // claiming from a full bank starts the next 8h window now
+    ts: wasFull ? now : s.ts,
+    ripped: s.ripped + 1,
+  };
+  writeRaw(KEYS.packs, JSON.stringify(next));
+  notify();
+  return next.bank;
+}
+
+/** Ms until the next pack accrues (0 when the bank is full). */
+export function msUntilNextPack(now = Date.now()): number {
+  const s = normalizeBank(parsePackState(getAllowanceSnapshot(), now), now);
+  if (s.bank >= PACK_BANK_MAX) return 0;
+  return Math.max(0, s.ts + PACK_INTERVAL_MS - now);
 }

@@ -63,7 +63,8 @@ clamp) → git commit. See PIPELINE.md. Never zero a stat on fetch failure.
 - `vsMapping.ts` — arena resolution: 3 rounds drawn from today's active 4 (pairing-hash pick), AGI coin-flips, chaos upsets, `decisiveCategory` for share text.
 - `daily.ts` — all date-hash picks: hot cards (+3 boost), featured card, quips of the day.
 - `market.ts` — prices (committed history wins; deterministic simulation as pre-pipeline fallback), `formatTicks` (₮).
-- `packs.ts`/`editions.ts` — odds (`CATEGORY_ODDS`: agi 0.1%, artifacts 35%…), serials.
+- `economy.ts` — pack cadence: 1 pack per 8h rolling, bank cap 2 (constants only).
+- `packs.ts`/`editions.ts` — odds (`CATEGORY_ODDS`: agi 0.1%, artifacts 35%…), serials. `pullPackFor` seeds a fresh profile's first two packs from (UTC date + pack number) — incognito fishing gets identical pulls; interim until Supabase server-side inventory (README-AUTH.md).
 - `score.ts` — client-side GitHub/HF/HN scoring for Get Rated (sessionStorage cache), `getRoastFacts`. NO LinkedIn, ever.
 - `lines.ts` — ALL joke copy: roast lines, verdicts, stamps, stat tiers/definitions.
 - `share.ts` — Web Share API w/ files + download fallback, `brandFonts()` for canvas exports.

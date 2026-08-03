@@ -6,7 +6,7 @@ import type { MarketCard } from "@/lib/cards";
 import {
   getAllowanceSnapshot,
   getBinderSnapshot,
-  msUntilReset,
+  msUntilNextPack,
   packsLeftFrom,
   parseBinder,
   subscribeStore,
@@ -33,15 +33,15 @@ function homeSnapshot(): HomeState {
   return packsLeftFrom(getAllowanceSnapshot()) > 0 ? "packs" : "index";
 }
 
-/** "Next free packs in {X}h" chip for the no-packs state. */
+/** "Next pack in {h}h {m}m" chip for the no-packs state. */
 function ResetChip() {
   const [label, setLabel] = useState("");
   useEffect(() => {
     const update = () => {
-      const ms = msUntilReset();
-      const h = Math.floor(ms / 3_600_000);
-      const m = Math.ceil((ms % 3_600_000) / 60_000);
-      setLabel(h > 0 ? `${h}h` : `${m}m`);
+      const totalMin = Math.ceil(msUntilNextPack() / 60_000);
+      const h = Math.floor(totalMin / 60);
+      const m = totalMin % 60;
+      setLabel(h > 0 ? `${h}h ${m}m` : `${m}m`);
     };
     const kickoff = setTimeout(update, 0);
     const timer = setInterval(update, 30_000);
@@ -53,7 +53,7 @@ function ResetChip() {
   return (
     <div className="mb-4 flex justify-center">
       <span className="border-2 border-[#17301F] bg-[#EAF0E4] px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.2em] text-[#17301F] shadow-[3px_3px_0_#17301F]">
-        Next free packs in {label || "…"}
+        Next pack in {label || "…"}
       </span>
     </div>
   );
@@ -141,7 +141,7 @@ export default function HomePage({
         <div className="mx-auto mb-10 mt-2 w-full max-w-[210px]">
           <PackRipper cards={cards} ranks={ranks} minimal />
           <p className="mt-4 text-center font-mono text-[11px] uppercase tracking-[0.25em] text-[#5A6E5E]">
-            {packsLeft} pack{packsLeft === 1 ? "" : "s"} left today
+            {packsLeft} pack{packsLeft === 1 ? "" : "s"} ready
           </p>
         </div>
         <IndexSections cards={cards} ranks={ranks} />
