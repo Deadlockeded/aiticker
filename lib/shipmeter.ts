@@ -1,5 +1,13 @@
 import type { CommunitySliders } from "./create";
-import { SHIPMETER_LINES, type ShipMeterCtx } from "./lines";
+import {
+  equitySplit,
+  SHIP_CATEGORIES,
+  shipTier,
+  SHIPMETER_LINES,
+  type ShipCategoryKey,
+  type ShipMeterCtx,
+} from "./lines";
+import type { RawFootprint } from "./score";
 import { fnvHash as hash } from "./rng";
 
 /**
@@ -50,4 +58,82 @@ export function shipIcon(pct: number): string {
   if (pct >= 70) return "❤️‍🔥";
   if (pct >= 45) return "💛";
   return "💔";
+}
+
+
+// ---------------------------------------------------------------- v2
+
+export interface ShipSide {
+  handle: string;
+  stats: CommunitySliders;
+  raw: RawFootprint;
+}
+
+export interface ShipBar {
+  key: ShipCategoryKey;
+  name: string;
+  /** 0–100. Honest computation; only the wording is a joke. */
+  score: number;
+  line: string;
+}
+
+const clamp = (v: number) => Math.max(4, Math.min(99, Math.round(v)));
+
+/** Closeness of two numbers on a 0–100 scale, as a 0–100 similarity. */
+const closeness = (a: number, b: number, scale = 100) =>
+  100 - Math.min(100, (Math.abs(a - b) / scale) * 100);
+
+/**
+ * The four bars. Each derives from REAL signal — commit recency and activity,
+ * language breadth, repo hygiene, shipping pace — and only the label and line
+ * are comedic. The line is picked by band, so the number and the joke can
+ * never disagree.
+ */
+export function shipBars(a: ShipSide, b: ShipSide): ShipBar[] {
+  const bars: { key: ShipCategoryKey; score: number }[] = [
+    {
+      // "timezone chemistry": how similarly recently they both pushed —
+      // the closest public proxy for overlapping working hours
+      key: "timezone",
+      score: clamp(closeness(
+        Math.min(a.raw.daysSinceLastPush, 120),
+        Math.min(b.raw.daysSinceLastPush, 120),
+        120,
+      )),
+    },
+    {
+      // "stack alignment": similarity of language breadth
+      key: "stack",
+      score: clamp(closeness(Math.min(a.raw.languages, 12), Math.min(b.raw.languages, 12), 12)),
+    },
+    {
+      // "naming philosophy": repo-count and fork-ratio hygiene, compared
+      key: "naming",
+      score: clamp(
+        0.6 * closeness(a.raw.forkRatio * 100, b.raw.forkRatio * 100) +
+          0.4 * closeness(Math.min(a.raw.publicRepos, 80), Math.min(b.raw.publicRepos, 80), 80),
+      ),
+    },
+    {
+      // "shipping cadence": 90-day push volume, compared
+      key: "cadence",
+      score: clamp(closeness(Math.min(a.raw.pushes90d, 90), Math.min(b.raw.pushes90d, 90), 90)),
+    },
+  ];
+  return bars.map(({ key, score }) => {
+    const cat = SHIP_CATEGORIES[key];
+    const band = Math.min(cat.lines.length - 1, Math.floor((score / 100) * cat.lines.length));
+    return { key, name: cat.name, score, line: cat.lines[band] };
+  });
+}
+
+/** Tier title + one line, both deterministic for the pair. */
+export function shipReading(pct: number, aHandle: string, bHandle: string) {
+  const tier = shipTier(pct);
+  const seed = hash(`ship:${[aHandle, bHandle].map((h) => h.toLowerCase()).sort().join("|")}`);
+  return {
+    title: tier.title,
+    line: tier.lines[seed % tier.lines.length],
+    equity: equitySplit(seed >>> 3),
+  };
 }

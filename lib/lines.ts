@@ -227,3 +227,157 @@ export const ROUND_TERMS = [
   "a SAFE with a typo in it",
   "an option pool that eats you last",
 ];
+
+// ---------------------------------------------------------------- Ship Meter v2
+
+/**
+ * Verdict tiers and category lines for the cofounder check. Same tone rules as
+ * everywhere else: patterns not persons, affectionate only, GitHub-footprint
+ * jokes only. Every line is picked deterministically from the pair's score, so
+ * the same two handles always get the same reading.
+ */
+export interface ShipTier {
+  min: number;
+  title: string;
+  lines: string[];
+}
+
+export const SHIP_TIERS: ShipTier[] = [
+  {
+    min: 90,
+    title: "Found your technical co-founder",
+    lines: [
+      "Incorporate immediately. Argue about equity later, like professionals.",
+      "This is the rare pairing where both of you would actually open the PR.",
+      "One of you has the idea, one of you has the terminal. That is a company.",
+      "Genuinely complementary. Suspicious. Do it anyway.",
+      "The Algorithm has no notes. The Algorithm always has notes.",
+      "Ship it before one of you reads a book about management.",
+    ],
+  },
+  {
+    min: 70,
+    title: "Fundable chemistry",
+    lines: [
+      "One of you writes tests. One of you writes \"fix later\". Balance.",
+      "Strong pairing, provided you agree on the deploy key in advance.",
+      "You would survive a launch week. Possibly two.",
+      "Complementary flaws, which is rarer than product-market fit.",
+      "The gaps line up. The calendars will not, but the gaps do.",
+      "Good on paper, and the paper is unusually convincing.",
+    ],
+  },
+  {
+    min: 50,
+    title: "Accelerator roommates",
+    lines: [
+      "You'd survive a hackathon together. A pivot, unclear.",
+      "Workable, as long as neither of you owns the roadmap alone.",
+      "Great for one project. Renegotiate before the second.",
+      "The friendship survives. The repo is a coin flip.",
+      "You'd build something. You'd both describe it differently.",
+      "Compatible until the first merge conflict with feelings in it.",
+    ],
+  },
+  {
+    min: 30,
+    title: "Advisor relationship at best",
+    lines: [
+      "Take their coffee meeting. Do not take their equity.",
+      "Brilliant apart. A group project together.",
+      "You'd agree on the vision and nothing after it.",
+      "Better as mutuals who occasionally star each other's repos.",
+      "One of you would end up writing all the docs, resentfully.",
+      "The energy is there. The overlap is not.",
+    ],
+  },
+  {
+    min: 0,
+    title: "Legally distinct entities",
+    lines: [
+      "The only thing you'd co-found is a group chat that dies in a week.",
+      "Two visionaries. Nobody drives. The demo is a Figma.",
+      "Incompatible in a way that would make a great documentary.",
+      "The equity split negotiation alone would end this.",
+      "You'd both wait for the other to start. Forever, probably.",
+      "Remain mutuals. Distant mutuals.",
+    ],
+  },
+];
+
+export function shipTier(pct: number): ShipTier {
+  return SHIP_TIERS.find((t) => pct >= t.min)!;
+}
+
+/** Category bars: honest computation, funnier presentation. */
+export type ShipCategoryKey = "timezone" | "stack" | "naming" | "cadence";
+
+export interface ShipCategory {
+  key: ShipCategoryKey;
+  name: string;
+  /** Lines from worst to best fit — the sub-score picks the band. */
+  lines: string[];
+}
+
+export const SHIP_CATEGORIES: Record<ShipCategoryKey, ShipCategory> = {
+  timezone: {
+    key: "timezone",
+    name: "Timezone chemistry",
+    lines: [
+      "Opposite clocks. One of you is always the blocker.",
+      "Barely overlapping hours. Async or bust.",
+      "A few shared hours a day. Enough for one meeting, not two.",
+      "Comfortable overlap. Standups would actually happen.",
+      "You're both awake at 2am. Concerning. Compatible.",
+    ],
+  },
+  stack: {
+    key: "stack",
+    name: "Stack alignment",
+    lines: [
+      "Nothing in common. The first architecture call is a hostage negotiation.",
+      "Different stacks, same instincts. Translation costs apply.",
+      "Some overlap. Enough to review each other's code, slowly.",
+      "Mostly the same tools. Onboarding is a coffee.",
+      "Two devs, one stack. The whiteboard will know peace.",
+    ],
+  },
+  naming: {
+    key: "naming",
+    name: "Naming philosophy",
+    lines: [
+      "One writes descriptions. One writes \"stuff\". Pick a standard.",
+      "Different conventions, strongly held. This will come up again.",
+      "Compatible enough. The README will need a mediator.",
+      "Similar instincts. Repos would look like siblings.",
+      "final-v2 energy detected on both sides. Kindred.",
+    ],
+  },
+  cadence: {
+    key: "cadence",
+    name: "Shipping cadence",
+    lines: [
+      "One ships daily, one ships annually. Someone will be very tired.",
+      "Different rhythms. Deadlines would be a genre of argument.",
+      "One sprints, one marinates. Someone's writing the docs.",
+      "Similar pace. You'd hit the same walls at the same time.",
+      "Matched cadence. Terrifying velocity, no brakes.",
+    ],
+  },
+};
+
+/** Absurd equity splits. Pure joke — never advice; the fine print says so. */
+export const EQUITY_SPLITS = [
+  "50/50. Recorded on a napkin nobody can find.",
+  "51/49. Fight about which side is which.",
+  "60/40, revisited quarterly, forever.",
+  "70/30, with a vesting cliff neither of you understands.",
+  "45/45, and 10% to whoever names the company.",
+  "50/50 until the first funding round, then a long silence.",
+  "1/99, and you both think you're the 99.",
+  "Equal shares, unequal group chats.",
+];
+
+export function equitySplit(seed: number): string {
+  return EQUITY_SPLITS[seed % EQUITY_SPLITS.length];
+}

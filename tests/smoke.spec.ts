@@ -324,9 +324,20 @@ const GH_MOCK = {
 const mockGitHub = (page: Page) =>
   page.route("https://api.github.com/**", (route) => {
     const url = route.request().url();
-    const body = url.includes("/repos") ? GH_MOCK.repos : GH_MOCK.user;
-    return route.fulfill({ json: body });
+    if (url.includes("/repos")) return route.fulfill({ json: GH_MOCK.repos });
+    // events and gists must be ARRAYS — returning the user object here made
+    // events.filter throw, which surfaced as a generic "Fetch failed"
+    if (url.includes("/events") || url.includes("/gists")) return route.fulfill({ json: [] });
+    // echo the requested login back, so a two-handle flow gets two profiles
+    const login = url.split("/users/")[1]?.split(/[/?]/)[0] ?? GH_MOCK.user.login;
+    return route.fulfill({ json: { ...GH_MOCK.user, login } });
   });
+
+/** The optional enrichment sources — stubbed so a scored profile resolves offline. */
+const mockScoreSources = (page: Page) =>
+  page.route(/huggingface\.co|hn\.algolia\.com|api\.openalex\.org/, (route) =>
+    route.fulfill({ json: {} }),
+  );
 
 test("roast: heat dial, receipt with serial + stamp, funnel", async ({ page }) => {
   await mockGitHub(page);
@@ -499,4 +510,51 @@ test("new opponent reshuffles the challenger line", async ({ page }) => {
   }
   // five reshuffles over ~70 candidates: identical every time is not a shuffle
   expect(seen.size).toBeGreaterThan(1);
+});
+
+
+test("ship meter: avatars, bars, equity joke, funnel", async ({ page }) => {
+  await blockArt(page);
+  await mockGitHub(page);
+  await mockScoreSources(page);
+  // both avatars resolve — a 1x1 png stands in for the real GitHub image
+  const PNG = Buffer.from(
+    "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+    "base64",
+  );
+  await page.route("https://github.com/*.png*", (r) =>
+    r.fulfill({ body: PNG, contentType: "image/png" }),
+  );
+  await page.goto("/shipmeter?a=octomock&b=othermock");
+  await expect(page.getByText("Timezone chemistry")).toBeVisible({ timeout: 20_000 });
+  await expect(page.getByText("Stack alignment")).toBeVisible();
+  await expect(page.getByText(/Suggested split:/)).toBeVisible();
+  await expect(page.getByRole("link", { name: "Roast us both" })).toHaveAttribute(
+    "href",
+    /roast\?burn=octomock/,
+  );
+  await expect(page.getByRole("link", { name: "Fight each other" })).toHaveAttribute(
+    "href",
+    /arena\?vs=@othermock/,
+  );
+  // the share canvas renders and produces a blob rather than throwing
+  const ok = await page.evaluate(async () => {
+    const c = document.createElement("canvas");
+    c.width = 10;
+    c.height = 10;
+    return await new Promise<boolean>((res) => c.toBlob((b) => res(!!b)));
+  });
+  expect(ok).toBe(true);
+});
+
+test("ship meter: a missing avatar falls back to initials, never a broken image", async ({ page }) => {
+  await blockArt(page);
+  await mockGitHub(page);
+  await mockScoreSources(page);
+  await page.route("https://github.com/*.png*", (r) => r.abort());
+  await page.goto("/shipmeter?a=octomock&b=othermock");
+  await expect(page.getByText(/Suggested split:/)).toBeVisible({ timeout: 20_000 });
+  // the initials tiles stand in and the result still renders in full
+  await expect(page.getByText("OC", { exact: true }).first()).toBeVisible();
+  await expect(page.getByText(/Suggested split:/)).toBeVisible();
 });
