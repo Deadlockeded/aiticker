@@ -58,35 +58,55 @@ export interface RoastFacts {
   accountYears: number;
 }
 
-export const ROAST_LINES: { when: (f: RoastFacts) => boolean; line: (f: RoastFacts) => string }[] = [
+export type Heat = "mild" | "medium" | "crispy";
+
+/**
+ * Roast lines with heat tiers. `line` is MEDIUM (the standing register);
+ * `mild` is gentle ribbing, `crispy` the sharpest phrasing of the SAME
+ * pattern-based joke. Tone rules apply to every tier: patterns not
+ * persons, affectionate only, GitHub-footprint jokes only.
+ */
+export const ROAST_LINES: {
+  when: (f: RoastFacts) => boolean;
+  line: (f: RoastFacts) => string;
+  mild?: (f: RoastFacts) => string;
+  crispy?: (f: RoastFacts) => string;
+}[] = [
   // specific → generic; picker takes the first 3 matches
-  { when: (f) => f.testRepoCount >= 3, line: (f) => `${f.testRepoCount} repos named some variant of "test". Bold archival strategy.` },
-  { when: (f) => f.portfolioCount >= 2, line: (f) => `${f.portfolioCount} portfolio sites. The portfolio is the product now.` },
-  { when: (f) => f.bioCliches.includes("stealth"), line: () => `Bio says "stealth". The 47 public repos disagree.` },
+  { when: (f) => f.testRepoCount >= 3, line: (f) => `${f.testRepoCount} repos named some variant of "test". Bold archival strategy.`, mild: (f) => `${f.testRepoCount} repos named "test". We have all been there.`, crispy: (f) => `${f.testRepoCount} repos named "test". At this point "test" is the brand.` },
+  { when: (f) => f.portfolioCount >= 2, line: (f) => `${f.portfolioCount} portfolio sites. The portfolio is the product now.`, mild: (f) => `${f.portfolioCount} portfolio sites. Thorough.`, crispy: (f) => `${f.portfolioCount} portfolio sites, zero portfolio pieces. The frame is the art.` },
+  { when: (f) => f.bioCliches.includes("stealth"), line: () => `Bio says "stealth". The 47 public repos disagree.`, mild: () => `Bio says "stealth". Cozy.`, crispy: () => `"Stealth" bio, public repos. The only person it is hidden from is you.` },
   { when: (f) => f.bioCliches.includes("visionary"), line: () => `Self-described visionary. The commits describe something else.` },
   { when: (f) => f.bioCliches.includes("building"), line: () => `Bio says "building". Building what? When? The people deserve answers.` },
-  { when: (f) => f.forkRatio > 0.7, line: (f) => `${Math.round(f.forkRatio * 100)}% forks. A museum curator with commit access.` },
-  { when: (f) => f.abandonedRepos >= 10, line: (f) => `${f.abandonedRepos} repos untouched for a year+. A graveyard with a README policy.` },
-  { when: (f) => f.daysSinceLastPush > 365, line: () => `Last push: over a year ago. The repos have filed a missing person report.` },
-  { when: (f) => f.daysSinceLastPush > 90 && f.daysSinceLastPush <= 365, line: (f) => `${Math.round(f.daysSinceLastPush)} days since the last push. The streak is dead, long live the streak.` },
-  { when: (f) => f.totalStars === 0 && f.repoCount >= 5, line: (f) => `${f.repoCount} repos, zero stars. Outsider art, technically.` },
-  { when: (f) => f.maxStars > 0 && f.maxStars >= f.totalStars * 0.9 && f.totalStars > 100, line: () => `One repo carries the entire account. It knows. It's tired.` },
-  { when: (f) => f.topLanguageShare > 0.85 && f.topLanguage !== null && f.repoCount >= 5, line: (f) => `${Math.round(f.topLanguageShare * 100)}% ${f.topLanguage}. Monogamous with a programming language. Sweet, honestly.` },
-  { when: (f) => f.emptyDescriptions >= 5, line: (f) => `${f.emptyDescriptions} repos with no description. Mystery boxes. Loot unclear.` },
-  { when: (f) => f.repoCount > 80, line: (f) => `${f.repoCount} public repos. Not a portfolio — a coping mechanism.` },
-  { when: (f) => f.repoCount <= 2 && f.accountYears > 3, line: (f) => `${Math.floor(f.accountYears)} years on GitHub, ${f.repoCount} repos. A lurker with a login.` },
+  { when: (f) => f.forkRatio > 0.7, line: (f) => `${Math.round(f.forkRatio * 100)}% forks. A museum curator with commit access.`, mild: (f) => `${Math.round(f.forkRatio * 100)}% forks. A well-stocked reference shelf.`, crispy: (f) => `${Math.round(f.forkRatio * 100)}% forks. Ctrl+C as a career arc.` },
+  { when: (f) => f.abandonedRepos >= 10, line: (f) => `${f.abandonedRepos} repos untouched for a year+. A graveyard with a README policy.`, mild: (f) => `${f.abandonedRepos} quiet repos. They are resting.`, crispy: (f) => `${f.abandonedRepos} abandoned repos. The commit graph qualifies as a memorial garden.` },
+  { when: (f) => f.daysSinceLastPush > 365, line: () => `Last push: over a year ago. The repos have filed a missing person report.`, mild: () => `Over a year since a push. Life happens.`, crispy: () => `A year of silence. Even dependabot stopped writing.` },
+  { when: (f) => f.daysSinceLastPush > 90 && f.daysSinceLastPush <= 365, line: (f) => `${Math.round(f.daysSinceLastPush)} days since the last push. The streak is dead, long live the streak.`, mild: (f) => `${Math.round(f.daysSinceLastPush)} days since a push. A sabbatical.`, crispy: (f) => `${Math.round(f.daysSinceLastPush)} days quiet. The contribution graph looks like morse code for "later".` },
+  { when: (f) => f.totalStars === 0 && f.repoCount >= 5, line: (f) => `${f.repoCount} repos, zero stars. Outsider art, technically.`, mild: (f) => `${f.repoCount} repos, stars pending.`, crispy: (f) => `${f.repoCount} repos, zero stars. Performance art without an audience.` },
+  { when: (f) => f.maxStars > 0 && f.maxStars >= f.totalStars * 0.9 && f.totalStars > 100, line: () => `One repo carries the entire account. It knows. It's tired.`, mild: () => `One repo does the heavy lifting. A star player.`, crispy: () => `One repo carries the account like a parent at a school play.` },
+  { when: (f) => f.topLanguageShare > 0.85 && f.topLanguage !== null && f.repoCount >= 5, line: (f) => `${Math.round(f.topLanguageShare * 100)}% ${f.topLanguage}. Monogamous with a programming language. Sweet, honestly.`, mild: (f) => `${Math.round(f.topLanguageShare * 100)}% ${f.topLanguage}. Loyal.`, crispy: (f) => `${Math.round(f.topLanguageShare * 100)}% ${f.topLanguage}. The language has asked for space.` },
+  { when: (f) => f.emptyDescriptions >= 5, line: (f) => `${f.emptyDescriptions} repos with no description. Mystery boxes. Loot unclear.`, mild: (f) => `${f.emptyDescriptions} repos without descriptions. Minimalism.`, crispy: (f) => `${f.emptyDescriptions} undocumented repos. Even their author navigates by vibes.` },
+  { when: (f) => f.repoCount > 80, line: (f) => `${f.repoCount} public repos. Not a portfolio — a coping mechanism.`, mild: (f) => `${f.repoCount} public repos. Prolific.`, crispy: (f) => `${f.repoCount} repos. Not a portfolio — a cry for a monorepo.` },
+  { when: (f) => f.repoCount <= 2 && f.accountYears > 3, line: (f) => `${Math.floor(f.accountYears)} years on GitHub, ${f.repoCount} repos. A lurker with a login.`, mild: (f) => `${Math.floor(f.accountYears)} years, ${f.repoCount} repos. Quality over quantity.`, crispy: (f) => `${Math.floor(f.accountYears)} years for ${f.repoCount} repos. Geological pace. The commits are sediment.` },
   { when: (f) => f.accountYears < 1, line: () => `Account younger than most sourdough starters. Everything is still possible.` },
-  { when: (f) => f.totalStars > 10_000, line: () => `Five-digit stars and still reading roasts about yourself. Grounded. We love it.` },
+  { when: (f) => f.totalStars > 10_000, line: () => `Five-digit stars and still reading roasts about yourself. Grounded. We love it.`, mild: () => `Five-digit stars. Genuinely impressive. That is the whole roast.`, crispy: () => `Five-digit stars and here for validation from a card game. Growth.` },
   { when: (f) => f.forkRatio === 0 && f.repoCount >= 10, line: () => `Zero forks. Never once looked at someone's code and said "mine now". Suspicious levels of originality.` },
   { when: (f) => f.testRepoCount >= 1, line: () => `There's a repo literally named "test" in there. It has been "temporary" for years.` },
   { when: (f) => f.abandonedRepos >= 3, line: (f) => `${f.abandonedRepos} side projects in cryosleep. They'll be revived "next weekend".` },
   { when: (f) => f.bioCliches.length >= 2, line: (f) => `Bio contains "${f.bioCliches.join('" and "')}". The bingo card is filling in.` },
   { when: (f) => f.maxStars >= 100 && f.daysSinceLastPush < 7, line: () => `Still pushing to the popular repo. Feeding the tamagotchi. Respect.` },
   // generic fallbacks — everyone gets 3 roasts, no exceptions
-  { when: () => true, line: () => `The commit messages say "fix". Fix what? The Algorithm may never know.` },
-  { when: () => true, line: () => `Somewhere in there is a branch named "final-final-2". We both know it.` },
-  { when: () => true, line: () => `The READMEs promise a roadmap. The roadmap promises nothing.` },
+  { when: () => true, line: () => `The commit messages say "fix". Fix what? The Algorithm may never know.`, mild: () => `The commit messages are brief. Efficient.`, crispy: () => `The commit history reads "fix", "fix2", "actual fix". A trilogy.` },
+  { when: () => true, line: () => `Somewhere in there is a branch named "final-final-2". We both know it.`, mild: () => `Somewhere in there is a branch that could use a tidy.`, crispy: () => `A branch named "final-final-2" has outlived several startups.` },
+  { when: () => true, line: () => `The READMEs promise a roadmap. The roadmap promises nothing.`, mild: () => `The READMEs are optimistic. Keep them that way.`, crispy: () => `The README says "coming soon". The repo's birthday disagrees.` },
 ];
+
+/** First 3 matching lines at the requested heat (tier falls back to medium). */
+export function pickRoasts(facts: RoastFacts, heat: Heat = "medium"): string[] {
+  return ROAST_LINES.filter((r) => r.when(facts))
+    .slice(0, 3)
+    .map((r) => (heat === "mild" ? (r.mild ?? r.line) : heat === "crispy" ? (r.crispy ?? r.line) : r.line)(facts));
+}
 
 // ---------------------------------------------------------------- Stats
 

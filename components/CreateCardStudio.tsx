@@ -321,7 +321,12 @@ function SourceChip({ label, state }: { label: string; state: boolean | null }) 
   );
 }
 
-export default function CreateCardStudio() {
+export default function CreateCardStudio({
+  initialHandle,
+}: {
+  /** Prefill from the roast funnel (/create?gh=handle). */
+  initialHandle?: string;
+} = {}) {
   const savedRaw = useSyncExternalStore(
     subscribeStore,
     getSavedCommunityCardSnapshot,

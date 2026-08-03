@@ -20,7 +20,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function CreatePage() {
+export default async function CreatePage({ searchParams }: { searchParams: Promise<{ gh?: string }> }) {
+  const { gh } = await searchParams;
   return (
     <main className="mx-auto w-full max-w-5xl flex-1 px-3 py-8 sm:px-6">
       <header className="mb-6 text-center">
@@ -31,7 +32,7 @@ export default function CreatePage() {
           Rate yourself. The Algorithm has final say.
         </p>
       </header>
-      <CreateCardStudio />
+      <CreateCardStudio initialHandle={gh} />
     </main>
   );
 }

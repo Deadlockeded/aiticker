@@ -18,6 +18,7 @@ import Masthead from "./Masthead";
 import NextDrop from "./NextDrop";
 import MetaStrip from "./MetaStrip";
 import PackRipper from "./PackRipper";
+import RoastTeaser from "./RoastTeaser";
 import TodayMeta from "./TodayMeta";
 
 type HomeState = "ceremony" | "packs" | "index";
@@ -73,6 +74,7 @@ function IndexSections({
   return (
     <>
       {children}
+      <RoastTeaser />
       <NextDrop />
       <MetaStrip />
       <div className="grid gap-4 md:grid-cols-[280px_1fr]">
@@ -149,9 +151,19 @@ export default function HomePage({
       </div>
       <div className={ceremony ? "w-full" : "hidden"}>
         {ceremony && !ripBusy && (
-          <p className="mt-2 text-center font-mono text-[12px] uppercase tracking-[0.3em] text-[#5A6E5E]">
-            Tap to rip your first pack.
-          </p>
+          <>
+            <p className="mt-2 text-center font-mono text-[12px] uppercase tracking-[0.3em] text-[#5A6E5E]">
+              Tap to rip your first pack.
+            </p>
+            <p className="mt-4 text-center">
+              <a
+                href="/roast"
+                className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#9CB09E] underline underline-offset-4 hover:text-[#B23A2E]"
+              >
+                or get roasted first →
+              </a>
+            </p>
+          </>
         )}
       </div>
       {!ceremony && (

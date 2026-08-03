@@ -10,7 +10,6 @@ const nextConfig: NextConfig = {
       { source: "/guess", destination: "/", permanent: true },
       { source: "/tiers", destination: "/", permanent: true },
       { source: "/leaderboard", destination: "/", permanent: true },
-      { source: "/roast", destination: "/create", permanent: true },
     ];
   },
   images: {

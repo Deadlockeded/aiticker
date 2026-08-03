@@ -283,6 +283,51 @@ test("drops: unreleased Series 1.5 cards are hidden everywhere", async ({ page }
   await expect(page.getByText("Ian Goodfellow")).not.toBeVisible();
 });
 
+const GH_MOCK = {
+  user: { login: "octomock", public_repos: 12, bio: "building in stealth", created_at: "2019-01-01T00:00:00Z" },
+  repos: Array.from({ length: 12 }, (_, i) => ({
+    name: i < 4 ? `test-${i}` : `repo-${i}`,
+    fork: i % 3 === 0,
+    stargazers_count: i === 2 ? 400 : 0,
+    pushed_at: "2024-01-01T00:00:00Z",
+    language: "TypeScript",
+    description: i % 2 ? null : "a repo",
+  })),
+};
+
+const mockGitHub = (page: Page) =>
+  page.route("https://api.github.com/**", (route) => {
+    const url = route.request().url();
+    const body = url.includes("/repos") ? GH_MOCK.repos : GH_MOCK.user;
+    return route.fulfill({ json: body });
+  });
+
+test("roast: heat dial, receipt with serial + stamp, funnel", async ({ page }) => {
+  await mockGitHub(page);
+  await page.goto("/roast");
+  await expect(page.getByPlaceholder("octocat")).toBeFocused();
+  await page.getByRole("button", { name: "Extra Crispy" }).click();
+  await page.getByPlaceholder("octocat").fill("octomock");
+  await page.getByRole("button", { name: "Roast me" }).click();
+  await expect(page.getByText("Roast receipt")).toBeVisible();
+  await expect(page.getByText(/Roast Nº \d+/)).toBeVisible();
+  await expect(page.getByText("Prepared: Extra Crispy")).toBeVisible();
+  // the funnel carries the handle
+  await expect(page.getByRole("link", { name: "Get your card" })).toHaveAttribute(
+    "href",
+    /create\?gh=octomock/,
+  );
+});
+
+test("roast burn link: friend's receipt + avenge CTA", async ({ page }) => {
+  await mockGitHub(page);
+  await page.goto("/roast?burn=octomock&heat=mild");
+  await expect(page.getByText("You've been roasted.")).toBeVisible();
+  await expect(page.getByText("Prepared: mild")).toBeVisible();
+  await page.getByRole("button", { name: "Avenge yourself →" }).click();
+  await expect(page.getByPlaceholder("octocat")).toBeFocused();
+});
+
 test("about + how it works render", async ({ page }) => {
   await page.goto("/howto");
   await expect(page.getByRole("heading", { name: "How it works" })).toBeVisible();
