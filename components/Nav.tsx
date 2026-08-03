@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import AuthMenu from "./AuthMenu";
 import LevelPill from "./LevelPill";
 import { TapeChip } from "./Logo";
 
@@ -49,6 +50,7 @@ export default function Nav() {
           </div>
           <div className="flex-1 md:hidden" />
           <LevelPill />
+          <AuthMenu />
           <Link
             href="/create"
             className="shrink-0 border-2 border-[#17301F] bg-[#B23A2E] px-3.5 py-1 font-display text-[13px] uppercase text-[#F4F7F0] shadow-[3px_3px_0_#17301F] transition-colors hover:bg-[#8E2E24]"

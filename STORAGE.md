@@ -18,6 +18,7 @@ is kept so existing collectors' data survives — do not "fix" it.
 | `ai-index:reroll:v1` | `{date, used}` | `lib/create.ts` | Rarity re-roll allowance (3/day). |
 | `ai-index:onboarding:v1` | `{pack?, binder?, nudge?, arena?}` booleans | `lib/onboarding.ts` | First-run caption flags — each shown once ever. |
 | `ai-index:storage-version` | number as string | `lib/storage.ts` | Migration cursor. v3 current. |
+| `ai-index:sync-nudge:v1` | "1" when dismissed | `components/SyncNudge.tsx` | One-time save-progress nudge. |
 
 ## sessionStorage (per-tab cache, intentionally outside `lib/storage.ts`)
 

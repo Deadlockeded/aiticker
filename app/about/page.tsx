@@ -95,6 +95,10 @@ export default function AboutPage() {
             and complaining about the card is, however, extremely card
             behavior.
           </p>
+          <p>
+            § Playing needs no account. If you choose to sign in, we store
+            your collection and nothing else.
+          </p>
           <p>§ The Wrapper card is autobiographical.</p>
         </div>
 
