@@ -9,7 +9,14 @@ import TradingCard from "./TradingCard";
 import DeckStack from "./DeckStack";
 import PeekableBack from "./PeekableBack";
 import { useRouter } from "next/navigation";
-import { consumePeekGuard, getBinderSnapshot, parseBinder, subscribeStore } from "@/lib/binder";
+import {
+  consumePeekGuard,
+  getBinderSnapshot,
+  getPeekSnapshot,
+  parseBinder,
+  parsePeek,
+  subscribeStore,
+} from "@/lib/binder";
 import { getSpotlightCard } from "@/lib/daily";
 
 const subscribeNever = () => () => {};
@@ -63,6 +70,13 @@ export default function CardGrid({
     () => getSpotlightCard(cards)?.id ?? "",
     () => "",
   );
+  const peekRaw = useSyncExternalStore(subscribeStore, getPeekSnapshot, () => null);
+  // "revealed" = pulled or peeked — a wall of backs is a challenge, not a bug
+  const revealed = useMemo(() => {
+    const ids = new Set(owned);
+    if (peekRaw) for (const id of parsePeek(peekRaw).ids) ids.add(id);
+    return ids.size;
+  }, [owned, peekRaw]);
 
   const visible = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -138,6 +152,9 @@ export default function CardGrid({
             {effectiveView === "deck" ? "▦" : "🂠"}
           </button>
         </div>
+        <p className="tnum mt-1.5 px-1 font-mono text-[10px] uppercase tracking-[0.2em] text-[#9AA0AC]">
+          You&apos;ve revealed {revealed} of {cards.length}
+        </p>
       </div>
 
       {visible.length === 0 ? (

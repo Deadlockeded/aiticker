@@ -20,6 +20,7 @@ import { addXP, XP_REWARDS } from "@/lib/xp";
 import { getRandomQuip } from "@/lib/daily";
 import { checkAchievements } from "@/lib/achievements";
 import { readOnboarding, stampOnboarding } from "@/lib/onboarding";
+import CardBackFace from "./CardBackFace";
 import TradingCard from "./TradingCard";
 import DeckStack from "./DeckStack";
 import EditorCaption from "./EditorCaption";
@@ -113,26 +114,14 @@ function PackGraphic({
   );
 }
 
-function CardBack() {
+/** Pre-flip back: the shared card back in anonymous mode — nothing spoils the pull. */
+function CardBack({ card }: { card: MarketCard }) {
   return (
-    <div className="absolute inset-0 overflow-hidden rounded-xl border border-[#1E2430]/40 bg-gradient-to-b from-slate-900 via-indigo-950 to-slate-950 [backface-visibility:hidden]">
-      <div
-        className="absolute inset-0 opacity-30"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(45deg, rgba(255,255,255,0.06) 0 2px, transparent 2px 14px)",
-        }}
-      />
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
-        <div className="mythic-border rounded-full p-[2px]">
-          <div className="flex h-14 w-14 items-center justify-center rounded-full bg-slate-950">
-            <span className="font-mono text-lg font-black text-[#1E2430]">AI</span>
-          </div>
-        </div>
-        <span className="font-mono text-[9px] uppercase tracking-[0.4em] text-[#9AA0AC]">
-          Tap to reveal
-        </span>
-      </div>
+    <div className="absolute inset-0 [backface-visibility:hidden]">
+      <CardBackFace card={card} anonymous />
+      <span className="pointer-events-none absolute inset-x-0 bottom-2 text-center font-mono text-[9px] uppercase tracking-[0.4em] text-[#9AA0AC]">
+        Tap to reveal
+      </span>
     </div>
   );
 }
@@ -338,7 +327,7 @@ export default function PackRipper({
                     transform: flipped[i] ? "rotateY(180deg)" : "rotateY(0deg)",
                   }}
                 >
-                  <CardBack />
+                  <CardBack card={card} />
                   <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)]">
                     <TradingCard card={card} rank={ranks[card.id]} />
                     {shimmering === i && (
