@@ -17,6 +17,9 @@ is kept so existing collectors' data survives — do not "fix" it.
 | `ai-index:rituals:v1` | `{visit?: dayKey, round?: weekKey}` | `lib/rituals.ts` | Idempotency stamps for the daily visit stipend and RAISE A ROUND. |
 | `ai-index:royalties:v1` | `string[]` of claimed trigger dates | `lib/royalties.ts` | Rolling 60; synced (union) via the Supabase blob so claims never double. |
 | `ai-index:roasts:v1` | `{day: dayKey, used: number}` | `lib/roasts.ts` | Daily roast quota (5 free/UTC day). Burn links never spend it. |
+| `ai-index:custody:v1` | `{prompted, nudged: {rare, returning}}` | `lib/custody.ts` | Custody Desk prompt memory: sheet once, two nudges ever. Absorbs legacy `ai-index:sync-nudge:v1`. |
+| `ai-index:gh-handle:v1` | `string` | `lib/custody.ts` | GitHub username captured at sign-in; prefills handle inputs (editable). |
+| `ai-index:synced-at:v1` | epoch ms string | `lib/custody.ts` | Last successful cloud push — the "synced 2m ago" menu label. |
 | `ai-index:cap-table:v1` | `{week, investor, amount}[]` (max 10) | `lib/rituals.ts` | The fictional cap table — past claimed rounds, newest last. |
 | `ai-index:binder-visit:v1` | epoch ms as string | `components/BinderPages.tsx` | Previous visit timestamp, powers NEW tags. |
 | `ai-index:community-card:v1` | `CommunityCard` JSON | `lib/create.ts` | The saved prospect card. |

@@ -21,8 +21,25 @@ const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
 export const authEnabled = Boolean(url && anonKey);
 
+/**
+ * TEST SEAM: Playwright injects `window.__aitickerSupaMock` (a minimal
+ * client double) so the custody flows can run against the env-var-less
+ * production build. Real builds without the mock behave exactly as the
+ * env flag says — the mock is inert unless a test plants it.
+ */
+type MaybeMocked = Window & { __aitickerSupaMock?: SupabaseClient };
+
+export function isAuthEnabled(): boolean {
+  if (authEnabled) return true;
+  return typeof window !== "undefined" && Boolean((window as MaybeMocked).__aitickerSupaMock);
+}
+
 let client: SupabaseClient | null = null;
 export function getSupabase(): SupabaseClient | null {
+  if (typeof window !== "undefined") {
+    const mock = (window as MaybeMocked).__aitickerSupaMock;
+    if (mock) return mock;
+  }
   if (!authEnabled) return null;
   if (!client) client = createClient(url!, anonKey!);
   return client;
@@ -105,10 +122,14 @@ export function mergeStates(local: CollectorState, cloud: Partial<CollectorState
   };
 }
 
-/** Pull cloud state, merge with local, write BOTH. Silent on failure. */
-export async function pullAndMerge(userId: string): Promise<void> {
+/**
+ * Pull cloud state, merge with local, write BOTH. Silent on failure.
+ * Returns the merged card count (distinct cards) for the arrival toast,
+ * or null when the merge could not run.
+ */
+export async function pullAndMerge(userId: string): Promise<number | null> {
   const supa = getSupabase();
-  if (!supa) return;
+  if (!supa) return null;
   try {
     const { data } = await supa
       .from("profiles")
@@ -118,8 +139,10 @@ export async function pullAndMerge(userId: string): Promise<void> {
     const merged = mergeStates(readLocalState(), (data?.state as CollectorState) ?? null);
     writeLocalState(merged);
     await pushState(userId);
+    return Object.keys(merged.binder).length;
   } catch {
     // offline / RLS hiccup — local play continues untouched
+    return null;
   }
 }
 

@@ -31,16 +31,30 @@ binder/XP/achievements/arena record — the collection and nothing else.
 
 ## 2. Enable the two sign-in methods (no passwords)
 
-- **Auth → Sign In / Up → Email**: leave enabled; turn OFF "Confirm
-  password" flows — we only use magic links (OTP), which work out of the
-  box.
-- **Auth → Sign In / Up → Google**: toggle on. You need a Google OAuth
-  client (Google Cloud Console → Credentials → OAuth client ID → Web):
-  - Authorized redirect URI: `https://<your-project-ref>.supabase.co/auth/v1/callback`
-  - Paste the client ID + secret into the Supabase Google provider form.
+- **GitHub OAuth (primary)** — Auth → Sign In / Up → GitHub: toggle on.
+  You need a GitHub OAuth app (github.com → Settings → Developer settings
+  → OAuth Apps → New):
+  - Homepage URL: `https://aiticker.xyz`
+  - Authorization callback URL:
+    `https://<your-project-ref>.supabase.co/auth/v1/callback`
+  - Paste the Client ID + a generated Client Secret into the Supabase
+    GitHub provider form. The app captures the GitHub username on sign-in
+    and prefills roast/scout/ship/arena handle inputs with it.
+- **Email OTP (secondary)** — Auth → Sign In / Up → Email: leave enabled.
+  The app calls `signInWithOtp` + `verifyOtp` with the 6-digit code — NO
+  magic links anywhere. In the email template ("Magic Link"), make sure
+  `{{ .Token }}` (the code) is present; remove the link if you want to be
+  strict. Rationale: codes survive in-app webviews (WhatsApp/Instagram)
+  where a magic link opens in another browser and strands the session in
+  the wrong localStorage.
 - **Auth → URL Configuration**: set Site URL to `https://aiticker.xyz`
   and add `https://aiticker.vercel.app` + `http://localhost:3000` to
-  Additional Redirect URLs.
+  Additional Redirect URLs (used by the GitHub OAuth redirect).
+
+> ⚠️ Supabase's built-in email sender is rate-limited (a few messages an
+> hour) — fine for testing, not for launch. Configure custom SMTP
+> (Auth → SMTP Settings; e.g. Resend/Postmark free tier) before promoting
+> the save system widely. Separate task.
 
 ## 3. Wire the keys into Vercel
 

@@ -8,6 +8,7 @@ import { compatibility, shipBars, shipReading, type ShipBar } from "@/lib/shipme
 import { SHARE } from "@/lib/tokens";
 import Avatar, { initialsOf, shipAvatarUrl } from "./Avatar";
 import ShareButton from "./ShareButton";
+import { usePrefillHandle } from "./useSavedHandle";
 import { brandFonts, canShareFiles, canvasBlob, drawLogoMark, sharePng, type ShareOutcome } from "@/lib/share";
 import TradingCard from "./TradingCard";
 
@@ -157,6 +158,9 @@ export default function ShipMeterView({
 }) {
   const [inputA, setInputA] = useState(initialA ?? "");
   const [inputB, setInputB] = useState(initialB ?? "");
+
+  // GitHub-linked collectors ship themselves first (handle one, editable)
+  usePrefillHandle((saved) => setInputA((h) => h || saved));
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [pair, setPair] = useState<{ a: ScoredProfile; b: ScoredProfile; cached: boolean } | null>(null);

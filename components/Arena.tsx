@@ -19,6 +19,7 @@ import { computePurse, type Purse } from "@/lib/economy";
 import { formatTicks } from "@/lib/market";
 import { grantTicks } from "@/lib/wallet";
 import { checkAchievements, unlockArtifactWin } from "@/lib/achievements";
+import { getSavedHandleSnapshot } from "@/lib/custody";
 import { computeCommunityRating, toMarketCard } from "@/lib/create";
 import { readOnboarding, stampOnboarding } from "@/lib/onboarding";
 import { getScoredProfile, ScoreError } from "@/lib/score";
@@ -36,6 +37,7 @@ import {
 import { cardMetaValues, getDailyMeta, profileMetaValues, type MetaKey } from "@/lib/meta";
 import CardArt from "./CardArt";
 import { Button } from "./ui";
+import { usePrefillHandle } from "./useSavedHandle";
 import DeckStack from "./DeckStack";
 import EditorCaption from "./EditorCaption";
 import TradingCard from "./TradingCard";
@@ -273,6 +275,10 @@ export default function Arena({
   const [chaos, setChaos] = useState(false);
   const [handleInput, setHandleInput] = useState("");
   const [handleOpen, setHandleOpen] = useState(false);
+  // GitHub-linked collectors get their own handle staged as the opponent
+  usePrefillHandle((saved) => setHandleInput((h) => h || saved));
+  const linkedHandle =
+    useSyncExternalStore(subscribeStore, getSavedHandleSnapshot, () => null) ?? "";
   const [passes, setPasses] = useState(0);
   // The dealer's session nonce. 0 = the deterministic opening deck (same for
   // everyone on a given day, hydration-safe); NEW OPPONENT and deck exhaustion
@@ -764,21 +770,34 @@ export default function Arena({
                       )}
                     </>
                   ) : (
-                    <TradingCard
-                      card={toMarketCard({
-                        name: fighter.side.label.replace(/^@/, ""),
-                        title: "",
-                        photo: fighter.side.avatar,
-                        sliders: fighter.side.stats,
-                        rating: fighter.side.rating,
-                        rarity: "rare",
-                        createdAt: "",
-                        scored: true,
-                        handle: fighter.side.label.replace(/^@/, ""),
-                      })}
-                      rank={0}
-                      community
-                    />
+                    <>
+                      <TradingCard
+                        card={toMarketCard({
+                          name: fighter.side.label.replace(/^@/, ""),
+                          title: "",
+                          photo: fighter.side.avatar,
+                          sliders: fighter.side.stats,
+                          rating: fighter.side.rating,
+                          rarity: "rare",
+                          createdAt: "",
+                          scored: true,
+                          handle: fighter.side.label.replace(/^@/, ""),
+                        })}
+                        rank={0}
+                        community
+                      />
+                      {/* the GitHub-linked collector's own handle fights
+                          under a confirmed identity */}
+                      {linkedHandle &&
+                        fighter.side.label.replace(/^@/, "").toLowerCase() ===
+                          linkedHandle.toLowerCase() && (
+                          <p className="mt-1.5 text-center">
+                            <span className="micro inline-flex items-center gap-1 rounded-full bg-teal-tint px-2 py-0.5 text-[9px] font-semibold text-teal">
+                              ✓ Identity confirmed by commit history
+                            </span>
+                          </p>
+                        )}
+                    </>
                   )}
                 </div>
               );

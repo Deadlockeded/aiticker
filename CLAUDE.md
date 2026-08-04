@@ -88,6 +88,7 @@ clamp) → git commit. See PIPELINE.md. Never zero a stat on fetch failure.
 - `packs.ts`/`editions.ts` — odds (`CATEGORY_ODDS`: agi 0.1%, artifacts 35%…), serials. `pullPackFor` seeds a fresh profile's first two packs from (UTC date + pack number) — incognito fishing gets identical pulls; interim until Supabase server-side inventory (README-AUTH.md).
 - `score.ts` — client-side GitHub/HF/HN scoring for Get Rated (sessionStorage cache), `getRoastFacts`. NO LinkedIn, ever.
 - `roasts.ts` — the roast quota: 5 free per UTC day, spent only on successful own roasts (burn links exempt). Gating card-vs-GitHub arena fights is decided but unpicked (mechanism TBD).
+- `custody.ts` — THE CUSTODY DESK rules: sheet once (after first pack, binder only), two nudges ever, GitHub handle capture for prefills, sync timestamps. UI in AuthMenu/CustodyPrompt/SyncNudge; vocabulary is save/keep/custody — never account/sign up. Test seam: `window.__aitickerSupaMock` (lib/sync.ts).
 - `lines.ts` — ALL joke copy: roast lines, verdicts, stamps, stat tiers/definitions.
 - `share.ts` — Web Share API w/ files + download fallback, `brandFonts()` for canvas exports.
 - `onboarding.ts` — first-run caption flags (~6 one-liners, each shown once).

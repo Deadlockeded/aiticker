@@ -686,3 +686,199 @@ test("royalties: selling a paying artifact asks for a second tap", async ({ page
   await sell.click();
   await expect(page.getByRole("button", { name: /Sure\?/ })).toBeVisible();
 });
+
+// ---------------------------------------------------------------------------
+// THE CUSTODY DESK — save system. The production build ships without
+// Supabase env vars, so these tests inject `window.__aitickerSupaMock`
+// (the documented test seam in lib/sync.ts): a minimal client double that
+// drives the same code paths as the real SDK. No network, ever.
+// ---------------------------------------------------------------------------
+
+/** Inject the Supabase mock. cloudCards become the cloud-side binder. */
+const mockSupabase = (
+  page: Page,
+  opts: { signedIn?: boolean; cloudCards?: string[] } = {},
+) =>
+  page.addInitScript((o: { signedIn?: boolean; cloudCards?: string[] }) => {
+    const now = new Date().toISOString();
+    const cloudState = {
+      binder: Object.fromEntries(
+        (o.cloudCards ?? []).map((id) => [
+          id,
+          { copies: 1, firstPulledAt: now, lastPulledAt: now },
+        ]),
+      ),
+      xp: 0,
+      achievements: [],
+      battle: { current: 0, best: 0, wins: 0, losses: 0, giantSlain: false },
+    };
+    const user = {
+      id: "mock-user-1",
+      email: "collector@example.com",
+      user_metadata: { user_name: "octocat", avatar_url: "" },
+    };
+    type Listener = (event: string, session: { user: typeof user } | null) => void;
+    const listeners: Listener[] = [];
+    let session: { user: typeof user } | null = o.signedIn ? { user } : null;
+    const fire = (event: string) => listeners.forEach((cb) => cb(event, session));
+    (window as unknown as Record<string, unknown>).__aitickerSupaMock = {
+      auth: {
+        getSession: async () => ({ data: { session } }),
+        onAuthStateChange: (cb: Listener) => {
+          listeners.push(cb);
+          return { data: { subscription: { unsubscribe() {} } } };
+        },
+        signInWithOAuth: async () => {
+          session = { user };
+          fire("SIGNED_IN");
+          return { data: {}, error: null };
+        },
+        signInWithOtp: async () => ({ data: {}, error: null }),
+        verifyOtp: async ({ token }: { token: string }) => {
+          if (token !== "123456") return { data: {}, error: { message: "bad code" } };
+          session = { user: { ...user, user_metadata: {} } };
+          fire("SIGNED_IN");
+          return { data: {}, error: null };
+        },
+        signOut: async () => {
+          session = null;
+          fire("SIGNED_OUT");
+          return { error: null };
+        },
+      },
+      from: () => ({
+        select: () => ({
+          eq: () => ({ maybeSingle: async () => ({ data: { state: cloudState } }) }),
+        }),
+        upsert: async () => ({ error: null }),
+      }),
+    };
+  }, opts);
+
+test("custody: flag off = zero auth UI anywhere", async ({ page }) => {
+  await blockArt(page);
+  await seedBinder(page, ["openai"]);
+  await page.goto("/binder");
+  await expect(page.getByText("Save progress")).not.toBeVisible();
+  await expect(page.getByText("Don't lose the bag.")).not.toBeVisible();
+  await page.goto("/");
+  await expect(page.getByText("Save progress")).not.toBeVisible();
+});
+
+test("custody: the desk fires after the first pack, on the binder only", async ({ page }) => {
+  await blockArt(page);
+  await mockSupabase(page);
+  // mid-reveal on /packs: no desk, ever
+  await page.goto("/packs");
+  await page.getByLabel("Rip the pack").click();
+  await page.getByLabel("Reveal the cards").click({ timeout: 10_000 });
+  await page.waitForTimeout(1800);
+  await expect(page.getByText("Don't lose the bag.")).not.toBeVisible();
+  // the binder visit after the first pack: the desk slides up once
+  await page.getByRole("button", { name: "Add to binder →" }).click();
+  await page.waitForURL("**/binder");
+  await expect(page.getByText("Don't lose the bag.")).toBeVisible({ timeout: 5000 });
+  await expect(page.getByText("mildly institutional", { exact: false })).toBeVisible();
+  // dismissing is remembered — a reload shows no sheet
+  await page.getByTestId("custody-dismiss").click();
+  await page.reload();
+  await page.waitForTimeout(2000);
+  await expect(page.getByText("Don't lose the bag.")).not.toBeVisible();
+});
+
+test("custody: GitHub path signs in, merges, prefills the handle", async ({ page }) => {
+  await blockArt(page);
+  await mockSupabase(page, { cloudCards: ["anthropic"] });
+  await seedBinder(page, ["openai"]);
+  await page.goto("/binder");
+  await expect(page.getByText("Don't lose the bag.")).toBeVisible({ timeout: 5000 });
+  await page.getByTestId("custody-github").click();
+  // merge toast counts the union: openai (local) + anthropic (cloud)
+  await expect(page.getByText("✓ 2 cards now under management.")).toBeVisible();
+  const binder = await page.evaluate(() =>
+    JSON.parse(localStorage.getItem("ai-index:binder:v1") ?? "{}"),
+  );
+  expect(Object.keys(binder).sort()).toEqual(["anthropic", "openai"]);
+  // the GitHub username was captured and prefills the roast input
+  await page.goto("/roast");
+  await expect(page.getByPlaceholder("octocat")).toHaveValue("octocat");
+  // ...and stays editable
+  await page.getByPlaceholder("octocat").fill("someone-else");
+  await expect(page.getByPlaceholder("octocat")).toHaveValue("someone-else");
+});
+
+test("custody: email OTP path — code boxes, paste, wrong code recovers", async ({ page }) => {
+  await blockArt(page);
+  await mockSupabase(page);
+  await seedBinder(page, ["openai"]);
+  await page.goto("/binder");
+  await expect(page.getByText("Don't lose the bag.")).toBeVisible({ timeout: 5000 });
+  await page.getByTestId("custody-email").click();
+  await page.getByPlaceholder("you@example.com").fill("collector@example.com");
+  await page.getByTestId("custody-send-code").click();
+  await expect(page.getByText("Enter the wire confirmation code.")).toBeVisible();
+  await expect(page.getByText("Not a real wire.", { exact: false })).toBeVisible();
+  // a wrong code errors and clears
+  await page.getByLabel("Digit 1").fill("000000");
+  await expect(page.getByText(/didn't clear/)).toBeVisible();
+  // paste the right code into the first box — distributes and verifies
+  await page.getByLabel("Digit 1").fill("123456");
+  await expect(page.getByText(/now under management/)).toBeVisible();
+});
+
+test("custody: two nudges ever, dismissals remembered, then silence", async ({ page }) => {
+  await blockArt(page);
+  await mockSupabase(page);
+  // a rare+ card owned, desk already dismissed, and a prior visit stamped
+  await seedBinder(page, ["noam-shazeer"]);
+  await page.addInitScript(() => {
+    // init scripts re-run on every navigation — seed only when absent so
+    // dismissals recorded during the test survive reloads
+    if (!localStorage.getItem("ai-index:custody:v1")) {
+      localStorage.setItem(
+        "ai-index:custody:v1",
+        JSON.stringify({ prompted: true, nudged: { rare: false, returning: false } }),
+      );
+    }
+    if (!localStorage.getItem("ai-index:binder-visit:v1")) {
+      localStorage.setItem("ai-index:binder-visit:v1", String(Date.now() - 86_400_000));
+    }
+  });
+  await page.goto("/binder");
+  const rareNudge = page.getByTestId("custody-nudge-rare");
+  await expect(rareNudge).toBeVisible();
+  await expect(rareNudge).toContainText("Still self-custodying? Bold.");
+  await rareNudge.getByLabel("Dismiss").click();
+  await expect(rareNudge).not.toBeVisible();
+  // next visit: the OTHER nudge, once
+  await page.reload();
+  const returnNudge = page.getByTestId("custody-nudge-returning");
+  await expect(returnNudge).toBeVisible();
+  await expect(returnNudge).toContainText("survived the night");
+  await returnNudge.getByLabel("Dismiss").click();
+  // both spent: silence forever
+  await page.reload();
+  await page.waitForTimeout(1200);
+  await expect(page.getByTestId("custody-nudge-rare")).not.toBeVisible();
+  await expect(page.getByTestId("custody-nudge-returning")).not.toBeVisible();
+});
+
+test("custody: withdraw signs out and local state survives", async ({ page }) => {
+  await blockArt(page);
+  await mockSupabase(page, { signedIn: true });
+  await seedBinder(page, ["openai", "nvidia"]);
+  await page.goto("/binder");
+  // signed in: no desk, no nudges, avatar menu instead
+  await page.waitForTimeout(1800);
+  await expect(page.getByText("Don't lose the bag.")).not.toBeVisible();
+  await page.getByTitle("collector@example.com").click();
+  await expect(page.getByText("Assets under management")).toBeVisible();
+  await page.getByRole("button", { name: "Withdraw to self-custody" }).click();
+  await expect(page.getByText("a lifestyle, not an exit", { exact: false })).toBeVisible();
+  await page.getByTestId("confirm-withdraw").click();
+  await expect(page.getByText("Save progress")).toBeVisible();
+  const binder = await page.evaluate(() =>
+    JSON.parse(localStorage.getItem("ai-index:binder:v1") ?? "{}"),
+  );
+  expect(Object.keys(binder).sort()).toEqual(["nvidia", "openai"]);
+});

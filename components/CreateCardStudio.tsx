@@ -49,6 +49,8 @@ function ShipMeterInline({ handle }: { handle: string }) {
   );
 }
 import TradingCard from "./TradingCard";
+import { getSavedHandleSnapshot } from "@/lib/custody";
+import { usePrefillHandle } from "./useSavedHandle";
 
 const RARITY_COLORS: Record<Rarity, [string, string]> = {
   common: ["#3f3f46", "#131316"],
@@ -357,6 +359,11 @@ export default function CreateCardStudio({
   const [rerollsLeft, setRerollsLeft] = useState<number | null>(null);
   const [shareMode, setShareMode] = useState<ShareOutcome | null>(null);
 
+  // GitHub-linked collectors arrive with their handle in the box (editable)
+  usePrefillHandle((saved) => setGhHandle((h) => h || saved));
+  const linkedHandle =
+    useSyncExternalStore(subscribeStore, getSavedHandleSnapshot, () => null) ?? "";
+
   if (savedRaw === null) {
     return (
       <p className="py-24 text-center micro text-xs tracking-[0.3em] text-ink3">
@@ -476,6 +483,15 @@ export default function CreateCardStudio({
                 {saved.stamp}
               </p>
             )}
+            {/* GitHub-linked AND this is their own handle: the card is
+                officially theirs — small chip, big implications */}
+            {saved.handle &&
+              linkedHandle &&
+              saved.handle.toLowerCase() === linkedHandle.toLowerCase() && (
+                <p className="mt-2 inline-flex items-center gap-1 rounded-full bg-teal-tint px-2 py-0.5 micro text-[10px] font-semibold text-teal">
+                  ✓ Identity confirmed by commit history
+                </p>
+              )}
             {saved.verdict && (
               <p className="mt-2 text-base italic text-ink2">
                 “{saved.verdict}”

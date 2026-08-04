@@ -16,6 +16,7 @@ import {
 } from "@/lib/roasts";
 import { getRoastFacts, ScoreError } from "@/lib/score";
 import { ButtonLink } from "./ui";
+import { usePrefillHandle } from "./useSavedHandle";
 import { brandFonts, canShareFiles, canvasBlob, drawLogoMark, sharePng, type ShareOutcome } from "@/lib/share";
 
 const HEATS: { id: Heat; label: string }[] = [
@@ -145,6 +146,9 @@ export default function RoastStudio({
   useEffect(() => {
     if (!initialBurn) inputRef.current?.focus();
   }, [initialBurn]);
+
+  // GitHub-linked collectors get their own handle pre-loaded (still editable)
+  usePrefillHandle((saved) => setHandle((h) => h || saved));
 
   const roast = async (h: string, asHeat: Heat, viaBurn = false) => {
     const clean = h.trim().replace(/^@/, "");
