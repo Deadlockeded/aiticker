@@ -449,7 +449,7 @@ test("raise a round: claimable once, cap table remembers, gone for the week", as
   const wallet = await page.evaluate(() =>
     JSON.parse(localStorage.getItem("ai-index:wallet:v1") ?? "{}"),
   );
-  expect([150, 200, 300, 400]).toContain(wallet.bal);
+  expect([100, 150, 200, 300]).toContain(wallet.bal);
   // a reload inside the same week must not offer it again — but the cap
   // table keeps the closed round on the books
   await page.reload();

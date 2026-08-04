@@ -67,17 +67,17 @@ test("special weeks change the amount, button and copy together", () => {
   for (const w of weeks(6)) {
     const round = generateRound(w);
     if (round.special === "down") {
-      assert.equal(round.amount, 150);
+      assert.equal(round.amount, ROUND_AMOUNTS.down);
       assert.equal(round.button, "Take it →");
       assert.equal(round.preline, "Market conditions. Their words.");
       assert.ok(round.headline.includes("reluctantly"));
     } else if (round.special === "oversub") {
-      assert.equal(round.amount, 400);
+      assert.equal(round.amount, ROUND_AMOUNTS.oversub);
       assert.equal(round.button, "Sign it all →");
       assert.ok(round.investor2 && round.investor2 !== round.investor);
       assert.ok(round.headline.includes(round.investor2!));
     } else if (round.special === "bridge") {
-      assert.equal(round.amount, 200);
+      assert.equal(round.amount, ROUND_AMOUNTS.bridge);
       assert.equal(round.button, "Shake on it →");
       assert.ok(round.headline.includes("bridge to the next bridge"));
     } else {

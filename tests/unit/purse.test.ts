@@ -2,6 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
   computePurse,
+  DAILY_VISIT_TICKS,
   DUPE_SALE_MIN,
   EARN_DAILY_CAP,
   EXCHANGE_PACK_COST,
@@ -10,6 +11,8 @@ import {
   PURSE_UPSET_MAX,
   PURSE_WIN,
 } from "../../lib/economy";
+import { ARTIFACT_BOOK } from "../../lib/market";
+import { ROUND_AMOUNTS } from "../../lib/rounds";
 import { utcWeekKey } from "../../lib/rituals";
 
 test("a loss still pays — Ticks are never staked", () => {
@@ -70,10 +73,18 @@ test("the jackpot fight pays at most one pack, and never two", () => {
 });
 
 test("the daily cap keeps any grind under two exchange packs a day", () => {
-  // worst case: capped income + both ritual grants on the same day
-  const ceiling = EARN_DAILY_CAP + 50 + 300;
+  // worst case: capped income + visit + an oversubscribed round, same day
+  const ceiling = EARN_DAILY_CAP + DAILY_VISIT_TICKS + ROUND_AMOUNTS.oversub;
   assert.ok(ceiling <= EXCHANGE_PACK_COST * 2);
   assert.ok(DUPE_SALE_MIN > 0);
+});
+
+test("no single grant outearns the cheapest card in the game", () => {
+  // the 2026-08 rebalance contract: owning a card must always beat showing
+  // up. Artifact book floors at the smallest ARTIFACT_BOOK entry.
+  const floor = Math.min(...Object.values(ARTIFACT_BOOK));
+  assert.ok(DAILY_VISIT_TICKS < floor);
+  assert.ok(PURSE_LOSS < floor);
 });
 
 test("week keys roll on Monday UTC and are stable inside a week", () => {

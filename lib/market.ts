@@ -23,17 +23,72 @@ const hashId = fnvHash;
 
 const DAY_MS = 86_400_000;
 
+/**
+ * ARTIFACT BOOK VALUES — editorial, tiered ₮60–₮350 so every card outprices
+ * every single grant (daily visit ₮25, arena loss ₮10) and royalty yields
+ * land at a sane 2–7%/day of book. The 2026-08 rebalance scaled each
+ * committed price history to these levels; the nightly pipeline walks on
+ * from there, so this map only seeds pre-pipeline forks. Tier logic:
+ * scarce real assets high, funding lore mid, memes low — The Em Dash stays
+ * the floor because it is everywhere.
+ */
+export const ARTIFACT_BOOK: Record<string, number> = {
+  // premium — the assets everyone is actually fighting over
+  "the-gpu": 350,
+  "the-compute-cluster": 320,
+  "the-exit": 300,
+  "the-valuation": 280,
+  "the-scaling-law": 260,
+  // solid — load-bearing industry furniture
+  "the-benchmark": 240,
+  "the-term-sheet": 220,
+  "the-seed-round": 210,
+  "the-token": 200,
+  "the-context-window": 190,
+  "the-jailbreak": 180,
+  // mid — the daily grind
+  "the-system-prompt": 170,
+  "the-eval": 160,
+  "the-leaderboard": 155,
+  "the-rlhf-thumbs-up": 150,
+  "the-latency": 145,
+  "the-turing-test": 140,
+  "the-whitepaper": 135,
+  "the-demo": 130,
+  "the-arxiv-timestamp": 125,
+  "the-stealth-startup": 120,
+  "the-burn-rate": 120,
+  // low — beloved but abundant
+  "ignore-previous-instructions": 115,
+  "the-off-switch": 110,
+  "the-temperature-slider": 105,
+  "vibe-coding": 100,
+  "the-pivot": 95,
+  "the-waitlist": 90,
+  "the-hallucinated-citation": 90,
+  "the-stochastic-parrot": 85,
+  "the-wrapper": 80,
+  "agi-in-two-weeks": 80,
+  "the-down-round": 75,
+  // floor — ubiquity is not value
+  "as-an-ai": 70,
+  "the-alignment-chart": 70,
+  "the-paperclip": 65,
+  "the-conference-badge": 65,
+  "the-em-dash": 60,
+};
+
 /** 30 days of prices ending today. Start price = rating × 10. */
 export function seedPriceHistory(card: Card, rating: number): PricePoint[] {
   const rand = mulberry32(hashId(card.id));
-  // artifacts are penny stocks: flat ~₮12 with a dead-looking wobble
+  // artifacts trade at their editorial book value with a sleepy wobble
   const artifact = card.type === "artifact";
   const drift = artifact ? 0 : ((rating - 75) / 99) * 0.006;
   const vol = artifact ? 0.02 : VOLATILITY[card.rarity];
 
   const today = Math.floor(Date.now() / DAY_MS) * DAY_MS;
   const points: PricePoint[] = [];
-  let price = artifact ? 12 : rating * 10;
+  let price = artifact ? (ARTIFACT_BOOK[card.id] ?? 90) : rating * 10;
   for (let i = 0; i < MARKET_DAYS; i++) {
     price *= 1 + drift + (rand() - 0.5) * 2 * vol;
     points.push({

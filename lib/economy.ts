@@ -27,7 +27,7 @@ export const EXCHANGE_PACK_COST = 500;
 
 /** Arena purses. Fighting always pays; losing pays less. Never negative. */
 export const PURSE_WIN = 75;
-export const PURSE_LOSS = 15;
+export const PURSE_LOSS = 10;
 /** Upset bonus per rating point the winner was rated BELOW the opponent. */
 export const PURSE_UPSET_PER_POINT = 8;
 export const PURSE_UPSET_MAX = 200;
@@ -41,27 +41,24 @@ export const PURSE_STREAK_BONUS: Record<number, number> = {
 };
 
 /** Once per UTC day, just for showing up. */
-export const DAILY_VISIT_TICKS = 50;
 /**
- * RAISE A ROUND: once per ISO week, ₮300 base. ~1 week in 6 is special and
- * the amount moves WITH the copy (lib/rounds.ts): down ₮150, bridge ₮200,
- * oversubscribed ₮400. Ceiling note: an oversubscribed round day tops out at
- * 650 cap + 50 visit + 400 round = ₮1,100 ≈ 2.2 packs, at most once every
- * ~6 weeks; every ordinary round day still caps at exactly 2 packs.
+ * 2026-08 rebalance: grants sit BELOW every card's book value (artifacts
+ * now floor at ₮60) — showing up must never out-earn owning a card. The
+ * weekly round amounts live with their copy in lib/rounds.ts ROUND_AMOUNTS.
  */
-export const WEEKLY_ROUND_TICKS = 300;
+export const DAILY_VISIT_TICKS = 25;
 
 /** Selling a duplicate pays this share of the card's current book price. */
 export const DUPE_SALE_RATE = 0.05;
 export const DUPE_SALE_MIN = 5;
 
 /**
- * Ceiling on clippable income (purses + dupe sales) per UTC day. Sized so a
- * grinder tops out below two Exchange Packs a day even on the week's
- * round day: 650 + 50 visit + 300 round = 1,000 = exactly 2 packs, once a
- * week; every other day caps at 700 = 1.4 packs.
+ * Ceiling on clippable income (purses + dupe sales + royalties) per UTC
+ * day. Sized so a maxed active day funds about one Exchange Pack: 500 cap
+ * + 25 visit = 525 ≈ 1.05 packs; the week's round day peaks at 500 + 25 +
+ * 200 round = 725 ≈ 1.45 packs (oversubscribed weeks: 825, ~once in 6).
  */
-export const EARN_DAILY_CAP = 650;
+export const EARN_DAILY_CAP = 500;
 
 // ---- purse math (pure, unit-tested) --------------------------------------
 

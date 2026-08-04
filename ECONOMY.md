@@ -18,14 +18,31 @@ with money, and nothing can be wagered.
 | Constant | Value | Note |
 | --- | --- | --- |
 | `EXCHANGE_PACK_COST` | ₮500 | identical contents and odds to a free pack |
-| `PURSE_WIN` / `PURSE_LOSS` | ₮75 / ₮15 | losing still pays |
+| `PURSE_WIN` / `PURSE_LOSS` | ₮75 / ₮10 | losing still pays |
 | `PURSE_UPSET_PER_POINT` / `_MAX` | ₮8 / ₮200 | per rating point below the opponent |
 | `PURSE_STREAK_BONUS` | ₮50 / ₮150 / ₮300 | at 3 / 5 / 10 consecutive wins, reset on a loss |
 | `PURSE_FIRST_WIN` | ₮100 | first win of the UTC day |
-| `DAILY_VISIT_TICKS` | ₮50 | once per UTC day, at boot |
-| `WEEKLY_ROUND_TICKS` | ₮300 | RAISE A ROUND, once per ISO week |
+| `DAILY_VISIT_TICKS` | ₮25 | once per UTC day, at boot |
+| `ROUND_AMOUNTS` (lib/rounds.ts) | ₮200 base · ₮100 down / ₮150 bridge / ₮300 oversub | RAISE A ROUND, once per ISO week |
 | `DUPE_SALE_RATE` / `_MIN` | 5% of book / ₮5 | never sells your last copy |
-| `EARN_DAILY_CAP` | ₮650 | purses + dupe sales; rituals exempt from clipping |
+| `EARN_DAILY_CAP` | ₮500 | purses + dupe sales + royalties; rituals exempt from clipping |
+
+## The 2026-08 rebalance (grants vs card value)
+
+Artifacts were flat ₮12 while the daily visit paid ₮50 — showing up
+out-earned owning a card 4×, and a losing fight (then ₮15) beat most of the
+binder. Two moves fixed the ratios:
+
+1. **Artifacts repriced** to an editorial ₮60–₮350 band (`ARTIFACT_BOOK` in
+   lib/market.ts; committed histories were scaled once, charts kept their
+   shape). Royalty yields now land at ~2–7% of book per trigger day, so
+   hold-vs-sell is a real decision.
+2. **Flat grants trimmed** (visit ₮50→25, loss ₮15→10, round base ₮300→200,
+   cap ₮650→500). Effort-based purses (win / upset / streak / first-win)
+   were untouched — playing must out-pay attendance.
+
+Contract, unit-tested in purse.test.ts: **no single grant out-earns the
+cheapest card in the game.**
 
 ## Earn-rate table
 
@@ -36,27 +53,26 @@ packs (1 per 8h, bank 2) are **on top** of everything below — these are
 
 | Pattern | Daily Ticks | Days per ₮500 pack | Earned packs/day |
 | --- | --- | --- | --- |
-| Lapsed (visit only) | 50 | 10.0 | 0.10 |
-| Casual (visit + 1 win) | 225 | 2.2 | 0.45 |
-| Casual+ (visit + 2 wins + small royalty) | ~315 | 1.6 | 0.63 |
-| **Active (visit + 4 wins w/ 3-streak + dupe + ~₮25 royalties + weekly)** | **~600** | **0.85** | **~1.2** |
-| Grinder (caps out) | 700 | 0.7 | 1.40 |
-| Grinder on round day (cap + visit + round) | 1,000–1,100 | — | ≤2.2, at most weekly |
+| Lapsed (visit only) | 25 | 20.0 | 0.05 |
+| Casual (visit + 1 win) | 200 | 2.5 | 0.40 |
+| Casual+ (visit + 2 wins + small royalty) | ~290 | 1.7 | 0.58 |
+| **Active (visit + 4 wins w/ 3-streak + dupe + ~₮25 royalties + weekly)** | **~480** | **1.05** | **~0.95** |
+| Grinder (caps out) | 525 | 0.95 | 1.05 |
+| Grinder on round day (cap + visit + round) | 725–825 | — | ≤1.65, at most weekly |
 
 ROYALTIES fold INSIDE the budget rather than stacking on it: royalty grants
-are CAPPED grants, so they consume the same ₮650/day clippable allowance as
+are CAPPED grants, so they consume the same ₮500/day clippable allowance as
 purses and dupe sales. Their own triple cap (3 copies per artifact, ₮60 per
-trigger day, 7-day lookback) keeps a typical holder at ₮10–35/day. The active
-player moves ~578 → ~600 — still ~1.2 packs/day — and the hard ceiling is
-unchanged because the ₮650 clip absorbs royalties entirely. THE FUND's +₮50
-round bonus raises the once-a-week oversubscribed ceiling to ₮1,100 ≈ 2.2
-packs — accepted drift, at most weekly, documented in economy.ts.
+trigger day, 7-day lookback) keeps a typical holder at ₮10–35/day. THE
+FUND's +₮50 round bonus raises the once-in-~6-weeks oversubscribed ceiling
+to ₮875 ≈ 1.75 packs — accepted drift, at most weekly, documented in
+economy.ts.
 
 The last row is the hard ceiling and it occurs at most once a week. Every
-other day tops out at ₮700 = 1.4 packs. The single largest possible purse —
+other day tops out at ₮525 ≈ 1.05 packs. The single largest possible purse —
 a 59-point upset, on a 10-win streak, on the day's first win — is ₮675, so
-one extraordinary fight can fund one pack; the cap stops the second.
-`tests/unit/purse.test.ts` asserts all of this.
+one extraordinary fight can fund one pack; the cap clips it to ₮500 and
+stops the second. `tests/unit/purse.test.ts` asserts all of this.
 
 Levers if this needs retuning later: `EARN_DAILY_CAP` moves the ceiling,
 `DUPE_SALE_RATE` moves the passive floor, and `EXCHANGE_PACK_COST` moves

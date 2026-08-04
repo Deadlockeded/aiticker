@@ -197,12 +197,12 @@ export function specialFor(week: string): SpecialWeek {
   return kind === 0 ? "down" : kind === 1 ? "oversub" : "bridge";
 }
 
-/** Base ₮300; special weeks change the amount WITH the copy (see economy.ts). */
+/** Base ₮200; special weeks change the amount WITH the copy (see economy.ts). */
 export const ROUND_AMOUNTS: Record<Exclude<SpecialWeek, null> | "base", number> = {
-  base: 300,
-  down: 150,
-  oversub: 400,
-  bridge: 200,
+  base: 200,
+  down: 100,
+  oversub: 300,
+  bridge: 150,
 };
 
 export function generateRound(week: string): WeeklyRound {
