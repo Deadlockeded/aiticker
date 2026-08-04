@@ -92,16 +92,18 @@ export default function CardArt({
       );
     }
     if (showImage) {
+      // FULL BLEED: the white field IS the art — the logo sits large on it,
+      // not marooned on a small floating disc
       return (
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className={`relative overflow-hidden rounded-2xl bg-white shadow-[0_8px_32px_rgba(0,0,0,0.45)] ${hero ? "h-28 w-28 p-5" : "h-[42%] w-[42%] p-[9%]"}`}>
+        <div className="absolute inset-0 bg-white">
+          <div className="absolute inset-0 m-[16%]">
             <Image
               src={card.image!}
               alt={card.name}
               fill
               priority={hero}
-              sizes={hero ? "112px" : "96px"}
-              className="object-contain p-2.5"
+              sizes={hero ? "240px" : "160px"}
+              className="object-contain"
               onError={() => setFailed(true)}
             />
           </div>

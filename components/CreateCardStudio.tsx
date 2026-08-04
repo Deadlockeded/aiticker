@@ -375,13 +375,14 @@ export default function CreateCardStudio({
         hf: hfHandle.trim() || undefined,
         hn: hnHandle.trim() || undefined,
       });
+      const scoredRating = computeCommunityRating(profile.handle, profile.stats);
       const card: CommunityCard = {
         name: profile.displayName,
         title: ratedTitle.trim(),
         photo: profile.avatarUrl,
         sliders: profile.stats,
-        rating: computeCommunityRating(profile.handle, profile.stats),
-        rarity: rollCommunityRarity(),
+        rating: scoredRating,
+        rarity: rollCommunityRarity(scoredRating),
         createdAt: new Date().toISOString(),
         scored: true,
         handle: profile.handle,
@@ -412,13 +413,14 @@ export default function CreateCardStudio({
 
   const generateManual = () => {
     if (!name.trim()) return;
+    const manualRating = computeCommunityRating(name, sliders);
     saveCommunityCard({
       name: name.trim(),
       title: title.trim(),
       photo,
       sliders,
-      rating: computeCommunityRating(name, sliders),
-      rarity: rollCommunityRarity(),
+      rating: manualRating,
+      rarity: rollCommunityRarity(manualRating),
       createdAt: new Date().toISOString(),
       scored: false,
       stamp: pickStamp({ stats: sliders, scored: false }),
@@ -433,7 +435,7 @@ export default function CreateCardStudio({
     // rarity AND stamp re-roll on the same 3/day budget — hunt responsibly
     saveCommunityCard({
       ...saved,
-      rarity: rollCommunityRarity(),
+      rarity: rollCommunityRarity(saved.rating),
       stamp: pickStamp({ stats: saved.sliders, scored: saved.scored ?? false }),
     });
   };

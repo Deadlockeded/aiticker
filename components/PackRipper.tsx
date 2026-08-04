@@ -104,7 +104,7 @@ function PeelPack({
     if (flying) return;
     setFlying(true);
     if (navigator.vibrate) navigator.vibrate(12);
-    setTimeout(onRip, 240); // let the strip clear the mouth first
+    setTimeout(onRip, 460); // let the fold finish before the tear runs
   };
 
   const onPointerDown = (e: React.PointerEvent) => {
@@ -194,7 +194,7 @@ function PeelPack({
             onPointerUp={onPointerUp}
             onPointerCancel={onPointerUp}
             className={`peel-strip zigzag-bottom absolute inset-x-0 top-0 z-10 h-11 rounded-t-[18px] ${
-              flying ? "peel-fly" : ""
+              flying ? "peel-peeled" : ""
             }`}
             style={
               // the strip shows only the TOP SLICE of the pack's gradient —
@@ -210,7 +210,10 @@ function PeelPack({
                     backgroundImage: `var(--${gold ? "foil-gold" : "foil-series1"})`,
                     backgroundSize: "100% 1000%",
                     backgroundPosition: "top",
-                    transform: `translate(${drag * 55}%, ${-drag * 110}%) rotate(${drag * 22}deg)`,
+                    // the peel: the strip folds back over its left edge as
+                    // the finger drags — foil, not a sliding sticker
+                    transformOrigin: "left center",
+                    transform: `perspective(700px) translateX(${drag * 38}%) translateY(${-drag * 8}%) rotateZ(${drag * 6}deg) rotateY(${drag * 100}deg)`,
                     transition:
                       dragging
                         ? "none"
@@ -290,8 +293,10 @@ function PullCard({
         </span>
       )}
 
-      {/* one scrim, two facts */}
-      <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/85 via-black/45 to-transparent px-2 pb-2 pt-8 text-left">
+      {/* one glass panel, two facts — frosted over the art, never a hard
+          gradient. (Unowned proof cards keep their dot veil; this blur is
+          card chrome, not the ownership system.) */}
+      <div className="absolute inset-x-0 bottom-0 z-10 border-t border-white/20 bg-black/35 px-2 pb-2 pt-2 text-left backdrop-blur-md">
         <p className="truncate font-display text-[13px] font-bold leading-tight text-white sm:text-[15px]">
           {card.name}
         </p>
@@ -632,16 +637,24 @@ export default function PackRipper({
               </EditorCaption>
             </div>
           )}
-          <div className="mx-auto flex max-w-[400px] items-center justify-center">
+          {/* VERTICAL STACK: first pull on top at full strength, each card
+              behind it slides down half a card and fades 30% per step —
+              name + rarity peek out (half the information); the full print
+              opens on tap. */}
+          <div
+            className="relative mx-auto w-[190px]"
+            style={{ height: `${270 + (pulls.length - 1) * 148}px` }}
+          >
             {pulls.map(({ card, variant }, i) => (
               <button
                 key={`${card.id}-${i}`}
                 onClick={() => setEnlarged(i)}
                 aria-label={`Enlarge ${card.name}`}
-                className="relative w-[118px] shrink-0 sm:w-[150px]"
+                className="absolute inset-x-0 transition-opacity duration-500"
                 style={{
-                  transform: `rotate(${(i - 1) * 5}deg) translateY(${i === 1 ? 0 : 8}px)`,
-                  zIndex: i === 1 ? 2 : 1,
+                  top: `${i * 148}px`,
+                  zIndex: pulls.length - i,
+                  opacity: fanned ? Math.max(0.1, 1 - i * 0.3) : 1,
                 }}
               >
                 <div className="relative aspect-[1/1.42] w-full [perspective:1200px]">

@@ -75,14 +75,30 @@ export const COMMUNITY_RARITY_ODDS: [Rarity, number][] = [
   ["legendary", 0.03],
 ];
 
-export function rollCommunityRarity(): Rarity {
+/** The best rarity a rating can print at — a 67 must never come out Epic. */
+export function rarityCapFor(rating: number): Rarity {
+  if (rating >= 90) return "legendary";
+  if (rating >= 80) return "epic";
+  if (rating >= 70) return "rare";
+  return "common";
+}
+
+const RARITY_LADDER: Rarity[] = ["common", "rare", "epic", "legendary"];
+
+export function rollCommunityRarity(rating: number): Rarity {
   const roll = Math.random();
   let cumulative = 0;
+  let rolled: Rarity = "common";
   for (const [rarity, odds] of COMMUNITY_RARITY_ODDS) {
     cumulative += odds;
-    if (roll < cumulative) return rarity;
+    if (roll < cumulative) {
+      rolled = rarity;
+      break;
+    }
   }
-  return "common";
+  // luck can only downgrade from the rating's tier, never inflate past it
+  const cap = rarityCapFor(rating);
+  return RARITY_LADDER.indexOf(rolled) > RARITY_LADDER.indexOf(cap) ? cap : rolled;
 }
 
 export const RARITY_EMOJI: Record<Rarity, string> = {

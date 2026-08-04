@@ -113,10 +113,18 @@ async function exportArenaPng(a: VsSide, b: VsSide, result: VsResult) {
     ctx.arc(x + 210, 270, 115, 0, Math.PI * 2);
     ctx.stroke();
     ctx.fillStyle = INK;
-    ctx.font = `400 44px ${fonts.display}`;
     ctx.textAlign = "center";
     ctx.textBaseline = "alphabetic";
-    ctx.fillText(side.label.slice(0, 18).toUpperCase(), x + 210, 465);
+    // fit-to-width: long names (CLÉMENT DELANGUE) shrink instead of
+    // escaping the 420px panel
+    const label = side.label.toUpperCase();
+    let nameSize = 44;
+    ctx.font = `400 ${nameSize}px ${fonts.display}`;
+    while (nameSize > 22 && ctx.measureText(label).width > 372) {
+      nameSize -= 2;
+      ctx.font = `400 ${nameSize}px ${fonts.display}`;
+    }
+    ctx.fillText(label, x + 210, 465);
     ctx.fillStyle = won ? GREEN : SECONDARY;
     ctx.font = `600 50px ${fonts.mono}`;
     ctx.fillText(String(side.rating), x + 210, 540);
@@ -449,13 +457,15 @@ export default function Arena({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const fight = (foeOverride?: Fighter) => {
+  const fight = (foeOverride?: Fighter, meOverride?: Fighter) => {
+    const activeMe = meOverride ?? me;
     const activeFoe = foeOverride ?? foe;
-    if (!me || !activeFoe) return;
+    if (!activeMe || !activeFoe) return;
+    if (meOverride) setMe(meOverride);
     if (foeOverride) setFoe(foeOverride);
-    const res = resolveArena(me.side, activeFoe.side, chaos, getDailyMeta());
+    const res = resolveArena(activeMe.side, activeFoe.side, chaos, getDailyMeta());
     setEntranceQuips([
-      me.card ? getRandomQuip(me.card) : null,
+      activeMe.card ? getRandomQuip(activeMe.card) : null,
       activeFoe.card ? getRandomQuip(activeFoe.card) : null,
     ]);
     setResult(res);
@@ -469,11 +479,11 @@ export default function Arena({
     timers.current.push(
       setTimeout(() => {
         const won = res.winner === "a";
-        const rec = recordBattle(won, won && activeFoe.side.rating >= me.side.rating + 10);
+        const rec = recordBattle(won, won && activeFoe.side.rating >= activeMe.side.rating + 10);
         // Purses only ever ADD Ticks — nothing is ever staked or lost here.
         const p = computePurse({
           won,
-          myRating: me.side.rating,
+          myRating: activeMe.side.rating,
           foeRating: activeFoe.side.rating,
           streakAfter: rec.current,
           firstWinToday: rec.firstWinToday,
@@ -482,8 +492,8 @@ export default function Arena({
         const paid = grantTicks(p.total, { reason: "arena purse", silent: true });
         setPurse({ purse: p, paid });
         addXP(won ? XP_REWARDS.battleWin : XP_REWARDS.battleLoss);
-        if (won && me.card?.type === "artifact") {
-          unlockArtifactWin(me.card);
+        if (won && activeMe.card?.type === "artifact") {
+          unlockArtifactWin(activeMe.card);
         }
         checkAchievements(cards);
         setPhase("done");
@@ -557,6 +567,16 @@ export default function Arena({
               Pick your fighter from your binder.
             </EditorCaption>
           )}
+          {/* a challenge arrived by link (?vs=) — name the stakes, then the
+              fighter pick below starts the bout instantly */}
+          {foe && !me && (
+            <div className="mb-3 rounded-[22px] bg-pink-tint p-3 text-center">
+              <p className="micro font-semibold text-pink">Challenge</p>
+              <p className="mt-0.5 text-[14px] text-ink">
+                vs {foe.side.label} ({foe.side.rating}) — pick your fighter to start
+              </p>
+            </div>
+          )}
           {/* fighter rail: one compact swipeable row so the challenger deck
               stays above the fold on a phone (this used to be a 224px-tall
               vertical list that pushed everything off-screen) */}
@@ -568,7 +588,13 @@ export default function Arena({
               {owned.map((card) => (
                 <button
                   key={card.id}
-                  onClick={() => setMe(cardFighter(card))}
+                  onClick={() => {
+                    const picked = cardFighter(card);
+                    // during setup a non-null foe can only be a pending
+                    // ?vs= challenge — picking the fighter starts the bout
+                    if (foe) fight(undefined, picked);
+                    else setMe(picked);
+                  }}
                   className={`flex w-[112px] shrink-0 flex-col items-center gap-1 rounded-lg border p-1.5 text-center transition-colors ${
                     me?.side.cardId === card.id
                       ? "border-pink bg-pink/10"
@@ -590,8 +616,20 @@ export default function Arena({
             </div>
           </div>
 
+          {/* both corners set by link (copy-challenge) — one tap to the bell */}
+          {me && foe && (
+            <div className="mx-auto mt-5 max-w-[320px] rounded-[22px] bg-surface p-4 text-center shadow-card">
+              <p className="text-[14px] text-ink">
+                {me.side.label} <span className="text-ink3">vs</span> {foe.side.label}
+              </p>
+              <Button onClick={() => fight()} className="mt-3 w-full">
+                Fight →
+              </Button>
+            </div>
+          )}
+
           {me && !foe && challengers.length > 0 && (
-            <div className="mx-auto mt-6 max-w-[280px]">
+            <div className="mx-auto mt-6 max-w-[220px]">
               <p className="mb-3 border-b border-line2 pb-1 text-center micro text-[11px] font-semibold tracking-[0.3em] text-pink">
                 The Challenger Line
               </p>
