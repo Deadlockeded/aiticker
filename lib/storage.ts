@@ -23,6 +23,7 @@ export const KEYS = {
   rituals: "ai-index:rituals:v1",
   theme: "ai-index:theme:v1",
   royalties: "ai-index:royalties:v1",
+  roasts: "ai-index:roasts:v1",
   capTable: "ai-index:cap-table:v1",
   roomsSeen: "ai-index:rooms-seen:v1",
   storageVersion: "ai-index:storage-version",

@@ -3,10 +3,19 @@
 import { SHARE } from "@/lib/tokens";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { subscribeStore } from "@/lib/binder";
 import { pickRoasts, type Heat } from "@/lib/lines";
 import { fnvHash } from "@/lib/rng";
+import {
+  FREE_ROASTS_PER_DAY,
+  getRoastQuotaSnapshot,
+  roastsLeft,
+  roastsLeftFrom,
+  spendRoast,
+} from "@/lib/roasts";
 import { getRoastFacts, ScoreError } from "@/lib/score";
+import { ButtonLink } from "./ui";
 import { brandFonts, canShareFiles, canvasBlob, drawLogoMark, sharePng, type ShareOutcome } from "@/lib/share";
 
 const HEATS: { id: Heat; label: string }[] = [
@@ -118,6 +127,9 @@ export default function RoastStudio({
   initialBurn?: string;
   initialHeat?: Heat;
 }) {
+  // the daily batch — burn links never spend it, own roasts do
+  const quotaRaw = useSyncExternalStore(subscribeStore, getRoastQuotaSnapshot, () => null);
+  const left = roastsLeftFrom(quotaRaw);
   const [handle, setHandle] = useState("");
   const [heat, setHeat] = useState<Heat>(initialHeat ?? "medium");
   const [loading, setLoading] = useState(false);
@@ -137,10 +149,13 @@ export default function RoastStudio({
   const roast = async (h: string, asHeat: Heat, viaBurn = false) => {
     const clean = h.trim().replace(/^@/, "");
     if (!clean) return;
+    if (!viaBurn && roastsLeft() <= 0) return; // gate card already showing
     setLoading(true);
     setError(null);
     try {
       const { facts } = await getRoastFacts(clean);
+      // spend only on success — a typo or GitHub outage costs nothing
+      if (!viaBurn) spendRoast();
       setReceipt({ handle: facts.handle, heat: asHeat, lines: pickRoasts(facts, asHeat) });
       setBurnMode(viaBurn);
     } catch (err) {
@@ -181,7 +196,25 @@ export default function RoastStudio({
         </div>
       )}
 
-      {!receipt && (
+      {/* the batch is gone — plain gate, funnel to earning surfaces */}
+      {!receipt && left <= 0 && (
+        <div className="surface-card p-5 text-center">
+          <p className="font-display text-xl font-bold text-ink">
+            That&apos;s five roasts today.
+          </p>
+          <p className="mt-1.5 text-[14px] text-ink2">
+            The batch resets at midnight UTC.
+          </p>
+          <div className="mt-4 flex flex-col gap-2">
+            <ButtonLink href="/arena">Fight in the Arena →</ButtonLink>
+            <ButtonLink href="/packs" tone="secondary">
+              Rip a pack →
+            </ButtonLink>
+          </div>
+        </div>
+      )}
+
+      {!receipt && left > 0 && (
         <div className="surface-card p-5">
           <label className="mb-1 block micro text-[11px] text-ink3">
             GitHub username
@@ -217,6 +250,8 @@ export default function RoastStudio({
           {error && <p className="mt-2 text-sm text-pink">{error}</p>}
           <p className="mt-3 micro text-[10px] tracking-[0.15em] text-ink3">
             Patterns, not persons. Public repos only. Affection guaranteed.
+            {left < FREE_ROASTS_PER_DAY &&
+              ` · ${left} of ${FREE_ROASTS_PER_DAY} free roasts left today`}
           </p>
         </div>
       )}

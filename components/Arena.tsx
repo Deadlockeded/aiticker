@@ -35,6 +35,7 @@ import {
 } from "@/lib/vsMapping";
 import { cardMetaValues, getDailyMeta, profileMetaValues, type MetaKey } from "@/lib/meta";
 import CardArt from "./CardArt";
+import { Button } from "./ui";
 import DeckStack from "./DeckStack";
 import EditorCaption from "./EditorCaption";
 import TradingCard from "./TradingCard";
@@ -263,6 +264,7 @@ export default function Arena({
   const [foeError, setFoeError] = useState<string | null>(null);
   const [chaos, setChaos] = useState(false);
   const [handleInput, setHandleInput] = useState("");
+  const [handleOpen, setHandleOpen] = useState(false);
   const [passes, setPasses] = useState(0);
   // The dealer's session nonce. 0 = the deterministic opening deck (same for
   // everyone on a given day, hydration-safe); NEW OPPONENT and deck exhaustion
@@ -382,6 +384,38 @@ export default function Arena({
       const { profile } = await getScoredProfile(ref.replace(/^@/, ""));
       const rating = computeCommunityRating(profile.handle, profile.stats);
       setFoe({
+        hot: false,
+        side: {
+          kind: "profile",
+          label: `@${profile.handle}`,
+          avatar: profile.avatarUrl,
+          company: false,
+          rating,
+          stats: profile.stats,
+          meta: profileMetaValues(profile.handle, profile.stats, rating),
+        },
+      });
+    } catch (err) {
+      setFoeError(err instanceof ScoreError ? err.message : "Fetch failed.");
+    } finally {
+      setFoeLoading(null);
+    }
+  };
+
+  /**
+   * Card vs GitHub, one tap: score the handle and open the bout in the same
+   * gesture. The scored fighter goes through fight()'s override path, so no
+   * interstitial "opponent locked" step ever renders.
+   */
+  const fightHandle = async (ref: string) => {
+    if (!me) return;
+    setFoeError(null);
+    setChaos(false);
+    setFoeLoading(ref);
+    try {
+      const { profile } = await getScoredProfile(ref.replace(/^@/, ""));
+      const rating = computeCommunityRating(profile.handle, profile.stats);
+      fight({
         hot: false,
         side: {
           kind: "profile",
@@ -608,53 +642,52 @@ export default function Arena({
             </div>
           )}
 
-          {/* opponent by handle — folded away until asked for */}
-          <details className="mt-3 rounded-xl border border-line bg-surface p-3">
-            <summary className="cursor-pointer micro text-[10px] text-ink3">
-              …or fight a GitHub handle
-            </summary>
-            <div className="mt-2">
-              <div className="mt-1 flex gap-2">
+          {/* THE CROSSOVER — card vs any GitHub account. A first-class
+              button, not a fold: this is the fight we want people picking.
+              Submitting goes STRAIGHT to the bout — scoring happens inside
+              the loading beat, never as a separate step. */}
+          {!handleOpen ? (
+            <div className="mt-4">
+              <Button tone="teal" className="w-full" onClick={() => setHandleOpen(true)}>
+                Fight a GitHub handle →
+              </Button>
+              <p className="mt-1.5 text-center micro text-[10px] text-ink3">
+                Any public account. Yours counts.
+              </p>
+            </div>
+          ) : (
+            <div className="mt-4 rounded-[22px] border border-line2 bg-surface p-3">
+              <p className="micro font-semibold text-teal">Card vs GitHub</p>
+              <div className="mt-2 flex gap-2">
                 <input
+                  autoFocus
                   value={handleInput}
                   onChange={(e) => setHandleInput(e.target.value)}
-                  onKeyDown={(e) => e.key === "Enter" && handleInput.trim() && loadFoe(handleInput.trim())}
-                  placeholder="…or a GitHub handle"
-                  className="min-w-0 flex-1 rounded-lg border border-line bg-surface2 px-3 py-2 text-sm text-ink placeholder-ink3 outline-none focus:border-line"
+                  onKeyDown={(e) => e.key === "Enter" && handleInput.trim() && fightHandle(handleInput.trim())}
+                  placeholder="github handle"
+                  className="min-w-0 flex-1 rounded-full bg-surface2 px-4 py-2.5 text-[16px] text-ink placeholder-ink3 outline-none ring-inset focus:ring-2 focus:ring-teal"
                 />
                 <button
-                  onClick={() => handleInput.trim() && loadFoe(handleInput.trim())}
-                  className="rounded-lg border border-line px-3 py-2 text-sm text-ink2 hover:bg-surface2"
+                  onClick={() => handleInput.trim() && fightHandle(handleInput.trim())}
+                  disabled={!me || foeLoading !== null}
+                  className="rounded-full bg-pink px-5 py-2.5 text-[16px] font-semibold text-on-accent transition-transform active:scale-[.97] disabled:pointer-events-none disabled:opacity-40"
                 >
-                  Score
+                  {foeLoading ? "…" : "Fight →"}
                 </button>
               </div>
+              {!me && (
+                <p className="mt-2 micro text-[10px] text-ink3">
+                  Pick your fighter above first.
+                </p>
+              )}
               {foeLoading && (
                 <p className="mt-2 font-mono text-[11px] text-ink3">
-                  Scoring {foeLoading}…
+                  Weighing in @{foeLoading}…
                 </p>
               )}
-              {foeError && (
-                <p className="mt-2 text-xs text-pink">{foeError}</p>
-              )}
-              {foe && (
-                <p className="mt-2 font-mono text-[11px] text-pink">
-                  Opponent locked: {foe.side.label} ({foe.side.rating})
-                  {foe.hot && ` · 🔥 +${HOT_BOOST} today`}
-                  {chaos && " · chaos mode"}
-                </p>
-              )}
-              <div className="mt-3 text-center">
-                <button
-                  onClick={() => fight()}
-                  disabled={!me || !foe}
-                  className="rounded-lg bg-pink px-8 py-2.5 text-sm font-semibold text-on-accent transition-colors hover:bg-pink disabled:cursor-not-allowed disabled:opacity-40"
-                >
-                  Fight
-                </button>
-              </div>
+              {foeError && <p className="mt-2 text-xs text-pink">{foeError}</p>}
             </div>
-          </details>
+          )}
 
         </>
       )}
