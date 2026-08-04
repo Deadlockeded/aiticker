@@ -3,6 +3,56 @@
 import { useState } from "react";
 import Image from "next/image";
 import type { Card } from "@/lib/types";
+import { fnvHash } from "@/lib/rng";
+
+
+/**
+ * THE MISSING-PORTRAIT TREATMENT. When no freely licensed image exists, the
+ * tile gets an ORIGINAL generic doodle (one shared sketch — deliberately
+ * resembling nobody, so there is no likeness to license), the initials, and
+ * a rotating caption. Captions joke about LICENSING and our print — never
+ * about the person (standing tone rules).
+ */
+const NO_PHOTO_CAPTIONS = [
+  "No freely licensed photo exists. Respect.",
+  "Portrait pending. Our sketch artist is training.",
+  "The likeness rights were not royalty-free.",
+  "Artist's impression: withheld by the artist.",
+  "Awaiting one (1) freely licensed photograph.",
+  "The reference photo wanted royalties. We declined.",
+  "Rendered from vibes, not photographs.",
+  "This space reserved for a public-domain moment.",
+];
+
+const captionFor = (id: string) =>
+  NO_PHOTO_CAPTIONS[fnvHash(`no-photo:${id}`) % NO_PHOTO_CAPTIONS.length];
+
+/** Generic bust: head + shoulders line art, initials on the face. */
+function SketchBust({ initials, hero }: { initials: string; hero: boolean }) {
+  return (
+    <svg viewBox="0 0 100 100" className={hero ? "h-44 w-44" : "h-24 w-24"} aria-hidden>
+      <circle cx="50" cy="34" r="20" fill="none" stroke="var(--ink3)" strokeWidth="3" strokeLinecap="round" strokeDasharray="2 6" />
+      <path d="M16 92 C20 66 34 60 50 60 C66 60 80 66 84 92" fill="none" stroke="var(--ink3)" strokeWidth="3" strokeLinecap="round" strokeDasharray="2 6" />
+      <text x="50" y="41" textAnchor="middle" fontSize="17" fontWeight="700" fill="var(--ink2)" fontFamily="var(--font-martian)">
+        {initials}
+      </text>
+    </svg>
+  );
+}
+
+/** Generic HQ: a doodled office nobody can claim as theirs. */
+function SketchOffice({ initials, hero }: { initials: string; hero: boolean }) {
+  return (
+    <svg viewBox="0 0 100 100" className={hero ? "h-44 w-44" : "h-24 w-24"} aria-hidden>
+      <rect x="26" y="22" width="34" height="66" rx="3" fill="none" stroke="var(--ink3)" strokeWidth="3" strokeLinecap="round" strokeDasharray="2 6" />
+      <path d="M60 44 h16 v44" fill="none" stroke="var(--ink3)" strokeWidth="3" strokeLinecap="round" strokeDasharray="2 6" />
+      <path d="M34 34 h6 M46 34 h6 M34 46 h6 M46 46 h6 M34 58 h6 M46 58 h6 M66 54 h4 M66 64 h4" stroke="var(--ink3)" strokeWidth="3" strokeLinecap="round" />
+      <text x="50" y="97" textAnchor="middle" fontSize="15" fontWeight="700" fill="var(--ink2)" fontFamily="var(--font-martian)">
+        {initials}
+      </text>
+    </svg>
+  );
+}
 
 /**
  * Card art with monogram fallback. Two shapes:
@@ -58,15 +108,33 @@ export default function CardArt({
         </div>
       );
     }
+    // artifacts keep their glyph; people and companies get the sketch
+    if (card.type === "artifact") {
+      return (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <span
+            className={`font-mono font-bold tracking-tight text-ink/35 ${
+              hero ? "text-7xl" : "text-4xl"
+            }`}
+          >
+            {card.avatar}
+          </span>
+        </div>
+      );
+    }
+    const initials = card.avatar ?? card.name.slice(0, 2).toUpperCase();
     return (
-      <div className="absolute inset-0 flex items-center justify-center">
-        <span
-          className={`font-mono font-bold tracking-tight text-ink/35 ${
-            hero ? "text-7xl" : "text-4xl"
-          }`}
+      <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 bg-surface2 px-3">
+        {card.type === "company" ? (
+          <SketchOffice initials={initials} hero={hero} />
+        ) : (
+          <SketchBust initials={initials} hero={hero} />
+        )}
+        <p
+          className={`micro text-center leading-snug text-ink3 ${hero ? "text-[10px]" : "text-[8px]"}`}
         >
-          {card.avatar}
-        </span>
+          {captionFor(card.id)}
+        </p>
       </div>
     );
   }

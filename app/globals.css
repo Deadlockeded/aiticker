@@ -391,6 +391,27 @@ h1 {
 
 /* ------------------------------------------------- pack-opening ritual ---- */
 
+/* Pack sizing: capped by SMALL viewport height so the sealed pack plus its
+   captions always fit a phone's first screen (svh accounts for browser
+   chrome; the rem line is the no-svh fallback). Height = width × 4.3/3. */
+.pack-w {
+  width: 13rem;
+  width: min(13rem, 30svh);
+}
+
+@media (min-width: 640px) {
+  .pack-w {
+    width: 15rem;
+    width: min(15rem, 34svh);
+  }
+}
+
+/* the ceremony centres in the space ABOVE the floating tab bar */
+.ceremony-h {
+  min-height: calc(100vh - 170px);
+  min-height: calc(100svh - 170px);
+}
+
 /* THE PEEL — the tear strip follows the finger across the pack mouth.
    Transform-only: progress is driven from pointer events in PeelPack and
    applied as translate/rotate, so a 60fps peel costs nothing on a phone. */

@@ -44,8 +44,8 @@ mirrored as data in `lib/tokens.ts` for the canvas/OG renderers and the
 contrast gate. Screens consume tokens only (`bg-surface`, `text-ink2`,
 `border-line`) — never raw hex.
 
-- Modes: system preference wins; NO preference defaults to dark. The manual
-  toggle persists and is applied by an inline boot script before paint.
+- Modes: first visit is LIGHT; the manual toggle persists and is applied by
+  an inline boot script before paint.
 - **GRADIENT LICENCE**: gradients appear only on sealed pack wrappers, rare+
   foil material, and the mid-rip drain. Chrome/buttons/text/borders are flat.
 - **CONTRAST CONTRACT**: `tests/unit/contrast.test.ts` asserts WCAG AA on both

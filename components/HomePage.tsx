@@ -132,15 +132,15 @@ export default function HomePage({
   // ONE stable tree: the PackRipper slot never moves between states, so
   // React reconciles (keeps rip/reveal state) instead of remounting.
   return (
-    <div className={ceremony ? "flex min-h-[75vh] flex-col items-center justify-center py-10" : ""}>
+    <div className={ceremony ? "ceremony-h flex flex-col items-center justify-center py-4" : ""}>
       <div className={ceremony ? "w-full" : "hidden"}>
         {ceremony && !ripBusy && (
-          <h1 className="mb-8 text-center text-[32px] leading-[1.08] text-ink sm:text-[40px]">
+          <h1 className="mb-5 text-center text-[30px] leading-[1.08] text-ink sm:mb-8 sm:text-[40px]">
             The AI industry is a <span className="text-pink">card game</span> now.
           </h1>
         )}
       </div>
-      <div className={showPack ? "mx-auto mb-10 w-full" : "hidden"}>
+      <div className={showPack ? (ceremony ? "mx-auto w-full" : "mx-auto mb-10 w-full") : "hidden"}>
         {showPack && (
           <PackRipper
             cards={cards}
@@ -153,10 +153,10 @@ export default function HomePage({
       <div className={ceremony ? "w-full" : "hidden"}>
         {ceremony && !ripBusy && (
           <>
-            <p className="mt-2 text-center text-[15px] text-ink2">
+            <p className="mt-3 text-center text-[15px] text-ink2">
               Peel the strip. Rip your first pack.
             </p>
-            <p className="mt-4 text-center">
+            <p className="mt-2.5 text-center">
               <a
                 href="/roast"
                 className="text-[14px] text-ink3 underline underline-offset-4 hover:text-pink"

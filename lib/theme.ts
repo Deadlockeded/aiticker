@@ -1,9 +1,8 @@
 import { KEYS, readRaw, writeRaw } from "./storage";
 
 /**
- * Colour mode. Both modes are first-class: the system preference wins, and
- * when there is NO preference we default to dark. A manual choice is
- * remembered and beats the system from then on.
+ * Colour mode. Both modes are first-class, but a first visit lands in LIGHT
+ * — the user turns dark on when they want it, and the choice is remembered.
  *
  * The applied mode lives on <html data-theme>, stamped by the inline boot
  * script in the layout before first paint — do not move that to an effect or
@@ -18,21 +17,19 @@ export const THEME_EVENT = "ai-index:theme";
 /** The boot script, inlined in <head>. Kept as a string so it can run pre-paint. */
 export const THEME_BOOT_SCRIPT = `(function(){try{
 var c=localStorage.getItem('${KEYS.theme}');
-var m=c==='light'||c==='dark'?c:(window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
+var m=c==='light'||c==='dark'?c:'light';
 document.documentElement.setAttribute('data-theme',m);
-}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();`;
+}catch(e){document.documentElement.setAttribute('data-theme','light');}})();`;
 
 export function getChoice(): ThemeChoice {
   const raw = readRaw(KEYS.theme);
   return raw === "light" || raw === "dark" ? raw : "system";
 }
 
-/** The mode actually in force right now. */
+/** The mode actually in force right now. First visits land in LIGHT. */
 export function resolveMode(choice: ThemeChoice = getChoice()): Mode {
   if (choice !== "system") return choice;
-  if (typeof window === "undefined") return "dark";
-  // no explicit system preference → dark
-  return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+  return "light";
 }
 
 export function applyMode(mode: Mode) {

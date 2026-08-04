@@ -152,7 +152,7 @@ function PeelPack({
       aria-disabled={disabled}
       onClick={tap}
       onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && (e.preventDefault(), tap())}
-      className={`relative mx-auto w-52 select-none sm:w-60 ${
+      className={`pack-w relative mx-auto select-none ${
         disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer"
       }`}
     >
@@ -710,7 +710,7 @@ export default function PackRipper({
       {/* exchange confirm: one sheet, balance-after, then instant */}
       {confirmExchange && (
         <div className="fixed inset-0 z-50" onClick={() => setConfirmExchange(false)}>
-          <div className="absolute inset-0 bg-surface2" />
+          <div className="absolute inset-0 bg-black/70" />
           <div
             onClick={(e) => e.stopPropagation()}
             className="absolute inset-x-0 bottom-0 border-t border-line2 bg-surface p-5 pb-[calc(1.5rem+env(safe-area-inset-bottom))]"
@@ -755,10 +755,12 @@ export default function PackRipper({
       {/* enlarge sheet: card + quip */}
       {enlarged !== null && pulls[enlarged] && (
         <div className="fixed inset-0 z-50" onClick={() => setEnlarged(null)}>
-          <div className="absolute inset-0 bg-surface2" />
+          {/* a real scrim — the token sweep once turned this cream, which
+              painted a dead band above the card instead of dimming the page */}
+          <div className="absolute inset-0 bg-black/70" />
           <div
             onClick={(e) => e.stopPropagation()}
-            className="absolute inset-x-0 bottom-0 max-h-[88vh] overflow-y-auto border-t border-line2 bg-surface p-4 pb-[calc(1.25rem+env(safe-area-inset-bottom))]"
+            className="absolute inset-0 overflow-y-auto p-3 pb-[calc(1.25rem+env(safe-area-inset-bottom))] pt-[max(0.75rem,env(safe-area-inset-top))]"
           >
             <div className="mx-auto max-w-[320px]">
               <TradingCard
