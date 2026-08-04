@@ -152,7 +152,7 @@ export default function HomePage({
         {ceremony && !ripBusy && (
           <>
             <p className="mt-2 text-center text-[15px] text-ink2">
-              Tap to rip your first pack.
+              Peel the strip. Rip your first pack.
             </p>
             <p className="mt-4 text-center">
               <a

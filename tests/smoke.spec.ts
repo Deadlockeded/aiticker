@@ -239,7 +239,7 @@ test("get rated: manual build works without GitHub", async ({ page }) => {
 test("home state 1: ceremony rips through to readable cards, then binder", async ({ page }) => {
   await blockArt(page);
   await page.goto("/");
-  await expect(page.getByText("Tap to rip your first pack.")).toBeVisible();
+  await expect(page.getByText("Peel the strip. Rip your first pack.")).toBeVisible();
   await expect(page.getByText("The Hot List")).not.toBeVisible();
   await expect(page.getByText("The Checklist")).not.toBeVisible();
   // the second door in stays put
@@ -586,4 +586,21 @@ test("hot list: the meta-watch line follows the deck's top card", async ({ page 
   await page.waitForTimeout(400);
   const after = await line.innerText();
   expect(after).not.toBe(before);
+});
+
+
+test("peel gesture: dragging the strip across rips the pack", async ({ page }) => {
+  await blockArt(page);
+  await page.goto("/packs");
+  const pack = page.getByLabel("Rip the pack");
+  await expect(pack).toBeVisible();
+  const box = (await pack.boundingBox())!;
+  // drag along the tear strip, left edge → past the commit threshold
+  const y = box.y + 20;
+  await page.mouse.move(box.x + 14, y);
+  await page.mouse.down();
+  await page.mouse.move(box.x + box.width * 0.85, y, { steps: 12 });
+  await page.mouse.up();
+  // the peel commits the rip: the facedown stack arrives with no click
+  await expect(page.getByLabel("Reveal the cards")).toBeVisible({ timeout: 10_000 });
 });

@@ -72,50 +72,164 @@ function Confetti({ pieces }: { pieces: ConfettiPiece[] }) {
   );
 }
 
-function PackGraphic({
-  shaking,
+/**
+ * THE SEALED PACK, peel-to-open. Drag the foil strip sideways and it follows
+ * the finger; past ~55% it commits, flies off, and the rip runs. A plain tap
+ * (or Enter/Space — this is still the "Rip the pack" button) auto-peels, so
+ * nothing about accessibility or the tests changed. All motion is transform
+ * on the strip only — smooth on a phone, no layout work per frame.
+ */
+function PeelPack({
+  disabled,
   tearing,
   gold = false,
+  onRip,
 }: {
-  shaking: boolean;
+  disabled: boolean;
   tearing: boolean;
   gold?: boolean;
+  onRip: () => void;
 }) {
+  const [drag, setDrag] = useState(0); // 0..1 peel progress
+  const [springing, setSpringing] = useState(false);
+  const [flying, setFlying] = useState(false);
+  const stripRef = useRef<HTMLDivElement>(null);
+  const startX = useRef<number | null>(null);
+  const moved = useRef(false);
+  const foil = gold ? "foil-gold" : "foil-series1";
+  const idle = !disabled && !tearing && !flying;
+
+  const commit = () => {
+    if (flying) return;
+    setFlying(true);
+    if (navigator.vibrate) navigator.vibrate(12);
+    setTimeout(onRip, 240); // let the strip clear the mouth first
+  };
+
+  const onPointerDown = (e: React.PointerEvent) => {
+    if (!idle) return;
+    startX.current = e.clientX;
+    moved.current = false;
+    setSpringing(false);
+    (e.target as HTMLElement).setPointerCapture?.(e.pointerId);
+  };
+  const onPointerMove = (e: React.PointerEvent) => {
+    if (startX.current === null) return;
+    const w = stripRef.current?.offsetWidth ?? 200;
+    const p = Math.max(0, Math.min(1, (e.clientX - startX.current) / (w * 0.72)));
+    if (p > 0.04) moved.current = true;
+    setDrag(p);
+  };
+  const onPointerUp = () => {
+    if (startX.current === null) return;
+    startX.current = null;
+    if (drag > 0.55) commit();
+    else {
+      setSpringing(true);
+      setDrag(0);
+    }
+  };
+
+  /** Tap / keyboard fallback: auto-peel. A real drag suppresses the click. */
+  const tap = () => {
+    if (!idle) return;
+    if (moved.current) {
+      moved.current = false;
+      return;
+    }
+    setDrag(1);
+    commit();
+  };
+
   return (
-    <div className={`relative mx-auto w-52 sm:w-60 ${shaking ? "pack-shake" : ""}`}>
-      {/* tear strip: dashed perforation across the top of the wrapper */}
-      <div
-        className={`relative z-10 h-8 overflow-hidden rounded-t-[18px] ${
-          gold ? "foil-gold" : "foil-series1"
-        } ${tearing ? "pack-tear-top" : ""}`}
-      >
-        <div className="absolute inset-x-0 bottom-0 border-b-2 border-dashed border-white/70" />
-      </div>
-      {/* the sealed object: foil wrapper + one slow sheen, the app's only
-          ambient animation. Gradient is licensed HERE and nowhere else. */}
-      <div
-        className={`relative aspect-[3/4] overflow-hidden rounded-b-[18px] shadow-card ${
-          gold ? "foil-gold" : "foil-series1"
-        } ${tearing ? "pack-vanish" : "pack-sheen"}`}
-      >
-        {/* THE DRAIN: flat pink floods down from the tear as the foil leaves */}
-        {tearing && (
-          <>
-            <div className="foil-drain absolute inset-0 bg-inherit" />
-            <div className="pink-flood absolute inset-0 bg-pink" />
-          </>
-        )}
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
-          <FanGlyph size={56} />
-          <span className="micro font-semibold text-white">
-            {gold ? "Collector's" : "Series 1"} · 3 cards inside
-          </span>
+    <div
+      role="button"
+      tabIndex={disabled ? -1 : 0}
+      aria-label="Rip the pack"
+      aria-disabled={disabled}
+      onClick={tap}
+      onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && (e.preventDefault(), tap())}
+      className={`relative mx-auto w-52 select-none sm:w-60 ${
+        disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer"
+      }`}
+    >
+      <div className="relative aspect-[3/4.3]">
+        {/* the sealed object: foil wrapper + one slow sheen, the app's only
+            ambient animation. Gradient is licensed HERE and nowhere else. */}
+        <div
+          className={`absolute inset-0 overflow-hidden rounded-[18px] shadow-card ${foil} ${
+            tearing ? "pack-vanish" : "pack-sheen"
+          }`}
+        >
+          {/* the mouth the strip tears away from — revealed as it peels */}
+          <div
+            className="pack-mouth zigzag-bottom absolute inset-x-0 top-0 h-11 transition-opacity duration-150"
+            style={{ opacity: drag > 0.02 || flying || tearing ? 1 : 0 }}
+            aria-hidden
+          />
+          {/* THE DRAIN: flat pink floods down as the foil leaves */}
+          {tearing && (
+            <>
+              <div className="foil-drain absolute inset-0 bg-inherit" />
+              <div className="pink-flood absolute inset-0 bg-pink" />
+            </>
+          )}
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
+            <FanGlyph size={56} />
+            <span className="micro font-semibold text-white">
+              {gold ? "Collector's" : "Series 1"} · 3 cards inside
+            </span>
+          </div>
         </div>
+
+        {/* THE STRIP — rides the finger, tears off on commit */}
+        {!tearing && (
+          <div
+            ref={stripRef}
+            onPointerDown={onPointerDown}
+            onPointerMove={onPointerMove}
+            onPointerUp={onPointerUp}
+            onPointerCancel={onPointerUp}
+            className={`peel-strip zigzag-bottom absolute inset-x-0 top-0 z-10 h-11 rounded-t-[18px] ${
+              flying ? "peel-fly" : ""
+            }`}
+            style={
+              // the strip shows only the TOP SLICE of the pack's gradient —
+              // the foil class alone would compress the whole rainbow into
+              // 44px and break the single-object illusion
+              flying
+                ? {
+                    backgroundImage: `var(--${gold ? "foil-gold" : "foil-series1"})`,
+                    backgroundSize: "100% 1000%",
+                    backgroundPosition: "top",
+                  }
+                : {
+                    backgroundImage: `var(--${gold ? "foil-gold" : "foil-series1"})`,
+                    backgroundSize: "100% 1000%",
+                    backgroundPosition: "top",
+                    transform: `translate(${drag * 55}%, ${-drag * 110}%) rotate(${drag * 22}deg)`,
+                    transition:
+                      startX.current !== null
+                        ? "none"
+                        : springing
+                          ? "transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.2)"
+                          : "transform 0.15s ease-out",
+                  }
+            }
+          >
+            <span
+              className="micro pointer-events-none absolute inset-0 flex items-center justify-center gap-1 font-semibold text-white/85"
+              style={{ opacity: Math.max(0, 1 - drag * 3.5) }}
+            >
+              ✂ Peel to open
+            </span>
+            <div className="pointer-events-none absolute inset-x-3 top-[68%] border-b border-dashed border-white/50" />
+          </div>
+        )}
       </div>
     </div>
   );
 }
-
 
 /**
  * The reveal fan's card face: ART, name, rarity — nothing else. At 112px the
@@ -300,16 +414,14 @@ export default function PackRipper({
     addXP(XP_REWARDS.packPull);
     checkAchievements(cards);
 
-    // tear → facedown stack. NOTHING auto-navigates after this: every exit
-    // from the reveal is the user's tap (the old auto-flip/auto-binder
+    // The peel gesture already tore the strip, so the drain starts NOW and
+    // the stack lands ~900ms later. NOTHING auto-navigates after this: every
+    // exit from the reveal is the user's tap (the old auto-flip/auto-binder
     // timers were the "goes off somewhere" bug — do not reintroduce them).
     setPhase("ripping");
-    setTearing(false);
+    setTearing(true);
     fxTimers.current.forEach(clearTimeout);
-    fxTimers.current = [
-      setTimeout(() => setTearing(true), 650),
-      setTimeout(() => setPhase("stack"), 1300),
-    ];
+    fxTimers.current = [setTimeout(() => setPhase("stack"), 900)];
   };
 
   /** Stack tap: one continuous flip+fan, staggered ~150ms per card. */
@@ -410,14 +522,11 @@ export default function PackRipper({
 
       {!inReveal && (
         <div>
-          <button
-            onClick={() => rip()}
+          <PeelPack
             disabled={!mounted || phase === "ripping" || packsLeft === 0}
-            className="block w-full disabled:cursor-not-allowed disabled:opacity-50"
-            aria-label="Rip the pack"
-          >
-            <PackGraphic shaking={phase === "ripping" && !tearing} tearing={tearing} />
-          </button>
+            tearing={tearing}
+            onRip={() => rip()}
+          />
           {!minimal && (
             <>
               {phase === "ripping" && (
@@ -430,7 +539,7 @@ export default function PackRipper({
                   ? "ripping…"
                   : packsLeft === 0 && mounted
                     ? `Next pack in ${resetIn}.`
-                    : "Tap the pack · a fresh one every 8 hours"}
+                    : "Peel the strip · a fresh one every 8 hours"}
                 {packsLeft === 0 && mounted && phase !== "ripping" && (
                   <>
                     <br />
@@ -448,7 +557,7 @@ export default function PackRipper({
               </p>
               {tutorial && phase === "idle" && packsLeft > 0 && (
                 <EditorCaption className="mt-4" ttl={30000}>
-                  Tap the pack.
+                  Peel the strip.
                 </EditorCaption>
               )}
               {/* reserved height: this row resolves from localStorage, and a

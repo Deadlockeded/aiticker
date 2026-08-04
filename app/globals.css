@@ -391,6 +391,56 @@ h1 {
 
 /* ------------------------------------------------- pack-opening ritual ---- */
 
+/* THE PEEL — the tear strip follows the finger across the pack mouth.
+   Transform-only: progress is driven from pointer events in PeelPack and
+   applied as translate/rotate, so a 60fps peel costs nothing on a phone. */
+.peel-strip {
+  touch-action: none;
+  will-change: transform;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.peel-strip:active {
+  cursor: grabbing;
+}
+
+/* commit: the strip flies off up-and-right and is gone */
+@keyframes peel-fly {
+  to {
+    transform: translate(130%, -170%) rotate(42deg);
+    opacity: 0;
+  }
+}
+
+.peel-fly {
+  animation: peel-fly 0.4s cubic-bezier(0.5, 0, 0.75, 0.45) forwards;
+}
+
+/* the torn mouth the strip leaves behind: dark inner lip, serrated edge */
+.pack-mouth {
+  background: rgba(6, 4, 12, 0.55);
+  box-shadow: inset 0 -8px 14px rgba(0, 0, 0, 0.4);
+}
+
+.zigzag-bottom {
+  clip-path: polygon(
+    0 0, 100% 0, 100% 74%,
+    96% 100%, 92% 74%, 88% 100%, 84% 74%, 80% 100%, 76% 74%, 72% 100%,
+    68% 74%, 64% 100%, 60% 74%, 56% 100%, 52% 74%, 48% 100%, 44% 74%,
+    40% 100%, 36% 74%, 32% 100%, 28% 74%, 24% 100%, 20% 74%, 16% 100%,
+    12% 74%, 8% 100%, 4% 74%, 0 100%
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .peel-fly {
+    animation: none !important;
+    opacity: 0;
+  }
+}
+
 @keyframes pack-shake {
   0%,
   100% {
