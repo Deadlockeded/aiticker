@@ -58,10 +58,9 @@ export function isHot(cardId: string, cards: MarketCard[], key = utcDayKey()): b
 /** Temporary rating boost shown on hot cards (display only, never sorts). */
 export const HOT_BOOST = 3;
 
-/** Featured card of the month — month-hash pick from the index (no artifacts). */
-export function getCoverStar(cards: MarketCard[], now = new Date()): MarketCard {
+/** Featured card of the day — day-hash pick from the index (no artifacts). */
+export function getCoverStar(cards: MarketCard[], key = utcDayKey()): MarketCard {
   const pool = cards.filter((c) => c.type !== "artifact");
-  const key = `${now.getUTCFullYear()}-${now.getUTCMonth()}`;
   return pool[dayHash(`cover:${key}`) % pool.length];
 }
 

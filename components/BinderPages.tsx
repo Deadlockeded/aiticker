@@ -24,9 +24,7 @@ import TradingCard from "./TradingCard";
 import DailyQuip from "./DailyQuip";
 import Sparkline from "./Sparkline";
 import AchievementWall from "./AchievementWall";
-import RaiseARound from "./RaiseARound";
-import RoyaltiesCard from "./RoyaltiesCard";
-import FundStrip from "./FundStrip";
+import TreasuryStrip from "./TreasuryStrip";
 
 const RARITY_ORDER: Rarity[] = ["legendary", "epic", "rare", "common"];
 type Chip = "all" | "missing" | "dupes";
@@ -106,6 +104,7 @@ export default function BinderPages({
   const [open, setOpen] = useState<MarketCard | null>(null);
   const [trophies, setTrophies] = useState(false);
   const [ringPop, setRingPop] = useState(false);
+  const [roomsPop, setRoomsPop] = useState(false);
   const [valuationInfo, setValuationInfo] = useState(false);
   const [sold, setSold] = useState<number | null>(null);
   const [sellArmed, setSellArmed] = useState<string | null>(null);
@@ -266,6 +265,49 @@ export default function BinderPages({
         <span className="ml-auto micro text-[10px] text-ink3">
           {pageLabel(Math.min(page, pages.length - 1), chaseStart, artifactStart, chaseCount)}
         </span>
+        {/* rooms live behind the door — a switcher row here pushed the
+            collection down a full band on phones */}
+        <div className="relative shrink-0">
+          <button
+            onClick={() => setRoomsPop((v) => !v)}
+            className={`flex h-11 w-11 items-center justify-center rounded-lg text-lg hover:bg-surface2 ${
+              room !== "binder" ? "bg-surface2" : ""
+            }`}
+            title="Rooms"
+          >
+            🚪
+          </button>
+          {roomsPop && (
+            <div className="absolute right-0 top-full z-30 mt-1 w-56 rounded-xl border border-line bg-surface p-1.5 shadow-xl">
+              {ROOMS.map((r) => {
+                const unlocked = roomUnlocked(r.id);
+                return (
+                  <button
+                    key={r.id}
+                    onClick={() => {
+                      if (!unlocked) return;
+                      setRoom(r.id);
+                      setRoomsPop(false);
+                    }}
+                    disabled={!unlocked}
+                    className={`flex w-full items-center justify-between gap-2 rounded-lg px-2.5 py-2 text-left font-mono text-[11px] uppercase tracking-[0.12em] ${
+                      room === r.id
+                        ? "bg-ink text-bg"
+                        : unlocked
+                          ? "text-ink hover:bg-surface2"
+                          : "cursor-not-allowed text-ink3"
+                    }`}
+                  >
+                    <span>{unlocked ? r.name : `🔒 ${r.name}`}</span>
+                    {!unlocked && (
+                      <span className="normal-case tracking-normal">{r.condition}</span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          )}
+        </div>
         <button
           onClick={() => setTrophies(true)}
           className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-lg hover:bg-surface2"
@@ -330,33 +372,7 @@ export default function BinderPages({
       </div>
       </div>
 
-      <RoyaltiesCard />
-      <RaiseARound showHistory />
-      <FundStrip />
-
-      {/* room switcher — presentation skins over the same collection */}
-      <div className="mb-2 flex items-center gap-1.5 overflow-x-auto">
-        {ROOMS.map((r) => {
-          const unlocked = roomUnlocked(r.id);
-          return (
-            <button
-              key={r.id}
-              onClick={() => unlocked && setRoom(r.id)}
-              disabled={!unlocked}
-              className={`min-h-11 shrink-0 border px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.15em] ${
-                room === r.id
-                  ? "border-line2 bg-ink text-bg"
-                  : unlocked
-                    ? "border-line text-ink hover:border-line2"
-                    : "cursor-not-allowed border-line text-ink3"
-              }`}
-              title={unlocked ? r.name : `Unlocks at ${r.condition}`}
-            >
-              {unlocked ? r.name : `🔒 ${r.name} · ${r.condition}`}
-            </button>
-          );
-        })}
-      </div>
+      <TreasuryStrip />
 
       {/* filter chips — dim in place, never re-sort */}
       <div className="mb-3 flex items-center gap-1.5 overflow-x-auto">

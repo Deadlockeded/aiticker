@@ -11,7 +11,7 @@ import { useOwnedSet } from "./useOwned";
 
 const subscribeNever = () => () => {};
 
-/** ★ FEATURED CARD — month-hash pick, client-only. Frame visual unchanged. */
+/** ★ FEATURED CARD — day-hash pick, client-only. Frame visual unchanged. */
 export default function CoverStar({
   cards,
   ranks,
@@ -26,7 +26,7 @@ export default function CoverStar({
   );
   const owned = useOwnedSet();
   // Zero-CLS skeleton: same frame + same card footprint while the
-  // month-hash pick resolves client-side.
+  // day-hash pick resolves client-side.
   if (!star) {
     return (
       <div className="surface-card deal-in p-4">

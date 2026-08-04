@@ -289,12 +289,17 @@ test("binder rooms: switcher renders all three skins", async ({ page }) => {
   );
   await seedBinder(page, ids);
   await page.goto("/binder");
+  // rooms now live behind the header door popover
+  const door = page.getByTitle("Rooms");
+  await door.click();
   await expect(page.getByRole("button", { name: "The Boardroom" })).toBeEnabled();
   await page.getByRole("button", { name: "The Boardroom" }).click();
   await expect(page.getByText("vacant").first()).toBeVisible();
+  await door.click();
   await page.getByRole("button", { name: "The Call" }).click();
   await expect(page.getByText(/\d+ participants/)).toBeVisible();
   await expect(page.getByText(/Waiting for .* to join/).first()).toBeVisible();
+  await door.click();
   await page.getByRole("button", { name: "The Binder" }).click();
   await expect(page.getByText(/S1 \d+\/\d+/)).toBeVisible();
 });
@@ -429,6 +434,9 @@ test("raise a round: claimable once, cap table remembers, gone for the week", as
   await seedBinder(page, ["openai"]);
   await seedWallet(page, 0);
   await page.goto("/binder");
+  // the money desk folded behind the treasury strip — open it first
+  await expect(page.getByTestId("treasury-strip")).toContainText("Round ready");
+  await page.getByTestId("treasury-strip").click();
   await expect(page.getByText("This week's round")).toBeVisible();
   await expect(page.getByText(/Terms: /)).toBeVisible();
   // the button label varies with the week (Sign it / Take it / Shake on it /
@@ -443,8 +451,9 @@ test("raise a round: claimable once, cap table remembers, gone for the week", as
   // a reload inside the same week must not offer it again — but the cap
   // table keeps the closed round on the books
   await page.reload();
+  await page.getByTestId("treasury-strip").click();
   await expect(page.getByText("This week's round")).not.toBeVisible();
-  await expect(page.getByText("Cap table")).toBeVisible();
+  await expect(page.getByText("Cap table").first()).toBeVisible();
   await expect(page.getByText(/₮(150|200|300|400)/).first()).toBeVisible();
 });
 
@@ -625,6 +634,9 @@ test("royalties: collect card pays once and stays claimed", async ({ page }) => 
   await seedBinder(page, [recent[0].artifactId]);
   await seedWallet(page, 0);
   await page.goto("/binder");
+  // the strip previews the amount; the full card lives in the treasury sheet
+  await expect(page.getByTestId("treasury-strip")).toContainText("to collect");
+  await page.getByTestId("treasury-strip").click();
   await expect(page.getByText("⚡ Royalties").first()).toBeVisible();
   const collect = page.getByRole("button", { name: /Collect royalties/ });
   await expect(collect).toBeVisible();
@@ -634,8 +646,10 @@ test("royalties: collect card pays once and stays claimed", async ({ page }) => 
     JSON.parse(localStorage.getItem("ai-index:wallet:v1") ?? "{}"),
   );
   expect(wallet.bal).toBeGreaterThan(0);
-  // claimed: a reload shows no collect card
+  // claimed: a reload's strip offers nothing to collect
   await page.reload();
+  await expect(page.getByTestId("treasury-strip")).not.toContainText("to collect");
+  await page.getByTestId("treasury-strip").click();
   await expect(page.getByRole("button", { name: /Collect royalties/ })).not.toBeVisible();
 });
 
