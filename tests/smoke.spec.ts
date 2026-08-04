@@ -780,7 +780,10 @@ test("custody: the desk fires after the first pack, on the binder only", async (
   await expect(page.getByText("Don't lose the bag.")).toBeVisible({ timeout: 5000 });
   await expect(page.getByText("mildly institutional", { exact: false })).toBeVisible();
   // dismissing is remembered — a reload shows no sheet
-  await page.getByTestId("custody-dismiss").click();
+  // dispatchEvent: on slow CI the achievement toasts land on the same
+  // frame and Playwright's strict hit-test refuses the tap (suite
+  // precedent: the binder pocket click)
+  await page.getByTestId("custody-dismiss").dispatchEvent("click");
   await page.reload();
   await page.waitForTimeout(2000);
   await expect(page.getByText("Don't lose the bag.")).not.toBeVisible();

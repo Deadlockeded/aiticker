@@ -250,7 +250,7 @@ export default function AuthMenu() {
           PORTALED: the sticky nav's backdrop-blur makes it a containing
           block, which would trap a fixed sheet inside the header. */}
       {sheet && !user && createPortal(
-        <div className="fixed inset-0 z-50" onClick={() => setSheet(false)}>
+        <div className="fixed inset-0 z-[60]" onClick={() => setSheet(false)}>
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
           <div
             onClick={(e) => e.stopPropagation()}
@@ -383,7 +383,7 @@ export default function AuthMenu() {
       {/* withdraw confirm — leaving custody is fine, and nothing is lost.
           Portaled for the same containing-block reason as the desk. */}
       {confirmOut && createPortal(
-        <div className="fixed inset-0 z-50" onClick={() => setConfirmOut(false)}>
+        <div className="fixed inset-0 z-[60]" onClick={() => setConfirmOut(false)}>
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
           <div
             onClick={(e) => e.stopPropagation()}
