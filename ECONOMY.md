@@ -170,7 +170,7 @@ read, not because they assert anything.
 
 | Surface | Line |
 | --- | --- |
-| Exchange sheet | "Three cards. The same odds as a free pack." |
+| Exchange sheet | "Two cards. The same odds as a free pack." |
 | Exchange coupon (afford) | "Same cards. Same odds." |
 | Exchange coupon (short) | "Win fights to earn Ticks." |
 | Countdown second line | "or trade ₮500 for one now →" |

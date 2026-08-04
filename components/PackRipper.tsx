@@ -180,7 +180,7 @@ function PeelPack({
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
             <FanGlyph size={56} />
             <span className="micro font-semibold text-white">
-              {gold ? "Collector's" : "Series 1"} · 3 cards inside
+              {gold ? "Collector's" : "Series 1"} · 2 cards inside
             </span>
           </div>
         </div>
@@ -375,17 +375,18 @@ export default function PackRipper({
   const balance = walletRaw === null ? 0 : balanceFrom(walletRaw);
   const canExchange = walletRaw !== null && balance >= EXCHANGE_PACK_COST;
 
-  // countdown to the daily reset while out of packs
+  // live countdown to the next free pack — ticks every second while empty
   useEffect(() => {
     if (!mounted || packsLeft > 0) return;
     const update = () => {
-      const totalMin = Math.max(1, Math.ceil(msUntilNextPack() / 60_000));
-      const h = Math.floor(totalMin / 60);
-      const m = totalMin % 60;
-      setResetIn(h > 0 ? `${h}h ${m}m` : `${m}m`);
+      const total = Math.max(1, Math.ceil(msUntilNextPack() / 1000));
+      const h = Math.floor(total / 3600);
+      const m = Math.floor((total % 3600) / 60);
+      const s = total % 60;
+      setResetIn(h > 0 ? `${h}h ${m}m ${s}s` : m > 0 ? `${m}m ${s}s` : `${s}s`);
     };
     const kickoff = setTimeout(update, 0);
-    const timer = setInterval(update, 30_000);
+    const timer = setInterval(update, 1000);
     return () => {
       clearTimeout(kickoff);
       clearInterval(timer);
@@ -519,13 +520,27 @@ export default function PackRipper({
       )}
 
       {!minimal && !inReveal && (
-        <p className="mb-8 text-center micro text-xs tracking-[0.3em] text-ink3">
-          {mounted
-            ? packsLeft > 0
+        mounted && packsLeft === 0 ? (
+          /* THE COUNTDOWN — when the bank is empty this IS the page's
+             event, so it reads like one: big live digits, not a whisper */
+          <div className="mx-auto mb-8 max-w-[300px] rounded-[22px] bg-surface p-4 text-center shadow-card">
+            <p className="micro text-[10px] tracking-[0.3em] text-ink3">
+              Next pack in
+            </p>
+            <p className="tnum mt-1 font-display text-[32px] font-extrabold leading-none text-ink">
+              {resetIn || "…"}
+            </p>
+            <p className="micro mt-2 text-[10px] tracking-[0.15em] text-ink3">
+              A fresh one every 8 hours
+            </p>
+          </div>
+        ) : (
+          <p className="mb-8 text-center micro text-xs tracking-[0.3em] text-ink3">
+            {mounted
               ? `${packsLeft} pack${packsLeft === 1 ? "" : "s"} ready`
-              : `Next pack in ${resetIn}`
-            : "A fresh pack every 8 hours."}
-        </p>
+              : "A fresh pack every 8 hours."}
+          </p>
+        )
       )}
 
       {!inReveal && (
@@ -546,7 +561,7 @@ export default function PackRipper({
                 {phase === "ripping"
                   ? "ripping…"
                   : packsLeft === 0 && mounted
-                    ? `Next pack in ${resetIn}.`
+                    ? "The wait is optional."
                     : "Peel the strip · a fresh one every 8 hours"}
                 {packsLeft === 0 && mounted && phase !== "ripping" && (
                   <>
@@ -597,7 +612,7 @@ export default function PackRipper({
 
       {/* facedown stack — tap to reveal */}
       {/* THE REVEAL: its own near-black layer in BOTH modes, so nothing
-          from the page competes with three cards. Holds until a tap. */}
+          from the page competes with the cards. Holds until a tap. */}
       {inReveal && (
       <div
         className="fixed inset-0 z-40 flex flex-col items-center justify-center overflow-y-auto px-3 py-8"
@@ -637,10 +652,11 @@ export default function PackRipper({
               </EditorCaption>
             </div>
           )}
-          {/* VERTICAL STACK: first pull on top at full strength, each card
-              behind it slides down half a card and fades 30% per step —
-              name + rarity peek out (half the information); the full print
-              opens on tap. */}
+          {/* VERTICAL STACK: first pull front and centre, each card behind
+              slides down half a card, scales back a touch and sits under a
+              dimming veil — cards stay OPAQUE (transparency let the art
+              behind bleed through and read as a rendering bug on phones).
+              Name + rarity peek out; the full print opens on tap. */}
           <div
             className="relative mx-auto w-[190px]"
             style={{ height: `${270 + (pulls.length - 1) * 148}px` }}
@@ -650,11 +666,11 @@ export default function PackRipper({
                 key={`${card.id}-${i}`}
                 onClick={() => setEnlarged(i)}
                 aria-label={`Enlarge ${card.name}`}
-                className="absolute inset-x-0 transition-opacity duration-500"
+                className="absolute inset-x-0 origin-top transition-transform duration-500"
                 style={{
                   top: `${i * 148}px`,
                   zIndex: pulls.length - i,
-                  opacity: fanned ? Math.max(0.1, 1 - i * 0.3) : 1,
+                  transform: fanned && i > 0 ? `scale(${1 - i * 0.04})` : undefined,
                 }}
               >
                 <div className="relative aspect-[1/1.42] w-full [perspective:1200px]">
@@ -676,6 +692,15 @@ export default function PackRipper({
                         resolving={!preOwned.has(card.id) && fanned}
                         firstPull={!preOwned.has(card.id)}
                       />
+                      {/* depth veil: a solid dim on the cards waiting their
+                          turn — reads as "behind", never as broken */}
+                      {i > 0 && (
+                        <div
+                          className="pointer-events-none absolute inset-0 rounded-[16px] bg-black transition-opacity duration-500"
+                          style={{ opacity: fanned ? Math.min(0.55, i * 0.28) : 0 }}
+                          aria-hidden
+                        />
+                      )}
                       {shimmering === i && (
                         <div className="foil-sweep pointer-events-none absolute inset-0 overflow-hidden rounded-[16px]" />
                       )}
@@ -733,7 +758,7 @@ export default function PackRipper({
                 Exchange pack
               </p>
               <p className="mt-1 text-[13px] text-ink2">
-                Three cards. The same odds as a free pack.
+                Two cards. The same odds as a free pack.
               </p>
               <dl className="mt-4 space-y-1 border border-line2 p-3 text-left micro text-[12px] tracking-[0.1em]">
                 <div className="flex justify-between">

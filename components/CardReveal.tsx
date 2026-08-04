@@ -46,7 +46,7 @@ export default function CardReveal({
       {!isOwned && (
         <>
           <p className="micro mt-3 text-center text-ink3">
-            {card.rarity} · {oddsFor(card)} per card slot · 3 cards per pack
+            {card.rarity} · {oddsFor(card)} per card slot · 2 cards per pack
           </p>
           <Link
             href="/packs"

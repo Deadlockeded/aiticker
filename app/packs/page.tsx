@@ -17,7 +17,7 @@ export default function PacksPage() {
           Rip a pack
         </h1>
         <p className="mt-2 text-sm text-ink2">
-          Three cards per pack. Commons are common. Mythics are not.
+          Two cards per pack. Commons are common. Mythics are not.
         </p>
       </header>
       <SessionlessNotice />

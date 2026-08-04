@@ -30,7 +30,7 @@ export type Binder = Record<string, BinderEntry>;
 
 const STORE_EVENT = "ai-index:store";
 
-export const CARDS_PER_PACK = 3;
+export const CARDS_PER_PACK = 2;
 
 /** Notify same-tab subscribers (the storage event only fires cross-tab). */
 export function notifyStore() {

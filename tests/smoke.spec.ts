@@ -113,7 +113,7 @@ test("rip flow: stack → fan holds until tap → binder; persists", async ({ pa
   await page.getByLabel("Reveal the cards").click({ timeout: 10_000 });
   // one continuous flip+fan: all 3 cards visible at once on 390px
   const fanCards = page.getByRole("button", { name: /^Enlarge / });
-  await expect(fanCards).toHaveCount(3);
+  await expect(fanCards).toHaveCount(2);
   for (const card of await fanCards.all()) await expect(card).toBeVisible();
   // THE HOLD: no auto-navigation, ever — still here seconds later
   await page.waitForTimeout(3000);
@@ -150,9 +150,11 @@ test("cadence: two banked packs, then an 8h countdown", async ({ page }) => {
   await expect(page.getByRole("button", { name: /Rip another/ })).not.toBeVisible();
   await page.getByRole("button", { name: "Add to binder →" }).click();
   await page.waitForURL("**/binder");
-  // bank empty: the claim window math puts the next pack ~8h out
+  // bank empty: the claim window math puts the next pack ~8h out — the
+  // prominent countdown splits label and digits into separate elements
   await page.goto("/packs");
-  await expect(page.getByText(/Next pack in [78]h/).first()).toBeVisible();
+  await expect(page.getByText("Next pack in").first()).toBeVisible();
+  await expect(page.getByText(/^[78]h \d+m \d+s$/).first()).toBeVisible();
 });
 
 test("anti-fishing: two fresh profiles pull identical first packs", async ({ browser }) => {
@@ -250,7 +252,7 @@ test("home state 1: ceremony rips through to readable cards, then binder", async
   await page.getByLabel("Rip the pack").click();
   await page.getByLabel("Reveal the cards").click({ timeout: 10_000 });
   const fanCards = page.getByRole("button", { name: /^Enlarge / });
-  await expect(fanCards).toHaveCount(3);
+  await expect(fanCards).toHaveCount(2);
   for (const card of await fanCards.all()) await expect(card).toBeVisible();
   await page.waitForTimeout(2000);
   await expect(page).toHaveURL(/localhost:3123\/$/); // still on the landing page

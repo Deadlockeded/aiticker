@@ -41,29 +41,32 @@ function homeSnapshot(): HomeState {
   return packsLeftFrom(getAllowanceSnapshot()) > 0 ? "packs" : "index";
 }
 
-/** "Next pack in {h}h {m}m" chip for the no-packs state. */
+/** Prominent live countdown for the no-packs state — the return visit's
+ * main event is "when do I rip again", so it gets real digits. */
 function ResetChip() {
   const [label, setLabel] = useState("");
   useEffect(() => {
     const update = () => {
-      const totalMin = Math.max(1, Math.ceil(msUntilNextPack() / 60_000));
-      const h = Math.floor(totalMin / 60);
-      const m = totalMin % 60;
-      setLabel(h > 0 ? `${h}h ${m}m` : `${m}m`);
+      const total = Math.max(1, Math.ceil(msUntilNextPack() / 1000));
+      const h = Math.floor(total / 3600);
+      const m = Math.floor((total % 3600) / 60);
+      const s = total % 60;
+      setLabel(h > 0 ? `${h}h ${m}m ${s}s` : m > 0 ? `${m}m ${s}s` : `${s}s`);
     };
     const kickoff = setTimeout(update, 0);
-    const timer = setInterval(update, 30_000);
+    const timer = setInterval(update, 1000);
     return () => {
       clearTimeout(kickoff);
       clearInterval(timer);
     };
   }, []);
   return (
-    <div className="mb-4 flex flex-col items-center gap-1.5">
-      <span className="micro rounded-full bg-surface2 px-3 py-1.5 font-semibold text-ink2">
-        Next pack in {label || "…"}
-      </span>
-      <Link href="/packs" className="micro font-semibold text-pink">
+    <div className="mx-auto mb-4 max-w-[280px] rounded-[22px] bg-surface p-3.5 text-center shadow-card">
+      <p className="micro text-[10px] tracking-[0.3em] text-ink3">Next pack in</p>
+      <p className="tnum mt-1 font-display text-[26px] font-extrabold leading-none text-ink">
+        {label || "…"}
+      </p>
+      <Link href="/packs" className="micro mt-2 inline-block font-semibold text-pink">
         or trade {formatTicks(EXCHANGE_PACK_COST)} for one now →
       </Link>
     </div>
