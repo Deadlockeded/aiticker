@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-08-03T05:42:19.084Z",
+  "lastUpdated": "2026-08-04T05:15:26.520Z",
   "sources": {
     "wikipedia": {
-      "ok": 50,
-      "fail": 0
+      "ok": 45,
+      "fail": 5
     },
     "openalex": {
       "ok": 19,

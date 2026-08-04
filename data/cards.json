@@ -44,12 +44,12 @@
     "wikipediaSlug": "Sam_Altman",
     "openalexId": "A5113523936",
     "signals": {
-      "attention7d": 63424,
-      "attentionDelta": 50.1,
+      "attention7d": 63509,
+      "attentionDelta": 33.9,
       "citations": 209,
       "hIndex": 6,
       "works": 23,
-      "hnMentions7d": 12
+      "hnMentions7d": 8
     },
     "priceHistory": [
       {
@@ -209,6 +209,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 1034.86
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 1062.93
       }
     ],
     "quips": [
@@ -269,12 +273,12 @@
     "wikipediaSlug": "Ilya_Sutskever",
     "openalexId": "A5006446297",
     "signals": {
-      "attention7d": 31655,
-      "attentionDelta": 187.1,
+      "attention7d": 28640,
+      "attentionDelta": 91.1,
       "citations": 221986,
       "hIndex": 64,
       "works": 109,
-      "hnMentions7d": 6
+      "hnMentions7d": 2
     },
     "priceHistory": [
       {
@@ -434,6 +438,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 1085.07
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 1164.15
       }
     ],
     "quips": [
@@ -495,13 +503,13 @@
     "openalexId": "A5009290031",
     "githubUser": "karpathy",
     "signals": {
-      "attention7d": 7646,
-      "attentionDelta": -9.8,
+      "attention7d": 7430,
+      "attentionDelta": -16.4,
       "citations": 59376,
       "hIndex": 21,
       "works": 26,
-      "stars": 388736,
-      "ghFollowers": 214296,
+      "stars": 389018,
+      "ghFollowers": 214547,
       "hnMentions7d": 0
     },
     "priceHistory": [
@@ -662,6 +670,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 878.27
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 866.75
       }
     ],
     "quips": [
@@ -882,6 +894,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 868.69
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 883.15
       }
     ],
     "quips": [
@@ -1092,6 +1108,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 1003.04
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 1007.45
       }
     ],
     "quips": [
@@ -1147,8 +1167,8 @@
     "wikipediaSlug": "Geoffrey_Hinton",
     "openalexId": "A5108093963",
     "signals": {
-      "attention7d": 13169,
-      "attentionDelta": 32.6,
+      "attention7d": 12818,
+      "attentionDelta": 21.9,
       "citations": 452069,
       "hIndex": 138,
       "works": 385,
@@ -1312,6 +1332,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 1033.07
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 1051.17
       }
     ],
     "quips": [
@@ -1351,12 +1375,12 @@
     "githubOrg": "openai",
     "hfOrg": "openai",
     "signals": {
-      "attention7d": 43063,
-      "attentionDelta": -1,
-      "stars": 497815,
-      "hfDownloads30d": 76373132,
-      "hfLikes": 29749,
-      "hnMentions7d": 132
+      "attention7d": 42242,
+      "attentionDelta": -6,
+      "stars": 498464,
+      "hfDownloads30d": 75665817,
+      "hfLikes": 29764,
+      "hnMentions7d": 128
     },
     "priceHistory": [
       {
@@ -1516,6 +1540,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 945.35
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 940.81
       }
     ],
     "quips": [
@@ -1572,8 +1600,8 @@
     "wikipediaSlug": "Dario_Amodei",
     "openalexId": "A5066197394",
     "signals": {
-      "attention7d": 51771,
-      "attentionDelta": 67.7,
+      "attention7d": 52726,
+      "attentionDelta": 60.7,
       "citations": 18829,
       "hIndex": 34,
       "works": 50,
@@ -1737,6 +1765,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 1049.6
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 1100.57
       }
     ],
     "quips": [
@@ -1792,8 +1824,8 @@
     "wikipediaSlug": "Yann_LeCun",
     "openalexId": "A5001226970",
     "signals": {
-      "attention7d": 5696,
-      "attentionDelta": -0.3,
+      "attention7d": 5628,
+      "attentionDelta": 0.4,
       "citations": 253129,
       "hIndex": 121,
       "works": 484,
@@ -1957,6 +1989,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 1078.38
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 1078.73
       }
     ],
     "quips": [
@@ -2010,9 +2046,9 @@
     ],
     "wikipediaSlug": "Elon_Musk",
     "signals": {
-      "attention7d": 138630,
-      "attentionDelta": -5.3,
-      "hnMentions7d": 14
+      "attention7d": 133902,
+      "attentionDelta": -12.7,
+      "hnMentions7d": 12
     },
     "priceHistory": [
       {
@@ -2172,6 +2208,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 860.65
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 851.91
       }
     ],
     "quips": [
@@ -2222,8 +2262,8 @@
     "wikipediaSlug": "Liang_Wenfeng",
     "openalexId": "A5009435651",
     "signals": {
-      "attention7d": 4547,
-      "attentionDelta": -26.7,
+      "attention7d": 4377,
+      "attentionDelta": -28.5,
       "citations": 5635,
       "hIndex": 37,
       "works": 153,
@@ -2387,6 +2427,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 1010.25
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 987.22
       }
     ],
     "quips": [
@@ -2426,12 +2470,12 @@
     "githubOrg": "google-deepmind",
     "hfOrg": "google",
     "signals": {
-      "attention7d": 7425,
-      "attentionDelta": 10.3,
-      "stars": 74611,
-      "hfDownloads30d": 141120388,
-      "hfLikes": 29446,
-      "hnMentions7d": 6
+      "attention7d": 7217,
+      "attentionDelta": 4.5,
+      "stars": 74646,
+      "hfDownloads30d": 141402888,
+      "hfLikes": 29418,
+      "hnMentions7d": 5
     },
     "priceHistory": [
       {
@@ -2591,6 +2635,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 837.77
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 840.79
       }
     ],
     "quips": [
@@ -2630,12 +2678,12 @@
     "githubOrg": "NVIDIA",
     "hfOrg": "nvidia",
     "signals": {
-      "attention7d": 46481,
-      "attentionDelta": 22.5,
-      "stars": 97020,
-      "hfDownloads30d": 52023117,
-      "hfLikes": 13723,
-      "hnMentions7d": 56
+      "attention7d": 45154,
+      "attentionDelta": 16.1,
+      "stars": 132192,
+      "hfDownloads30d": 52130143,
+      "hfLikes": 14766,
+      "hnMentions7d": 41
     },
     "priceHistory": [
       {
@@ -2795,6 +2843,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 890.6
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 902.07
       }
     ],
     "quips": [
@@ -2844,10 +2896,10 @@
     "wikipediaSlug": "Greg_Brockman",
     "githubUser": "gdb",
     "signals": {
-      "attention7d": 8253,
-      "attentionDelta": -52.9,
+      "attention7d": 7755,
+      "attentionDelta": -57.7,
       "stars": 1508,
-      "ghFollowers": 3935,
+      "ghFollowers": 3936,
       "hnMentions7d": 0
     },
     "priceHistory": [
@@ -3008,6 +3060,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 736.7
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 702.69
       }
     ],
     "quips": [
@@ -3062,8 +3118,8 @@
     "dailyBlurb": "Two billion dollars raised on a blank page. The bet is entirely on her judgment.",
     "wikipediaSlug": "Mira_Murati",
     "signals": {
-      "attention7d": 10770,
-      "attentionDelta": -18.1,
+      "attention7d": 10315,
+      "attentionDelta": -12.2,
       "hnMentions7d": 0
     },
     "priceHistory": [
@@ -3224,6 +3280,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 653.97
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 647.59
       }
     ],
     "quips": [
@@ -3279,8 +3339,8 @@
     "wikipediaSlug": "Yoshua_Bengio",
     "openalexId": "A5086198262",
     "signals": {
-      "attention7d": 3484,
-      "attentionDelta": 8.5,
+      "attention7d": 3455,
+      "attentionDelta": 3.4,
       "citations": 476421,
       "hIndex": 186,
       "works": 1290,
@@ -3444,6 +3504,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 928.99
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 931.52
       }
     ],
     "quips": [
@@ -3498,8 +3562,8 @@
     "wikipediaSlug": "Fei-Fei_Li",
     "openalexId": "A5100450462",
     "signals": {
-      "attention7d": 3661,
-      "attentionDelta": 0.7,
+      "attention7d": 3560,
+      "attentionDelta": -5.1,
       "citations": 221897,
       "hIndex": 137,
       "works": 753,
@@ -3663,6 +3727,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 989.62
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 985.58
       }
     ],
     "quips": [
@@ -3717,8 +3785,8 @@
     "wikipediaSlug": "Andrew_Ng",
     "openalexId": "A5112456378",
     "signals": {
-      "attention7d": 5571,
-      "attentionDelta": 35,
+      "attention7d": 5526,
+      "attentionDelta": 28,
       "citations": 132644,
       "hIndex": 125,
       "works": 391,
@@ -3882,6 +3950,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 949.71
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 970.98
       }
     ],
     "quips": [
@@ -3910,7 +3982,7 @@
       "yearsInField": 25
     },
     "stats": {
-      "rating": 90,
+      "rating": 91,
       "innovation": 99,
       "influence": 89,
       "momentum": 85
@@ -3937,12 +4009,12 @@
     "wikipediaSlug": "Jeff_Dean",
     "openalexId": "A5011889606",
     "signals": {
-      "attention7d": 2298,
-      "attentionDelta": 6.7,
+      "attention7d": 2444,
+      "attentionDelta": 9.4,
       "citations": 36431,
       "hIndex": 29,
       "works": 58,
-      "hnMentions7d": 0
+      "hnMentions7d": 1
     },
     "priceHistory": [
       {
@@ -4102,6 +4174,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 1009.27
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 1033.68
       }
     ],
     "quips": [
@@ -4156,8 +4232,8 @@
     "wikipediaSlug": "Noam_Shazeer",
     "openalexId": "A5021878400",
     "signals": {
-      "attention7d": 2072,
-      "attentionDelta": -12.8,
+      "attention7d": 2074,
+      "attentionDelta": -13.3,
       "citations": 28847,
       "hIndex": 34,
       "works": 63,
@@ -4321,6 +4397,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 793.06
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 784.62
       }
     ],
     "quips": [
@@ -4349,7 +4429,7 @@
       "yearsInField": 12
     },
     "stats": {
-      "rating": 86,
+      "rating": 87,
       "innovation": 96,
       "influence": 90,
       "momentum": 84
@@ -4375,8 +4455,8 @@
     "wikipediaSlug": "Jan_Leike",
     "openalexId": "A5090592321",
     "signals": {
-      "attention7d": 8710,
-      "attentionDelta": 1073.9,
+      "attention7d": 9218,
+      "attentionDelta": 1083.3,
       "citations": 7464,
       "hIndex": 19,
       "works": 73,
@@ -4540,6 +4620,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 1234.18
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 1354.44
       }
     ],
     "quips": [
@@ -4588,8 +4672,8 @@
     ],
     "wikipediaSlug": "Eliezer_Yudkowsky",
     "signals": {
-      "attention7d": 5561,
-      "attentionDelta": 3.2,
+      "attention7d": 5490,
+      "attentionDelta": -1.1,
       "hnMentions7d": 0
     },
     "priceHistory": [
@@ -4750,6 +4834,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 683.86
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 683.26
       }
     ],
     "quips": [
@@ -4798,8 +4886,8 @@
     ],
     "wikipediaSlug": "Alexandr_Wang",
     "signals": {
-      "attention7d": 14462,
-      "attentionDelta": 51.6,
+      "attention7d": 14367,
+      "attentionDelta": 40.9,
       "hnMentions7d": 0
     },
     "priceHistory": [
@@ -4960,6 +5048,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 971.23
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 1003.01
       }
     ],
     "quips": [
@@ -5009,8 +5101,8 @@
     "wikipediaSlug": "Perplexity_AI",
     "openalexId": "A5112594303",
     "signals": {
-      "attention7d": 14487,
-      "attentionDelta": -1.5,
+      "attention7d": 14440,
+      "attentionDelta": -4.4,
       "citations": 3388,
       "hIndex": 18,
       "works": 37,
@@ -5174,6 +5266,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 784.31
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 781.55
       }
     ],
     "quips": [
@@ -5212,10 +5308,10 @@
     "wikipediaSlug": "Anthropic",
     "githubOrg": "anthropics",
     "signals": {
-      "attention7d": 57728,
-      "attentionDelta": 30.9,
-      "stars": 533359,
-      "hnMentions7d": 79
+      "attention7d": 58583,
+      "attentionDelta": 31.7,
+      "stars": 533835,
+      "hnMentions7d": 81
     },
     "priceHistory": [
       {
@@ -5375,6 +5471,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 1033.48
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 1059.69
       }
     ],
     "quips": [
@@ -5413,11 +5513,11 @@
     "githubOrg": "facebookresearch",
     "hfOrg": "meta-llama",
     "signals": {
-      "attention7d": 2994,
-      "attentionDelta": -3.1,
-      "stars": 157480,
-      "hfDownloads30d": 37108293,
-      "hfLikes": 59842,
+      "attention7d": 3007,
+      "attentionDelta": -2.1,
+      "stars": 157525,
+      "hfDownloads30d": 37073981,
+      "hfLikes": 59862,
       "hnMentions7d": 4
     },
     "priceHistory": [
@@ -5578,6 +5678,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 750.94
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 749.68
       }
     ],
     "quips": [
@@ -5616,9 +5720,9 @@
     "wikipediaSlug": "SpaceXAI",
     "githubOrg": "xai-org",
     "signals": {
-      "attention7d": 8278,
-      "attentionDelta": 4.6,
-      "stars": 108757,
+      "attention7d": 8166,
+      "attentionDelta": 0.1,
+      "stars": 108893,
       "hnMentions7d": 10
     },
     "priceHistory": [
@@ -5779,6 +5883,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 663.01
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 663.06
       }
     ],
     "quips": [
@@ -5818,11 +5926,11 @@
     "githubOrg": "mistralai",
     "hfOrg": "mistralai",
     "signals": {
-      "attention7d": 7022,
-      "attentionDelta": -12.1,
-      "stars": 24025,
-      "hfDownloads30d": 15265108,
-      "hfLikes": 37984,
+      "attention7d": 6943,
+      "attentionDelta": -13.9,
+      "stars": 24031,
+      "hfDownloads30d": 15241856,
+      "hfLikes": 37222,
       "hnMentions7d": 1
     },
     "priceHistory": [
@@ -5983,6 +6091,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 877.99
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 868.23
       }
     ],
     "quips": [
@@ -6011,7 +6123,7 @@
       "modelCount": 3
     },
     "stats": {
-      "rating": 70,
+      "rating": 69,
       "innovation": 80,
       "influence": 88,
       "momentum": 78
@@ -6022,12 +6134,12 @@
     "githubOrg": "huggingface",
     "hfOrg": "HuggingFaceH4",
     "signals": {
-      "attention7d": 23905,
-      "attentionDelta": -45.4,
-      "stars": 391568,
-      "hfDownloads30d": 300486,
-      "hfLikes": 4103,
-      "hnMentions7d": 32
+      "attention7d": 23262,
+      "attentionDelta": -50.6,
+      "stars": 391701,
+      "hfDownloads30d": 290103,
+      "hfLikes": 4104,
+      "hnMentions7d": 26
     },
     "priceHistory": [
       {
@@ -6187,6 +6299,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 676.42
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 634.54
       }
     ],
     "quips": [
@@ -6236,8 +6352,8 @@
     ],
     "wikipediaSlug": "Hugging_Face",
     "signals": {
-      "attention7d": 23905,
-      "attentionDelta": -45.4,
+      "attention7d": 23262,
+      "attentionDelta": -50.6,
       "hnMentions7d": 0
     },
     "priceHistory": [
@@ -6398,6 +6514,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 861.3
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 826.43
       }
     ],
     "quips": [
@@ -6613,6 +6733,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 1181.67
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 1142.34
       }
     ],
     "quips": [
@@ -6667,10 +6791,10 @@
     "wikipediaSlug": "George_Hotz",
     "githubUser": "geohot",
     "signals": {
-      "attention7d": 1676,
-      "attentionDelta": -32.6,
-      "stars": 20398,
-      "ghFollowers": 47218,
+      "attention7d": 1549,
+      "attentionDelta": -41.2,
+      "stars": 20400,
+      "ghFollowers": 47228,
       "hnMentions7d": 0
     },
     "priceHistory": [
@@ -6831,6 +6955,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 909.04
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 879.08
       }
     ],
     "quips": [
@@ -6880,8 +7008,8 @@
     "wikipediaSlug": "Aidan_Gomez",
     "openalexId": "A5079288315",
     "signals": {
-      "attention7d": 989,
-      "attentionDelta": 1.9,
+      "attention7d": 987,
+      "attentionDelta": 1.2,
       "citations": 8868,
       "hIndex": 15,
       "works": 32,
@@ -7045,6 +7173,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 952.9
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 953.81
       }
     ],
     "quips": [
@@ -7099,8 +7231,8 @@
     "wikipediaSlug": "John_Schulman",
     "openalexId": "A5009037058",
     "signals": {
-      "attention7d": 1857,
-      "attentionDelta": 42.6,
+      "attention7d": 1760,
+      "attentionDelta": 29.7,
       "citations": 19592,
       "hIndex": 40,
       "works": 61,
@@ -7264,6 +7396,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 1005.76
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 1029.66
       }
     ],
     "quips": [
@@ -7483,6 +7619,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 851.05
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 873.18
       }
     ],
     "quips": [
@@ -7531,8 +7671,8 @@
     ],
     "wikipediaSlug": "Sundar_Pichai",
     "signals": {
-      "attention7d": 17988,
-      "attentionDelta": -6.6,
+      "attention7d": 17818,
+      "attentionDelta": -10.4,
       "hnMentions7d": 0
     },
     "priceHistory": [
@@ -7693,6 +7833,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 856.29
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 849.17
       }
     ],
     "quips": [
@@ -7741,8 +7885,8 @@
     ],
     "wikipediaSlug": "Satya_Nadella",
     "signals": {
-      "attention7d": 15363,
-      "attentionDelta": -13.6,
+      "attention7d": 13583,
+      "attentionDelta": -31.9,
       "hnMentions7d": 0
     },
     "priceHistory": [
@@ -7903,6 +8047,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 648.18
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 631.64
       }
     ],
     "quips": [
@@ -8113,6 +8261,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 1081.87
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 1101.86
       }
     ],
     "quips": [
@@ -8151,12 +8303,12 @@
     "githubOrg": "microsoft",
     "hfOrg": "microsoft",
     "signals": {
-      "attention7d": 38103,
-      "attentionDelta": -17.7,
-      "stars": 563093,
-      "hfDownloads30d": 41551143,
-      "hfLikes": 27531,
-      "hnMentions7d": 57
+      "attention7d": 35306,
+      "attentionDelta": -16.3,
+      "stars": 467350,
+      "hfDownloads30d": 41697929,
+      "hfLikes": 27464,
+      "hnMentions7d": 48
     },
     "priceHistory": [
       {
@@ -8316,6 +8468,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 1182.29
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 1166.87
       }
     ],
     "quips": [
@@ -8352,9 +8508,9 @@
     "flavorText": "Their API status page is the industry's heartbeat monitor.",
     "wikipediaSlug": "Apple_Inc.",
     "signals": {
-      "attention7d": 39969,
-      "attentionDelta": 6.3,
-      "hnMentions7d": 93
+      "attention7d": 39811,
+      "attentionDelta": 6,
+      "hnMentions7d": 91
     },
     "priceHistory": [
       {
@@ -8514,6 +8670,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 857.15
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 861.26
       }
     ],
     "quips": [
@@ -8550,9 +8710,9 @@
     "flavorText": "Went viral once. The servers remember.",
     "wikipediaSlug": "Amazon_Web_Services",
     "signals": {
-      "attention7d": 12637,
-      "attentionDelta": 57.3,
-      "hnMentions7d": 37
+      "attention7d": 12003,
+      "attentionDelta": 39.2,
+      "hnMentions7d": 39
     },
     "priceHistory": [
       {
@@ -8712,6 +8872,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 937.19
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 966.58
       }
     ],
     "quips": [
@@ -8751,12 +8915,12 @@
     "githubOrg": "deepseek-ai",
     "hfOrg": "deepseek-ai",
     "signals": {
-      "attention7d": 13458,
-      "attentionDelta": -5.7,
-      "stars": 340921,
-      "hfDownloads30d": 34000858,
-      "hfLikes": 62708,
-      "hnMentions7d": 28
+      "attention7d": 13451,
+      "attentionDelta": -4.2,
+      "stars": 340974,
+      "hfDownloads30d": 33932444,
+      "hfLikes": 63022,
+      "hnMentions7d": 29
     },
     "priceHistory": [
       {
@@ -8916,6 +9080,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 780.12
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 777.5
       }
     ],
     "quips": [
@@ -8953,8 +9121,8 @@
     "dailyBlurb": "The first real dent in the search monopoly in twenty years — and every browser deal makes it bigger.",
     "wikipediaSlug": "Perplexity_AI",
     "signals": {
-      "attention7d": 14487,
-      "attentionDelta": -1.5,
+      "attention7d": 14440,
+      "attentionDelta": -4.4,
       "hnMentions7d": 5
     },
     "priceHistory": [
@@ -9115,6 +9283,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 793.64
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 790.85
       }
     ],
     "quips": [
@@ -9152,8 +9324,8 @@
     "dailyBlurb": "Zero investors, nine figures of revenue, and half the internet's fantasy art. The bootstrapped anomaly.",
     "wikipediaSlug": "Midjourney",
     "signals": {
-      "attention7d": 3571,
-      "attentionDelta": -3.2,
+      "attention7d": 3448,
+      "attentionDelta": -7.8,
       "hnMentions7d": 0
     },
     "priceHistory": [
@@ -9314,6 +9486,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 608.82
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 605.02
       }
     ],
     "quips": [
@@ -9351,9 +9527,9 @@
     "dailyBlurb": "The fastest-growing developer tool ever built. The 'AI writes the code' future is already their present.",
     "wikipediaSlug": "Cursor_(company)",
     "signals": {
-      "attention7d": 9239,
-      "attentionDelta": 5.1,
-      "hnMentions7d": 30
+      "attention7d": 9156,
+      "attentionDelta": 2.8,
+      "hnMentions7d": 29
     },
     "priceHistory": [
       {
@@ -9513,6 +9689,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 485.23
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 486.32
       }
     ],
     "quips": [
@@ -9551,9 +9731,9 @@
     "wikipediaSlug": "ElevenLabs",
     "githubOrg": "elevenlabs",
     "signals": {
-      "attention7d": 5412,
-      "attentionDelta": 10.3,
-      "stars": 8777,
+      "attention7d": 5535,
+      "attentionDelta": 15.8,
+      "stars": 8783,
       "hnMentions7d": 0
     },
     "priceHistory": [
@@ -9714,6 +9894,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 622.48
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 630.35
       }
     ],
     "quips": [
@@ -9751,9 +9935,9 @@
     "wikipediaSlug": "Scale_AI",
     "githubOrg": "scaleapi",
     "signals": {
-      "attention7d": 6737,
-      "attentionDelta": 44.6,
-      "stars": 2566,
+      "attention7d": 6769,
+      "attentionDelta": 41.8,
+      "stars": 2567,
       "hnMentions7d": 3
     },
     "priceHistory": [
@@ -9914,6 +10098,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 671.08
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 693.52
       }
     ],
     "quips": [
@@ -9952,11 +10140,11 @@
     "githubOrg": "cohere-ai",
     "hfOrg": "CohereLabs",
     "signals": {
-      "attention7d": 2531,
-      "attentionDelta": 17.4,
+      "attention7d": 2460,
+      "attentionDelta": 12.5,
       "stars": 5573,
-      "hfDownloads30d": 1474761,
-      "hfLikes": 10706,
+      "hfDownloads30d": 1464319,
+      "hfLikes": 10710,
       "hnMentions7d": 0
     },
     "priceHistory": [
@@ -10117,6 +10305,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 980.51
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 990.32
       }
     ],
     "quips": [
@@ -10154,9 +10346,9 @@
     "wikipediaSlug": "Groq",
     "githubOrg": "groq",
     "signals": {
-      "attention7d": 2545,
-      "attentionDelta": 1.9,
-      "stars": 4399,
+      "attention7d": 2479,
+      "attentionDelta": -3.5,
+      "stars": 4400,
       "hnMentions7d": 1
     },
     "priceHistory": [
@@ -10317,6 +10509,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 788.87
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 786.66
       }
     ],
     "quips": [
@@ -10353,9 +10549,9 @@
     "flavorText": "Hollywood pretends not to use them.",
     "wikipediaSlug": "Runway_(company)",
     "signals": {
-      "attention7d": 1919,
-      "attentionDelta": 33.8,
-      "hnMentions7d": 2
+      "attention7d": 1947,
+      "attentionDelta": 31.3,
+      "hnMentions7d": 1
     },
     "priceHistory": [
       {
@@ -10515,6 +10711,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 682.63
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 699.72
       }
     ],
     "quips": [
@@ -10702,6 +10902,10 @@
       },
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
+        "price": 12.71
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
         "price": 12.71
       }
     ],
@@ -10892,6 +11096,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 11.73
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 11.73
       }
     ],
     "quips": [
@@ -11080,6 +11288,10 @@
       },
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
+        "price": 11.11
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
         "price": 11.11
       }
     ],
@@ -11270,6 +11482,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 12.06
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 12.06
       }
     ],
     "quips": [
@@ -11458,6 +11674,10 @@
       },
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
+        "price": 10.94
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
         "price": 10.94
       }
     ],
@@ -11648,6 +11868,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 13.28
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 13.28
       }
     ],
     "quips": [
@@ -11836,6 +12060,10 @@
       },
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
+        "price": 11.65
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
         "price": 11.65
       }
     ],
@@ -12026,6 +12254,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 11.9
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 11.9
       }
     ],
     "quips": [
@@ -12214,6 +12446,10 @@
       },
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
+        "price": 13.86
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
         "price": 13.86
       }
     ],
@@ -12404,6 +12640,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 11.2
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 11.2
       }
     ],
     "quips": [
@@ -12592,6 +12832,10 @@
       },
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
+        "price": 11.81
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
         "price": 11.81
       }
     ],
@@ -12782,6 +13026,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 11.31
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 11.31
       }
     ],
     "quips": [
@@ -12970,6 +13218,10 @@
       },
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
+        "price": 11.36
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
         "price": 11.36
       }
     ],
@@ -13160,6 +13412,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 12.12
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 12.12
       }
     ],
     "quips": [
@@ -13348,6 +13604,10 @@
       },
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
+        "price": 11.32
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
         "price": 11.32
       }
     ],
@@ -13538,6 +13798,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 12.61
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 12.61
       }
     ],
     "quips": [
@@ -13726,6 +13990,10 @@
       },
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
+        "price": 12.32
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
         "price": 12.32
       }
     ],
@@ -13916,6 +14184,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 11.86
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 11.86
       }
     ],
     "quips": [
@@ -14104,6 +14376,10 @@
       },
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
+        "price": 11.8
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
         "price": 11.8
       }
     ],
@@ -14294,6 +14570,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 12.01
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 12.01
       }
     ],
     "quips": [
@@ -14482,6 +14762,10 @@
       },
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
+        "price": 10.9
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
         "price": 10.9
       }
     ],
@@ -14672,6 +14956,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 12.27
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 12.27
       }
     ],
     "quips": [
@@ -14860,6 +15148,10 @@
       },
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
+        "price": 13.53
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
         "price": 13.53
       }
     ],
@@ -15050,6 +15342,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 11.36
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 11.36
       }
     ],
     "quips": [
@@ -15238,6 +15534,10 @@
       },
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
+        "price": 11.24
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
         "price": 11.24
       }
     ],
@@ -15428,6 +15728,10 @@
       {
         "timestamp": "2026-08-03T05:42:19.084Z",
         "price": 11.25
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 11.25
       }
     ],
     "quips": [
@@ -15490,7 +15794,162 @@
       "works": 106,
       "hnMentions7d": 0
     },
-    "priceHistory": [],
+    "priceHistory": [
+      {
+        "timestamp": "2026-07-06T00:00:00.000Z",
+        "price": 905.38,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-07T00:00:00.000Z",
+        "price": 878.43,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-08T00:00:00.000Z",
+        "price": 890.84,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-09T00:00:00.000Z",
+        "price": 880.65,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-10T00:00:00.000Z",
+        "price": 882.31,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-11T00:00:00.000Z",
+        "price": 881.29,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-12T00:00:00.000Z",
+        "price": 904.49,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-13T00:00:00.000Z",
+        "price": 924.02,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-14T00:00:00.000Z",
+        "price": 929.4,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-15T00:00:00.000Z",
+        "price": 911.1,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-16T00:00:00.000Z",
+        "price": 924.19,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-17T00:00:00.000Z",
+        "price": 939.99,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-18T00:00:00.000Z",
+        "price": 925.76,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-19T00:00:00.000Z",
+        "price": 899.12,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-20T00:00:00.000Z",
+        "price": 907.42,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-21T00:00:00.000Z",
+        "price": 894.24,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-22T00:00:00.000Z",
+        "price": 911.09,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-23T00:00:00.000Z",
+        "price": 883.35,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-24T00:00:00.000Z",
+        "price": 907.64,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-25T00:00:00.000Z",
+        "price": 893.57,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-26T00:00:00.000Z",
+        "price": 874.42,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-27T00:00:00.000Z",
+        "price": 886.94,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-28T00:00:00.000Z",
+        "price": 887.12,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-29T00:00:00.000Z",
+        "price": 888.35,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-30T00:00:00.000Z",
+        "price": 870.8,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-31T00:00:00.000Z",
+        "price": 895.08,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-01T00:00:00.000Z",
+        "price": 907.82,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-02T00:00:00.000Z",
+        "price": 922.68,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-03T00:00:00.000Z",
+        "price": 894.38,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T00:00:00.000Z",
+        "price": 902.31,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 902.38
+      }
+    ],
     "quips": [
       "Invented GANs in a bar argument. Peer review has never recovered.",
       "Made neural nets fight each other. Called it science. Was right.",
@@ -15533,7 +15992,162 @@
       "works": 555,
       "hnMentions7d": 0
     },
-    "priceHistory": [],
+    "priceHistory": [
+      {
+        "timestamp": "2026-07-06T00:00:00.000Z",
+        "price": 891.51,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-07T00:00:00.000Z",
+        "price": 896.35,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-08T00:00:00.000Z",
+        "price": 897.65,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-09T00:00:00.000Z",
+        "price": 917.04,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-10T00:00:00.000Z",
+        "price": 918.87,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-11T00:00:00.000Z",
+        "price": 933.83,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-12T00:00:00.000Z",
+        "price": 926.32,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-13T00:00:00.000Z",
+        "price": 940.82,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-14T00:00:00.000Z",
+        "price": 937.89,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-15T00:00:00.000Z",
+        "price": 924.21,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-16T00:00:00.000Z",
+        "price": 945.32,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-17T00:00:00.000Z",
+        "price": 948.66,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-18T00:00:00.000Z",
+        "price": 958.31,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-19T00:00:00.000Z",
+        "price": 954.76,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-20T00:00:00.000Z",
+        "price": 944.68,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-21T00:00:00.000Z",
+        "price": 962.13,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-22T00:00:00.000Z",
+        "price": 980.45,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-23T00:00:00.000Z",
+        "price": 969.4,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-24T00:00:00.000Z",
+        "price": 970.55,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-25T00:00:00.000Z",
+        "price": 980.17,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-26T00:00:00.000Z",
+        "price": 958.35,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-27T00:00:00.000Z",
+        "price": 962.35,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-28T00:00:00.000Z",
+        "price": 966.32,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-29T00:00:00.000Z",
+        "price": 979.34,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-30T00:00:00.000Z",
+        "price": 968.52,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-31T00:00:00.000Z",
+        "price": 976.7,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-01T00:00:00.000Z",
+        "price": 973.41,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-02T00:00:00.000Z",
+        "price": 984.49,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-03T00:00:00.000Z",
+        "price": 972.19,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T00:00:00.000Z",
+        "price": 985.01,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 962.24
+      }
+    ],
     "quips": [
       "Invented your idea in 1991. Has the citation ready.",
       "The literature review that walks like a man.",
@@ -15577,7 +16191,162 @@
       "works": 280,
       "hnMentions7d": 0
     },
-    "priceHistory": [],
+    "priceHistory": [
+      {
+        "timestamp": "2026-07-06T00:00:00.000Z",
+        "price": 897.15,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-07T00:00:00.000Z",
+        "price": 888.46,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-08T00:00:00.000Z",
+        "price": 876.91,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-09T00:00:00.000Z",
+        "price": 858.84,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-10T00:00:00.000Z",
+        "price": 844.45,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-11T00:00:00.000Z",
+        "price": 833.86,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-12T00:00:00.000Z",
+        "price": 846.43,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-13T00:00:00.000Z",
+        "price": 859.79,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-14T00:00:00.000Z",
+        "price": 856.65,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-15T00:00:00.000Z",
+        "price": 864.16,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-16T00:00:00.000Z",
+        "price": 860.24,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-17T00:00:00.000Z",
+        "price": 880.42,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-18T00:00:00.000Z",
+        "price": 865.79,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-19T00:00:00.000Z",
+        "price": 875.47,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-20T00:00:00.000Z",
+        "price": 883.32,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-21T00:00:00.000Z",
+        "price": 885.37,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-22T00:00:00.000Z",
+        "price": 866.37,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-23T00:00:00.000Z",
+        "price": 853.12,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-24T00:00:00.000Z",
+        "price": 844.95,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-25T00:00:00.000Z",
+        "price": 844.13,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-26T00:00:00.000Z",
+        "price": 860.83,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-27T00:00:00.000Z",
+        "price": 880.7,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-28T00:00:00.000Z",
+        "price": 861.65,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-29T00:00:00.000Z",
+        "price": 864.38,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-30T00:00:00.000Z",
+        "price": 851.47,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-31T00:00:00.000Z",
+        "price": 869.83,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-01T00:00:00.000Z",
+        "price": 875.9,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-02T00:00:00.000Z",
+        "price": 860.08,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-03T00:00:00.000Z",
+        "price": 842.23,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T00:00:00.000Z",
+        "price": 834.2,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 831.6
+      }
+    ],
     "quips": [
       "Wrote The Bitter Lesson. The industry keeps proving it on schedule.",
       "Reinforcement learning's patient zero.",
@@ -15620,7 +16389,162 @@
       "works": 58,
       "hnMentions7d": 0
     },
-    "priceHistory": [],
+    "priceHistory": [
+      {
+        "timestamp": "2026-07-06T00:00:00.000Z",
+        "price": 867.79,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-07T00:00:00.000Z",
+        "price": 848.35,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-08T00:00:00.000Z",
+        "price": 863.52,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-09T00:00:00.000Z",
+        "price": 841.73,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-10T00:00:00.000Z",
+        "price": 851.99,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-11T00:00:00.000Z",
+        "price": 834.75,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-12T00:00:00.000Z",
+        "price": 843.4,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-13T00:00:00.000Z",
+        "price": 869.84,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-14T00:00:00.000Z",
+        "price": 870.43,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-15T00:00:00.000Z",
+        "price": 868.17,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-16T00:00:00.000Z",
+        "price": 855.19,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-17T00:00:00.000Z",
+        "price": 832.13,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-18T00:00:00.000Z",
+        "price": 824.45,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-19T00:00:00.000Z",
+        "price": 840.93,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-20T00:00:00.000Z",
+        "price": 830.12,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-21T00:00:00.000Z",
+        "price": 843.52,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-22T00:00:00.000Z",
+        "price": 868.73,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-23T00:00:00.000Z",
+        "price": 883.06,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-24T00:00:00.000Z",
+        "price": 866.14,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-25T00:00:00.000Z",
+        "price": 864.96,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-26T00:00:00.000Z",
+        "price": 892.82,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-27T00:00:00.000Z",
+        "price": 907.16,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-28T00:00:00.000Z",
+        "price": 891.69,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-29T00:00:00.000Z",
+        "price": 895.59,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-30T00:00:00.000Z",
+        "price": 886.06,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-31T00:00:00.000Z",
+        "price": 883.57,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-01T00:00:00.000Z",
+        "price": 890.39,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-02T00:00:00.000Z",
+        "price": 900.37,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-03T00:00:00.000Z",
+        "price": 876.04,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T00:00:00.000Z",
+        "price": 859.13,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 861.12
+      }
+    ],
     "quips": [
       "Co-wrote the paper. You know the one.",
       "Attention was, in fact, all he needed.",
@@ -15647,7 +16571,7 @@
       "yearsInField": 30
     },
     "stats": {
-      "rating": 88,
+      "rating": 87,
       "innovation": 89,
       "influence": 87,
       "momentum": 97
@@ -15663,7 +16587,162 @@
       "works": 318,
       "hnMentions7d": 0
     },
-    "priceHistory": [],
+    "priceHistory": [
+      {
+        "timestamp": "2026-07-06T00:00:00.000Z",
+        "price": 880.84,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-07T00:00:00.000Z",
+        "price": 870.39,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-08T00:00:00.000Z",
+        "price": 855.03,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-09T00:00:00.000Z",
+        "price": 877.02,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-10T00:00:00.000Z",
+        "price": 862.32,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-11T00:00:00.000Z",
+        "price": 861,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-12T00:00:00.000Z",
+        "price": 865.86,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-13T00:00:00.000Z",
+        "price": 840.81,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-14T00:00:00.000Z",
+        "price": 848.65,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-15T00:00:00.000Z",
+        "price": 823.44,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-16T00:00:00.000Z",
+        "price": 824.21,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-17T00:00:00.000Z",
+        "price": 846.45,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-18T00:00:00.000Z",
+        "price": 822.35,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-19T00:00:00.000Z",
+        "price": 802.45,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-20T00:00:00.000Z",
+        "price": 780.82,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-21T00:00:00.000Z",
+        "price": 769.35,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-22T00:00:00.000Z",
+        "price": 748.23,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-23T00:00:00.000Z",
+        "price": 731.81,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-24T00:00:00.000Z",
+        "price": 721.24,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-25T00:00:00.000Z",
+        "price": 702.08,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-26T00:00:00.000Z",
+        "price": 688,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-27T00:00:00.000Z",
+        "price": 709.25,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-28T00:00:00.000Z",
+        "price": 699.46,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-29T00:00:00.000Z",
+        "price": 717.25,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-30T00:00:00.000Z",
+        "price": 694.85,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-31T00:00:00.000Z",
+        "price": 697.1,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-01T00:00:00.000Z",
+        "price": 696.69,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-02T00:00:00.000Z",
+        "price": 692.13,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-03T00:00:00.000Z",
+        "price": 714.24,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T00:00:00.000Z",
+        "price": 707.16,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 705.24
+      }
+    ],
     "quips": [
       "Solved vanishing gradients before some founders could walk.",
       "The L, S, T and M are all his.",
@@ -15709,7 +16788,162 @@
       "ghFollowers": 18154,
       "hnMentions7d": 0
     },
-    "priceHistory": [],
+    "priceHistory": [
+      {
+        "timestamp": "2026-07-06T00:00:00.000Z",
+        "price": 844.74,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-07T00:00:00.000Z",
+        "price": 823.16,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-08T00:00:00.000Z",
+        "price": 800.43,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-09T00:00:00.000Z",
+        "price": 822.25,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-10T00:00:00.000Z",
+        "price": 807.78,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-11T00:00:00.000Z",
+        "price": 796.08,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-12T00:00:00.000Z",
+        "price": 823,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-13T00:00:00.000Z",
+        "price": 844.43,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-14T00:00:00.000Z",
+        "price": 821.41,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-15T00:00:00.000Z",
+        "price": 801.39,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-16T00:00:00.000Z",
+        "price": 826.88,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-17T00:00:00.000Z",
+        "price": 860.88,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-18T00:00:00.000Z",
+        "price": 845.96,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-19T00:00:00.000Z",
+        "price": 846,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-20T00:00:00.000Z",
+        "price": 817.83,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-21T00:00:00.000Z",
+        "price": 842.41,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-22T00:00:00.000Z",
+        "price": 833.15,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-23T00:00:00.000Z",
+        "price": 843.21,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-24T00:00:00.000Z",
+        "price": 816.06,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-25T00:00:00.000Z",
+        "price": 849.53,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-26T00:00:00.000Z",
+        "price": 862.45,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-27T00:00:00.000Z",
+        "price": 857.82,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-28T00:00:00.000Z",
+        "price": 833.9,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-29T00:00:00.000Z",
+        "price": 824.84,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-30T00:00:00.000Z",
+        "price": 842.59,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-31T00:00:00.000Z",
+        "price": 808.99,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-01T00:00:00.000Z",
+        "price": 795.94,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-02T00:00:00.000Z",
+        "price": 797.9,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-03T00:00:00.000Z",
+        "price": 823.98,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T00:00:00.000Z",
+        "price": 808.24,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 818.07
+      }
+    ],
     "quips": [
       "Built Keras so you didn't have to learn TensorFlow properly.",
       "Runs ARC like a bouncer checking IDs for general intelligence.",
@@ -15748,7 +16982,162 @@
       "attentionDelta": -2.9,
       "hnMentions7d": 0
     },
-    "priceHistory": [],
+    "priceHistory": [
+      {
+        "timestamp": "2026-07-06T00:00:00.000Z",
+        "price": 850.3,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-07T00:00:00.000Z",
+        "price": 862.8,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-08T00:00:00.000Z",
+        "price": 850.52,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-09T00:00:00.000Z",
+        "price": 834.78,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-10T00:00:00.000Z",
+        "price": 847.54,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-11T00:00:00.000Z",
+        "price": 802.96,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-12T00:00:00.000Z",
+        "price": 838.36,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-13T00:00:00.000Z",
+        "price": 822.2,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-14T00:00:00.000Z",
+        "price": 787.26,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-15T00:00:00.000Z",
+        "price": 794.04,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-16T00:00:00.000Z",
+        "price": 808.49,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-17T00:00:00.000Z",
+        "price": 836.79,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-18T00:00:00.000Z",
+        "price": 839.6,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-19T00:00:00.000Z",
+        "price": 855.37,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-20T00:00:00.000Z",
+        "price": 816.3,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-21T00:00:00.000Z",
+        "price": 779.67,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-22T00:00:00.000Z",
+        "price": 772.66,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-23T00:00:00.000Z",
+        "price": 764.02,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-24T00:00:00.000Z",
+        "price": 744.8,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-25T00:00:00.000Z",
+        "price": 775.08,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-26T00:00:00.000Z",
+        "price": 794.92,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-27T00:00:00.000Z",
+        "price": 817.85,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-28T00:00:00.000Z",
+        "price": 846.13,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-29T00:00:00.000Z",
+        "price": 843.84,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-30T00:00:00.000Z",
+        "price": 877.46,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-31T00:00:00.000Z",
+        "price": 858.37,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-01T00:00:00.000Z",
+        "price": 827.29,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-02T00:00:00.000Z",
+        "price": 854.55,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-03T00:00:00.000Z",
+        "price": 877.88,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T00:00:00.000Z",
+        "price": 867.34,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 865.33
+      }
+    ],
     "quips": [
       "Optimized Doom, rockets, and now gradient descent. In that order.",
       "Writes engines. Currently reverse-engineering the brain's.",
@@ -15792,7 +17181,162 @@
       "hfLikes": 40308,
       "hnMentions7d": 0
     },
-    "priceHistory": [],
+    "priceHistory": [
+      {
+        "timestamp": "2026-07-06T00:00:00.000Z",
+        "price": 679.01,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-07T00:00:00.000Z",
+        "price": 666.81,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-08T00:00:00.000Z",
+        "price": 679.73,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-09T00:00:00.000Z",
+        "price": 684.42,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-10T00:00:00.000Z",
+        "price": 686,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-11T00:00:00.000Z",
+        "price": 688.12,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-12T00:00:00.000Z",
+        "price": 652.81,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-13T00:00:00.000Z",
+        "price": 650.05,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-14T00:00:00.000Z",
+        "price": 645.15,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-15T00:00:00.000Z",
+        "price": 668.19,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-16T00:00:00.000Z",
+        "price": 670.04,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-17T00:00:00.000Z",
+        "price": 685.18,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-18T00:00:00.000Z",
+        "price": 719.56,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-19T00:00:00.000Z",
+        "price": 680.18,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-20T00:00:00.000Z",
+        "price": 716.69,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-21T00:00:00.000Z",
+        "price": 714.94,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-22T00:00:00.000Z",
+        "price": 726.33,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-23T00:00:00.000Z",
+        "price": 696.32,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-24T00:00:00.000Z",
+        "price": 696.32,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-25T00:00:00.000Z",
+        "price": 710.93,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-26T00:00:00.000Z",
+        "price": 674.62,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-27T00:00:00.000Z",
+        "price": 666.99,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-28T00:00:00.000Z",
+        "price": 662.56,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-29T00:00:00.000Z",
+        "price": 663.72,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-30T00:00:00.000Z",
+        "price": 692.32,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-31T00:00:00.000Z",
+        "price": 679.75,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-01T00:00:00.000Z",
+        "price": 696.47,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-02T00:00:00.000Z",
+        "price": 663.33,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-03T00:00:00.000Z",
+        "price": 665.06,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T00:00:00.000Z",
+        "price": 689.12,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 681.29
+      }
+    ],
     "quips": [
       "Open-sourced the art world's group project.",
       "Diffusion, in every sense of the word.",
@@ -15832,7 +17376,162 @@
       "attentionDelta": 308.3,
       "hnMentions7d": 2
     },
-    "priceHistory": [],
+    "priceHistory": [
+      {
+        "timestamp": "2026-07-06T00:00:00.000Z",
+        "price": 708.77,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-07T00:00:00.000Z",
+        "price": 709.44,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-08T00:00:00.000Z",
+        "price": 701.29,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-09T00:00:00.000Z",
+        "price": 689.55,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-10T00:00:00.000Z",
+        "price": 654.59,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-11T00:00:00.000Z",
+        "price": 641.26,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-12T00:00:00.000Z",
+        "price": 671.63,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-13T00:00:00.000Z",
+        "price": 702.03,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-14T00:00:00.000Z",
+        "price": 690.38,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-15T00:00:00.000Z",
+        "price": 676.21,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-16T00:00:00.000Z",
+        "price": 698.38,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-17T00:00:00.000Z",
+        "price": 714.99,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-18T00:00:00.000Z",
+        "price": 694.1,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-19T00:00:00.000Z",
+        "price": 669.65,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-20T00:00:00.000Z",
+        "price": 640.8,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-21T00:00:00.000Z",
+        "price": 644.56,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-22T00:00:00.000Z",
+        "price": 615.89,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-23T00:00:00.000Z",
+        "price": 628.78,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-24T00:00:00.000Z",
+        "price": 604.97,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-25T00:00:00.000Z",
+        "price": 608.66,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-26T00:00:00.000Z",
+        "price": 596.12,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-27T00:00:00.000Z",
+        "price": 605.03,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-28T00:00:00.000Z",
+        "price": 609.19,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-29T00:00:00.000Z",
+        "price": 584.73,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-30T00:00:00.000Z",
+        "price": 591.69,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-31T00:00:00.000Z",
+        "price": 588.1,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-01T00:00:00.000Z",
+        "price": 557.31,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-02T00:00:00.000Z",
+        "price": 587.72,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-03T00:00:00.000Z",
+        "price": 572.54,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T00:00:00.000Z",
+        "price": 542.2,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 585.58
+      }
+    ],
     "quips": [
       "One product. Zero releases. Infinite valuation.",
       "The safest model is the one that doesn't ship.",
@@ -15860,7 +17559,7 @@
       "modelCount": 1
     },
     "stats": {
-      "rating": 65,
+      "rating": 66,
       "innovation": 50,
       "influence": 47,
       "momentum": 42
@@ -15872,7 +17571,162 @@
       "attentionDelta": 9.8,
       "hnMentions7d": 0
     },
-    "priceHistory": [],
+    "priceHistory": [
+      {
+        "timestamp": "2026-07-06T00:00:00.000Z",
+        "price": 692.62,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-07T00:00:00.000Z",
+        "price": 662.52,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-08T00:00:00.000Z",
+        "price": 656.93,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-09T00:00:00.000Z",
+        "price": 624.55,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-10T00:00:00.000Z",
+        "price": 623.79,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-11T00:00:00.000Z",
+        "price": 635.21,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-12T00:00:00.000Z",
+        "price": 628.49,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-13T00:00:00.000Z",
+        "price": 659.83,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-14T00:00:00.000Z",
+        "price": 648.34,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-15T00:00:00.000Z",
+        "price": 643.9,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-16T00:00:00.000Z",
+        "price": 649.69,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-17T00:00:00.000Z",
+        "price": 617.29,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-18T00:00:00.000Z",
+        "price": 596.33,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-19T00:00:00.000Z",
+        "price": 607.56,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-20T00:00:00.000Z",
+        "price": 616.13,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-21T00:00:00.000Z",
+        "price": 643.06,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-22T00:00:00.000Z",
+        "price": 674.09,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-23T00:00:00.000Z",
+        "price": 684.02,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-24T00:00:00.000Z",
+        "price": 700.2,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-25T00:00:00.000Z",
+        "price": 676.98,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-26T00:00:00.000Z",
+        "price": 659.03,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-27T00:00:00.000Z",
+        "price": 649,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-28T00:00:00.000Z",
+        "price": 622.16,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-29T00:00:00.000Z",
+        "price": 652.34,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-30T00:00:00.000Z",
+        "price": 623.39,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-31T00:00:00.000Z",
+        "price": 637.07,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-01T00:00:00.000Z",
+        "price": 668.31,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-02T00:00:00.000Z",
+        "price": 695.64,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-03T00:00:00.000Z",
+        "price": 665,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T00:00:00.000Z",
+        "price": 647.99,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 653.07
+      }
+    ],
     "quips": [
       "Kicked its own robots so you'd feel something.",
       "The backflip seen round the world.",
@@ -15899,12 +17753,168 @@
       "vibes": 74
     },
     "stats": {
-      "rating": 50,
+      "rating": 61,
       "innovation": 40,
       "influence": 45,
       "momentum": 40
     },
     "flavorText": "Theoretically exists.",
+    "priceHistory": [
+      {
+        "timestamp": "2026-07-06T00:00:00.000Z",
+        "price": 12.17,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-07T00:00:00.000Z",
+        "price": 12.08,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-08T00:00:00.000Z",
+        "price": 12.08,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-09T00:00:00.000Z",
+        "price": 11.96,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-10T00:00:00.000Z",
+        "price": 12.19,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-11T00:00:00.000Z",
+        "price": 12.4,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-12T00:00:00.000Z",
+        "price": 12.55,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-13T00:00:00.000Z",
+        "price": 12.47,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-14T00:00:00.000Z",
+        "price": 12.41,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-15T00:00:00.000Z",
+        "price": 12.66,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-16T00:00:00.000Z",
+        "price": 12.71,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-17T00:00:00.000Z",
+        "price": 12.85,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-18T00:00:00.000Z",
+        "price": 12.9,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-19T00:00:00.000Z",
+        "price": 12.85,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-20T00:00:00.000Z",
+        "price": 12.74,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-21T00:00:00.000Z",
+        "price": 12.68,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-22T00:00:00.000Z",
+        "price": 12.44,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-23T00:00:00.000Z",
+        "price": 12.64,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-24T00:00:00.000Z",
+        "price": 12.74,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-25T00:00:00.000Z",
+        "price": 12.78,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-26T00:00:00.000Z",
+        "price": 12.68,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-27T00:00:00.000Z",
+        "price": 12.88,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-28T00:00:00.000Z",
+        "price": 12.91,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-29T00:00:00.000Z",
+        "price": 12.94,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-30T00:00:00.000Z",
+        "price": 13.16,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-31T00:00:00.000Z",
+        "price": 13.33,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-01T00:00:00.000Z",
+        "price": 13.23,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-02T00:00:00.000Z",
+        "price": 13.04,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-03T00:00:00.000Z",
+        "price": 13.04,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T00:00:00.000Z",
+        "price": 12.82,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 12.82
+      }
+    ],
     "quips": [
       "Everyone agrees it should exist. Nobody agrees where.",
       "Load-bearing hypothetical.",
@@ -15912,8 +17922,7 @@
       "Somewhere between a policy paper and a prayer.",
       "Works in every paper. Untested elsewhere."
     ],
-    "icon": "<circle cx=\"24\" cy=\"26\" r=\"14\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M24 8 v14\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>",
-    "priceHistory": []
+    "icon": "<circle cx=\"24\" cy=\"26\" r=\"14\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M24 8 v14\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
   },
   {
     "id": "the-temperature-slider",
@@ -15933,12 +17942,168 @@
       "vibes": 68
     },
     "stats": {
-      "rating": 50,
+      "rating": 61,
       "innovation": 40,
       "influence": 45,
       "momentum": 40
     },
     "flavorText": "0.7, the coward's setting.",
+    "priceHistory": [
+      {
+        "timestamp": "2026-07-06T00:00:00.000Z",
+        "price": 12.18,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-07T00:00:00.000Z",
+        "price": 12.17,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-08T00:00:00.000Z",
+        "price": 12.3,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-09T00:00:00.000Z",
+        "price": 12.42,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-10T00:00:00.000Z",
+        "price": 12.44,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-11T00:00:00.000Z",
+        "price": 12.62,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-12T00:00:00.000Z",
+        "price": 12.49,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-13T00:00:00.000Z",
+        "price": 12.55,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-14T00:00:00.000Z",
+        "price": 12.51,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-15T00:00:00.000Z",
+        "price": 12.65,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-16T00:00:00.000Z",
+        "price": 12.64,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-17T00:00:00.000Z",
+        "price": 12.62,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-18T00:00:00.000Z",
+        "price": 12.52,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-19T00:00:00.000Z",
+        "price": 12.54,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-20T00:00:00.000Z",
+        "price": 12.41,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-21T00:00:00.000Z",
+        "price": 12.4,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-22T00:00:00.000Z",
+        "price": 12.32,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-23T00:00:00.000Z",
+        "price": 12.11,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-24T00:00:00.000Z",
+        "price": 12.13,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-25T00:00:00.000Z",
+        "price": 12.37,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-26T00:00:00.000Z",
+        "price": 12.12,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-27T00:00:00.000Z",
+        "price": 12.31,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-28T00:00:00.000Z",
+        "price": 12.08,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-29T00:00:00.000Z",
+        "price": 12.23,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-30T00:00:00.000Z",
+        "price": 12.06,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-31T00:00:00.000Z",
+        "price": 11.91,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-01T00:00:00.000Z",
+        "price": 11.84,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-02T00:00:00.000Z",
+        "price": 11.9,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-03T00:00:00.000Z",
+        "price": 12.07,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T00:00:00.000Z",
+        "price": 12.23,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 12.23
+      }
+    ],
     "quips": [
       "At 0 it's a database. At 2 it's a prophet.",
       "Bold enough to seem creative, safe enough to ship.",
@@ -15946,8 +18111,7 @@
       "The only knob everyone touches and nobody understands.",
       "Randomness, with plausible deniability."
     ],
-    "icon": "<path d=\"M8 24 h32\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"27\" cy=\"24\" r=\"5\" fill=\"#B23A2E\" stroke=\"#17301F\" stroke-width=\"2.5\"/><path d=\"M8 32 h10 M8 16 h24\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" opacity=\"0.4\"/>",
-    "priceHistory": []
+    "icon": "<path d=\"M8 24 h32\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"27\" cy=\"24\" r=\"5\" fill=\"#B23A2E\" stroke=\"#17301F\" stroke-width=\"2.5\"/><path d=\"M8 32 h10 M8 16 h24\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" opacity=\"0.4\"/>"
   },
   {
     "id": "the-conference-badge",
@@ -15967,12 +18131,168 @@
       "vibes": 85
     },
     "stats": {
-      "rating": 50,
+      "rating": 62,
       "innovation": 40,
       "influence": 45,
       "momentum": 40
     },
     "flavorText": "NeurIPS lanyard, load-bearing.",
+    "priceHistory": [
+      {
+        "timestamp": "2026-07-06T00:00:00.000Z",
+        "price": 11.8,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-07T00:00:00.000Z",
+        "price": 11.89,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-08T00:00:00.000Z",
+        "price": 11.77,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-09T00:00:00.000Z",
+        "price": 11.64,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-10T00:00:00.000Z",
+        "price": 11.86,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-11T00:00:00.000Z",
+        "price": 12.08,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-12T00:00:00.000Z",
+        "price": 11.94,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-13T00:00:00.000Z",
+        "price": 12.14,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-14T00:00:00.000Z",
+        "price": 12.27,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-15T00:00:00.000Z",
+        "price": 12.11,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-16T00:00:00.000Z",
+        "price": 12.25,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-17T00:00:00.000Z",
+        "price": 12.15,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-18T00:00:00.000Z",
+        "price": 12.28,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-19T00:00:00.000Z",
+        "price": 12.36,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-20T00:00:00.000Z",
+        "price": 12.42,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-21T00:00:00.000Z",
+        "price": 12.42,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-22T00:00:00.000Z",
+        "price": 12.56,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-23T00:00:00.000Z",
+        "price": 12.62,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-24T00:00:00.000Z",
+        "price": 12.76,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-25T00:00:00.000Z",
+        "price": 12.95,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-26T00:00:00.000Z",
+        "price": 12.92,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-27T00:00:00.000Z",
+        "price": 12.8,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-28T00:00:00.000Z",
+        "price": 13.06,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-29T00:00:00.000Z",
+        "price": 13.09,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-30T00:00:00.000Z",
+        "price": 12.92,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-31T00:00:00.000Z",
+        "price": 13.17,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-01T00:00:00.000Z",
+        "price": 13.23,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-02T00:00:00.000Z",
+        "price": 13.46,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-03T00:00:00.000Z",
+        "price": 13.47,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T00:00:00.000Z",
+        "price": 13.56,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 13.56
+      }
+    ],
     "quips": [
       "The lanyard is load-bearing.",
       "Grants hallway-track access to history.",
@@ -15980,8 +18300,7 @@
       "Its QR code has seen things.",
       "The hallway track was the real conference."
     ],
-    "icon": "<rect x=\"14\" y=\"16\" width=\"20\" height=\"26\" rx=\"2\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M20 16 c0-6 8-6 8 0\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M18 26 h12 M18 32 h8\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" opacity=\"0.5\"/>",
-    "priceHistory": []
+    "icon": "<rect x=\"14\" y=\"16\" width=\"20\" height=\"26\" rx=\"2\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M20 16 c0-6 8-6 8 0\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M18 26 h12 M18 32 h8\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" opacity=\"0.5\"/>"
   },
   {
     "id": "the-arxiv-timestamp",
@@ -16001,12 +18320,168 @@
       "vibes": 62
     },
     "stats": {
-      "rating": 50,
+      "rating": 62,
       "innovation": 40,
       "influence": 45,
       "momentum": 40
     },
     "flavorText": "Posted at 3:59am to win the day.",
+    "priceHistory": [
+      {
+        "timestamp": "2026-07-06T00:00:00.000Z",
+        "price": 11.91,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-07T00:00:00.000Z",
+        "price": 11.73,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-08T00:00:00.000Z",
+        "price": 11.86,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-09T00:00:00.000Z",
+        "price": 11.89,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-10T00:00:00.000Z",
+        "price": 11.7,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-11T00:00:00.000Z",
+        "price": 11.9,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-12T00:00:00.000Z",
+        "price": 11.84,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-13T00:00:00.000Z",
+        "price": 11.93,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-14T00:00:00.000Z",
+        "price": 11.86,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-15T00:00:00.000Z",
+        "price": 11.85,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-16T00:00:00.000Z",
+        "price": 11.69,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-17T00:00:00.000Z",
+        "price": 11.49,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-18T00:00:00.000Z",
+        "price": 11.5,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-19T00:00:00.000Z",
+        "price": 11.38,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-20T00:00:00.000Z",
+        "price": 11.35,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-21T00:00:00.000Z",
+        "price": 11.41,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-22T00:00:00.000Z",
+        "price": 11.27,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-23T00:00:00.000Z",
+        "price": 11.1,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-24T00:00:00.000Z",
+        "price": 11.21,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-25T00:00:00.000Z",
+        "price": 11.16,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-26T00:00:00.000Z",
+        "price": 11.12,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-27T00:00:00.000Z",
+        "price": 11.22,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-28T00:00:00.000Z",
+        "price": 11.03,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-29T00:00:00.000Z",
+        "price": 11.24,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-30T00:00:00.000Z",
+        "price": 11.13,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-31T00:00:00.000Z",
+        "price": 11.23,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-01T00:00:00.000Z",
+        "price": 11.34,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-02T00:00:00.000Z",
+        "price": 11.46,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-03T00:00:00.000Z",
+        "price": 11.49,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T00:00:00.000Z",
+        "price": 11.67,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 11.67
+      }
+    ],
     "quips": [
       "The only race where the finish line is midnight UTC.",
       "v1 of everything.",
@@ -16014,8 +18489,7 @@
       "The real peer review is the timestamp.",
       "Submitted moments before history. Every time."
     ],
-    "icon": "<circle cx=\"24\" cy=\"24\" r=\"15\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M24 14 v10 l7 4\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>",
-    "priceHistory": []
+    "icon": "<circle cx=\"24\" cy=\"24\" r=\"15\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M24 14 v10 l7 4\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
   },
   {
     "id": "the-rlhf-thumbs-up",
@@ -16035,12 +18509,168 @@
       "vibes": 77
     },
     "stats": {
-      "rating": 50,
+      "rating": 62,
       "innovation": 40,
       "influence": 45,
       "momentum": 40
     },
     "flavorText": "One click. A gradient somewhere flinches.",
+    "priceHistory": [
+      {
+        "timestamp": "2026-07-06T00:00:00.000Z",
+        "price": 12.14,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-07T00:00:00.000Z",
+        "price": 12.08,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-08T00:00:00.000Z",
+        "price": 12.24,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-09T00:00:00.000Z",
+        "price": 12.36,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-10T00:00:00.000Z",
+        "price": 12.33,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-11T00:00:00.000Z",
+        "price": 12.5,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-12T00:00:00.000Z",
+        "price": 12.27,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-13T00:00:00.000Z",
+        "price": 12.15,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-14T00:00:00.000Z",
+        "price": 12.11,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-15T00:00:00.000Z",
+        "price": 12.26,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-16T00:00:00.000Z",
+        "price": 12.2,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-17T00:00:00.000Z",
+        "price": 12.06,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-18T00:00:00.000Z",
+        "price": 12.15,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-19T00:00:00.000Z",
+        "price": 12.35,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-20T00:00:00.000Z",
+        "price": 12.19,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-21T00:00:00.000Z",
+        "price": 12,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-22T00:00:00.000Z",
+        "price": 11.85,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-23T00:00:00.000Z",
+        "price": 11.94,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-24T00:00:00.000Z",
+        "price": 12.09,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-25T00:00:00.000Z",
+        "price": 12,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-26T00:00:00.000Z",
+        "price": 12.05,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-27T00:00:00.000Z",
+        "price": 11.97,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-28T00:00:00.000Z",
+        "price": 11.99,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-29T00:00:00.000Z",
+        "price": 11.8,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-30T00:00:00.000Z",
+        "price": 11.7,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-31T00:00:00.000Z",
+        "price": 11.82,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-01T00:00:00.000Z",
+        "price": 11.97,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-02T00:00:00.000Z",
+        "price": 11.9,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-03T00:00:00.000Z",
+        "price": 12.05,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T00:00:00.000Z",
+        "price": 11.83,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 11.83
+      }
+    ],
     "quips": [
       "The most consequential like button in history.",
       "Trained a generation of models to people-please.",
@@ -16048,8 +18678,7 @@
       "Somewhere, a reward model treasures your opinion.",
       "Alignment, one click at a time."
     ],
-    "icon": "<path d=\"M16 22 l8-12 c3 0 4 3 3 6 l-1 4 h10 c2 0 3 2 2 4 l-3 12 c-0.5 2-2 3-4 3 h-15 z\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M16 22 h-6 v17 h6\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>",
-    "priceHistory": []
+    "icon": "<path d=\"M16 22 l8-12 c3 0 4 3 3 6 l-1 4 h10 c2 0 3 2 2 4 l-3 12 c-0.5 2-2 3-4 3 h-15 z\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M16 22 h-6 v17 h6\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
   },
   {
     "id": "the-seed-round",
@@ -16069,12 +18698,168 @@
       "vibes": 80
     },
     "stats": {
-      "rating": 52,
+      "rating": 61,
       "innovation": 55,
       "influence": 48,
       "momentum": 62
     },
     "flavorText": "Nothing exists yet. That is the whole appeal.",
+    "priceHistory": [
+      {
+        "timestamp": "2026-07-06T00:00:00.000Z",
+        "price": 11.97,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-07T00:00:00.000Z",
+        "price": 12.19,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-08T00:00:00.000Z",
+        "price": 12.41,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-09T00:00:00.000Z",
+        "price": 12.61,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-10T00:00:00.000Z",
+        "price": 12.66,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-11T00:00:00.000Z",
+        "price": 12.83,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-12T00:00:00.000Z",
+        "price": 13.03,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-13T00:00:00.000Z",
+        "price": 12.91,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-14T00:00:00.000Z",
+        "price": 12.74,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-15T00:00:00.000Z",
+        "price": 12.98,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-16T00:00:00.000Z",
+        "price": 12.81,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-17T00:00:00.000Z",
+        "price": 12.82,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-18T00:00:00.000Z",
+        "price": 12.74,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-19T00:00:00.000Z",
+        "price": 12.95,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-20T00:00:00.000Z",
+        "price": 12.94,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-21T00:00:00.000Z",
+        "price": 12.7,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-22T00:00:00.000Z",
+        "price": 12.49,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-23T00:00:00.000Z",
+        "price": 12.58,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-24T00:00:00.000Z",
+        "price": 12.37,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-25T00:00:00.000Z",
+        "price": 12.48,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-26T00:00:00.000Z",
+        "price": 12.44,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-27T00:00:00.000Z",
+        "price": 12.68,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-28T00:00:00.000Z",
+        "price": 12.92,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-29T00:00:00.000Z",
+        "price": 12.7,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-30T00:00:00.000Z",
+        "price": 12.69,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-31T00:00:00.000Z",
+        "price": 12.79,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-01T00:00:00.000Z",
+        "price": 12.84,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-02T00:00:00.000Z",
+        "price": 12.7,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-03T00:00:00.000Z",
+        "price": 12.8,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T00:00:00.000Z",
+        "price": 12.78,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 12.78
+      }
+    ],
     "quips": [
       "Pre-product, pre-revenue, pre-everything. Priced accordingly: high.",
       "Raised on a deck with one chart and a great deal of confidence.",
@@ -16082,8 +18867,7 @@
       "The friendliest money you will ever regret taking.",
       "Small round. Enormous adjectives."
     ],
-    "icon": "<circle cx=\"24\" cy=\"30\" r=\"12\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M24 30 v-8\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M24 24 c-6 -2 -8 -6 -7 -10 c5 0 8 4 7 10z\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M24 24 c6 -2 8 -6 7 -10 c-5 0 -8 4 -7 10z\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>",
-    "priceHistory": []
+    "icon": "<circle cx=\"24\" cy=\"30\" r=\"12\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M24 30 v-8\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M24 24 c-6 -2 -8 -6 -7 -10 c5 0 8 4 7 10z\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M24 24 c6 -2 8 -6 7 -10 c-5 0 -8 4 -7 10z\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
   },
   {
     "id": "the-valuation",
@@ -16103,12 +18887,168 @@
       "vibes": 72
     },
     "stats": {
-      "rating": 55,
+      "rating": 62,
       "innovation": 40,
       "influence": 66,
       "momentum": 74
     },
     "flavorText": "Nobody asked how. Asking how is considered rude.",
+    "priceHistory": [
+      {
+        "timestamp": "2026-07-06T00:00:00.000Z",
+        "price": 12.21,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-07T00:00:00.000Z",
+        "price": 12.38,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-08T00:00:00.000Z",
+        "price": 12.57,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-09T00:00:00.000Z",
+        "price": 12.37,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-10T00:00:00.000Z",
+        "price": 12.56,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-11T00:00:00.000Z",
+        "price": 12.76,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-12T00:00:00.000Z",
+        "price": 12.77,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-13T00:00:00.000Z",
+        "price": 12.59,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-14T00:00:00.000Z",
+        "price": 12.4,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-15T00:00:00.000Z",
+        "price": 12.42,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-16T00:00:00.000Z",
+        "price": 12.3,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-17T00:00:00.000Z",
+        "price": 12.11,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-18T00:00:00.000Z",
+        "price": 12.21,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-19T00:00:00.000Z",
+        "price": 12.13,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-20T00:00:00.000Z",
+        "price": 12.35,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-21T00:00:00.000Z",
+        "price": 12.26,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-22T00:00:00.000Z",
+        "price": 12.03,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-23T00:00:00.000Z",
+        "price": 11.99,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-24T00:00:00.000Z",
+        "price": 11.88,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-25T00:00:00.000Z",
+        "price": 11.92,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-26T00:00:00.000Z",
+        "price": 11.91,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-27T00:00:00.000Z",
+        "price": 11.95,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-28T00:00:00.000Z",
+        "price": 12.17,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-29T00:00:00.000Z",
+        "price": 12.18,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-30T00:00:00.000Z",
+        "price": 11.96,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-31T00:00:00.000Z",
+        "price": 12.07,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-01T00:00:00.000Z",
+        "price": 12.09,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-02T00:00:00.000Z",
+        "price": 12.25,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-03T00:00:00.000Z",
+        "price": 12.01,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T00:00:00.000Z",
+        "price": 12.07,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 12.07
+      }
+    ],
     "quips": [
       "Number went up. Nobody asked how.",
       "Arrived at by multiplying hope by a comparable.",
@@ -16116,8 +19056,7 @@
       "It went up again while you were reading this.",
       "A price is a story two people agreed to stop arguing about."
     ],
-    "icon": "<path d=\"M10 38 L20 26 L28 32 L38 14\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M30 14 h8 v8\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M10 42 h28\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"3 3\"/>",
-    "priceHistory": []
+    "icon": "<path d=\"M10 38 L20 26 L28 32 L38 14\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M30 14 h8 v8\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M10 42 h28\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"3 3\"/>"
   },
   {
     "id": "the-term-sheet",
@@ -16137,12 +19076,168 @@
       "vibes": 58
     },
     "stats": {
-      "rating": 54,
+      "rating": 60,
       "innovation": 45,
       "influence": 70,
       "momentum": 50
     },
     "flavorText": "Four pages. One of them matters. It is not page one.",
+    "priceHistory": [
+      {
+        "timestamp": "2026-07-06T00:00:00.000Z",
+        "price": 12.13,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-07T00:00:00.000Z",
+        "price": 11.92,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-08T00:00:00.000Z",
+        "price": 11.99,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-09T00:00:00.000Z",
+        "price": 11.75,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-10T00:00:00.000Z",
+        "price": 11.88,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-11T00:00:00.000Z",
+        "price": 12.02,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-12T00:00:00.000Z",
+        "price": 11.81,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-13T00:00:00.000Z",
+        "price": 11.67,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-14T00:00:00.000Z",
+        "price": 11.74,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-15T00:00:00.000Z",
+        "price": 11.56,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-16T00:00:00.000Z",
+        "price": 11.72,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-17T00:00:00.000Z",
+        "price": 11.76,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-18T00:00:00.000Z",
+        "price": 11.76,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-19T00:00:00.000Z",
+        "price": 11.96,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-20T00:00:00.000Z",
+        "price": 11.96,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-21T00:00:00.000Z",
+        "price": 12.03,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-22T00:00:00.000Z",
+        "price": 12.1,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-23T00:00:00.000Z",
+        "price": 12.29,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-24T00:00:00.000Z",
+        "price": 12.09,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-25T00:00:00.000Z",
+        "price": 11.86,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-26T00:00:00.000Z",
+        "price": 12.09,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-27T00:00:00.000Z",
+        "price": 11.92,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-28T00:00:00.000Z",
+        "price": 11.79,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-29T00:00:00.000Z",
+        "price": 11.94,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-30T00:00:00.000Z",
+        "price": 11.74,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-31T00:00:00.000Z",
+        "price": 11.54,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-01T00:00:00.000Z",
+        "price": 11.36,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-02T00:00:00.000Z",
+        "price": 11.48,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-03T00:00:00.000Z",
+        "price": 11.6,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T00:00:00.000Z",
+        "price": 11.56,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 11.56
+      }
+    ],
     "quips": [
       "Non-binding, except for the parts that decide everything.",
       "Signed at a dinner nobody remembers ordering.",
@@ -16150,8 +19245,7 @@
       "Clean terms, they said. Twice. Quickly.",
       "Everyone agreed it was standard. Nobody said standard for whom."
     ],
-    "icon": "<path d=\"M14 8 h16 l6 6 v26 a2 2 0 0 1 -2 2 h-20 a2 2 0 0 1 -2 -2 v-30 a2 2 0 0 1 2 -2z\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M30 8 v6 h6\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M19 22 h12 M19 28 h12\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"2 3\"/><path d=\"M18 35 c3 -4 5 4 8 0 c2 -2 4 2 6 -1\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>",
-    "priceHistory": []
+    "icon": "<path d=\"M14 8 h16 l6 6 v26 a2 2 0 0 1 -2 2 h-20 a2 2 0 0 1 -2 -2 v-30 a2 2 0 0 1 2 -2z\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M30 8 v6 h6\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M19 22 h12 M19 28 h12\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"2 3\"/><path d=\"M18 35 c3 -4 5 4 8 0 c2 -2 4 2 6 -1\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
   },
   {
     "id": "the-pivot",
@@ -16171,12 +19265,168 @@
       "vibes": 76
     },
     "stats": {
-      "rating": 53,
+      "rating": 61,
       "innovation": 62,
       "influence": 46,
       "momentum": 70
     },
     "flavorText": "The old plan is now the origin story.",
+    "priceHistory": [
+      {
+        "timestamp": "2026-07-06T00:00:00.000Z",
+        "price": 12.14,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-07T00:00:00.000Z",
+        "price": 12.18,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-08T00:00:00.000Z",
+        "price": 12.35,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-09T00:00:00.000Z",
+        "price": 12.41,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-10T00:00:00.000Z",
+        "price": 12.24,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-11T00:00:00.000Z",
+        "price": 12.38,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-12T00:00:00.000Z",
+        "price": 12.18,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-13T00:00:00.000Z",
+        "price": 11.97,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-14T00:00:00.000Z",
+        "price": 11.86,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-15T00:00:00.000Z",
+        "price": 11.92,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-16T00:00:00.000Z",
+        "price": 12.01,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-17T00:00:00.000Z",
+        "price": 11.86,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-18T00:00:00.000Z",
+        "price": 12.03,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-19T00:00:00.000Z",
+        "price": 12.18,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-20T00:00:00.000Z",
+        "price": 12.22,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-21T00:00:00.000Z",
+        "price": 12.16,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-22T00:00:00.000Z",
+        "price": 12.25,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-23T00:00:00.000Z",
+        "price": 12.11,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-24T00:00:00.000Z",
+        "price": 12.28,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-25T00:00:00.000Z",
+        "price": 12.33,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-26T00:00:00.000Z",
+        "price": 12.18,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-27T00:00:00.000Z",
+        "price": 12.36,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-28T00:00:00.000Z",
+        "price": 12.59,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-29T00:00:00.000Z",
+        "price": 12.69,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-30T00:00:00.000Z",
+        "price": 12.91,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-31T00:00:00.000Z",
+        "price": 12.69,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-01T00:00:00.000Z",
+        "price": 12.82,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-02T00:00:00.000Z",
+        "price": 13.02,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-03T00:00:00.000Z",
+        "price": 12.81,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T00:00:00.000Z",
+        "price": 12.99,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 12.99
+      }
+    ],
     "quips": [
       "Same team, same investors, an entirely different company.",
       "We were always going to end up here. Retroactively.",
@@ -16184,8 +19434,7 @@
       "Six months of work, reclassified as market research.",
       "It is not a pivot if you change the deck first."
     ],
-    "icon": "<path d=\"M10 38 h14 a6 6 0 0 0 6 -6 v-14\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M24 24 l6 -8 l6 8\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"10\" cy=\"38\" r=\"3\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>",
-    "priceHistory": []
+    "icon": "<path d=\"M10 38 h14 a6 6 0 0 0 6 -6 v-14\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M24 24 l6 -8 l6 8\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"10\" cy=\"38\" r=\"3\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
   },
   {
     "id": "the-burn-rate",
@@ -16205,12 +19454,168 @@
       "vibes": 68
     },
     "stats": {
-      "rating": 54,
+      "rating": 61,
       "innovation": 48,
       "influence": 52,
       "momentum": 76
     },
     "flavorText": "Runway is a countdown with better branding.",
+    "priceHistory": [
+      {
+        "timestamp": "2026-07-06T00:00:00.000Z",
+        "price": 12.17,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-07T00:00:00.000Z",
+        "price": 12.15,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-08T00:00:00.000Z",
+        "price": 11.93,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-09T00:00:00.000Z",
+        "price": 11.81,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-10T00:00:00.000Z",
+        "price": 11.75,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-11T00:00:00.000Z",
+        "price": 11.62,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-12T00:00:00.000Z",
+        "price": 11.69,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-13T00:00:00.000Z",
+        "price": 11.89,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-14T00:00:00.000Z",
+        "price": 11.75,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-15T00:00:00.000Z",
+        "price": 11.53,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-16T00:00:00.000Z",
+        "price": 11.54,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-17T00:00:00.000Z",
+        "price": 11.62,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-18T00:00:00.000Z",
+        "price": 11.76,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-19T00:00:00.000Z",
+        "price": 11.54,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-20T00:00:00.000Z",
+        "price": 11.72,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-21T00:00:00.000Z",
+        "price": 11.64,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-22T00:00:00.000Z",
+        "price": 11.7,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-23T00:00:00.000Z",
+        "price": 11.49,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-24T00:00:00.000Z",
+        "price": 11.67,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-25T00:00:00.000Z",
+        "price": 11.72,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-26T00:00:00.000Z",
+        "price": 11.49,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-27T00:00:00.000Z",
+        "price": 11.45,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-28T00:00:00.000Z",
+        "price": 11.5,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-29T00:00:00.000Z",
+        "price": 11.61,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-30T00:00:00.000Z",
+        "price": 11.76,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-31T00:00:00.000Z",
+        "price": 11.63,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-01T00:00:00.000Z",
+        "price": 11.72,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-02T00:00:00.000Z",
+        "price": 11.74,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-03T00:00:00.000Z",
+        "price": 11.72,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T00:00:00.000Z",
+        "price": 11.87,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 11.87
+      }
+    ],
     "quips": [
       "Twelve months of runway. Eleven, actually. Ten.",
       "The compute bill arrives monthly, like weather.",
@@ -16218,8 +19623,7 @@
       "Every graph goes up. That is precisely the problem.",
       "Efficient, relative to the least efficient comparable."
     ],
-    "icon": "<path d=\"M24 40 c-7 0 -11 -5 -11 -11 c0 -7 7 -9 7 -17 c6 4 6 9 4 12 c3 -1 4 -4 4 -7 c5 4 7 8 7 12 c0 6 -4 11 -11 11z\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 44 h24\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"3 3\"/>",
-    "priceHistory": []
+    "icon": "<path d=\"M24 40 c-7 0 -11 -5 -11 -11 c0 -7 7 -9 7 -17 c6 4 6 9 4 12 c3 -1 4 -4 4 -7 c5 4 7 8 7 12 c0 6 -4 11 -11 11z\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 44 h24\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"3 3\"/>"
   },
   {
     "id": "the-down-round",
@@ -16239,12 +19643,168 @@
       "vibes": 44
     },
     "stats": {
-      "rating": 50,
+      "rating": 59,
       "innovation": 38,
       "influence": 55,
       "momentum": 40
     },
     "flavorText": "Still a round. Technically. Legally.",
+    "priceHistory": [
+      {
+        "timestamp": "2026-07-06T00:00:00.000Z",
+        "price": 12.09,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-07T00:00:00.000Z",
+        "price": 12.05,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-08T00:00:00.000Z",
+        "price": 12.25,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-09T00:00:00.000Z",
+        "price": 12.12,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-10T00:00:00.000Z",
+        "price": 12.34,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-11T00:00:00.000Z",
+        "price": 12.38,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-12T00:00:00.000Z",
+        "price": 12.48,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-13T00:00:00.000Z",
+        "price": 12.66,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-14T00:00:00.000Z",
+        "price": 12.65,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-15T00:00:00.000Z",
+        "price": 12.42,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-16T00:00:00.000Z",
+        "price": 12.46,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-17T00:00:00.000Z",
+        "price": 12.24,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-18T00:00:00.000Z",
+        "price": 12.29,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-19T00:00:00.000Z",
+        "price": 12.52,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-20T00:00:00.000Z",
+        "price": 12.77,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-21T00:00:00.000Z",
+        "price": 12.55,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-22T00:00:00.000Z",
+        "price": 12.38,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-23T00:00:00.000Z",
+        "price": 12.62,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-24T00:00:00.000Z",
+        "price": 12.68,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-25T00:00:00.000Z",
+        "price": 12.75,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-26T00:00:00.000Z",
+        "price": 12.73,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-27T00:00:00.000Z",
+        "price": 12.66,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-28T00:00:00.000Z",
+        "price": 12.79,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-29T00:00:00.000Z",
+        "price": 12.84,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-30T00:00:00.000Z",
+        "price": 12.84,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-31T00:00:00.000Z",
+        "price": 13.08,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-01T00:00:00.000Z",
+        "price": 13.3,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-02T00:00:00.000Z",
+        "price": 13.44,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-03T00:00:00.000Z",
+        "price": 13.58,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T00:00:00.000Z",
+        "price": 13.4,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 13.4
+      }
+    ],
     "quips": [
       "The number went the other way. We do not discuss the number.",
       "Reframed internally as a recapitalization. Externally as nothing.",
@@ -16252,8 +19812,7 @@
       "Everyone is still here, just holding rather less of it.",
       "A flat round wearing an extremely brave face."
     ],
-    "icon": "<path d=\"M10 12 L20 24 L28 18 L38 34\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M30 34 h8 v-8\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M10 42 h28\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"3 3\"/>",
-    "priceHistory": []
+    "icon": "<path d=\"M10 12 L20 24 L28 18 L38 34\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M30 34 h8 v-8\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M10 42 h28\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"3 3\"/>"
   },
   {
     "id": "the-stealth-startup",
@@ -16273,12 +19832,168 @@
       "vibes": 84
     },
     "stats": {
-      "rating": 52,
+      "rating": 61,
       "innovation": 50,
       "influence": 44,
       "momentum": 58
     },
     "flavorText": "The website is a black square and an email address.",
+    "priceHistory": [
+      {
+        "timestamp": "2026-07-06T00:00:00.000Z",
+        "price": 11.88,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-07T00:00:00.000Z",
+        "price": 11.93,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-08T00:00:00.000Z",
+        "price": 11.85,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-09T00:00:00.000Z",
+        "price": 11.8,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-10T00:00:00.000Z",
+        "price": 11.67,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-11T00:00:00.000Z",
+        "price": 11.87,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-12T00:00:00.000Z",
+        "price": 11.85,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-13T00:00:00.000Z",
+        "price": 12.04,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-14T00:00:00.000Z",
+        "price": 12.23,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-15T00:00:00.000Z",
+        "price": 12.36,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-16T00:00:00.000Z",
+        "price": 12.55,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-17T00:00:00.000Z",
+        "price": 12.72,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-18T00:00:00.000Z",
+        "price": 12.68,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-19T00:00:00.000Z",
+        "price": 12.51,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-20T00:00:00.000Z",
+        "price": 12.33,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-21T00:00:00.000Z",
+        "price": 12.35,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-22T00:00:00.000Z",
+        "price": 12.12,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-23T00:00:00.000Z",
+        "price": 12.33,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-24T00:00:00.000Z",
+        "price": 12.45,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-25T00:00:00.000Z",
+        "price": 12.33,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-26T00:00:00.000Z",
+        "price": 12.14,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-27T00:00:00.000Z",
+        "price": 12.21,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-28T00:00:00.000Z",
+        "price": 12.29,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-29T00:00:00.000Z",
+        "price": 12.15,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-30T00:00:00.000Z",
+        "price": 12.05,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-31T00:00:00.000Z",
+        "price": 12.12,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-01T00:00:00.000Z",
+        "price": 12.11,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-02T00:00:00.000Z",
+        "price": 12.15,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-03T00:00:00.000Z",
+        "price": 12.02,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T00:00:00.000Z",
+        "price": 12.14,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 12.14
+      }
+    ],
     "quips": [
       "Pre-product, post-money, mid-conversation.",
       "In stealth, which is also where the demo lives.",
@@ -16286,8 +20001,7 @@
       "Cannot say what they are building. Can say it is big.",
       "Three years of stealth. At some point that is simply privacy."
     ],
-    "icon": "<rect x=\"10\" y=\"14\" width=\"28\" height=\"22\" rx=\"3\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"4 3\"/><path d=\"M18 25 h4 M26 25 h4\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M19 31 c3 2 7 2 10 0\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>",
-    "priceHistory": []
+    "icon": "<rect x=\"10\" y=\"14\" width=\"28\" height=\"22\" rx=\"3\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"4 3\"/><path d=\"M18 25 h4 M26 25 h4\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M19 31 c3 2 7 2 10 0\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
   },
   {
     "id": "the-exit",
@@ -16307,12 +20021,168 @@
       "vibes": 70
     },
     "stats": {
-      "rating": 57,
+      "rating": 62,
       "innovation": 52,
       "influence": 68,
       "momentum": 60
     },
     "flavorText": "The team stays two years. Nobody stays two years.",
+    "priceHistory": [
+      {
+        "timestamp": "2026-07-06T00:00:00.000Z",
+        "price": 12.18,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-07T00:00:00.000Z",
+        "price": 11.99,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-08T00:00:00.000Z",
+        "price": 12.03,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-09T00:00:00.000Z",
+        "price": 11.95,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-10T00:00:00.000Z",
+        "price": 11.97,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-11T00:00:00.000Z",
+        "price": 12.04,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-12T00:00:00.000Z",
+        "price": 11.98,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-13T00:00:00.000Z",
+        "price": 12.02,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-14T00:00:00.000Z",
+        "price": 12.04,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-15T00:00:00.000Z",
+        "price": 12.02,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-16T00:00:00.000Z",
+        "price": 12.25,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-17T00:00:00.000Z",
+        "price": 12.25,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-18T00:00:00.000Z",
+        "price": 12.18,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-19T00:00:00.000Z",
+        "price": 12.06,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-20T00:00:00.000Z",
+        "price": 11.87,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-21T00:00:00.000Z",
+        "price": 11.92,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-22T00:00:00.000Z",
+        "price": 11.91,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-23T00:00:00.000Z",
+        "price": 11.95,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-24T00:00:00.000Z",
+        "price": 12.11,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-25T00:00:00.000Z",
+        "price": 11.98,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-26T00:00:00.000Z",
+        "price": 11.76,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-27T00:00:00.000Z",
+        "price": 11.88,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-28T00:00:00.000Z",
+        "price": 12.04,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-29T00:00:00.000Z",
+        "price": 12.09,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-30T00:00:00.000Z",
+        "price": 12.21,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-07-31T00:00:00.000Z",
+        "price": 12.13,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-01T00:00:00.000Z",
+        "price": 12.3,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-02T00:00:00.000Z",
+        "price": 12.1,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-03T00:00:00.000Z",
+        "price": 12.08,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T00:00:00.000Z",
+        "price": 12.08,
+        "simulated": true
+      },
+      {
+        "timestamp": "2026-08-04T05:15:26.520Z",
+        "price": 12.08
+      }
+    ],
     "quips": [
       "Acquired. The blog post uses the word journey four times.",
       "Everyone says it was always the plan. It was never the plan.",
@@ -16320,7 +20190,6 @@
       "Two-year retention package. Average stay: eleven months.",
       "A great outcome for everybody, ranked strictly by preference stack."
     ],
-    "icon": "<path d=\"M12 10 h14 v28 h-14z\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M22 24 h0.01\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M28 24 h10\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M34 19 l5 5 l-5 5\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>",
-    "priceHistory": []
+    "icon": "<path d=\"M12 10 h14 v28 h-14z\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M22 24 h0.01\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M28 24 h10\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M34 19 l5 5 l-5 5\" fill=\"none\" stroke=\"#17301F\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
   }
 ]
