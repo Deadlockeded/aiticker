@@ -81,6 +81,7 @@ clamp) → git commit. See PIPELINE.md. Never zero a stat on fetch failure.
 - `market.ts` — prices (committed history wins; deterministic simulation as pre-pipeline fallback), `formatTicks` (₮).
 - `economy.ts` — pack cadence (1 pack per 8h rolling, bank cap 2) plus THE TICK ECONOMY: exchange-pack price, purse constants, and the pure `computePurse` math. The hard rules live in its header comment — no wagering ever, no real money, earned packs capped by `EARN_DAILY_CAP`. Earn-rate table in ECONOMY.md.
 - `wallet.ts` — THE Tick gateway: balance, capped `grantTicks`, `spendTicks`, dupe sales, the `+₮n` toast event. Ticks buy exactly one thing: the ₮500 Exchange Pack.
+- `royalties.ts` — ARTIFACT ROYALTIES: the editorial keyword map (every artifact), the pure trigger matcher the nightly script runs over HN/GH/wiki signals, the triple-capped claim math (3 copies, ₮60/day, folds into `EARN_DAILY_CAP`), and THE FUND set bonus. Triggers live in `data/royalties.json`, committed nightly like prices.
 - `rituals.ts` — the two claimable grants: daily visit (₮50, fired at boot) and RAISE A ROUND (₮300 per ISO week, deterministic fictional investor + terms from `lines.ts`).
 - `toast.ts` — the toast bus, split out so `xp.ts` can fire level-ups without an import cycle through `achievements.ts`.
 - `xp.ts` — XP levels dressed as FUNDING STAGES (Garage → … → Acquired (Derogatory)). Thresholds never changed with the rename; only the labels did.

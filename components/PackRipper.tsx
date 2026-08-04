@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { useRouter } from "next/navigation";
 import type { MarketCard } from "@/lib/cards";
 import { pullPackFor, type Pull } from "@/lib/packs";
-import { editionFor, variantLabel, type Variant } from "@/lib/variants";
+import { variantLabel, type Variant } from "@/lib/variants";
 import { EXCHANGE_PACK_COST, PACK_BANK_MAX } from "@/lib/economy";
 import { formatTicks } from "@/lib/market";
 import { balanceFrom, getWalletSnapshot, spendTicks } from "@/lib/wallet";
@@ -91,6 +91,7 @@ function PeelPack({
   onRip: () => void;
 }) {
   const [drag, setDrag] = useState(0); // 0..1 peel progress
+  const [dragging, setDragging] = useState(false);
   const [springing, setSpringing] = useState(false);
   const [flying, setFlying] = useState(false);
   const stripRef = useRef<HTMLDivElement>(null);
@@ -110,6 +111,7 @@ function PeelPack({
     if (!idle) return;
     startX.current = e.clientX;
     moved.current = false;
+    setDragging(true);
     setSpringing(false);
     (e.target as HTMLElement).setPointerCapture?.(e.pointerId);
   };
@@ -123,6 +125,7 @@ function PeelPack({
   const onPointerUp = () => {
     if (startX.current === null) return;
     startX.current = null;
+    setDragging(false);
     if (drag > 0.55) commit();
     else {
       setSpringing(true);
@@ -209,7 +212,7 @@ function PeelPack({
                     backgroundPosition: "top",
                     transform: `translate(${drag * 55}%, ${-drag * 110}%) rotate(${drag * 22}deg)`,
                     transition:
-                      startX.current !== null
+                      dragging
                         ? "none"
                         : springing
                           ? "transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.2)"

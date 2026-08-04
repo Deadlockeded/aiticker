@@ -4,6 +4,7 @@ import { getBattleRecordSnapshot, parseBattleRecord, type BattleRecord } from ".
 import { getUnlockedSnapshot, parseUnlocked } from "./achievements";
 import { getXPSnapshot } from "./xp";
 import { KEYS, readRaw, writeRaw } from "./storage";
+import { getRoyaltyClaimSnapshot, parseClaimed } from "./royalties";
 
 /**
  * OPTIONAL account sync (Supabase). Hard rules, forever:
@@ -33,6 +34,8 @@ export interface CollectorState {
   xp: number;
   achievements: string[];
   battle: BattleRecord;
+  /** Claimed royalty trigger-dates — union on merge so claims never double. */
+  royaltiesClaimed?: string[];
 }
 
 export function readLocalState(): CollectorState {
@@ -41,6 +44,7 @@ export function readLocalState(): CollectorState {
     xp: parseInt(getXPSnapshot(), 10) || 0,
     achievements: parseUnlocked(getUnlockedSnapshot()),
     battle: parseBattleRecord(getBattleRecordSnapshot()),
+    royaltiesClaimed: parseClaimed(getRoyaltyClaimSnapshot()),
   };
 }
 
@@ -49,6 +53,7 @@ export function writeLocalState(state: CollectorState) {
   writeRaw(KEYS.xp, String(state.xp));
   writeRaw(KEYS.achievements, JSON.stringify(state.achievements));
   writeRaw(KEYS.battle, JSON.stringify(state.battle));
+  if (state.royaltiesClaimed) writeRaw(KEYS.royalties, JSON.stringify(state.royaltiesClaimed));
   notifyStore();
 }
 
@@ -60,6 +65,9 @@ export function writeLocalState(state: CollectorState) {
  */
 export function mergeStates(local: CollectorState, cloud: Partial<CollectorState> | null): CollectorState {
   if (!cloud) return local;
+  const royaltiesClaimed = [
+    ...new Set([...(local.royaltiesClaimed ?? []), ...(cloud.royaltiesClaimed ?? [])]),
+  ].sort().slice(-60);
   const binder: Binder = { ...(cloud.binder ?? {}) };
   for (const [id, mine] of Object.entries(local.binder)) {
     const theirs = binder[id];
@@ -84,6 +92,7 @@ export function mergeStates(local: CollectorState, cloud: Partial<CollectorState
   const cb = cloud.battle;
   return {
     binder,
+    royaltiesClaimed,
     xp: Math.max(local.xp, cloud.xp ?? 0),
     achievements: [...new Set([...(cloud.achievements ?? []), ...local.achievements])],
     battle: {

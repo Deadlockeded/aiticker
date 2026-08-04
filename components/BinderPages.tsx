@@ -16,6 +16,7 @@ import { KEYS, readRaw, writeRaw } from "@/lib/storage";
 import { TOAST_EVENT } from "@/lib/achievements";
 import { getRoomSnapshot, getToastedRooms, markRoomToasted, ROOMS, setRoom, type RoomId } from "@/lib/rooms";
 import { balanceFrom, dupeValue, getWalletSnapshot, sellDupe } from "@/lib/wallet";
+import { royaltyHistory } from "@/lib/royalties";
 import BoardroomRoom from "./BoardroomRoom";
 import CallRoom from "./CallRoom";
 import CardArt from "./CardArt";
@@ -24,6 +25,8 @@ import DailyQuip from "./DailyQuip";
 import Sparkline from "./Sparkline";
 import AchievementWall from "./AchievementWall";
 import RaiseARound from "./RaiseARound";
+import RoyaltiesCard from "./RoyaltiesCard";
+import FundStrip from "./FundStrip";
 
 const RARITY_ORDER: Rarity[] = ["legendary", "epic", "rare", "common"];
 type Chip = "all" | "missing" | "dupes";
@@ -105,6 +108,7 @@ export default function BinderPages({
   const [ringPop, setRingPop] = useState(false);
   const [valuationInfo, setValuationInfo] = useState(false);
   const [sold, setSold] = useState<number | null>(null);
+  const [sellArmed, setSellArmed] = useState<string | null>(null);
   const [seen, setSeen] = useState<Set<string>>(new Set());
   const scroller = useRef<HTMLDivElement>(null);
   const lastPage = useRef(0);
@@ -326,7 +330,9 @@ export default function BinderPages({
       </div>
       </div>
 
+      <RoyaltiesCard />
       <RaiseARound showHistory />
+      <FundStrip />
 
       {/* room switcher — presentation skins over the same collection */}
       <div className="mb-2 flex items-center gap-1.5 overflow-x-auto">
@@ -582,7 +588,7 @@ export default function BinderPages({
 
       {/* card sheet: bottom on mobile, side panel on desktop */}
       {open && (
-        <div className="fixed inset-0 z-40" onClick={() => { setOpen(null); setSold(null); }}>
+        <div className="fixed inset-0 z-40" onClick={() => { setOpen(null); setSold(null); setSellArmed(null); }}>
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
           <div
             onClick={(e) => e.stopPropagation()}
@@ -633,20 +639,56 @@ export default function BinderPages({
                   </ul>
                 </div>
               )}
-              {/* dupes only — the last copy of a card is never sellable */}
-              {(binder[open.id]?.copies ?? 0) > 1 && (
-                <button
-                  onClick={() => {
-                    const paid = sellDupe(open.id, getCurrentPrice(open));
-                    if (paid > 0) setSold(paid);
-                  }}
-                  className="rounded-[22px] border border-dashed border-line2 bg-surface w-full p-3 text-center micro text-[11px] font-semibold tracking-[0.2em] text-pink hover:bg-surface2"
-                >
-                  {sold !== null
-                    ? `Sold — +${formatTicks(sold)}`
-                    : `Sell one spare — ${formatTicks(dupeValue(getCurrentPrice(open)))}`}
-                </button>
-              )}
+                            {/* ROYALTY HISTORY — the hold-vs-sell surface for artifacts */}
+              {open.type === "artifact" &&
+                (() => {
+                  const hist = royaltyHistory(open.id, binder[open.id]?.copies ?? 1);
+                  if (hist.total <= 0) return null;
+                  return (
+                    <div className="rounded-xl bg-amber-tint p-3">
+                      <p className="micro font-semibold text-amber">⚡ Royalties</p>
+                      <p className="mt-0.5 text-[13px] text-ink">
+                        Paid {formatTicks(hist.total)} over the last 30 days.
+                      </p>
+                      {hist.last && (
+                        <p className="mt-0.5 truncate text-[12px] italic text-ink2">
+                          Last: “{hist.last.receipt.headline}”
+                        </p>
+                      )}
+                    </div>
+                  );
+                })()}
+              {/* dupes only — the last copy of a card is never sellable. For
+                  a yield-bearing artifact the confirm shows what it earned:
+                  tension, not friction — selling stays one extra tap. */}
+              {(binder[open.id]?.copies ?? 0) > 1 &&
+                (() => {
+                  const hist =
+                    open.type === "artifact"
+                      ? royaltyHistory(open.id, binder[open.id]?.copies ?? 1)
+                      : { total: 0, last: null };
+                  const needsConfirm = hist.total > 0 && sellArmed !== open.id;
+                  return (
+                    <button
+                      onClick={() => {
+                        if (needsConfirm) {
+                          setSellArmed(open.id);
+                          return;
+                        }
+                        const paid = sellDupe(open.id, getCurrentPrice(open));
+                        if (paid > 0) setSold(paid);
+                        setSellArmed(null);
+                      }}
+                      className="w-full rounded-full border border-dashed border-line2 p-3 text-center text-[14px] font-semibold text-pink transition-colors hover:bg-surface2"
+                    >
+                      {sold !== null
+                        ? `Sold — +${formatTicks(sold)}`
+                        : sellArmed === open.id && hist.total > 0
+                          ? `This paid ${formatTicks(hist.total)} last month. Sure?`
+                          : `Sell one spare — ${formatTicks(dupeValue(getCurrentPrice(open)))}`}
+                    </button>
+                  );
+                })()}
               <div className="flex gap-2">
                 <Link
                   href={`/cards/${open.id}`}

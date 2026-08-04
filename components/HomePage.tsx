@@ -21,6 +21,7 @@ import NextDrop from "./NextDrop";
 import MetaStrip from "./MetaStrip";
 import PackRipper from "./PackRipper";
 import RaiseARound from "./RaiseARound";
+import RoyaltiesCard from "./RoyaltiesCard";
 import RoastTeaser from "./RoastTeaser";
 import TodayMeta from "./TodayMeta";
 import HomeStats from "./HomeStats";
@@ -83,6 +84,7 @@ function IndexSections({
     <>
       {children}
       <HomeStats cards={cards} />
+      <RoyaltiesCard />
       <RaiseARound />
       <RoastTeaser />
       <NextDrop />

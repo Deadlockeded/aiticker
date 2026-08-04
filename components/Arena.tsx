@@ -20,7 +20,6 @@ import { formatTicks } from "@/lib/market";
 import { grantTicks } from "@/lib/wallet";
 import { checkAchievements, unlockArtifactWin } from "@/lib/achievements";
 import { computeCommunityRating, toMarketCard } from "@/lib/create";
-import { isReleased } from "@/lib/drops";
 import { readOnboarding, stampOnboarding } from "@/lib/onboarding";
 import { getScoredProfile, ScoreError } from "@/lib/score";
 import { dayHash, getHotCards, getRandomQuip, HOT_BOOST } from "@/lib/daily";
@@ -416,20 +415,6 @@ export default function Arena({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // MAIN EVENT (?auto=1): both corners arrive by URL — run the bout the
-  // moment they're loaded, so "watch the fight" actually shows a fight
-  useEffect(() => {
-    if (!pendingAuto || !me || !foe || phase !== "setup") return;
-    // flip the flag INSIDE the timer: flipping it here re-renders, and the
-    // cleanup below would clear this very timeout before it ever fired
-    const kickoff = setTimeout(() => {
-      setPendingAuto(false);
-      fight();
-    }, 400);
-    return () => clearTimeout(kickoff);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pendingAuto, me, foe, phase]);
-
   const fight = (foeOverride?: Fighter) => {
     const activeFoe = foeOverride ?? foe;
     if (!me || !activeFoe) return;
@@ -471,6 +456,21 @@ export default function Arena({
       }, 600 + res.rounds.length * 1200 + 400),
     );
   };
+
+  // MAIN EVENT (?auto=1): both corners arrive by URL — run the bout the
+  // moment they're loaded, so "watch the fight" actually shows a fight
+  useEffect(() => {
+    if (!pendingAuto || !me || !foe || phase !== "setup") return;
+    // flip the flag INSIDE the timer: flipping it here re-renders, and the
+    // cleanup below would clear this very timeout before it ever fired
+    const kickoff = setTimeout(() => {
+      setPendingAuto(false);
+      fight();
+    }, 400);
+    return () => clearTimeout(kickoff);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pendingAuto, me, foe, phase]);
+
 
   if (owned === null || record === null) {
     return (

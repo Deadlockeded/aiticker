@@ -11,6 +11,8 @@ import {
   roundClaimedFrom,
 } from "@/lib/rituals";
 import { generateRound, roundShareText, type SpecialWeek } from "@/lib/rounds";
+import { getBinderSnapshot, parseBinder } from "@/lib/binder";
+import { FUND_ROUND_BONUS, hasTheFund } from "@/lib/royalties";
 import ShareButton from "./ShareButton";
 
 /**
@@ -27,9 +29,11 @@ export default function RaiseARound({
   showHistory?: boolean;
 }) {
   const raw = useSyncExternalStore(subscribeStore, getRitualsSnapshot, () => null);
+  const binderRaw = useSyncExternalStore(subscribeStore, getBinderSnapshot, () => null);
   const [justRaised, setJustRaised] = useState<number | null>(null);
   const [ledgerOpen, setLedgerOpen] = useState(false);
   if (raw === null) return null;
+  const fundHeld = binderRaw !== null && hasTheFund(parseBinder(binderRaw));
   const claimed = roundClaimedFrom(raw);
   const round = getRound();
   const history = showHistory ? getCapTable() : [];
@@ -59,6 +63,11 @@ export default function RaiseARound({
         )}
         <p className="mt-1.5 text-[15px] leading-snug text-ink">{round.headline}</p>
         <p className="micro mt-1.5 text-ink2">Terms: {round.term}</p>
+        {fundHeld && (
+          <p className="micro mt-1 font-semibold text-amber">
+            🏛 The Fund: +₮{FUND_ROUND_BONUS} on signing
+          </p>
+        )}
         <button
           data-testid="claim-round"
           onClick={() => setJustRaised(claimRound())}

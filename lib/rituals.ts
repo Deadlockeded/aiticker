@@ -8,6 +8,8 @@ import {
 } from "./rounds";
 import { KEYS, readJSON, readRaw, writeJSON, writeRaw } from "./storage";
 import { grantTicks } from "./wallet";
+import { getBinder } from "./binder";
+import { FUND_ROUND_BONUS, hasTheFund } from "./royalties";
 
 /**
  * The two claimable rituals: showing up (daily) and RAISE A ROUND (weekly).
@@ -89,5 +91,7 @@ export function claimRound(week = utcWeekKey()): number {
       amount: round.amount,
     }),
   );
-  return grantTicks(round.amount, { reason: "this week's round", capped: false });
+  // THE FUND: holding all 8 funding artifacts sweetens every round by ₮50.
+  const bonus = hasTheFund(getBinder()) ? FUND_ROUND_BONUS : 0;
+  return grantTicks(round.amount + bonus, { reason: "this week's round", capped: false });
 }

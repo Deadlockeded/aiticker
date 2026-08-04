@@ -153,6 +153,18 @@ const PANELS: { n: string; title: string; copy: React.ReactNode; art: React.Reac
   },
   {
     n: "06",
+    title: "Royalties",
+    art: <ArtTrade />,
+    copy: (
+      <>
+        Some cards pay rent when the news cooperates. Artifacts with the
+        ⚡ badge earn Ticks on days the real world matches their bit — check
+        in and collect.
+      </>
+    ),
+  },
+  {
+    n: "07",
     title: "The fine print",
     art: <ArtFinePrint />,
     copy: <>No real money in, none out, ever. Ticks cannot be bought, and nothing can be wagered. Never rip packs angry.</>,

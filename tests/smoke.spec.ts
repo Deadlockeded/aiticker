@@ -604,3 +604,69 @@ test("peel gesture: dragging the strip across rips the pack", async ({ page }) =
   // the peel commits the rip: the facedown stack arrives with no click
   await expect(page.getByLabel("Reveal the cards")).toBeVisible({ timeout: 10_000 });
 });
+
+
+// Royalties e2e work against the committed data/royalties.json. The nightly
+// cron refreshes it daily, so the 7-day window is populated in CI; if the
+// file ever ages out entirely, these tests skip rather than lie.
+import royaltiesFixture from "../data/royalties.json";
+
+const recentRoyalty = () => {
+  const cutoff = Date.now() - 6 * 86_400_000;
+  return (royaltiesFixture as { date: string; artifactId: string }[]).filter(
+    (e) => Date.parse(`${e.date}T00:00:00Z`) >= cutoff,
+  );
+};
+
+test("royalties: collect card pays once and stays claimed", async ({ page }) => {
+  const recent = recentRoyalty();
+  test.skip(recent.length === 0, "royalties.json has no entries in the window");
+  await blockArt(page);
+  await seedBinder(page, [recent[0].artifactId]);
+  await seedWallet(page, 0);
+  await page.goto("/binder");
+  await expect(page.getByText("⚡ Royalties").first()).toBeVisible();
+  const collect = page.getByRole("button", { name: /Collect royalties/ });
+  await expect(collect).toBeVisible();
+  await collect.click();
+  await expect(page.getByText(/gainfully employed/)).toBeVisible();
+  const wallet = await page.evaluate(() =>
+    JSON.parse(localStorage.getItem("ai-index:wallet:v1") ?? "{}"),
+  );
+  expect(wallet.bal).toBeGreaterThan(0);
+  // claimed: a reload shows no collect card
+  await page.reload();
+  await expect(page.getByRole("button", { name: /Collect royalties/ })).not.toBeVisible();
+});
+
+test("royalties: selling a paying artifact asks for a second tap", async ({ page }) => {
+  const recent = recentRoyalty();
+  test.skip(recent.length === 0, "royalties.json has no entries in the window");
+  const id = recent[0].artifactId;
+  await blockArt(page);
+  await page.addInitScript((artifactId: string) => {
+    const now = new Date().toISOString();
+    localStorage.setItem(
+      "ai-index:binder:v1",
+      JSON.stringify({ [artifactId]: { copies: 2, firstPulledAt: now, lastPulledAt: now } }),
+    );
+    localStorage.setItem(
+      "ai-index:onboarding:v1",
+      JSON.stringify({ pack: true, binder: true, nudge: true, arena: true }),
+    );
+    const d = new Date();
+    const day = `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, "0")}-${String(d.getUTCDate()).padStart(2, "0")}`;
+    // pre-claim so the collect card doesn't cover the grid
+    localStorage.setItem("ai-index:royalties:v1", JSON.stringify([day]));
+    localStorage.setItem("ai-index:rituals:v1", JSON.stringify({ visit: day }));
+  }, id);
+  await page.goto("/binder");
+  // open the artifact's sheet from the grid
+  // dispatchEvent: the pocket's decorative overlays fail Playwright's strict
+  // hit-test even though a human tap lands fine
+  await page.locator(`button:has-text("×2")`).first().dispatchEvent("click");
+  await expect(page.getByText(/Paid ₮\d+ over the last 30 days/)).toBeVisible();
+  const sell = page.getByRole("button", { name: /Sell one spare/ });
+  await sell.click();
+  await expect(page.getByRole("button", { name: /Sure\?/ })).toBeVisible();
+});

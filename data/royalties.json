@@ -1,0 +1,52 @@
+[
+  {
+    "date": "2026-08-04",
+    "artifactId": "the-gpu",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "AirLLM 70B inference with single 4GB GPU",
+      "url": "https://news.ycombinator.com/item?id=49154228"
+    }
+  },
+  {
+    "date": "2026-08-04",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "microsoft/skill-recorder — Desktop app that records your on-screen work session and uses the GitHub Copilot CLI to reconstruct it as an inte",
+      "url": "https://github.com/microsoft/skill-recorder"
+    }
+  },
+  {
+    "date": "2026-08-04",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "LLMs reward expertise",
+      "url": "https://news.ycombinator.com/item?id=49161518"
+    }
+  },
+  {
+    "date": "2026-08-04",
+    "artifactId": "the-latency",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "200 Milliseconds",
+      "url": "https://news.ycombinator.com/item?id=49132992"
+    }
+  },
+  {
+    "date": "2026-08-04",
+    "artifactId": "the-exit",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "How to organize 3 acquired companies into one coherent website",
+      "url": "https://news.ycombinator.com/item?id=47999020"
+    }
+  }
+]

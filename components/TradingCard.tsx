@@ -2,6 +2,7 @@ import type { Rarity } from "@/lib/types";
 import type { MarketCard } from "@/lib/cards";
 import { formatMove, formatTicks, getCurrentPrice, getDailyMove } from "@/lib/market";
 import { oddsLabelFor } from "@/lib/packs";
+import { ROYALTY_CONFIG } from "@/lib/royalties";
 import { editionFor, variantLabel, type Variant } from "@/lib/variants";
 import CardArt from "./CardArt";
 import { Chip, rarityTone } from "./ui";
@@ -228,6 +229,14 @@ export default function TradingCard({
           </span>
         </div>
 
+        {/* yield-bearing artifacts wear the royalty bolt */}
+        {artifact && !agi && ROYALTY_CONFIG[card.id] && (
+          <span
+            className={`micro absolute right-2 z-10 rounded-full bg-amber-tint px-1.5 py-0.5 font-semibold text-amber ${hero ? "top-12 text-[10px]" : "top-9"}`}
+          >
+            ⚡royalty
+          </span>
+        )}
         {/* rarity pill */}
         <span
           className={`absolute right-2 top-2 rounded-md bg-black/60 font-mono uppercase tracking-wider backdrop-blur-sm ${r.accentText} ${

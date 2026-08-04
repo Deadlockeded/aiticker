@@ -38,11 +38,19 @@ packs (1 per 8h, bank 2) are **on top** of everything below — these are
 | --- | --- | --- | --- |
 | Lapsed (visit only) | 50 | 10.0 | 0.10 |
 | Casual (visit + 1 win) | 225 | 2.2 | 0.45 |
-| Casual+ (visit + 2 wins) | 300 | 1.7 | 0.60 |
-| **Active (visit + 4 wins w/ a 3-streak + 1 dupe + weekly)** | **578** | **0.9** | **1.16** |
-| Active+ (as above, 5 wins) | 653 | 0.8 | 1.31 |
+| Casual+ (visit + 2 wins + small royalty) | ~315 | 1.6 | 0.63 |
+| **Active (visit + 4 wins w/ 3-streak + dupe + ~₮25 royalties + weekly)** | **~600** | **0.85** | **~1.2** |
 | Grinder (caps out) | 700 | 0.7 | 1.40 |
-| Grinder on round day (cap + visit + ₮300 round) | 1,000 | 0.5 | **2.00** |
+| Grinder on round day (cap + visit + round) | 1,000–1,100 | — | ≤2.2, at most weekly |
+
+ROYALTIES fold INSIDE the budget rather than stacking on it: royalty grants
+are CAPPED grants, so they consume the same ₮650/day clippable allowance as
+purses and dupe sales. Their own triple cap (3 copies per artifact, ₮60 per
+trigger day, 7-day lookback) keeps a typical holder at ₮10–35/day. The active
+player moves ~578 → ~600 — still ~1.2 packs/day — and the hard ceiling is
+unchanged because the ₮650 clip absorbs royalties entirely. THE FUND's +₮50
+round bonus raises the once-a-week oversubscribed ceiling to ₮1,100 ≈ 2.2
+packs — accepted drift, at most weekly, documented in economy.ts.
 
 The last row is the hard ceiling and it occurs at most once a week. Every
 other day tops out at ₮700 = 1.4 packs. The single largest possible purse —

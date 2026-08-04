@@ -21,6 +21,7 @@ import { github } from "./sources/github";
 import { huggingface } from "./sources/huggingface";
 import { hackernews } from "./sources/hackernews";
 import type { Source } from "./sources/util";
+import { matchTriggers, type RoyaltyEntry, type SignalCorpora } from "../lib/royalties";
 
 const DRY = process.argv.includes("--dry");
 const CARDS_PATH = path.join(process.cwd(), "data", "cards.json");
@@ -128,7 +129,69 @@ async function main() {
     );
   }
 
+  // ---- ARTIFACT ROYALTIES: scan the day's signals for artifact triggers ---
+  // Two extra keyless fetches (HN front page, new trending repos) plus the
+  // wiki-spike list derived from the per-card deltas fetched above. Matches
+  // are committed to data/royalties.json — deterministic and auditable, the
+  // same trigger list for every player. See lib/royalties.ts for the map.
+  const corpora: SignalCorpora = { hn: [], gh: [], wiki: [] };
+  try {
+    const fp = (await (
+      await fetch("https://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=30")
+    ).json()) as { hits: { title: string; url?: string; objectID: string }[] };
+    corpora.hn = fp.hits.map((h) => ({
+      title: h.title,
+      url: `https://news.ycombinator.com/item?id=${h.objectID}`,
+    }));
+  } catch (err) {
+    console.error("royalties: hn fetch failed —", (err as Error).message);
+  }
+  try {
+    const weekAgo = new Date(Date.now() - 7 * 86_400_000).toISOString().slice(0, 10);
+    const gh = (await (
+      await fetch(
+        `https://api.github.com/search/repositories?q=created:%3E${weekAgo}&sort=stars&order=desc&per_page=30`,
+        { headers: process.env.GITHUB_TOKEN ? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } : {} },
+      )
+    ).json()) as { items?: { full_name: string; description: string | null; html_url: string }[] };
+    corpora.gh = (gh.items ?? []).map((r) => ({
+      title: `${r.full_name} — ${r.description ?? ""}`,
+      url: r.html_url,
+    }));
+  } catch (err) {
+    console.error("royalties: gh fetch failed —", (err as Error).message);
+  }
+  // wiki spikes: cards whose weekly attention jumped ≥ +40%
+  corpora.wiki = cards
+    .filter((c) => (c.signals?.attentionDelta ?? 0) >= 40)
+    .map((c) => ({ title: c.name }));
+
+  const triggers = matchTriggers(corpora, todayDay);
+  const royaltiesPath = path.join(process.cwd(), "data", "royalties.json");
+  let existing: RoyaltyEntry[] = [];
+  try {
+    existing = JSON.parse(readFileSync(royaltiesPath, "utf8")) as RoyaltyEntry[];
+  } catch {
+    // first run
+  }
+  const cutoff = Date.now() - 30 * 86_400_000;
+  const merged = [
+    // idempotent within a day: today's entries replace today's entries
+    ...existing.filter(
+      (e) => e.date !== todayDay && Date.parse(`${e.date}T00:00:00Z`) >= cutoff,
+    ),
+    ...triggers,
+  ].sort((a, b) => a.date.localeCompare(b.date) || a.artifactId.localeCompare(b.artifactId));
+
   mkdirSync(OUT_DIR, { recursive: true });
+  writeFileSync(
+    path.join(OUT_DIR, "royalties.json"),
+    JSON.stringify(merged, null, 2) + "\n",
+  );
+  console.log(
+    `royalties: ${triggers.length} trigger(s) today — ${triggers.map((t) => t.artifactId).join(", ") || "none"}`,
+  );
+
   writeFileSync(
     path.join(OUT_DIR, "cards.json"),
     JSON.stringify(cards.map((c) => ordered(c as unknown as Record<string, unknown>)), null, 2) + "\n",
