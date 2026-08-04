@@ -9,7 +9,7 @@ Uses **pnpm** (don't use npm/yarn).
 - `pnpm dev` — dev server at :3000
 - `pnpm build` — production build (also the fastest full type-check)
 - `pnpm lint` — ESLint (flat config; react-hooks rules reject setState-in-effect and ref-reads-in-render — see patterns below)
-- `pnpm test:e2e` — Playwright smoke suite (17 tests, mobile viewport, runs against `pnpm build`; see TESTING.md). Single test: `npx playwright test tests/smoke.spec.ts:NN`
+- `pnpm test:e2e` — Playwright smoke suite (42 tests, mobile viewport; see TESTING.md). It does NOT build — it serves the existing `.next`, so run `pnpm build` first or you test stale code. Single test: `npx playwright test tests/smoke.spec.ts:NN`
 - `pnpm market:dry` — preview a data-pipeline run into `data/preview/`
 
 ## Product in one paragraph

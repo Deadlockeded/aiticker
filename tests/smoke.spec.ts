@@ -118,10 +118,12 @@ test("rip flow: stack → fan holds until tap → binder; persists", async ({ pa
   // THE HOLD: no auto-navigation, ever — still here seconds later
   await page.waitForTimeout(3000);
   await expect(page).toHaveURL(/\/packs/);
-  // enlarge sheet works
+  // enlarge sheet works — two exits: the pinned ✕ and the bottom Close
   await fanCards.first().click();
-  await expect(page.getByRole("button", { name: "Close" })).toBeVisible();
-  await page.getByRole("button", { name: "Close" }).click();
+  const closers = page.getByRole("button", { name: "Close" });
+  await expect(closers).toHaveCount(2);
+  await closers.first().click();
+  await expect(closers).toHaveCount(0);
   // leaving is the user's tap
   await page.getByRole("button", { name: "Add to binder →" }).click();
   await page.waitForURL("**/binder");

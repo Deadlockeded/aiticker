@@ -758,11 +758,22 @@ export default function PackRipper({
           {/* a real scrim — the token sweep once turned this cream, which
               painted a dead band above the card instead of dimming the page */}
           <div className="absolute inset-0 bg-black/70" />
-          <div
-            onClick={(e) => e.stopPropagation()}
-            className="absolute inset-0 overflow-y-auto p-3 pb-[calc(1.25rem+env(safe-area-inset-bottom))] pt-[max(0.75rem,env(safe-area-inset-top))]"
-          >
-            <div className="mx-auto max-w-[320px]">
+          {/* the scroll wrapper spans the screen, so the tap-off guard lives
+              on the content column — a wrapper-level guard swallowed every
+              backdrop tap and trapped people on this sheet */}
+          <div className="absolute inset-0 overflow-y-auto p-3 pb-[calc(1.25rem+env(safe-area-inset-bottom))] pt-[max(0.75rem,env(safe-area-inset-top))]">
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setEnlarged(null);
+              }}
+              aria-label="Close"
+              className="fixed right-3 top-[max(0.75rem,env(safe-area-inset-top))] z-10 flex h-11 w-11 items-center justify-center rounded-full bg-black/50 text-lg text-white"
+            >
+              ✕
+            </button>
+            {/* mt clears the pinned ✕ so it never sits on the card's chips */}
+            <div className="mx-auto mt-12 max-w-[320px]" onClick={(e) => e.stopPropagation()}>
               <TradingCard
                 card={pulls[enlarged].card}
                 rank={ranks[pulls[enlarged].card.id]}
