@@ -1,32 +1,32 @@
 [
   {
     "date": "2026-08-04",
-    "artifactId": "the-gpu",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "AirLLM 70B inference with single 4GB GPU",
-      "url": "https://news.ycombinator.com/item?id=49154228"
-    }
-  },
-  {
-    "date": "2026-08-04",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "microsoft/skill-recorder — Desktop app that records your on-screen work session and uses the GitHub Copilot CLI to reconstruct it as an inte",
-      "url": "https://github.com/microsoft/skill-recorder"
-    }
-  },
-  {
-    "date": "2026-08-04",
     "artifactId": "the-em-dash",
     "payoutPerCopy": 4,
     "receipt": {
       "source": "hn",
       "headline": "LLMs reward expertise",
       "url": "https://news.ycombinator.com/item?id=49161518"
+    }
+  },
+  {
+    "date": "2026-08-04",
+    "artifactId": "the-exit",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "How to organize 3 acquired companies into one coherent website",
+      "url": "https://news.ycombinator.com/item?id=47999020"
+    }
+  },
+  {
+    "date": "2026-08-04",
+    "artifactId": "the-gpu",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "AirLLM 70B inference with single 4GB GPU",
+      "url": "https://news.ycombinator.com/item?id=49154228"
     }
   },
   {
@@ -41,12 +41,62 @@
   },
   {
     "date": "2026-08-04",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "microsoft/skill-recorder — Desktop app that records your on-screen work session and uses the GitHub Copilot CLI to reconstruct it as an inte",
+      "url": "https://github.com/microsoft/skill-recorder"
+    }
+  },
+  {
+    "date": "2026-08-05",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "There Will Come Soft Rains (1950) [pdf]",
+      "url": "https://news.ycombinator.com/item?id=49162653"
+    }
+  },
+  {
+    "date": "2026-08-05",
+    "artifactId": "the-eval",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "When AI Benchmarks Plateau: A Systematic Study of Benchmark Saturation",
+      "url": "https://news.ycombinator.com/item?id=49170915"
+    }
+  },
+  {
+    "date": "2026-08-05",
     "artifactId": "the-exit",
     "payoutPerCopy": 8,
     "receipt": {
       "source": "hn",
       "headline": "How to organize 3 acquired companies into one coherent website",
       "url": "https://news.ycombinator.com/item?id=47999020"
+    }
+  },
+  {
+    "date": "2026-08-05",
+    "artifactId": "the-term-sheet",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "Oxide Computer raises $445M (SEC Form D)",
+      "url": "https://news.ycombinator.com/item?id=49174407"
+    }
+  },
+  {
+    "date": "2026-08-05",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "disler/super-simple-software-factory — Repeatable agents-plus-code workflows, packaged as one skill, stamped into any repo. Deterministic Py",
+      "url": "https://github.com/disler/super-simple-software-factory"
     }
   }
 ]
