@@ -178,5 +178,45 @@
       "headline": "disler/super-simple-software-factory — Repeatable agents-plus-code workflows, packaged as one skill, stamped into any repo. Deterministic Py",
       "url": "https://github.com/disler/super-simple-software-factory"
     }
+  },
+  {
+    "date": "2026-08-07",
+    "artifactId": "as-an-ai",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "Improving GPT‑5.6 Sol in ChatGPT, expanding GPT‑5.6 Luna access for free users",
+      "url": "https://news.ycombinator.com/item?id=49199357"
+    }
+  },
+  {
+    "date": "2026-08-07",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "AMD acquires Taalas to boost inference performance by etching models in silicon",
+      "url": "https://news.ycombinator.com/item?id=49201970"
+    }
+  },
+  {
+    "date": "2026-08-07",
+    "artifactId": "the-exit",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "AMD acquires Taalas to boost inference performance by etching models in silicon",
+      "url": "https://news.ycombinator.com/item?id=49201970"
+    }
+  },
+  {
+    "date": "2026-08-07",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "disler/super-simple-software-factory — Repeatable agents-plus-code workflows, packaged as one skill, stamped into any repo. Deterministic Py",
+      "url": "https://github.com/disler/super-simple-software-factory"
+    }
   }
 ]
