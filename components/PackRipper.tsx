@@ -293,19 +293,20 @@ function PullCard({
         </span>
       )}
 
-      {/* one glass panel, two facts — frosted over the art, never a hard
-          gradient. (Unowned proof cards keep their dot veil; this blur is
-          card chrome, not the ownership system.) */}
-      <div className="absolute inset-x-0 bottom-0 z-10 border-t border-white/20 bg-black/35 px-2 pb-2 pt-2 text-left backdrop-blur-md">
-        <p className="truncate font-display text-[13px] font-bold leading-tight text-white sm:text-[15px]">
+      {/* one slim glass strip, two facts — frosted over the art, never a
+          hard gradient, never a slab that eats the portrait. (Unowned
+          proof cards keep their dot veil; this blur is card chrome, not
+          the ownership system.) */}
+      <div className="absolute inset-x-0 bottom-0 z-10 border-t border-white/20 bg-black/35 px-2 py-1.5 text-left backdrop-blur-md">
+        <p className="truncate font-display text-[13px] font-bold leading-tight text-white">
           {card.name}
         </p>
-        <div className="mt-1 flex items-center gap-1">
-          <span className={`micro rounded-full px-1.5 py-0.5 font-semibold ${rarityChip}`}>
+        <div className="mt-0.5 flex items-center gap-1">
+          <span className={`micro rounded-full px-1.5 py-px font-semibold ${rarityChip}`}>
             {card.rarity === "mythic" ? "???" : card.rarity}
           </span>
           {variant !== "base" && (
-            <span className="micro rounded-full bg-surface/90 px-1.5 py-0.5 font-semibold text-ink">
+            <span className="micro rounded-full bg-surface/90 px-1.5 py-px font-semibold text-ink">
               {variantLabel(variant)}
             </span>
           )}
@@ -652,64 +653,71 @@ export default function PackRipper({
               </EditorCaption>
             </div>
           )}
-          {/* VERTICAL STACK: first pull front and centre, each card behind
-              slides down half a card, scales back a touch and sits under a
-              dimming veil — cards stay OPAQUE (transparency let the art
-              behind bleed through and read as a rendering bug on phones).
-              Name + rarity peek out; the full print opens on tap. */}
-          <div
-            className="relative mx-auto w-[190px]"
-            style={{ height: `${270 + (pulls.length - 1) * 148}px` }}
-          >
-            {pulls.map(({ card, variant }, i) => (
-              <button
-                key={`${card.id}-${i}`}
-                onClick={() => setEnlarged(i)}
-                aria-label={`Enlarge ${card.name}`}
-                className="absolute inset-x-0 origin-top transition-transform duration-500"
-                style={{
-                  top: `${i * 148}px`,
-                  zIndex: pulls.length - i,
-                  transform: fanned && i > 0 ? `scale(${1 - i * 0.04})` : undefined,
-                }}
-              >
-                <div className="relative aspect-[1/1.42] w-full [perspective:1200px]">
-                  <div
-                    className="relative h-full w-full transition-transform duration-500 [transform-style:preserve-3d]"
-                    style={{
-                      transform: fanned ? "rotateY(180deg)" : "rotateY(0deg)",
-                      transitionDelay: `${i * 150}ms`,
-                    }}
-                  >
-                    <CardBack card={card} />
-                    <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)]">
-                      {/* THE PULL BEAT: art-forward face; the drained art
-                          resolves to full colour mid-flip. Serials, price and
-                          the rest live in the tap-to-enlarge sheet. */}
-                      <PullCard
-                        card={card}
-                        variant={variant}
-                        resolving={!preOwned.has(card.id) && fanned}
-                        firstPull={!preOwned.has(card.id)}
-                      />
-                      {/* depth veil: a solid dim on the cards waiting their
-                          turn — reads as "behind", never as broken */}
-                      {i > 0 && (
+          {/* THE HAND: the pulls held like a fan of cards — every face
+              fully visible (an overlap that crops a portrait reads as a
+              bug, not depth), best pull in front and a touch higher. No
+              veils, no fades: both cards ARE the payoff. */}
+          {(() => {
+            const RANK: Record<string, number> = {
+              mythic: 5, legendary: 4, epic: 3, rare: 2, common: 1,
+            };
+            const worth = (p: Pull) =>
+              (RANK[p.card.rarity] ?? 0) + (p.variant !== "base" ? 0.5 : 0);
+            // slot 0 = leftmost; best pull takes the rightmost, frontmost slot
+            const slots = [...pulls.keys()].sort((a, b) => worth(pulls[a]) - worth(pulls[b]));
+            const CARD_W = 168;
+            const STEP = 140; // horizontal stride — ~28px edge overlap, faces safe
+            const boxW = CARD_W + (pulls.length - 1) * STEP;
+            return (
+              <div className="relative mx-auto h-[268px]" style={{ width: `${boxW}px` }}>
+                {pulls.map(({ card, variant }, i) => {
+                  const slot = slots.indexOf(i);
+                  const centered = slot - (pulls.length - 1) / 2;
+                  const front = slot === pulls.length - 1;
+                  return (
+                    <button
+                      key={`${card.id}-${i}`}
+                      onClick={() => setEnlarged(i)}
+                      aria-label={`Enlarge ${card.name}`}
+                      className="absolute top-3 origin-bottom"
+                      style={{
+                        left: `${slot * STEP}px`,
+                        width: `${CARD_W}px`,
+                        zIndex: slot + 1,
+                        transform: `rotate(${centered * 5}deg) translateY(${front ? -8 : 6}px)`,
+                      }}
+                    >
+                      <div className="relative aspect-[1/1.42] w-full [perspective:1200px]">
                         <div
-                          className="pointer-events-none absolute inset-0 rounded-[16px] bg-black transition-opacity duration-500"
-                          style={{ opacity: fanned ? Math.min(0.55, i * 0.28) : 0 }}
-                          aria-hidden
-                        />
-                      )}
-                      {shimmering === i && (
-                        <div className="foil-sweep pointer-events-none absolute inset-0 overflow-hidden rounded-[16px]" />
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </button>
-            ))}
-          </div>
+                          className="relative h-full w-full transition-transform duration-500 [transform-style:preserve-3d]"
+                          style={{
+                            transform: fanned ? "rotateY(180deg)" : "rotateY(0deg)",
+                            transitionDelay: `${slot * 150}ms`,
+                          }}
+                        >
+                          <CardBack card={card} />
+                          <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                            {/* THE PULL BEAT: art-forward face; the drained
+                                art resolves to full colour mid-flip. Serials,
+                                price and the rest live in the enlarge sheet. */}
+                            <PullCard
+                              card={card}
+                              variant={variant}
+                              resolving={!preOwned.has(card.id) && fanned}
+                              firstPull={!preOwned.has(card.id)}
+                            />
+                            {shimmering === i && (
+                              <div className="foil-sweep pointer-events-none absolute inset-0 overflow-hidden rounded-[16px]" />
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            );
+          })()}
 
           <p className="mt-4 text-center micro text-white/60">
             Tap a card for the full print
