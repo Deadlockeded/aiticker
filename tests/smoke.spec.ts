@@ -887,3 +887,48 @@ test("custody: withdraw signs out and local state survives", async ({ page }) =>
   );
   expect(Object.keys(binder).sort()).toEqual(["nvidia", "openai"]);
 });
+
+// ---------------------------------------------------------------------------
+// THE TRANSFER WINDOW — the ledger drives everything; fresh-only surfaces
+// (stamp, ticker) are guarded like the royalties tests: when the newest
+// transfer ages past 30 days these assertions skip rather than lie.
+// ---------------------------------------------------------------------------
+import transfersFixture from "../data/transfers.json";
+
+const freshTransfer = () =>
+  (transfersFixture as { personId: string; date: string }[]).find(
+    (t) => Date.now() - Date.parse(`${t.date}T00:00:00Z`) <= 30 * 86_400_000,
+  );
+
+test("transfers: the career section shows the move, sourced, fee undisclosed", async ({ page }) => {
+  await blockArt(page);
+  await seedBinder(page, ["openai"]);
+  await page.goto("/cards/jeff-dean");
+  await expect(page.getByText("Career")).toBeVisible();
+  await expect(page.getByText("Discovery Loop").first()).toBeVisible();
+  await expect(page.getByText("Fee: undisclosed").first()).toBeVisible();
+  await expect(page.getByRole("link", { name: "Source↗" })).toHaveAttribute(
+    "href",
+    /^https:\/\//,
+  );
+});
+
+test("transfers: fresh moves stamp the card and run the home ticker", async ({ page }) => {
+  const fresh = freshTransfer();
+  test.skip(!fresh, "no transfer inside the 30-day window");
+  await blockArt(page);
+  await seedBinder(page, ["openai"]);
+  await page.goto(`/cards/${fresh!.personId}`);
+  await expect(page.getByText("Transferred")).toBeVisible();
+  await expect(page.getByRole("button", { name: "Share the announcement →" })).toBeVisible();
+  // DEADLINE DAY on home (index state needs a binder + no banked packs)
+  await page.addInitScript(() => {
+    localStorage.setItem(
+      "ai-index:packs:v1",
+      JSON.stringify({ bank: 0, ts: Date.now(), ripped: 9 }),
+    );
+  });
+  await page.goto("/");
+  await expect(page.getByText("Transfer news")).toBeVisible();
+  await expect(page.getByText("Here we go →").first()).toBeVisible();
+});

@@ -22,6 +22,7 @@ import MetaStrip from "./MetaStrip";
 import PackRipper from "./PackRipper";
 import RaiseARound from "./RaiseARound";
 import RoyaltiesCard from "./RoyaltiesCard";
+import TransferTicker from "./TransferTicker";
 import RoastTeaser from "./RoastTeaser";
 import TodayMeta from "./TodayMeta";
 import HomeStats from "./HomeStats";
@@ -86,6 +87,7 @@ function IndexSections({
   return (
     <>
       {children}
+      <TransferTicker />
       <HomeStats cards={cards} />
       <RoyaltiesCard />
       <RaiseARound />

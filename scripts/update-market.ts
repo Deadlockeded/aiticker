@@ -22,6 +22,7 @@ import { huggingface } from "./sources/huggingface";
 import { hackernews } from "./sources/hackernews";
 import type { Source } from "./sources/util";
 import { matchTriggers, type RoyaltyEntry, type SignalCorpora } from "../lib/royalties";
+import { transferWatch } from "../lib/transfers";
 
 const DRY = process.argv.includes("--dry");
 const CARDS_PATH = path.join(process.cwd(), "data", "cards.json");
@@ -165,6 +166,16 @@ async function main() {
   corpora.wiki = cards
     .filter((c) => (c.signals?.attentionDelta ?? 0) >= 40)
     .map((c) => ({ title: c.name }));
+
+  // ---- TRANSFER WATCH: flag possible moves for the human editor ----------
+  // Log lines only — the transfer ledger (data/transfers.json) is editorial
+  // and is NEVER written by this script. See lib/transfers.ts header.
+  const people = cards
+    .filter((c) => c.type === "engineer")
+    .map((c) => ({ id: c.id, name: c.name }));
+  for (const hit of transferWatch(corpora.hn, people)) {
+    console.log(`TRANSFER WATCH: ${hit.personId} — "${hit.title}" ${hit.url ?? ""}`);
+  }
 
   const triggers = matchTriggers(corpora, todayDay);
   const royaltiesPath = path.join(process.cwd(), "data", "royalties.json");

@@ -4258,7 +4258,7 @@
     "type": "engineer",
     "avatar": "JD",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Jeff_Dean_in_2025_x.jpg/330px-Jeff_Dean_in_2025_x.jpg",
-    "tagline": "Google's chief scientist, systems legend",
+    "tagline": "Discovery Loop co-founder, systems legend",
     "rarity": "rare",
     "serial": "100",
     "editionSize": 100,
@@ -4290,7 +4290,12 @@
       {
         "org": "Google",
         "role": "Chief Scientist",
-        "years": "2018–"
+        "years": "2018–2026"
+      },
+      {
+        "org": "Discovery Loop",
+        "role": "Co-founder & CEO",
+        "years": "2026–"
       }
     ],
     "dailyBlurb": "Google's living infrastructure legend — the systems he built two decades ago still carry today's models.",

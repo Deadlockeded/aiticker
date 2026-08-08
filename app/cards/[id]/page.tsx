@@ -3,6 +3,7 @@ import PriceChart from "@/components/PriceChart";
 import ShareButton from "@/components/ShareButton";
 import CardReveal from "@/components/CardReveal";
 import StatBlock from "@/components/StatBlock";
+import TransferDesk from "@/components/TransferDesk";
 import TodayForm from "@/components/TodayForm";
 import Link from "next/link";
 import SwipeNav from "@/components/SwipeNav";
@@ -152,6 +153,8 @@ export default async function CardPage({
           </div>
 
           <StatBlock card={card} allCards={ranked} />
+
+          <TransferDesk card={card} />
 
           <TodayForm card={card} />
 
