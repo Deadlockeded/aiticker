@@ -932,3 +932,165 @@ test("transfers: fresh moves stamp the card and run the home ticker", async ({ p
   await expect(page.getByText("Transfer news")).toBeVisible();
   await expect(page.getByText("Here we go →").first()).toBeVisible();
 });
+
+// ---------------------------------------------------------------------------
+// DAILY GIGS + THE FAMILIES
+// ---------------------------------------------------------------------------
+import { boardFor as gigBoardFor, weeklyGigFor as gigWeeklyFor } from "../lib/gigs";
+import turfFixture from "../data/turfwar.json";
+
+const utcToday = () => new Date().toISOString().slice(0, 10);
+
+test("gigs: the board renders, claims pay once, a full clear stamps the bonus", async ({ page }) => {
+  await blockArt(page);
+  await seedBinder(page, ["openai"]);
+  await seedWallet(page, 0);
+  const day = utcToday();
+  const board = gigBoardFor(day);
+  // seed every daily gig complete but unclaimed
+  await page.addInitScript(
+    (seed: { day: string; counts: Record<string, number> }) => {
+      if (!localStorage.getItem("ai-index:gigs:v1")) {
+        localStorage.setItem(
+          "ai-index:gigs:v1",
+          JSON.stringify({
+            day: seed.day, counts: seed.counts, claimed: [], bonusPaid: false,
+            week: "x", weekCounts: {}, weekClaimed: false, boardsCleared: {},
+          }),
+        );
+      }
+    },
+    {
+      day,
+      counts: Object.fromEntries(board.map((g) => [g.action, g.target])),
+    },
+  );
+  await page.goto("/");
+  await expect(page.getByText(board[0].title).first()).toBeVisible();
+  let expected = 0;
+  for (const gig of board) {
+    await page.getByTestId(`claim-gig-${gig.id}`).click();
+    expected += gig.pay;
+  }
+  await expect(page.getByText(/Board cleared \+₮25/).first()).toBeVisible();
+  const wallet = await page.evaluate(() =>
+    JSON.parse(localStorage.getItem("ai-index:wallet:v1") ?? "{}"),
+  );
+  expect(wallet.bal).toBe(expected + 25);
+  // idempotent: a reload shows no claim buttons, totals unchanged
+  await page.reload();
+  await expect(page.getByTestId(`claim-gig-${board[0].id}`)).not.toBeVisible();
+  const after = await page.evaluate(() =>
+    JSON.parse(localStorage.getItem("ai-index:wallet:v1") ?? "{}"),
+  );
+  expect(after.bal).toBe(wallet.bal);
+});
+
+test("gigs: weekly progress survives day boundaries", async ({ page }) => {
+  await blockArt(page);
+  await seedBinder(page, ["openai"]);
+  const day = utcToday();
+  const weekly = gigWeeklyFor(); // current ISO week's gig
+  // yesterday's day-half is stale, the week-half is live progress
+  await page.addInitScript(
+    (seed: { day: string; action: string }) => {
+      localStorage.setItem(
+        "ai-index:gigs:v1",
+        JSON.stringify({
+          day: "2020-01-01", counts: { pack_open: 9 }, claimed: [], bonusPaid: false,
+          week: seed.day, weekCounts: { [seed.action]: 1 }, weekClaimed: false,
+          boardsCleared: {},
+        }),
+      );
+      // week key needs to be the REAL current week — patch it in-page
+      const s = JSON.parse(localStorage.getItem("ai-index:gigs:v1")!);
+      const d = new Date();
+      const t = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
+      const dow = (t.getUTCDay() + 6) % 7;
+      t.setUTCDate(t.getUTCDate() - dow + 3);
+      const first = new Date(Date.UTC(t.getUTCFullYear(), 0, 4));
+      const fDay = (first.getUTCDay() + 6) % 7;
+      first.setUTCDate(first.getUTCDate() - fDay + 3);
+      const week = 1 + Math.round((t.getTime() - first.getTime()) / (7 * 86_400_000));
+      s.week = `${t.getUTCFullYear()}-W${String(week).padStart(2, "0")}`;
+      localStorage.setItem("ai-index:gigs:v1", JSON.stringify(s));
+    },
+    { day, action: weekly.action },
+  );
+  await page.goto("/");
+  // the weekly row shows carried progress, not a reset
+  await expect(page.getByText(weekly.title).first()).toBeVisible();
+  await expect(page.getByText(`1/${weekly.target}`).first()).toBeVisible();
+});
+
+test("families: pledge sheet fires once, skippable, badge lands in the binder", async ({ page }) => {
+  await blockArt(page);
+  await seedBinder(page, ["nvidia"]);
+  // custody has had its turn — the pledge prompt is next in line
+  await page.addInitScript(() => {
+    if (!localStorage.getItem("ai-index:custody:v1")) {
+      localStorage.setItem(
+        "ai-index:custody:v1",
+        JSON.stringify({ prompted: true, nudged: { rare: true, returning: true } }),
+      );
+    }
+  });
+  await page.goto("/binder");
+  await expect(page.getByText("Pick your House.")).toBeVisible({ timeout: 6000 });
+  await page.getByTestId("pledge-skip").click();
+  // skipped is remembered
+  await page.reload();
+  await page.waitForTimeout(2200);
+  await expect(page.getByText("Pick your House.")).not.toBeVisible();
+  // pledge later from the binder's House line
+  await page.getByTestId("binder-house-line").click();
+  await page.getByTestId("pledge-house-nvidia").click();
+  await expect(page.getByTestId("binder-house-line")).toContainText("House NVIDIA");
+  await expect(page.getByTestId("binder-house-line")).toContainText("1 of the Family's 2");
+});
+
+test("families: the weekly cut pays the right tier once, loyalty included", async ({ page }) => {
+  await blockArt(page);
+  await seedBinder(page, ["openai"]);
+  await seedWallet(page, 0);
+  const latest = (turfFixture as { week: string; standings: { houseId: string; rank: number }[] }[]).at(-1)!;
+  const second = latest.standings.find((s) => s.rank === 2)!;
+  await page.addInitScript(
+    (seed: { houseId: string; week: string }) => {
+      // seed once — init scripts re-run on reload and must not clobber
+      // the claimedWeeks the test just wrote
+      if (!localStorage.getItem("ai-index:house:v1")) {
+        localStorage.setItem(
+          "ai-index:house:v1",
+          JSON.stringify({
+            houseId: seed.houseId, pledgedAt: "2026-01-01T00:00:00Z",
+            prompted: true, claimedWeeks: [],
+          }),
+        );
+      }
+      // 3 boards cleared in the scored week → the ₮30 loyalty stipend
+      if (!localStorage.getItem("ai-index:gigs:v1")) {
+        localStorage.setItem(
+          "ai-index:gigs:v1",
+          JSON.stringify({
+            day: "2020-01-01", counts: {}, claimed: [], bonusPaid: false,
+            week: "2020-W01", weekCounts: {}, weekClaimed: false,
+            boardsCleared: { [seed.week]: 3 },
+          }),
+        );
+      }
+    },
+    { houseId: second.houseId, week: latest.week },
+  );
+  await page.goto("/");
+  await expect(page.getByText(/took the week/)).toBeVisible();
+  await page.getByTestId("claim-cut").click();
+  await expect(page.getByText(/Share the week/)).toBeVisible();
+  const wallet = await page.evaluate(() =>
+    JSON.parse(localStorage.getItem("ai-index:wallet:v1") ?? "{}"),
+  );
+  expect(wallet.bal).toBe(80 + 30); // 2nd place ₮80 + loyalty ₮30
+  // claimed weeks are remembered
+  await page.reload();
+  await expect(page.getByTestId("claim-cut")).not.toBeVisible();
+});

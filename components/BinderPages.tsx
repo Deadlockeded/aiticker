@@ -24,7 +24,9 @@ import TradingCard from "./TradingCard";
 import DailyQuip from "./DailyQuip";
 import Sparkline from "./Sparkline";
 import AchievementWall from "./AchievementWall";
+import { BinderHouseLine } from "./HouseKit";
 import TreasuryStrip from "./TreasuryStrip";
+import { trackGig } from "@/lib/gigs";
 
 const RARITY_ORDER: Rarity[] = ["legendary", "epic", "rare", "common"];
 type Chip = "all" | "missing" | "dupes";
@@ -372,6 +374,7 @@ export default function BinderPages({
       </div>
       </div>
 
+      <BinderHouseLine />
       <TreasuryStrip />
 
       {/* filter chips — dim in place, never re-sort */}
@@ -692,6 +695,7 @@ export default function BinderPages({
                           return;
                         }
                         const paid = sellDupe(open.id, getCurrentPrice(open));
+                        if (paid > 0) trackGig("dupe_sale");
                         if (paid > 0) setSold(paid);
                         setSellArmed(null);
                       }}

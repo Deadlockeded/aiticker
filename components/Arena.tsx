@@ -20,6 +20,7 @@ import { formatTicks } from "@/lib/market";
 import { grantTicks } from "@/lib/wallet";
 import { checkAchievements, unlockArtifactWin } from "@/lib/achievements";
 import { getSavedHandleSnapshot } from "@/lib/custody";
+import { trackGig } from "@/lib/gigs";
 import { computeCommunityRating, toMarketCard } from "@/lib/create";
 import { readOnboarding, stampOnboarding } from "@/lib/onboarding";
 import { getScoredProfile, ScoreError } from "@/lib/score";
@@ -37,6 +38,7 @@ import {
 import { cardMetaValues, getDailyMeta, profileMetaValues, type MetaKey } from "@/lib/meta";
 import CardArt from "./CardArt";
 import { Button } from "./ui";
+import { HouseBadge } from "./HouseKit";
 import { usePrefillHandle } from "./useSavedHandle";
 import DeckStack from "./DeckStack";
 import EditorCaption from "./EditorCaption";
@@ -429,6 +431,7 @@ export default function Arena({
     try {
       const { profile } = await getScoredProfile(ref.replace(/^@/, ""));
       const rating = computeCommunityRating(profile.handle, profile.stats);
+      trackGig("crossover_fight");
       fight({
         hot: false,
         side: {
@@ -486,6 +489,9 @@ export default function Arena({
       setTimeout(() => {
         const won = res.winner === "a";
         const rec = recordBattle(won, won && activeFoe.side.rating >= activeMe.side.rating + 10);
+        trackGig("arena_fight");
+        if (won) trackGig("arena_win");
+        if (won && activeFoe.side.rating >= activeMe.side.rating + 10) trackGig("arena_upset");
         // Purses only ever ADD Ticks — nothing is ever staked or lost here.
         const p = computePurse({
           won,
@@ -648,8 +654,14 @@ export default function Arena({
                 items={challengers}
                 keyOf={(c) => c.id}
                 leftStamp="Passed"
-                onPass={onPass}
-                onSwipeRight={(c) => fight(cardFighter(c))}
+                onPass={(c) => {
+                  trackGig("deck_swipe");
+                  onPass(c);
+                }}
+                onSwipeRight={(c) => {
+                  trackGig("deck_swipe");
+                  fight(cardFighter(c));
+                }}
                 onTap={(c) => fight(cardFighter(c))}
                 renderCard={(c) => (
                   <div className="relative">
@@ -766,6 +778,11 @@ export default function Arena({
                       {entranceQuips[side === "a" ? 0 : 1] && (
                         <p className="mt-2 text-center text-[11px] italic leading-snug text-ink2">
                           “{entranceQuips[side === "a" ? 0 : 1]}”
+                        </p>
+                      )}
+                      {side === "a" && (
+                        <p className="mt-1.5 text-center">
+                          <HouseBadge />
                         </p>
                       )}
                     </>

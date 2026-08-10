@@ -14,6 +14,8 @@ import {
   roastsLeftFrom,
   spendRoast,
 } from "@/lib/roasts";
+import { trackGig } from "@/lib/gigs";
+import { pledgedHouseShortName } from "@/lib/houses";
 import { getRoastFacts, ScoreError } from "@/lib/score";
 import { ButtonLink } from "./ui";
 import { usePrefillHandle } from "./useSavedHandle";
@@ -103,6 +105,13 @@ async function exportRoastPng(handle: string, heat: Heat, lines: string[]) {
   ctx.restore();
   // mark + url
   drawLogoMark(ctx, 140, H - 190, 44, fonts.display);
+  const houseName = pledgedHouseShortName();
+  if (houseName) {
+    ctx.textAlign = "left";
+    ctx.fillStyle = SHARE.ink2;
+    ctx.font = `600 22px ${fonts.mono}`;
+    ctx.fillText(`HOUSE ${houseName}`, 140, H - 118);
+  }
   ctx.textAlign = "right";
   ctx.fillStyle = SHARE.ink2;
   ctx.font = `600 26px ${fonts.mono}`;
@@ -159,7 +168,10 @@ export default function RoastStudio({
     try {
       const { facts } = await getRoastFacts(clean);
       // spend only on success — a typo or GitHub outage costs nothing
-      if (!viaBurn) spendRoast();
+      if (!viaBurn) {
+        spendRoast();
+        trackGig("roast_done");
+      }
       setReceipt({ handle: facts.handle, heat: asHeat, lines: pickRoasts(facts, asHeat) });
       setBurnMode(viaBurn);
     } catch (err) {

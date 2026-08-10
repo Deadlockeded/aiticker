@@ -4,6 +4,8 @@ import BinderPages from "@/components/BinderPages";
 import TradeIn from "@/components/TradeIn";
 import PacksLeftChip from "@/components/PacksLeftChip";
 import CustodyPrompt from "@/components/CustodyPrompt";
+import GigPing from "@/components/GigPing";
+import { PledgePrompt } from "@/components/HouseKit";
 import SessionlessNotice from "@/components/SessionlessNotice";
 import SyncNudge from "@/components/SyncNudge";
 import { getAllCards, getRank } from "@/lib/cards";
@@ -20,7 +22,9 @@ export default async function BinderPage({ searchParams }: { searchParams: Searc
   return (
     <main className="mx-auto w-full max-w-5xl flex-1 px-3 py-6 sm:px-6">
       <SessionlessNotice />
+      <GigPing action="binder_visit" />
       <CustodyPrompt />
+      <PledgePrompt />
       <SyncNudge cards={cards} />
       <BinderCoach />
       <BinderPages

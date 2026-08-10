@@ -3,6 +3,7 @@
 import { useState, useSyncExternalStore } from "react";
 import { getBinderSnapshot, parseBinder, subscribeStore } from "@/lib/binder";
 import { getAllCards } from "@/lib/cards";
+import { trackGig } from "@/lib/gigs";
 import { formatTicks } from "@/lib/market";
 import {
   claimRoyalties,
@@ -84,6 +85,7 @@ export default function RoyaltiesCard() {
           onClick={() => {
             const snapshot = owed;
             claimRoyalties();
+            trackGig("royalty_claim");
             setJustPaid(snapshot);
           }}
           className="mt-3 w-full rounded-full bg-pink px-6 py-3 text-[16px] font-semibold text-on-accent transition-transform active:scale-[.97]"

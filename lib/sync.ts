@@ -5,6 +5,8 @@ import { getUnlockedSnapshot, parseUnlocked } from "./achievements";
 import { getXPSnapshot } from "./xp";
 import { KEYS, readRaw, writeRaw } from "./storage";
 import { getRoyaltyClaimSnapshot, parseClaimed } from "./royalties";
+import { parseGigs, type GigState } from "./gigs";
+import { parsePledge, type PledgeState } from "./houses";
 
 /**
  * OPTIONAL account sync (Supabase). Hard rules, forever:
@@ -53,6 +55,10 @@ export interface CollectorState {
   battle: BattleRecord;
   /** Claimed royalty trigger-dates — union on merge so claims never double. */
   royaltiesClaimed?: string[];
+  /** Gig progress (raw ai-index:gigs:v1) — same-day merge keeps max counts. */
+  gigs?: GigState;
+  /** House pledge + claimed turf-war weeks (raw ai-index:house:v1). */
+  house?: PledgeState;
 }
 
 export function readLocalState(): CollectorState {
@@ -62,6 +68,8 @@ export function readLocalState(): CollectorState {
     achievements: parseUnlocked(getUnlockedSnapshot()),
     battle: parseBattleRecord(getBattleRecordSnapshot()),
     royaltiesClaimed: parseClaimed(getRoyaltyClaimSnapshot()),
+    gigs: parseGigs(readRaw(KEYS.gigs)),
+    house: parsePledge(readRaw(KEYS.house)),
   };
 }
 
@@ -71,7 +79,58 @@ export function writeLocalState(state: CollectorState) {
   writeRaw(KEYS.achievements, JSON.stringify(state.achievements));
   writeRaw(KEYS.battle, JSON.stringify(state.battle));
   if (state.royaltiesClaimed) writeRaw(KEYS.royalties, JSON.stringify(state.royaltiesClaimed));
+  if (state.gigs) writeRaw(KEYS.gigs, JSON.stringify(state.gigs));
+  if (state.house) writeRaw(KEYS.house, JSON.stringify(state.house));
   notifyStore();
+}
+
+/** Same-day gig merge: max per counter, union claims — claims never double. */
+function mergeGigs(local: GigState, cloud?: GigState): GigState {
+  if (!cloud) return local;
+  const boards = { ...cloud.boardsCleared, ...local.boardsCleared };
+  for (const [w, n] of Object.entries(cloud.boardsCleared ?? {})) {
+    boards[w] = Math.max(boards[w] ?? 0, n);
+  }
+  if (cloud.day !== local.day) return { ...local, boardsCleared: boards };
+  const maxCounts = (a: GigState["counts"], b: GigState["counts"]) => {
+    const out: GigState["counts"] = { ...a };
+    for (const [k, v] of Object.entries(b)) {
+      const key = k as keyof GigState["counts"];
+      out[key] = Math.max(out[key] ?? 0, v ?? 0);
+    }
+    return out;
+  };
+  return {
+    ...local,
+    counts: maxCounts(local.counts, cloud.counts),
+    claimed: [...new Set([...local.claimed, ...cloud.claimed])],
+    bonusPaid: local.bonusPaid || cloud.bonusPaid,
+    weekCounts:
+      cloud.week === local.week ? maxCounts(local.weekCounts, cloud.weekCounts) : local.weekCounts,
+    weekClaimed: local.weekClaimed || (cloud.week === local.week && cloud.weekClaimed),
+    boardsCleared: boards,
+  };
+}
+
+/** Pledge merge: the earliest pledge wins; claimed weeks union. */
+function mergePledge(local: PledgeState, cloud?: PledgeState): PledgeState {
+  if (!cloud) return local;
+  const earliest =
+    local.houseId && cloud.houseId
+      ? (local.pledgedAt ?? "") <= (cloud.pledgedAt ?? "")
+        ? local
+        : cloud
+      : local.houseId
+        ? local
+        : cloud;
+  return {
+    houseId: earliest.houseId,
+    pledgedAt: earliest.pledgedAt,
+    prompted: local.prompted || cloud.prompted,
+    claimedWeeks: [...new Set([...local.claimedWeeks, ...cloud.claimedWeeks])]
+      .sort()
+      .slice(-12),
+  };
 }
 
 /**
@@ -110,6 +169,8 @@ export function mergeStates(local: CollectorState, cloud: Partial<CollectorState
   return {
     binder,
     royaltiesClaimed,
+    gigs: mergeGigs(local.gigs ?? parseGigs(null), cloud.gigs),
+    house: mergePledge(local.house ?? parsePledge(null), cloud.house),
     xp: Math.max(local.xp, cloud.xp ?? 0),
     achievements: [...new Set([...(cloud.achievements ?? []), ...local.achievements])],
     battle: {

@@ -13,6 +13,8 @@ import {
 } from "@/lib/custody";
 import { isAuthEnabled, getSupabase, pullAndMerge, pushState } from "@/lib/sync";
 import { fireToast } from "@/lib/toast";
+import { HouseBadge } from "./HouseKit";
+import { GigsMenuLine } from "./GigsBoard";
 
 export const OPEN_AUTH_EVENT = "ai-index:open-auth";
 
@@ -220,6 +222,10 @@ export default function AuthMenu() {
                   ? `@${user.user_metadata.user_name}`
                   : user.email}
               </p>
+              <p className="mt-1.5">
+                <HouseBadge />
+              </p>
+              <GigsMenuLine />
               <p className="mt-1.5 micro text-[9px] tracking-[0.15em] text-ink3">
                 Assets under management
                 {syncedAt > 0 && ` · synced ${relativeTime(syncedAt)}`}

@@ -8,6 +8,8 @@ import { compatibility, shipBars, shipReading, type ShipBar } from "@/lib/shipme
 import { SHARE } from "@/lib/tokens";
 import Avatar, { initialsOf, shipAvatarUrl } from "./Avatar";
 import ShareButton from "./ShareButton";
+import { trackGig } from "@/lib/gigs";
+import { pledgedHouseShortName } from "@/lib/houses";
 import { usePrefillHandle } from "./useSavedHandle";
 import { brandFonts, canShareFiles, canvasBlob, drawLogoMark, sharePng, type ShareOutcome } from "@/lib/share";
 import TradingCard from "./TradingCard";
@@ -123,6 +125,12 @@ async function exportPng(
   ctx.fillStyle = SHARE.ink3;
   ctx.font = `600 24px ${fonts.mono}`;
   drawLogoMark(ctx, W / 2 - 130, H - 120, 40, fonts.display, { onDark: true });
+  const houseName = pledgedHouseShortName();
+  if (houseName) {
+    ctx.textAlign = "left";
+    ctx.fillText(`HOUSE ${houseName}`, 110, H - 50);
+    ctx.textAlign = "center";
+  }
   ctx.fillText("aiticker.xyz/ship", W / 2, H - 50);
 
   const blob = await canvasBlob(canvas);
@@ -177,6 +185,7 @@ export default function ShipMeterView({
       const ra = await getScoredProfile(a);
       const rb = await getScoredProfile(b);
       setPair({ a: ra.profile, b: rb.profile, cached: ra.cached || rb.cached });
+      trackGig("ship_run");
     } catch (err) {
       setError(err instanceof ScoreError ? err.message : "Fetch failed — try again.");
     } finally {

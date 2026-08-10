@@ -1,0 +1,37 @@
+[
+  {
+    "id": "house-openai",
+    "name": "House OpenAI",
+    "motto": "Ship first. Apologize at the keynote.",
+    "tint": "teal",
+    "cards": ["openai", "sam-altman", "greg-brockman"]
+  },
+  {
+    "id": "house-anthropic",
+    "name": "House Anthropic",
+    "motto": "Measure twice. Worry anyway.",
+    "tint": "violet",
+    "cards": ["anthropic", "dario-amodei", "jan-leike", "chris-olah"]
+  },
+  {
+    "id": "house-deepmind",
+    "name": "House DeepMind",
+    "motto": "We published the paper you're monetizing.",
+    "tint": "pink",
+    "cards": ["google-deepmind", "sundar-pichai", "noam-shazeer"]
+  },
+  {
+    "id": "house-nvidia",
+    "name": "House NVIDIA",
+    "motto": "Sells shovels. Owns the gold rush anyway.",
+    "tint": "amber",
+    "cards": ["nvidia", "jensen-huang"]
+  },
+  {
+    "id": "house-deepseek",
+    "name": "House DeepSeek",
+    "motto": "Efficient. Alarming. Efficiently alarming.",
+    "tint": "ink",
+    "cards": ["deepseek", "liang-wenfeng"]
+  }
+]

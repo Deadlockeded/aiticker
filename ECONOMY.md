@@ -25,7 +25,10 @@ with money, and nothing can be wagered.
 | `DAILY_VISIT_TICKS` | ₮25 | once per UTC day, at boot |
 | `ROUND_AMOUNTS` (lib/rounds.ts) | ₮200 base · ₮100 down / ₮150 bridge / ₮300 oversub | RAISE A ROUND, once per ISO week |
 | `DUPE_SALE_RATE` / `_MIN` | 5% of book / ₮5 | never sells your last copy |
-| `EARN_DAILY_CAP` | ₮500 | purses + dupe sales + royalties; rituals exempt from clipping |
+| Daily gigs (lib/gigs.ts) | ₮20–60 each ×3 + ₮25 clear bonus | CAPPED grants; full clear ≈ ₮120–160 |
+| Weekly gig | ₮150 | one per ISO week, CAPPED |
+| Turf-war dividends (lib/houses.ts) | ₮120 / ₮80 / ₮40 weekly + ₮30 loyalty | CAPPED; loyalty needs ≥3 cleared boards that week |
+| `EARN_DAILY_CAP` | ₮500 | purses + dupe sales + royalties + gigs + dividends; rituals exempt from clipping |
 
 ## The 2026-08 rebalance (grants vs card value)
 
@@ -67,6 +70,15 @@ trigger day, 7-day lookback) keeps a typical holder at ₮10–35/day. THE
 FUND's +₮50 round bonus raises the once-in-~6-weeks oversubscribed ceiling
 to ₮875 ≈ 1.75 packs — accepted drift, at most weekly, documented in
 economy.ts.
+
+GIGS and TURF-WAR DIVIDENDS fold inside the same budget: every gig payout
+and dividend is a CAPPED grant, so they change what a day of play looks
+like (a to-do list, an allegiance) without raising what it can pay. A
+full-clear gig day (≈₮120–160) mostly substitutes for purse income under
+the ₮500 clip rather than stacking on it — the active player lands in the
+same ≈₮480–525/day band as before, ≈1 earned pack. Dividends amortise to
+₮6–21/day-equivalent (₮40–150 per week ÷ 7) and land on one claim day
+inside the cap. No other faucet needed rebalancing.
 
 The last row is the hard ceiling and it occurs at most once a week. Every
 other day tops out at ₮525 ≈ 1.05 packs. The single largest possible purse —

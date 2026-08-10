@@ -22,6 +22,7 @@ import { addXP, XP_REWARDS } from "@/lib/xp";
 import { getRandomQuip } from "@/lib/daily";
 import { checkAchievements } from "@/lib/achievements";
 import { readOnboarding, stampOnboarding } from "@/lib/onboarding";
+import { trackGig } from "@/lib/gigs";
 import CardArt from "./CardArt";
 import CardBackFace from "./CardBackFace";
 import TradingCard from "./TradingCard";
@@ -411,8 +412,14 @@ export default function PackRipper({
     stampOnboarding("pack");
 
     const pulled = pullPackFor(cards);
-    setPreOwned(new Set(Object.keys(getBinder())));
+    const ownedBefore = new Set(Object.keys(getBinder()));
+    setPreOwned(ownedBefore);
     setPulls(pulled);
+    // gig ledger: the rip, the exchange spend, and any brand-new faces
+    trackGig("pack_open");
+    if (paid) trackGig("exchange_buy");
+    const fresh = new Set(pulled.filter((p) => !ownedBefore.has(p.card.id)).map((p) => p.card.id));
+    if (fresh.size > 0) trackGig("new_card", fresh.size);
     setFanned(false);
     setEnlarged(null);
     setFlipQuips(pulled.map(() => null));
@@ -677,7 +684,10 @@ export default function PackRipper({
                   return (
                     <button
                       key={`${card.id}-${i}`}
-                      onClick={() => setEnlarged(i)}
+                      onClick={() => {
+                        setEnlarged(i);
+                        trackGig("print_open");
+                      }}
                       aria-label={`Enlarge ${card.name}`}
                       className="absolute top-3 origin-bottom"
                       style={{

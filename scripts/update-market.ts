@@ -203,6 +203,68 @@ async function main() {
     `royalties: ${triggers.length} trigger(s) today — ${triggers.map((t) => t.artifactId).join(", ") || "none"}`,
   );
 
+  // ---- TURF WAR: finalize last ISO week's standings once, from committed
+  // prices only. House score = average member 7-day price change at the
+  // week boundary. Solo-safe and fabrication-free: it reads the market
+  // data this script itself commits, never headlines, never player counts.
+  {
+    const housesPath = path.join(process.cwd(), "data", "houses.json");
+    const turfPath = path.join(process.cwd(), "data", "turfwar.json");
+    const houses = JSON.parse(readFileSync(housesPath, "utf8")) as {
+      id: string;
+      cards: string[];
+    }[];
+    let turf: { week: string }[] = [];
+    try {
+      turf = JSON.parse(readFileSync(turfPath, "utf8"));
+    } catch {
+      turf = [];
+    }
+    // previous ISO week key (weeks start Monday UTC)
+    const weekKeyOf = (d: Date) => {
+      const t = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
+      const day = (t.getUTCDay() + 6) % 7;
+      t.setUTCDate(t.getUTCDate() - day + 3);
+      const first = new Date(Date.UTC(t.getUTCFullYear(), 0, 4));
+      const fDay = (first.getUTCDay() + 6) % 7;
+      first.setUTCDate(first.getUTCDate() - fDay + 3);
+      const week = 1 + Math.round((t.getTime() - first.getTime()) / (7 * 86_400_000));
+      return `${t.getUTCFullYear()}-W${String(week).padStart(2, "0")}`;
+    };
+    const lastWeek = weekKeyOf(new Date(Date.now() - 7 * 86_400_000));
+    if (!turf.some((t) => t.week === lastWeek)) {
+      const move7 = (id: string): number | null => {
+        const card = cards.find((c) => c.id === id);
+        const h = card?.priceHistory;
+        if (!h || h.length < 2) return null;
+        const prev = h[Math.max(0, h.length - 8)].price;
+        return ((h[h.length - 1].price - prev) / prev) * 100;
+      };
+      const scored = houses
+        .map((house) => {
+          const moves = house.cards.map(move7).filter((m): m is number => m !== null);
+          const score = moves.length
+            ? moves.reduce((s, m) => s + m, 0) / moves.length
+            : 0;
+          return { houseId: house.id, score: Math.round(score * 100) / 100 };
+        })
+        .sort((a, b) => b.score - a.score)
+        .map((row, i) => ({ ...row, rank: i + 1 }));
+      turf.push({
+        week: lastWeek,
+        standings: scored,
+        winner: scored[0].houseId,
+      } as (typeof turf)[number]);
+      writeFileSync(
+        path.join(OUT_DIR, "turfwar.json"),
+        JSON.stringify(turf.slice(-26), null, 2) + "\n",
+      );
+      console.log(
+        `turf war: finalized ${lastWeek} — winner ${scored[0].houseId} (${scored[0].score >= 0 ? "+" : ""}${scored[0].score}%)`,
+      );
+    }
+  }
+
   writeFileSync(
     path.join(OUT_DIR, "cards.json"),
     JSON.stringify(cards.map((c) => ordered(c as unknown as Record<string, unknown>)), null, 2) + "\n",

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import GigPing from "@/components/GigPing";
 import MarketTable from "@/components/MarketTable";
 import HotList from "@/components/HotList";
 import { getAllCards, getRank } from "@/lib/cards";
@@ -31,6 +32,7 @@ export default function MarketPage() {
         <h2 className="mb-3 border-b border-line2 pb-1 text-lg text-ink">
           Book values — all cards
         </h2>
+        <GigPing action="market_visit" />
         <MarketTable cards={cards} ranks={ranks} />
       </section>
     </main>

@@ -25,6 +25,8 @@ export const KEYS = {
   royalties: "ai-index:royalties:v1",
   roasts: "ai-index:roasts:v1",
   custody: "ai-index:custody:v1",
+  gigs: "ai-index:gigs:v1",
+  house: "ai-index:house:v1",
   ghHandle: "ai-index:gh-handle:v1",
   syncedAt: "ai-index:synced-at:v1",
   capTable: "ai-index:cap-table:v1",

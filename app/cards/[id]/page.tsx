@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import PriceChart from "@/components/PriceChart";
 import ShareButton from "@/components/ShareButton";
 import CardReveal from "@/components/CardReveal";
+import GigPing from "@/components/GigPing";
 import StatBlock from "@/components/StatBlock";
 import TransferDesk from "@/components/TransferDesk";
 import TodayForm from "@/components/TodayForm";
@@ -124,6 +125,7 @@ export default async function CardPage({
             stretches this item to the row, the hero's h-full inflates to
             match, and the quip/rounded-[22px] border border-dashed border-line2 bg-surface overflow onto the footer. */}
         <div className="mx-auto w-full max-w-[340px] self-start">
+          <GigPing action="card_detail" />
           <CardReveal card={card} rank={rank} />
         </div>
 

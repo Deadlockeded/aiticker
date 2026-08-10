@@ -50,6 +50,7 @@ function ShipMeterInline({ handle }: { handle: string }) {
 }
 import TradingCard from "./TradingCard";
 import { getSavedHandleSnapshot } from "@/lib/custody";
+import { trackGig } from "@/lib/gigs";
 import { usePrefillHandle } from "./useSavedHandle";
 
 const RARITY_COLORS: Record<Rarity, [string, string]> = {
@@ -397,6 +398,7 @@ export default function CreateCardStudio({
         stamp: pickStamp({ stats: profile.stats, scored: true }),
       };
       saveCommunityCard(card);
+      trackGig("scout_run");
       try {
         const { facts } = await getRoastFacts(profile.handle);
         setRoasts(ROAST_LINES.filter((r) => r.when(facts)).slice(0, 3).map((r) => r.line(facts)));

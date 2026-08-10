@@ -20,6 +20,8 @@ import Masthead from "./Masthead";
 import NextDrop from "./NextDrop";
 import MetaStrip from "./MetaStrip";
 import PackRipper from "./PackRipper";
+import GigsBoard from "./GigsBoard";
+import { TurfWarCard } from "./HouseKit";
 import RaiseARound from "./RaiseARound";
 import RoyaltiesCard from "./RoyaltiesCard";
 import TransferTicker from "./TransferTicker";
@@ -89,6 +91,8 @@ function IndexSections({
       {children}
       <TransferTicker />
       <HomeStats cards={cards} />
+      <GigsBoard />
+      <TurfWarCard />
       <RoyaltiesCard />
       <RaiseARound />
       <RoastTeaser />

@@ -17,6 +17,8 @@ is kept so existing collectors' data survives — do not "fix" it.
 | `ai-index:rituals:v1` | `{visit?: dayKey, round?: weekKey}` | `lib/rituals.ts` | Idempotency stamps for the daily visit stipend and RAISE A ROUND. |
 | `ai-index:royalties:v1` | `string[]` of claimed trigger dates | `lib/royalties.ts` | Rolling 60; synced (union) via the Supabase blob so claims never double. |
 | `ai-index:roasts:v1` | `{day: dayKey, used: number}` | `lib/roasts.ts` | Daily roast quota (5 free/UTC day). Burn links never spend it. |
+| `ai-index:gigs:v1` | `{day, counts, claimed, bonusPaid, week, weekCounts, weekClaimed, boardsCleared}` | `lib/gigs.ts` | Daily/weekly gig progress; synced (same-day max-merge) via the blob. |
+| `ai-index:house:v1` | `{houseId, pledgedAt, prompted, claimedWeeks}` | `lib/houses.ts` | House pledge + claimed turf-war weeks; synced (earliest pledge wins). |
 | `ai-index:custody:v1` | `{prompted, nudged: {rare, returning}}` | `lib/custody.ts` | Custody Desk prompt memory: sheet once, two nudges ever. Absorbs legacy `ai-index:sync-nudge:v1`. |
 | `ai-index:gh-handle:v1` | `string` | `lib/custody.ts` | GitHub username captured at sign-in; prefills handle inputs (editable). |
 | `ai-index:synced-at:v1` | epoch ms string | `lib/custody.ts` | Last successful cloud push — the "synced 2m ago" menu label. |
