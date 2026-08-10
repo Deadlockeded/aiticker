@@ -1,4 +1,6 @@
 import type { CommunitySliders } from "./create";
+import { computeCommunityRating } from "./create";
+import { rememberProspect } from "./modes";
 
 /**
  * Client-side public-footprint scoring. Every fetch here runs in the
@@ -437,5 +439,11 @@ export async function getScoredProfile(
   } catch {
     // cache is best-effort
   }
+  // every scored handle joins the GitHub League roster (rolling snapshot)
+  rememberProspect(
+    profile.handle,
+    computeCommunityRating(profile.handle, profile.stats),
+    profile.stats,
+  );
   return { profile, cached: false };
 }

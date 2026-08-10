@@ -1094,3 +1094,70 @@ test("families: the weekly cut pays the right tier once, loyalty included", asyn
   await page.reload();
   await expect(page.getByTestId("claim-cut")).not.toBeVisible();
 });
+
+// ---------------------------------------------------------------------------
+// ARENA GAME MODES
+// ---------------------------------------------------------------------------
+
+test("arena games: gauntlet run — fight a rung, state survives reload", async ({ page }) => {
+  await blockArt(page);
+  await seedBinder(page, ["geoffrey-hinton"]);
+  await seedWallet(page, 0);
+  await page.goto("/arena?mode=gauntlet");
+  await expect(page.getByText("The Gauntlet")).toBeVisible();
+  await page.getByRole("button", { name: /Geoffrey Hinton/ }).click();
+  await page.getByTestId("gauntlet-fight").click();
+  await expect(page.getByText(/Rung taken|ends the run/)).toBeVisible();
+  await page.reload();
+  // the run advanced or ended — never back to rung 1 pick-your-fighter fresh
+  await expect(
+    page.getByText(/Fight rung 2 →|Run over at rung|locked for the run/).first(),
+  ).toBeVisible();
+});
+
+test("arena games: draft night loans once, tag team pays once", async ({ page }) => {
+  await blockArt(page);
+  await seedBinder(page, ["openai", "nvidia"]);
+  await seedWallet(page, 0);
+  await page.goto("/arena?mode=draft");
+  await page.locator('[data-testid^="draft-pick-"]').first().click();
+  await expect(page.getByText(/delivered|did not deliver/)).toBeVisible();
+  await expect(page.getByText("Want them for keeps?")).toBeVisible();
+  await page.reload();
+  await expect(page.getByText(/Tonight's loan is spent/)).toBeVisible();
+  // tag team: pick two, fight, purse pays; a second match is an exhibition
+  await page.getByTestId("mode-tag").click();
+  await page.getByRole("button", { name: /OpenAI/ }).first().click();
+  await page.getByRole("button", { name: /NVIDIA/ }).first().click();
+  await page.getByTestId("tag-fight").click();
+  await expect(page.getByText(/takes it|Split/)).toBeVisible();
+  await page.reload();
+  await page.getByTestId("mode-tag").click();
+  await expect(page.getByTestId("tag-fight")).toContainText("exhibition");
+});
+
+test("arena games: the league runs once a week from scouting snapshots", async ({ page }) => {
+  await blockArt(page);
+  await seedBinder(page, ["openai"]);
+  await seedWallet(page, 0);
+  await page.addInitScript(() => {
+    if (!localStorage.getItem("ai-index:prospects:v1")) {
+      localStorage.setItem(
+        "ai-index:prospects:v1",
+        JSON.stringify([
+          { handle: "octocat", rating: 71, stats: { shipping: 70, yapping: 60, galaxyBrain: 65, gpuHoarding: 50 }, at: "2026-08-01" },
+        ]),
+      );
+    }
+  });
+  await page.goto("/arena?mode=league");
+  await expect(page.getByText("@octocat · 71")).toBeVisible();
+  await page.getByTestId("run-league").click();
+  await expect(page.getByText(/takes the week/)).toBeVisible();
+  const wallet = await page.evaluate(() =>
+    JSON.parse(localStorage.getItem("ai-index:wallet:v1") ?? "{}"),
+  );
+  expect(wallet.bal).toBeGreaterThan(0);
+  await page.reload();
+  await expect(page.getByText(/bracket is settled/)).toBeVisible();
+});

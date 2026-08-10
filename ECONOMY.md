@@ -28,6 +28,10 @@ with money, and nothing can be wagered.
 | Daily gigs (lib/gigs.ts) | ₮20–60 each ×3 + ₮25 clear bonus | CAPPED grants; full clear ≈ ₮120–160 |
 | Weekly gig | ₮150 | one per ISO week, CAPPED |
 | Turf-war dividends (lib/houses.ts) | ₮120 / ₮80 / ₮40 weekly + ₮30 loyalty | CAPPED; loyalty needs ≥3 cleared boards that week |
+| Gauntlet (lib/modes.ts) | ₮10/15/20/25/30 per rung + ₮50 crown | one run/day, CAPPED (full clear ₮150) |
+| Draft Night | ₮40 win / ₮10 loss | one loaner fight/day, CAPPED |
+| Tag Team | ₮60 win / ₮10 loss | purse once/day (play unlimited), CAPPED |
+| GitHub League | ₮75 champion / ₮25 ran it | once per ISO week, CAPPED |
 | `EARN_DAILY_CAP` | ₮500 | purses + dupe sales + royalties + gigs + dividends; rituals exempt from clipping |
 
 ## The 2026-08 rebalance (grants vs card value)

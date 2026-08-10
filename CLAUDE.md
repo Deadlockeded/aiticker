@@ -91,6 +91,7 @@ clamp) → git commit. See PIPELINE.md. Never zero a stat on fetch failure.
 - `transfers.ts` — THE TRANSFER WINDOW: `data/transfers.json` is an EDITORIAL ledger (confirmed public moves only, source URL required, fee always "undisclosed" — never invent facts about real people). The nightly script only FLAGS candidates (`TRANSFER WATCH` log lines). Committing a transfer = ledger entry + career rows + tagline in cards.json (transfers.test.ts asserts they agree). Stamp/ticker retire after 30 days; the career row is forever.
 - `gigs.ts` — DAILY GIGS: ~20-gig pool mapped to existing tracked actions, day-seeded board of 3 (variety rules unit-tested), ISO-week gig, capped payouts inside `EARN_DAILY_CAP`. `trackGig()` calls live at the action sites; boardsCleared feeds the turf-war loyalty bonus.
 - `houses.ts` — THE FAMILIES: `data/houses.json` rosters (real career-grounded cards only, mottos are game voice), pledge/defection (14-day cooldown), weekly turf war finalized by the nightly script into `data/turfwar.json` from committed prices, dividends ₮120/80/40 + ₮30 loyalty. UI in HouseKit.tsx.
+- `modes.ts` — ARENA GAME MODES: Gauntlet (daily 5-rung tower, fighter locks), Draft Night (one loaner fight/day, never enters the binder), Tag Team (2v2, same-House aura +2, purse once/day), GitHub League (weekly 8-bracket from scouting snapshots, padded with cards, fixed-axes so the week has ONE result). All purses capped; UI in ArenaModes/ArenaGames; /arena?mode=… deep links.
 - `custody.ts` — THE CUSTODY DESK rules: sheet once (after first pack, binder only), two nudges ever, GitHub handle capture for prefills, sync timestamps. UI in AuthMenu/CustodyPrompt/SyncNudge; vocabulary is save/keep/custody — never account/sign up. Test seam: `window.__aitickerSupaMock` (lib/sync.ts).
 - `lines.ts` — ALL joke copy: roast lines, verdicts, stamps, stat tiers/definitions.
 - `share.ts` — Web Share API w/ files + download fallback, `brandFonts()` for canvas exports.
@@ -135,7 +136,7 @@ PACKS CTA; owned show binder actions.
 `/` (masthead + featured + weekly round + hot list + gallery deck/grid) · `/market`
 (price table) · `/cards/[id]` (SSG detail: hero card w/ proof-or-owned,
 chart, stats, TODAY'S FORM, signals) · `/packs` · `/binder`
-(9-pocket pages, trade-in) · `/arena` (meta strip,
+(9-pocket pages, trade-in) · `/arena` (games menu: Classic/Gauntlet/Draft/Tag/League; meta strip,
 CHALLENGER LINE swipe deck, fights) · `/create` (Get Rated + SCOUT'S
 ROAST; manual mode) · `/shipmeter` · `/howto` · `/about` · OG routes
 under `/api/og/*`. Redirects from all removed features live in

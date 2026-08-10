@@ -19,6 +19,11 @@ is kept so existing collectors' data survives — do not "fix" it.
 | `ai-index:roasts:v1` | `{day: dayKey, used: number}` | `lib/roasts.ts` | Daily roast quota (5 free/UTC day). Burn links never spend it. |
 | `ai-index:gigs:v1` | `{day, counts, claimed, bonusPaid, week, weekCounts, weekClaimed, boardsCleared}` | `lib/gigs.ts` | Daily/weekly gig progress; synced (same-day max-merge) via the blob. |
 | `ai-index:house:v1` | `{houseId, pledgedAt, prompted, claimedWeeks}` | `lib/houses.ts` | House pledge + claimed turf-war weeks; synced (earliest pledge wins). |
+| `ai-index:gauntlet:v1` | `{day, cardId, rung, out, crowned}` | `lib/modes.ts` | The day's tower run — fighter locks at rung 1. |
+| `ai-index:draft:v1` | `{day, used, pickedId, won}` | `lib/modes.ts` | Draft Night's one daily loaner fight. |
+| `ai-index:tagteam:v1` | `{day, paid}` | `lib/modes.ts` | Tag Team purse stamp (play unlimited, pay once). |
+| `ai-index:league:v1` | `{week, ran, championLabel}` | `lib/modes.ts` | The week's bracket, run once. |
+| `ai-index:prospects:v1` | `{handle, rating, stats, at}[]` (rolling 16) | `lib/modes.ts` | Scouting snapshots — the League roster, written by lib/score.ts. |
 | `ai-index:custody:v1` | `{prompted, nudged: {rare, returning}}` | `lib/custody.ts` | Custody Desk prompt memory: sheet once, two nudges ever. Absorbs legacy `ai-index:sync-nudge:v1`. |
 | `ai-index:gh-handle:v1` | `string` | `lib/custody.ts` | GitHub username captured at sign-in; prefills handle inputs (editable). |
 | `ai-index:synced-at:v1` | epoch ms string | `lib/custody.ts` | Last successful cloud push — the "synced 2m ago" menu label. |
