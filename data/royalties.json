@@ -424,5 +424,64 @@
       "headline": "Ask HN: In your experience, what are sound conventions for e-ink UI development?",
       "url": "https://news.ycombinator.com/item?id=49213660"
     }
+  },
+  {
+    "date": "2026-08-12",
+    "artifactId": "the-arxiv-timestamp",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "How we used to get jobs: A newspaper classifieds story",
+      "url": "https://news.ycombinator.com/item?id=49262211"
+    }
+  },
+  {
+    "date": "2026-08-12",
+    "artifactId": "the-benchmark",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "wiki",
+      "headline": "Google DeepMind"
+    }
+  },
+  {
+    "date": "2026-08-12",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Stealing Reasoning Traces from Proprietary LLM APIs",
+      "url": "https://news.ycombinator.com/item?id=49257876"
+    }
+  },
+  {
+    "date": "2026-08-12",
+    "artifactId": "the-exit",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "How to organize 3 acquired companies into one coherent website",
+      "url": "https://news.ycombinator.com/item?id=47999020"
+    }
+  },
+  {
+    "date": "2026-08-12",
+    "artifactId": "the-gpu",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Nvidia's Risky Business",
+      "url": "https://news.ycombinator.com/item?id=49255710"
+    }
+  },
+  {
+    "date": "2026-08-12",
+    "artifactId": "the-wrapper",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "shadcn-ui/chatbot-template — A minimal chatbot template built with Next.js, AI SDK, shadcn/ui, shadcn/react, shadcn/typeset. It runs on the ",
+      "url": "https://github.com/shadcn-ui/chatbot-template"
+    }
   }
 ]
