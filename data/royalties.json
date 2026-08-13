@@ -483,5 +483,65 @@
       "headline": "shadcn-ui/chatbot-template — A minimal chatbot template built with Next.js, AI SDK, shadcn/ui, shadcn/react, shadcn/typeset. It runs on the ",
       "url": "https://github.com/shadcn-ui/chatbot-template"
     }
+  },
+  {
+    "date": "2026-08-13",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Tailscale Traces Database Corruption to 16y/o SQLite WAL-Reset Bug",
+      "url": "https://news.ycombinator.com/item?id=49272832"
+    }
+  },
+  {
+    "date": "2026-08-13",
+    "artifactId": "the-exit",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "How to organize 3 acquired companies into one coherent website",
+      "url": "https://news.ycombinator.com/item?id=47999020"
+    }
+  },
+  {
+    "date": "2026-08-13",
+    "artifactId": "the-latency",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "HTML over WebSockets: real-time SPAs with barely any JavaScript",
+      "url": "https://news.ycombinator.com/item?id=49275335"
+    }
+  },
+  {
+    "date": "2026-08-13",
+    "artifactId": "the-leaderboard",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "Tim King, AmigaDOS developer, has died",
+      "url": "https://news.ycombinator.com/item?id=49272655"
+    }
+  },
+  {
+    "date": "2026-08-13",
+    "artifactId": "the-term-sheet",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "Lovable raises $400M Series C",
+      "url": "https://news.ycombinator.com/item?id=49274858"
+    }
+  },
+  {
+    "date": "2026-08-13",
+    "artifactId": "the-wrapper",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "shadcn-ui/chatbot-template — A minimal chatbot template built with Next.js, AI SDK, shadcn/ui, shadcn/react, shadcn/typeset. It runs on the ",
+      "url": "https://github.com/shadcn-ui/chatbot-template"
+    }
   }
 ]
