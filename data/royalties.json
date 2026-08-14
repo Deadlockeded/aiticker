@@ -543,5 +543,45 @@
       "headline": "shadcn-ui/chatbot-template — A minimal chatbot template built with Next.js, AI SDK, shadcn/ui, shadcn/react, shadcn/typeset. It runs on the ",
       "url": "https://github.com/shadcn-ui/chatbot-template"
     }
+  },
+  {
+    "date": "2026-08-14",
+    "artifactId": "as-an-ai",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "How Organizations Use AI: Evidence from ChatGPT [pdf]",
+      "url": "https://news.ycombinator.com/item?id=49290768"
+    }
+  },
+  {
+    "date": "2026-08-14",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Nine PBS sues Iron Mountain over blocked access to archival data",
+      "url": "https://news.ycombinator.com/item?id=49285418"
+    }
+  },
+  {
+    "date": "2026-08-14",
+    "artifactId": "the-leaderboard",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "DeepSeek Harness developer preview",
+      "url": "https://news.ycombinator.com/item?id=49285244"
+    }
+  },
+  {
+    "date": "2026-08-14",
+    "artifactId": "the-wrapper",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "shadcn-ui/chatbot-template — A minimal chatbot template built with Next.js, AI SDK, shadcn/ui, shadcn/react, shadcn/typeset. It runs on the ",
+      "url": "https://github.com/shadcn-ui/chatbot-template"
+    }
   }
 ]
