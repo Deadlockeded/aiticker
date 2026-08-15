@@ -583,5 +583,55 @@
       "headline": "shadcn-ui/chatbot-template — A minimal chatbot template built with Next.js, AI SDK, shadcn/ui, shadcn/react, shadcn/typeset. It runs on the ",
       "url": "https://github.com/shadcn-ui/chatbot-template"
     }
+  },
+  {
+    "date": "2026-08-15",
+    "artifactId": "the-arxiv-timestamp",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "I turned my RSS feeds into an e-ink newspaper to stop reading on my phone",
+      "url": "https://news.ycombinator.com/item?id=49299081"
+    }
+  },
+  {
+    "date": "2026-08-15",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Google is making private AI practical with homomorphic encryption",
+      "url": "https://news.ycombinator.com/item?id=49300314"
+    }
+  },
+  {
+    "date": "2026-08-15",
+    "artifactId": "the-exit",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "How to organize 3 acquired companies into one coherent website",
+      "url": "https://news.ycombinator.com/item?id=47999020"
+    }
+  },
+  {
+    "date": "2026-08-15",
+    "artifactId": "the-hallucinated-citation",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "Don't classify, hallucinate",
+      "url": "https://news.ycombinator.com/item?id=49249523"
+    }
+  },
+  {
+    "date": "2026-08-15",
+    "artifactId": "the-wrapper",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "shadcn-ui/chatbot-template — A minimal chatbot template built with Next.js, AI SDK, shadcn/ui, shadcn/react, shadcn/typeset. It runs on the ",
+      "url": "https://github.com/shadcn-ui/chatbot-template"
+    }
   }
 ]
