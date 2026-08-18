@@ -771,5 +771,64 @@
       "headline": "shadcn-ui/chatbot-template — A minimal chatbot template built with Next.js, AI SDK, shadcn/ui, shadcn/react, shadcn/typeset. It runs on the ",
       "url": "https://github.com/shadcn-ui/chatbot-template"
     }
+  },
+  {
+    "date": "2026-08-18",
+    "artifactId": "as-an-ai",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "Israel creates fake think tank in likely attempt to dupe AI chatbots",
+      "url": "https://news.ycombinator.com/item?id=49337392"
+    }
+  },
+  {
+    "date": "2026-08-18",
+    "artifactId": "the-benchmark",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "wiki",
+      "headline": "xAI"
+    }
+  },
+  {
+    "date": "2026-08-18",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "AI;DR (AI; Didn't Read)",
+      "url": "https://news.ycombinator.com/item?id=49336573"
+    }
+  },
+  {
+    "date": "2026-08-18",
+    "artifactId": "the-exit",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "How to organize 3 acquired companies into one coherent website",
+      "url": "https://news.ycombinator.com/item?id=47999020"
+    }
+  },
+  {
+    "date": "2026-08-18",
+    "artifactId": "the-gpu",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "GPU Offload in Rust: Portable, Safe, and Fast",
+      "url": "https://news.ycombinator.com/item?id=49334991"
+    }
+  },
+  {
+    "date": "2026-08-18",
+    "artifactId": "the-latency",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "A simple fix for LLM tail latency",
+      "url": "https://news.ycombinator.com/item?id=49295179"
+    }
   }
 ]
