@@ -1,20 +1,31 @@
 "use client";
 
 import { useSyncExternalStore } from "react";
+import { utcDayKey } from "@/lib/daily";
 import { upcomingDrop } from "@/lib/drops";
 
 const subscribeNever = () => () => {};
+
+// getSnapshot MUST return a cached value: upcomingDrop() mints a fresh
+// object per call, and handing that straight to useSyncExternalStore is an
+// infinite re-render the moment a tease window opens (it did — this took
+// the homepage down for every non-fresh profile on 2026-08-17). Cache per
+// UTC day, same pattern as getDailyMeta.
+let dropCache: { day: string; drop: ReturnType<typeof upcomingDrop> } | null = null;
+function dropSnapshot() {
+  const day = utcDayKey();
+  if (!dropCache || dropCache.day !== day) {
+    dropCache = { day, drop: upcomingDrop() };
+  }
+  return dropCache.drop;
+}
 
 /**
  * Pre-release tease: from 7 days out, "NEXT DROP: {name} — {n} new cards
  * in {d} days" with proof-style silhouettes only. Names stay secret.
  */
 export default function NextDrop() {
-  const drop = useSyncExternalStore(
-    subscribeNever,
-    () => upcomingDrop(),
-    () => null,
-  );
+  const drop = useSyncExternalStore(subscribeNever, dropSnapshot, () => null);
   if (!drop) return null;
 
   return (

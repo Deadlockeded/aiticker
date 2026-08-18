@@ -1161,3 +1161,17 @@ test("arena games: the league runs once a week from scouting snapshots", async (
   await page.reload();
   await expect(page.getByText(/bracket is settled/)).toBeVisible();
 });
+
+test("home renders clean for a veteran profile (regression: NextDrop loop)", async ({ page }) => {
+  // The 2026-08-17 outage: NextDrop handed useSyncExternalStore an
+  // uncached snapshot; it looped the moment a drop tease window opened,
+  // but ONLY for profiles past the ceremony — every fresh-profile
+  // renders-clean test sailed past it. This one owns cards.
+  await blockArt(page);
+  const watch = watchErrors(page);
+  await seedBinder(page, ["openai", "nvidia", "the-gpu"]);
+  await page.goto("/");
+  await page.waitForLoadState("networkidle");
+  await expect(page.getByText("Gigs").first()).toBeVisible();
+  expect(watch.errors).toEqual([]);
+});
