@@ -830,5 +830,74 @@
       "headline": "A simple fix for LLM tail latency",
       "url": "https://news.ycombinator.com/item?id=49295179"
     }
+  },
+  {
+    "date": "2026-08-19",
+    "artifactId": "the-arxiv-timestamp",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "New paper shows that 37% of workers in US saw real wages decline from 2021-2024 [pdf]",
+      "url": "https://news.ycombinator.com/item?id=49355142"
+    }
+  },
+  {
+    "date": "2026-08-19",
+    "artifactId": "the-benchmark",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "wiki",
+      "headline": "xAI"
+    }
+  },
+  {
+    "date": "2026-08-19",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Using the railway network as a flatbed scanner",
+      "url": "https://news.ycombinator.com/item?id=49344825"
+    }
+  },
+  {
+    "date": "2026-08-19",
+    "artifactId": "the-eval",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "GLM-5.3 Artificial Analysis Benchmarks",
+      "url": "https://news.ycombinator.com/item?id=49353407"
+    }
+  },
+  {
+    "date": "2026-08-19",
+    "artifactId": "the-exit",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "How to organize 3 acquired companies into one coherent website",
+      "url": "https://news.ycombinator.com/item?id=47999020"
+    }
+  },
+  {
+    "date": "2026-08-19",
+    "artifactId": "the-gpu",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Launch HN: machine0 (YC S26) – Persistent CPU and GPU VMs from the CLI",
+      "url": "https://news.ycombinator.com/item?id=49348136"
+    }
+  },
+  {
+    "date": "2026-08-19",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "vibeinging/deepseek-harness-desktop-app — DeepSeek Harness Desktop App: a local AI desktop workspace for DSH Sessions, projects, files, web ",
+      "url": "https://github.com/vibeinging/deepseek-harness-desktop-app"
+    }
   }
 ]
