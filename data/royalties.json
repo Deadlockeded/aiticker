@@ -968,5 +968,74 @@
       "headline": "CopilotKit/openbot — Open-source AI coworkers that each get a computer of their own: a browser, files and tools, with every action decided b",
       "url": "https://github.com/CopilotKit/openbot"
     }
+  },
+  {
+    "date": "2026-08-21",
+    "artifactId": "the-benchmark",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "wiki",
+      "headline": "Anthropic"
+    }
+  },
+  {
+    "date": "2026-08-21",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Show HN: I trained a 125M model to autocomplete piano on-device",
+      "url": "https://news.ycombinator.com/item?id=49373456"
+    }
+  },
+  {
+    "date": "2026-08-21",
+    "artifactId": "the-exit",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "How to organize 3 acquired companies into one coherent website",
+      "url": "https://news.ycombinator.com/item?id=47999020"
+    }
+  },
+  {
+    "date": "2026-08-21",
+    "artifactId": "the-stealth-startup",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "Stealth Model",
+      "url": "https://news.ycombinator.com/item?id=49381896"
+    }
+  },
+  {
+    "date": "2026-08-21",
+    "artifactId": "the-token",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "Vomit: Clean up Claude 5's token output with a separate LLM",
+      "url": "https://news.ycombinator.com/item?id=49375996"
+    }
+  },
+  {
+    "date": "2026-08-21",
+    "artifactId": "the-whitepaper",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "DiffusionGemma Technical Report",
+      "url": "https://news.ycombinator.com/item?id=49374287"
+    }
+  },
+  {
+    "date": "2026-08-21",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "CopilotKit/OpenBot — Open-source AI coworkers that each get a computer of their own: a browser, files and tools, with every action decided b",
+      "url": "https://github.com/CopilotKit/OpenBot"
+    }
   }
 ]
