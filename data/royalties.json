@@ -1096,5 +1096,35 @@
       "headline": "CopilotKit/OpenBot — Open-source AI coworkers that each get a computer of their own: a browser, files and tools, with every action decided b",
       "url": "https://github.com/CopilotKit/OpenBot"
     }
+  },
+  {
+    "date": "2026-08-23",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Why your local LLM feels dumber than it is",
+      "url": "https://news.ycombinator.com/item?id=49402232"
+    }
+  },
+  {
+    "date": "2026-08-23",
+    "artifactId": "the-exit",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "How to organize 3 acquired companies into one coherent website",
+      "url": "https://news.ycombinator.com/item?id=47999020"
+    }
+  },
+  {
+    "date": "2026-08-23",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "CopilotKit/OpenBot — Open-source AI coworkers that each get a computer of their own: a browser, files and tools, with every action decided b",
+      "url": "https://github.com/CopilotKit/OpenBot"
+    }
   }
 ]
