@@ -60,5 +60,36 @@
       }
     ],
     "winner": "house-deepmind"
+  },
+  {
+    "week": "2026-W34",
+    "standings": [
+      {
+        "houseId": "house-openai",
+        "score": 15.9,
+        "rank": 1
+      },
+      {
+        "houseId": "house-anthropic",
+        "score": 15.54,
+        "rank": 2
+      },
+      {
+        "houseId": "house-nvidia",
+        "score": 7.35,
+        "rank": 3
+      },
+      {
+        "houseId": "house-deepseek",
+        "score": 4.18,
+        "rank": 4
+      },
+      {
+        "houseId": "house-deepmind",
+        "score": -4.6,
+        "rank": 5
+      }
+    ],
+    "winner": "house-openai"
   }
 ]

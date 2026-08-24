@@ -1126,5 +1126,35 @@
       "headline": "CopilotKit/OpenBot — Open-source AI coworkers that each get a computer of their own: a browser, files and tools, with every action decided b",
       "url": "https://github.com/CopilotKit/OpenBot"
     }
+  },
+  {
+    "date": "2026-08-24",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Why your local LLM feels dumber than it is",
+      "url": "https://news.ycombinator.com/item?id=49402232"
+    }
+  },
+  {
+    "date": "2026-08-24",
+    "artifactId": "the-off-switch",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "Iranian hackers shut down UK power plant for 4 days",
+      "url": "https://news.ycombinator.com/item?id=49407509"
+    }
+  },
+  {
+    "date": "2026-08-24",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "missuo/herdrm — Native macOS console for herdr — all your coding agents and their live terminals, across devices",
+      "url": "https://github.com/missuo/herdrm"
+    }
   }
 ]

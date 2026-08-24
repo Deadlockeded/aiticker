@@ -1,24 +1,24 @@
 {
-  "lastUpdated": "2026-08-23T03:01:54.304Z",
+  "lastUpdated": "2026-08-24T03:02:49.759Z",
   "sources": {
     "wikipedia": {
-      "ok": 50,
+      "ok": 60,
       "fail": 0
     },
     "openalex": {
-      "ok": 19,
+      "ok": 25,
       "fail": 0
     },
     "github": {
-      "ok": 17,
+      "ok": 19,
       "fail": 0
     },
     "huggingface": {
-      "ok": 9,
+      "ok": 10,
       "fail": 0
     },
     "hackernews": {
-      "ok": 50,
+      "ok": 60,
       "fail": 0
     }
   }
