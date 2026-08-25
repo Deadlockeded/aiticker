@@ -1156,5 +1156,45 @@
       "headline": "missuo/herdrm — Native macOS console for herdr — all your coding agents and their live terminals, across devices",
       "url": "https://github.com/missuo/herdrm"
     }
+  },
+  {
+    "date": "2026-08-25",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "MS Paint and Photos inivisibly watermark even locally generated output with GUID",
+      "url": "https://news.ycombinator.com/item?id=49421158"
+    }
+  },
+  {
+    "date": "2026-08-25",
+    "artifactId": "the-gpu",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Hot Chips 2026: CUDA Targets RISC-V – By Chester Lam",
+      "url": "https://news.ycombinator.com/item?id=49422548"
+    }
+  },
+  {
+    "date": "2026-08-25",
+    "artifactId": "the-temperature-slider",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "Oceans hit highest temperature on record",
+      "url": "https://news.ycombinator.com/item?id=49424606"
+    }
+  },
+  {
+    "date": "2026-08-25",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "missuo/herdrm — Native macOS console for herdr — all your coding agents and their live terminals, across devices",
+      "url": "https://github.com/missuo/herdrm"
+    }
   }
 ]
