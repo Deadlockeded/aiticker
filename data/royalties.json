@@ -1196,5 +1196,45 @@
       "headline": "missuo/herdrm — Native macOS console for herdr — all your coding agents and their live terminals, across devices",
       "url": "https://github.com/missuo/herdrm"
     }
+  },
+  {
+    "date": "2026-08-26",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "OpenAI Jalapeño: Better than Nvidia Blackwell",
+      "url": "https://news.ycombinator.com/item?id=49434378"
+    }
+  },
+  {
+    "date": "2026-08-26",
+    "artifactId": "the-gpu",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "OpenAI Jalapeño: Better than Nvidia Blackwell",
+      "url": "https://news.ycombinator.com/item?id=49434378"
+    }
+  },
+  {
+    "date": "2026-08-26",
+    "artifactId": "the-turing-test",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "New Mac mini, featuring M6 and M5 Pro",
+      "url": "https://news.ycombinator.com/item?id=49433450"
+    }
+  },
+  {
+    "date": "2026-08-26",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "GamePhanes/GamePhanes — An open-source game coding agent environment and benchmark for Godot.",
+      "url": "https://github.com/GamePhanes/GamePhanes"
+    }
   }
 ]
