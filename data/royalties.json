@@ -1236,5 +1236,55 @@
       "headline": "GamePhanes/GamePhanes — An open-source game coding agent environment and benchmark for Godot.",
       "url": "https://github.com/GamePhanes/GamePhanes"
     }
+  },
+  {
+    "date": "2026-08-27",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "CEO fired developers to make room for AI. Developers create open source AI CEO",
+      "url": "https://news.ycombinator.com/item?id=49458418"
+    }
+  },
+  {
+    "date": "2026-08-27",
+    "artifactId": "the-exit",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Nvidia agrees to acquire Hugging Face for $13B",
+      "url": "https://news.ycombinator.com/item?id=49458161"
+    }
+  },
+  {
+    "date": "2026-08-27",
+    "artifactId": "the-gpu",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Nvidia agrees to acquire Hugging Face for $13B",
+      "url": "https://news.ycombinator.com/item?id=49458161"
+    }
+  },
+  {
+    "date": "2026-08-27",
+    "artifactId": "the-leaderboard",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "CEO fired developers to make room for AI. Developers create open source AI CEO",
+      "url": "https://news.ycombinator.com/item?id=49458418"
+    }
+  },
+  {
+    "date": "2026-08-27",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "GamePhanes/GamePhanes — An open-source game coding agent environment and benchmark for Godot.",
+      "url": "https://github.com/GamePhanes/GamePhanes"
+    }
   }
 ]
