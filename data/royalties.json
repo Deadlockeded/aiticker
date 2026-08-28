@@ -1286,5 +1286,25 @@
       "headline": "GamePhanes/GamePhanes — An open-source game coding agent environment and benchmark for Godot.",
       "url": "https://github.com/GamePhanes/GamePhanes"
     }
+  },
+  {
+    "date": "2026-08-28",
+    "artifactId": "the-compute-cluster",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "EPA says power for data centers can sidestep pollution laws",
+      "url": "https://news.ycombinator.com/item?id=49478103"
+    }
+  },
+  {
+    "date": "2026-08-28",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Small Models Have Arrived",
+      "url": "https://news.ycombinator.com/item?id=49466917"
+    }
   }
 ]
