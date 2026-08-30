@@ -1326,5 +1326,35 @@
       "headline": "Our decision on Cursor following its acquisition by SpaceX",
       "url": "https://news.ycombinator.com/item?id=49486172"
     }
+  },
+  {
+    "date": "2026-08-30",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Good Culture Is the Biggest Productivity Hack, Not AI",
+      "url": "https://news.ycombinator.com/item?id=49491568"
+    }
+  },
+  {
+    "date": "2026-08-30",
+    "artifactId": "the-eval",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Benchmarking Pocket-Scale Inference",
+      "url": "https://news.ycombinator.com/item?id=49469786"
+    }
+  },
+  {
+    "date": "2026-08-30",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "hkqr/my-free-code — Open-source multi-provider AI gateway for Claude Code and other coding agents, with model routing, streaming, tools, rea",
+      "url": "https://github.com/hkqr/my-free-code"
+    }
   }
 ]
