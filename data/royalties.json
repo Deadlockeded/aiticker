@@ -1356,5 +1356,55 @@
       "headline": "hkqr/my-free-code — Open-source multi-provider AI gateway for Claude Code and other coding agents, with model routing, streaming, tools, rea",
       "url": "https://github.com/hkqr/my-free-code"
     }
+  },
+  {
+    "date": "2026-08-31",
+    "artifactId": "as-an-ai",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "Understanding ChatGPT Work",
+      "url": "https://news.ycombinator.com/item?id=49504625"
+    }
+  },
+  {
+    "date": "2026-08-31",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Haiku R1/beta6 has been released",
+      "url": "https://news.ycombinator.com/item?id=49499867"
+    }
+  },
+  {
+    "date": "2026-08-31",
+    "artifactId": "the-gpu",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Why open source rocks – a new SM750 (Silicon Motion GPU) HDMI Driver",
+      "url": "https://news.ycombinator.com/item?id=49501611"
+    }
+  },
+  {
+    "date": "2026-08-31",
+    "artifactId": "the-leaderboard",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "Relm4 makes developing beautiful cross-platform applications idiomatic",
+      "url": "https://news.ycombinator.com/item?id=49446705"
+    }
+  },
+  {
+    "date": "2026-08-31",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "hkqr/my-free-code — Open-source multi-provider AI gateway for Claude Code and other coding agents, with model routing, streaming, tools, rea",
+      "url": "https://github.com/hkqr/my-free-code"
+    }
   }
 ]
