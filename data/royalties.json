@@ -1406,5 +1406,55 @@
       "headline": "hkqr/my-free-code — Open-source multi-provider AI gateway for Claude Code and other coding agents, with model routing, streaming, tools, rea",
       "url": "https://github.com/hkqr/my-free-code"
     }
+  },
+  {
+    "date": "2026-09-01",
+    "artifactId": "agi-in-two-weeks",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "Dwarf Fortress is getting the mother of all magic updates",
+      "url": "https://news.ycombinator.com/item?id=49467636"
+    }
+  },
+  {
+    "date": "2026-09-01",
+    "artifactId": "as-an-ai",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "ChatGPT Work Tool and Skill Reference",
+      "url": "https://news.ycombinator.com/item?id=49510000"
+    }
+  },
+  {
+    "date": "2026-09-01",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Apple caught off guard by AI demand for Mac Mini and Mac Studio",
+      "url": "https://news.ycombinator.com/item?id=49508982"
+    }
+  },
+  {
+    "date": "2026-09-01",
+    "artifactId": "the-gpu",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "GPU World",
+      "url": "https://news.ycombinator.com/item?id=49517584"
+    }
+  },
+  {
+    "date": "2026-09-01",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "hkqr/my-free-code — Open-source multi-provider AI gateway for Claude Code and other coding agents, with model routing, streaming, tools, rea",
+      "url": "https://github.com/hkqr/my-free-code"
+    }
   }
 ]
