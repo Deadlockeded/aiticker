@@ -1,55 +1,5 @@
 [
   {
-    "date": "2026-08-04",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "LLMs reward expertise",
-      "url": "https://news.ycombinator.com/item?id=49161518"
-    }
-  },
-  {
-    "date": "2026-08-04",
-    "artifactId": "the-exit",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "How to organize 3 acquired companies into one coherent website",
-      "url": "https://news.ycombinator.com/item?id=47999020"
-    }
-  },
-  {
-    "date": "2026-08-04",
-    "artifactId": "the-gpu",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "AirLLM 70B inference with single 4GB GPU",
-      "url": "https://news.ycombinator.com/item?id=49154228"
-    }
-  },
-  {
-    "date": "2026-08-04",
-    "artifactId": "the-latency",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "200 Milliseconds",
-      "url": "https://news.ycombinator.com/item?id=49132992"
-    }
-  },
-  {
-    "date": "2026-08-04",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "microsoft/skill-recorder — Desktop app that records your on-screen work session and uses the GitHub Copilot CLI to reconstruct it as an inte",
-      "url": "https://github.com/microsoft/skill-recorder"
-    }
-  },
-  {
     "date": "2026-08-05",
     "artifactId": "the-em-dash",
     "payoutPerCopy": 4,
@@ -1495,6 +1445,36 @@
       "source": "gh",
       "headline": "hkqr/my-free-code — Open-source multi-provider AI gateway for Claude Code and other coding agents, with model routing, streaming, tools, rea",
       "url": "https://github.com/hkqr/my-free-code"
+    }
+  },
+  {
+    "date": "2026-09-03",
+    "artifactId": "agi-in-two-weeks",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "Aging brains blend memories together instead of just forgetting them",
+      "url": "https://news.ycombinator.com/item?id=49535548"
+    }
+  },
+  {
+    "date": "2026-09-03",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Can I opt out of my input or output data being used for training?",
+      "url": "https://news.ycombinator.com/item?id=49535284"
+    }
+  },
+  {
+    "date": "2026-09-03",
+    "artifactId": "the-temperature-slider",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "Poisson Disk Sampling",
+      "url": "https://news.ycombinator.com/item?id=49536177"
     }
   }
 ]
