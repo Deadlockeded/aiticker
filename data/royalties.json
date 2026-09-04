@@ -1,55 +1,5 @@
 [
   {
-    "date": "2026-08-05",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "There Will Come Soft Rains (1950) [pdf]",
-      "url": "https://news.ycombinator.com/item?id=49162653"
-    }
-  },
-  {
-    "date": "2026-08-05",
-    "artifactId": "the-eval",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "When AI Benchmarks Plateau: A Systematic Study of Benchmark Saturation",
-      "url": "https://news.ycombinator.com/item?id=49170915"
-    }
-  },
-  {
-    "date": "2026-08-05",
-    "artifactId": "the-exit",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "How to organize 3 acquired companies into one coherent website",
-      "url": "https://news.ycombinator.com/item?id=47999020"
-    }
-  },
-  {
-    "date": "2026-08-05",
-    "artifactId": "the-term-sheet",
-    "payoutPerCopy": 10,
-    "receipt": {
-      "source": "hn",
-      "headline": "Oxide Computer raises $445M (SEC Form D)",
-      "url": "https://news.ycombinator.com/item?id=49174407"
-    }
-  },
-  {
-    "date": "2026-08-05",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "disler/super-simple-software-factory — Repeatable agents-plus-code workflows, packaged as one skill, stamped into any repo. Deterministic Py",
-      "url": "https://github.com/disler/super-simple-software-factory"
-    }
-  },
-  {
     "date": "2026-08-06",
     "artifactId": "the-arxiv-timestamp",
     "payoutPerCopy": 6,
@@ -1475,6 +1425,46 @@
       "source": "hn",
       "headline": "Poisson Disk Sampling",
       "url": "https://news.ycombinator.com/item?id=49536177"
+    }
+  },
+  {
+    "date": "2026-09-04",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Qwen 3.8 27B available on Cerebras at 1500 tokens/s",
+      "url": "https://news.ycombinator.com/item?id=49554520"
+    }
+  },
+  {
+    "date": "2026-09-04",
+    "artifactId": "the-leaderboard",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "The asteroid currently hitting front end web development",
+      "url": "https://news.ycombinator.com/item?id=49555233"
+    }
+  },
+  {
+    "date": "2026-09-04",
+    "artifactId": "the-token",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "Qwen 3.8 27B available on Cerebras at 1500 tokens/s",
+      "url": "https://news.ycombinator.com/item?id=49554520"
+    }
+  },
+  {
+    "date": "2026-09-04",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "lnkiai/m3e-canvas — Sketch Material 3 Expressive screens in the browser and turn them into vibe-coding prompts.",
+      "url": "https://github.com/lnkiai/m3e-canvas"
     }
   }
 ]
