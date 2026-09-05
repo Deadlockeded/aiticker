@@ -1,85 +1,5 @@
 [
   {
-    "date": "2026-08-06",
-    "artifactId": "the-arxiv-timestamp",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "NVIDIA’s Vera Whitepaper Has a Thread Loose",
-      "url": "https://news.ycombinator.com/item?id=49189234"
-    }
-  },
-  {
-    "date": "2026-08-06",
-    "artifactId": "the-compute-cluster",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "Nashville uses eminent domain to block data center near zoo",
-      "url": "https://news.ycombinator.com/item?id=49191624"
-    }
-  },
-  {
-    "date": "2026-08-06",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "Changes at Google DeepMind: Demis Hassabis from CEO to Chair, Jeff Dean departs",
-      "url": "https://news.ycombinator.com/item?id=49184755"
-    }
-  },
-  {
-    "date": "2026-08-06",
-    "artifactId": "the-eval",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "Beating GPT-5.6 Sol on retrieval with 100x cheaper open models",
-      "url": "https://news.ycombinator.com/item?id=49186762"
-    }
-  },
-  {
-    "date": "2026-08-06",
-    "artifactId": "the-exit",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "How to organize 3 acquired companies into one coherent website",
-      "url": "https://news.ycombinator.com/item?id=47999020"
-    }
-  },
-  {
-    "date": "2026-08-06",
-    "artifactId": "the-gpu",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "NVIDIA’s Vera Whitepaper Has a Thread Loose",
-      "url": "https://news.ycombinator.com/item?id=49189234"
-    }
-  },
-  {
-    "date": "2026-08-06",
-    "artifactId": "the-whitepaper",
-    "payoutPerCopy": 10,
-    "receipt": {
-      "source": "hn",
-      "headline": "NVIDIA’s Vera Whitepaper Has a Thread Loose",
-      "url": "https://news.ycombinator.com/item?id=49189234"
-    }
-  },
-  {
-    "date": "2026-08-06",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "disler/super-simple-software-factory — Repeatable agents-plus-code workflows, packaged as one skill, stamped into any repo. Deterministic Py",
-      "url": "https://github.com/disler/super-simple-software-factory"
-    }
-  },
-  {
     "date": "2026-08-07",
     "artifactId": "as-an-ai",
     "payoutPerCopy": 6,
@@ -1459,6 +1379,46 @@
   },
   {
     "date": "2026-09-04",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "lnkiai/m3e-canvas — Sketch Material 3 Expressive screens in the browser and turn them into vibe-coding prompts.",
+      "url": "https://github.com/lnkiai/m3e-canvas"
+    }
+  },
+  {
+    "date": "2026-09-05",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Discovery of a new OpenAI agent message board",
+      "url": "https://news.ycombinator.com/item?id=49563355"
+    }
+  },
+  {
+    "date": "2026-09-05",
+    "artifactId": "the-token",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "Portal by Spotify cut my Claude Code token usage by 90%",
+      "url": "https://news.ycombinator.com/item?id=49571465"
+    }
+  },
+  {
+    "date": "2026-09-05",
+    "artifactId": "the-wrapper",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "sonicloudco/recorder — Recorder Sdk",
+      "url": "https://github.com/sonicloudco/recorder"
+    }
+  },
+  {
+    "date": "2026-09-05",
     "artifactId": "vibe-coding",
     "payoutPerCopy": 8,
     "receipt": {
