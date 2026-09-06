@@ -1,45 +1,5 @@
 [
   {
-    "date": "2026-08-07",
-    "artifactId": "as-an-ai",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "Improving GPT‑5.6 Sol in ChatGPT, expanding GPT‑5.6 Luna access for free users",
-      "url": "https://news.ycombinator.com/item?id=49199357"
-    }
-  },
-  {
-    "date": "2026-08-07",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "AMD acquires Taalas to boost inference performance by etching models in silicon",
-      "url": "https://news.ycombinator.com/item?id=49201970"
-    }
-  },
-  {
-    "date": "2026-08-07",
-    "artifactId": "the-exit",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "AMD acquires Taalas to boost inference performance by etching models in silicon",
-      "url": "https://news.ycombinator.com/item?id=49201970"
-    }
-  },
-  {
-    "date": "2026-08-07",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "disler/super-simple-software-factory — Repeatable agents-plus-code workflows, packaged as one skill, stamped into any repo. Deterministic Py",
-      "url": "https://github.com/disler/super-simple-software-factory"
-    }
-  },
-  {
     "date": "2026-08-08",
     "artifactId": "agi-in-two-weeks",
     "payoutPerCopy": 6,
@@ -1419,6 +1379,66 @@
   },
   {
     "date": "2026-09-05",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "lnkiai/m3e-canvas — Sketch Material 3 Expressive screens in the browser and turn them into vibe-coding prompts.",
+      "url": "https://github.com/lnkiai/m3e-canvas"
+    }
+  },
+  {
+    "date": "2026-09-06",
+    "artifactId": "the-demo",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "Balrogg: Demonically compacting (up to 15%) lossless Vorbis/Opus recompressor",
+      "url": "https://news.ycombinator.com/item?id=49549778"
+    }
+  },
+  {
+    "date": "2026-09-06",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Discovery of a new OpenAI agent message board",
+      "url": "https://news.ycombinator.com/item?id=49563355"
+    }
+  },
+  {
+    "date": "2026-09-06",
+    "artifactId": "the-eval",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "OpenBSD Stories: Strange Medieval Devices",
+      "url": "https://news.ycombinator.com/item?id=49539759"
+    }
+  },
+  {
+    "date": "2026-09-06",
+    "artifactId": "the-leaderboard",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "AMD Based FreeBSD Desktop Reloaded",
+      "url": "https://news.ycombinator.com/item?id=49582719"
+    }
+  },
+  {
+    "date": "2026-09-06",
+    "artifactId": "the-wrapper",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "sonicloudco/recorder — Recorder Sdk",
+      "url": "https://github.com/sonicloudco/recorder"
+    }
+  },
+  {
+    "date": "2026-09-06",
     "artifactId": "vibe-coding",
     "payoutPerCopy": 8,
     "receipt": {
