@@ -1,64 +1,5 @@
 [
   {
-    "date": "2026-08-08",
-    "artifactId": "agi-in-two-weeks",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "Managing AI Coding Costs at Scale",
-      "url": "https://news.ycombinator.com/item?id=49214468"
-    }
-  },
-  {
-    "date": "2026-08-08",
-    "artifactId": "the-benchmark",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "wiki",
-      "headline": "Google DeepMind"
-    }
-  },
-  {
-    "date": "2026-08-08",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "AMD acquires Taalas to boost inference performance by etching models in silicon",
-      "url": "https://news.ycombinator.com/item?id=49201970"
-    }
-  },
-  {
-    "date": "2026-08-08",
-    "artifactId": "the-exit",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "AMD acquires Taalas to boost inference performance by etching models in silicon",
-      "url": "https://news.ycombinator.com/item?id=49201970"
-    }
-  },
-  {
-    "date": "2026-08-08",
-    "artifactId": "the-leaderboard",
-    "payoutPerCopy": 10,
-    "receipt": {
-      "source": "hn",
-      "headline": "Water system controllers don't belong on the internet, says ex-NSA chief",
-      "url": "https://news.ycombinator.com/item?id=49216362"
-    }
-  },
-  {
-    "date": "2026-08-08",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "disler/super-simple-software-factory — Repeatable agents-plus-code workflows, packaged as one skill, stamped into any repo. Deterministic Py",
-      "url": "https://github.com/disler/super-simple-software-factory"
-    }
-  },
-  {
     "date": "2026-08-09",
     "artifactId": "as-an-ai",
     "payoutPerCopy": 6,
@@ -1439,6 +1380,36 @@
   },
   {
     "date": "2026-09-06",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "lnkiai/m3e-canvas — Sketch Material 3 Expressive screens in the browser and turn them into vibe-coding prompts.",
+      "url": "https://github.com/lnkiai/m3e-canvas"
+    }
+  },
+  {
+    "date": "2026-09-07",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Your intellectual fly is open when you use an LLM to author a post (2025)",
+      "url": "https://news.ycombinator.com/item?id=49585644"
+    }
+  },
+  {
+    "date": "2026-09-07",
+    "artifactId": "the-wrapper",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "sonicloudco/recorder — 声云录音卡 Recorder 是一套面向开发者和行业客户的智能录音硬件接入方案。 项目以录音卡片硬件为核心，开放 BLE 协议 SDK 及 Android、iOS、鸿蒙、Flutter 接入示例，同时提供 Windows/macOS ",
+      "url": "https://github.com/sonicloudco/recorder"
+    }
+  },
+  {
+    "date": "2026-09-07",
     "artifactId": "vibe-coding",
     "payoutPerCopy": 8,
     "receipt": {
