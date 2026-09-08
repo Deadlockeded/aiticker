@@ -1,54 +1,5 @@
 [
   {
-    "date": "2026-08-09",
-    "artifactId": "as-an-ai",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "ChatGPT starts blocking direct requests to copy an author's style",
-      "url": "https://news.ycombinator.com/item?id=49227718"
-    }
-  },
-  {
-    "date": "2026-08-09",
-    "artifactId": "the-benchmark",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "wiki",
-      "headline": "Google DeepMind"
-    }
-  },
-  {
-    "date": "2026-08-09",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "DeepMind's WeatherNext model achieves breakthrough forecasting cyclones",
-      "url": "https://news.ycombinator.com/item?id=49220126"
-    }
-  },
-  {
-    "date": "2026-08-09",
-    "artifactId": "the-exit",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "How to organize 3 acquired companies into one coherent website",
-      "url": "https://news.ycombinator.com/item?id=47999020"
-    }
-  },
-  {
-    "date": "2026-08-09",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "eternityspring/shuohao-skills — 给 AI 编码 agent 用的 skill 集合，Claude Code 和 codex 都能跑。novel-characters：把小说拆成角色设定集——人物画像、卡通形象提示词、音色提示词、三视图。 | Ski",
-      "url": "https://github.com/eternityspring/shuohao-skills"
-    }
-  },
-  {
     "date": "2026-08-10",
     "artifactId": "the-benchmark",
     "payoutPerCopy": 8,
@@ -1410,6 +1361,56 @@
   },
   {
     "date": "2026-09-07",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "lnkiai/m3e-canvas — Sketch Material 3 Expressive screens in the browser and turn them into vibe-coding prompts.",
+      "url": "https://github.com/lnkiai/m3e-canvas"
+    }
+  },
+  {
+    "date": "2026-09-08",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Trusting-Trust Attack against an Entire Linux Distribution",
+      "url": "https://news.ycombinator.com/item?id=49575515"
+    }
+  },
+  {
+    "date": "2026-09-08",
+    "artifactId": "the-gpu",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Arm Mali G2-Ultra NX GPU: desktop-class mobile gameplay with AI-native graphics",
+      "url": "https://news.ycombinator.com/item?id=49605511"
+    }
+  },
+  {
+    "date": "2026-09-08",
+    "artifactId": "the-leaderboard",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "Colorlight 5A-75B: A dive into a popular low-cost ECP5 (FPGA) development board",
+      "url": "https://news.ycombinator.com/item?id=49564064"
+    }
+  },
+  {
+    "date": "2026-09-08",
+    "artifactId": "the-wrapper",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "sonicloudco/recorder — 声云录音卡 Recorder 是一套面向开发者和行业客户的智能录音硬件接入方案。 项目以录音卡片硬件为核心，开放 BLE 协议 SDK 及 Android、iOS、鸿蒙、Flutter 接入示例，同时提供 Windows/macOS ",
+      "url": "https://github.com/sonicloudco/recorder"
+    }
+  },
+  {
+    "date": "2026-09-08",
     "artifactId": "vibe-coding",
     "payoutPerCopy": 8,
     "receipt": {
