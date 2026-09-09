@@ -1,54 +1,5 @@
 [
   {
-    "date": "2026-08-10",
-    "artifactId": "the-benchmark",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "wiki",
-      "headline": "Google DeepMind"
-    }
-  },
-  {
-    "date": "2026-08-10",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "How I use LLMs to learn complex topics",
-      "url": "https://news.ycombinator.com/item?id=49234675"
-    }
-  },
-  {
-    "date": "2026-08-10",
-    "artifactId": "the-exit",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "How to organize 3 acquired companies into one coherent website",
-      "url": "https://news.ycombinator.com/item?id=47999020"
-    }
-  },
-  {
-    "date": "2026-08-10",
-    "artifactId": "the-leaderboard",
-    "payoutPerCopy": 10,
-    "receipt": {
-      "source": "hn",
-      "headline": "OpenChamber: An Agentic Development Environment",
-      "url": "https://news.ycombinator.com/item?id=49233448"
-    }
-  },
-  {
-    "date": "2026-08-10",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "eternityspring/shuohao-skills — 给 AI 编码 agent 用的 skill 集合，Claude Code 和 codex 都能跑。novel-characters：把小说拆成角色设定集——人物画像、卡通形象提示词、音色提示词、三视图。 | Ski",
-      "url": "https://github.com/eternityspring/shuohao-skills"
-    }
-  },
-  {
     "date": "2026-08-11",
     "artifactId": "the-benchmark",
     "payoutPerCopy": 8,
@@ -1417,6 +1368,75 @@
       "source": "gh",
       "headline": "lnkiai/m3e-canvas — Sketch Material 3 Expressive screens in the browser and turn them into vibe-coding prompts.",
       "url": "https://github.com/lnkiai/m3e-canvas"
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "artifactId": "as-an-ai",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "ChatGPT Images 2.5",
+      "url": "https://news.ycombinator.com/item?id=49614720"
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "artifactId": "the-benchmark",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "wiki",
+      "headline": "Mistral"
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Muse – Meta’s personal AI agent",
+      "url": "https://news.ycombinator.com/item?id=49615537"
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "artifactId": "the-eval",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Benchmarking Qwen3.8 27B quantizations: 4-bit holds up, 1-bit collapses",
+      "url": "https://news.ycombinator.com/item?id=49611128"
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "artifactId": "the-gpu",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "27.5KB language-agnostic WebGPU syntax highlighter",
+      "url": "https://news.ycombinator.com/item?id=49619464"
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "artifactId": "the-leaderboard",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "Large language models develop novel social biases through adaptive exploration",
+      "url": "https://news.ycombinator.com/item?id=49617581"
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "okf-memory/okf-agent-memory — Git-native persistent memory for AI coding agents. Implements Google OKF v0.2 with sub-300µs in-memory BM25 se",
+      "url": "https://github.com/okf-memory/okf-agent-memory"
     }
   }
 ]
