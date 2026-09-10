@@ -1,54 +1,5 @@
 [
   {
-    "date": "2026-08-11",
-    "artifactId": "the-benchmark",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "wiki",
-      "headline": "Google DeepMind"
-    }
-  },
-  {
-    "date": "2026-08-11",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "Muse Glimmer: 30B-parameter model optimized for always-on local agent workflows",
-      "url": "https://news.ycombinator.com/item?id=49241679"
-    }
-  },
-  {
-    "date": "2026-08-11",
-    "artifactId": "the-exit",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "How to organize 3 acquired companies into one coherent website",
-      "url": "https://news.ycombinator.com/item?id=47999020"
-    }
-  },
-  {
-    "date": "2026-08-11",
-    "artifactId": "the-gpu",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "Rust SIMD on the GPU",
-      "url": "https://news.ycombinator.com/item?id=49247477"
-    }
-  },
-  {
-    "date": "2026-08-11",
-    "artifactId": "the-leaderboard",
-    "payoutPerCopy": 10,
-    "receipt": {
-      "source": "hn",
-      "headline": "Ask HN: In your experience, what are sound conventions for e-ink UI development?",
-      "url": "https://news.ycombinator.com/item?id=49213660"
-    }
-  },
-  {
     "date": "2026-08-12",
     "artifactId": "the-arxiv-timestamp",
     "payoutPerCopy": 6,
@@ -1431,6 +1382,55 @@
   },
   {
     "date": "2026-09-09",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "okf-memory/okf-agent-memory — Git-native persistent memory for AI coding agents. Implements Google OKF v0.2 with sub-300µs in-memory BM25 se",
+      "url": "https://github.com/okf-memory/okf-agent-memory"
+    }
+  },
+  {
+    "date": "2026-09-10",
+    "artifactId": "the-alignment-chart",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "A Stupid Idea for AI Alignment We Came with by Looking at Specification Gaming",
+      "url": "https://news.ycombinator.com/item?id=49637395"
+    }
+  },
+  {
+    "date": "2026-09-10",
+    "artifactId": "the-benchmark",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "wiki",
+      "headline": "OpenAI"
+    }
+  },
+  {
+    "date": "2026-09-10",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Shopify acquires Tailwind",
+      "url": "https://news.ycombinator.com/item?id=49626190"
+    }
+  },
+  {
+    "date": "2026-09-10",
+    "artifactId": "the-exit",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Shopify acquires Tailwind",
+      "url": "https://news.ycombinator.com/item?id=49626190"
+    }
+  },
+  {
+    "date": "2026-09-10",
     "artifactId": "vibe-coding",
     "payoutPerCopy": 8,
     "receipt": {
