@@ -1,64 +1,5 @@
 [
   {
-    "date": "2026-08-12",
-    "artifactId": "the-arxiv-timestamp",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "How we used to get jobs: A newspaper classifieds story",
-      "url": "https://news.ycombinator.com/item?id=49262211"
-    }
-  },
-  {
-    "date": "2026-08-12",
-    "artifactId": "the-benchmark",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "wiki",
-      "headline": "Google DeepMind"
-    }
-  },
-  {
-    "date": "2026-08-12",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "Stealing Reasoning Traces from Proprietary LLM APIs",
-      "url": "https://news.ycombinator.com/item?id=49257876"
-    }
-  },
-  {
-    "date": "2026-08-12",
-    "artifactId": "the-exit",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "How to organize 3 acquired companies into one coherent website",
-      "url": "https://news.ycombinator.com/item?id=47999020"
-    }
-  },
-  {
-    "date": "2026-08-12",
-    "artifactId": "the-gpu",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "Nvidia's Risky Business",
-      "url": "https://news.ycombinator.com/item?id=49255710"
-    }
-  },
-  {
-    "date": "2026-08-12",
-    "artifactId": "the-wrapper",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "shadcn-ui/chatbot-template — A minimal chatbot template built with Next.js, AI SDK, shadcn/ui, shadcn/react, shadcn/typeset. It runs on the ",
-      "url": "https://github.com/shadcn-ui/chatbot-template"
-    }
-  },
-  {
     "date": "2026-08-13",
     "artifactId": "the-em-dash",
     "payoutPerCopy": 4,
@@ -1431,6 +1372,65 @@
   },
   {
     "date": "2026-09-10",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "okf-memory/okf-agent-memory — Git-native persistent memory for AI coding agents. Implements Google OKF v0.2 with sub-300µs in-memory BM25 se",
+      "url": "https://github.com/okf-memory/okf-agent-memory"
+    }
+  },
+  {
+    "date": "2026-09-11",
+    "artifactId": "agi-in-two-weeks",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "Working with Git Worktrees in Magit",
+      "url": "https://news.ycombinator.com/item?id=49606281"
+    }
+  },
+  {
+    "date": "2026-09-11",
+    "artifactId": "the-benchmark",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "wiki",
+      "headline": "OpenAI"
+    }
+  },
+  {
+    "date": "2026-09-11",
+    "artifactId": "the-burn-rate",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "NTSB issues investigative update on B-767 runway excursion accident in Miami",
+      "url": "https://news.ycombinator.com/item?id=49650418"
+    }
+  },
+  {
+    "date": "2026-09-11",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "More questions about whether researchers can trust OpenAI with unpublished math",
+      "url": "https://news.ycombinator.com/item?id=49639408"
+    }
+  },
+  {
+    "date": "2026-09-11",
+    "artifactId": "the-gpu",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Thelio Mira AI Linux Workstation: 192 GB GPU Memory",
+      "url": "https://news.ycombinator.com/item?id=49651372"
+    }
+  },
+  {
+    "date": "2026-09-11",
     "artifactId": "vibe-coding",
     "payoutPerCopy": 8,
     "receipt": {
