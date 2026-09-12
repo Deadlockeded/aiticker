@@ -1,65 +1,5 @@
 [
   {
-    "date": "2026-08-13",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "Tailscale Traces Database Corruption to 16y/o SQLite WAL-Reset Bug",
-      "url": "https://news.ycombinator.com/item?id=49272832"
-    }
-  },
-  {
-    "date": "2026-08-13",
-    "artifactId": "the-exit",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "How to organize 3 acquired companies into one coherent website",
-      "url": "https://news.ycombinator.com/item?id=47999020"
-    }
-  },
-  {
-    "date": "2026-08-13",
-    "artifactId": "the-latency",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "HTML over WebSockets: real-time SPAs with barely any JavaScript",
-      "url": "https://news.ycombinator.com/item?id=49275335"
-    }
-  },
-  {
-    "date": "2026-08-13",
-    "artifactId": "the-leaderboard",
-    "payoutPerCopy": 10,
-    "receipt": {
-      "source": "hn",
-      "headline": "Tim King, AmigaDOS developer, has died",
-      "url": "https://news.ycombinator.com/item?id=49272655"
-    }
-  },
-  {
-    "date": "2026-08-13",
-    "artifactId": "the-term-sheet",
-    "payoutPerCopy": 10,
-    "receipt": {
-      "source": "hn",
-      "headline": "Lovable raises $400M Series C",
-      "url": "https://news.ycombinator.com/item?id=49274858"
-    }
-  },
-  {
-    "date": "2026-08-13",
-    "artifactId": "the-wrapper",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "shadcn-ui/chatbot-template — A minimal chatbot template built with Next.js, AI SDK, shadcn/ui, shadcn/react, shadcn/typeset. It runs on the ",
-      "url": "https://github.com/shadcn-ui/chatbot-template"
-    }
-  },
-  {
     "date": "2026-08-14",
     "artifactId": "as-an-ai",
     "payoutPerCopy": 6,
@@ -1437,6 +1377,75 @@
       "source": "gh",
       "headline": "okf-memory/okf-agent-memory — Git-native persistent memory for AI coding agents. Implements Google OKF v0.2 with sub-300µs in-memory BM25 se",
       "url": "https://github.com/okf-memory/okf-agent-memory"
+    }
+  },
+  {
+    "date": "2026-09-12",
+    "artifactId": "the-alignment-chart",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "A misalignment of AI in mathematics",
+      "url": "https://news.ycombinator.com/item?id=49662371"
+    }
+  },
+  {
+    "date": "2026-09-12",
+    "artifactId": "the-benchmark",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "wiki",
+      "headline": "OpenAI"
+    }
+  },
+  {
+    "date": "2026-09-12",
+    "artifactId": "the-compute-cluster",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "The EPA is planning to scrap public review rules for data center pollution",
+      "url": "https://news.ycombinator.com/item?id=49662672"
+    }
+  },
+  {
+    "date": "2026-09-12",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "A misalignment of AI in mathematics",
+      "url": "https://news.ycombinator.com/item?id=49662371"
+    }
+  },
+  {
+    "date": "2026-09-12",
+    "artifactId": "the-eval",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "RTK reports token savings, but our cost benchmarks disagree",
+      "url": "https://news.ycombinator.com/item?id=49656471"
+    }
+  },
+  {
+    "date": "2026-09-12",
+    "artifactId": "the-token",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "RTK reports token savings, but our cost benchmarks disagree",
+      "url": "https://news.ycombinator.com/item?id=49656471"
+    }
+  },
+  {
+    "date": "2026-09-12",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "yudaprasetya007/routeVSCODE — ⚡ Zero-reload dynamic AI model switcher & local proxy for VSCode Copilot Chat via 9Router",
+      "url": "https://github.com/yudaprasetya007/routeVSCODE"
     }
   }
 ]
