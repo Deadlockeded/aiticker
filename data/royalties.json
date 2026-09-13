@@ -1,45 +1,5 @@
 [
   {
-    "date": "2026-08-14",
-    "artifactId": "as-an-ai",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "How Organizations Use AI: Evidence from ChatGPT [pdf]",
-      "url": "https://news.ycombinator.com/item?id=49290768"
-    }
-  },
-  {
-    "date": "2026-08-14",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "Nine PBS sues Iron Mountain over blocked access to archival data",
-      "url": "https://news.ycombinator.com/item?id=49285418"
-    }
-  },
-  {
-    "date": "2026-08-14",
-    "artifactId": "the-leaderboard",
-    "payoutPerCopy": 10,
-    "receipt": {
-      "source": "hn",
-      "headline": "DeepSeek Harness developer preview",
-      "url": "https://news.ycombinator.com/item?id=49285244"
-    }
-  },
-  {
-    "date": "2026-08-14",
-    "artifactId": "the-wrapper",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "shadcn-ui/chatbot-template — A minimal chatbot template built with Next.js, AI SDK, shadcn/ui, shadcn/react, shadcn/typeset. It runs on the ",
-      "url": "https://github.com/shadcn-ui/chatbot-template"
-    }
-  },
-  {
     "date": "2026-08-15",
     "artifactId": "the-arxiv-timestamp",
     "payoutPerCopy": 6,
@@ -1446,6 +1406,75 @@
       "source": "gh",
       "headline": "yudaprasetya007/routeVSCODE — ⚡ Zero-reload dynamic AI model switcher & local proxy for VSCode Copilot Chat via 9Router",
       "url": "https://github.com/yudaprasetya007/routeVSCODE"
+    }
+  },
+  {
+    "date": "2026-09-13",
+    "artifactId": "the-arxiv-timestamp",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "Vintage Scientific Papers with LaTeX",
+      "url": "https://news.ycombinator.com/item?id=49629624"
+    }
+  },
+  {
+    "date": "2026-09-13",
+    "artifactId": "the-benchmark",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "wiki",
+      "headline": "OpenAI"
+    }
+  },
+  {
+    "date": "2026-09-13",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "LG denies TV spying claims, says tracking and snooping concerns 'not true'",
+      "url": "https://news.ycombinator.com/item?id=49645480"
+    }
+  },
+  {
+    "date": "2026-09-13",
+    "artifactId": "the-eval",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Real-SWE: Benchmarking AI models on private, real-world, enterprise codebases",
+      "url": "https://news.ycombinator.com/item?id=49676820"
+    }
+  },
+  {
+    "date": "2026-09-13",
+    "artifactId": "the-gpu",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Nvidia is the central bank of AI",
+      "url": "https://news.ycombinator.com/item?id=49673098"
+    }
+  },
+  {
+    "date": "2026-09-13",
+    "artifactId": "the-leaderboard",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "Everyone should slow down AI development except for me",
+      "url": "https://news.ycombinator.com/item?id=49678683"
+    }
+  },
+  {
+    "date": "2026-09-13",
+    "artifactId": "the-paperclip",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "P(doom)",
+      "url": "https://news.ycombinator.com/item?id=49677450"
     }
   }
 ]
