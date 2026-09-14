@@ -1,55 +1,5 @@
 [
   {
-    "date": "2026-08-15",
-    "artifactId": "the-arxiv-timestamp",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "I turned my RSS feeds into an e-ink newspaper to stop reading on my phone",
-      "url": "https://news.ycombinator.com/item?id=49299081"
-    }
-  },
-  {
-    "date": "2026-08-15",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "Google is making private AI practical with homomorphic encryption",
-      "url": "https://news.ycombinator.com/item?id=49300314"
-    }
-  },
-  {
-    "date": "2026-08-15",
-    "artifactId": "the-exit",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "How to organize 3 acquired companies into one coherent website",
-      "url": "https://news.ycombinator.com/item?id=47999020"
-    }
-  },
-  {
-    "date": "2026-08-15",
-    "artifactId": "the-hallucinated-citation",
-    "payoutPerCopy": 10,
-    "receipt": {
-      "source": "hn",
-      "headline": "Don't classify, hallucinate",
-      "url": "https://news.ycombinator.com/item?id=49249523"
-    }
-  },
-  {
-    "date": "2026-08-15",
-    "artifactId": "the-wrapper",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "shadcn-ui/chatbot-template — A minimal chatbot template built with Next.js, AI SDK, shadcn/ui, shadcn/react, shadcn/typeset. It runs on the ",
-      "url": "https://github.com/shadcn-ui/chatbot-template"
-    }
-  },
-  {
     "date": "2026-08-16",
     "artifactId": "the-benchmark",
     "payoutPerCopy": 8,
@@ -1475,6 +1425,65 @@
       "source": "hn",
       "headline": "P(doom)",
       "url": "https://news.ycombinator.com/item?id=49677450"
+    }
+  },
+  {
+    "date": "2026-09-14",
+    "artifactId": "the-alignment-chart",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Astra and Fable still hack on simple variants of alignment evals from 2025",
+      "url": "https://news.ycombinator.com/item?id=49684393"
+    }
+  },
+  {
+    "date": "2026-09-14",
+    "artifactId": "the-benchmark",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "wiki",
+      "headline": "OpenAI"
+    }
+  },
+  {
+    "date": "2026-09-14",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "The case against JPEG XL",
+      "url": "https://news.ycombinator.com/item?id=49690554"
+    }
+  },
+  {
+    "date": "2026-09-14",
+    "artifactId": "the-eval",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Astra and Fable still hack on simple variants of alignment evals from 2025",
+      "url": "https://news.ycombinator.com/item?id=49684393"
+    }
+  },
+  {
+    "date": "2026-09-14",
+    "artifactId": "the-gpu",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "CUDA for AMD on Windows",
+      "url": "https://news.ycombinator.com/item?id=49684356"
+    }
+  },
+  {
+    "date": "2026-09-14",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "kruzovic7/ai-data-extractor — Free open-source extractor for AI coding assistant chat histories. Supports Claude Code, Cursor, Windsurf, Aid",
+      "url": "https://github.com/kruzovic7/ai-data-extractor"
     }
   }
 ]
