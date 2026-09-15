@@ -1,64 +1,5 @@
 [
   {
-    "date": "2026-08-16",
-    "artifactId": "the-benchmark",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "wiki",
-      "headline": "Meta AI"
-    }
-  },
-  {
-    "date": "2026-08-16",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "AI has access to a vastly larger working memory than the human brain",
-      "url": "https://news.ycombinator.com/item?id=49312845"
-    }
-  },
-  {
-    "date": "2026-08-16",
-    "artifactId": "the-exit",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "How to organize 3 acquired companies into one coherent website",
-      "url": "https://news.ycombinator.com/item?id=47999020"
-    }
-  },
-  {
-    "date": "2026-08-16",
-    "artifactId": "the-latency",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "Show HN: Mic Drop, a real-time multiplayer karaoke game",
-      "url": "https://news.ycombinator.com/item?id=49315742"
-    }
-  },
-  {
-    "date": "2026-08-16",
-    "artifactId": "the-leaderboard",
-    "payoutPerCopy": 10,
-    "receipt": {
-      "source": "hn",
-      "headline": "A fortuitous decade as an indie software developer",
-      "url": "https://news.ycombinator.com/item?id=49244872"
-    }
-  },
-  {
-    "date": "2026-08-16",
-    "artifactId": "the-wrapper",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "shadcn-ui/chatbot-template — A minimal chatbot template built with Next.js, AI SDK, shadcn/ui, shadcn/react, shadcn/typeset. It runs on the ",
-      "url": "https://github.com/shadcn-ui/chatbot-template"
-    }
-  },
-  {
     "date": "2026-08-17",
     "artifactId": "agi-in-two-weeks",
     "payoutPerCopy": 6,
@@ -1478,6 +1419,55 @@
   },
   {
     "date": "2026-09-14",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "kruzovic7/ai-data-extractor — Free open-source extractor for AI coding assistant chat histories. Supports Claude Code, Cursor, Windsurf, Aid",
+      "url": "https://github.com/kruzovic7/ai-data-extractor"
+    }
+  },
+  {
+    "date": "2026-09-15",
+    "artifactId": "agi-in-two-weeks",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "People who can't picture anything are rewriting the science of imagination",
+      "url": "https://news.ycombinator.com/item?id=49696453"
+    }
+  },
+  {
+    "date": "2026-09-15",
+    "artifactId": "the-benchmark",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "wiki",
+      "headline": "OpenAI"
+    }
+  },
+  {
+    "date": "2026-09-15",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "OpenAI bots knew about the RubyGems caching vulnerability",
+      "url": "https://news.ycombinator.com/item?id=49695876"
+    }
+  },
+  {
+    "date": "2026-09-15",
+    "artifactId": "the-leaderboard",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "When code is a maze, smart developers make maps (2025)",
+      "url": "https://news.ycombinator.com/item?id=49693690"
+    }
+  },
+  {
+    "date": "2026-09-15",
     "artifactId": "vibe-coding",
     "payoutPerCopy": 8,
     "receipt": {
