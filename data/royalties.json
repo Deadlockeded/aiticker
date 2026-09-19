@@ -1,74 +1,5 @@
 [
   {
-    "date": "2026-08-20",
-    "artifactId": "the-arxiv-timestamp",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "Manabu Kosaka's Handmade Paper Sculptures",
-      "url": "https://news.ycombinator.com/item?id=49362001"
-    }
-  },
-  {
-    "date": "2026-08-20",
-    "artifactId": "the-benchmark",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "wiki",
-      "headline": "xAI"
-    }
-  },
-  {
-    "date": "2026-08-20",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "A joke domain purchase turned in geopolitical warfare",
-      "url": "https://news.ycombinator.com/item?id=49360015"
-    }
-  },
-  {
-    "date": "2026-08-20",
-    "artifactId": "the-exit",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "How to organize 3 acquired companies into one coherent website",
-      "url": "https://news.ycombinator.com/item?id=47999020"
-    }
-  },
-  {
-    "date": "2026-08-20",
-    "artifactId": "the-gpu",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "Geolocating a random island using geometry and CUDA programming",
-      "url": "https://news.ycombinator.com/item?id=49360545"
-    }
-  },
-  {
-    "date": "2026-08-20",
-    "artifactId": "the-leaderboard",
-    "payoutPerCopy": 10,
-    "receipt": {
-      "source": "hn",
-      "headline": "Pacing model development in an era of cyber-critical capabilities",
-      "url": "https://news.ycombinator.com/item?id=49350031"
-    }
-  },
-  {
-    "date": "2026-08-20",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "CopilotKit/openbot — Open-source AI coworkers that each get a computer of their own: a browser, files and tools, with every action decided b",
-      "url": "https://github.com/CopilotKit/openbot"
-    }
-  },
-  {
     "date": "2026-08-21",
     "artifactId": "the-benchmark",
     "payoutPerCopy": 8,
@@ -1418,6 +1349,35 @@
   },
   {
     "date": "2026-09-18",
+    "artifactId": "the-wrapper",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "letorig/video-generator-client — Async Python wrapper for Seedance, Kling, MiniMax and Wan video generation. Supports CLI and a local web UI",
+      "url": "https://github.com/letorig/video-generator-client"
+    }
+  },
+  {
+    "date": "2026-09-19",
+    "artifactId": "the-benchmark",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "wiki",
+      "headline": "Google DeepMind"
+    }
+  },
+  {
+    "date": "2026-09-19",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "How to Write with an LLM",
+      "url": "https://news.ycombinator.com/item?id=49747070"
+    }
+  },
+  {
+    "date": "2026-09-19",
     "artifactId": "the-wrapper",
     "payoutPerCopy": 8,
     "receipt": {
