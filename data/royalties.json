@@ -1,35 +1,5 @@
 [
   {
-    "date": "2026-08-24",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "Why your local LLM feels dumber than it is",
-      "url": "https://news.ycombinator.com/item?id=49402232"
-    }
-  },
-  {
-    "date": "2026-08-24",
-    "artifactId": "the-off-switch",
-    "payoutPerCopy": 10,
-    "receipt": {
-      "source": "hn",
-      "headline": "Iranian hackers shut down UK power plant for 4 days",
-      "url": "https://news.ycombinator.com/item?id=49407509"
-    }
-  },
-  {
-    "date": "2026-08-24",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "missuo/herdrm — Native macOS console for herdr — all your coding agents and their live terminals, across devices",
-      "url": "https://github.com/missuo/herdrm"
-    }
-  },
-  {
     "date": "2026-08-25",
     "artifactId": "the-em-dash",
     "payoutPerCopy": 4,
@@ -1358,6 +1328,36 @@
   },
   {
     "date": "2026-09-22",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "zai-org/ZCode — Z.ai's coding agent harness. Powerful, intelligent, extensible.",
+      "url": "https://github.com/zai-org/ZCode"
+    }
+  },
+  {
+    "date": "2026-09-23",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "OpenAI GPT–6 Astra breaks Enigma message that has resisted solution since 2005",
+      "url": "https://news.ycombinator.com/item?id=49801324"
+    }
+  },
+  {
+    "date": "2026-09-23",
+    "artifactId": "the-eval",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Show HN: JevBench, a reproducible benchmark for typed decision models",
+      "url": "https://news.ycombinator.com/item?id=49800574"
+    }
+  },
+  {
+    "date": "2026-09-23",
     "artifactId": "vibe-coding",
     "payoutPerCopy": 8,
     "receipt": {
