@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-24T07:14:46.783Z",
+  "lastUpdated": "2026-09-25T07:09:37.073Z",
   "sources": {
     "wikipedia": {
       "ok": 60,
@@ -14,8 +14,8 @@
       "fail": 0
     },
     "huggingface": {
-      "ok": 7,
-      "fail": 3
+      "ok": 10,
+      "fail": 0
     },
     "hackernews": {
       "ok": 60,

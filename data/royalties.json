@@ -1,45 +1,5 @@
 [
   {
-    "date": "2026-08-26",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "OpenAI Jalapeño: Better than Nvidia Blackwell",
-      "url": "https://news.ycombinator.com/item?id=49434378"
-    }
-  },
-  {
-    "date": "2026-08-26",
-    "artifactId": "the-gpu",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "OpenAI Jalapeño: Better than Nvidia Blackwell",
-      "url": "https://news.ycombinator.com/item?id=49434378"
-    }
-  },
-  {
-    "date": "2026-08-26",
-    "artifactId": "the-turing-test",
-    "payoutPerCopy": 10,
-    "receipt": {
-      "source": "hn",
-      "headline": "New Mac mini, featuring M6 and M5 Pro",
-      "url": "https://news.ycombinator.com/item?id=49433450"
-    }
-  },
-  {
-    "date": "2026-08-26",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "GamePhanes/GamePhanes — An open-source game coding agent environment and benchmark for Godot.",
-      "url": "https://github.com/GamePhanes/GamePhanes"
-    }
-  },
-  {
     "date": "2026-08-27",
     "artifactId": "the-em-dash",
     "payoutPerCopy": 4,
@@ -1378,6 +1338,26 @@
   },
   {
     "date": "2026-09-24",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "zai-org/ZCode — Z.ai's coding agent harness. Powerful, intelligent, extensible.",
+      "url": "https://github.com/zai-org/ZCode"
+    }
+  },
+  {
+    "date": "2026-09-25",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Rails World 2026 Opening Keynote [video]",
+      "url": "https://news.ycombinator.com/item?id=49817680"
+    }
+  },
+  {
+    "date": "2026-09-25",
     "artifactId": "vibe-coding",
     "payoutPerCopy": 8,
     "receipt": {
