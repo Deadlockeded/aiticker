@@ -1,55 +1,5 @@
 [
   {
-    "date": "2026-08-27",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "CEO fired developers to make room for AI. Developers create open source AI CEO",
-      "url": "https://news.ycombinator.com/item?id=49458418"
-    }
-  },
-  {
-    "date": "2026-08-27",
-    "artifactId": "the-exit",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "Nvidia agrees to acquire Hugging Face for $13B",
-      "url": "https://news.ycombinator.com/item?id=49458161"
-    }
-  },
-  {
-    "date": "2026-08-27",
-    "artifactId": "the-gpu",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "Nvidia agrees to acquire Hugging Face for $13B",
-      "url": "https://news.ycombinator.com/item?id=49458161"
-    }
-  },
-  {
-    "date": "2026-08-27",
-    "artifactId": "the-leaderboard",
-    "payoutPerCopy": 10,
-    "receipt": {
-      "source": "hn",
-      "headline": "CEO fired developers to make room for AI. Developers create open source AI CEO",
-      "url": "https://news.ycombinator.com/item?id=49458418"
-    }
-  },
-  {
-    "date": "2026-08-27",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "GamePhanes/GamePhanes — An open-source game coding agent environment and benchmark for Godot.",
-      "url": "https://github.com/GamePhanes/GamePhanes"
-    }
-  },
-  {
     "date": "2026-08-28",
     "artifactId": "the-compute-cluster",
     "payoutPerCopy": 8,
@@ -1358,6 +1308,36 @@
   },
   {
     "date": "2026-09-25",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "zai-org/ZCode — Z.ai's coding agent harness. Powerful, intelligent, extensible.",
+      "url": "https://github.com/zai-org/ZCode"
+    }
+  },
+  {
+    "date": "2026-09-26",
+    "artifactId": "as-an-ai",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "Microsoft abandons personal AI chatbot race with Copilot reboot",
+      "url": "https://news.ycombinator.com/item?id=49844896"
+    }
+  },
+  {
+    "date": "2026-09-26",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "U.S. appeals court upholds designation of Anthropic as supply chain risk",
+      "url": "https://news.ycombinator.com/item?id=49845977"
+    }
+  },
+  {
+    "date": "2026-09-26",
     "artifactId": "vibe-coding",
     "payoutPerCopy": 8,
     "receipt": {
