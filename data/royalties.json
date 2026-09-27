@@ -1,25 +1,5 @@
 [
   {
-    "date": "2026-08-28",
-    "artifactId": "the-compute-cluster",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "EPA says power for data centers can sidestep pollution laws",
-      "url": "https://news.ycombinator.com/item?id=49478103"
-    }
-  },
-  {
-    "date": "2026-08-28",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "Small Models Have Arrived",
-      "url": "https://news.ycombinator.com/item?id=49466917"
-    }
-  },
-  {
     "date": "2026-08-29",
     "artifactId": "the-em-dash",
     "payoutPerCopy": 4,
@@ -1344,6 +1324,46 @@
       "source": "gh",
       "headline": "zai-org/ZCode — Z.ai's coding agent harness. Powerful, intelligent, extensible.",
       "url": "https://github.com/zai-org/ZCode"
+    }
+  },
+  {
+    "date": "2026-09-27",
+    "artifactId": "as-an-ai",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "An agent used DNS to reach an external chatbot",
+      "url": "https://news.ycombinator.com/item?id=49853137"
+    }
+  },
+  {
+    "date": "2026-09-27",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "How to keep enjoying programming in a world of LLMs",
+      "url": "https://news.ycombinator.com/item?id=49854875"
+    }
+  },
+  {
+    "date": "2026-09-27",
+    "artifactId": "the-latency",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Real-time feedback: My closing move in every interview",
+      "url": "https://news.ycombinator.com/item?id=49862244"
+    }
+  },
+  {
+    "date": "2026-09-27",
+    "artifactId": "the-token",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "Generate fonts where every LLM token is the same width",
+      "url": "https://news.ycombinator.com/item?id=49851883"
     }
   }
 ]
