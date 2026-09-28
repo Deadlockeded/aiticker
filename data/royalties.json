@@ -1,25 +1,5 @@
 [
   {
-    "date": "2026-08-29",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "U.S. sanctions against the A/I Collective",
-      "url": "https://news.ycombinator.com/item?id=49477854"
-    }
-  },
-  {
-    "date": "2026-08-29",
-    "artifactId": "the-exit",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "Our decision on Cursor following its acquisition by SpaceX",
-      "url": "https://news.ycombinator.com/item?id=49486172"
-    }
-  },
-  {
     "date": "2026-08-30",
     "artifactId": "the-em-dash",
     "payoutPerCopy": 4,
@@ -1364,6 +1344,46 @@
       "source": "hn",
       "headline": "Generate fonts where every LLM token is the same width",
       "url": "https://news.ycombinator.com/item?id=49851883"
+    }
+  },
+  {
+    "date": "2026-09-28",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Thinking fast and slow in AI: The role of metacognition (2021)",
+      "url": "https://news.ycombinator.com/item?id=49873241"
+    }
+  },
+  {
+    "date": "2026-09-28",
+    "artifactId": "the-gpu",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Owed a billion dollars in Nvidia stock",
+      "url": "https://news.ycombinator.com/item?id=49872723"
+    }
+  },
+  {
+    "date": "2026-09-28",
+    "artifactId": "the-valuation",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "Owed a billion dollars in Nvidia stock",
+      "url": "https://news.ycombinator.com/item?id=49872723"
+    }
+  },
+  {
+    "date": "2026-09-28",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "dzhng/jevgrep — Find code by asking what it does. A CLI for coding agents that uses Jev to discover relevant files and source context.",
+      "url": "https://github.com/dzhng/jevgrep"
     }
   }
 ]
