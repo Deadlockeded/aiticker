@@ -1,35 +1,5 @@
 [
   {
-    "date": "2026-08-30",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "Good Culture Is the Biggest Productivity Hack, Not AI",
-      "url": "https://news.ycombinator.com/item?id=49491568"
-    }
-  },
-  {
-    "date": "2026-08-30",
-    "artifactId": "the-eval",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "Benchmarking Pocket-Scale Inference",
-      "url": "https://news.ycombinator.com/item?id=49469786"
-    }
-  },
-  {
-    "date": "2026-08-30",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "hkqr/my-free-code — Open-source multi-provider AI gateway for Claude Code and other coding agents, with model routing, streaming, tools, rea",
-      "url": "https://github.com/hkqr/my-free-code"
-    }
-  },
-  {
     "date": "2026-08-31",
     "artifactId": "as-an-ai",
     "payoutPerCopy": 6,
@@ -1378,6 +1348,36 @@
   },
   {
     "date": "2026-09-28",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "dzhng/jevgrep — Find code by asking what it does. A CLI for coding agents that uses Jev to discover relevant files and source context.",
+      "url": "https://github.com/dzhng/jevgrep"
+    }
+  },
+  {
+    "date": "2026-09-29",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Jeff – Jev-compatible 0.8B decision models, trained at home, ~30 ms",
+      "url": "https://news.ycombinator.com/item?id=49883844"
+    }
+  },
+  {
+    "date": "2026-09-29",
+    "artifactId": "the-gpu",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Nvidia wants to put a watchdog chip next to every AI agent",
+      "url": "https://news.ycombinator.com/item?id=49879883"
+    }
+  },
+  {
+    "date": "2026-09-29",
     "artifactId": "vibe-coding",
     "payoutPerCopy": 8,
     "receipt": {
