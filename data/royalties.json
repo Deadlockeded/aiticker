@@ -1,45 +1,5 @@
 [
   {
-    "date": "2026-09-02",
-    "artifactId": "as-an-ai",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "The ChatGPT/Codex app bundles a full copy of LibreOffice",
-      "url": "https://news.ycombinator.com/item?id=49527396"
-    }
-  },
-  {
-    "date": "2026-09-02",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "How accurate have Ed Zitron's AI skeptic predictions been?",
-      "url": "https://news.ycombinator.com/item?id=49526069"
-    }
-  },
-  {
-    "date": "2026-09-02",
-    "artifactId": "the-leaderboard",
-    "payoutPerCopy": 10,
-    "receipt": {
-      "source": "hn",
-      "headline": "Launch HN: Nori Robotics (YC S26) – A low-cost humanoid robot for development",
-      "url": "https://news.ycombinator.com/item?id=49525153"
-    }
-  },
-  {
-    "date": "2026-09-02",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "hkqr/my-free-code — Open-source multi-provider AI gateway for Claude Code and other coding agents, with model routing, streaming, tools, rea",
-      "url": "https://github.com/hkqr/my-free-code"
-    }
-  },
-  {
     "date": "2026-09-03",
     "artifactId": "agi-in-two-weeks",
     "payoutPerCopy": 6,
@@ -1384,6 +1344,66 @@
       "source": "gh",
       "headline": "dzhng/jevgrep — Find code by asking what it does. A CLI for coding agents that uses Jev to discover relevant files and source context.",
       "url": "https://github.com/dzhng/jevgrep"
+    }
+  },
+  {
+    "date": "2026-10-02",
+    "artifactId": "the-arxiv-timestamp",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "ArXiv's Updated Rate Limit Policy",
+      "url": "https://news.ycombinator.com/item?id=49926512"
+    }
+  },
+  {
+    "date": "2026-10-02",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Clef: Open-weight decision models, and new RL fine-tuning platform",
+      "url": "https://news.ycombinator.com/item?id=49923692"
+    }
+  },
+  {
+    "date": "2026-10-02",
+    "artifactId": "the-gpu",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Show HN: Janus – Go binary that runs GGUF models via Vulkan on AMD/Intel/Nvidia",
+      "url": "https://news.ycombinator.com/item?id=49926773"
+    }
+  },
+  {
+    "date": "2026-10-02",
+    "artifactId": "the-leaderboard",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "CSS Bed: Classless CSS themes to use as starting points in web development",
+      "url": "https://news.ycombinator.com/item?id=49927212"
+    }
+  },
+  {
+    "date": "2026-10-02",
+    "artifactId": "the-rlhf-thumbs-up",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Clef: Open-weight decision models, and new RL fine-tuning platform",
+      "url": "https://news.ycombinator.com/item?id=49923692"
+    }
+  },
+  {
+    "date": "2026-10-02",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "Louis-CFM/coucou — A tiny friend that lives in your notch (macOS) or at the top of your screen (Windows, Linux) and keeps an eye on your cod",
+      "url": "https://github.com/Louis-CFM/coucou"
     }
   }
 ]
