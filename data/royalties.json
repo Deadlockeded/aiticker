@@ -1,35 +1,5 @@
 [
   {
-    "date": "2026-09-03",
-    "artifactId": "agi-in-two-weeks",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "Aging brains blend memories together instead of just forgetting them",
-      "url": "https://news.ycombinator.com/item?id=49535548"
-    }
-  },
-  {
-    "date": "2026-09-03",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "Can I opt out of my input or output data being used for training?",
-      "url": "https://news.ycombinator.com/item?id=49535284"
-    }
-  },
-  {
-    "date": "2026-09-03",
-    "artifactId": "the-temperature-slider",
-    "payoutPerCopy": 10,
-    "receipt": {
-      "source": "hn",
-      "headline": "Poisson Disk Sampling",
-      "url": "https://news.ycombinator.com/item?id=49536177"
-    }
-  },
-  {
     "date": "2026-09-04",
     "artifactId": "the-em-dash",
     "payoutPerCopy": 4,
@@ -1398,6 +1368,86 @@
   },
   {
     "date": "2026-10-02",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "Louis-CFM/coucou — A tiny friend that lives in your notch (macOS) or at the top of your screen (Windows, Linux) and keeps an eye on your cod",
+      "url": "https://github.com/Louis-CFM/coucou"
+    }
+  },
+  {
+    "date": "2026-10-03",
+    "artifactId": "agi-in-two-weeks",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "Loss of cell identity drives human aging: Two new papers",
+      "url": "https://news.ycombinator.com/item?id=49926411"
+    }
+  },
+  {
+    "date": "2026-10-03",
+    "artifactId": "as-an-ai",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "Sites in ChatGPT",
+      "url": "https://news.ycombinator.com/item?id=49927747"
+    }
+  },
+  {
+    "date": "2026-10-03",
+    "artifactId": "the-arxiv-timestamp",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "Loss of cell identity drives human aging: Two new papers",
+      "url": "https://news.ycombinator.com/item?id=49926411"
+    }
+  },
+  {
+    "date": "2026-10-03",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Show HN: Giving Opus 5.5 a simulated paint canvas",
+      "url": "https://news.ycombinator.com/item?id=49928566"
+    }
+  },
+  {
+    "date": "2026-10-03",
+    "artifactId": "the-leaderboard",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "OKI Develops 124-Layer PCB Technology",
+      "url": "https://news.ycombinator.com/item?id=49921825"
+    }
+  },
+  {
+    "date": "2026-10-03",
+    "artifactId": "the-valuation",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "Billions of triangles redux",
+      "url": "https://news.ycombinator.com/item?id=49912091"
+    }
+  },
+  {
+    "date": "2026-10-03",
+    "artifactId": "the-wrapper",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "facebookincubator/muse-gadget-sdk — Open source SDK to build Muse gadgets",
+      "url": "https://github.com/facebookincubator/muse-gadget-sdk"
+    }
+  },
+  {
+    "date": "2026-10-03",
     "artifactId": "vibe-coding",
     "payoutPerCopy": 8,
     "receipt": {
