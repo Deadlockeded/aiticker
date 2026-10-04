@@ -1,45 +1,5 @@
 [
   {
-    "date": "2026-09-04",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "Qwen 3.8 27B available on Cerebras at 1500 tokens/s",
-      "url": "https://news.ycombinator.com/item?id=49554520"
-    }
-  },
-  {
-    "date": "2026-09-04",
-    "artifactId": "the-leaderboard",
-    "payoutPerCopy": 10,
-    "receipt": {
-      "source": "hn",
-      "headline": "The asteroid currently hitting front end web development",
-      "url": "https://news.ycombinator.com/item?id=49555233"
-    }
-  },
-  {
-    "date": "2026-09-04",
-    "artifactId": "the-token",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "Qwen 3.8 27B available on Cerebras at 1500 tokens/s",
-      "url": "https://news.ycombinator.com/item?id=49554520"
-    }
-  },
-  {
-    "date": "2026-09-04",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "lnkiai/m3e-canvas — Sketch Material 3 Expressive screens in the browser and turn them into vibe-coding prompts.",
-      "url": "https://github.com/lnkiai/m3e-canvas"
-    }
-  },
-  {
     "date": "2026-09-05",
     "artifactId": "the-em-dash",
     "payoutPerCopy": 4,
@@ -1454,6 +1414,56 @@
       "source": "gh",
       "headline": "Louis-CFM/coucou — A tiny friend that lives in your notch (macOS) or at the top of your screen (Windows, Linux) and keeps an eye on your cod",
       "url": "https://github.com/Louis-CFM/coucou"
+    }
+  },
+  {
+    "date": "2026-10-04",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Kolibri: A Sovereign Open-Weight Model",
+      "url": "https://news.ycombinator.com/item?id=49942706"
+    }
+  },
+  {
+    "date": "2026-10-04",
+    "artifactId": "the-gpu",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "The work by Valve's Timur Kristóf on improving old AMD GPUs on Linux",
+      "url": "https://news.ycombinator.com/item?id=49946895"
+    }
+  },
+  {
+    "date": "2026-10-04",
+    "artifactId": "the-leaderboard",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "Why don't more developers \"use the platform\"?",
+      "url": "https://news.ycombinator.com/item?id=49950554"
+    }
+  },
+  {
+    "date": "2026-10-04",
+    "artifactId": "the-wrapper",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "facebookincubator/muse-gadget-sdk — Open source SDK to build Muse gadgets",
+      "url": "https://github.com/facebookincubator/muse-gadget-sdk"
+    }
+  },
+  {
+    "date": "2026-10-04",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "CopilotKit/OpenDots — Your always-on AI coworkers that move between text, calls, and Slack.",
+      "url": "https://github.com/CopilotKit/OpenDots"
     }
   }
 ]
