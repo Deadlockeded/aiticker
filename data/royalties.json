@@ -1,65 +1,5 @@
 [
   {
-    "date": "2026-09-06",
-    "artifactId": "the-demo",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "Balrogg: Demonically compacting (up to 15%) lossless Vorbis/Opus recompressor",
-      "url": "https://news.ycombinator.com/item?id=49549778"
-    }
-  },
-  {
-    "date": "2026-09-06",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "Discovery of a new OpenAI agent message board",
-      "url": "https://news.ycombinator.com/item?id=49563355"
-    }
-  },
-  {
-    "date": "2026-09-06",
-    "artifactId": "the-eval",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "OpenBSD Stories: Strange Medieval Devices",
-      "url": "https://news.ycombinator.com/item?id=49539759"
-    }
-  },
-  {
-    "date": "2026-09-06",
-    "artifactId": "the-leaderboard",
-    "payoutPerCopy": 10,
-    "receipt": {
-      "source": "hn",
-      "headline": "AMD Based FreeBSD Desktop Reloaded",
-      "url": "https://news.ycombinator.com/item?id=49582719"
-    }
-  },
-  {
-    "date": "2026-09-06",
-    "artifactId": "the-wrapper",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "sonicloudco/recorder — Recorder Sdk",
-      "url": "https://github.com/sonicloudco/recorder"
-    }
-  },
-  {
-    "date": "2026-09-06",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "lnkiai/m3e-canvas — Sketch Material 3 Expressive screens in the browser and turn them into vibe-coding prompts.",
-      "url": "https://github.com/lnkiai/m3e-canvas"
-    }
-  },
-  {
     "date": "2026-09-07",
     "artifactId": "the-em-dash",
     "payoutPerCopy": 4,
@@ -1484,6 +1424,56 @@
       "source": "gh",
       "headline": "CopilotKit/OpenDots — Your always-on AI coworkers that move between text, calls, and Slack.",
       "url": "https://github.com/CopilotKit/OpenDots"
+    }
+  },
+  {
+    "date": "2026-10-06",
+    "artifactId": "as-an-ai",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "ChatGPT is adding real cartoonists' signatures to fake New Yorker cartoons",
+      "url": "https://news.ycombinator.com/item?id=49971846"
+    }
+  },
+  {
+    "date": "2026-10-06",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Beam: Reflection's 501B open-weight model",
+      "url": "https://news.ycombinator.com/item?id=49969183"
+    }
+  },
+  {
+    "date": "2026-10-06",
+    "artifactId": "the-leaderboard",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "Anthropic reported diary entry to police, woman faces felony charge",
+      "url": "https://news.ycombinator.com/item?id=49961057"
+    }
+  },
+  {
+    "date": "2026-10-06",
+    "artifactId": "the-temperature-slider",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "Opus 5.5 agents discover two room-temperature magnetic semiconductor candidates",
+      "url": "https://news.ycombinator.com/item?id=49970667"
+    }
+  },
+  {
+    "date": "2026-10-06",
+    "artifactId": "the-wrapper",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "facebookincubator/muse-gadget-sdk — Open source SDK to build Muse gadgets",
+      "url": "https://github.com/facebookincubator/muse-gadget-sdk"
     }
   }
 ]
