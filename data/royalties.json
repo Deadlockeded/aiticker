@@ -1,74 +1,5 @@
 [
   {
-    "date": "2026-09-09",
-    "artifactId": "as-an-ai",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "ChatGPT Images 2.5",
-      "url": "https://news.ycombinator.com/item?id=49614720"
-    }
-  },
-  {
-    "date": "2026-09-09",
-    "artifactId": "the-benchmark",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "wiki",
-      "headline": "Mistral"
-    }
-  },
-  {
-    "date": "2026-09-09",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "Muse – Meta’s personal AI agent",
-      "url": "https://news.ycombinator.com/item?id=49615537"
-    }
-  },
-  {
-    "date": "2026-09-09",
-    "artifactId": "the-eval",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "Benchmarking Qwen3.8 27B quantizations: 4-bit holds up, 1-bit collapses",
-      "url": "https://news.ycombinator.com/item?id=49611128"
-    }
-  },
-  {
-    "date": "2026-09-09",
-    "artifactId": "the-gpu",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "27.5KB language-agnostic WebGPU syntax highlighter",
-      "url": "https://news.ycombinator.com/item?id=49619464"
-    }
-  },
-  {
-    "date": "2026-09-09",
-    "artifactId": "the-leaderboard",
-    "payoutPerCopy": 10,
-    "receipt": {
-      "source": "hn",
-      "headline": "Large language models develop novel social biases through adaptive exploration",
-      "url": "https://news.ycombinator.com/item?id=49617581"
-    }
-  },
-  {
-    "date": "2026-09-09",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "okf-memory/okf-agent-memory — Git-native persistent memory for AI coding agents. Implements Google OKF v0.2 with sub-300µs in-memory BM25 se",
-      "url": "https://github.com/okf-memory/okf-agent-memory"
-    }
-  },
-  {
     "date": "2026-09-10",
     "artifactId": "the-alignment-chart",
     "payoutPerCopy": 8,
@@ -1518,6 +1449,45 @@
   },
   {
     "date": "2026-10-08",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "shinshin86/mesh-avatar-studio — Turn one illustration into an animated 2D mesh avatar with a coding agent and a local editor",
+      "url": "https://github.com/shinshin86/mesh-avatar-studio"
+    }
+  },
+  {
+    "date": "2026-10-09",
+    "artifactId": "the-benchmark",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "wiki",
+      "headline": "Mistral"
+    }
+  },
+  {
+    "date": "2026-10-09",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "OpenAI withdraws three mathematical results",
+      "url": "https://news.ycombinator.com/item?id=50002650"
+    }
+  },
+  {
+    "date": "2026-10-09",
+    "artifactId": "the-eval",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Scaling and benchmarking a critical message bus using a new indexing strategy",
+      "url": "https://news.ycombinator.com/item?id=50009066"
+    }
+  },
+  {
+    "date": "2026-10-09",
     "artifactId": "vibe-coding",
     "payoutPerCopy": 8,
     "receipt": {
