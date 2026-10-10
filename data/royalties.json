@@ -1,54 +1,5 @@
 [
   {
-    "date": "2026-09-10",
-    "artifactId": "the-alignment-chart",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "A Stupid Idea for AI Alignment We Came with by Looking at Specification Gaming",
-      "url": "https://news.ycombinator.com/item?id=49637395"
-    }
-  },
-  {
-    "date": "2026-09-10",
-    "artifactId": "the-benchmark",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "wiki",
-      "headline": "OpenAI"
-    }
-  },
-  {
-    "date": "2026-09-10",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "Shopify acquires Tailwind",
-      "url": "https://news.ycombinator.com/item?id=49626190"
-    }
-  },
-  {
-    "date": "2026-09-10",
-    "artifactId": "the-exit",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "Shopify acquires Tailwind",
-      "url": "https://news.ycombinator.com/item?id=49626190"
-    }
-  },
-  {
-    "date": "2026-09-10",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "okf-memory/okf-agent-memory — Git-native persistent memory for AI coding agents. Implements Google OKF v0.2 with sub-300µs in-memory BM25 se",
-      "url": "https://github.com/okf-memory/okf-agent-memory"
-    }
-  },
-  {
     "date": "2026-09-11",
     "artifactId": "agi-in-two-weeks",
     "payoutPerCopy": 6,
@@ -1488,6 +1439,55 @@
   },
   {
     "date": "2026-10-09",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "shinshin86/mesh-avatar-studio — Turn one illustration into an animated 2D mesh avatar with a coding agent and a local editor",
+      "url": "https://github.com/shinshin86/mesh-avatar-studio"
+    }
+  },
+  {
+    "date": "2026-10-10",
+    "artifactId": "the-benchmark",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "wiki",
+      "headline": "Mistral"
+    }
+  },
+  {
+    "date": "2026-10-10",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Typesafe AI raises $870M at $7.5B",
+      "url": "https://news.ycombinator.com/item?id=50023450"
+    }
+  },
+  {
+    "date": "2026-10-10",
+    "artifactId": "the-exit",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Cloudflare acquires Deno",
+      "url": "https://news.ycombinator.com/item?id=50019911"
+    }
+  },
+  {
+    "date": "2026-10-10",
+    "artifactId": "the-term-sheet",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "Typesafe AI raises $870M at $7.5B",
+      "url": "https://news.ycombinator.com/item?id=50023450"
+    }
+  },
+  {
+    "date": "2026-10-10",
     "artifactId": "vibe-coding",
     "payoutPerCopy": 8,
     "receipt": {
