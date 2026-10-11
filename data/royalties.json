@@ -1,64 +1,5 @@
 [
   {
-    "date": "2026-09-11",
-    "artifactId": "agi-in-two-weeks",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "Working with Git Worktrees in Magit",
-      "url": "https://news.ycombinator.com/item?id=49606281"
-    }
-  },
-  {
-    "date": "2026-09-11",
-    "artifactId": "the-benchmark",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "wiki",
-      "headline": "OpenAI"
-    }
-  },
-  {
-    "date": "2026-09-11",
-    "artifactId": "the-burn-rate",
-    "payoutPerCopy": 10,
-    "receipt": {
-      "source": "hn",
-      "headline": "NTSB issues investigative update on B-767 runway excursion accident in Miami",
-      "url": "https://news.ycombinator.com/item?id=49650418"
-    }
-  },
-  {
-    "date": "2026-09-11",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "More questions about whether researchers can trust OpenAI with unpublished math",
-      "url": "https://news.ycombinator.com/item?id=49639408"
-    }
-  },
-  {
-    "date": "2026-09-11",
-    "artifactId": "the-gpu",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "Thelio Mira AI Linux Workstation: 192 GB GPU Memory",
-      "url": "https://news.ycombinator.com/item?id=49651372"
-    }
-  },
-  {
-    "date": "2026-09-11",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "okf-memory/okf-agent-memory — Git-native persistent memory for AI coding agents. Implements Google OKF v0.2 with sub-300µs in-memory BM25 se",
-      "url": "https://github.com/okf-memory/okf-agent-memory"
-    }
-  },
-  {
     "date": "2026-09-12",
     "artifactId": "the-alignment-chart",
     "payoutPerCopy": 8,
@@ -1494,6 +1435,65 @@
       "source": "gh",
       "headline": "shinshin86/mesh-avatar-studio — Turn one illustration into an animated 2D mesh avatar with a coding agent and a local editor",
       "url": "https://github.com/shinshin86/mesh-avatar-studio"
+    }
+  },
+  {
+    "date": "2026-10-11",
+    "artifactId": "the-arxiv-timestamp",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "GameBoy on E-Paper ESP32 at 30FPS [video]",
+      "url": "https://news.ycombinator.com/item?id=50039536"
+    }
+  },
+  {
+    "date": "2026-10-11",
+    "artifactId": "the-benchmark",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "wiki",
+      "headline": "Mistral"
+    }
+  },
+  {
+    "date": "2026-10-11",
+    "artifactId": "the-compute-cluster",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "3rd Yandex Cloud Data Center Was Hit",
+      "url": "https://news.ycombinator.com/item?id=50040547"
+    }
+  },
+  {
+    "date": "2026-10-11",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Grieving the loss of details",
+      "url": "https://news.ycombinator.com/item?id=49980880"
+    }
+  },
+  {
+    "date": "2026-10-11",
+    "artifactId": "the-exit",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Cloudflare acquires Deno",
+      "url": "https://news.ycombinator.com/item?id=50019911"
+    }
+  },
+  {
+    "date": "2026-10-11",
+    "artifactId": "the-token",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "500B Tokens Later: Letting AI Agents Decompile a First-Person Shooter",
+      "url": "https://news.ycombinator.com/item?id=50039092"
     }
   }
 ]
