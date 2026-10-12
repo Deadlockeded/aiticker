@@ -1,74 +1,5 @@
 [
   {
-    "date": "2026-09-12",
-    "artifactId": "the-alignment-chart",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "A misalignment of AI in mathematics",
-      "url": "https://news.ycombinator.com/item?id=49662371"
-    }
-  },
-  {
-    "date": "2026-09-12",
-    "artifactId": "the-benchmark",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "wiki",
-      "headline": "OpenAI"
-    }
-  },
-  {
-    "date": "2026-09-12",
-    "artifactId": "the-compute-cluster",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "The EPA is planning to scrap public review rules for data center pollution",
-      "url": "https://news.ycombinator.com/item?id=49662672"
-    }
-  },
-  {
-    "date": "2026-09-12",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "A misalignment of AI in mathematics",
-      "url": "https://news.ycombinator.com/item?id=49662371"
-    }
-  },
-  {
-    "date": "2026-09-12",
-    "artifactId": "the-eval",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "RTK reports token savings, but our cost benchmarks disagree",
-      "url": "https://news.ycombinator.com/item?id=49656471"
-    }
-  },
-  {
-    "date": "2026-09-12",
-    "artifactId": "the-token",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "RTK reports token savings, but our cost benchmarks disagree",
-      "url": "https://news.ycombinator.com/item?id=49656471"
-    }
-  },
-  {
-    "date": "2026-09-12",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "yudaprasetya007/routeVSCODE — ⚡ Zero-reload dynamic AI model switcher & local proxy for VSCode Copilot Chat via 9Router",
-      "url": "https://github.com/yudaprasetya007/routeVSCODE"
-    }
-  },
-  {
     "date": "2026-09-13",
     "artifactId": "the-arxiv-timestamp",
     "payoutPerCopy": 6,
@@ -1494,6 +1425,55 @@
       "source": "hn",
       "headline": "500B Tokens Later: Letting AI Agents Decompile a First-Person Shooter",
       "url": "https://news.ycombinator.com/item?id=50039092"
+    }
+  },
+  {
+    "date": "2026-10-12",
+    "artifactId": "the-benchmark",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "wiki",
+      "headline": "Mistral"
+    }
+  },
+  {
+    "date": "2026-10-12",
+    "artifactId": "the-compute-cluster",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Google Data Centers around the world",
+      "url": "https://news.ycombinator.com/item?id=50048768"
+    }
+  },
+  {
+    "date": "2026-10-12",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "The gap in shared understanding of LLM capability is widening",
+      "url": "https://news.ycombinator.com/item?id=50047422"
+    }
+  },
+  {
+    "date": "2026-10-12",
+    "artifactId": "the-gpu",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Running the unmodified Linux amdgpu driver on an iPad",
+      "url": "https://news.ycombinator.com/item?id=50041573"
+    }
+  },
+  {
+    "date": "2026-10-12",
+    "artifactId": "the-token",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "Local Indexing to reduce tool calling and token usage",
+      "url": "https://news.ycombinator.com/item?id=50049508"
     }
   }
 ]
