@@ -1,74 +1,5 @@
 [
   {
-    "date": "2026-09-13",
-    "artifactId": "the-arxiv-timestamp",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "Vintage Scientific Papers with LaTeX",
-      "url": "https://news.ycombinator.com/item?id=49629624"
-    }
-  },
-  {
-    "date": "2026-09-13",
-    "artifactId": "the-benchmark",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "wiki",
-      "headline": "OpenAI"
-    }
-  },
-  {
-    "date": "2026-09-13",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "LG denies TV spying claims, says tracking and snooping concerns 'not true'",
-      "url": "https://news.ycombinator.com/item?id=49645480"
-    }
-  },
-  {
-    "date": "2026-09-13",
-    "artifactId": "the-eval",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "Real-SWE: Benchmarking AI models on private, real-world, enterprise codebases",
-      "url": "https://news.ycombinator.com/item?id=49676820"
-    }
-  },
-  {
-    "date": "2026-09-13",
-    "artifactId": "the-gpu",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "Nvidia is the central bank of AI",
-      "url": "https://news.ycombinator.com/item?id=49673098"
-    }
-  },
-  {
-    "date": "2026-09-13",
-    "artifactId": "the-leaderboard",
-    "payoutPerCopy": 10,
-    "receipt": {
-      "source": "hn",
-      "headline": "Everyone should slow down AI development except for me",
-      "url": "https://news.ycombinator.com/item?id=49678683"
-    }
-  },
-  {
-    "date": "2026-09-13",
-    "artifactId": "the-paperclip",
-    "payoutPerCopy": 10,
-    "receipt": {
-      "source": "hn",
-      "headline": "P(doom)",
-      "url": "https://news.ycombinator.com/item?id=49677450"
-    }
-  },
-  {
     "date": "2026-09-14",
     "artifactId": "the-alignment-chart",
     "payoutPerCopy": 8,
@@ -1474,6 +1405,55 @@
       "source": "hn",
       "headline": "Local Indexing to reduce tool calling and token usage",
       "url": "https://news.ycombinator.com/item?id=50049508"
+    }
+  },
+  {
+    "date": "2026-10-13",
+    "artifactId": "the-benchmark",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "wiki",
+      "headline": "Mistral"
+    }
+  },
+  {
+    "date": "2026-10-13",
+    "artifactId": "the-demo",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "Writing a Demoscene Intro for the ZX Spectrum",
+      "url": "https://news.ycombinator.com/item?id=50061859"
+    }
+  },
+  {
+    "date": "2026-10-13",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "AI is a tool and using it well takes skill",
+      "url": "https://news.ycombinator.com/item?id=50063427"
+    }
+  },
+  {
+    "date": "2026-10-13",
+    "artifactId": "the-gpu",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Intel D270 GPU AI Accelerator–Up to 480 GB LPDDR5X",
+      "url": "https://news.ycombinator.com/item?id=50063365"
+    }
+  },
+  {
+    "date": "2026-10-13",
+    "artifactId": "the-leaderboard",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "Auto Research: Integer multiplication below n log n",
+      "url": "https://news.ycombinator.com/item?id=50047664"
     }
   }
 ]
