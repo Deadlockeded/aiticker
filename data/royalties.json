@@ -1,54 +1,5 @@
 [
   {
-    "date": "2026-09-15",
-    "artifactId": "agi-in-two-weeks",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "People who can't picture anything are rewriting the science of imagination",
-      "url": "https://news.ycombinator.com/item?id=49696453"
-    }
-  },
-  {
-    "date": "2026-09-15",
-    "artifactId": "the-benchmark",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "wiki",
-      "headline": "OpenAI"
-    }
-  },
-  {
-    "date": "2026-09-15",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "OpenAI bots knew about the RubyGems caching vulnerability",
-      "url": "https://news.ycombinator.com/item?id=49695876"
-    }
-  },
-  {
-    "date": "2026-09-15",
-    "artifactId": "the-leaderboard",
-    "payoutPerCopy": 10,
-    "receipt": {
-      "source": "hn",
-      "headline": "When code is a maze, smart developers make maps (2025)",
-      "url": "https://news.ycombinator.com/item?id=49693690"
-    }
-  },
-  {
-    "date": "2026-09-15",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "kruzovic7/ai-data-extractor — Free open-source extractor for AI coding assistant chat histories. Supports Claude Code, Cursor, Windsurf, Aid",
-      "url": "https://github.com/kruzovic7/ai-data-extractor"
-    }
-  },
-  {
     "date": "2026-09-16",
     "artifactId": "the-benchmark",
     "payoutPerCopy": 8,
@@ -1435,6 +1386,16 @@
       "source": "gh",
       "headline": "tcchen2026/VibeOffice — A free office suite that runs in your browser, in the style of Office 2003. Nothing to install, no account, no serve",
       "url": "https://github.com/tcchen2026/VibeOffice"
+    }
+  },
+  {
+    "date": "2026-10-15",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Containment and monitoring failures are to blame for AI hacking reports: experts",
+      "url": "https://news.ycombinator.com/item?id=50091788"
     }
   }
 ]

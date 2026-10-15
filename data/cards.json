@@ -44,8 +44,8 @@
     "wikipediaSlug": "Sam_Altman",
     "openalexId": "A5113523936",
     "signals": {
-      "attention7d": 92543,
-      "attentionDelta": -1.8,
+      "attention7d": 90604,
+      "attentionDelta": -3.6,
       "citations": 117,
       "hIndex": 4,
       "works": 18,
@@ -497,6 +497,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 2152.58
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 2146.38
       }
     ],
     "quips": [
@@ -557,11 +561,11 @@
     "wikipediaSlug": "Ilya_Sutskever",
     "openalexId": "A5006446297",
     "signals": {
-      "attention7d": 26459,
-      "attentionDelta": 22.9,
-      "citations": 241614,
+      "attention7d": 23605,
+      "attentionDelta": 2.5,
+      "citations": 241637,
       "hIndex": 60,
-      "works": 107,
+      "works": 108,
       "hnMentions7d": 0
     },
     "priceHistory": [
@@ -1010,6 +1014,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1603.1
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1606.31
       }
     ],
     "quips": [
@@ -1071,13 +1079,13 @@
     "openalexId": "A5009290031",
     "githubUser": "karpathy",
     "signals": {
-      "attention7d": 9725,
-      "attentionDelta": 21.2,
-      "citations": 56091,
+      "attention7d": 10079,
+      "attentionDelta": 27.9,
+      "citations": 56097,
       "hIndex": 19,
-      "works": 25,
-      "stars": 402190,
-      "ghFollowers": 225942,
+      "works": 31,
+      "stars": 402350,
+      "ghFollowers": 226115,
       "hnMentions7d": 1
     },
     "priceHistory": [
@@ -1526,6 +1534,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1063.08
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1086.81
       }
     ],
     "quips": [
@@ -1581,9 +1593,9 @@
     "wikipediaSlug": "Demis_Hassabis",
     "openalexId": "A5005349213",
     "signals": {
-      "attention7d": 15049,
-      "attentionDelta": -5.2,
-      "citations": 189880,
+      "attention7d": 14786,
+      "attentionDelta": -1.6,
+      "citations": 189980,
       "hIndex": 92,
       "works": 180,
       "hnMentions7d": 0
@@ -2034,6 +2046,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1519.77
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1517.82
       }
     ],
     "quips": [
@@ -2082,9 +2098,9 @@
     ],
     "wikipediaSlug": "Jensen_Huang",
     "signals": {
-      "attention7d": 44059,
-      "attentionDelta": -15.1,
-      "hnMentions7d": 3
+      "attention7d": 43729,
+      "attentionDelta": -5,
+      "hnMentions7d": 2
     },
     "priceHistory": [
       {
@@ -2532,6 +2548,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1970.86
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1962.98
       }
     ],
     "quips": [
@@ -2587,12 +2607,12 @@
     "wikipediaSlug": "Geoffrey_Hinton",
     "openalexId": "A5108093963",
     "signals": {
-      "attention7d": 30197,
-      "attentionDelta": 54,
-      "citations": 501550,
+      "attention7d": 31356,
+      "attentionDelta": 55.2,
+      "citations": 501635,
       "hIndex": 145,
       "works": 560,
-      "hnMentions7d": 3
+      "hnMentions7d": 4
     },
     "priceHistory": [
       {
@@ -3040,6 +3060,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 2010.95
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 2099.75
       }
     ],
     "quips": [
@@ -3079,12 +3103,12 @@
     "githubOrg": "openai",
     "hfOrg": "openai",
     "signals": {
-      "attention7d": 59007,
-      "attentionDelta": -2.2,
-      "stars": 539672,
-      "hfDownloads30d": 56813843,
-      "hfLikes": 32429,
-      "hnMentions7d": 120
+      "attention7d": 58560,
+      "attentionDelta": 1.4,
+      "stars": 540011,
+      "hfDownloads30d": 56677282,
+      "hfLikes": 32454,
+      "hnMentions7d": 129
     },
     "priceHistory": [
       {
@@ -3532,6 +3556,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1507.24
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1508.93
       }
     ],
     "quips": [
@@ -3588,9 +3616,9 @@
     "wikipediaSlug": "Dario_Amodei",
     "openalexId": "A5066197394",
     "signals": {
-      "attention7d": 57164,
-      "attentionDelta": -45.8,
-      "citations": 17687,
+      "attention7d": 54823,
+      "attentionDelta": -35.9,
+      "citations": 17692,
       "hIndex": 32,
       "works": 53,
       "hnMentions7d": 1
@@ -4041,6 +4069,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1765.09
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1714.4
       }
     ],
     "quips": [
@@ -4096,9 +4128,9 @@
     "wikipediaSlug": "Yann_LeCun",
     "openalexId": "A5001226970",
     "signals": {
-      "attention7d": 7171,
-      "attentionDelta": -12.3,
-      "citations": 198202,
+      "attention7d": 7298,
+      "attentionDelta": -10.5,
+      "citations": 198254,
       "hIndex": 125,
       "works": 548,
       "hnMentions7d": 0
@@ -4549,6 +4581,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1665.2
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1651.21
       }
     ],
     "quips": [
@@ -4602,9 +4638,9 @@
     ],
     "wikipediaSlug": "Elon_Musk",
     "signals": {
-      "attention7d": 177424,
-      "attentionDelta": 14.6,
-      "hnMentions7d": 9
+      "attention7d": 181119,
+      "attentionDelta": 17.3,
+      "hnMentions7d": 10
     },
     "priceHistory": [
       {
@@ -5052,6 +5088,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1164.84
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1180.96
       }
     ],
     "quips": [
@@ -5102,11 +5142,11 @@
     "wikipediaSlug": "Liang_Wenfeng",
     "openalexId": "A5009435651",
     "signals": {
-      "attention7d": 2426,
+      "attention7d": 2386,
       "attentionDelta": -3.3,
-      "citations": 5662,
+      "citations": 5664,
       "hIndex": 38,
-      "works": 143,
+      "works": 144,
       "hnMentions7d": 0
     },
     "priceHistory": [
@@ -5555,6 +5595,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 851.84
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 849.59
       }
     ],
     "quips": [
@@ -5594,11 +5638,11 @@
     "githubOrg": "google-deepmind",
     "hfOrg": "google",
     "signals": {
-      "attention7d": 8070,
-      "attentionDelta": 1.2,
-      "stars": 69580,
-      "hfDownloads30d": 121706683,
-      "hfLikes": 33211,
+      "attention7d": 8044,
+      "attentionDelta": 2.8,
+      "stars": 69622,
+      "hfDownloads30d": 120122161,
+      "hfLikes": 33261,
       "hnMentions7d": 4
     },
     "priceHistory": [
@@ -6047,6 +6091,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1248.25
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1251.05
       }
     ],
     "quips": [
@@ -6086,11 +6134,11 @@
     "githubOrg": "NVIDIA",
     "hfOrg": "nvidia",
     "signals": {
-      "attention7d": 36876,
-      "attentionDelta": 4.1,
-      "stars": 137341,
-      "hfDownloads30d": 33113189,
-      "hfLikes": 20922,
+      "attention7d": 36500,
+      "attentionDelta": 5.2,
+      "stars": 133245,
+      "hfDownloads30d": 32962992,
+      "hfLikes": 21219,
       "hnMentions7d": 48
     },
     "priceHistory": [
@@ -6539,6 +6587,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1046.98
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1051.34
       }
     ],
     "quips": [
@@ -6588,8 +6640,8 @@
     "wikipediaSlug": "Greg_Brockman",
     "githubUser": "gdb",
     "signals": {
-      "attention7d": 9074,
-      "attentionDelta": -59.5,
+      "attention7d": 8396,
+      "attentionDelta": -45.6,
       "stars": 1510,
       "ghFollowers": 3985,
       "hnMentions7d": 0
@@ -7040,6 +7092,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1437.1
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1384.67
       }
     ],
     "quips": [
@@ -7094,8 +7150,8 @@
     "dailyBlurb": "Two billion dollars raised on a blank page. The bet is entirely on her judgment.",
     "wikipediaSlug": "Mira_Murati",
     "signals": {
-      "attention7d": 11894,
-      "attentionDelta": 4.5,
+      "attention7d": 10901,
+      "attentionDelta": -10.3,
       "hnMentions7d": 0
     },
     "priceHistory": [
@@ -7544,6 +7600,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1274.78
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1264.28
       }
     ],
     "quips": [
@@ -7599,9 +7659,9 @@
     "wikipediaSlug": "Yoshua_Bengio",
     "openalexId": "A5086198262",
     "signals": {
-      "attention7d": 5074,
+      "attention7d": 5049,
       "attentionDelta": -17.5,
-      "citations": 527773,
+      "citations": 527881,
       "hIndex": 187,
       "works": 1570,
       "hnMentions7d": 2
@@ -8052,6 +8112,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1765.38
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1740.66
       }
     ],
     "quips": [
@@ -8106,12 +8170,12 @@
     "wikipediaSlug": "Fei-Fei_Li",
     "openalexId": "A5100450462",
     "signals": {
-      "attention7d": 8008,
-      "attentionDelta": -62.9,
-      "citations": 213900,
+      "attention7d": 7853,
+      "attentionDelta": -48.5,
+      "citations": 213925,
       "hIndex": 134,
       "works": 616,
-      "hnMentions7d": 1
+      "hnMentions7d": 0
     },
     "priceHistory": [
       {
@@ -8559,6 +8623,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1798.09
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1728.32
       }
     ],
     "quips": [
@@ -8587,7 +8655,7 @@
       "yearsInField": 28
     },
     "stats": {
-      "rating": 89,
+      "rating": 90,
       "innovation": 84,
       "influence": 93,
       "momentum": 77
@@ -8613,12 +8681,12 @@
     "wikipediaSlug": "Andrew_Ng",
     "openalexId": "A5112456378",
     "signals": {
-      "attention7d": 4655,
-      "attentionDelta": 9.5,
-      "citations": 138653,
+      "attention7d": 5293,
+      "attentionDelta": 28.8,
+      "citations": 138661,
       "hIndex": 122,
       "works": 344,
-      "hnMentions7d": 0
+      "hnMentions7d": 2
     },
     "priceHistory": [
       {
@@ -9066,6 +9134,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1062.01
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1104.38
       }
     ],
     "quips": [
@@ -9126,9 +9198,9 @@
     "wikipediaSlug": "Jeff_Dean",
     "openalexId": "A5011889606",
     "signals": {
-      "attention7d": 1895,
-      "attentionDelta": -13.3,
-      "citations": 35106,
+      "attention7d": 1968,
+      "attentionDelta": -8.4,
+      "citations": 35118,
       "hIndex": 28,
       "works": 49,
       "hnMentions7d": 0
@@ -9579,6 +9651,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 682.75
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 678.16
       }
     ],
     "quips": [
@@ -9633,9 +9709,9 @@
     "wikipediaSlug": "Noam_Shazeer",
     "openalexId": "A5021878400",
     "signals": {
-      "attention7d": 4770,
-      "attentionDelta": 164.1,
-      "citations": 37398,
+      "attention7d": 5846,
+      "attentionDelta": 222.3,
+      "citations": 37404,
       "hIndex": 33,
       "works": 58,
       "hnMentions7d": 0
@@ -10086,6 +10162,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1272.38
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1374.17
       }
     ],
     "quips": [
@@ -10140,9 +10220,9 @@
     "wikipediaSlug": "Jan_Leike",
     "openalexId": "A5090592321",
     "signals": {
-      "attention7d": 919,
-      "attentionDelta": -4.2,
-      "citations": 8675,
+      "attention7d": 920,
+      "attentionDelta": 1.2,
+      "citations": 8686,
       "hIndex": 21,
       "works": 74,
       "hnMentions7d": 0
@@ -10593,6 +10673,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 920.01
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 920.89
       }
     ],
     "quips": [
@@ -10641,8 +10725,8 @@
     ],
     "wikipediaSlug": "Eliezer_Yudkowsky",
     "signals": {
-      "attention7d": 10709,
-      "attentionDelta": -29.9,
+      "attention7d": 10398,
+      "attentionDelta": -30.7,
       "hnMentions7d": 0
     },
     "priceHistory": [
@@ -11091,6 +11175,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1711.34
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1669.31
       }
     ],
     "quips": [
@@ -11139,8 +11227,8 @@
     ],
     "wikipediaSlug": "Alexandr_Wang",
     "signals": {
-      "attention7d": 54793,
-      "attentionDelta": 107.3,
+      "attention7d": 64932,
+      "attentionDelta": 149.2,
       "hnMentions7d": 0
     },
     "priceHistory": [
@@ -11589,6 +11677,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1708.59
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1845.28
       }
     ],
     "quips": [
@@ -11638,9 +11730,9 @@
     "wikipediaSlug": "Perplexity_AI",
     "openalexId": "A5112594303",
     "signals": {
-      "attention7d": 14709,
-      "attentionDelta": -4.2,
-      "citations": 5422,
+      "attention7d": 14730,
+      "attentionDelta": -2.6,
+      "citations": 5424,
       "hIndex": 15,
       "works": 29,
       "hnMentions7d": 0
@@ -12091,6 +12183,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 950.06
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 948.08
       }
     ],
     "quips": [
@@ -12129,10 +12225,10 @@
     "wikipediaSlug": "Anthropic",
     "githubOrg": "anthropics",
     "signals": {
-      "attention7d": 48853,
-      "attentionDelta": -16.1,
-      "stars": 581444,
-      "hnMentions7d": 100
+      "attention7d": 49046,
+      "attentionDelta": -9.3,
+      "stars": 582530,
+      "hnMentions7d": 106
     },
     "priceHistory": [
       {
@@ -12580,6 +12676,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1543.48
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1532
       }
     ],
     "quips": [
@@ -12618,12 +12718,12 @@
     "githubOrg": "facebookresearch",
     "hfOrg": "meta-llama",
     "signals": {
-      "attention7d": 3847,
-      "attentionDelta": 4,
-      "stars": 151096,
-      "hfDownloads30d": 22105491,
-      "hfLikes": 64694,
-      "hnMentions7d": 0
+      "attention7d": 3839,
+      "attentionDelta": 4.1,
+      "stars": 143884,
+      "hfDownloads30d": 21777612,
+      "hfLikes": 64781,
+      "hnMentions7d": 1
     },
     "priceHistory": [
       {
@@ -13071,6 +13171,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1037.4
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1040.8
       }
     ],
     "quips": [
@@ -13109,10 +13213,10 @@
     "wikipediaSlug": "SpaceXAI",
     "githubOrg": "xai-org",
     "signals": {
-      "attention7d": 13092,
+      "attention7d": 13195,
       "attentionDelta": 8.9,
-      "stars": 119691,
-      "hnMentions7d": 0
+      "stars": 119746,
+      "hnMentions7d": 1
     },
     "priceHistory": [
       {
@@ -13560,6 +13664,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1079.41
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1087.1
       }
     ],
     "quips": [
@@ -13588,7 +13696,7 @@
       "modelCount": 7
     },
     "stats": {
-      "rating": 76,
+      "rating": 75,
       "innovation": 85,
       "influence": 78,
       "momentum": 81
@@ -13599,11 +13707,11 @@
     "githubOrg": "mistralai",
     "hfOrg": "mistralai",
     "signals": {
-      "attention7d": 12255,
-      "attentionDelta": 34.6,
-      "stars": 24411,
-      "hfDownloads30d": 9436829,
-      "hfLikes": 38540,
+      "attention7d": 10064,
+      "attentionDelta": -10.6,
+      "stars": 24421,
+      "hfDownloads30d": 9372695,
+      "hfLikes": 38549,
       "hnMentions7d": 8
     },
     "priceHistory": [
@@ -14052,6 +14160,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1627.41
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1581.49
       }
     ],
     "quips": [
@@ -14091,12 +14203,12 @@
     "githubOrg": "huggingface",
     "hfOrg": "HuggingFaceH4",
     "signals": {
-      "attention7d": 26431,
-      "attentionDelta": -0.4,
-      "stars": 415720,
-      "hfDownloads30d": 249101,
+      "attention7d": 24399,
+      "attentionDelta": -13.4,
+      "stars": 399435,
+      "hfDownloads30d": 247340,
       "hfLikes": 4126,
-      "hnMentions7d": 5
+      "hnMentions7d": 4
     },
     "priceHistory": [
       {
@@ -14544,6 +14656,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 657.72
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 650.67
       }
     ],
     "quips": [
@@ -14573,7 +14689,7 @@
       "yearsInField": 12
     },
     "stats": {
-      "rating": 83,
+      "rating": 82,
       "innovation": 66,
       "influence": 60,
       "momentum": 60
@@ -14593,8 +14709,8 @@
     ],
     "wikipediaSlug": "Hugging_Face",
     "signals": {
-      "attention7d": 26431,
-      "attentionDelta": -0.4,
+      "attention7d": 24399,
+      "attentionDelta": -13.4,
       "hnMentions7d": 0
     },
     "priceHistory": [
@@ -15043,6 +15159,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 873.95
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 848.79
       }
     ],
     "quips": [
@@ -15071,7 +15191,7 @@
       "yearsInField": 10
     },
     "stats": {
-      "rating": 85,
+      "rating": 84,
       "innovation": 94,
       "influence": 93,
       "momentum": 94
@@ -15093,11 +15213,11 @@
     "wikipediaSlug": "Arthur_Mensch",
     "openalexId": "A5110691380",
     "signals": {
-      "attention7d": 3463,
-      "attentionDelta": 43.2,
-      "citations": 3954,
+      "attention7d": 3024,
+      "attentionDelta": 14.8,
+      "citations": 3961,
       "hIndex": 10,
-      "works": 18,
+      "works": 19,
       "hnMentions7d": 0
     },
     "priceHistory": [
@@ -15546,6 +15666,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 2267.86
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 2254.69
       }
     ],
     "quips": [
@@ -15600,10 +15724,10 @@
     "wikipediaSlug": "George_Hotz",
     "githubUser": "geohot",
     "signals": {
-      "attention7d": 1959,
-      "attentionDelta": 4.3,
-      "stars": 20468,
-      "ghFollowers": 47491,
+      "attention7d": 1809,
+      "attentionDelta": -10,
+      "stars": 20466,
+      "ghFollowers": 47489,
       "hnMentions7d": 0
     },
     "priceHistory": [
@@ -16052,6 +16176,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1144.06
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1134.91
       }
     ],
     "quips": [
@@ -16101,9 +16229,9 @@
     "wikipediaSlug": "Aidan_Gomez",
     "openalexId": "A5079288315",
     "signals": {
-      "attention7d": 1305,
-      "attentionDelta": 10.4,
-      "citations": 26367,
+      "attention7d": 1342,
+      "attentionDelta": 9.3,
+      "citations": 26375,
       "hIndex": 14,
       "works": 29,
       "hnMentions7d": 0
@@ -16554,6 +16682,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1995.24
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 2010.08
       }
     ],
     "quips": [
@@ -16608,9 +16740,9 @@
     "wikipediaSlug": "John_Schulman",
     "openalexId": "A5009037058",
     "signals": {
-      "attention7d": 1352,
-      "attentionDelta": -2.9,
-      "citations": 17367,
+      "attention7d": 1302,
+      "attentionDelta": -5.7,
+      "citations": 17379,
       "hIndex": 37,
       "works": 53,
       "hnMentions7d": 0
@@ -17061,6 +17193,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1238.61
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1232.96
       }
     ],
     "quips": [
@@ -17115,8 +17251,8 @@
     "wikipediaSlug": "Chris_Olah",
     "openalexId": "A5039751155",
     "signals": {
-      "attention7d": 6234,
-      "attentionDelta": -59.6,
+      "attention7d": 6191,
+      "attentionDelta": -56.9,
       "citations": 14068,
       "hIndex": 19,
       "works": 31,
@@ -17568,6 +17704,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 2147.96
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 2050.18
       }
     ],
     "quips": [
@@ -17596,7 +17736,7 @@
       "yearsInField": 20
     },
     "stats": {
-      "rating": 84,
+      "rating": 85,
       "innovation": 77,
       "influence": 92,
       "momentum": 79
@@ -17616,8 +17756,8 @@
     ],
     "wikipediaSlug": "Sundar_Pichai",
     "signals": {
-      "attention7d": 18213,
-      "attentionDelta": -50.5,
+      "attention7d": 18074,
+      "attentionDelta": -32.1,
       "hnMentions7d": 0
     },
     "priceHistory": [
@@ -18066,6 +18206,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1347.08
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1336.54
       }
     ],
     "quips": [
@@ -18114,8 +18258,8 @@
     ],
     "wikipediaSlug": "Satya_Nadella",
     "signals": {
-      "attention7d": 22765,
-      "attentionDelta": 83.9,
+      "attention7d": 22908,
+      "attentionDelta": 100.2,
       "hnMentions7d": 1
     },
     "priceHistory": [
@@ -18564,6 +18708,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 878.2
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 948.46
       }
     ],
     "quips": [
@@ -18612,9 +18760,9 @@
     ],
     "wikipediaSlug": "Mark_Zuckerberg",
     "signals": {
-      "attention7d": 77890,
-      "attentionDelta": 27,
-      "hnMentions7d": 3
+      "attention7d": 78510,
+      "attentionDelta": 31.4,
+      "hnMentions7d": 4
     },
     "priceHistory": [
       {
@@ -19062,6 +19210,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 2289.45
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 2346.96
       }
     ],
     "quips": [
@@ -19100,12 +19252,12 @@
     "githubOrg": "microsoft",
     "hfOrg": "microsoft",
     "signals": {
-      "attention7d": 41626,
-      "attentionDelta": 22,
-      "stars": 578249,
-      "hfDownloads30d": 33517914,
-      "hfLikes": 29997,
-      "hnMentions7d": 93
+      "attention7d": 42242,
+      "attentionDelta": 28.7,
+      "stars": 609269,
+      "hfDownloads30d": 33469007,
+      "hfLikes": 30012,
+      "hnMentions7d": 84
     },
     "priceHistory": [
       {
@@ -19553,6 +19705,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1542.47
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1577.89
       }
     ],
     "quips": [
@@ -19589,9 +19745,9 @@
     "flavorText": "Their API status page is the industry's heartbeat monitor.",
     "wikipediaSlug": "Apple_Inc.",
     "signals": {
-      "attention7d": 39636,
-      "attentionDelta": 0.4,
-      "hnMentions7d": 105
+      "attention7d": 39996,
+      "attentionDelta": 3.4,
+      "hnMentions7d": 109
     },
     "priceHistory": [
       {
@@ -20039,6 +20195,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1219.37
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1222.69
       }
     ],
     "quips": [
@@ -20075,9 +20235,9 @@
     "flavorText": "Went viral once. The servers remember.",
     "wikipediaSlug": "Amazon_Web_Services",
     "signals": {
-      "attention7d": 16668,
-      "attentionDelta": 1.6,
-      "hnMentions7d": 32
+      "attention7d": 16617,
+      "attentionDelta": 1.4,
+      "hnMentions7d": 26
     },
     "priceHistory": [
       {
@@ -20525,6 +20685,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1525.43
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1527.14
       }
     ],
     "quips": [
@@ -20564,12 +20728,12 @@
     "githubOrg": "deepseek-ai",
     "hfOrg": "deepseek-ai",
     "signals": {
-      "attention7d": 20195,
-      "attentionDelta": 13.4,
-      "stars": 584682,
-      "hfDownloads30d": 25393438,
-      "hfLikes": 70815,
-      "hnMentions7d": 8
+      "attention7d": 20681,
+      "attentionDelta": 19.8,
+      "stars": 585398,
+      "hfDownloads30d": 25213553,
+      "hfLikes": 70862,
+      "hnMentions7d": 7
     },
     "priceHistory": [
       {
@@ -21017,6 +21181,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1146.88
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1165.05
       }
     ],
     "quips": [
@@ -21054,9 +21222,9 @@
     "dailyBlurb": "The first real dent in the search monopoly in twenty years — and every browser deal makes it bigger.",
     "wikipediaSlug": "Perplexity_AI",
     "signals": {
-      "attention7d": 14709,
-      "attentionDelta": -4.2,
-      "hnMentions7d": 5
+      "attention7d": 14730,
+      "attentionDelta": -2.6,
+      "hnMentions7d": 4
     },
     "priceHistory": [
       {
@@ -21504,6 +21672,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 962.44
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 960.44
       }
     ],
     "quips": [
@@ -21541,9 +21713,9 @@
     "dailyBlurb": "Zero investors, nine figures of revenue, and half the internet's fantasy art. The bootstrapped anomaly.",
     "wikipediaSlug": "Midjourney",
     "signals": {
-      "attention7d": 3957,
-      "attentionDelta": -5.8,
-      "hnMentions7d": 1
+      "attention7d": 3981,
+      "attentionDelta": -5.3,
+      "hnMentions7d": 0
     },
     "priceHistory": [
       {
@@ -21991,6 +22163,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 755.81
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 752.61
       }
     ],
     "quips": [
@@ -22028,8 +22204,8 @@
     "dailyBlurb": "The fastest-growing developer tool ever built. The 'AI writes the code' future is already their present.",
     "wikipediaSlug": "Cursor_(company)",
     "signals": {
-      "attention7d": 7940,
-      "attentionDelta": 7.5,
+      "attention7d": 8238,
+      "attentionDelta": 16.5,
       "hnMentions7d": 18
     },
     "priceHistory": [
@@ -22478,6 +22654,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 552.09
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 559.38
       }
     ],
     "quips": [
@@ -22516,10 +22696,10 @@
     "wikipediaSlug": "ElevenLabs",
     "githubOrg": "elevenlabs",
     "signals": {
-      "attention7d": 8905,
+      "attention7d": 8850,
       "attentionDelta": -2.6,
-      "stars": 9113,
-      "hnMentions7d": 0
+      "stars": 9117,
+      "hnMentions7d": 1
     },
     "priceHistory": [
       {
@@ -22967,6 +23147,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1026.36
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1024.23
       }
     ],
     "quips": [
@@ -23004,9 +23188,9 @@
     "wikipediaSlug": "Scale_AI",
     "githubOrg": "scaleapi",
     "signals": {
-      "attention7d": 12256,
-      "attentionDelta": 64.3,
-      "stars": 2951,
+      "attention7d": 14191,
+      "attentionDelta": 92.5,
+      "stars": 2992,
       "hnMentions7d": 2
     },
     "priceHistory": [
@@ -23455,6 +23639,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1204.97
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1294.14
       }
     ],
     "quips": [
@@ -23493,11 +23681,11 @@
     "githubOrg": "cohere-ai",
     "hfOrg": "CohereLabs",
     "signals": {
-      "attention7d": 2564,
-      "attentionDelta": -5.7,
-      "stars": 5574,
-      "hfDownloads30d": 531648,
-      "hfLikes": 11254,
+      "attention7d": 2519,
+      "attentionDelta": -8.7,
+      "stars": 5575,
+      "hfDownloads30d": 524506,
+      "hfLikes": 11262,
       "hnMentions7d": 0
     },
     "priceHistory": [
@@ -23946,6 +24134,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1510.23
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1499.72
       }
     ],
     "quips": [
@@ -23983,9 +24175,9 @@
     "wikipediaSlug": "Groq",
     "githubOrg": "groq",
     "signals": {
-      "attention7d": 2689,
-      "attentionDelta": 7.2,
-      "stars": 4478,
+      "attention7d": 2585,
+      "attentionDelta": -1,
+      "stars": 4477,
       "hnMentions7d": 0
     },
     "priceHistory": [
@@ -24434,6 +24626,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1054.28
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1053.44
       }
     ],
     "quips": [
@@ -24470,8 +24666,8 @@
     "flavorText": "Hollywood pretends not to use them.",
     "wikipediaSlug": "Runway_(company)",
     "signals": {
-      "attention7d": 1347,
-      "attentionDelta": -2.5,
+      "attention7d": 1373,
+      "attentionDelta": -0.6,
       "hnMentions7d": 1
     },
     "priceHistory": [
@@ -24920,6 +25116,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 736.49
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 736.14
       }
     ],
     "quips": [
@@ -25395,6 +25595,10 @@
       },
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
+        "price": 350
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
         "price": 350
       }
     ],
@@ -25873,6 +26077,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 65
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 65
       }
     ],
     "quips": [
@@ -26349,6 +26557,10 @@
       },
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
+        "price": 70
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
         "price": 70
       }
     ],
@@ -26827,6 +27039,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 190
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 190
       }
     ],
     "quips": [
@@ -27303,6 +27519,10 @@
       },
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
+        "price": 240
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
         "price": 240
       }
     ],
@@ -27781,6 +28001,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 90
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 90
       }
     ],
     "quips": [
@@ -28257,6 +28481,10 @@
       },
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
+        "price": 115
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
         "price": 115
       }
     ],
@@ -28735,6 +28963,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 70
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 70
       }
     ],
     "quips": [
@@ -29211,6 +29443,10 @@
       },
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
+        "price": 85
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
         "price": 85
       }
     ],
@@ -29689,6 +29925,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 100
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 100
       }
     ],
     "quips": [
@@ -30165,6 +30405,10 @@
       },
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
+        "price": 140
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
         "price": 140
       }
     ],
@@ -30643,6 +30887,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 80
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 80
       }
     ],
     "quips": [
@@ -31119,6 +31367,10 @@
       },
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
+        "price": 170
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
         "price": 170
       }
     ],
@@ -31597,6 +31849,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 320
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 320
       }
     ],
     "quips": [
@@ -32073,6 +32329,10 @@
       },
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
+        "price": 60
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
         "price": 60
       }
     ],
@@ -32551,6 +32811,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 155
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 155
       }
     ],
     "quips": [
@@ -33027,6 +33291,10 @@
       },
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
+        "price": 90
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
         "price": 90
       }
     ],
@@ -33505,6 +33773,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 130
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 130
       }
     ],
     "quips": [
@@ -33981,6 +34253,10 @@
       },
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
+        "price": 160
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
         "price": 160
       }
     ],
@@ -34459,6 +34735,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 260
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 260
       }
     ],
     "quips": [
@@ -34935,6 +35215,10 @@
       },
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
+        "price": 180
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
         "price": 180
       }
     ],
@@ -35413,6 +35697,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 200
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 200
       }
     ],
     "quips": [
@@ -35889,6 +36177,10 @@
       },
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
+        "price": 135
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
         "price": 135
       }
     ],
@@ -36367,6 +36659,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 145
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 145
       }
     ],
     "quips": [
@@ -36843,6 +37139,10 @@
       },
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
+        "price": 80
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
         "price": 80
       }
     ],
@@ -37321,6 +37621,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 11.25
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 11.25
       }
     ],
     "quips": [
@@ -37376,9 +37680,9 @@
     "wikipediaSlug": "Ian_Goodfellow",
     "openalexId": "A5004271128",
     "signals": {
-      "attention7d": 772,
-      "attentionDelta": -10.5,
-      "citations": 87888,
+      "attention7d": 749,
+      "attentionDelta": -13.3,
+      "citations": 87907,
       "hIndex": 58,
       "works": 131,
       "hnMentions7d": 1
@@ -37821,6 +38125,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 971.64
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 961.3
       }
     ],
     "quips": [
@@ -37858,9 +38166,9 @@
     "wikipediaSlug": "Jürgen_Schmidhuber",
     "openalexId": "A5071172037",
     "signals": {
-      "attention7d": 942,
-      "attentionDelta": -54.3,
-      "citations": 185947,
+      "attention7d": 904,
+      "attentionDelta": -56.7,
+      "citations": 185998,
       "hIndex": 89,
       "works": 645,
       "hnMentions7d": 0
@@ -38303,6 +38611,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1162
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1109.29
       }
     ],
     "quips": [
@@ -38331,7 +38643,7 @@
       "yearsInField": 45
     },
     "stats": {
-      "rating": 92,
+      "rating": 91,
       "innovation": 89,
       "influence": 95,
       "momentum": 91
@@ -38341,9 +38653,9 @@
     "wikipediaSlug": "Richard_S._Sutton",
     "openalexId": "A5004923102",
     "signals": {
-      "attention7d": 2082,
-      "attentionDelta": 26.7,
-      "citations": 67560,
+      "attention7d": 2018,
+      "attentionDelta": 17.3,
+      "citations": 67563,
       "hIndex": 64,
       "works": 247,
       "hnMentions7d": 0
@@ -38786,6 +39098,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1066.7
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1064.07
       }
     ],
     "quips": [
@@ -38823,9 +39139,9 @@
     "wikipediaSlug": "Ashish_Vaswani",
     "openalexId": "A5103024730",
     "signals": {
-      "attention7d": 2441,
-      "attentionDelta": 5.2,
-      "citations": 35084,
+      "attention7d": 2540,
+      "attentionDelta": 7.8,
+      "citations": 35090,
       "hIndex": 28,
       "works": 62,
       "hnMentions7d": 0
@@ -39268,6 +39584,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1044.01
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1050.52
       }
     ],
     "quips": [
@@ -39305,9 +39625,9 @@
     "wikipediaSlug": "Sepp_Hochreiter",
     "openalexId": "A5053148274",
     "signals": {
-      "attention7d": 221,
-      "attentionDelta": 16.9,
-      "citations": 126064,
+      "attention7d": 218,
+      "attentionDelta": 6.3,
+      "citations": 126112,
       "hIndex": 55,
       "works": 316,
       "hnMentions7d": 0
@@ -39750,6 +40070,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 884.67
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 889.13
       }
     ],
     "quips": [
@@ -39788,13 +40112,13 @@
     "openalexId": "A5024393893",
     "githubUser": "fchollet",
     "signals": {
-      "attention7d": 447,
-      "attentionDelta": -6.9,
+      "attention7d": 474,
+      "attentionDelta": 1.5,
       "citations": 12631,
       "hIndex": 45,
       "works": 251,
-      "stars": 36849,
-      "ghFollowers": 18446,
+      "stars": 36851,
+      "ghFollowers": 18447,
       "hnMentions7d": 0
     },
     "priceHistory": [
@@ -40235,6 +40559,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 1170.89
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 1172.3
       }
     ],
     "quips": [
@@ -40272,7 +40600,7 @@
     "wikipediaSlug": "John_Carmack",
     "signals": {
       "attention7d": 4074,
-      "attentionDelta": -5.6,
+      "attentionDelta": -5.3,
       "hnMentions7d": 0
     },
     "priceHistory": [
@@ -40713,6 +41041,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 704.65
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 701.66
       }
     ],
     "quips": [
@@ -40751,11 +41083,11 @@
     "githubOrg": "Stability-AI",
     "hfOrg": "stabilityai",
     "signals": {
-      "attention7d": 1178,
-      "attentionDelta": -15.6,
-      "stars": 74870,
-      "hfDownloads30d": 7448020,
-      "hfLikes": 42446,
+      "attention7d": 1211,
+      "attentionDelta": -9.3,
+      "stars": 74874,
+      "hfDownloads30d": 7387297,
+      "hfLikes": 42624,
       "hnMentions7d": 0
     },
     "priceHistory": [
@@ -41196,6 +41528,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 644.37
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 639.58
       }
     ],
     "quips": [
@@ -41233,8 +41569,8 @@
     "dailyBlurb": "The purest bet in AI: tens of billions, zero products, one promise. Either historic or a cautionary tale.",
     "wikipediaSlug": "Safe_Superintelligence_Inc.",
     "signals": {
-      "attention7d": 3505,
-      "attentionDelta": 9,
+      "attention7d": 3316,
+      "attentionDelta": 2.6,
       "hnMentions7d": 0
     },
     "priceHistory": [
@@ -41675,6 +42011,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 3404.92
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 3412
       }
     ],
     "quips": [
@@ -41704,7 +42044,7 @@
       "modelCount": 1
     },
     "stats": {
-      "rating": 66,
+      "rating": 65,
       "innovation": 50,
       "influence": 47,
       "momentum": 42
@@ -41712,9 +42052,9 @@
     "flavorText": "Twenty years of viral videos, one commercial product. Worth it.",
     "wikipediaSlug": "Boston_Dynamics",
     "signals": {
-      "attention7d": 3318,
-      "attentionDelta": 11.3,
-      "hnMentions7d": 1
+      "attention7d": 2959,
+      "attentionDelta": -10.6,
+      "hnMentions7d": 0
     },
     "priceHistory": [
       {
@@ -42154,6 +42494,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 982.66
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 951.99
       }
     ],
     "quips": [
@@ -42625,6 +42969,10 @@
       },
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
+        "price": 110
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
         "price": 110
       }
     ],
@@ -43099,6 +43447,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 105
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 105
       }
     ],
     "quips": [
@@ -43571,6 +43923,10 @@
       },
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
+        "price": 65
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
         "price": 65
       }
     ],
@@ -44045,6 +44401,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 125
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 125
       }
     ],
     "quips": [
@@ -44517,6 +44877,10 @@
       },
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
+        "price": 150
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
         "price": 150
       }
     ],
@@ -44991,6 +45355,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 210
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 210
       }
     ],
     "quips": [
@@ -45463,6 +45831,10 @@
       },
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
+        "price": 280
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
         "price": 280
       }
     ],
@@ -45937,6 +46309,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 220
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 220
       }
     ],
     "quips": [
@@ -46409,6 +46785,10 @@
       },
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
+        "price": 95
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
         "price": 95
       }
     ],
@@ -46883,6 +47263,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 120
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 120
       }
     ],
     "quips": [
@@ -47355,6 +47739,10 @@
       },
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
+        "price": 75
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
         "price": 75
       }
     ],
@@ -47829,6 +48217,10 @@
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
         "price": 120
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
+        "price": 120
       }
     ],
     "quips": [
@@ -48301,6 +48693,10 @@
       },
       {
         "timestamp": "2026-10-14T07:08:27.388Z",
+        "price": 300
+      },
+      {
+        "timestamp": "2026-10-15T06:59:56.543Z",
         "price": 300
       }
     ],
