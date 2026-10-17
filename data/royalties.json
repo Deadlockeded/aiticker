@@ -1,64 +1,5 @@
 [
   {
-    "date": "2026-09-17",
-    "artifactId": "the-benchmark",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "wiki",
-      "headline": "Google DeepMind"
-    }
-  },
-  {
-    "date": "2026-09-17",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "Training a 4B model to produce 81% faster query plans than Postgres",
-      "url": "https://news.ycombinator.com/item?id=49731285"
-    }
-  },
-  {
-    "date": "2026-09-17",
-    "artifactId": "the-gpu",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "Nvidia announces native GPU programming in Rust",
-      "url": "https://news.ycombinator.com/item?id=49724881"
-    }
-  },
-  {
-    "date": "2026-09-17",
-    "artifactId": "the-leaderboard",
-    "payoutPerCopy": 10,
-    "receipt": {
-      "source": "hn",
-      "headline": "Developing provably correct Rust code with Verus",
-      "url": "https://news.ycombinator.com/item?id=49700153"
-    }
-  },
-  {
-    "date": "2026-09-17",
-    "artifactId": "the-wrapper",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "letorig/video-generator-client — Async Python wrapper for Seedance, Kling, MiniMax and Wan video generation. Supports CLI and a local web UI",
-      "url": "https://github.com/letorig/video-generator-client"
-    }
-  },
-  {
-    "date": "2026-09-17",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "kruzovic7/ai-data-extractor — Free open-source extractor for AI coding assistant chat histories. Supports Claude Code, Cursor, Windsurf, Aid",
-      "url": "https://github.com/kruzovic7/ai-data-extractor"
-    }
-  },
-  {
     "date": "2026-09-18",
     "artifactId": "the-benchmark",
     "payoutPerCopy": 8,
@@ -1377,6 +1318,45 @@
       "source": "gh",
       "headline": "feder-cr/open_scion — Open-source version of Scion: version control built for coding agents.",
       "url": "https://github.com/feder-cr/open_scion"
+    }
+  },
+  {
+    "date": "2026-10-17",
+    "artifactId": "the-benchmark",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "wiki",
+      "headline": "DeepSeek"
+    }
+  },
+  {
+    "date": "2026-10-17",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "90% of US working hours are spent on tasks not covered well by AI benchmarks",
+      "url": "https://news.ycombinator.com/item?id=50121179"
+    }
+  },
+  {
+    "date": "2026-10-17",
+    "artifactId": "the-eval",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "90% of US working hours are spent on tasks not covered well by AI benchmarks",
+      "url": "https://news.ycombinator.com/item?id=50121179"
+    }
+  },
+  {
+    "date": "2026-10-17",
+    "artifactId": "the-jailbreak",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "Llama.cpp on a jailbroken PS5: run any GGUF model natively on the console",
+      "url": "https://news.ycombinator.com/item?id=50122431"
     }
   }
 ]
