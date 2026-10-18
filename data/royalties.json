@@ -1,54 +1,5 @@
 [
   {
-    "date": "2026-09-18",
-    "artifactId": "the-benchmark",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "wiki",
-      "headline": "Google DeepMind"
-    }
-  },
-  {
-    "date": "2026-09-18",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "Bend – A language that blocks AI mistakes via proof, on CPU and GPU",
-      "url": "https://news.ycombinator.com/item?id=49746163"
-    }
-  },
-  {
-    "date": "2026-09-18",
-    "artifactId": "the-eval",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "How do we prevent mathemathics from devolving into the Medieval Era of secrecy?",
-      "url": "https://news.ycombinator.com/item?id=49715936"
-    }
-  },
-  {
-    "date": "2026-09-18",
-    "artifactId": "the-gpu",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "Bend – A language that blocks AI mistakes via proof, on CPU and GPU",
-      "url": "https://news.ycombinator.com/item?id=49746163"
-    }
-  },
-  {
-    "date": "2026-09-18",
-    "artifactId": "the-wrapper",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "letorig/video-generator-client — Async Python wrapper for Seedance, Kling, MiniMax and Wan video generation. Supports CLI and a local web UI",
-      "url": "https://github.com/letorig/video-generator-client"
-    }
-  },
-  {
     "date": "2026-09-19",
     "artifactId": "the-benchmark",
     "payoutPerCopy": 8,
@@ -1357,6 +1308,35 @@
       "source": "hn",
       "headline": "Llama.cpp on a jailbroken PS5: run any GGUF model natively on the console",
       "url": "https://news.ycombinator.com/item?id=50122431"
+    }
+  },
+  {
+    "date": "2026-10-18",
+    "artifactId": "the-benchmark",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "wiki",
+      "headline": "Meta AI"
+    }
+  },
+  {
+    "date": "2026-10-18",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Pele – Mermaid diagrams as themeable SVG",
+      "url": "https://news.ycombinator.com/item?id=50132193"
+    }
+  },
+  {
+    "date": "2026-10-18",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "Leonxlnx/earshot — Ears for coding agents: let AI hear, review and make sound. CPU-only, open source.",
+      "url": "https://github.com/Leonxlnx/earshot"
     }
   }
 ]
