@@ -1,34 +1,5 @@
 [
   {
-    "date": "2026-09-19",
-    "artifactId": "the-benchmark",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "wiki",
-      "headline": "Google DeepMind"
-    }
-  },
-  {
-    "date": "2026-09-19",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "How to Write with an LLM",
-      "url": "https://news.ycombinator.com/item?id=49747070"
-    }
-  },
-  {
-    "date": "2026-09-19",
-    "artifactId": "the-wrapper",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "letorig/video-generator-client — Async Python wrapper for Seedance, Kling, MiniMax and Wan video generation. Supports CLI and a local web UI",
-      "url": "https://github.com/letorig/video-generator-client"
-    }
-  },
-  {
     "date": "2026-09-20",
     "artifactId": "the-arxiv-timestamp",
     "payoutPerCopy": 6,
@@ -1337,6 +1308,45 @@
       "source": "gh",
       "headline": "Leonxlnx/earshot — Ears for coding agents: let AI hear, review and make sound. CPU-only, open source.",
       "url": "https://github.com/Leonxlnx/earshot"
+    }
+  },
+  {
+    "date": "2026-10-19",
+    "artifactId": "the-benchmark",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "wiki",
+      "headline": "OpenAI"
+    }
+  },
+  {
+    "date": "2026-10-19",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Namecheap just seized and disabled all my domains",
+      "url": "https://news.ycombinator.com/item?id=50142866"
+    }
+  },
+  {
+    "date": "2026-10-19",
+    "artifactId": "the-eval",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Rabbits were a medieval royal luxury in England until the Black Death",
+      "url": "https://news.ycombinator.com/item?id=50131315"
+    }
+  },
+  {
+    "date": "2026-10-19",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "Gathin23/tv-vibehack — Your TV, minus the ads. Debloat any Android TV or Google TV over Wi-Fi and swap the ad-filled home screen for a clean",
+      "url": "https://github.com/Gathin23/tv-vibehack"
     }
   }
 ]
