@@ -1,54 +1,5 @@
 [
   {
-    "date": "2026-09-20",
-    "artifactId": "the-arxiv-timestamp",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "Asking authors about their own papers",
-      "url": "https://news.ycombinator.com/item?id=49734467"
-    }
-  },
-  {
-    "date": "2026-09-20",
-    "artifactId": "the-benchmark",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "wiki",
-      "headline": "Google DeepMind"
-    }
-  },
-  {
-    "date": "2026-09-20",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "AI-generated posters don’t have to be horrible",
-      "url": "https://news.ycombinator.com/item?id=49764791"
-    }
-  },
-  {
-    "date": "2026-09-20",
-    "artifactId": "the-eval",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "Btrfs/ZFS/bcachefs under workloads classic benchmarks skip",
-      "url": "https://news.ycombinator.com/item?id=49768833"
-    }
-  },
-  {
-    "date": "2026-09-20",
-    "artifactId": "the-wrapper",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "letorig/video-generator-client — Async Python wrapper for Seedance, Kling, MiniMax and Wan video generation. Supports CLI and a local web UI",
-      "url": "https://github.com/letorig/video-generator-client"
-    }
-  },
-  {
     "date": "2026-09-21",
     "artifactId": "agi-in-two-weeks",
     "payoutPerCopy": 6,
@@ -1347,6 +1298,46 @@
       "source": "gh",
       "headline": "Gathin23/tv-vibehack — Your TV, minus the ads. Debloat any Android TV or Google TV over Wi-Fi and swap the ad-filled home screen for a clean",
       "url": "https://github.com/Gathin23/tv-vibehack"
+    }
+  },
+  {
+    "date": "2026-10-20",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Ask HN: How to deal with shipping AI-written code you don't understand?",
+      "url": "https://news.ycombinator.com/item?id=50151036"
+    }
+  },
+  {
+    "date": "2026-10-20",
+    "artifactId": "the-gpu",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "OpenBSD 8.0 release will have inteldrm/radeondrm/amdgpu drivers from Linux 6.18",
+      "url": "https://news.ycombinator.com/item?id=50158138"
+    }
+  },
+  {
+    "date": "2026-10-20",
+    "artifactId": "the-leaderboard",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "Developing Taste",
+      "url": "https://news.ycombinator.com/item?id=50160135"
+    }
+  },
+  {
+    "date": "2026-10-20",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "Leonxlnx/earshot — Ears for coding agents: let AI hear, review and make sound. CPU-only, open source.",
+      "url": "https://github.com/Leonxlnx/earshot"
     }
   }
 ]
