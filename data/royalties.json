@@ -1,55 +1,5 @@
 [
   {
-    "date": "2026-09-21",
-    "artifactId": "agi-in-two-weeks",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "Mini-AGI – dynamic continual learning model trained from scratch on 8GB VRAM",
-      "url": "https://news.ycombinator.com/item?id=49783133"
-    }
-  },
-  {
-    "date": "2026-09-21",
-    "artifactId": "as-an-ai",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "I turned Jev into a (lousy) chatbot",
-      "url": "https://news.ycombinator.com/item?id=49778162"
-    }
-  },
-  {
-    "date": "2026-09-21",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "Spain orders blocks on Archive.today and its mirrors",
-      "url": "https://news.ycombinator.com/item?id=49772961"
-    }
-  },
-  {
-    "date": "2026-09-21",
-    "artifactId": "the-gpu",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "Mini-AGI – dynamic continual learning model trained from scratch on 8GB VRAM",
-      "url": "https://news.ycombinator.com/item?id=49783133"
-    }
-  },
-  {
-    "date": "2026-09-21",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "zai-org/ZCode — Z.ai's coding agent harness. Powerful, intelligent, extensible.",
-      "url": "https://github.com/zai-org/ZCode"
-    }
-  },
-  {
     "date": "2026-09-22",
     "artifactId": "the-arxiv-timestamp",
     "payoutPerCopy": 6,
@@ -1332,6 +1282,26 @@
   },
   {
     "date": "2026-10-20",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "Leonxlnx/earshot — Ears for coding agents: let AI hear, review and make sound. CPU-only, open source.",
+      "url": "https://github.com/Leonxlnx/earshot"
+    }
+  },
+  {
+    "date": "2026-10-21",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "DeepInfer: High-performance inference framework for DeepSeek models",
+      "url": "https://news.ycombinator.com/item?id=50163277"
+    }
+  },
+  {
+    "date": "2026-10-21",
     "artifactId": "vibe-coding",
     "payoutPerCopy": 8,
     "receipt": {
