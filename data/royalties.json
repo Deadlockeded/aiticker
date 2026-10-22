@@ -1,44 +1,5 @@
 [
   {
-    "date": "2026-09-22",
-    "artifactId": "the-arxiv-timestamp",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "Paper Models of Polyhedra",
-      "url": "https://news.ycombinator.com/item?id=49771389"
-    }
-  },
-  {
-    "date": "2026-09-22",
-    "artifactId": "the-benchmark",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "wiki",
-      "headline": "Google DeepMind"
-    }
-  },
-  {
-    "date": "2026-09-22",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "Transformers Explained Visually",
-      "url": "https://news.ycombinator.com/item?id=49792342"
-    }
-  },
-  {
-    "date": "2026-09-22",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "zai-org/ZCode — Z.ai's coding agent harness. Powerful, intelligent, extensible.",
-      "url": "https://github.com/zai-org/ZCode"
-    }
-  },
-  {
     "date": "2026-09-23",
     "artifactId": "the-em-dash",
     "payoutPerCopy": 4,
@@ -1308,6 +1269,36 @@
       "source": "gh",
       "headline": "Leonxlnx/earshot — Ears for coding agents: let AI hear, review and make sound. CPU-only, open source.",
       "url": "https://github.com/Leonxlnx/earshot"
+    }
+  },
+  {
+    "date": "2026-10-22",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Compromised LiteLLM 1.107.0 on PyPI Installs a Credential Stealer and Backdoor",
+      "url": "https://news.ycombinator.com/item?id=50181114"
+    }
+  },
+  {
+    "date": "2026-10-22",
+    "artifactId": "the-latency",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Eight Bits of Trust: eMudhra's CA keys cracked in milliseconds",
+      "url": "https://news.ycombinator.com/item?id=50177916"
+    }
+  },
+  {
+    "date": "2026-10-22",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "alchaincyf/huashu-motion — 让你的agent一键直出商业级产品宣传片：会作曲，能指着画面改。Commercial-grade launch films by your coding agent — point at the frame to change",
+      "url": "https://github.com/alchaincyf/huashu-motion"
     }
   }
 ]
