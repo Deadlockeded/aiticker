@@ -1,65 +1,5 @@
 [
   {
-    "date": "2026-09-24",
-    "artifactId": "the-arxiv-timestamp",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "ArXiv receives multiyear commitments to support it as an independent nonprofit",
-      "url": "https://news.ycombinator.com/item?id=49823664"
-    }
-  },
-  {
-    "date": "2026-09-24",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "Feds Target AI Critics as \"Foreign Agents\"",
-      "url": "https://news.ycombinator.com/item?id=49824686"
-    }
-  },
-  {
-    "date": "2026-09-24",
-    "artifactId": "the-gpu",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "Virtio-nvgpu: Near-native Nvidia GPU access inside a KVM guest",
-      "url": "https://news.ycombinator.com/item?id=49824864"
-    }
-  },
-  {
-    "date": "2026-09-24",
-    "artifactId": "the-token",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "Tokens too cheap to meter",
-      "url": "https://news.ycombinator.com/item?id=49813482"
-    }
-  },
-  {
-    "date": "2026-09-24",
-    "artifactId": "the-turing-test",
-    "payoutPerCopy": 10,
-    "receipt": {
-      "source": "hn",
-      "headline": "Show HN: An open-source manufacturing ERP/MES/QMS",
-      "url": "https://news.ycombinator.com/item?id=49824715"
-    }
-  },
-  {
-    "date": "2026-09-24",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "zai-org/ZCode — Z.ai's coding agent harness. Powerful, intelligent, extensible.",
-      "url": "https://github.com/zai-org/ZCode"
-    }
-  },
-  {
     "date": "2026-09-25",
     "artifactId": "the-em-dash",
     "payoutPerCopy": 4,
@@ -1283,6 +1223,26 @@
   },
   {
     "date": "2026-10-23",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "alchaincyf/huashu-motion — 让你的agent一键直出商业级产品宣传片：会作曲，能指着画面改。Commercial-grade launch films by your coding agent — point at the frame to change",
+      "url": "https://github.com/alchaincyf/huashu-motion"
+    }
+  },
+  {
+    "date": "2026-10-24",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Dessa: Conversation Model trained only on speech",
+      "url": "https://news.ycombinator.com/item?id=50213925"
+    }
+  },
+  {
+    "date": "2026-10-24",
     "artifactId": "vibe-coding",
     "payoutPerCopy": 8,
     "receipt": {
