@@ -1,25 +1,5 @@
 [
   {
-    "date": "2026-09-25",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "Rails World 2026 Opening Keynote [video]",
-      "url": "https://news.ycombinator.com/item?id=49817680"
-    }
-  },
-  {
-    "date": "2026-09-25",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "zai-org/ZCode — Z.ai's coding agent harness. Powerful, intelligent, extensible.",
-      "url": "https://github.com/zai-org/ZCode"
-    }
-  },
-  {
     "date": "2026-09-26",
     "artifactId": "as-an-ai",
     "payoutPerCopy": 6,
@@ -1249,6 +1229,56 @@
       "source": "gh",
       "headline": "alchaincyf/huashu-motion — 让你的agent一键直出商业级产品宣传片：会作曲，能指着画面改。Commercial-grade launch films by your coding agent — point at the frame to change",
       "url": "https://github.com/alchaincyf/huashu-motion"
+    }
+  },
+  {
+    "date": "2026-10-25",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "America has lost 200k of jobs in media, film and the arts. How much is AI?",
+      "url": "https://news.ycombinator.com/item?id=50226419"
+    }
+  },
+  {
+    "date": "2026-10-25",
+    "artifactId": "the-eval",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Social dynamics of toxic metal industry in medieval Europe",
+      "url": "https://news.ycombinator.com/item?id=50169450"
+    }
+  },
+  {
+    "date": "2026-10-25",
+    "artifactId": "the-gpu",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "GPU-unlock: FP/BF16 instruction issue rate on Nvidia 3000's cards",
+      "url": "https://news.ycombinator.com/item?id=50219700"
+    }
+  },
+  {
+    "date": "2026-10-25",
+    "artifactId": "the-leaderboard",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "Roku developer repositories moved from GitHub to GitLab",
+      "url": "https://news.ycombinator.com/item?id=50222622"
+    }
+  },
+  {
+    "date": "2026-10-25",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "zita-ch/supermimic_vibed — vibe coded supermimic within 1h, LAFAN passed within 1.5 gpuh training",
+      "url": "https://github.com/zita-ch/supermimic_vibed"
     }
   }
 ]
