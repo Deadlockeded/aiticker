@@ -1,45 +1,5 @@
 [
   {
-    "date": "2026-09-27",
-    "artifactId": "as-an-ai",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "An agent used DNS to reach an external chatbot",
-      "url": "https://news.ycombinator.com/item?id=49853137"
-    }
-  },
-  {
-    "date": "2026-09-27",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "How to keep enjoying programming in a world of LLMs",
-      "url": "https://news.ycombinator.com/item?id=49854875"
-    }
-  },
-  {
-    "date": "2026-09-27",
-    "artifactId": "the-latency",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "Real-time feedback: My closing move in every interview",
-      "url": "https://news.ycombinator.com/item?id=49862244"
-    }
-  },
-  {
-    "date": "2026-09-27",
-    "artifactId": "the-token",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "Generate fonts where every LLM token is the same width",
-      "url": "https://news.ycombinator.com/item?id=49851883"
-    }
-  },
-  {
     "date": "2026-09-28",
     "artifactId": "the-em-dash",
     "payoutPerCopy": 4,
@@ -1289,6 +1249,46 @@
       "source": "gh",
       "headline": "udhaykumarbala/cleanyourtv-app — A community-built phone app for Clean Your TV: clean up an Android TV from your phone. No laptop, no coding",
       "url": "https://github.com/udhaykumarbala/cleanyourtv-app"
+    }
+  },
+  {
+    "date": "2026-10-27",
+    "artifactId": "the-arxiv-timestamp",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "A Printer Printing onto Paper",
+      "url": "https://news.ycombinator.com/item?id=50204697"
+    }
+  },
+  {
+    "date": "2026-10-27",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Sebastian Raschka's from-scratch video course on building reasoning models",
+      "url": "https://news.ycombinator.com/item?id=50245138"
+    }
+  },
+  {
+    "date": "2026-10-27",
+    "artifactId": "the-turing-test",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "APC says let there be light, with standards to speed up photonics manufacturing",
+      "url": "https://news.ycombinator.com/item?id=50234707"
+    }
+  },
+  {
+    "date": "2026-10-27",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "morganlinton/BeautifulRust — Agent Skills that teach coding agents to write, review, and port idiomatic Rust, plus a tested clippy config. W",
+      "url": "https://github.com/morganlinton/BeautifulRust"
     }
   }
 ]
