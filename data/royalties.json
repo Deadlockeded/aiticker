@@ -1,45 +1,5 @@
 [
   {
-    "date": "2026-09-28",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "Thinking fast and slow in AI: The role of metacognition (2021)",
-      "url": "https://news.ycombinator.com/item?id=49873241"
-    }
-  },
-  {
-    "date": "2026-09-28",
-    "artifactId": "the-gpu",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "Owed a billion dollars in Nvidia stock",
-      "url": "https://news.ycombinator.com/item?id=49872723"
-    }
-  },
-  {
-    "date": "2026-09-28",
-    "artifactId": "the-valuation",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "Owed a billion dollars in Nvidia stock",
-      "url": "https://news.ycombinator.com/item?id=49872723"
-    }
-  },
-  {
-    "date": "2026-09-28",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "dzhng/jevgrep — Find code by asking what it does. A CLI for coding agents that uses Jev to discover relevant files and source context.",
-      "url": "https://github.com/dzhng/jevgrep"
-    }
-  },
-  {
     "date": "2026-09-29",
     "artifactId": "the-em-dash",
     "payoutPerCopy": 4,
@@ -1283,6 +1243,45 @@
   },
   {
     "date": "2026-10-27",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "morganlinton/BeautifulRust — Agent Skills that teach coding agents to write, review, and port idiomatic Rust, plus a tested clippy config. W",
+      "url": "https://github.com/morganlinton/BeautifulRust"
+    }
+  },
+  {
+    "date": "2026-10-28",
+    "artifactId": "the-benchmark",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "wiki",
+      "headline": "Anthropic"
+    }
+  },
+  {
+    "date": "2026-10-28",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Survival LLM: AI assistant and emergency library that runs on your own computer",
+      "url": "https://news.ycombinator.com/item?id=50264853"
+    }
+  },
+  {
+    "date": "2026-10-28",
+    "artifactId": "the-leaderboard",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "Early progress on accelerating drug development with Claude",
+      "url": "https://news.ycombinator.com/item?id=50265609"
+    }
+  },
+  {
+    "date": "2026-10-28",
     "artifactId": "vibe-coding",
     "payoutPerCopy": 8,
     "receipt": {
