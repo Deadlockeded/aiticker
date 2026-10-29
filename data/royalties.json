@@ -1,35 +1,5 @@
 [
   {
-    "date": "2026-09-29",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "Jeff – Jev-compatible 0.8B decision models, trained at home, ~30 ms",
-      "url": "https://news.ycombinator.com/item?id=49883844"
-    }
-  },
-  {
-    "date": "2026-09-29",
-    "artifactId": "the-gpu",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "Nvidia wants to put a watchdog chip next to every AI agent",
-      "url": "https://news.ycombinator.com/item?id=49879883"
-    }
-  },
-  {
-    "date": "2026-09-29",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "dzhng/jevgrep — Find code by asking what it does. A CLI for coding agents that uses Jev to discover relevant files and source context.",
-      "url": "https://github.com/dzhng/jevgrep"
-    }
-  },
-  {
     "date": "2026-09-30",
     "artifactId": "the-em-dash",
     "payoutPerCopy": 4,
@@ -1282,6 +1252,45 @@
   },
   {
     "date": "2026-10-28",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "morganlinton/BeautifulRust — Agent Skills that teach coding agents to write, review, and port idiomatic Rust, plus a tested clippy config. W",
+      "url": "https://github.com/morganlinton/BeautifulRust"
+    }
+  },
+  {
+    "date": "2026-10-29",
+    "artifactId": "the-benchmark",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "wiki",
+      "headline": "Anthropic"
+    }
+  },
+  {
+    "date": "2026-10-29",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Claude Code regularly sends each background agent’s transcript to its model",
+      "url": "https://news.ycombinator.com/item?id=50284255"
+    }
+  },
+  {
+    "date": "2026-10-29",
+    "artifactId": "the-eval",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Dayjob: Tax – evaluating AI agents on 50 professional tax assignments",
+      "url": "https://news.ycombinator.com/item?id=50275626"
+    }
+  },
+  {
+    "date": "2026-10-29",
     "artifactId": "vibe-coding",
     "payoutPerCopy": 8,
     "receipt": {
