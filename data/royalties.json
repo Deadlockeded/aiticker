@@ -1,55 +1,5 @@
 [
   {
-    "date": "2026-10-01",
-    "artifactId": "agi-in-two-weeks",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "Functional Ultrasound Imaging (fUSI) from scratch",
-      "url": "https://news.ycombinator.com/item?id=49913604"
-    }
-  },
-  {
-    "date": "2026-10-01",
-    "artifactId": "the-arxiv-timestamp",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "PlayBook: A Programmable Paper Notebook [video]",
-      "url": "https://news.ycombinator.com/item?id=49895221"
-    }
-  },
-  {
-    "date": "2026-10-01",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "You said no MCP",
-      "url": "https://news.ycombinator.com/item?id=49906637"
-    }
-  },
-  {
-    "date": "2026-10-01",
-    "artifactId": "the-gpu",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "SDF vs. MSDF vs. Slug: GPU Text Rendering",
-      "url": "https://news.ycombinator.com/item?id=49908962"
-    }
-  },
-  {
-    "date": "2026-10-01",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "dzhng/jevgrep — Find code by asking what it does. A CLI for coding agents that uses Jev to discover relevant files and source context.",
-      "url": "https://github.com/dzhng/jevgrep"
-    }
-  },
-  {
     "date": "2026-10-02",
     "artifactId": "the-arxiv-timestamp",
     "payoutPerCopy": 6,
@@ -1296,6 +1246,45 @@
       "source": "gh",
       "headline": "ZiChuanLan/agent-purge — One persona, many coding agents. Replace or inject system prompts across codex, claude, opencode, grok, omp, hermes",
       "url": "https://github.com/ZiChuanLan/agent-purge"
+    }
+  },
+  {
+    "date": "2026-10-31",
+    "artifactId": "the-benchmark",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "wiki",
+      "headline": "Anthropic"
+    }
+  },
+  {
+    "date": "2026-10-31",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "AI isn't replacing SREs, it's deskilling them",
+      "url": "https://news.ycombinator.com/item?id=50305693"
+    }
+  },
+  {
+    "date": "2026-10-31",
+    "artifactId": "the-token",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "Cisco gives engineer unlimited AI tokens to rewrite legacy code",
+      "url": "https://news.ycombinator.com/item?id=50304122"
+    }
+  },
+  {
+    "date": "2026-10-31",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "heydamir/unslop — A Claude skill that turns vibecoded, AI-looking UI into a designed interface",
+      "url": "https://github.com/heydamir/unslop"
     }
   }
 ]

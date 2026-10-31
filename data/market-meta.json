@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-30T08:06:12.956Z",
+  "lastUpdated": "2026-10-31T08:02:31.624Z",
   "sources": {
     "wikipedia": {
       "ok": 60,
@@ -18,8 +18,8 @@
       "fail": 0
     },
     "hackernews": {
-      "ok": 60,
-      "fail": 0
+      "ok": 59,
+      "fail": 1
     }
   }
 }
