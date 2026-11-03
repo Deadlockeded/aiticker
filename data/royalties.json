@@ -1,55 +1,5 @@
 [
   {
-    "date": "2026-10-04",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "Kolibri: A Sovereign Open-Weight Model",
-      "url": "https://news.ycombinator.com/item?id=49942706"
-    }
-  },
-  {
-    "date": "2026-10-04",
-    "artifactId": "the-gpu",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "The work by Valve's Timur Kristóf on improving old AMD GPUs on Linux",
-      "url": "https://news.ycombinator.com/item?id=49946895"
-    }
-  },
-  {
-    "date": "2026-10-04",
-    "artifactId": "the-leaderboard",
-    "payoutPerCopy": 10,
-    "receipt": {
-      "source": "hn",
-      "headline": "Why don't more developers \"use the platform\"?",
-      "url": "https://news.ycombinator.com/item?id=49950554"
-    }
-  },
-  {
-    "date": "2026-10-04",
-    "artifactId": "the-wrapper",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "facebookincubator/muse-gadget-sdk — Open source SDK to build Muse gadgets",
-      "url": "https://github.com/facebookincubator/muse-gadget-sdk"
-    }
-  },
-  {
-    "date": "2026-10-04",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "CopilotKit/OpenDots — Your always-on AI coworkers that move between text, calls, and Slack.",
-      "url": "https://github.com/CopilotKit/OpenDots"
-    }
-  },
-  {
     "date": "2026-10-05",
     "artifactId": "the-compute-cluster",
     "payoutPerCopy": 8,
@@ -1237,6 +1187,46 @@
   },
   {
     "date": "2026-11-02",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "heydamir/unslop — A Claude skill that turns vibecoded, AI-looking UI into a designed interface",
+      "url": "https://github.com/heydamir/unslop"
+    }
+  },
+  {
+    "date": "2026-11-03",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Scaling Git at OpenAI",
+      "url": "https://news.ycombinator.com/item?id=50345924"
+    }
+  },
+  {
+    "date": "2026-11-03",
+    "artifactId": "the-gpu",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Nvidia – open-source auto-ontology",
+      "url": "https://news.ycombinator.com/item?id=50348962"
+    }
+  },
+  {
+    "date": "2026-11-03",
+    "artifactId": "the-wrapper",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "speridlabs/idol-sdk — Idol: a single image to 3D Gaussians. Inference SDK and demo.",
+      "url": "https://github.com/speridlabs/idol-sdk"
+    }
+  },
+  {
+    "date": "2026-11-03",
     "artifactId": "vibe-coding",
     "payoutPerCopy": 8,
     "receipt": {
