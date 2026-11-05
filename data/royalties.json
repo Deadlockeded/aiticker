@@ -1,55 +1,5 @@
 [
   {
-    "date": "2026-10-06",
-    "artifactId": "as-an-ai",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "ChatGPT is adding real cartoonists' signatures to fake New Yorker cartoons",
-      "url": "https://news.ycombinator.com/item?id=49971846"
-    }
-  },
-  {
-    "date": "2026-10-06",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "Beam: Reflection's 501B open-weight model",
-      "url": "https://news.ycombinator.com/item?id=49969183"
-    }
-  },
-  {
-    "date": "2026-10-06",
-    "artifactId": "the-leaderboard",
-    "payoutPerCopy": 10,
-    "receipt": {
-      "source": "hn",
-      "headline": "Anthropic reported diary entry to police, woman faces felony charge",
-      "url": "https://news.ycombinator.com/item?id=49961057"
-    }
-  },
-  {
-    "date": "2026-10-06",
-    "artifactId": "the-temperature-slider",
-    "payoutPerCopy": 10,
-    "receipt": {
-      "source": "hn",
-      "headline": "Opus 5.5 agents discover two room-temperature magnetic semiconductor candidates",
-      "url": "https://news.ycombinator.com/item?id=49970667"
-    }
-  },
-  {
-    "date": "2026-10-06",
-    "artifactId": "the-wrapper",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "facebookincubator/muse-gadget-sdk — Open source SDK to build Muse gadgets",
-      "url": "https://github.com/facebookincubator/muse-gadget-sdk"
-    }
-  },
-  {
     "date": "2026-10-07",
     "artifactId": "the-arxiv-timestamp",
     "payoutPerCopy": 6,
@@ -1213,6 +1163,46 @@
       "source": "gh",
       "headline": "heydamir/unslop — A Claude skill that turns vibecoded, AI-looking UI into a designed interface",
       "url": "https://github.com/heydamir/unslop"
+    }
+  },
+  {
+    "date": "2026-11-05",
+    "artifactId": "agi-in-two-weeks",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "Altera Announces Agilex 2X, a Complete FPGA and SoC Portfolio",
+      "url": "https://news.ycombinator.com/item?id=50375653"
+    }
+  },
+  {
+    "date": "2026-11-05",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "AI is forcing us to pay off 40 years of technical debt",
+      "url": "https://news.ycombinator.com/item?id=50364336"
+    }
+  },
+  {
+    "date": "2026-11-05",
+    "artifactId": "the-exit",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "OpenAI to acquire Pierre Computer Company",
+      "url": "https://news.ycombinator.com/item?id=50366863"
+    }
+  },
+  {
+    "date": "2026-11-05",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "Balanov/uncut — The lossless, headless coding agent harness. One 7 MB static binary, four tools, plain stdin/stdout, no silent cuts.",
+      "url": "https://github.com/Balanov/uncut"
     }
   }
 ]
