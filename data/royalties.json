@@ -1,95 +1,5 @@
 [
   {
-    "date": "2026-10-07",
-    "artifactId": "the-arxiv-timestamp",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "The Legend of the Paper Crane",
-      "url": "https://news.ycombinator.com/item?id=49953939"
-    }
-  },
-  {
-    "date": "2026-10-07",
-    "artifactId": "the-demo",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "What Is Codemode",
-      "url": "https://news.ycombinator.com/item?id=49978333"
-    }
-  },
-  {
-    "date": "2026-10-07",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "Sharing AI progress in mathematics",
-      "url": "https://news.ycombinator.com/item?id=49984923"
-    }
-  },
-  {
-    "date": "2026-10-07",
-    "artifactId": "the-eval",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "Benchmark in Milliseconds",
-      "url": "https://news.ycombinator.com/item?id=49967427"
-    }
-  },
-  {
-    "date": "2026-10-07",
-    "artifactId": "the-gpu",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "Shaders, WebGPU Components for React, Vue, Svelte, Solid, JavaScript and Framer",
-      "url": "https://news.ycombinator.com/item?id=49988709"
-    }
-  },
-  {
-    "date": "2026-10-07",
-    "artifactId": "the-latency",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "Benchmark in Milliseconds",
-      "url": "https://news.ycombinator.com/item?id=49967427"
-    }
-  },
-  {
-    "date": "2026-10-07",
-    "artifactId": "the-leaderboard",
-    "payoutPerCopy": 10,
-    "receipt": {
-      "source": "hn",
-      "headline": "OpenTPU – An open-source AI accelerator, developed by AI",
-      "url": "https://news.ycombinator.com/item?id=49980715"
-    }
-  },
-  {
-    "date": "2026-10-07",
-    "artifactId": "the-wrapper",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "facebookincubator/muse-gadget-sdk — Open source SDK to build Muse gadgets",
-      "url": "https://github.com/facebookincubator/muse-gadget-sdk"
-    }
-  },
-  {
-    "date": "2026-10-07",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "shinshin86/mesh-avatar-studio — Turn one illustration into an animated 2D mesh avatar with a coding agent and a local editor",
-      "url": "https://github.com/shinshin86/mesh-avatar-studio"
-    }
-  },
-  {
     "date": "2026-10-08",
     "artifactId": "the-demo",
     "payoutPerCopy": 6,
@@ -1197,6 +1107,46 @@
   },
   {
     "date": "2026-11-05",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "Balanov/uncut — The lossless, headless coding agent harness. One 7 MB static binary, four tools, plain stdin/stdout, no silent cuts.",
+      "url": "https://github.com/Balanov/uncut"
+    }
+  },
+  {
+    "date": "2026-11-06",
+    "artifactId": "the-demo",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "Multiplayer tanks that demolish real buildings from OpenStreetMap",
+      "url": "https://news.ycombinator.com/item?id=50389420"
+    }
+  },
+  {
+    "date": "2026-11-06",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Claude Code sends your email address to websites",
+      "url": "https://news.ycombinator.com/item?id=50385272"
+    }
+  },
+  {
+    "date": "2026-11-06",
+    "artifactId": "the-gpu",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Nvidia Kubernetes Engine (NVKE)",
+      "url": "https://news.ycombinator.com/item?id=50387738"
+    }
+  },
+  {
+    "date": "2026-11-06",
     "artifactId": "vibe-coding",
     "payoutPerCopy": 8,
     "receipt": {
