@@ -1,45 +1,5 @@
 [
   {
-    "date": "2026-10-08",
-    "artifactId": "the-demo",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "Classic PC demoscene productions running natively in the browser",
-      "url": "https://news.ycombinator.com/item?id=50002426"
-    }
-  },
-  {
-    "date": "2026-10-08",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "Sharing AI progress in mathematics",
-      "url": "https://news.ycombinator.com/item?id=49984923"
-    }
-  },
-  {
-    "date": "2026-10-08",
-    "artifactId": "the-wrapper",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "facebookincubator/muse-gadget-sdk — Open source SDK to build Muse gadgets",
-      "url": "https://github.com/facebookincubator/muse-gadget-sdk"
-    }
-  },
-  {
-    "date": "2026-10-08",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "shinshin86/mesh-avatar-studio — Turn one illustration into an animated 2D mesh avatar with a coding agent and a local editor",
-      "url": "https://github.com/shinshin86/mesh-avatar-studio"
-    }
-  },
-  {
     "date": "2026-10-09",
     "artifactId": "the-benchmark",
     "payoutPerCopy": 8,
@@ -1153,6 +1113,46 @@
       "source": "gh",
       "headline": "Balanov/uncut — The lossless, headless coding agent harness. One 7 MB static binary, four tools, plain stdin/stdout, no silent cuts.",
       "url": "https://github.com/Balanov/uncut"
+    }
+  },
+  {
+    "date": "2026-11-07",
+    "artifactId": "the-compute-cluster",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Google has acquired Crusoe's data center site in southeast Wyoming",
+      "url": "https://news.ycombinator.com/item?id=50397711"
+    }
+  },
+  {
+    "date": "2026-11-07",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "US FAA says it will phase out floppy disks from air traffic control by 2028",
+      "url": "https://news.ycombinator.com/item?id=50388001"
+    }
+  },
+  {
+    "date": "2026-11-07",
+    "artifactId": "the-exit",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Google has acquired Crusoe's data center site in southeast Wyoming",
+      "url": "https://news.ycombinator.com/item?id=50397711"
+    }
+  },
+  {
+    "date": "2026-11-07",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "sarpstar/cinecode — Films made with code. Short films, long YouTube videos, ads, explainers and music videos: an AI coding agent writes the ",
+      "url": "https://github.com/sarpstar/cinecode"
     }
   }
 ]
