@@ -1,54 +1,5 @@
 [
   {
-    "date": "2026-10-10",
-    "artifactId": "the-benchmark",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "wiki",
-      "headline": "Mistral"
-    }
-  },
-  {
-    "date": "2026-10-10",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "Typesafe AI raises $870M at $7.5B",
-      "url": "https://news.ycombinator.com/item?id=50023450"
-    }
-  },
-  {
-    "date": "2026-10-10",
-    "artifactId": "the-exit",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "Cloudflare acquires Deno",
-      "url": "https://news.ycombinator.com/item?id=50019911"
-    }
-  },
-  {
-    "date": "2026-10-10",
-    "artifactId": "the-term-sheet",
-    "payoutPerCopy": 10,
-    "receipt": {
-      "source": "hn",
-      "headline": "Typesafe AI raises $870M at $7.5B",
-      "url": "https://news.ycombinator.com/item?id=50023450"
-    }
-  },
-  {
-    "date": "2026-10-10",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "shinshin86/mesh-avatar-studio — Turn one illustration into an animated 2D mesh avatar with a coding agent and a local editor",
-      "url": "https://github.com/shinshin86/mesh-avatar-studio"
-    }
-  },
-  {
     "date": "2026-10-11",
     "artifactId": "the-arxiv-timestamp",
     "payoutPerCopy": 6,
@@ -1138,6 +1089,36 @@
   },
   {
     "date": "2026-11-08",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "sarpstar/cinecode — Films made with code. Short films, long YouTube videos, ads, explainers and music videos: an AI coding agent writes the ",
+      "url": "https://github.com/sarpstar/cinecode"
+    }
+  },
+  {
+    "date": "2026-11-09",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Nvidia CEO Jensen Huang's letter to staff about affair",
+      "url": "https://news.ycombinator.com/item?id=50418016"
+    }
+  },
+  {
+    "date": "2026-11-09",
+    "artifactId": "the-gpu",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Nvidia CEO Jensen Huang's letter to staff about affair",
+      "url": "https://news.ycombinator.com/item?id=50418016"
+    }
+  },
+  {
+    "date": "2026-11-09",
     "artifactId": "vibe-coding",
     "payoutPerCopy": 8,
     "receipt": {
