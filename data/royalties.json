@@ -1,64 +1,5 @@
 [
   {
-    "date": "2026-10-11",
-    "artifactId": "the-arxiv-timestamp",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "GameBoy on E-Paper ESP32 at 30FPS [video]",
-      "url": "https://news.ycombinator.com/item?id=50039536"
-    }
-  },
-  {
-    "date": "2026-10-11",
-    "artifactId": "the-benchmark",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "wiki",
-      "headline": "Mistral"
-    }
-  },
-  {
-    "date": "2026-10-11",
-    "artifactId": "the-compute-cluster",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "3rd Yandex Cloud Data Center Was Hit",
-      "url": "https://news.ycombinator.com/item?id=50040547"
-    }
-  },
-  {
-    "date": "2026-10-11",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "Grieving the loss of details",
-      "url": "https://news.ycombinator.com/item?id=49980880"
-    }
-  },
-  {
-    "date": "2026-10-11",
-    "artifactId": "the-exit",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "Cloudflare acquires Deno",
-      "url": "https://news.ycombinator.com/item?id=50019911"
-    }
-  },
-  {
-    "date": "2026-10-11",
-    "artifactId": "the-token",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "500B Tokens Later: Letting AI Agents Decompile a First-Person Shooter",
-      "url": "https://news.ycombinator.com/item?id=50039092"
-    }
-  },
-  {
     "date": "2026-10-12",
     "artifactId": "the-benchmark",
     "payoutPerCopy": 8,
@@ -1125,6 +1066,66 @@
       "source": "gh",
       "headline": "sarpstar/cinecode — Films made with code. Short films, long YouTube videos, ads, explainers and music videos: an AI coding agent writes the ",
       "url": "https://github.com/sarpstar/cinecode"
+    }
+  },
+  {
+    "date": "2026-11-10",
+    "artifactId": "the-arxiv-timestamp",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "Foldable Flight: The Best Paper Airplanes",
+      "url": "https://news.ycombinator.com/item?id=50424581"
+    }
+  },
+  {
+    "date": "2026-11-10",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Foldable Flight: The Best Paper Airplanes",
+      "url": "https://news.ycombinator.com/item?id=50424581"
+    }
+  },
+  {
+    "date": "2026-11-10",
+    "artifactId": "the-exit",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "ClickHouse Acquires Xata",
+      "url": "https://news.ycombinator.com/item?id=50436706"
+    }
+  },
+  {
+    "date": "2026-11-10",
+    "artifactId": "the-gpu",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "A primer on GPUs and kernel optimization",
+      "url": "https://news.ycombinator.com/item?id=50386246"
+    }
+  },
+  {
+    "date": "2026-11-10",
+    "artifactId": "the-latency",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Payments Canada announces launch of Canada's Real-Time Rail (RTR) payment system",
+      "url": "https://news.ycombinator.com/item?id=50427362"
+    }
+  },
+  {
+    "date": "2026-11-10",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "devvmhq/devvm — One VM for every project. An isolated sandbox with your project’s toolchain, ready for you or a coding agent to start coding",
+      "url": "https://github.com/devvmhq/devvm"
     }
   }
 ]
