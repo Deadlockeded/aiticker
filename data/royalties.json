@@ -1,54 +1,5 @@
 [
   {
-    "date": "2026-10-12",
-    "artifactId": "the-benchmark",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "wiki",
-      "headline": "Mistral"
-    }
-  },
-  {
-    "date": "2026-10-12",
-    "artifactId": "the-compute-cluster",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "Google Data Centers around the world",
-      "url": "https://news.ycombinator.com/item?id=50048768"
-    }
-  },
-  {
-    "date": "2026-10-12",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "The gap in shared understanding of LLM capability is widening",
-      "url": "https://news.ycombinator.com/item?id=50047422"
-    }
-  },
-  {
-    "date": "2026-10-12",
-    "artifactId": "the-gpu",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "Running the unmodified Linux amdgpu driver on an iPad",
-      "url": "https://news.ycombinator.com/item?id=50041573"
-    }
-  },
-  {
-    "date": "2026-10-12",
-    "artifactId": "the-token",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "Local Indexing to reduce tool calling and token usage",
-      "url": "https://news.ycombinator.com/item?id=50049508"
-    }
-  },
-  {
     "date": "2026-10-13",
     "artifactId": "the-benchmark",
     "payoutPerCopy": 8,
@@ -1126,6 +1077,36 @@
       "source": "gh",
       "headline": "devvmhq/devvm — One VM for every project. An isolated sandbox with your project’s toolchain, ready for you or a coding agent to start coding",
       "url": "https://github.com/devvmhq/devvm"
+    }
+  },
+  {
+    "date": "2026-11-11",
+    "artifactId": "agi-in-two-weeks",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "AI usage generates a fragile codebase",
+      "url": "https://news.ycombinator.com/item?id=50438318"
+    }
+  },
+  {
+    "date": "2026-11-11",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "AI usage generates a fragile codebase",
+      "url": "https://news.ycombinator.com/item?id=50438318"
+    }
+  },
+  {
+    "date": "2026-11-11",
+    "artifactId": "the-paperclip",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "\"Jumping genes\" helped ants evolve after the extinction of the dinosaurs",
+      "url": "https://news.ycombinator.com/item?id=50414004"
     }
   }
 ]
