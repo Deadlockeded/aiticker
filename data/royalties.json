@@ -1,54 +1,5 @@
 [
   {
-    "date": "2026-10-13",
-    "artifactId": "the-benchmark",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "wiki",
-      "headline": "Mistral"
-    }
-  },
-  {
-    "date": "2026-10-13",
-    "artifactId": "the-demo",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "Writing a Demoscene Intro for the ZX Spectrum",
-      "url": "https://news.ycombinator.com/item?id=50061859"
-    }
-  },
-  {
-    "date": "2026-10-13",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "AI is a tool and using it well takes skill",
-      "url": "https://news.ycombinator.com/item?id=50063427"
-    }
-  },
-  {
-    "date": "2026-10-13",
-    "artifactId": "the-gpu",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "Intel D270 GPU AI Accelerator–Up to 480 GB LPDDR5X",
-      "url": "https://news.ycombinator.com/item?id=50063365"
-    }
-  },
-  {
-    "date": "2026-10-13",
-    "artifactId": "the-leaderboard",
-    "payoutPerCopy": 10,
-    "receipt": {
-      "source": "hn",
-      "headline": "Auto Research: Integer multiplication below n log n",
-      "url": "https://news.ycombinator.com/item?id=50047664"
-    }
-  },
-  {
     "date": "2026-10-14",
     "artifactId": "the-conference-badge",
     "payoutPerCopy": 8,
@@ -1107,6 +1058,66 @@
       "source": "hn",
       "headline": "\"Jumping genes\" helped ants evolve after the extinction of the dinosaurs",
       "url": "https://news.ycombinator.com/item?id=50414004"
+    }
+  },
+  {
+    "date": "2026-11-12",
+    "artifactId": "agi-in-two-weeks",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "Emacs in the Age of Magic",
+      "url": "https://news.ycombinator.com/item?id=50458208"
+    }
+  },
+  {
+    "date": "2026-11-12",
+    "artifactId": "the-compute-cluster",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "A false smoke alarm almost drowned Jane Street's only NYC datacenter",
+      "url": "https://news.ycombinator.com/item?id=50455394"
+    }
+  },
+  {
+    "date": "2026-11-12",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "My AI agents found an unmapped Maya site?",
+      "url": "https://news.ycombinator.com/item?id=50452455"
+    }
+  },
+  {
+    "date": "2026-11-12",
+    "artifactId": "the-eval",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Faster Retrieval for Better, More Efficient RAG",
+      "url": "https://news.ycombinator.com/item?id=50455633"
+    }
+  },
+  {
+    "date": "2026-11-12",
+    "artifactId": "the-gpu",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Nvidia is preparing to oust Jensen Huang",
+      "url": "https://news.ycombinator.com/item?id=50459703"
+    }
+  },
+  {
+    "date": "2026-11-12",
+    "artifactId": "the-leaderboard",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "Darling Development Update – Q4 2026",
+      "url": "https://news.ycombinator.com/item?id=50463103"
     }
   }
 ]
