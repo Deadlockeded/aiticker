@@ -57,6 +57,12 @@ export default function RootLayout({
       <head>
         {/* stamps data-theme before first paint — an effect here would flash */}
         <script dangerouslySetInnerHTML={{ __html: THEME_BOOT_SCRIPT }} />
+        {/* OpenServe visitor analytics — first-party, no cookies */}
+        <script
+          async
+          data-site="os_dd23bhchjv34v2wdwkw8ms2y"
+          src="https://www.openserve.com/os-site.js"
+        />
       </head>
       <body className="flex min-h-full flex-col bg-bg pb-20 md:pb-0">
         {/* card art hosts — shave DNS+TLS off the first image fetch */}
