@@ -1,45 +1,5 @@
 [
   {
-    "date": "2026-10-14",
-    "artifactId": "the-conference-badge",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "OpenAI engineer arrested in bugging of executive conference room",
-      "url": "https://news.ycombinator.com/item?id=50078141"
-    }
-  },
-  {
-    "date": "2026-10-14",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "AI is a tool and using it well takes skill",
-      "url": "https://news.ycombinator.com/item?id=50063427"
-    }
-  },
-  {
-    "date": "2026-10-14",
-    "artifactId": "the-leaderboard",
-    "payoutPerCopy": 10,
-    "receipt": {
-      "source": "hn",
-      "headline": "AOSP Source Releases Are So Late Developers Disassemble Libraries to Report Bugs",
-      "url": "https://news.ycombinator.com/item?id=50083130"
-    }
-  },
-  {
-    "date": "2026-10-14",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "tcchen2026/VibeOffice — A free office suite that runs in your browser, in the style of Office 2003. Nothing to install, no account, no serve",
-      "url": "https://github.com/tcchen2026/VibeOffice"
-    }
-  },
-  {
     "date": "2026-10-15",
     "artifactId": "the-em-dash",
     "payoutPerCopy": 4,
@@ -1118,6 +1078,36 @@
       "source": "hn",
       "headline": "Darling Development Update – Q4 2026",
       "url": "https://news.ycombinator.com/item?id=50463103"
+    }
+  },
+  {
+    "date": "2026-11-13",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "I'm making LLMs work on small and old devices",
+      "url": "https://news.ycombinator.com/item?id=50468888"
+    }
+  },
+  {
+    "date": "2026-11-13",
+    "artifactId": "the-gpu",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Nvidia employees petition to bring back Jensen Huang",
+      "url": "https://news.ycombinator.com/item?id=50477231"
+    }
+  },
+  {
+    "date": "2026-11-13",
+    "artifactId": "the-latency",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Show HN: RealtimeVAD – trading false positives for 110ms earlier end-of-speech",
+      "url": "https://news.ycombinator.com/item?id=50474586"
     }
   }
 ]
