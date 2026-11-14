@@ -1,15 +1,5 @@
 [
   {
-    "date": "2026-10-15",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "Containment and monitoring failures are to blame for AI hacking reports: experts",
-      "url": "https://news.ycombinator.com/item?id=50091788"
-    }
-  },
-  {
     "date": "2026-10-16",
     "artifactId": "the-em-dash",
     "payoutPerCopy": 4,
@@ -1108,6 +1098,36 @@
       "source": "hn",
       "headline": "Show HN: RealtimeVAD – trading false positives for 110ms earlier end-of-speech",
       "url": "https://news.ycombinator.com/item?id=50474586"
+    }
+  },
+  {
+    "date": "2026-11-14",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Reverse engineering my Coway air purifier to ditch the cloud",
+      "url": "https://news.ycombinator.com/item?id=50474959"
+    }
+  },
+  {
+    "date": "2026-11-14",
+    "artifactId": "the-eval",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Perplexity Decider v1.3: Training, eval, and use cases",
+      "url": "https://news.ycombinator.com/item?id=50488464"
+    }
+  },
+  {
+    "date": "2026-11-14",
+    "artifactId": "the-gpu",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Nvidia allegedly engineered scarcity by funding AI startups to buy its GPUs",
+      "url": "https://news.ycombinator.com/item?id=50493251"
     }
   }
 ]
