@@ -1,35 +1,5 @@
 [
   {
-    "date": "2026-10-16",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "Krea 3 – An image model built for editing at scale",
-      "url": "https://news.ycombinator.com/item?id=50105648"
-    }
-  },
-  {
-    "date": "2026-10-16",
-    "artifactId": "the-leaderboard",
-    "payoutPerCopy": 10,
-    "receipt": {
-      "source": "hn",
-      "headline": "Comparing Chromium Development at Google and Igalia",
-      "url": "https://news.ycombinator.com/item?id=50112887"
-    }
-  },
-  {
-    "date": "2026-10-16",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "feder-cr/open_scion — Open-source version of Scion: version control built for coding agents.",
-      "url": "https://github.com/feder-cr/open_scion"
-    }
-  },
-  {
     "date": "2026-10-17",
     "artifactId": "the-benchmark",
     "payoutPerCopy": 8,
@@ -1128,6 +1098,35 @@
       "source": "hn",
       "headline": "Nvidia allegedly engineered scarcity by funding AI startups to buy its GPUs",
       "url": "https://news.ycombinator.com/item?id=50493251"
+    }
+  },
+  {
+    "date": "2026-11-15",
+    "artifactId": "the-benchmark",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "wiki",
+      "headline": "Anthropic"
+    }
+  },
+  {
+    "date": "2026-11-15",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Lovable apps expose passport details and more than 200K private messages",
+      "url": "https://news.ycombinator.com/item?id=50499017"
+    }
+  },
+  {
+    "date": "2026-11-15",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "trackboatwrightplan/GitHub-Copilot-app — The GitHub Copilot app is an agent-native desktop experience for finding, running, steering, and la",
+      "url": "https://github.com/trackboatwrightplan/GitHub-Copilot-app"
     }
   }
 ]
