@@ -1,44 +1,5 @@
 [
   {
-    "date": "2026-10-17",
-    "artifactId": "the-benchmark",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "wiki",
-      "headline": "DeepSeek"
-    }
-  },
-  {
-    "date": "2026-10-17",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "90% of US working hours are spent on tasks not covered well by AI benchmarks",
-      "url": "https://news.ycombinator.com/item?id=50121179"
-    }
-  },
-  {
-    "date": "2026-10-17",
-    "artifactId": "the-eval",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "90% of US working hours are spent on tasks not covered well by AI benchmarks",
-      "url": "https://news.ycombinator.com/item?id=50121179"
-    }
-  },
-  {
-    "date": "2026-10-17",
-    "artifactId": "the-jailbreak",
-    "payoutPerCopy": 10,
-    "receipt": {
-      "source": "hn",
-      "headline": "Llama.cpp on a jailbroken PS5: run any GGUF model natively on the console",
-      "url": "https://news.ycombinator.com/item?id=50122431"
-    }
-  },
-  {
     "date": "2026-10-18",
     "artifactId": "the-benchmark",
     "payoutPerCopy": 8,
@@ -1127,6 +1088,45 @@
       "source": "gh",
       "headline": "trackboatwrightplan/GitHub-Copilot-app — The GitHub Copilot app is an agent-native desktop experience for finding, running, steering, and la",
       "url": "https://github.com/trackboatwrightplan/GitHub-Copilot-app"
+    }
+  },
+  {
+    "date": "2026-11-16",
+    "artifactId": "the-benchmark",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "wiki",
+      "headline": "Anthropic"
+    }
+  },
+  {
+    "date": "2026-11-16",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "A short explainer on how El Niño works [video]",
+      "url": "https://news.ycombinator.com/item?id=50509308"
+    }
+  },
+  {
+    "date": "2026-11-16",
+    "artifactId": "the-gpu",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "What's Next for Nvidia?",
+      "url": "https://news.ycombinator.com/item?id=50512235"
+    }
+  },
+  {
+    "date": "2026-11-16",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "hitkeeen/blender-ai-mcp-addon — AI assistant and MCP server for Blender: visual chat, scene tools, multi-agent workflows. Works with ChatGPT",
+      "url": "https://github.com/hitkeeen/blender-ai-mcp-addon"
     }
   }
 ]
