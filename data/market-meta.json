@@ -1,13 +1,13 @@
 {
-  "lastUpdated": "2026-11-16T09:02:58.439Z",
+  "lastUpdated": "2026-11-17T10:14:56.072Z",
   "sources": {
     "wikipedia": {
       "ok": 60,
       "fail": 0
     },
     "openalex": {
-      "ok": 25,
-      "fail": 0
+      "ok": 24,
+      "fail": 1
     },
     "github": {
       "ok": 19,
