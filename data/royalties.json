@@ -1,44 +1,5 @@
 [
   {
-    "date": "2026-10-19",
-    "artifactId": "the-benchmark",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "wiki",
-      "headline": "OpenAI"
-    }
-  },
-  {
-    "date": "2026-10-19",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "Namecheap just seized and disabled all my domains",
-      "url": "https://news.ycombinator.com/item?id=50142866"
-    }
-  },
-  {
-    "date": "2026-10-19",
-    "artifactId": "the-eval",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "Rabbits were a medieval royal luxury in England until the Black Death",
-      "url": "https://news.ycombinator.com/item?id=50131315"
-    }
-  },
-  {
-    "date": "2026-10-19",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "Gathin23/tv-vibehack — Your TV, minus the ads. Debloat any Android TV or Google TV over Wi-Fi and swap the ad-filled home screen for a clean",
-      "url": "https://github.com/Gathin23/tv-vibehack"
-    }
-  },
-  {
     "date": "2026-10-20",
     "artifactId": "the-em-dash",
     "payoutPerCopy": 4,
@@ -1147,6 +1108,45 @@
       "source": "gh",
       "headline": "hitkeeen/blender-ai-mcp-addon — AI assistant and MCP server for Blender: visual chat, scene tools, multi-agent workflows. Works with ChatGPT",
       "url": "https://github.com/hitkeeen/blender-ai-mcp-addon"
+    }
+  },
+  {
+    "date": "2026-11-18",
+    "artifactId": "the-benchmark",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "wiki",
+      "headline": "Google DeepMind"
+    }
+  },
+  {
+    "date": "2026-11-18",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Google's AI answers reducing search traffic by 40%",
+      "url": "https://news.ycombinator.com/item?id=50540178"
+    }
+  },
+  {
+    "date": "2026-11-18",
+    "artifactId": "the-gpu",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Nvidia stopped disclosing Singapore sales as revenues hit $104B",
+      "url": "https://news.ycombinator.com/item?id=50534631"
+    }
+  },
+  {
+    "date": "2026-11-18",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "credoksopho1984/blender-ai-copilot-studio — An AI copilot and MCP server for Blender that turns plain-language briefs into scene operations—",
+      "url": "https://github.com/credoksopho1984/blender-ai-copilot-studio"
     }
   }
 ]
