@@ -1,35 +1,5 @@
 [
   {
-    "date": "2026-10-22",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "Compromised LiteLLM 1.107.0 on PyPI Installs a Credential Stealer and Backdoor",
-      "url": "https://news.ycombinator.com/item?id=50181114"
-    }
-  },
-  {
-    "date": "2026-10-22",
-    "artifactId": "the-latency",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "Eight Bits of Trust: eMudhra's CA keys cracked in milliseconds",
-      "url": "https://news.ycombinator.com/item?id=50177916"
-    }
-  },
-  {
-    "date": "2026-10-22",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "alchaincyf/huashu-motion — 让你的agent一键直出商业级产品宣传片：会作曲，能指着画面改。Commercial-grade launch films by your coding agent — point at the frame to change",
-      "url": "https://github.com/alchaincyf/huashu-motion"
-    }
-  },
-  {
     "date": "2026-10-23",
     "artifactId": "the-em-dash",
     "payoutPerCopy": 4,
@@ -1179,6 +1149,65 @@
   },
   {
     "date": "2026-11-20",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "bookwjitchieni1986/blender-ai-mcp-addon — AI assistant and MCP server for Blender: visual chat, scene tools, multi-agent workflows. Works wi",
+      "url": "https://github.com/bookwjitchieni1986/blender-ai-mcp-addon"
+    }
+  },
+  {
+    "date": "2026-11-21",
+    "artifactId": "the-benchmark",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "wiki",
+      "headline": "OpenAI"
+    }
+  },
+  {
+    "date": "2026-11-21",
+    "artifactId": "the-demo",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "Winedroid – run Android apps without Android (WASM demo)",
+      "url": "https://news.ycombinator.com/item?id=50580536"
+    }
+  },
+  {
+    "date": "2026-11-21",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Levent Alpöge claims proof of the Generalized Riemann Hypothesis [pdf]",
+      "url": "https://news.ycombinator.com/item?id=50574968"
+    }
+  },
+  {
+    "date": "2026-11-21",
+    "artifactId": "the-leaderboard",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "We promoted developers into architects without informing them",
+      "url": "https://news.ycombinator.com/item?id=50579331"
+    }
+  },
+  {
+    "date": "2026-11-21",
+    "artifactId": "the-stochastic-parrot",
+    "payoutPerCopy": 10,
+    "receipt": {
+      "source": "hn",
+      "headline": "The stochastic parrots have apparently proved the Riemann Hypothesis",
+      "url": "https://news.ycombinator.com/item?id=50581084"
+    }
+  },
+  {
+    "date": "2026-11-21",
     "artifactId": "vibe-coding",
     "payoutPerCopy": 8,
     "receipt": {
