@@ -1,25 +1,5 @@
 [
   {
-    "date": "2026-10-24",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "Dessa: Conversation Model trained only on speech",
-      "url": "https://news.ycombinator.com/item?id=50213925"
-    }
-  },
-  {
-    "date": "2026-10-24",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "alchaincyf/huashu-motion — 让你的agent一键直出商业级产品宣传片：会作曲，能指着画面改。Commercial-grade launch films by your coding agent — point at the frame to change",
-      "url": "https://github.com/alchaincyf/huashu-motion"
-    }
-  },
-  {
     "date": "2026-10-25",
     "artifactId": "the-em-dash",
     "payoutPerCopy": 4,
@@ -1227,6 +1207,45 @@
   },
   {
     "date": "2026-11-22",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "bookwjitchieni1986/blender-ai-mcp-addon — AI assistant and MCP server for Blender: visual chat, scene tools, multi-agent workflows. Works wi",
+      "url": "https://github.com/bookwjitchieni1986/blender-ai-mcp-addon"
+    }
+  },
+  {
+    "date": "2026-11-23",
+    "artifactId": "the-benchmark",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "wiki",
+      "headline": "Anthropic"
+    }
+  },
+  {
+    "date": "2026-11-23",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "A Beginner's Guide to Local AI with Inkling, Qwen, and Unsloth",
+      "url": "https://news.ycombinator.com/item?id=50603845"
+    }
+  },
+  {
+    "date": "2026-11-23",
+    "artifactId": "the-eval",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Cathedral floor emerges in Sudan, revealing one of the biggest medieval churches",
+      "url": "https://news.ycombinator.com/item?id=50547698"
+    }
+  },
+  {
+    "date": "2026-11-23",
     "artifactId": "vibe-coding",
     "payoutPerCopy": 8,
     "receipt": {
