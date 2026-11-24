@@ -1,55 +1,5 @@
 [
   {
-    "date": "2026-10-25",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "America has lost 200k of jobs in media, film and the arts. How much is AI?",
-      "url": "https://news.ycombinator.com/item?id=50226419"
-    }
-  },
-  {
-    "date": "2026-10-25",
-    "artifactId": "the-eval",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "Social dynamics of toxic metal industry in medieval Europe",
-      "url": "https://news.ycombinator.com/item?id=50169450"
-    }
-  },
-  {
-    "date": "2026-10-25",
-    "artifactId": "the-gpu",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "GPU-unlock: FP/BF16 instruction issue rate on Nvidia 3000's cards",
-      "url": "https://news.ycombinator.com/item?id=50219700"
-    }
-  },
-  {
-    "date": "2026-10-25",
-    "artifactId": "the-leaderboard",
-    "payoutPerCopy": 10,
-    "receipt": {
-      "source": "hn",
-      "headline": "Roku developer repositories moved from GitHub to GitLab",
-      "url": "https://news.ycombinator.com/item?id=50222622"
-    }
-  },
-  {
-    "date": "2026-10-25",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "zita-ch/supermimic_vibed — vibe coded supermimic within 1h, LAFAN passed within 1.5 gpuh training",
-      "url": "https://github.com/zita-ch/supermimic_vibed"
-    }
-  },
-  {
     "date": "2026-10-26",
     "artifactId": "agi-in-two-weeks",
     "payoutPerCopy": 6,
@@ -1252,6 +1202,55 @@
       "source": "gh",
       "headline": "bookwjitchieni1986/blender-ai-mcp-addon — AI assistant and MCP server for Blender: visual chat, scene tools, multi-agent workflows. Works wi",
       "url": "https://github.com/bookwjitchieni1986/blender-ai-mcp-addon"
+    }
+  },
+  {
+    "date": "2026-11-24",
+    "artifactId": "agi-in-two-weeks",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "Becoming a Magician",
+      "url": "https://news.ycombinator.com/item?id=50606611"
+    }
+  },
+  {
+    "date": "2026-11-24",
+    "artifactId": "the-benchmark",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "wiki",
+      "headline": "Anthropic"
+    }
+  },
+  {
+    "date": "2026-11-24",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "\"Dario is hyping the dangers so OSS models are illegal and he stays in control\"",
+      "url": "https://news.ycombinator.com/item?id=50615308"
+    }
+  },
+  {
+    "date": "2026-11-24",
+    "artifactId": "the-gpu",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Nvidia Reinstates Jensen Huang as CEO",
+      "url": "https://news.ycombinator.com/item?id=50611576"
+    }
+  },
+  {
+    "date": "2026-11-24",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "EL4CTEO/fast-anything — Don't rewrite it in Rust. Rewrite the 5% that's slow: profile Python, Node or Ruby apps, port the hot functions with",
+      "url": "https://github.com/EL4CTEO/fast-anything"
     }
   }
 ]
