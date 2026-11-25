@@ -1,45 +1,5 @@
 [
   {
-    "date": "2026-10-26",
-    "artifactId": "agi-in-two-weeks",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "Dolly Parton's Imagination Library",
-      "url": "https://news.ycombinator.com/item?id=50234474"
-    }
-  },
-  {
-    "date": "2026-10-26",
-    "artifactId": "the-arxiv-timestamp",
-    "payoutPerCopy": 6,
-    "receipt": {
-      "source": "hn",
-      "headline": "PaperPilot – Zero-Cloud, Pure-Rust PDF Engine with WASM and MCP",
-      "url": "https://news.ycombinator.com/item?id=50238739"
-    }
-  },
-  {
-    "date": "2026-10-26",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "A 10-year-old CNN outperforms frontier LLMs for skin cancer diagnosis",
-      "url": "https://news.ycombinator.com/item?id=50233779"
-    }
-  },
-  {
-    "date": "2026-10-26",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "udhaykumarbala/cleanyourtv-app — A community-built phone app for Clean Your TV: clean up an Android TV from your phone. No laptop, no coding",
-      "url": "https://github.com/udhaykumarbala/cleanyourtv-app"
-    }
-  },
-  {
     "date": "2026-10-27",
     "artifactId": "the-arxiv-timestamp",
     "payoutPerCopy": 6,
@@ -1245,6 +1205,55 @@
   },
   {
     "date": "2026-11-24",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "EL4CTEO/fast-anything — Don't rewrite it in Rust. Rewrite the 5% that's slow: profile Python, Node or Ruby apps, port the hot functions with",
+      "url": "https://github.com/EL4CTEO/fast-anything"
+    }
+  },
+  {
+    "date": "2026-11-25",
+    "artifactId": "the-benchmark",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "wiki",
+      "headline": "Anthropic"
+    }
+  },
+  {
+    "date": "2026-11-25",
+    "artifactId": "the-demo",
+    "payoutPerCopy": 6,
+    "receipt": {
+      "source": "hn",
+      "headline": "GPT-6 models demonstrate intrinsic protein-design capabilities",
+      "url": "https://news.ycombinator.com/item?id=50634658"
+    }
+  },
+  {
+    "date": "2026-11-25",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Ternary Bonsai 2.5 27B",
+      "url": "https://news.ycombinator.com/item?id=50633922"
+    }
+  },
+  {
+    "date": "2026-11-25",
+    "artifactId": "the-gpu",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "hn",
+      "headline": "Show HN: Old Nvidia and ATI tech demos, running again in the browser",
+      "url": "https://news.ycombinator.com/item?id=50638503"
+    }
+  },
+  {
+    "date": "2026-11-25",
     "artifactId": "vibe-coding",
     "payoutPerCopy": 8,
     "receipt": {
