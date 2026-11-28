@@ -1,44 +1,5 @@
 [
   {
-    "date": "2026-10-29",
-    "artifactId": "the-benchmark",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "wiki",
-      "headline": "Anthropic"
-    }
-  },
-  {
-    "date": "2026-10-29",
-    "artifactId": "the-em-dash",
-    "payoutPerCopy": 4,
-    "receipt": {
-      "source": "hn",
-      "headline": "Claude Code regularly sends each background agent’s transcript to its model",
-      "url": "https://news.ycombinator.com/item?id=50284255"
-    }
-  },
-  {
-    "date": "2026-10-29",
-    "artifactId": "the-eval",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "hn",
-      "headline": "Dayjob: Tax – evaluating AI agents on 50 professional tax assignments",
-      "url": "https://news.ycombinator.com/item?id=50275626"
-    }
-  },
-  {
-    "date": "2026-10-29",
-    "artifactId": "vibe-coding",
-    "payoutPerCopy": 8,
-    "receipt": {
-      "source": "gh",
-      "headline": "morganlinton/BeautifulRust — Agent Skills that teach coding agents to write, review, and port idiomatic Rust, plus a tested clippy config. W",
-      "url": "https://github.com/morganlinton/BeautifulRust"
-    }
-  },
-  {
     "date": "2026-10-30",
     "artifactId": "agi-in-two-weeks",
     "payoutPerCopy": 6,
@@ -1250,6 +1211,26 @@
       "source": "gh",
       "headline": "EL4CTEO/fast-anything — Don't rewrite it in Rust. Rewrite the 5% that's slow: profile Python, Node or Ruby apps, port the hot functions with",
       "url": "https://github.com/EL4CTEO/fast-anything"
+    }
+  },
+  {
+    "date": "2026-11-28",
+    "artifactId": "the-em-dash",
+    "payoutPerCopy": 4,
+    "receipt": {
+      "source": "hn",
+      "headline": "Google's DeepCrossAttention achieves comparable model quality up to 3x faster",
+      "url": "https://news.ycombinator.com/item?id=50672565"
+    }
+  },
+  {
+    "date": "2026-11-28",
+    "artifactId": "vibe-coding",
+    "payoutPerCopy": 8,
+    "receipt": {
+      "source": "gh",
+      "headline": "nexu-io/opengame — The Super Game Agent — the Unity & Unreal for AI agents, with 100+ viral games to remix. Turn 20+ coding agents (Claude C",
+      "url": "https://github.com/nexu-io/opengame"
     }
   }
 ]
